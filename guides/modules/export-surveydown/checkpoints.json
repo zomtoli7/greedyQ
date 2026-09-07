@@ -1,0 +1,1 @@
+{"component":"export-surveydown","checkpoints":[{"id":"surveydown_export","prompt":"Do you want an editable surveydown project in addition to the primary web survey?","material":false},{"id":"surveydown_differences","prompt":"Do you accept the reported differences between the web survey and this export?","material":true}]}

@@ -1,0 +1,1 @@
+{"id":"consent","kind":"module","version":"0.2.0-draft.1","dependencies":["core","governance-irb"],"conflicts":[],"normative_files":["guides/modules/consent/guide.md","guides/modules/consent/checkpoints.json"]}

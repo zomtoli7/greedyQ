@@ -1,0 +1,1 @@
+{"component":"governance-irb","checkpoints":[{"id":"governance_timing","prompt":"Would you like to work through the detailed ethics and IRB information now or after the survey draft?","material":false},{"id":"governance_confirmation","prompt":"Does this accurately reflect your institution, review status, risks, and participant protections?","material":true}]}

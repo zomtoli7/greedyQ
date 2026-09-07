@@ -1,0 +1,7 @@
+{
+  "component": "simple",
+  "checkpoints": [
+    {"id": "simple_instrument", "prompt": "Are these the questions, response choices, and order you want?", "material": true},
+    {"id": "simple_flow", "prompt": "Should each participant see these pages and endings under the stated conditions?", "material": true}
+  ]
+}

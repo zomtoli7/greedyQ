@@ -4,7 +4,7 @@
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
-greedyQ is an open-source, AI-guided survey and experimental research workflow backed by a deterministic Markdown-first engine. Its primary target is an independent web-native runtime deployed with Vercel and Supabase, while the same study can also be exported as a native surveydown project. A researcher gives a versioned greedyQ guide to GPT, Claude, or another capable agent and starts with a simple request such as “Let's build a survey.” The AI interviews the researcher, records confirmed decisions, produces valid study files, validates them, and—when connected tools are available—sets up deployment services.
+greedyQ is an open-source, AI-guided survey and experimental research workflow backed by a deterministic Markdown-first engine. Its primary target is an independent web-native runtime deployed with Vercel and Supabase, while the same study can also be exported as a native surveydown project. A researcher points GPT, Claude, or another capable agent to the versioned greedyQ repository and starts with a simple request such as “Let's build a survey.” The AI loads only the relevant modular guides, interviews the researcher in plain language, produces valid study files, validates them, and—when connected tools are available—sets up deployment services.
 
 The AI supplies research reasoning and natural-language collaboration. greedyQ supplies the interview protocol, approval checkpoints, specification, validator, preregistration output, runtime, deployment contract, and reproducibility. The project is intended for academic studies that require auditable consent, external respondent panels, branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
 
@@ -41,7 +41,7 @@ It provides its own TypeScript and React runtime designed for GitHub, Vercel, an
 ## Primary workflow
 
 ```text
-Versioned greedyQ guide + researcher's study idea
+Versioned greedyQ repository + researcher's study idea
                          |
                          v
               Guided AI interview
@@ -64,7 +64,7 @@ Versioned greedyQ guide + researcher's study idea
 
 The target onboarding experience is:
 
-1. Attach the versioned greedyQ guide to a capable LLM or agent.
+1. Share the tagged greedyQ `START-HERE.md` URL with a capable LLM or repository agent. Use the self-contained bundle only when repository links cannot be read.
 2. Say what study you want to build.
 3. Answer one focused question at a time and confirm material decisions.
 4. Review the generated study, consent, logic, randomization, data plan, and preregistration draft.
@@ -88,9 +88,9 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 ## Project status
 
-greedyQ is in the specification phase. The current milestone is to turn the completed surveydown compatibility research into the greedyQ v0.1 specification and the versioned guided-interview protocol before implementing the runtime.
+greedyQ is in the specification and prototyping phase. The repository-first modular guide architecture is available as a compatibility structure; the next milestone is behavioral evaluation with multiple LLMs while the v0.1 parser and runtime contracts are completed.
 
-See the [AI guides](./guides/README.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [complete reference study](./examples/complete-study/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+See [START-HERE.md](./START-HERE.md), the [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [complete reference study](./examples/complete-study/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

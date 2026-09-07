@@ -4,7 +4,7 @@
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
-greedyQ는 결정론적인 Markdown-first 엔진을 기반으로 하는 오픈소스 AI-guided 설문 및 실험 연구 workflow입니다. 주 실행 대상은 Vercel과 Supabase에 배포하는 독립적인 web-native runtime이며, 같은 연구를 native surveydown 프로젝트로도 export할 수 있습니다. 연구자는 버전이 명시된 greedyQ guide를 GPT, Claude 등의 유능한 agent에게 제공하고 “설문 만들자!”와 같은 간단한 요청으로 시작합니다. AI는 연구자를 인터뷰하고, 확인된 결정을 기록하며, 유효한 연구 파일을 생성·검증하고, 연결된 도구가 있으면 배포 서비스도 설정합니다.
+greedyQ는 결정론적인 Markdown-first 엔진을 기반으로 하는 오픈소스 AI-guided 설문 및 실험 연구 workflow입니다. 주 실행 대상은 Vercel과 Supabase에 배포하는 독립적인 web-native runtime이며, 같은 연구를 native surveydown 프로젝트로도 export할 수 있습니다. 연구자는 GPT, Claude 등의 유능한 agent에게 버전이 명시된 greedyQ 저장소를 알려주고 “설문 만들자!”와 같은 간단한 요청으로 시작합니다. AI는 필요한 모듈형 guide만 불러오고, 연구자와 쉬운 말로 대화하며, 유효한 연구 파일을 생성·검증하고, 연결된 도구가 있으면 배포 서비스도 설정합니다.
 
 AI는 연구 reasoning과 자연어 협업을 제공합니다. greedyQ는 interview protocol, 승인 checkpoint, specification, validator, preregistration output, runtime, deployment contract, reproducibility를 제공합니다. 이 프로젝트는 감사 가능한 consent, 외부 respondent panel, 분기, 지속적인 무작위 배정, 요인 실험, conjoint/CBC 설계가 필요한 학술 연구를 대상으로 합니다.
 
@@ -41,7 +41,7 @@ greedyQ는 다음 장점을 유지합니다.
 ## 주요 workflow
 
 ```text
-Versioned greedyQ guide + 연구자의 연구 아이디어
+Versioned greedyQ repository + 연구자의 연구 아이디어
                          |
                          v
                  안내형 AI 인터뷰
@@ -64,7 +64,7 @@ Versioned greedyQ guide + 연구자의 연구 아이디어
 
 목표로 하는 온보딩 경험은 다음과 같습니다.
 
-1. 버전이 명시된 greedyQ guide를 유능한 LLM 또는 agent에 첨부합니다.
+1. Tag가 지정된 greedyQ `START-HERE.md` URL을 유능한 LLM 또는 repository agent에게 공유합니다. Repository link를 읽을 수 없을 때만 자체 포함 bundle을 사용합니다.
 2. 만들고 싶은 연구를 말합니다.
 3. 한 번에 하나씩 제시되는 질문에 답하고 중요한 결정을 확인합니다.
 4. 생성된 연구, consent, logic, randomization, data plan, preregistration draft를 검토합니다.
@@ -88,9 +88,9 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 ## 프로젝트 상태
 
-greedyQ는 현재 스펙 정의 단계입니다. 현재 milestone은 완료된 surveydown 호환성 조사를 greedyQ v0.1 스펙과 버전이 명시된 guided-interview protocol로 전환한 후 런타임을 구현하는 것입니다.
+greedyQ는 현재 specification 및 prototyping 단계입니다. Repository-first modular guide architecture가 호환 구조로 준비되었으며, 다음 milestone은 v0.1 parser와 runtime contract를 완성하는 동안 여러 LLM에서 behavioral evaluation을 수행하는 것입니다.
 
-현재 방향은 [AI guide](./guides/README(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [완전한 기준 연구](./examples/complete-study/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [완전한 기준 연구](./examples/complete-study/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

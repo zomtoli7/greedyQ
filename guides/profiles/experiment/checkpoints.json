@@ -1,0 +1,9 @@
+{
+  "component": "experiment",
+  "checkpoints": [
+    {"id": "experiment_conditions", "prompt": "Are these the exact conditions and participant-facing materials you want?", "material": true},
+    {"id": "experiment_assignment", "prompt": "Are the assignment unit, probabilities, and persistence behavior correct?", "material": true},
+    {"id": "experiment_outcome", "prompt": "Is this the primary outcome and timing you intend to use?", "material": true},
+    {"id": "experiment_analysis", "prompt": "Does this analysis plan answer your main experimental question?", "material": true}
+  ]
+}

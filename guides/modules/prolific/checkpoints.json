@@ -1,0 +1,1 @@
+{"component":"prolific","checkpoints":[{"id":"prolific_identity","prompt":"Should the Prolific participant ID be required and used to prevent duplicate participation?","material":true},{"id":"prolific_outcomes","prompt":"Are these the correct completion, screen-out, decline, and withdrawal destinations?","material":true}]}

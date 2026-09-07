@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.2",
+  "study_id": "digital_service_info_001",
+  "study_version": "1.0.0-fixture",
+  "generated_at": null,
+  "overall_status": "incomplete",
+  "checks": [
+    {"id": "structure", "status": "passed", "summary": "Study files, identifiers, references, and routes are structurally consistent.", "details": []},
+    {"id": "display_storage_mapping", "status": "passed", "summary": "Displayed response labels and stored values match across the QMD and preview.", "details": []},
+    {"id": "preview_model", "status": "passed", "summary": "Both experimental conditions and all terminal outcomes resolve in the preview model.", "details": []},
+    {"id": "browser_review", "status": "not_run", "summary": "A human browser, keyboard, and screen-reader review has not been recorded.", "details": []},
+    {"id": "live_services", "status": "not_run", "summary": "No OSF, Vercel, Supabase, or Prolific production operation has been attempted.", "details": []}
+  ],
+  "manual_gates": [
+    {"id": "interactive_preview", "status": "pending", "researcher_prompt": "Please try both conditions and every ending in the participant preview.", "evidence": null},
+    {"id": "preregistration", "status": "blocked", "researcher_prompt": "Real contributor information and explicit submission approval are still required.", "evidence": null},
+    {"id": "fielding", "status": "blocked", "researcher_prompt": "The live survey must be deployed and tested before recruitment.", "evidence": null}
+  ]
+}

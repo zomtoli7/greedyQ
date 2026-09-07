@@ -31,12 +31,14 @@ Its QMD demonstrates the normative named-vector direction: `"Displayed label" = 
 
 ```text
 survey.qmd                         study pages and questions
+greedyq.study.json                 greedyQExperiment object descriptor
 greedyq.yml                        behavior and integration contract
+study-plan.md                      short nontechnical researcher record
 consent.md                         versioned participant information
 design/stimuli.csv                 condition content and analysis labels
 analysis/                          analysis intent and data dictionary
 preregistration/                   OSF-oriented draft, structured data, and hash manifest
-.greedyq/                          resumable state, decision history, and generation provenance
+.greedyq/                          guide lock, resumable state, decisions, validation, and provenance
 supabase/migrations/001_initial.sql  reference persistence schema
 vercel.json                        deployment fixture
 preview-model.json                 validated preview-only study model

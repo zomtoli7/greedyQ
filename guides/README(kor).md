@@ -2,11 +2,11 @@
 
 [English](./README.md)
 
-## 어떤 guide를 첨부할 것인가
+## 기본 방식: 저장소에서 시작하기
 
-- 일반적인 사용에는 `greedyq-guide.md` 하나만 첨부합니다. 이 default self-contained guide에는 Preview UI specification과 canonical preview, database, deployment, state-schema bundle이 내장되어 있습니다.
-- Context 또는 upload limit이 있을 때 `greedyq-guide-compact.md`를 conversation guidance용으로 사용할 수 있지만 deterministic artifact generation에는 단독으로 충분하지 않습니다.
-- Repository access는 development와 verification에 계속 유용하지만 사용자가 template folder나 specification을 별도로 첨부할 필요는 없어야 합니다.
+- 일반적인 사용에는 tag가 지정된 `START-HERE.md` URL을 공유합니다. AI는 `registry/guide-index.json`을 통해 core, 하나의 study profile, 연구에 필요한 capability module만 불러옵니다.
+- Chat이 repository link를 읽을 수 없을 때만 `greedyq-guide.md`를 자체 포함 fallback으로 사용합니다. Preview UI specification과 canonical preview, database, deployment, state-schema bundle이 내장되어 있습니다.
+- `greedyq-guide-compact.md`는 기존 conversation aid이며 deterministic artifact generation에는 단독으로 충분하지 않습니다.
 - `examples/complete-study/`는 reference로 사용하며 관련 없는 실제 연구에 content를 복사하지 않습니다.
 
 “설문 만들자!”로 시작합니다. Guide는 model이 capability를 감지하고 기존 state가 있으면 resume하며 한 번에 하나의 연구 질문을 하게 합니다.

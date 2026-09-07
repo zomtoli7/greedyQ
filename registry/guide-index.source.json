@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.2",
+  "release": "0.2.0-draft.1",
+  "status": "compatibility",
+  "default_language": "en",
+  "bootstrap": "START-HERE.md",
+  "fallback_bundle": "guides/greedyq-guide.md",
+  "component_manifests": [
+    "guides/core/component.json",
+    "guides/profiles/simple/component.json",
+    "guides/profiles/experiment/component.json",
+    "guides/modules/governance-irb/component.json",
+    "guides/modules/consent/component.json",
+    "guides/modules/preregistration/component.json",
+    "guides/modules/prolific/component.json",
+    "guides/modules/deployment-vercel-supabase/component.json",
+    "guides/modules/export-surveydown/component.json"
+  ]
+}

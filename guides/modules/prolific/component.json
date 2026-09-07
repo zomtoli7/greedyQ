@@ -1,0 +1,1 @@
+{"id":"prolific","kind":"module","version":"0.2.0-draft.1","dependencies":["core","consent"],"conflicts":[],"normative_files":["guides/modules/prolific/guide.md","guides/modules/prolific/checkpoints.json"]}

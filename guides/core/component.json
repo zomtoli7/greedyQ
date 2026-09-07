@@ -1,0 +1,21 @@
+{
+  "id": "core",
+  "kind": "core",
+  "version": "0.2.0-draft.1",
+  "object_name": "greedyQObject",
+  "dependencies": [],
+  "conflicts": [],
+  "normative_files": [
+    "guides/core/guide.md",
+    "guides/core/communication.md",
+    "guides/core/checkpoints.json",
+    "docs/preview-ui-spec.md",
+    "schemas/ai/study-state.schema.json",
+    "schemas/ai/decision-log.schema.json",
+    "schemas/ai/unresolved-decisions.schema.json",
+    "schemas/ai/generation-manifest.schema.json",
+    "schemas/ai/validation-report.schema.json",
+    "schemas/preview-model.schema.json",
+    "templates/preview/preview.html"
+  ]
+}

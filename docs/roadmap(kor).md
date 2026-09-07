@@ -88,6 +88,11 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Hands-on interactive preview review를 pre-deployment checkpoint로 지정
 - [x] 완전한 reference study와 full/compact versioned guide 공개
 - [x] Full guide를 hashed canonical template이 포함된 self-contained single attachment로 구성
+- [x] Core object, study profile, 조합 가능한 capability-module architecture 정의
+- [x] Repository-first `START-HERE.md`, hash 기반 guide registry, deterministic resolver 추가
+- [x] `greedyq.study.json`, `.greedyq/guide-lock.json`, 내부 validation-report contract 추가
+- [x] Golden reference를 lock된 `greedyQExperiment` compatibility object로 migration
+- [ ] GPT와 Claude에서 modular loader를 통한 생성·수정·fork behavioral evaluation 수행
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 
 결과물:
@@ -97,6 +102,11 @@ guides/greedyq-guide.md
 guides/greedyq-guide(kor).md
 guides/greedyq-guide-compact.md
 guides/greedyq-guide-compact(kor).md
+START-HERE.md
+registry/guide-index.json
+guides/core/
+guides/profiles/
+guides/modules/
 examples/complete-study/
 ```
 

@@ -2,7 +2,7 @@
 
 [English](./modular-guide-architecture.md)
 
-**상태:** 설계 제안
+**상태:** 승인된 아키텍처; 호환 구조 구현 완료
 
 **대상:** greedyQ `0.2` 구조 개편
 
@@ -355,7 +355,9 @@ Migration은 두 release에 걸쳐 진행합니다.
 1. **호환 release:** 기존 경로를 유지하면서 registry, bootstrap, core/profile/module 디렉터리, 생성형 legacy bundle을 추가합니다.
 2. **정리 release:** 모듈형 loader를 기준으로 만들고, 이전 guide 경로에는 redirect 또는 명확한 deprecation file을 남기며, golden reference lock을 갱신합니다.
 
-## 13. 구현 전에 확정할 결정
+## 13. 승인된 구현 결정
+
+프로젝트 소유자가 2026-09-07에 다음 결정을 승인했습니다.
 
 1. 내부적으로 조합 방식을 사용하되 `greedyQSimple`, `greedyQExperiment`, `greedyQCBC`를 공개 객체명으로 유지합니다.
 2. 저장소 bootstrap을 기본으로 하고 생성된 단일 bundle 하나만 fallback으로 유지합니다.

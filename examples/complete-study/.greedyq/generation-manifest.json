@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "study_id": "digital_service_info_001",
   "study_version": "1.0.0-fixture",
-  "guide_version": "0.1.0-draft.1",
+  "guide_version": "0.2.0-draft.1",
   "spec_version": "0.1.0-draft.1",
   "source_commit": null,
   "generated_at": null,
@@ -62,6 +62,34 @@
       "sha256": "b09108255093ac5964e1998a33cd7f033124c04fc286532914eddc54a5acaeec",
       "status": "validated",
       "based_on_decision_ids": ["dec_randomization", "dec_instrument", "dec_consent_privacy"]
+    },
+    {
+      "path": "greedyq.study.json",
+      "kind": "source",
+      "sha256": "264d1d0b99b529e5c25227e823e173da71a8754af40528605cc4b208e9ed34e8",
+      "status": "validated",
+      "based_on_decision_ids": ["dec_research_question", "dec_randomization"]
+    },
+    {
+      "path": "study-plan.md",
+      "kind": "derived",
+      "sha256": "37468ad563680de91b9aa3598926191ec1a80a5133c185e2f0b79016c91550d7",
+      "status": "validated",
+      "based_on_decision_ids": ["dec_research_question", "dec_randomization", "dec_instrument"]
+    },
+    {
+      "path": ".greedyq/guide-lock.json",
+      "kind": "source",
+      "sha256": "0bf55a650058bccce60c639d077c147a9fda751f25d2c61caa1bf8e3306b3abe",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": ".greedyq/validation-report.json",
+      "kind": "derived",
+      "sha256": "fe7c0250a77101e76630c781b923b3c84e928657c9b51582bb65d1fa5e3a5ebd",
+      "status": "validated",
+      "based_on_decision_ids": ["dec_instrument", "dec_randomization", "dec_consent_privacy"]
     }
   ],
   "external_operations": [

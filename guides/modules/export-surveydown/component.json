@@ -1,0 +1,1 @@
+{"id":"export-surveydown","kind":"module","version":"0.2.0-draft.1","dependencies":["core"],"conflicts":[],"normative_files":["guides/modules/export-surveydown/guide.md","guides/modules/export-surveydown/checkpoints.json","docs/surveydown-compatibility.md"]}

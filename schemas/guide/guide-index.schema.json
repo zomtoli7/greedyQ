@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/guide/guide-index.schema.json",
+  "title": "greedyQ Guide Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "release", "status", "default_language", "bootstrap", "fallback_bundle", "components"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "release": {"type": "string", "minLength": 1},
+    "status": {"enum": ["compatibility", "stable", "deprecated"]},
+    "default_language": {"const": "en"},
+    "bootstrap": {"type": "string", "minLength": 1},
+    "fallback_bundle": {"type": "string", "minLength": 1},
+    "components": {
+      "type": "object",
+      "minProperties": 2,
+      "additionalProperties": {"$ref": "#/$defs/component"}
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "version", "manifest", "manifest_sha256", "dependencies", "conflicts", "files"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        "kind": {"enum": ["core", "profile", "module"]},
+        "version": {"type": "string", "minLength": 1},
+        "object_name": {"type": "string"},
+        "manifest": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"$ref": "#/$defs/hash"},
+        "dependencies": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "conflicts": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/hash"}}
+          }
+        }
+      }
+    },
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

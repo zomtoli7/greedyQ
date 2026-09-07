@@ -1,0 +1,9 @@
+{
+  "component": "core",
+  "checkpoints": [
+    {"id": "core_purpose_population", "prompt": "Does this accurately describe what you want to learn and who should participate?", "material": true},
+    {"id": "core_participant_experience", "prompt": "Does the preview reflect what you want participants to experience?", "material": true},
+    {"id": "core_data_rights", "prompt": "Are the data use and participant rights described accurately?", "material": true},
+    {"id": "core_fielding", "prompt": "May this exact reviewed version be prepared for live recruitment?", "material": true}
+  ]
+}

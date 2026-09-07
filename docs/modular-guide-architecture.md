@@ -2,7 +2,7 @@
 
 [한국어](./modular-guide-architecture(kor).md)
 
-**Status:** design proposal
+**Status:** approved architecture; compatibility structure implemented
 
 **Target:** greedyQ `0.2` restructuring
 
@@ -355,7 +355,9 @@ Migration should occur in two releases:
 1. **Compatibility release:** add the registry, bootstrap, core/profile/module directories, and generated legacy bundle while keeping existing paths valid.
 2. **Clean release:** make the modular loader canonical, retain redirects or clear deprecation files at old guide paths, and update the golden reference lock.
 
-## 13. Decisions to confirm before implementation
+## 13. Approved implementation decisions
+
+The project owner approved the following decisions on 2026-09-07:
 
 1. Use composition internally while keeping `greedyQSimple`, `greedyQExperiment`, and `greedyQCBC` as public object names.
 2. Make the repository bootstrap the default and retain one generated bundle only as a fallback.

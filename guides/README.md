@@ -2,11 +2,11 @@
 
 [한국어](./README(kor).md)
 
-## Which guide to attach
+## Default: start from the repository
 
-- Attach only `greedyq-guide.md` for normal use. It is the default self-contained guide and embeds the Preview UI specification plus the canonical preview, database, deployment, and state-schema bundle.
-- Attach `greedyq-guide-compact.md` only for conversation guidance when context or upload limits require it; it is not sufficient by itself for deterministic artifact generation.
-- Repository access remains useful for development and verification, but users should not have to attach a template folder or the specification separately.
+- Share the tagged `START-HERE.md` URL for normal use. The AI loads the core, one study profile, and only the capability modules required by the study through `registry/guide-index.json`.
+- Use `greedyq-guide.md` only as the self-contained fallback when the chat cannot read repository links. It embeds the Preview UI specification plus the canonical preview, database, deployment, and state-schema bundle.
+- `greedyq-guide-compact.md` is a legacy conversation aid and is not sufficient by itself for deterministic artifact generation.
 - Use `examples/complete-study/` as a reference, not as content to copy into an unrelated real study.
 
 Start with: “Let's build a survey.” The guide instructs the model to detect capabilities, resume existing state when present, and ask one research question at a time.

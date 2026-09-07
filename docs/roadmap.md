@@ -88,6 +88,11 @@ Specify the primary product experience before building the runtime.
 - [x] Make hands-on interactive preview review a pre-deployment checkpoint.
 - [x] Publish full and compact versioned guides with a complete reference study.
 - [x] Make the full guide a self-contained single attachment with hashed canonical templates.
+- [x] Define the core object, study profiles, and composable capability-module architecture.
+- [x] Add the repository-first `START-HERE.md`, hashed guide registry, and deterministic resolver.
+- [x] Add `greedyq.study.json`, `.greedyq/guide-lock.json`, and internal validation-report contracts.
+- [x] Migrate the golden reference to a locked `greedyQExperiment` compatibility object.
+- [ ] Run behavioral creation, modification, and fork evaluations through the modular loader with GPT and Claude.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 
 Deliverables:
@@ -97,6 +102,11 @@ guides/greedyq-guide.md
 guides/greedyq-guide(kor).md
 guides/greedyq-guide-compact.md
 guides/greedyq-guide-compact(kor).md
+START-HERE.md
+registry/guide-index.json
+guides/core/
+guides/profiles/
+guides/modules/
 examples/complete-study/
 ```
 

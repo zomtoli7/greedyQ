@@ -31,12 +31,14 @@ QMD는 normative named-vector 방향인 `"Displayed label" = "stored_value"`를 
 
 ```text
 survey.qmd                         study pages and questions
+greedyq.study.json                 greedyQExperiment object descriptor
 greedyq.yml                        behavior and integration contract
+study-plan(kor).md                 짧고 비기술적인 연구자용 기록
 consent.md                         versioned participant information
 design/stimuli.csv                 condition content and analysis labels
 analysis/                          analysis intent and data dictionary
 preregistration/                   OSF-oriented draft, structured data, and hash manifest
-.greedyq/                          resumable state, decision history, and generation provenance
+.greedyq/                          guide lock, resumable state, decisions, validation, and provenance
 supabase/migrations/001_initial.sql  reference persistence schema
 vercel.json                        deployment fixture
 preview-model.json                 validated preview-only study model

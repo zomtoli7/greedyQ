@@ -1,0 +1,1 @@
+{"id":"preregistration","kind":"module","version":"0.2.0-draft.1","dependencies":["core"],"conflicts":[],"normative_files":["guides/modules/preregistration/guide.md","guides/modules/preregistration/checkpoints.json"]}

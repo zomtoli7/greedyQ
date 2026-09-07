@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/validation-report.schema.json",
+  "title": "greedyQ Internal Validation Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "study_version", "overall_status", "checks", "manual_gates"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "study_version": {"type": "string", "minLength": 1},
+    "generated_at": {"type": ["string", "null"], "format": "date-time"},
+    "overall_status": {"enum": ["passed", "failed", "incomplete"]},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "summary"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "status": {"enum": ["passed", "failed", "not_run", "not_applicable"]},
+          "summary": {"type": "string", "minLength": 1},
+          "details": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "manual_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "researcher_prompt"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "status": {"enum": ["pending", "approved", "blocked", "not_applicable"]},
+          "researcher_prompt": {"type": "string", "minLength": 1},
+          "evidence": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

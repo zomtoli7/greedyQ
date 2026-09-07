@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/greedyq-study.schema.json",
+  "title": "greedyQ Study Object",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "study_version", "object", "profile", "modules", "origin", "language", "entry_points"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "study_version": {"type": "string", "minLength": 1},
+    "object": {"type": "string", "pattern": "^greedyQ[A-Za-z]+$"},
+    "profile": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "modules": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": {"enum": ["new", "modify", "fork", "import"]},
+        "source_study_id": {"type": ["string", "null"]},
+        "source_study_version": {"type": ["string", "null"]},
+        "source_location": {"type": ["string", "null"]}
+      }
+    },
+    "language": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$"},
+    "entry_points": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["survey", "config", "preview", "study_plan", "guide_lock"],
+      "properties": {
+        "survey": {"type": "string"}, "config": {"type": "string"}, "preview": {"type": "string"},
+        "study_plan": {"type": "string"}, "consent": {"type": ["string", "null"]}, "guide_lock": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"component":"consent","checkpoints":[{"id":"consent_content","prompt":"Does this consent page accurately describe participation, risks, benefits, compensation, data use, and withdrawal?","material":true},{"id":"consent_path","prompt":"Should only participants who actively consent continue into the survey?","material":true}]}

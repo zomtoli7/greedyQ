@@ -1,0 +1,12 @@
+{
+  "id": "experiment",
+  "kind": "profile",
+  "version": "0.2.0-draft.1",
+  "object_name": "greedyQExperiment",
+  "dependencies": ["core"],
+  "conflicts": ["simple", "cbc"],
+  "normative_files": [
+    "guides/profiles/experiment/guide.md",
+    "guides/profiles/experiment/checkpoints.json"
+  ]
+}

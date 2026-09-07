@@ -1,0 +1,256 @@
+{
+  "schema_version": "0.2",
+  "release": "0.2.0-draft.1",
+  "status": "compatibility",
+  "default_language": "en",
+  "bootstrap": "START-HERE.md",
+  "fallback_bundle": "guides/greedyq-guide.md",
+  "components": {
+    "consent": {
+      "id": "consent",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/consent/component.json",
+      "manifest_sha256": "38d77987410483ad5e2506c2961c9f825d5d023f1284c20696d065825c9600dd",
+      "dependencies": [
+        "core",
+        "governance-irb"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/consent/guide.md",
+          "sha256": "517c152c03a84871622e9ac6a75bc78b63659042db7c7e076292bad1c6dfe9e9"
+        },
+        {
+          "path": "guides/modules/consent/checkpoints.json",
+          "sha256": "760c8769c8710006016bef4532dd539904106a8d74bb110be9d3859324eaee6f"
+        }
+      ]
+    },
+    "core": {
+      "id": "core",
+      "kind": "core",
+      "version": "0.2.0-draft.1",
+      "object_name": "greedyQObject",
+      "manifest": "guides/core/component.json",
+      "manifest_sha256": "13caef0fd596347d28fbbf32faec22e2316555e9c5e15f11dc1ef32527e28e2d",
+      "dependencies": [],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/core/guide.md",
+          "sha256": "25de43b20310e108515483ed8c6b72b912ea62ddbfa7ebb8a8cf722e18f217e6"
+        },
+        {
+          "path": "guides/core/communication.md",
+          "sha256": "eb392923fc22b0c150a960b15890ade0fb321adeebbdc4bda2266ac0d72f02d7"
+        },
+        {
+          "path": "guides/core/checkpoints.json",
+          "sha256": "2f27f4fb6824b8de340dce5b8b82872a13142221aed43fc6c24b21bbc640deec"
+        },
+        {
+          "path": "docs/preview-ui-spec.md",
+          "sha256": "b296bc9967a7de1dc3797039293e0447fca85b6b6e8de612319a4c03e9804c32"
+        },
+        {
+          "path": "schemas/ai/study-state.schema.json",
+          "sha256": "a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159"
+        },
+        {
+          "path": "schemas/ai/decision-log.schema.json",
+          "sha256": "c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d"
+        },
+        {
+          "path": "schemas/ai/unresolved-decisions.schema.json",
+          "sha256": "7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16"
+        },
+        {
+          "path": "schemas/ai/generation-manifest.schema.json",
+          "sha256": "5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093"
+        },
+        {
+          "path": "schemas/ai/validation-report.schema.json",
+          "sha256": "bb682c8950ccaf1e3a12145009ac843ec7fb4ed20bdf2a95fb1fe03b37b13d5d"
+        },
+        {
+          "path": "schemas/preview-model.schema.json",
+          "sha256": "8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034"
+        },
+        {
+          "path": "templates/preview/preview.html",
+          "sha256": "105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd"
+        }
+      ]
+    },
+    "deployment-vercel-supabase": {
+      "id": "deployment-vercel-supabase",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/deployment-vercel-supabase/component.json",
+      "manifest_sha256": "a51ae5ab5f299943d4e91b6f5c8dc61074e0478372164c362f91ed88386d6bfc",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/deployment-vercel-supabase/guide.md",
+          "sha256": "35d13e78052194e956c4a39f26f9ae54eb649bfd8cbda0141576fb230613512c"
+        },
+        {
+          "path": "guides/modules/deployment-vercel-supabase/checkpoints.json",
+          "sha256": "9c44323d150869e9b3021d9e9e38cb0c5b349805a636c82cb81563bcad4e3104"
+        },
+        {
+          "path": "examples/complete-study/supabase/migrations/001_initial.sql",
+          "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62"
+        },
+        {
+          "path": "examples/complete-study/vercel.json",
+          "sha256": "42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1"
+        }
+      ]
+    },
+    "experiment": {
+      "id": "experiment",
+      "kind": "profile",
+      "version": "0.2.0-draft.1",
+      "object_name": "greedyQExperiment",
+      "manifest": "guides/profiles/experiment/component.json",
+      "manifest_sha256": "32b673998c323b2bbcdbf245353d8d71f011c9cb5ff48afd5d8d2c9791f160d7",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [
+        "simple",
+        "cbc"
+      ],
+      "files": [
+        {
+          "path": "guides/profiles/experiment/guide.md",
+          "sha256": "da240a800d03d36437214368175e9e6509c1cabaecae914f65905f9a14956e47"
+        },
+        {
+          "path": "guides/profiles/experiment/checkpoints.json",
+          "sha256": "349204d0419a35c4d9e8d1956feac2ffe8fb2f30ee1d518eb4b745dd3b256414"
+        }
+      ]
+    },
+    "export-surveydown": {
+      "id": "export-surveydown",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/export-surveydown/component.json",
+      "manifest_sha256": "7fe89dd0b67885873b2456154dbba4186be312dd8204a1974dafcbab991563a6",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/export-surveydown/guide.md",
+          "sha256": "cdb9d88eeef29c0302618eba6b7689e4cc4f83f2279fe17b2ee51a53adb42b5a"
+        },
+        {
+          "path": "guides/modules/export-surveydown/checkpoints.json",
+          "sha256": "9648e7f167958d3916d99a16176b7d684e9be79637c5384834dfff0a58743e57"
+        },
+        {
+          "path": "docs/surveydown-compatibility.md",
+          "sha256": "72147088be91fd73f74f2d25dda0acd61980575b3cd1b64f0f5b2f27687ab129"
+        }
+      ]
+    },
+    "governance-irb": {
+      "id": "governance-irb",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/governance-irb/component.json",
+      "manifest_sha256": "a242bb84920b9514c43cdffa11b42f1b232bf722cfb703d9555cbb093e91ba2c",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/governance-irb/guide.md",
+          "sha256": "66ec5e6b633869fb593e3dcaa4f229fefc4ad1a94a6ce74f55eba7c867819bd0"
+        },
+        {
+          "path": "guides/modules/governance-irb/checkpoints.json",
+          "sha256": "5f387105e8cbcdc89535247183cbcba4861d69ec0fcb5c6d33f859aacb42fe3e"
+        }
+      ]
+    },
+    "preregistration": {
+      "id": "preregistration",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/preregistration/component.json",
+      "manifest_sha256": "76c3b28e1a3e345979a15db46b5e68b02d6382ba097ceb72d0fa566f9770f8d9",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/preregistration/guide.md",
+          "sha256": "df3ae2bde65d015dfd37b2386c34a2140900cc02ce767d60e37abc2a2e8a8a8c"
+        },
+        {
+          "path": "guides/modules/preregistration/checkpoints.json",
+          "sha256": "de0e9030a21f4cd43feaa851e6e9244c4d0ca28d07f34c83cd6c825f673fc453"
+        }
+      ]
+    },
+    "prolific": {
+      "id": "prolific",
+      "kind": "module",
+      "version": "0.2.0-draft.1",
+      "manifest": "guides/modules/prolific/component.json",
+      "manifest_sha256": "9b04a698e4c5dd315277ff7d7835c1b35bd14f1b2bc7cb02cf6659ce9fbf140f",
+      "dependencies": [
+        "core",
+        "consent"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/prolific/guide.md",
+          "sha256": "ada72dcf4704432f1f24bf60c90aa4058ca0730d9eca609acac765c9cf896fdd"
+        },
+        {
+          "path": "guides/modules/prolific/checkpoints.json",
+          "sha256": "446ef652a3d44387ffcc8fa960eb9965bb1d0945fb6c135a7e109a33ab879873"
+        }
+      ]
+    },
+    "simple": {
+      "id": "simple",
+      "kind": "profile",
+      "version": "0.2.0-draft.1",
+      "object_name": "greedyQSimple",
+      "manifest": "guides/profiles/simple/component.json",
+      "manifest_sha256": "72d6d49d6b1af8954958dca83db2863e565a287d5d1fc2ffc56043adf62a4eba",
+      "dependencies": [
+        "core"
+      ],
+      "conflicts": [
+        "experiment",
+        "cbc"
+      ],
+      "files": [
+        {
+          "path": "guides/profiles/simple/guide.md",
+          "sha256": "b2dcd183cc06dc540b90168868cdfdc54df7042b9fe506e1823d55dacf40452a"
+        },
+        {
+          "path": "guides/profiles/simple/checkpoints.json",
+          "sha256": "860743f7b5cb1504a10fe19290ba1448d8722abb30a5cb374cb4f2e303f105b4"
+        }
+      ]
+    }
+  }
+}
