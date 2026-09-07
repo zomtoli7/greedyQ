@@ -20,6 +20,7 @@
 ## 제품 방향
 
 - `docs/product-brief.md`를 현재 제품 방향의 기준으로 사용합니다.
+- `docs/greedyq-v0.1-spec.md`를 현재 normative-format draft로, `examples/complete-study/`를 pre-implementation golden reference로 사용합니다.
 - `docs/roadmap.md`를 현재 구현 순서의 기준으로 사용합니다.
 - AI-guided study creation 및 deployment를 주요 사용자 경험으로 취급합니다.
 - QMD 직접 작성을 expert path로, PPTX conversion을 import path로 취급합니다.

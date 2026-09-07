@@ -1,0 +1,188 @@
+spec_version: "0.1"
+
+study:
+  id: digital_service_info_001
+  title: Digital Service Information Study
+  version: 1.0.0-fixture
+  language: en
+  estimated_minutes: 5
+  status: fixture_only
+
+governance:
+  protocol_title: Effects of Digital-Service Information Framing
+  institution: Example University
+  review_status: not_submitted_fixture
+  protocol_id: EXAMPLE-IRB-0001
+  principal_investigator_email: researcher@example.edu
+  data_contact_email: data@example.edu
+  review_office_email: irb@example.edu
+  jurisdiction_notes: Fictional metadata; replace and review before real recruitment.
+
+consent:
+  id: consent_main
+  version: 1.0.0
+  effective_date: 2026-09-07
+  document: consent.md
+  sha256: c3fdddb7256900faadb9bdfa127b8522c6e0a562ca6cd2de3576764343a68e08
+  confirmation_question: consent_choice
+  accept_value: "yes"
+  refusal_outcome: consent_refused
+  collect_research_data_only_after_acceptance: true
+  amendment_requires_reconsent: true
+  withdrawal:
+    default_response_policy: retain_flagged
+    deletion_request_question: deletion_request
+    deletion_is_manual_until_verified: true
+
+respondents:
+  source: prolific
+  mode: test
+  inbound_parameters:
+    participant_id:
+      query: PROLIFIC_PID
+      required: true
+      pattern: "^[A-Za-z0-9_-]{6,64}$"
+    external_study_id:
+      query: STUDY_ID
+      required: true
+      pattern: "^[A-Za-z0-9_-]{3,64}$"
+    external_session_id:
+      query: SESSION_ID
+      required: true
+      pattern: "^[A-Za-z0-9_-]{3,128}$"
+  duplicate_policy: resume
+  store_unlisted_parameters: false
+
+runtime:
+  primary: web_native
+  framework: nextjs
+  hosting: vercel
+  region: icn1
+  preview_banner: true
+  collect_browser_metadata: false
+  collect_ip_address: false
+
+persistence:
+  provider: supabase
+  save_on: page_transition
+  resume: true
+  session_cookie:
+    name: greedyq_session
+    same_site: lax
+    secure: true
+    http_only: true
+  multiple_choice_storage: array
+
+logic:
+  hidden_answer_policy: clear_on_hide
+  show:
+    - id: show_control_stimulus
+      page: stimulus_control
+      if: assignment_condition == "control"
+    - id: show_treatment_stimulus
+      page: stimulus_treatment
+      if: assignment_condition == "treatment"
+    - id: show_opposition_reason
+      question: opposition_reason
+      if: support_post <= 3
+    - id: show_gender_self_description
+      question: gender_self_description
+      if: gender == "self_describe"
+    - id: show_deletion_request
+      question: deletion_request
+      if: withdraw_now == "withdraw"
+  skip:
+    - id: refuse_consent
+      from: consent
+      if: consent_choice == "no"
+      to: consent_refused
+      priority: 100
+    - id: screen_minor
+      from: eligibility
+      if: age < 18
+      to: screened_out
+      priority: 100
+    - id: route_control
+      from: baseline
+      if: assignment_condition == "control"
+      to: stimulus_control
+      priority: 50
+    - id: route_treatment
+      from: baseline
+      if: assignment_condition == "treatment"
+      to: stimulus_treatment
+      priority: 50
+    - id: route_withdrawal
+      from: participant_control
+      if: withdraw_now == "withdraw"
+      to: withdrawn
+      priority: 100
+    - id: route_completion
+      from: participant_control
+      if: withdraw_now == "submit"
+      to: complete
+      priority: 50
+  validate:
+    - id: plausible_age
+      question: age
+      if: age > 120
+      message: Enter an age of 120 or less.
+    - id: attention_response_recorded
+      question: attention_check
+      if: not answered(attention_check)
+      message: Select one response. The requested answer is Somewhat agree.
+    - id: withdrawal_deletion_choice
+      question: deletion_request
+      if: withdraw_now == "withdraw" and not answered(deletion_request)
+      message: Choose whether to record a deletion request before withdrawing.
+
+randomization:
+  - id: information_frame
+    unit: respondent
+    method: fixed_block
+    block_size: 4
+    conditions:
+      control: 1
+      treatment: 1
+    assignment_point:
+      after_page: baseline
+      before_condition_pages: [stimulus_control, stimulus_treatment]
+    persistence_key: session_id
+    source_file: design/stimuli.csv
+    store:
+      condition_as: assignment_condition
+      block_as: assignment_block
+      draw_as: assignment_draw
+      timestamp_as: assignment_at
+      spec_version_as: assignment_spec_version
+
+outcomes:
+  complete:
+    page: complete
+    lifecycle_state: completed
+    redirect: https://app.prolific.com/submissions/complete?cc=EXAMPLE_COMPLETE
+  screened_out:
+    page: screened_out
+    lifecycle_state: screened_out
+    redirect: https://app.prolific.com/submissions/complete?cc=EXAMPLE_SCREENOUT
+  consent_refused:
+    page: consent_refused
+    lifecycle_state: consent_refused
+    redirect: https://app.prolific.com/submissions/complete?cc=EXAMPLE_REFUSAL
+  withdrawn:
+    page: withdrawn
+    lifecycle_state: withdrawn
+    redirect: https://app.prolific.com/submissions/complete?cc=EXAMPLE_WITHDRAWN
+  technical_error:
+    page: technical_error
+    lifecycle_state: technical_error
+    redirect: https://app.prolific.com/submissions/complete?cc=EXAMPLE_ERROR
+
+export:
+  native_surveydown:
+    enabled: true
+    output_directory: export/surveydown
+    generate_app_r: true
+    compatibility_report: compatibility-report.json
+    fail_on: unsupported
+    warn_on: greedyq_only

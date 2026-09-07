@@ -1,0 +1,82 @@
+{
+  "report_version": "0.1",
+  "generator_status": "pre_implementation_expected_fixture",
+  "study_id": "digital_service_info_001",
+  "spec_version": "0.1.0-draft.1",
+  "source_files": [
+    "survey.qmd",
+    "greedyq.yml",
+    "design/stimuli.csv"
+  ],
+  "expected_output_files": [
+    "survey.qmd",
+    "app.R",
+    "consent.md",
+    "consent(kor).md",
+    "compatibility-report.json"
+  ],
+  "summary": {
+    "directly_portable": 1,
+    "generated": 5,
+    "greedyq_only": 4,
+    "unsupported": 0
+  },
+  "features": [
+    {
+      "id": "qmd_pages_and_questions",
+      "classification": "directly_portable",
+      "note": "Supported page, question, and navigation syntax is expected to remain QMD."
+    },
+    {
+      "id": "conditional_logic",
+      "classification": "generated",
+      "note": "Expected to be translated into deterministic surveydown server logic."
+    },
+    {
+      "id": "random_assignment",
+      "classification": "generated",
+      "note": "Expected to use generated R logic and stored assignment values."
+    },
+    {
+      "id": "outcome_redirects",
+      "classification": "generated",
+      "note": "Expected to be translated into allowlisted redirect calls."
+    },
+    {
+      "id": "conditional_demographic_followup",
+      "classification": "generated",
+      "note": "Expected to be translated into conditional display logic."
+    },
+    {
+      "id": "attention_check",
+      "classification": "generated",
+      "note": "Question is portable; validation and quality metadata require generated logic."
+    },
+    {
+      "id": "normalized_event_schema",
+      "classification": "greedyq_only",
+      "note": "Native surveydown storage uses a different representation; a wide analysis export is required."
+    },
+    {
+      "id": "versioned_consent_ledger",
+      "classification": "greedyq_only",
+      "note": "Displayed consent is portable, but the normalized consent-event model is not preserved automatically."
+    },
+    {
+      "id": "verified_deletion_request_workflow",
+      "classification": "greedyq_only",
+      "note": "The export can record a request but cannot verify completion by the research team."
+    },
+    {
+      "id": "vercel_runtime",
+      "classification": "greedyq_only",
+      "note": "Native surveydown requires an R/Shiny-compatible host rather than Vercel."
+    }
+  ],
+  "material_mismatches": [
+    "The expected app.R is a placeholder until the exporter exists and is not runnable.",
+    "Consent-event, lifecycle-event, and deletion-request semantics require manual native-surveydown implementation review.",
+    "Vercel deployment does not apply to the native surveydown export."
+  ],
+  "equivalence_claimed": false
+}

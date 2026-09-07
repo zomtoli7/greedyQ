@@ -1,0 +1,22 @@
+variable,type,role,description
+session_id,uuid,operational,Pseudonymous greedyQ session identifier
+assignment_condition,category,treatment,Persisted control or treatment assignment
+assignment_block,text,randomization,Fixed-block identifier
+assignment_draw,text,randomization,Auditable draw identifier
+consent_version,text,governance,Accepted consent document version
+age,integer,covariate,Self-reported age in years
+support_pre,integer,covariate,Baseline program support from 1 to 7
+familiarity,category,covariate,Prior familiarity with similar programs
+comprehension,category,quality,Response to factual comprehension question
+frame_perception,integer,manipulation_check,Perceived benefit emphasis from 1 to 7
+attention_check,integer,quality,Requested response is 5
+support_post,integer,primary_outcome,Post-treatment program support from 1 to 7
+usefulness,json,secondary_outcome,Two-row agreement matrix
+opposition_reason,text,exploratory,Conditional open-ended opposition reason
+comments,text,exploratory,Optional participant comments
+education,category,demographic,Education including prefer-not-to-answer
+gender,category,demographic,Gender including self-description and prefer-not-to-answer
+gender_self_description,text,demographic,Conditional self-description
+withdraw_now,category,governance,Submit or withdraw decision
+deletion_request,category,governance,Recorded request status; not proof of deletion
+lifecycle_state,category,operational,Final or current lifecycle state

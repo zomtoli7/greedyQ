@@ -20,6 +20,7 @@
 ## Product direction
 
 - Treat `docs/product-brief.md` as the current product-direction reference.
+- Treat `docs/greedyq-v0.1-spec.md` as the current normative-format draft and `examples/complete-study/` as its pre-implementation golden reference.
 - Treat `docs/roadmap.md` as the current implementation-order reference.
 - Treat AI-guided study creation and deployment as the primary user experience.
 - Treat direct QMD authoring as an expert path and PPTX conversion as an import path.

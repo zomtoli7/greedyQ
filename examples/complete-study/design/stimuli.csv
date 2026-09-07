@@ -1,0 +1,3 @@
+condition,frame_label,headline,body,comprehension_answer
+control,neutral_facts,Municipal Digital Help Desk,"The city is considering a program with telephone and in-person help for residents using online public services. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",three_libraries
+treatment,benefit_frame,Making Online Public Services Easier,"The city is considering a program with telephone and in-person help so residents can complete online public services more easily and avoid unnecessary trips. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",three_libraries

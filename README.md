@@ -88,7 +88,7 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 greedyQ is in the specification phase. The current milestone is to turn the completed surveydown compatibility research into the greedyQ v0.1 specification and the versioned guided-interview protocol before implementing the runtime.
 
-See the [product brief](./docs/product-brief.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+See the [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [complete reference study](./examples/complete-study/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

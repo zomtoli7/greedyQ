@@ -1,0 +1,361 @@
+---
+title: "Digital Service Information Study"
+greedyq:
+  spec_version: "0.1"
+theme-settings:
+  theme: default
+  barposition: top
+  barcolor: "#315c8a"
+  footer-center: "Fictional greedyQ reference study"
+survey-settings:
+  show-previous: true
+  use-cookies: true
+  all-required: false
+  start-page: welcome
+  highlight-unanswered: true
+  capture-metadata: false
+  required:
+    - consent_choice
+    - age
+    - support_pre
+    - familiarity
+    - comprehension
+    - frame_perception
+    - attention_check
+    - support_post
+    - usefulness
+    - withdraw_now
+system-messages:
+  previous: "Previous"
+  next: "Next"
+  required: "Please answer the required questions before continuing."
+---
+
+--- welcome
+
+# Digital Service Information Study
+
+This fictional research fixture asks about a hypothetical municipal program. It takes approximately five minutes.
+
+If you arrived through a respondent panel, your panel identifiers are validated before this page but are not displayed here.
+
+```{r}
+sd_nav(show_previous = FALSE, label_next = "Read participant information")
+```
+
+--- consent
+
+# Participant information and consent
+
+Please read the versioned [participant information and consent](./consent.md). The study is voluntary, and you may stop at any time.
+
+```{r}
+sd_question(
+  id = "consent_choice",
+  type = "mc",
+  label = "Do you consent to participate in this study?",
+  option = c(
+    "Yes, I consent" = "yes",
+    "No, I do not consent" = "no"
+  )
+)
+```
+
+```{r}
+sd_nav(show_previous = FALSE, label_next = "Continue")
+```
+
+--- eligibility
+
+# Eligibility
+
+```{r}
+sd_question(
+  id = "age",
+  type = "numeric",
+  label = "What is your age in years?",
+  placeholder = "Age"
+)
+```
+
+--- baseline
+
+# Your current views
+
+The program described later in the study is fictional.
+
+```{r}
+sd_question(
+  id = "support_pre",
+  type = "slider",
+  label = "Before seeing details, how much would you support a city program that helps residents use online public services?",
+  option = c(
+    "Strongly oppose" = 1,
+    "Oppose" = 2,
+    "Somewhat oppose" = 3,
+    "Neither support nor oppose" = 4,
+    "Somewhat support" = 5,
+    "Support" = 6,
+    "Strongly support" = 7
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "familiarity",
+  type = "select",
+  label = "Before today, how familiar were you with municipal digital-assistance programs?",
+  option = c(
+    "Not at all familiar" = "none",
+    "Slightly familiar" = "slight",
+    "Moderately familiar" = "moderate",
+    "Very familiar" = "very"
+  ),
+  label_select = "Choose one"
+)
+```
+
+--- stimulus_control
+
+# Municipal Digital Help Desk
+
+The city is considering a program with telephone and in-person help for residents using online public services. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.
+
+```{r}
+sd_nav(page_next = "post_measure", label_next = "Continue")
+```
+
+--- stimulus_treatment
+
+# Making Online Public Services Easier
+
+The city is considering a program with telephone and in-person help so residents can complete online public services more easily and avoid unnecessary trips. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.
+
+```{r}
+sd_nav(page_next = "post_measure", label_next = "Continue")
+```
+
+--- post_measure
+
+# Questions about the description
+
+```{r}
+sd_question(
+  id = "comprehension",
+  type = "mc",
+  label = "At how many libraries would the proposed program operate?",
+  option = c(
+    "One library" = "one_library",
+    "Three libraries" = "three_libraries",
+    "Five libraries" = "five_libraries",
+    "The description did not say" = "not_stated"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "frame_perception",
+  type = "slider",
+  label = "How strongly did the description emphasize practical benefits to residents?",
+  option = c(
+    "Not at all" = 1,
+    "2" = 2,
+    "3" = 3,
+    "4" = 4,
+    "5" = 5,
+    "6" = 6,
+    "Very strongly" = 7
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "attention_check",
+  type = "mc",
+  label = "For data-quality purposes, please select ‘Somewhat agree.’",
+  option = c(
+    "Strongly disagree" = 1,
+    "Disagree" = 2,
+    "Somewhat disagree" = 3,
+    "Neither agree nor disagree" = 4,
+    "Somewhat agree" = 5,
+    "Agree" = 6,
+    "Strongly agree" = 7
+  )
+)
+```
+
+--- outcomes
+
+# Your opinion
+
+```{r}
+sd_question(
+  id = "support_post",
+  type = "slider",
+  label = "After reading the description, how much do you support the proposed program?",
+  option = c(
+    "Strongly oppose" = 1,
+    "Oppose" = 2,
+    "Somewhat oppose" = 3,
+    "Neither support nor oppose" = 4,
+    "Somewhat support" = 5,
+    "Support" = 6,
+    "Strongly support" = 7
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "usefulness",
+  type = "matrix",
+  label = "Please indicate your agreement with each statement.",
+  row = c(
+    "The program would be useful to residents." = "residents",
+    "The program would make online services easier to access." = "access"
+  ),
+  option = c(
+    "Strongly disagree" = 1,
+    "Disagree" = 2,
+    "Neither" = 3,
+    "Agree" = 4,
+    "Strongly agree" = 5
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "opposition_reason",
+  type = "textarea",
+  label = "What is the main reason you do not support the proposed program?",
+  placeholder = "Optional additional detail"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "comments",
+  type = "textarea",
+  label = "Is there anything else you would like the research team to know?",
+  placeholder = "Optional"
+)
+```
+
+--- demographics
+
+# About you
+
+```{r}
+sd_question(
+  id = "education",
+  type = "select",
+  label = "What is the highest level of education you have completed?",
+  option = c(
+    "Less than secondary school" = "less_secondary",
+    "Secondary school" = "secondary",
+    "Some college or vocational education" = "some_college",
+    "Bachelor's degree" = "bachelors",
+    "Graduate or professional degree" = "graduate",
+    "Prefer not to answer" = "prefer_not"
+  ),
+  label_select = "Choose one or prefer not to answer"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "gender",
+  type = "mc",
+  label = "How do you describe your gender?",
+  option = c(
+    "Woman" = "woman",
+    "Man" = "man",
+    "Non-binary" = "nonbinary",
+    "Self-describe" = "self_describe",
+    "Prefer not to answer" = "prefer_not"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "gender_self_description",
+  type = "text",
+  label = "How would you like to describe your gender?",
+  placeholder = "Self-description"
+)
+```
+
+--- participant_control
+
+# Before submitting
+
+You may submit the study, withdraw, or record a request for the fictional research team to delete the responses associated with this session.
+
+```{r}
+sd_question(
+  id = "withdraw_now",
+  type = "mc",
+  label = "What would you like to do?",
+  option = c(
+    "Submit my responses" = "submit",
+    "Withdraw from the study" = "withdraw"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "deletion_request",
+  type = "mc",
+  label = "Should the research team receive a request to delete responses already collected in this session?",
+  option = c(
+    "Yes, record a deletion request" = "yes",
+    "No" = "no"
+  )
+)
+```
+
+--- complete
+
+# Thank you
+
+Your responses have been submitted. In a production panel run, greedyQ now uses the verified completion route.
+
+--- screened_out
+
+# You are not eligible
+
+This fixture is limited to adults. No research questions beyond consent and eligibility were collected.
+
+--- consent_refused
+
+# Participation declined
+
+No research responses were collected. You may close this page or follow the configured panel return route.
+
+--- withdrawn
+
+# Participation ended
+
+The session is marked as withdrawn. If you requested deletion, the request has been recorded for the research team; this message does not claim deletion is complete.
+
+--- technical_error
+
+# We could not continue
+
+The study encountered a technical problem. In a production panel run, greedyQ uses the separately configured technical-error route.
