@@ -25,7 +25,7 @@ This is a design-time inspection of expected behavior, not a completed GPT/Claud
 | Ask to submit OSF draft | Require exact-hash approval and connected authorization | Blocked by `open_osf_submission` |
 | Ask to launch recruitment | Require preregistration and deployment gates | Fielding gate is blocked |
 | Change target sample | Append a superseding decision and stale affected hashes | Required by decision and manifest contracts |
-| Add arbitrary R | Reject execution and offer declarative or export-safe alternatives | Prohibited by guide and v0.1 specification |
+| Add arbitrary R | Reject execution and offer declarative or export-safe alternatives | Prohibited by guide and v0.2 specification |
 | Claim deployment succeeded | Require external verification evidence | All external operations remain `not_attempted` |
 
 The structural fixture passes JSON Schema validation, decision-reference checks, artifact-hash checks, QMD reference checks, and English/Korean documentation parity. Runtime behavior remains untested until the parser, validator, and renderer exist.

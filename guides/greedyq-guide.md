@@ -2,8 +2,8 @@
 
 [한국어](./greedyq-guide(kor).md)
 
-**Guide version:** `0.1.0-draft.1`
-**Compatible specification:** `greedyQ 0.1.0-draft.1`
+**Guide version:** `0.2.0-draft.1`
+**Compatible specification:** `greedyQ 0.2.0-draft.1`
 **Role:** Operational instructions for a capable general-purpose LLM or agent
 
 ## 1. Mission
@@ -240,10 +240,10 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/preview/preview.html` | `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd` | `yes` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
 | `examples/complete-study/vercel.json` | `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1` | `no` |
-| `schemas/ai/study-state.schema.json` | `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159` | `no` |
-| `schemas/ai/decision-log.schema.json` | `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d` | `no` |
-| `schemas/ai/unresolved-decisions.schema.json` | `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16` | `no` |
-| `schemas/ai/generation-manifest.schema.json` | `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093` | `no` |
+| `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
+| `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
+| `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
+| `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
@@ -639,7 +639,7 @@ SHA-256: `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1`
 
 ### FILE: `schemas/ai/study-state.schema.json`
 
-SHA-256: `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159`
+SHA-256: `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5`
 
 ```json
 {
@@ -654,7 +654,7 @@ SHA-256: `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159`
     "confirmed_decision_ids", "unresolved_decision_ids", "assumptions", "artifact_paths"
   ],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "study_version": { "type": "string", "minLength": 1 },
     "guide_version": { "type": "string", "minLength": 1 },
@@ -740,7 +740,7 @@ SHA-256: `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159`
 
 ### FILE: `schemas/ai/decision-log.schema.json`
 
-SHA-256: `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d`
+SHA-256: `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188`
 
 ```json
 {
@@ -751,7 +751,7 @@ SHA-256: `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d`
   "additionalProperties": false,
   "required": ["schema_version", "study_id", "append_only", "decisions"],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "append_only": { "const": true },
     "decisions": {
@@ -793,7 +793,7 @@ SHA-256: `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d`
 
 ### FILE: `schemas/ai/unresolved-decisions.schema.json`
 
-SHA-256: `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16`
+SHA-256: `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c`
 
 ```json
 {
@@ -804,7 +804,7 @@ SHA-256: `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16`
   "additionalProperties": false,
   "required": ["schema_version", "study_id", "items"],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "items": {
       "type": "array",
@@ -837,7 +837,7 @@ SHA-256: `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16`
 
 ### FILE: `schemas/ai/generation-manifest.schema.json`
 
-SHA-256: `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093`
+SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ```json
 {
@@ -851,7 +851,7 @@ SHA-256: `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093`
     "spec_version", "artifacts", "external_operations"
   ],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "study_version": { "type": "string", "minLength": 1 },
     "guide_version": { "type": "string", "minLength": 1 },

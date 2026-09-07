@@ -10,7 +10,7 @@
     "confirmed_decision_ids", "unresolved_decision_ids", "assumptions", "artifact_paths"
   ],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "study_version": { "type": "string", "minLength": 1 },
     "guide_version": { "type": "string", "minLength": 1 },

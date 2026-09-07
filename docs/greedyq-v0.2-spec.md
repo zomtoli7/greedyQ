@@ -1,9 +1,9 @@
-# greedyQ v0.1 Specification
+# greedyQ v0.2 Specification
 
-[한국어](./greedyq-v0.1-spec(kor).md)
+[한국어](./greedyq-v0.2-spec(kor).md)
 
 **Status:** Draft normative specification
-**Specification version:** `0.1.0-draft.1`
+**Specification version:** `0.2.0-draft.1`
 **Primary conformance fixtures:** `examples/complete-study/` and `examples/simple-satisfaction-study/`
 
 ## 1. Purpose and conformance language
@@ -14,7 +14,7 @@ greedyQ is a specification-driven, AI-native application for online academic res
 
 greedyQ is an independent implementation. It MUST NOT incorporate or execute surveydown source code. Compatibility targets publicly documented surveydown-style `survey.qmd` authoring conventions. The primary runtime is greedyQ on Vercel and Supabase; generated native surveydown files are a first-class parallel output.
 
-An implementation conforms to v0.1 only when it can parse, validate, and deterministically normalize the complete reference study. Deployment and native export conformance are separate capabilities and MUST be reported separately.
+An implementation conforms to v0.2 only when it can parse, validate, and deterministically normalize the complete reference study. Deployment and native export conformance are separate capabilities and MUST be reported separately.
 
 ## 2. Project contract
 
@@ -38,7 +38,7 @@ export/surveydown/*
 
 `survey.qmd` is the source of truth for ordered pages, displayed content, questions, and navigation. `greedyq.yml` is the source of truth for study identity, governance metadata, consent, logic, randomization, persistence, respondent sources, outcomes, and export policy.
 
-All normative artifacts MUST declare `spec_version: "0.1"`. Unknown keys MUST produce a warning by default and MAY be promoted to an error in strict mode.
+All normative artifacts MUST declare `spec_version: "0.2"`. Unknown keys MUST produce a warning by default and MAY be promoted to an error in strict mode.
 
 ## 3. Identifiers and references
 
@@ -56,12 +56,12 @@ Every reference MUST resolve statically. Duplicate IDs, missing references, and 
 
 ### 4.1 Front matter
 
-The file MUST begin with YAML front matter containing `greedyq.spec_version`. v0.1 accepts the documented `theme-settings`, `survey-settings`, and `system-messages` namespaces. Unsupported Quarto execution options MUST be rejected.
+The file MUST begin with YAML front matter containing `greedyq.spec_version`. v0.2 accepts the documented `theme-settings`, `survey-settings`, and `system-messages` namespaces. Unsupported Quarto execution options MUST be rejected.
 
 ```yaml
 ---
 greedyq:
-  spec_version: "0.1"
+  spec_version: "0.2"
 survey-settings:
   show-previous: true
   required: [support_post]
@@ -76,13 +76,13 @@ A page begins with `--- page_id` on its own line and ends at the next page marke
 
 ### 4.3 Markdown
 
-v0.1 supports headings, paragraphs, emphasis, strong text, links, ordered and unordered lists, block quotes, thematic breaks, inline code, fenced non-executable code, and images with relative or HTTPS sources. Raw HTML and executable Quarto extensions are unsupported. Rendered output MUST be sanitized.
+v0.2 supports headings, paragraphs, emphasis, strong text, links, ordered and unordered lists, block quotes, thematic breaks, inline code, fenced non-executable code, and images with relative or HTTPS sources. Raw HTML and executable Quarto extensions are unsupported. Rendered output MUST be sanitized.
 
 ### 4.4 Questions
 
 Questions are declared in non-executed R-style fenced chunks containing one allowlisted `sd_question()` call. The parser MUST parse the restricted expression and MUST NOT invoke R.
 
-Required arguments are `id`, `type`, and `label`. v0.1 question types are `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `select`, `slider`, `slider_numeric`, `date`, and `matrix`.
+Required arguments are `id`, `type`, and `label`. v0.2 question types are `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `select`, `slider`, `slider_numeric`, `date`, and `matrix`.
 
 Allowed value forms are strings, numbers, booleans, null, `c(...)`, and named `c(label = value, ...)`. Arbitrary function calls, variable lookup, assignment, interpolation, and side effects are errors.
 
@@ -99,7 +99,7 @@ The same rule applies to `option`, `options`, and matrix `row` vectors. Stored v
 
 ### 4.5 Navigation
 
-Pages receive an automatic Next action unless an `sd_nav()` call or terminal outcome is declared. v0.1 supports `show_previous`, `show_next`, `page_next`, `label_previous`, and `label_next`. Back navigation MUST preserve valid answers and MUST NOT change a persisted random assignment.
+Pages receive an automatic Next action unless an `sd_nav()` call or terminal outcome is declared. v0.2 supports `show_previous`, `show_next`, `page_next`, `label_previous`, and `label_next`. Back navigation MUST preserve valid answers and MUST NOT change a persisted random assignment.
 
 ## 5. `greedyq.yml`
 
@@ -116,7 +116,7 @@ Generators MUST use the canonical key names and shapes in `examples/complete-stu
 
 ## 6. Expression language
 
-Expressions are strings parsed by greedyQ. v0.1 permits literals, answer and stored-value identifiers, parentheses, `==`, `!=`, `<`, `<=`, `>`, `>=`, `and`, `or`, `not`, `in`, and the pure functions `answered(id)`, `length(value)`, and `contains(collection, value)`.
+Expressions are strings parsed by greedyQ. v0.2 permits literals, answer and stored-value identifiers, parentheses, `==`, `!=`, `<`, `<=`, `>`, `>=`, `and`, `or`, `not`, `in`, and the pure functions `answered(id)`, `length(value)`, and `contains(collection, value)`.
 
 Evaluation MUST be deterministic and side-effect free. Missing values evaluate as null. Comparisons with null are false except `value == null`. Type-invalid expressions MUST fail validation rather than coerce silently.
 
@@ -146,17 +146,17 @@ When deletion-on-withdrawal is selected, the runtime MUST perform the operation 
 
 The generic respondent contract defines allowlisted inbound parameters, validation, canonical identifiers, duplicate policy, and outcome redirects. Raw query parameters MUST NOT be stored unless explicitly allowlisted.
 
-The Prolific preset recognizes `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID`. A valid participant ID is required before consent for panel runs. Duplicate behavior MUST be one of `resume`, `reject`, or `allow`; v0.1 defaults to `resume`. Completion, screen-out, consent-refusal, and technical-error routes MUST be distinct and test mode MUST suppress production redirects.
+The Prolific preset recognizes `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID`. A valid participant ID is required before consent for panel runs. Duplicate behavior MUST be one of `resume`, `reject`, or `allow`; v0.2 defaults to `resume`. Completion, screen-out, consent-refusal, and technical-error routes MUST be distinct and test mode MUST suppress production redirects.
 
 ## 10. Randomization
 
-v0.1 supports simple and fixed-block between-subject assignment. A randomization declares an ID, unit, method, conditions, allocation, assignment point, persistence key, and stored metadata.
+v0.2 supports simple and fixed-block between-subject assignment. A randomization declares an ID, unit, method, conditions, allocation, assignment point, persistence key, and stored metadata.
 
 Assignment MUST occur only after consent and immediately before the first condition-dependent page. It MUST be atomic, persisted before stimulus display, invariant across refresh/resume, and never recomputed for the same persistence key. Stored metadata MUST include condition, method, seed or draw identifier, block identifier when applicable, assignment timestamp, and specification version.
 
 ## 11. Persistence and privacy
 
-Supabase/PostgreSQL is the v0.1 live persistence target. The native schema separates sessions, consent events, answers, assignments, lifecycle events, and external identifiers. Server credentials MUST remain in deployment environment variables. Browser and IP collection are off by default.
+Supabase/PostgreSQL is the v0.2 live persistence target. The native schema separates sessions, consent events, answers, assignments, lifecycle events, and external identifiers. Server credentials MUST remain in deployment environment variables. Browser and IP collection are off by default.
 
 Partial answers MUST be saved at successful page transitions. Resume MUST restore the latest committed page, valid answers, consent version, lifecycle state, and random assignment. Multiple-choice responses are stored as arrays, not pipe-delimited strings. Analysis export MAY produce a documented wide representation.
 
@@ -166,7 +166,7 @@ RLS enablement, grants, and policies MUST be validated together: a grant without
 
 ## 12. Validation and diagnostics
 
-Diagnostics MUST include `code`, `severity`, `message`, `file`, `location`, and optional `related_ids` and `suggested_fix`. Stable v0.1 codes include:
+Diagnostics MUST include `code`, `severity`, `message`, `file`, `location`, and optional `related_ids` and `suggested_fix`. Stable v0.2 codes include:
 
 | Code | Severity | Meaning |
 | --- | --- | --- |
@@ -197,7 +197,7 @@ Methodological concerns such as treatment confounding, contamination, construct 
 
 ## 13. Preregistration output and fielding gate
 
-Preregistration is a first-class generated output. `greedyq.yml` MUST identify a template adapter, output directory, registration status, and fielding gate. v0.1 supports `osf_preregistration` and `generic_markdown`; additional registry templates are adapters rather than changes to the study model.
+Preregistration is a first-class generated output. `greedyq.yml` MUST identify a template adapter, output directory, registration status, and fielding gate. v0.2 supports `osf_preregistration` and `generic_markdown`; additional registry templates are adapters rather than changes to the study model.
 
 The package MUST include a human-readable Markdown draft, a machine-readable JSON representation, and a SHA-256 artifact manifest covering the exact study, consent, stimuli, and analysis-plan versions being registered. It SHOULD include hypotheses, design, sampling plan, stopping rule, exclusions, conditions, randomization, variables, primary and secondary outcomes, analysis models, missing-data handling, and known deviations or unresolved decisions.
 
@@ -250,7 +250,7 @@ The complete reference study MUST demonstrate:
 
 Until parser, validator, runtime, and exporter implementations exist, the reference study is a pre-implementation fixture and MUST NOT be described as executed, deployed, or conforming in practice.
 
-## 17. Deferred from v0.1
+## 17. Deferred from v0.2
 
 Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, image questions, date ranges, multiple-response matrices, arbitrary widgets, weighted or stratified allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
 

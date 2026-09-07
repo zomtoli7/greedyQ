@@ -408,7 +408,7 @@ consent:
     - consent-document-hash
 ```
 
-v0.1 스펙은 다음을 정의해야 합니다.
+v0.2 스펙은 다음을 정의해야 합니다.
 
 - 필수 consent가 수락될 때까지 study question 접근 차단
 - Consent 거부 시 결정론적 route
@@ -454,7 +454,7 @@ Prolific preset은 초기 target입니다. 다른 provider는 provider-specific 
 
 ## 14. 미결정 사항
 
-- 정확한 v0.1 surveydown 호환 범위
+- 정확한 v0.2 surveydown 호환 범위
 - Parser 구현 및 grammar 전략
 - Next.js 및 runtime architecture
 - Supabase 관계형/JSONB schema 경계

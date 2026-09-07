@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "adapter": "osf_preregistration",
   "status": "draft_unapproved",
   "study_id": "digital_service_info_001",

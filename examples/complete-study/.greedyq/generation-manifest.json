@@ -1,86 +1,122 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "digital_service_info_001",
   "study_version": "1.0.0-fixture",
   "guide_version": "0.2.0-draft.1",
-  "spec_version": "0.1.0-draft.1",
+  "spec_version": "0.2.0-draft.1",
   "source_commit": null,
   "generated_at": null,
   "artifacts": [
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "f942ed6cbc3019433d50483e92abd50d20268b618297a76d323d95c4b4fbc392",
+      "sha256": "380ab2cd43e2ba6dfbb5d21da6ead1d8e409d0bb1507489dd5126471e30f8c70",
       "status": "generated",
-      "based_on_decision_ids": ["dec_research_question", "dec_randomization", "dec_instrument"]
+      "based_on_decision_ids": [
+        "dec_research_question",
+        "dec_randomization",
+        "dec_instrument"
+      ]
     },
     {
       "path": "greedyq.yml",
       "kind": "source",
-      "sha256": "9787ec7bd3c3641adf02eb8d8f3e16d923d6cb633b3a48beb8757704f4e96ce6",
+      "sha256": "5f9aa1f83d44559d22f99eb77c10ba0c52adfd3ddb8e5b32f44c8dc4a997aec9",
       "status": "generated",
-      "based_on_decision_ids": ["dec_randomization", "dec_consent_privacy", "dec_preregistration_draft"]
+      "based_on_decision_ids": [
+        "dec_randomization",
+        "dec_consent_privacy",
+        "dec_preregistration_draft"
+      ]
     },
     {
       "path": "consent.md",
       "kind": "source",
       "sha256": "c3fdddb7256900faadb9bdfa127b8522c6e0a562ca6cd2de3576764343a68e08",
       "status": "generated",
-      "based_on_decision_ids": ["dec_consent_privacy"]
+      "based_on_decision_ids": [
+        "dec_consent_privacy"
+      ]
     },
     {
       "path": "analysis/README.md",
       "kind": "source",
       "sha256": "84a26fec77a0c7604149c469e96292392a5c2b7040a5880c538d8cd013c6c7ac",
       "status": "generated",
-      "based_on_decision_ids": ["dec_hypothesis", "dec_analysis"]
+      "based_on_decision_ids": [
+        "dec_hypothesis",
+        "dec_analysis"
+      ]
     },
     {
       "path": "preregistration/osf-preregistration.md",
       "kind": "derived",
-      "sha256": "31c8abd417f650c4ce4037a82c0b01b1ecaff85a24e7cd2e916987455289ed09",
+      "sha256": "f6ad4276f4a1abd609d163afbf83b5be194918585b37ffa2356c7d3670c5d7aa",
       "status": "generated",
-      "based_on_decision_ids": ["dec_hypothesis", "dec_sampling_stopping", "dec_randomization", "dec_analysis", "dec_preregistration_draft"]
+      "based_on_decision_ids": [
+        "dec_hypothesis",
+        "dec_sampling_stopping",
+        "dec_randomization",
+        "dec_analysis",
+        "dec_preregistration_draft"
+      ]
     },
     {
       "path": "preregistration/artifact-manifest.json",
       "kind": "derived",
-      "sha256": "1c6ad1c23cb74c6ff574e8608d3b84a486d4b4997788bf4ee21ae41c3bcb257f",
+      "sha256": "64eb236aa999ab42b85e0776a80ae067dc826565e6a3744fd1c830951f081def",
       "status": "generated",
-      "based_on_decision_ids": ["dec_preregistration_draft"]
+      "based_on_decision_ids": [
+        "dec_preregistration_draft"
+      ]
     },
     {
       "path": "preview-model.json",
       "kind": "derived",
       "sha256": "eb0a983e2d5b0d28ef463ee5d7a4499072cd83e77ddbe472b2bfd7d41f436b72",
       "status": "validated",
-      "based_on_decision_ids": ["dec_randomization", "dec_instrument", "dec_consent_privacy"]
+      "based_on_decision_ids": [
+        "dec_randomization",
+        "dec_instrument",
+        "dec_consent_privacy"
+      ]
     },
     {
       "path": "preview.html",
       "kind": "derived",
       "sha256": "b09108255093ac5964e1998a33cd7f033124c04fc286532914eddc54a5acaeec",
       "status": "validated",
-      "based_on_decision_ids": ["dec_randomization", "dec_instrument", "dec_consent_privacy"]
+      "based_on_decision_ids": [
+        "dec_randomization",
+        "dec_instrument",
+        "dec_consent_privacy"
+      ]
     },
     {
       "path": "greedyq.study.json",
       "kind": "source",
       "sha256": "264d1d0b99b529e5c25227e823e173da71a8754af40528605cc4b208e9ed34e8",
       "status": "validated",
-      "based_on_decision_ids": ["dec_research_question", "dec_randomization"]
+      "based_on_decision_ids": [
+        "dec_research_question",
+        "dec_randomization"
+      ]
     },
     {
       "path": "study-plan.md",
       "kind": "derived",
       "sha256": "37468ad563680de91b9aa3598926191ec1a80a5133c185e2f0b79016c91550d7",
       "status": "validated",
-      "based_on_decision_ids": ["dec_research_question", "dec_randomization", "dec_instrument"]
+      "based_on_decision_ids": [
+        "dec_research_question",
+        "dec_randomization",
+        "dec_instrument"
+      ]
     },
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "eea2e47307bda27828856c7598cb8ab372f52bc6401c68cc1bca45f947974431",
+      "sha256": "8564afd8c670043b70a07f5fb55fa5e61d20819017f8dfd41c5b7f1852b8672f",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -89,7 +125,11 @@
       "kind": "derived",
       "sha256": "fe7c0250a77101e76630c781b923b3c84e928657c9b51582bb65d1fa5e3a5ebd",
       "status": "validated",
-      "based_on_decision_ids": ["dec_instrument", "dec_randomization", "dec_consent_privacy"]
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_randomization",
+        "dec_consent_privacy"
+      ]
     }
   ],
   "external_operations": [

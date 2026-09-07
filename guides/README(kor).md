@@ -25,7 +25,7 @@
 | OSF draft 제출 요청 | 정확한 hash 승인과 connected authorization 요구 | `open_osf_submission`으로 차단 |
 | Recruitment 시작 요청 | Preregistration 및 deployment gate 요구 | Fielding gate 차단 상태 |
 | Target sample 변경 | Superseding decision을 append하고 영향받는 hash를 stale 처리 | Decision 및 manifest contract에서 요구 |
-| 임의의 R 추가 | 실행을 거부하고 declarative 또는 export-safe 대안 제공 | Guide 및 v0.1 specification에서 금지 |
+| 임의의 R 추가 | 실행을 거부하고 declarative 또는 export-safe 대안 제공 | Guide 및 v0.2 specification에서 금지 |
 | Deployment 성공 주장 | External verification evidence 요구 | 모든 external operation이 `not_attempted` 상태 |
 
 Structural fixture는 JSON Schema validation, decision-reference check, artifact-hash check, QMD reference check, 영문/한국어 문서 parity를 통과합니다. Parser, validator, renderer가 존재할 때까지 runtime behavior는 test되지 않은 상태입니다.

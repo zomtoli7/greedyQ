@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "digital_service_info_001",
   "append_only": true,
   "decisions": [
@@ -84,8 +84,8 @@
       "status": "confirmed",
       "source": "llm_suggestion",
       "question": "Which instrument features should the reference cover?",
-      "options_considered": ["Core v0.1 types and conditional follow-ups", "Every deferred question type"],
-      "decision": "Cover core v0.1 types, quality checks, demographics, and conditional follow-ups.",
+      "options_considered": ["Core v0.2 types and conditional follow-ups", "Every deferred question type"],
+      "decision": "Cover core v0.2 types, quality checks, demographics, and conditional follow-ups.",
       "rationale": "This tests the MVP without importing deferred behavior.",
       "researcher_confirmation": "The project owner approved the comprehensive reference-study direction.",
       "decided_at": null,

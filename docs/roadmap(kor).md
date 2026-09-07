@@ -39,7 +39,7 @@ docs/surveydown-compatibility.md
 docs/surveydown-compatibility(kor).md
 ```
 
-## Phase 2: greedyQ v0.1 스펙
+## Phase 2: greedyQ v0.2 스펙
 
 - [ ] 지원할 QMD grammar 정의
 - [ ] 제한된 `sd_*()` expression grammar 정의
@@ -64,8 +64,8 @@ docs/surveydown-compatibility(kor).md
 결과물:
 
 ```text
-docs/greedyq-v0.1-spec.md
-docs/greedyq-v0.1-spec(kor).md
+docs/greedyq-v0.2-spec.md
+docs/greedyq-v0.2-spec(kor).md
 ```
 
 ## Phase 3: AI-guided workflow 스펙
@@ -212,7 +212,7 @@ examples/complete-study/
 
 ## 바로 다음 작업
 
-1. Golden reference를 기준으로 v0.1 grammar 및 state contract를 검토하고 freeze
+1. Golden reference를 기준으로 v0.2 grammar 및 state contract를 검토하고 freeze
 2. 여러 GPT 및 Claude configuration에서 full/compact guide 실행
 3. Behavioral failure를 guide revision과 반복 가능한 evaluation case로 전환
 4. 독립 fixture를 기준으로 QMD parser, normalized AST, validator 구현

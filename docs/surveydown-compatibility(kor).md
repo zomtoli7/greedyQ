@@ -10,11 +10,11 @@
 
 **문서 snapshot:** commit [`f1325a3`](https://github.com/surveydown-dev/website/commit/f1325a32ad937817bb23bc017356f0636ef6d8da)
 
-**문서 역할:** surveydown의 공개 authoring surface에 대한 기술적 목록과 greedyQ v0.1의 제안 호환 범위
+**문서 역할:** surveydown의 공개 authoring surface에 대한 기술적 목록과 greedyQ v0.2의 제안 호환 범위
 
 ## 1. 범위 및 용어
 
-이 문서는 공식 문서, package reference, repository metadata, 유지 관리되는 예제에서 공개적으로 관찰 가능한 surveydown 작성 동작을 기록합니다. 이는 규범적 greedyQ v0.1 스펙을 위한 조사 자료이며 그 자체가 구현 보증이나 소스 코드 재사용 계획은 아닙니다.
+이 문서는 공식 문서, package reference, repository metadata, 유지 관리되는 예제에서 공개적으로 관찰 가능한 surveydown 작성 동작을 기록합니다. 이는 규범적 greedyQ v0.2 스펙을 위한 조사 자료이며 그 자체가 구현 보증이나 소스 코드 재사용 계획은 아닙니다.
 
 greedyQ는 독립 구현이며 surveydown 소스 코드를 포함하지 않습니다. Parser, AST, validator, web-native runtime, deployment integration, export generator, template, conformance fixture는 독립적으로 작성해야 합니다. 이 문서의 repository link는 구현 세부사항을 복사하기 위한 허가가 아니라 출처와 version snapshot을 확립합니다. Surveydown은 MIT License로 배포되는 선행 오픈소스 작업이며 출처 표시와 비제휴 조건은 repository의 `NOTICE(kor).md`에 기록합니다.
 
@@ -22,8 +22,8 @@ greedyQ는 독립 구현이며 surveydown 소스 코드를 포함하지 않습�
 
 | 분류 | 의미 |
 | --- | --- |
-| **v0.1 target** | 첫 규범적 greedyQ 스펙 및 MVP에 포함할 예정 |
-| **Post-v0.1** | MVP 이후 호환 또는 동등 동작을 제공하는 것이 바람직함 |
+| **v0.2 target** | 첫 규범적 greedyQ 스펙 및 MVP에 포함할 예정 |
+| **Post-v0.2** | MVP 이후 호환 또는 동등 동작을 제공하는 것이 바람직함 |
 | **Native implementation** | Web-native runtime에서 greedyQ 선언형 기능으로 사용 사례 지원 |
 | **Generated export** | 검증된 동작을 `app.R` 또는 native surveydown 보조 파일로 변환 |
 | **greedyQ-only** | Export report에 명시적인 제한 또는 대안이 필요한 기능 |
@@ -88,9 +88,9 @@ generated app.R        -> native surveydown export from the validated AST
 
 | Surveydown component | 제안 greedyQ 처리 |
 | --- | --- |
-| `survey.qmd` | **v0.1 target** |
-| Root `questions.yml` | **v0.1 target** |
-| Custom question YAML path | **Post-v0.1** |
+| `survey.qmd` | **v0.2 target** |
+| Root `questions.yml` | **v0.2 target** |
+| Custom question YAML path | **Post-v0.2** |
 | 기존 `app.R` 표준 pattern | Optional migration input, 절대 실행하지 않음 |
 | 생성된 `app.R` | **Generated export** 및 compatibility diagnostic |
 | 임의의 R/Shiny code | **Unsupported by design** |
@@ -142,12 +142,12 @@ Legacy/explicit fence syntax:
 
 | 기능 | Surveydown 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
-| `--- page_id` | 페이지를 열고 이전 페이지를 암묵적으로 닫음 | **v0.1 target** |
-| `.sd_page` fence | 명시적 페이지 경계 | **Post-v0.1** |
-| Markdown content | Quarto/Markdown을 통해 render | **v0.1 target**, 문서화된 안전 subset |
+| `--- page_id` | 페이지를 열고 이전 페이지를 암묵적으로 닫음 | **v0.2 target** |
+| `.sd_page` fence | 명시적 페이지 경계 | **Post-v0.2** |
+| Markdown content | Quarto/Markdown을 통해 render | **v0.2 target**, 문서화된 안전 subset |
 | Raw HTML | Upstream rendering stack에서 허용 | **Deferred**, 기본 sanitize |
 | 임의 Quarto extension | Quarto를 통해 사용 가능 | 명시적으로 채택하지 않는 한 **Unsupported by design** |
-| 중복/겹치는 ID | Reserved ID를 포함해 거부 | **v0.1 target** |
+| 중복/겹치는 ID | Reserved ID를 포함해 거부 | **v0.2 target** |
 
 Package source에서 확인된 upstream reserved ID는 다음과 같습니다.
 
@@ -209,22 +209,22 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 
 | Type | Upstream semantics | 주요 데이터 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- | --- |
-| `text` | Single-line text input | Scalar value 하나 | **v0.1 target** |
-| `textarea` | Multi-line text input | Scalar value 하나 | **v0.1 target** |
-| `numeric` | Numeric input | Numeric-looking value 하나 | **v0.1 target** |
-| `mc` | Single-choice radio group | Option value | **v0.1 target** |
-| `mc_multiple` | Multiple-choice checkbox group | Upstream은 pipe-separated로 저장 | **v0.1 target** |
-| `mc_buttons` | Single-choice button | Option value | **Post-v0.1** |
-| `mc_multiple_buttons` | Multiple-choice button | Upstream은 pipe-separated로 저장 | **Post-v0.1** |
-| `mc_image` | Single-choice image card | Option value, caption 선택 가능 | **Post-v0.1** |
-| `mc_multiple_image` | Multiple-choice image card | Multiple value | **Post-v0.1** |
-| `select` | Dropdown | Option value | **v0.1 target** |
-| `slider` | Discrete labeled slider | 선택된 option value | **v0.1 target** |
-| `slider_numeric` | Numeric single/range slider | Scalar 또는 range | **v0.1 target** |
-| `date` | Date input, upstream default는 오늘 | Date value | **v0.1 target** |
-| `daterange` | Date-range input | Endpoint 두 개 | **Post-v0.1** |
-| `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.1 target** |
-| `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **Post-v0.1** |
+| `text` | Single-line text input | Scalar value 하나 | **v0.2 target** |
+| `textarea` | Multi-line text input | Scalar value 하나 | **v0.2 target** |
+| `numeric` | Numeric input | Numeric-looking value 하나 | **v0.2 target** |
+| `mc` | Single-choice radio group | Option value | **v0.2 target** |
+| `mc_multiple` | Multiple-choice checkbox group | Upstream은 pipe-separated로 저장 | **v0.2 target** |
+| `mc_buttons` | Single-choice button | Option value | **Post-v0.2** |
+| `mc_multiple_buttons` | Multiple-choice button | Upstream은 pipe-separated로 저장 | **Post-v0.2** |
+| `mc_image` | Single-choice image card | Option value, caption 선택 가능 | **Post-v0.2** |
+| `mc_multiple_image` | Multiple-choice image card | Multiple value | **Post-v0.2** |
+| `select` | Dropdown | Option value | **v0.2 target** |
+| `slider` | Discrete labeled slider | 선택된 option value | **v0.2 target** |
+| `slider_numeric` | Numeric single/range slider | Scalar 또는 range | **v0.2 target** |
+| `date` | Date input, upstream default는 오늘 | Date value | **v0.2 target** |
+| `daterange` | Date-range input | Endpoint 두 개 | **Post-v0.2** |
+| `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.2 target** |
+| `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **Post-v0.2** |
 
 greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
 
@@ -232,20 +232,20 @@ greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 �
 
 | Argument | Upstream 목적 | 제안 greedyQ 분류 |
 | --- | --- | --- |
-| `id`, `type`, `label` | Identity와 핵심 정의 | **v0.1 target** |
-| `option`, `options` | 표시/저장 value 선택지 | **v0.1 target** |
-| `row` | Matrix row label/ID mapping | **v0.1 target** |
-| `selected`, `default` | 초기 choice 또는 slider value/range | **v0.1 target** |
-| `placeholder` | Text/textarea placeholder | **v0.1 target** |
-| `width`, `height`, `cols`, `resize` | Size/layout control | **Post-v0.1** |
-| `direction` | Horizontal/vertical button group | **Post-v0.1** |
+| `id`, `type`, `label` | Identity와 핵심 정의 | **v0.2 target** |
+| `option`, `options` | 표시/저장 value 선택지 | **v0.2 target** |
+| `row` | Matrix row label/ID mapping | **v0.2 target** |
+| `selected`, `default` | 초기 choice 또는 slider value/range | **v0.2 target** |
+| `placeholder` | Text/textarea placeholder | **v0.2 target** |
+| `width`, `height`, `cols`, `resize` | Size/layout control | **Post-v0.2** |
+| `direction` | Horizontal/vertical button group | **Post-v0.2** |
 | `status`, `individual`, `justified` | Shiny button styling | **Deferred**, portable한 경우만 mapping |
-| `label_select` | Select placeholder | **v0.1 target** |
-| `grid`, `force_edges` | Slider presentation | **Post-v0.1** |
-| `image` | Option과 평행한 image path/URL | **Post-v0.1** |
+| `label_select` | Select placeholder | **v0.2 target** |
+| `grid`, `force_edges` | Slider presentation | **Post-v0.2** |
+| `image` | Option과 평행한 image path/URL | **Post-v0.2** |
 | `option_attr` | Option별 HTML attribute | Raw form은 **Unsupported by design** |
-| `yml` | 외부 question-definition path | **Post-v0.1**, root default는 v0.1 |
-| `matrix_question_width` | Matrix prompt-column width | **Post-v0.1** |
+| `yml` | 외부 question-definition path | **Post-v0.2**, root default는 v0.2 |
+| `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |
 | `...` | 임의의 input-specific Shiny argument | **Unsupported by design**, portable argument만 명시적으로 allowlist |
 
 Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw HTML도 가능하지만 greedyQ는 sanitization과 portable Markdown subset을 정의해야 합니다.
@@ -256,16 +256,16 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 
 | Surface | Upstream 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
-| Automatic Next | 기본적으로 페이지에 추가 | **v0.1 target** |
-| Global `show-previous` | 모든 페이지에서 Previous 활성화 | **v0.1 target** |
-| `sd_nav()` | Page-level Previous/Next override | **v0.1 target** |
-| `page_next` | 직접 forward target | **v0.1 target** |
-| Custom navigation label | `label_previous`, `label_next` | **v0.1 target** |
-| Button 숨김 | `show_previous`, `show_next` | **v0.1 target** |
-| `sd_next()` | Legacy single Next button | **Post-v0.1** parser alias |
-| `sd_close()` | Exit flow, optional rating/restart/cookie clear | Basic exit **v0.1**, 확장 option **Post-v0.1** |
-| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**, reactive redirect **Native implementation** |
-| 빈 terminal page | Forward control 없음 | **v0.1 target** |
+| Automatic Next | 기본적으로 페이지에 추가 | **v0.2 target** |
+| Global `show-previous` | 모든 페이지에서 Previous 활성화 | **v0.2 target** |
+| `sd_nav()` | Page-level Previous/Next override | **v0.2 target** |
+| `page_next` | 직접 forward target | **v0.2 target** |
+| Custom navigation label | `label_previous`, `label_next` | **v0.2 target** |
+| Button 숨김 | `show_previous`, `show_next` | **v0.2 target** |
+| `sd_next()` | Legacy single Next button | **Post-v0.2** parser alias |
+| `sd_close()` | Exit flow, optional rating/restart/cookie clear | Basic exit **v0.2**, 확장 option **Post-v0.2** |
+| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.2**, reactive redirect **Native implementation** |
+| 빈 terminal page | Forward control 없음 | **v0.2 target** |
 
 현재 `sd_nav()` source signature는 `show_previous`를 사용하지만 일부 narrative documentation은 `show_prev`를 사용합니다. greedyQ는 package reference/source signature를 따르고 narrative alias에는 유용한 diagnostic을 제공할 수 있습니다.
 
@@ -277,10 +277,10 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 
 | Key | Upstream default/동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
-| `theme` | `default`, Quarto를 통한 Bootswatch/custom SCSS | Portable named theme **Post-v0.1**, arbitrary SCSS deferred |
-| `barposition` | `top`, `bottom` 또는 `none` | **v0.1 target** |
-| `barcolor` | Theme primary color | **v0.1 target** |
-| `footer`, `footer-left`, `footer-center`, `footer-right` | Footer content | **v0.1 target** |
+| `theme` | `default`, Quarto를 통한 Bootswatch/custom SCSS | Portable named theme **Post-v0.2**, arbitrary SCSS deferred |
+| `barposition` | `top`, `bottom` 또는 `none` | **v0.2 target** |
+| `barcolor` | Theme primary color | **v0.2 target** |
+| `footer`, `footer-left`, `footer-center`, `footer-right` | Footer content | **v0.2 target** |
 
 Upstream progress는 page가 아니라 답변한 question마다 증가합니다.
 
@@ -289,19 +289,19 @@ Upstream progress는 page가 아니라 답변한 question마다 증가합니다.
 | Key | Upstream default | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | `mode` | `database`, `preview`, `local`도 지원 | 동등 environment **Native implementation** |
-| `show-previous` | `no` | **v0.1 target** |
-| `use-cookies` | `yes` | **v0.1 target**, 명시적 privacy semantics 필요 |
-| `auto-scroll` | `no` | **Post-v0.1** |
-| `rate-survey` | `no` | **Post-v0.1** |
-| `all-required` | `no` | **v0.1 target** |
-| `required` | `[]` | **v0.1 target** |
-| `start-page` | 실제로 첫 페이지, default material은 `initial_page` 명명 | **v0.1 target** |
-| `system-language` | `en`, upstream은 `de`, `es`, `fr`, `it`, `zh-CN` 포함 | **Post-v0.1**, v0.1부터 i18n-ready |
-| `highlight-unanswered` | `yes` | **v0.1 target** |
-| `highlight-color` | `gray`, 문서화된 palette | **Post-v0.1** |
+| `show-previous` | `no` | **v0.2 target** |
+| `use-cookies` | `yes` | **v0.2 target**, 명시적 privacy semantics 필요 |
+| `auto-scroll` | `no` | **Post-v0.2** |
+| `rate-survey` | `no` | **Post-v0.2** |
+| `all-required` | `no` | **v0.2 target** |
+| `required` | `[]` | **v0.2 target** |
+| `start-page` | 실제로 첫 페이지, default material은 `initial_page` 명명 | **v0.2 target** |
+| `system-language` | `en`, upstream은 `de`, `es`, `fr`, `it`, `zh-CN` 포함 | **Post-v0.2**, v0.2부터 i18n-ready |
+| `highlight-unanswered` | `yes` | **v0.2 target** |
+| `highlight-color` | `gray`, 문서화된 palette | **Post-v0.2** |
 | `capture-metadata` | `yes`, browser 및 IP | **Deferred**, greedyQ에서는 privacy-first 및 opt-in |
-| `all-shuffled` | `no` | 지원 타입에 대해 **v0.1 target** |
-| `shuffled` | `[]` | 지원 타입과 index syntax에 대해 **v0.1 target** |
+| `all-shuffled` | `no` | 지원 타입에 대해 **v0.2 target** |
+| `shuffled` | `[]` | 지원 타입과 index syntax에 대해 **v0.2 target** |
 
 Upstream option shuffling은 `mc`, `mc_buttons`, `mc_multiple`, `mc_multiple_buttons`에 적용되고 row shuffling은 `matrix`에 적용됩니다. `shuffled`는 전체 question ID 또는 `1-5`, `[1, 2, 4]`, `[1-5, 8-10]`과 같은 1-based range/list를 허용합니다.
 
@@ -331,7 +331,7 @@ new-tab
 redirect-error
 ```
 
-핵심 navigation, validation, selection, exit, redirect message는 **v0.1 target**입니다. Survey-rating message는 해당 기능과 함께 **Post-v0.1**입니다.
+핵심 navigation, validation, selection, exit, redirect message는 **v0.2 target**입니다. Survey-rating message는 해당 기능과 함께 **Post-v0.2**입니다.
 
 ## 8. Conditional logic 및 value
 
@@ -339,16 +339,16 @@ redirect-error
 
 | Upstream function/pattern | Semantics | 제안 greedyQ 처리 |
 | --- | --- | --- |
-| `sd_show_if(condition ~ target)` | True일 때 question 또는 page 표시 | **Native implementation**, v0.1 선언형 rule |
-| `sd_skip_if(condition ~ page)` | True일 때 forward skip | **Native implementation**, v0.1 선언형 rule |
-| `sd_stop_if(condition ~ message)` | Navigation을 막고 validation error 표시 | **Native implementation**, v0.1 선언형 rule |
-| `sd_is_answered(id)` | Answer-completeness predicate, matrix는 모든 row 필요 | **Native implementation**, v0.1 expression function |
+| `sd_show_if(condition ~ target)` | True일 때 question 또는 page 표시 | **Native implementation**, v0.2 선언형 rule |
+| `sd_skip_if(condition ~ page)` | True일 때 forward skip | **Native implementation**, v0.2 선언형 rule |
+| `sd_stop_if(condition ~ message)` | Navigation을 막고 validation error 표시 | **Native implementation**, v0.2 선언형 rule |
+| `sd_is_answered(id)` | Answer-completeness predicate, matrix는 모든 row 필요 | **Native implementation**, v0.2 expression function |
 | `sd_value()` / `sd_values()` | Reactive answer lookup 및 type conversion | **Native implementation**, expression reference |
-| `sd_store_value()` | Derived/custom value 저장 | **Native implementation**, v0.1 assignment primitive |
-| `sd_output(type = "value")` | Answer 또는 stored value 표시 | **Native implementation**, v0.1 interpolation |
+| `sd_store_value()` | Derived/custom value 저장 | **Native implementation**, v0.2 assignment primitive |
+| `sd_output(type = "value")` | Answer 또는 stored value 표시 | **Native implementation**, v0.2 interpolation |
 | `sd_output(type = "question")` | Server-defined reactive question render | **Deferred**, declared dynamic property 선호 |
-| `sd_output()` label mode | Option 또는 question label 표시 | **Post-v0.1** |
-| `sd_reactive()` | Reactive value 계산 및 저장 | **Native implementation**, v0.1 core 이후 safe expression graph |
+| `sd_output()` label mode | Option 또는 question label 표시 | **Post-v0.2** |
+| `sd_reactive()` | Reactive value 계산 및 저장 | **Native implementation**, v0.2 core 이후 safe expression graph |
 | `sd_copy_value()` | Shiny output ID uniqueness workaround | Web renderer에서는 호환 필요 없음 |
 | Custom R function | 임의 condition/calculation logic | **Unsupported by design** |
 | `observe()` 및 Shiny reactive | 임의 reactive programming | **Unsupported by design** |
@@ -368,15 +368,15 @@ Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단�
 
 | Capability | Upstream | greedyQ 방향 |
 | --- | --- | --- |
-| Option/row shuffle | 지원 문항 타입에 YAML 선언 | **v0.1 target compatibility** |
-| 단순 respondent assignment | 사용자가 작성한 R | **v0.1 native primitive** |
-| Persistent stored assignment | `sd_store_value()` 및 session 동작 | **v0.1 native primitive** |
-| Predefined design 선택 | 사용자가 작성한 R/CSV | **Post-v0.1 native primitive** |
-| Weighted assignment | 사용자가 작성한 R | **Post-v0.1 native primitive** |
-| Block/stratified assignment | 사용자 구현 | **v0.1 block target**, stratified는 이후 |
-| Factorial design | 사용자 구현 | **Post-v0.1 native primitive** |
-| Seeded reproducibility | 사용자 구현 | **v0.1 native requirement** |
-| Concurrency-safe balancing | 사용자/database 구현 | **v0.1 database requirement** |
+| Option/row shuffle | 지원 문항 타입에 YAML 선언 | **v0.2 target compatibility** |
+| 단순 respondent assignment | 사용자가 작성한 R | **v0.2 native primitive** |
+| Persistent stored assignment | `sd_store_value()` 및 session 동작 | **v0.2 native primitive** |
+| Predefined design 선택 | 사용자가 작성한 R/CSV | **Post-v0.2 native primitive** |
+| Weighted assignment | 사용자가 작성한 R | **Post-v0.2 native primitive** |
+| Block/stratified assignment | 사용자 구현 | **v0.2 block target**, stratified는 이후 |
+| Factorial design | 사용자 구현 | **Post-v0.2 native primitive** |
+| Seeded reproducibility | 사용자 구현 | **v0.2 native requirement** |
+| Concurrency-safe balancing | 사용자/database 구현 | **v0.2 database requirement** |
 
 ## 10. Persistence 및 database 동작
 
@@ -398,12 +398,12 @@ Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단�
 
 | 동작 | 제안 greedyQ 분류 |
 | --- | --- |
-| 익명 stable respondent/session ID | **v0.1 target** |
-| Current page와 기존 answer 재개 | **v0.1 target** |
-| Page navigation 시 저장 | **v0.1 target** |
-| Browser/session 종료 시 best-effort 저장 | **v0.1 target**, 유일한 durability mechanism으로 사용하지 않음 |
-| Supabase/PostgreSQL 지원 | **v0.1 target** |
-| Preview environment | **v0.1 native equivalent** |
+| 익명 stable respondent/session ID | **v0.2 target** |
+| Current page와 기존 answer 재개 | **v0.2 target** |
+| Page navigation 시 저장 | **v0.2 target** |
+| Browser/session 종료 시 best-effort 저장 | **v0.2 target**, 유일한 durability mechanism으로 사용하지 않음 |
+| Supabase/PostgreSQL 지원 | **v0.2 target** |
+| Preview environment | **v0.2 native equivalent** |
 | Offline local CSV collection | **Deferred** |
 | Respondent당 하나의 wide mutable row | Export compatibility만 제공, **native schema target 아님** |
 | Pipe-separated multiple response | Export compatibility만 제공 |
@@ -417,7 +417,7 @@ greedyQ native schema는 respondent identity/session state, answer, assignment, 
 
 `sd_get_url_pars()`는 전체 또는 이름이 지정된 URL parameter를 읽습니다. `sd_redirect()`는 static/reactive URL, optional button, delay, new-tab 동작을 지원합니다. 이 primitive는 participant ID와 completion destination 같은 panel integration의 기반입니다.
 
-제안 v0.1 지원:
+제안 v0.2 지원:
 
 - Allowlist된 URL parameter를 선언된 respondent metadata에 mapping
 - Parameter interpolation을 사용하는 static completion redirect
@@ -435,7 +435,7 @@ Deferred:
 
 이는 presentation capability이지 구조화된 IRB 지원이 아닙니다. surveydown은 필수 ethics field를 검증하거나, 표시된 문구를 protocol/version에 연결하거나, 연구가 승인 또는 compliant하다는 증거를 제공하지 않습니다.
 
-greedyQ 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 information block은 **v0.1 native target**입니다. Authoring, validation, display, audit metadata만 제공하며 compliance를 주장해서는 안 됩니다.
+greedyQ 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 information block은 **v0.2 native target**입니다. Authoring, validation, display, audit metadata만 제공하며 compliance를 주장해서는 안 됩니다.
 
 ### 11.2 Informed consent
 
@@ -443,7 +443,7 @@ greedyQ 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 informat
 
 이 조합으로 answer를 수집할 수 있지만 document version, content hash, server acceptance time, amendment, withdrawal, parental/guardian consent 또는 response-retention policy 같은 consent-specific semantics를 정의하지는 않습니다.
 
-greedyQ 분류: consent는 semantic하고 versioned contract를 갖는 **v0.1 native target**입니다. 전자서명과 관할별 compliance workflow는 **Deferred**입니다.
+greedyQ 분류: consent는 semantic하고 versioned contract를 갖는 **v0.2 native target**입니다. 전자서명과 관할별 compliance workflow는 **Deferred**입니다.
 
 ### 11.3 External respondent collector
 
@@ -456,11 +456,11 @@ surveydown은 turnkey provider connector 대신 generic panel workflow를 명시
 
 공식 external-redirect 문서는 Prolific과 Dynata를 사용 사례로 명시합니다. 그러나 작성자가 provider mapping, missing-ID check, storage call, completion/screen-out route, duplicate-participation policy를 직접 작성해야 합니다.
 
-greedyQ 분류: generic provider contract와 Prolific preset은 **v0.1 native target**입니다. 추가 provider preset은 **Post-v0.1**입니다.
+greedyQ 분류: generic provider contract와 Prolific preset은 **v0.2 native target**입니다. 추가 provider preset은 **Post-v0.2**입니다.
 
 ## 12. 호환성 matrix 요약
 
-| Domain | v0.1 target | Post-v0.1 / native extension | Unsupported by design |
+| Domain | v0.2 target | Post-v0.2 / native extension | Unsupported by design |
 | --- | --- | --- | --- |
 | Pages | Shorthand page, Markdown subset | Fence page | 임의 Quarto extension |
 | Questions | Core input, choice, select, slider, date, matrix | Button, image, daterange, matrix multiple | `...`을 통한 임의 Shiny input |
@@ -497,7 +497,7 @@ Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementat
 
 LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQ는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
 
-## 14. v0.1 스펙에 미치는 영향
+## 14. v0.2 스펙에 미치는 영향
 
 규범적 스펙은 다음 사항을 명시적으로 결정해야 합니다.
 
@@ -521,7 +521,7 @@ LLM은 자신의 research-methods knowledge를 적용하여 question과 design�
 - Public package reference는 광범위한 `...` input argument를 노출하며 이는 안정적인 cross-runtime contract가 될 수 없습니다.
 - Quarto와 Shiny에서는 임의 formatting과 behavior가 가능하므로 문서화된 portable subset만 호환성 대상이 될 수 있습니다.
 - 현재 GitHub `main`은 package version `1.3.0`을 보고하지만 GitHub Releases는 이 버전까지 유지되지 않았습니다. 따라서 이 조사는 Releases page에 의존하지 않고 정확한 commit을 고정합니다.
-- v0.1을 확정하기 전에 모든 대상 문항 타입, navigation path, shuffle form, persistence transition에 대한 executable fixture를 수집해야 합니다.
+- v0.2을 확정하기 전에 모든 대상 문항 타입, navigation path, shuffle form, persistence transition에 대한 executable fixture를 수집해야 합니다.
 
 ## 16. Primary source
 

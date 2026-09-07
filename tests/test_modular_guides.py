@@ -122,7 +122,7 @@ class ModularGuideTests(unittest.TestCase):
             self.assertNotIn(term, plan)
         positioning_files = (
             "README.md", "START-HERE.md", "docs/product-brief.md",
-            "docs/greedyq-v0.1-spec.md", "docs/modular-guide-architecture.md",
+            "docs/greedyq-v0.2-spec.md", "docs/modular-guide-architecture.md",
             "guides/core/guide.md",
         )
         for relative in positioning_files:

@@ -1,4 +1,6 @@
-# greedyQ v0.1 스펙
+# greedyQ v0.1 스펙 (아카이브)
+
+> 역사적 기록 전용입니다. 이 초안은 [현재 v0.2 스펙](../../greedyq-v0.2-spec(kor).md)으로 대체되었으며 새 연구에 사용하면 안 됩니다.
 
 [English](./greedyq-v0.1-spec.md)
 

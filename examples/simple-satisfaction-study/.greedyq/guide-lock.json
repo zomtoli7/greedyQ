@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "e0f23693c6e5fe01ab0f5816461d10f92ba3c061347f9513b41b2b9f8124121c",
+  "registry_sha256": "e99fad50e90b1229f4012be02bec294ca389d944f06c60d84165abd4394c17af",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -15,7 +15,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "80a1df1e67ce926de3e502bb33e981afa887e8c85ba0678daeebc158d398752b"
+      "manifest_sha256": "98c43a545190700b214c4fc8b7d58e745a82f6a5c9a544ea871a47cdb64a2e21"
     },
     {
       "id": "simple",
@@ -64,8 +64,8 @@
     },
     {
       "component": "core",
-      "path": "docs/greedyq-v0.1-spec.md",
-      "sha256": "fee8eae9883e2199c4e10deb4a86928824e8a7fb3106682f1f2cedcff3848181"
+      "path": "docs/greedyq-v0.2-spec.md",
+      "sha256": "f7df84bb4171bfdf0e27ff67666cb40e72c942e58721341d5dd15138e3eb50f9"
     },
     {
       "component": "core",
@@ -75,22 +75,22 @@
     {
       "component": "core",
       "path": "schemas/ai/study-state.schema.json",
-      "sha256": "a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159"
+      "sha256": "0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5"
     },
     {
       "component": "core",
       "path": "schemas/ai/decision-log.schema.json",
-      "sha256": "c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d"
+      "sha256": "a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188"
     },
     {
       "component": "core",
       "path": "schemas/ai/unresolved-decisions.schema.json",
-      "sha256": "7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16"
+      "sha256": "8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c"
     },
     {
       "component": "core",
       "path": "schemas/ai/generation-manifest.schema.json",
-      "sha256": "5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093"
+      "sha256": "ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e"
     },
     {
       "component": "core",

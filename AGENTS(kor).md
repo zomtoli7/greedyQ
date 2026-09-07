@@ -23,7 +23,7 @@
 - Entity를 구분합니다. greedyQ 자체는 agent가 아닙니다. greedyQ specification과 capable host GenAI가 greedyQ research agent를 instantiate하고, 이 agent가 연구 artifact와 respondent-facing survey software를 만듭니다.
 - Model 간 portability와 conformance를 핵심 연구 및 engineering 목표로 둡니다. Host-specific interface는 달라도 normative decision, participant protection, artifact semantics, truthful status는 검증 가능한 invariant로 유지해야 합니다.
 - `docs/product-brief.md`를 현재 제품 방향의 기준으로 사용합니다.
-- `docs/greedyq-v0.1-spec.md`를 현재 normative-format draft로, `examples/complete-study/`를 pre-implementation golden reference로 사용합니다.
+- `docs/greedyq-v0.2-spec.md`를 현재 normative-format draft로, `examples/complete-study/`를 pre-implementation golden reference로 사용합니다.
 - `docs/roadmap.md`를 현재 구현 순서의 기준으로 사용합니다.
 - AI-guided study creation 및 deployment를 주요 사용자 경험으로 취급합니다.
 - `START-HERE.md`와 생성된 guide registry를 기본 배포 경로로 사용하며 자체 포함 full guide는 attachment-only fallback으로 유지합니다.

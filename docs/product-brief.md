@@ -408,7 +408,7 @@ consent:
     - consent-document-hash
 ```
 
-The v0.1 specification should define:
+The v0.2 specification should define:
 
 - Blocking access to study questions until required consent is accepted
 - A deterministic route for declined consent
@@ -454,7 +454,7 @@ A Prolific preset is an initial target. Other providers should use the same gene
 
 ## 14. Open decisions
 
-- Exact v0.1 surveydown compatibility boundary
+- Exact v0.2 surveydown compatibility boundary
 - Parser implementation and grammar strategy
 - Next.js and runtime architecture
 - Supabase relational/JSONB schema boundaries

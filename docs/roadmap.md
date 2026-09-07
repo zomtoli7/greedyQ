@@ -39,7 +39,7 @@ docs/surveydown-compatibility.md
 docs/surveydown-compatibility(kor).md
 ```
 
-## Phase 2: greedyQ v0.1 specification
+## Phase 2: greedyQ v0.2 specification
 
 - [ ] Define the supported QMD grammar.
 - [ ] Define the restricted `sd_*()` expression grammar.
@@ -64,8 +64,8 @@ docs/surveydown-compatibility(kor).md
 Deliverables:
 
 ```text
-docs/greedyq-v0.1-spec.md
-docs/greedyq-v0.1-spec(kor).md
+docs/greedyq-v0.2-spec.md
+docs/greedyq-v0.2-spec(kor).md
 ```
 
 ## Phase 3: AI-guided workflow specification
@@ -212,7 +212,7 @@ These requirements apply to every phase:
 
 ## Immediate next actions
 
-1. Review and freeze the v0.1 grammar and state contracts against the golden reference.
+1. Review and freeze the v0.2 grammar and state contracts against the golden reference.
 2. Run the full and compact guides with multiple GPT and Claude configurations.
 3. Turn behavioral failures into guide revisions and repeatable evaluation cases.
 4. Implement the QMD parser, normalized AST, and validator against independent fixtures.

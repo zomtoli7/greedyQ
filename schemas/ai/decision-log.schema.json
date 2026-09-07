@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "study_id", "append_only", "decisions"],
   "properties": {
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
     "append_only": { "const": true },
     "decisions": {

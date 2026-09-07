@@ -1,5 +1,5 @@
 {
-  "manifest_version": "0.1",
+  "manifest_version": "0.2",
   "algorithm": "sha256",
   "status": "draft_unapproved",
   "generated_at": "2026-09-07T00:00:00Z",
@@ -8,11 +8,11 @@
   "artifacts": [
     {
       "path": "survey.qmd",
-      "sha256": "f942ed6cbc3019433d50483e92abd50d20268b618297a76d323d95c4b4fbc392"
+      "sha256": "380ab2cd43e2ba6dfbb5d21da6ead1d8e409d0bb1507489dd5126471e30f8c70"
     },
     {
       "path": "greedyq.yml",
-      "sha256": "9787ec7bd3c3641adf02eb8d8f3e16d923d6cb633b3a48beb8757704f4e96ce6"
+      "sha256": "5f9aa1f83d44559d22f99eb77c10ba0c52adfd3ddb8e5b32f44c8dc4a997aec9"
     },
     {
       "path": "consent.md",
@@ -32,11 +32,11 @@
     },
     {
       "path": "preregistration/osf-preregistration.md",
-      "sha256": "31c8abd417f650c4ce4037a82c0b01b1ecaff85a24e7cd2e916987455289ed09"
+      "sha256": "f6ad4276f4a1abd609d163afbf83b5be194918585b37ffa2356c7d3670c5d7aa"
     },
     {
       "path": "preregistration/preregistration.json",
-      "sha256": "6c1dd099daad51abcc0ad441a642ff9b1383ab54ce200abf582615b51fa24d33"
+      "sha256": "3d813741633bfebe6d603095bdc04f6e6322f19897e90505dea94391c8117502"
     }
   ],
   "researcher_approved": false,

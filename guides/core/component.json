@@ -9,7 +9,7 @@
     "guides/core/guide.md",
     "guides/core/communication.md",
     "guides/core/checkpoints.json",
-    "docs/greedyq-v0.1-spec.md",
+    "docs/greedyq-v0.2-spec.md",
     "docs/preview-ui-spec.md",
     "schemas/ai/study-state.schema.json",
     "schemas/ai/decision-log.schema.json",

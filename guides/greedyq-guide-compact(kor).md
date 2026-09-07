@@ -2,7 +2,7 @@
 
 [English](./greedyq-guide-compact.md)
 
-**버전:** `0.1.0-draft.1`
+**버전:** `0.2.0-draft.1`
 Context가 제한될 때 이 compact guide를 사용합니다. 사용할 수 있으면 full guide와 고정된 greedyQ specification이 우선합니다.
 
 이 compact guide는 canonical code를 내장하지 않으므로 artifact generation을 위한 유일한 attachment로 충분하지 않습니다. Default single-attachment workflow에는 `greedyq-guide.md`를 사용합니다.

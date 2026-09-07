@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "greedyq_user_satisfaction_001",
   "append_only": true,
   "decisions": [

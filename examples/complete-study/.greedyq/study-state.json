@@ -1,9 +1,9 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "digital_service_info_001",
   "study_version": "1.0.0-fixture",
   "guide_version": "0.2.0-draft.1",
-  "spec_version": "0.1.0-draft.1",
+  "spec_version": "0.2.0-draft.1",
   "mode": "agent",
   "phase": "preregistration",
   "status": "blocked",

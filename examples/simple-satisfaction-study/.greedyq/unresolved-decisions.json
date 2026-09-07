@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "greedyq_user_satisfaction_001",
   "items": [
     {"decision_id":"open_real_governance","topic":"governance","question":"Which real institution, responsible researcher, and contact details will govern a live survey?","why_it_matters":"Fixture contacts cannot be used for real participants.","options":[],"blocking_scopes":["deployment","fielding"],"status":"open","created_at":null,"resolved_by":null},

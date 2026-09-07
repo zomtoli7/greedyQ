@@ -1,4 +1,4 @@
-# Expected native surveydown export fixture for greedyQ 0.1.0-draft.1.
+# Expected native surveydown export fixture for greedyQ 0.2.0-draft.1.
 # This file is independently authored and has not yet been generated or executed.
 
 library(surveydown)
@@ -15,7 +15,7 @@ server <- function(input, output, session) {
   # - conditional follow-up questions
   # - completion and withdrawal outcomes
   #
-  # Exact generated calls remain blocked on the v0.1 exporter implementation.
+  # Exact generated calls remain blocked on the v0.2 exporter implementation.
   # See compatibility-report.json; this fixture must not be described as runnable.
 
   sd_server(db = db)

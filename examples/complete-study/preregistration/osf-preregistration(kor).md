@@ -5,7 +5,7 @@
 **상태:** Fixture draft이며 제출 또는 등록되지 않음
 **Adapter:** `osf_preregistration`
 **연구 버전:** `1.0.0-fixture`
-**스펙:** `0.1.0-draft.1`
+**스펙:** `0.2.0-draft.1`
 
 ## 관리 정보
 

@@ -1,30 +1,176 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "study_id": "greedyq_user_satisfaction_001",
   "study_version": "1.0.0-fixture",
   "guide_version": "0.2.0-draft.1",
-  "spec_version": "0.1.0-draft.1",
+  "spec_version": "0.2.0-draft.1",
   "source_commit": null,
   "generated_at": null,
   "artifacts": [
-    {"path":"greedyq.study.json","kind":"source","sha256":"e918059eaf700c79604dc95876e10d8e5ac7dfd3ef0d9c2c3350aba96a3f13a2","status":"validated","based_on_decision_ids":["dec_purpose_population"]},
-    {"path":"survey.qmd","kind":"source","sha256":"122f68c0fb456a9df5950473f65c885859f4107201a64178f3feb9ae24602b10","status":"validated","based_on_decision_ids":["dec_purpose_population","dec_instrument","dec_consent_privacy"]},
-    {"path":"greedyq.yml","kind":"source","sha256":"f158515c846ceab30dcb6dbc1eec5dfd6c77ef3f320ed95c9655a05fc5f23040","status":"validated","based_on_decision_ids":["dec_consent_privacy","dec_deployment_fixture"]},
-    {"path":"study-plan.md","kind":"derived","sha256":"114e1b46f7f48f9cb28b7892c1c2bc5b6007fe7f8b33dd6c6fba5b3d238935d8","status":"validated","based_on_decision_ids":["dec_purpose_population","dec_instrument","dec_analysis"]},
-    {"path":"consent.md","kind":"source","sha256":"8ece5ba9e4c5b07489c83a9516f9a10c324ed958cab7dbfdaffdbc0558cd72e2","status":"validated","based_on_decision_ids":["dec_consent_privacy"]},
-    {"path":"analysis/README.md","kind":"source","sha256":"40de0c295a8a20795d5beab92f9966a1811578819f0770aa0ec850c3d5a4b79a","status":"validated","based_on_decision_ids":["dec_analysis"]},
-    {"path":"analysis/data-dictionary.csv","kind":"derived","sha256":"8b9b1caa564f9c221c2c444f83a33e7b7232d00517c979d7df78a849a1020cfa","status":"validated","based_on_decision_ids":["dec_instrument","dec_analysis"]},
-    {"path":"preview-model.json","kind":"derived","sha256":"40b0462bff8cee30453d19ce9e117d86b345e2fb8691afed24307decaf6aa773","status":"validated","based_on_decision_ids":["dec_instrument","dec_consent_privacy"]},
-    {"path":"preview.html","kind":"derived","sha256":"3db6dfae242a4c1861821c6e3d2d3fb688fbef083509ed4074bcc64b4c8ddcdf","status":"validated","based_on_decision_ids":["dec_instrument","dec_consent_privacy"]},
-    {"path":"preview-test-report.md","kind":"derived","sha256":"efdbd3470d9346f25494752dd6ddf64f009873565ab632d4e872abe2e6310e51","status":"validated","based_on_decision_ids":["dec_instrument","dec_consent_privacy","dec_analysis"]},
-    {"path":".greedyq/guide-lock.json","kind":"source","sha256":"c757b86907593c3394be056bf7ca357d6000c70f9d7265e7af44d650d796b998","status":"validated","based_on_decision_ids":[]},
-    {"path":".greedyq/validation-report.json","kind":"derived","sha256":"2f425a8893415f33ebefd1127f842d14082c46a49f439fc36ccb652236acbbce","status":"validated","based_on_decision_ids":["dec_instrument","dec_consent_privacy","dec_analysis"]},
-    {"path":"supabase/migrations/001_initial.sql","kind":"source","sha256":"af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62","status":"validated","based_on_decision_ids":["dec_deployment_fixture"]},
-    {"path":"vercel.json","kind":"source","sha256":"42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1","status":"validated","based_on_decision_ids":["dec_deployment_fixture"]},
-    {"path":".env.example","kind":"source","sha256":"7c40f69b08c0a9ac855f92ec18d480fb02541f75e644edb21ee528dbc71b0cf8","status":"validated","based_on_decision_ids":["dec_deployment_fixture"]}
+    {
+      "path": "greedyq.study.json",
+      "kind": "source",
+      "sha256": "e918059eaf700c79604dc95876e10d8e5ac7dfd3ef0d9c2c3350aba96a3f13a2",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_purpose_population"
+      ]
+    },
+    {
+      "path": "survey.qmd",
+      "kind": "source",
+      "sha256": "c79eddb689e62525fa166656a80e08a9a28def50fa8175d4895e839f7c734aeb",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_purpose_population",
+        "dec_instrument",
+        "dec_consent_privacy"
+      ]
+    },
+    {
+      "path": "greedyq.yml",
+      "kind": "source",
+      "sha256": "9bad27314bbd42efb83528ba1db0c4af8460a5b10e0b36b2000121d83d69dcc0",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_consent_privacy",
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "study-plan.md",
+      "kind": "derived",
+      "sha256": "114e1b46f7f48f9cb28b7892c1c2bc5b6007fe7f8b33dd6c6fba5b3d238935d8",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_purpose_population",
+        "dec_instrument",
+        "dec_analysis"
+      ]
+    },
+    {
+      "path": "consent.md",
+      "kind": "source",
+      "sha256": "8ece5ba9e4c5b07489c83a9516f9a10c324ed958cab7dbfdaffdbc0558cd72e2",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_consent_privacy"
+      ]
+    },
+    {
+      "path": "analysis/README.md",
+      "kind": "source",
+      "sha256": "40de0c295a8a20795d5beab92f9966a1811578819f0770aa0ec850c3d5a4b79a",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_analysis"
+      ]
+    },
+    {
+      "path": "analysis/data-dictionary.csv",
+      "kind": "derived",
+      "sha256": "8b9b1caa564f9c221c2c444f83a33e7b7232d00517c979d7df78a849a1020cfa",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_analysis"
+      ]
+    },
+    {
+      "path": "preview-model.json",
+      "kind": "derived",
+      "sha256": "40b0462bff8cee30453d19ce9e117d86b345e2fb8691afed24307decaf6aa773",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_consent_privacy"
+      ]
+    },
+    {
+      "path": "preview.html",
+      "kind": "derived",
+      "sha256": "3db6dfae242a4c1861821c6e3d2d3fb688fbef083509ed4074bcc64b4c8ddcdf",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_consent_privacy"
+      ]
+    },
+    {
+      "path": "preview-test-report.md",
+      "kind": "derived",
+      "sha256": "efdbd3470d9346f25494752dd6ddf64f009873565ab632d4e872abe2e6310e51",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_consent_privacy",
+        "dec_analysis"
+      ]
+    },
+    {
+      "path": ".greedyq/guide-lock.json",
+      "kind": "source",
+      "sha256": "4b7ae446b8e64fbb6c560eab5617650d795ded8c3261f385a07c4054fb17413e",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": ".greedyq/validation-report.json",
+      "kind": "derived",
+      "sha256": "2f425a8893415f33ebefd1127f842d14082c46a49f439fc36ccb652236acbbce",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_instrument",
+        "dec_consent_privacy",
+        "dec_analysis"
+      ]
+    },
+    {
+      "path": "supabase/migrations/001_initial.sql",
+      "kind": "source",
+      "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "vercel.json",
+      "kind": "source",
+      "sha256": "42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": ".env.example",
+      "kind": "source",
+      "sha256": "7c40f69b08c0a9ac855f92ec18d480fb02541f75e644edb21ee528dbc71b0cf8",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    }
   ],
   "external_operations": [
-    {"operation":"vercel_deployment","status":"not_attempted","verified":false,"external_id":null,"url":null,"verified_at":null,"approval_decision_id":null},
-    {"operation":"supabase_provisioning","status":"not_attempted","verified":false,"external_id":null,"url":null,"verified_at":null,"approval_decision_id":null}
+    {
+      "operation": "vercel_deployment",
+      "status": "not_attempted",
+      "verified": false,
+      "external_id": null,
+      "url": null,
+      "verified_at": null,
+      "approval_decision_id": null
+    },
+    {
+      "operation": "supabase_provisioning",
+      "status": "not_attempted",
+      "verified": false,
+      "external_id": null,
+      "url": null,
+      "verified_at": null,
+      "approval_decision_id": null
+    }
   ]
 }

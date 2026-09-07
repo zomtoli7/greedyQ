@@ -1,8 +1,8 @@
 {
-  "report_version": "0.1",
+  "report_version": "0.2",
   "generator_status": "pre_implementation_expected_fixture",
   "study_id": "digital_service_info_001",
-  "spec_version": "0.1.0-draft.1",
+  "spec_version": "0.2.0-draft.1",
   "source_files": [
     "survey.qmd",
     "greedyq.yml",

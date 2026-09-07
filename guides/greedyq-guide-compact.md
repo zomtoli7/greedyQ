@@ -2,7 +2,7 @@
 
 [한국어](./greedyq-guide-compact(kor).md)
 
-**Version:** `0.1.0-draft.1`
+**Version:** `0.2.0-draft.1`
 Use this compact guide when context is limited. The full guide and pinned greedyQ specification control when available.
 
 This compact guide does not embed canonical code and is not sufficient as the sole attachment for artifact generation. Use `greedyq-guide.md` for the default single-attachment workflow.

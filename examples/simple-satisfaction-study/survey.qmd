@@ -1,7 +1,7 @@
 ---
 title: "greedyQ User Experience Survey"
 greedyq:
-  spec_version: "0.1"
+  spec_version: "0.2"
 theme-settings:
   theme: default
   barposition: top

@@ -5,7 +5,7 @@
 **Status:** Fixture draft; not submitted or registered
 **Adapter:** `osf_preregistration`
 **Study version:** `1.0.0-fixture`
-**Specification:** `0.1.0-draft.1`
+**Specification:** `0.2.0-draft.1`
 
 ## Administrative information
 

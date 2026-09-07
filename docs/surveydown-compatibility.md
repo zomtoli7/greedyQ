@@ -10,11 +10,11 @@
 
 **Documentation snapshot:** commit [`f1325a3`](https://github.com/surveydown-dev/website/commit/f1325a32ad937817bb23bc017356f0636ef6d8da)
 
-**Document role:** Descriptive inventory of surveydown's public authoring surface and a proposed compatibility boundary for greedyQ v0.1
+**Document role:** Descriptive inventory of surveydown's public authoring surface and a proposed compatibility boundary for greedyQ v0.2
 
 ## 1. Scope and terminology
 
-This document records publicly observable surveydown authoring behavior from official documentation, package references, repository metadata, and maintained examples. It is research input for the normative greedyQ v0.1 specification; it is not itself an implementation guarantee or a source-code reuse plan.
+This document records publicly observable surveydown authoring behavior from official documentation, package references, repository metadata, and maintained examples. It is research input for the normative greedyQ v0.2 specification; it is not itself an implementation guarantee or a source-code reuse plan.
 
 greedyQ is an independent implementation. It does not incorporate surveydown source code. The parser, AST, validator, web-native runtime, deployment integration, export generator, templates, and conformance fixtures must be authored independently. Repository links in this document establish provenance and version snapshots, not permission to copy implementation details. Surveydown is prior open-source work distributed under the MIT License; attribution and non-affiliation terms are recorded in the repository `NOTICE.md`.
 
@@ -22,8 +22,8 @@ The proposed greedyQ classifications are:
 
 | Classification | Meaning |
 | --- | --- |
-| **v0.1 target** | Intended for the first normative greedyQ specification and MVP |
-| **Post-v0.1** | Compatible or equivalent behavior is desirable after the MVP |
+| **v0.2 target** | Intended for the first normative greedyQ specification and MVP |
+| **Post-v0.2** | Compatible or equivalent behavior is desirable after the MVP |
 | **Native implementation** | The use case is supported through a greedyQ declarative feature in the web-native runtime |
 | **Generated export** | Validated behavior is translated into `app.R` or supporting native surveydown files |
 | **greedyQ-only** | The feature requires an explicit limitation or alternative in the export report |
@@ -88,9 +88,9 @@ generated app.R        -> native surveydown export from the validated AST
 
 | Surveydown component | Proposed greedyQ treatment |
 | --- | --- |
-| `survey.qmd` | **v0.1 target** |
-| Root `questions.yml` | **v0.1 target** |
-| Custom question YAML paths | **Post-v0.1** |
+| `survey.qmd` | **v0.2 target** |
+| Root `questions.yml` | **v0.2 target** |
+| Custom question YAML paths | **Post-v0.2** |
 | Existing `app.R` standard patterns | Optional migration input; never executed |
 | Generated `app.R` | **Generated export** plus compatibility diagnostics |
 | Arbitrary R/Shiny code | **Unsupported by design** |
@@ -142,12 +142,12 @@ Legacy/explicit fence syntax:
 
 | Feature | Surveydown behavior | Proposed greedyQ classification |
 | --- | --- | --- |
-| `--- page_id` | Opens a page and implicitly closes the previous page | **v0.1 target** |
-| `.sd_page` fence | Explicit page boundary | **Post-v0.1** |
-| Markdown content | Rendered through Quarto/Markdown | **v0.1 target**, documented safe subset |
+| `--- page_id` | Opens a page and implicitly closes the previous page | **v0.2 target** |
+| `.sd_page` fence | Explicit page boundary | **Post-v0.2** |
+| Markdown content | Rendered through Quarto/Markdown | **v0.2 target**, documented safe subset |
 | Raw HTML | Permitted by the upstream rendering stack | **Deferred**, sanitize by default |
 | Arbitrary Quarto extensions | Available through Quarto | **Unsupported by design** unless explicitly adopted |
-| Duplicate/overlapping IDs | Rejected, including reserved IDs | **v0.1 target** |
+| Duplicate/overlapping IDs | Rejected, including reserved IDs | **v0.2 target** |
 
 Reserved upstream IDs observed in package source are:
 
@@ -209,22 +209,22 @@ The direction is normative: `"Displayed label" = "stored_value"`. An identifier-
 
 | Type | Upstream semantics | Important data behavior | Proposed greedyQ classification |
 | --- | --- | --- | --- |
-| `text` | Single-line text input | One scalar value | **v0.1 target** |
-| `textarea` | Multi-line text input | One scalar value | **v0.1 target** |
-| `numeric` | Numeric input | One numeric-looking value | **v0.1 target** |
-| `mc` | Single-choice radio group | Option value | **v0.1 target** |
-| `mc_multiple` | Multiple-choice checkbox group | Pipe-separated upstream storage | **v0.1 target** |
-| `mc_buttons` | Single-choice buttons | Option value | **Post-v0.1** |
-| `mc_multiple_buttons` | Multiple-choice buttons | Pipe-separated upstream storage | **Post-v0.1** |
-| `mc_image` | Single-choice image cards | Option value; optional caption | **Post-v0.1** |
-| `mc_multiple_image` | Multiple-choice image cards | Multiple values | **Post-v0.1** |
-| `select` | Dropdown | Option value | **v0.1 target** |
-| `slider` | Discrete labeled slider | Selected option value | **v0.1 target** |
-| `slider_numeric` | Numeric single/range slider | Scalar or range | **v0.1 target** |
-| `date` | Date input, today as upstream default | Date value | **v0.1 target** |
-| `daterange` | Date-range input | Two endpoints | **Post-v0.1** |
-| `matrix` | One radio selection per row | `<id>_<row_id>` columns upstream | **v0.1 target** |
-| `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **Post-v0.1** |
+| `text` | Single-line text input | One scalar value | **v0.2 target** |
+| `textarea` | Multi-line text input | One scalar value | **v0.2 target** |
+| `numeric` | Numeric input | One numeric-looking value | **v0.2 target** |
+| `mc` | Single-choice radio group | Option value | **v0.2 target** |
+| `mc_multiple` | Multiple-choice checkbox group | Pipe-separated upstream storage | **v0.2 target** |
+| `mc_buttons` | Single-choice buttons | Option value | **Post-v0.2** |
+| `mc_multiple_buttons` | Multiple-choice buttons | Pipe-separated upstream storage | **Post-v0.2** |
+| `mc_image` | Single-choice image cards | Option value; optional caption | **Post-v0.2** |
+| `mc_multiple_image` | Multiple-choice image cards | Multiple values | **Post-v0.2** |
+| `select` | Dropdown | Option value | **v0.2 target** |
+| `slider` | Discrete labeled slider | Selected option value | **v0.2 target** |
+| `slider_numeric` | Numeric single/range slider | Scalar or range | **v0.2 target** |
+| `date` | Date input, today as upstream default | Date value | **v0.2 target** |
+| `daterange` | Date-range input | Two endpoints | **Post-v0.2** |
+| `matrix` | One radio selection per row | `<id>_<row_id>` columns upstream | **v0.2 target** |
+| `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **Post-v0.2** |
 
 greedyQ should preserve the logical response shape and migration/export behavior, but its native database does not need to reproduce pipe-separated or wide-column physical storage internally.
 
@@ -232,20 +232,20 @@ greedyQ should preserve the logical response shape and migration/export behavior
 
 | Argument | Upstream purpose | Proposed greedyQ classification |
 | --- | --- | --- |
-| `id`, `type`, `label` | Identity and core definition | **v0.1 target** |
-| `option`, `options` | Display/stored-value choices | **v0.1 target** |
-| `row` | Matrix row label/ID mapping | **v0.1 target** |
-| `selected`, `default` | Initial choice or slider value/range | **v0.1 target** |
-| `placeholder` | Text/textarea placeholder | **v0.1 target** |
-| `width`, `height`, `cols`, `resize` | Size/layout controls | **Post-v0.1** |
-| `direction` | Horizontal/vertical button groups | **Post-v0.1** |
+| `id`, `type`, `label` | Identity and core definition | **v0.2 target** |
+| `option`, `options` | Display/stored-value choices | **v0.2 target** |
+| `row` | Matrix row label/ID mapping | **v0.2 target** |
+| `selected`, `default` | Initial choice or slider value/range | **v0.2 target** |
+| `placeholder` | Text/textarea placeholder | **v0.2 target** |
+| `width`, `height`, `cols`, `resize` | Size/layout controls | **Post-v0.2** |
+| `direction` | Horizontal/vertical button groups | **Post-v0.2** |
 | `status`, `individual`, `justified` | Shiny button styling | **Deferred**, map only if portable |
-| `label_select` | Select placeholder | **v0.1 target** |
-| `grid`, `force_edges` | Slider presentation | **Post-v0.1** |
-| `image` | Image paths/URLs parallel to options | **Post-v0.1** |
+| `label_select` | Select placeholder | **v0.2 target** |
+| `grid`, `force_edges` | Slider presentation | **Post-v0.2** |
+| `image` | Image paths/URLs parallel to options | **Post-v0.2** |
 | `option_attr` | Per-option HTML attributes | **Unsupported by design** in its raw form |
-| `yml` | External question-definition path | **Post-v0.1**; root default is v0.1 |
-| `matrix_question_width` | Matrix prompt-column width | **Post-v0.1** |
+| `yml` | External question-definition path | **Post-v0.2**; root default is v0.2 |
+| `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |
 | `...` | Arbitrary input-specific Shiny arguments | **Unsupported by design**; explicitly whitelist portable arguments |
 
 Labels and regular option labels accept Markdown upstream. Raw HTML is also possible, but greedyQ should specify sanitization and a portable Markdown subset.
@@ -256,16 +256,16 @@ The official [Page Navigation](https://surveydown.org/docs/page-navigation) docu
 
 | Surface | Upstream behavior | Proposed greedyQ classification |
 | --- | --- | --- |
-| Automatic Next | Added to pages by default | **v0.1 target** |
-| Global `show-previous` | Enables Previous across pages | **v0.1 target** |
-| `sd_nav()` | Page-level Previous/Next override | **v0.1 target** |
-| `page_next` | Direct forward target | **v0.1 target** |
-| Custom navigation labels | `label_previous`, `label_next` | **v0.1 target** |
-| Hide buttons | `show_previous`, `show_next` | **v0.1 target** |
-| `sd_next()` | Legacy single Next button | **Post-v0.1** parser alias |
-| `sd_close()` | Exit flow, optional rating/restart/cookie clearing | Basic exit **v0.1**; extended options **Post-v0.1** |
-| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**; reactive redirect **Native implementation** |
-| Empty terminal page | No forward control | **v0.1 target** |
+| Automatic Next | Added to pages by default | **v0.2 target** |
+| Global `show-previous` | Enables Previous across pages | **v0.2 target** |
+| `sd_nav()` | Page-level Previous/Next override | **v0.2 target** |
+| `page_next` | Direct forward target | **v0.2 target** |
+| Custom navigation labels | `label_previous`, `label_next` | **v0.2 target** |
+| Hide buttons | `show_previous`, `show_next` | **v0.2 target** |
+| `sd_next()` | Legacy single Next button | **Post-v0.2** parser alias |
+| `sd_close()` | Exit flow, optional rating/restart/cookie clearing | Basic exit **v0.2**; extended options **Post-v0.2** |
+| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.2**; reactive redirect **Native implementation** |
+| Empty terminal page | No forward control | **v0.2 target** |
 
 The current `sd_nav()` source signature uses `show_previous`; some narrative documentation uses `show_prev`. greedyQ must follow the package reference/source signature and may emit a helpful diagnostic for the narrative alias.
 
@@ -277,10 +277,10 @@ The official [Survey Settings](https://surveydown.org/docs/survey-settings) defa
 
 | Key | Upstream default/behavior | Proposed greedyQ classification |
 | --- | --- | --- |
-| `theme` | `default`; Bootswatch/custom SCSS through Quarto | Named portable themes **Post-v0.1**; arbitrary SCSS deferred |
-| `barposition` | `top`; `bottom` or `none` | **v0.1 target** |
-| `barcolor` | Theme primary color | **v0.1 target** |
-| `footer`, `footer-left`, `footer-center`, `footer-right` | Footer content | **v0.1 target** |
+| `theme` | `default`; Bootswatch/custom SCSS through Quarto | Named portable themes **Post-v0.2**; arbitrary SCSS deferred |
+| `barposition` | `top`; `bottom` or `none` | **v0.2 target** |
+| `barcolor` | Theme primary color | **v0.2 target** |
+| `footer`, `footer-left`, `footer-center`, `footer-right` | Footer content | **v0.2 target** |
 
 Upstream progress advances per answered question, not per page.
 
@@ -289,19 +289,19 @@ Upstream progress advances per answered question, not per page.
 | Key | Upstream default | Proposed greedyQ classification |
 | --- | --- | --- |
 | `mode` | `database`; also `preview`, `local` | Equivalent environments **Native implementation** |
-| `show-previous` | `no` | **v0.1 target** |
-| `use-cookies` | `yes` | **v0.1 target**, with explicit privacy semantics |
-| `auto-scroll` | `no` | **Post-v0.1** |
-| `rate-survey` | `no` | **Post-v0.1** |
-| `all-required` | `no` | **v0.1 target** |
-| `required` | `[]` | **v0.1 target** |
-| `start-page` | First page in practice; default material names `initial_page` | **v0.1 target** |
-| `system-language` | `en`; upstream includes `de`, `es`, `fr`, `it`, `zh-CN` | **Post-v0.1**, i18n-ready from v0.1 |
-| `highlight-unanswered` | `yes` | **v0.1 target** |
-| `highlight-color` | `gray`; documented palette | **Post-v0.1** |
+| `show-previous` | `no` | **v0.2 target** |
+| `use-cookies` | `yes` | **v0.2 target**, with explicit privacy semantics |
+| `auto-scroll` | `no` | **Post-v0.2** |
+| `rate-survey` | `no` | **Post-v0.2** |
+| `all-required` | `no` | **v0.2 target** |
+| `required` | `[]` | **v0.2 target** |
+| `start-page` | First page in practice; default material names `initial_page` | **v0.2 target** |
+| `system-language` | `en`; upstream includes `de`, `es`, `fr`, `it`, `zh-CN` | **Post-v0.2**, i18n-ready from v0.2 |
+| `highlight-unanswered` | `yes` | **v0.2 target** |
+| `highlight-color` | `gray`; documented palette | **Post-v0.2** |
 | `capture-metadata` | `yes`; browser and IP | **Deferred**, privacy-first and opt-in for greedyQ |
-| `all-shuffled` | `no` | **v0.1 target** for supported types |
-| `shuffled` | `[]` | **v0.1 target** for supported types and index syntax |
+| `all-shuffled` | `no` | **v0.2 target** for supported types |
+| `shuffled` | `[]` | **v0.2 target** for supported types and index syntax |
 
 Upstream option shuffling applies to `mc`, `mc_buttons`, `mc_multiple`, and `mc_multiple_buttons`; row shuffling applies to `matrix`. `shuffled` accepts entire-question IDs or 1-based ranges/lists such as `1-5`, `[1, 2, 4]`, and `[1-5, 8-10]`.
 
@@ -331,7 +331,7 @@ new-tab
 redirect-error
 ```
 
-Core navigation, validation, selection, exit, and redirect messages are a **v0.1 target**. Survey-rating messages are **Post-v0.1** with that feature.
+Core navigation, validation, selection, exit, and redirect messages are a **v0.2 target**. Survey-rating messages are **Post-v0.2** with that feature.
 
 ## 8. Conditional logic and values
 
@@ -339,16 +339,16 @@ The official [Conditional Logic](https://surveydown.org/docs/conditional-logic),
 
 | Upstream function/pattern | Semantics | Proposed greedyQ treatment |
 | --- | --- | --- |
-| `sd_show_if(condition ~ target)` | Show question or page when true | **Native implementation**, v0.1 declarative rule |
-| `sd_skip_if(condition ~ page)` | Skip forward when true | **Native implementation**, v0.1 declarative rule |
-| `sd_stop_if(condition ~ message)` | Block navigation and show validation errors | **Native implementation**, v0.1 declarative rule |
-| `sd_is_answered(id)` | Answer-completeness predicate; matrix requires all rows | **Native implementation**, v0.1 expression function |
+| `sd_show_if(condition ~ target)` | Show question or page when true | **Native implementation**, v0.2 declarative rule |
+| `sd_skip_if(condition ~ page)` | Skip forward when true | **Native implementation**, v0.2 declarative rule |
+| `sd_stop_if(condition ~ message)` | Block navigation and show validation errors | **Native implementation**, v0.2 declarative rule |
+| `sd_is_answered(id)` | Answer-completeness predicate; matrix requires all rows | **Native implementation**, v0.2 expression function |
 | `sd_value()` / `sd_values()` | Reactive answer lookup and type conversion | **Native implementation**, expression references |
-| `sd_store_value()` | Store a derived/custom value | **Native implementation**, v0.1 assignment primitive |
-| `sd_output(type = "value")` | Display an answer or stored value | **Native implementation**, v0.1 interpolation |
+| `sd_store_value()` | Store a derived/custom value | **Native implementation**, v0.2 assignment primitive |
+| `sd_output(type = "value")` | Display an answer or stored value | **Native implementation**, v0.2 interpolation |
 | `sd_output(type = "question")` | Render a server-defined reactive question | **Deferred**; prefer declared dynamic properties |
-| `sd_output()` label modes | Display option or question labels | **Post-v0.1** |
-| `sd_reactive()` | Calculate and persist a reactive value | **Native implementation**, safe expression graph after v0.1 core |
+| `sd_output()` label modes | Display option or question labels | **Post-v0.2** |
+| `sd_reactive()` | Calculate and persist a reactive value | **Native implementation**, safe expression graph after v0.2 core |
 | `sd_copy_value()` | Work around unique Shiny output IDs | No compatibility need in web renderer |
 | Custom R functions | Arbitrary condition/calculation logic | **Unsupported by design** |
 | `observe()` and Shiny reactives | Arbitrary reactive programming | **Unsupported by design** |
@@ -368,15 +368,15 @@ There is no single public declarative upstream contract for balanced, blocked, s
 
 | Capability | Upstream | greedyQ direction |
 | --- | --- | --- |
-| Option/row shuffle | YAML-declared for supported question types | **v0.1 target compatibility** |
-| Simple respondent assignment | User-written R | **v0.1 native primitive** |
-| Persistent stored assignment | `sd_store_value()` plus session behavior | **v0.1 native primitive** |
-| Predefined design selection | User-written R/CSV | **Post-v0.1 native primitive** |
-| Weighted assignment | User-written R | **Post-v0.1 native primitive** |
-| Block/stratified assignment | User implementation | **v0.1 block target**, stratified later |
-| Factorial design | User implementation | **Post-v0.1 native primitive** |
-| Seeded reproducibility | User implementation | **v0.1 native requirement** |
-| Concurrency-safe balancing | User/database implementation | **v0.1 database requirement** |
+| Option/row shuffle | YAML-declared for supported question types | **v0.2 target compatibility** |
+| Simple respondent assignment | User-written R | **v0.2 native primitive** |
+| Persistent stored assignment | `sd_store_value()` plus session behavior | **v0.2 native primitive** |
+| Predefined design selection | User-written R/CSV | **Post-v0.2 native primitive** |
+| Weighted assignment | User-written R | **Post-v0.2 native primitive** |
+| Block/stratified assignment | User implementation | **v0.2 block target**, stratified later |
+| Factorial design | User implementation | **Post-v0.2 native primitive** |
+| Seeded reproducibility | User implementation | **v0.2 native requirement** |
+| Concurrency-safe balancing | User/database implementation | **v0.2 database requirement** |
 
 ## 10. Persistence and database behavior
 
@@ -398,12 +398,12 @@ The official [Storing Data](https://surveydown.org/docs/storing-data) documentat
 
 | Behavior | Proposed greedyQ classification |
 | --- | --- |
-| Anonymous stable respondent/session ID | **v0.1 target** |
-| Resume current page and existing answers | **v0.1 target** |
-| Save on page navigation | **v0.1 target** |
-| Best-effort save on browser/session end | **v0.1 target**, not sole durability mechanism |
-| Supabase/PostgreSQL support | **v0.1 target** |
-| Preview environment | **v0.1 native equivalent** |
+| Anonymous stable respondent/session ID | **v0.2 target** |
+| Resume current page and existing answers | **v0.2 target** |
+| Save on page navigation | **v0.2 target** |
+| Best-effort save on browser/session end | **v0.2 target**, not sole durability mechanism |
+| Supabase/PostgreSQL support | **v0.2 target** |
+| Preview environment | **v0.2 native equivalent** |
 | Offline local CSV collection | **Deferred** |
 | One wide mutable row per respondent | Export compatibility only; **not native schema target** |
 | Pipe-separated multiple responses | Export compatibility only |
@@ -417,7 +417,7 @@ greedyQ's native schema should separate respondent identity/session state, answe
 
 `sd_get_url_pars()` reads all or named URL parameters. `sd_redirect()` supports static or reactive URLs, optional buttons, delay, and new-tab behavior. These primitives underpin panel integrations such as participant IDs and completion destinations.
 
-Proposed v0.1 support:
+Proposed v0.2 support:
 
 - Allowlisted URL parameters mapped into declared respondent metadata
 - Static completion redirects with parameter interpolation
@@ -435,7 +435,7 @@ No dedicated `irb`, `ethics`, or research-information authoring primitive was fo
 
 This is presentational capability, not structured IRB support. Surveydown does not validate required ethics fields, bind displayed wording to a protocol/version, or provide evidence that a study is approved or compliant.
 
-greedyQ classification: structured ethics/IRB metadata and reusable information blocks are a **v0.1 native target**. They provide authoring, validation, display, and audit metadata only; they must not make compliance claims.
+greedyQ classification: structured ethics/IRB metadata and reusable information blocks are a **v0.2 native target**. They provide authoring, validation, display, and audit metadata only; they must not make compliance claims.
 
 ### 11.2 Informed consent
 
@@ -443,7 +443,7 @@ No dedicated `consent` question type or consent schema was found. Official examp
 
 This composition can collect an answer but does not define consent-specific semantics such as document version, content hash, server acceptance time, amendments, withdrawal, parental/guardian consent, or response-retention policy.
 
-greedyQ classification: consent is a **v0.1 native target** with a semantic, versioned contract. Electronic signatures and jurisdiction-specific compliance workflows are **Deferred**.
+greedyQ classification: consent is a **v0.2 native target** with a semantic, versioned contract. Electronic signatures and jurisdiction-specific compliance workflows are **Deferred**.
 
 ### 11.3 External respondent collectors
 
@@ -456,11 +456,11 @@ Surveydown explicitly supports generic panel workflows rather than a turnkey pro
 
 The official external-redirect documentation names Prolific and Dynata as use cases. However, authors must still write provider mappings, missing-ID checks, storage calls, completion/screen-out routes, and duplicate-participation policy themselves.
 
-greedyQ classification: the generic provider contract and a Prolific preset are **v0.1 native targets**. Additional provider presets are **Post-v0.1**.
+greedyQ classification: the generic provider contract and a Prolific preset are **v0.2 native targets**. Additional provider presets are **Post-v0.2**.
 
 ## 12. Compatibility matrix summary
 
-| Domain | v0.1 target | Post-v0.1 / native extension | Unsupported by design |
+| Domain | v0.2 target | Post-v0.2 / native extension | Unsupported by design |
 | --- | --- | --- | --- |
 | Pages | Shorthand pages, Markdown subset | Fence pages | Arbitrary Quarto extensions |
 | Questions | Core input, choice, select, slider, date, matrix | Buttons, images, daterange, matrix multiple | Arbitrary Shiny inputs through `...` |
@@ -497,7 +497,7 @@ The versioned guide and validator should therefore:
 
 The LLM is responsible for applying its research-methods knowledge to critique questions and designs. greedyQ is responsible for ensuring that the review occurs at the correct checkpoint, concerns are explained, the researcher retains final authority, and confirmed decisions become valid deterministic artifacts.
 
-## 14. Implications for the v0.1 specification
+## 14. Implications for the v0.2 specification
 
 The normative specification should make the following decisions explicitly:
 
@@ -521,7 +521,7 @@ The normative specification should make the following decisions explicitly:
 - The public package reference exposes broad `...` input arguments that cannot be a stable cross-runtime contract.
 - Quarto and Shiny make arbitrary formatting and behavior possible; only documented portable subsets can be compatibility targets.
 - The current GitHub `main` reports package version `1.3.0`, while GitHub Releases is not maintained through that version. This research therefore pins the exact commit rather than relying on the Releases page.
-- Before freezing v0.1, executable fixtures should be collected for every targeted question type, navigation path, shuffle form, and persistence transition.
+- Before freezing v0.2, executable fixtures should be collected for every targeted question type, navigation path, shuffle form, and persistence transition.
 
 ## 16. Primary sources
 
