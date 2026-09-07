@@ -54,6 +54,10 @@ docs/surveydown-compatibility(kor).md
 - [ ] Define the generic external-respondent contract and Prolific preset.
 - [ ] Define the structured preregistration contract, template adapters, and artifact manifest.
 - [ ] Define stable validator diagnostic codes.
+- [x] Define the display-label/stored-value direction and mandatory cross-artifact checks.
+- [x] Require published-schema validation for every AI state artifact.
+- [x] Define canonical atomic withdrawal, RLS, and analysis-export SQL behavior.
+- [x] Separate methodological review warnings from deterministic conformance errors.
 - [ ] Classify every feature as directly portable, generated to native surveydown, greedyQ-only, or unsupported.
 - [ ] Define the native surveydown export contract for `survey.qmd`, generated `app.R`, supporting files, and compatibility reports.
 
@@ -97,6 +101,10 @@ examples/complete-study/
 - [ ] Select parser libraries and finalize the grammar implementation approach.
 - [ ] Create the TypeScript parser and normalized AST packages.
 - [ ] Create the validator and LLM-friendly diagnostic format.
+- [ ] Implement `GQ011` stored-value symbol-table and cross-artifact validation.
+- [ ] Implement `GQ012` validation of all generated `.greedyq/*.json` files.
+- [ ] Implement `GQ013` migration-contract validation for withdrawal, RLS, and export.
+- [ ] Reject unknown QMD front-matter keys in generation/strict mode.
 - [ ] Create the native surveydown exporter and deterministic `app.R` generator.
 - [ ] Create the React/Next.js renderer skeleton.
 - [ ] Create Supabase migrations and access policies.

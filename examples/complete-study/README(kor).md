@@ -23,7 +23,9 @@
 
 ## Coverage
 
-이 fixture는 governance metadata, versioned consent, Prolific parameter, duplicate resume, screening, pre-treatment measurement, persistent randomization, conditional stimulus, manipulation check, attention check, conditional follow-up, privacy를 존중하는 demographic, partial save, withdrawal/deletion-request 기록, 구분된 terminal outcome, Supabase schema, Vercel configuration, native surveydown export expectation을 다룹니다.
+이 fixture는 governance metadata, versioned consent, Prolific parameter, duplicate resume, screening, pre-treatment measurement, persistent randomization, conditional stimulus, manipulation check, attention check, conditional follow-up, privacy를 존중하는 demographic, partial save, 구분된 terminal outcome, schema-valid AI state, atomic deletion-on-withdrawal, 함께 구성된 RLS policy와 grant, identifier-free analysis export, Vercel configuration, native surveydown export expectation을 다룹니다.
+
+QMD는 normative named-vector 방향인 `"Displayed label" = "stored_value"`를 보여줍니다. Supabase migration은 v0.1의 canonical generation base이며 생성 study는 deletion 또는 access-control code를 임의 작성하지 않고 이를 확장합니다.
 
 ## 파일
 

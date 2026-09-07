@@ -57,6 +57,8 @@ Maintain and schema-validate:
 
 The decision log is append-only. Supersede rather than rewrite. Open material decisions block final generation, preregistration submission, or fielding as declared.
 
+Read the published schemas before writing these files. Never invent keys, enum values, or alternate shapes. Validate all four files before claiming the `validated` checkpoint; otherwise mark them unvalidated.
+
 ## Outputs
 
 Generate as applicable:
@@ -73,6 +75,8 @@ Preregistration output includes Markdown, structured JSON, and a SHA-256 artifac
 ## Validate
 
 Check syntax, IDs, references, required fields, reachability, cycles, conflicting skips, hidden answers, consent timing, randomization persistence, respondent duplicates, secrets, redirects, outcomes, preregistration completeness, and hashes. Fix intent-preserving syntax errors; ask before substantive changes. Repeat until no blocking error remains.
+
+Named QMD vectors always use `"Displayed label" = "stored_value"`. Cross-check stored values against consent, logic, checks, derivations, dictionaries, and analysis; mismatches block generation. Record methodological concerns for researcher decision rather than silently changing the design. Generate withdrawal, RLS, and analysis-export SQL from the canonical migration, not from an improvised implementation.
 
 ## Finish each work period
 

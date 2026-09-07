@@ -1,0 +1,8 @@
+[
+  {
+    "code": "GQ011",
+    "severity": "error",
+    "related_ids": ["consent_choice"],
+    "message_contains": "Displayed label"
+  }
+]

@@ -127,6 +127,8 @@ File access가 있으면 다음 파일을 유지합니다.
 
 `schemas/ai/*.schema.json`으로 검증합니다. `study-state.json`은 현재 snapshot이며 proposed 또는 confirmed assumption을 명시적으로 기록합니다. `decision-log.json`은 append-only입니다. `unresolved-decisions.json`에는 생성을 차단하거나 제한하는 open item이 있습니다. `generation-manifest.json`은 생성 artifact, hash, provenance, verification state를 기록합니다.
 
+이 파일들을 생성하거나 업데이트하기 전에 실제 schema를 읽고 schema-valid object만 구성합니다. Filename이나 prose로 schema를 추론하거나 field와 enum value를 발명하거나 대체 format을 만들지 않습니다. `validated` checkpoint 전에 네 파일을 모두 검증하며, 검증할 수 없으면 파일을 unvalidated로 표시합니다.
+
 현재 design을 깔끔해 보이게 하려고 decision history를 삭제하거나 다시 쓰지 않습니다. 새 linked decision으로 기존 결정을 supersede합니다.
 
 ## 9. Artifact checkpoint
@@ -153,6 +155,12 @@ Confirmed source decision에서 derived file을 재생성합니다. 변경을 �
 6. Accepted warning과 이유를 기록합니다.
 
 ID, reference, required field, page reachability, cycle, 동시에 가능한 skip, hidden answer, randomization persistence, consent timing, secret, redirect allowlist, respondent duplicate, outcome termination, preregistration completeness, artifact hash를 self-check합니다.
+
+모든 named QMD vector에서 `"Displayed label" = "stored_value"`를 강제합니다. Stored-value table을 만들고 consent value, routing/validation expression, attention/manipulation-check scoring, derivation, data dictionary, analysis plan과 교차 검사합니다. 저장 value가 없거나 mapping이 반대로 된 것으로 보이면 accepted warning이 아니라 blocking `GQ011` error입니다.
+
+Methodological concern은 syntax failure와 다르게 다룹니다. Confounding, contamination, construct-validity, analysis risk를 설명하고 구체적 option을 제시하며 관련 checkpoint에서 researcher가 결정하도록 합니다. Study를 조용히 재설계하지 않습니다.
+
+Deployment-candidate checkpoint에서는 canonical migration `examples/complete-study/supabase/migrations/001_initial.sql`로 Supabase code를 생성합니다. Atomic/idempotent withdrawal, RLS와 policy access boundary, external-identifier 제외, analysis export를 보존하고 security 또는 deletion code를 임의로 작성하지 않습니다.
 
 ## 11. Output contract
 

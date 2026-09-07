@@ -57,6 +57,8 @@ Registry submission, public release, embargo 선택, deployment, recruitment, de
 
 Decision log는 append-only입니다. Rewrite하지 않고 supersede합니다. 중요한 open decision은 선언된 범위에 따라 final generation, preregistration submission 또는 fielding을 차단합니다.
 
+이 파일을 쓰기 전에 published schema를 읽습니다. Key, enum value 또는 대체 shape을 발명하지 않습니다. `validated` checkpoint 전에 네 파일을 모두 검증하고, 그렇지 못하면 unvalidated로 표시합니다.
+
 ## Output
 
 해당하면 다음을 생성합니다.
@@ -73,6 +75,8 @@ Preregistration output에는 Markdown, structured JSON, SHA-256 artifact manifes
 ## Validate
 
 Syntax, ID, reference, required field, reachability, cycle, conflicting skip, hidden answer, consent timing, randomization persistence, respondent duplicate, secret, redirect, outcome, preregistration completeness, hash를 확인합니다. Intent를 보존하는 syntax error는 고치고 substantive change 전에는 질문합니다. Blocking error가 없을 때까지 반복합니다.
+
+Named QMD vector는 항상 `"Displayed label" = "stored_value"`를 사용합니다. Stored value를 consent, logic, check, derivation, dictionary, analysis와 교차 검사하며 mismatch는 generation을 차단합니다. Methodological concern은 design을 조용히 변경하지 말고 researcher decision으로 기록합니다. Withdrawal, RLS, analysis-export SQL은 canonical migration에서 생성합니다.
 
 ## 각 작업 기간 종료
 

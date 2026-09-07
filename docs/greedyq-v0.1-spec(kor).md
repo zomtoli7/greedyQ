@@ -83,6 +83,8 @@ Question은 allowlist된 `sd_question()` call 하나를 포함하는 실행되�
 
 허용되는 value form은 string, number, boolean, null, `c(...)`, named `c(label = value, ...)`입니다. 임의의 function call, variable lookup, assignment, interpolation, side effect는 error입니다.
 
+모든 named option vector에서 왼쪽은 respondent에게 보이는 표시 label이고 오른쪽은 저장 value입니다. Generator는 반드시 `"Displayed label" = "stored_value"` 방향을 사용해야 하며 반대로 만들면 안 됩니다. 같은 규칙이 `option`, `options`, matrix `row` vector에 적용됩니다. Logic, consent contract, scoring, derivation, data dictionary, analysis plan에서는 저장 value만 사용합니다. Validator는 표시 label/저장 value symbol table을 만들고 consent value, show/skip/validate expression, attention/manipulation-check scoring, derived variable, data-dictionary value를 교차 검사해야 합니다. 참조되거나 문서화된 저장 value가 없으면 blocking error입니다.
+
 ### 4.5 Navigation
 
 `sd_nav()` call 또는 terminal outcome을 선언하지 않으면 page에 자동 Next action을 추가합니다. v0.1은 `show_previous`, `show_next`, `page_next`, `label_previous`, `label_next`를 지원합니다. Back navigation은 유효한 answer를 보존해야 하며 저장된 random assignment를 변경해서는 안 됩니다.
@@ -97,6 +99,8 @@ logic randomization preregistration outcomes export
 ```
 
 알 수 없는 root key는 strict mode에서 error입니다. Secret은 이 파일에 포함해서는 안 됩니다.
+
+Generator는 `examples/complete-study/greedyq.yml`의 canonical key name과 shape을 사용해야 하며 alias나 대체 object shape을 발명하면 안 됩니다. 이 specification이 normalization을 명시적으로 정의한 경우에만 alias를 허용합니다.
 
 ## 6. Expression language
 
@@ -120,6 +124,8 @@ Consent는 versioned여야 하며 ID, version, effective date, document path, co
 
 Consent amendment는 재확인을 요구해야 합니다. Withdrawal policy는 연구자 설정과 적용 의무에 따라 이미 수집한 response를 retain, anonymize, delete 중 어떻게 처리하는지 명시해야 하며 greedyQ는 설정된 policy가 법적으로 충분하다고 주장해서는 안 됩니다.
 
+Deletion-on-withdrawal을 선택하면 runtime은 operation을 atomic하고 idempotent하게 수행해야 합니다. Session을 lock하고, 설정에 따라 research answer, assignment, external identifier를 삭제하고, 명시된 최소 operational record만 유지하며, terminal lifecycle event를 append하고, 실패 시 전체 operation을 rollback해야 합니다. 생성되는 Supabase project는 `examples/complete-study/supabase/migrations/001_initial.sql`의 검토된 canonical implementation을 출발점으로 사용해야 합니다. Study-specific deviation은 문서화하고 researcher 승인을 받아야 합니다.
+
 ## 9. Respondent source 및 Prolific
 
 Generic respondent contract는 allowlist된 inbound parameter, validation, canonical identifier, duplicate policy, outcome redirect를 정의합니다. Raw query parameter는 명시적으로 allowlist하지 않으면 저장해서는 안 됩니다.
@@ -140,6 +146,8 @@ Partial answer는 성공한 page transition에서 저장해야 합니다. Resume
 
 Row Level Security는 respondent가 다른 respondent의 데이터를 읽지 못하게 해야 합니다. Administrative analysis access는 별도로 인증된 role을 사용해야 합니다.
 
+RLS enablement, grant, policy는 함께 검증해야 합니다. 일치하는 policy가 없는 grant는 usable access가 아닙니다. Canonical migration은 제한된 analyst access boundary를 제공하고 external identifier를 제외하며 completed non-test session과 answer를 문서화된 export shape으로 노출해야 합니다. 생성 migration은 canonical migration을 기반으로 하고 문서화되고 검증된 변경으로만 확장해야 합니다.
+
 ## 12. Validation 및 diagnostic
 
 Diagnostic은 `code`, `severity`, `message`, `file`, `location`, 선택적인 `related_ids`, `suggested_fix`를 포함해야 합니다. Stable v0.1 code는 다음과 같습니다.
@@ -156,10 +164,20 @@ Diagnostic은 `code`, `severity`, `message`, `file`, `location`, 선택적인 `r
 | `GQ008` | error | 불완전한 respondent-source contract |
 | `GQ009` | error | Secret 또는 unsafe redirect 감지 |
 | `GQ010` | error | Preregistration에 unresolved 또는 inconsistent commitment 포함 |
+| `GQ011` | error | 표시 label/저장 value contract 불일치 |
+| `GQ012` | error | AI state artifact가 published JSON Schema 검증 실패 |
+| `GQ013` | error | 생성된 persistence, withdrawal, RLS 또는 analysis-export contract 불완전 |
+| `GQ110` | warning | Methodological concern이 researcher 검토 대기 중 |
 | `GQ101` | warning | Native export에서 greedyQ-only인 기능 |
 | `GQ102` | warning | Native export가 storage representation을 변경함 |
 
 Validation은 결정론적이어야 합니다. 동일한 byte와 validator version은 동일한 diagnostic과 normalized AST를 생성합니다.
+
+`greedyq`, `theme-settings`, `survey-settings`, `system-messages`의 unknown front-matter key는 strict 또는 generation mode에서 error여야 합니다. Implementation은 accepted-key allowlist, type, enum value, canonical spelling을 공개해야 하며 비슷해 보이는 invented key를 조용히 normalize하면 안 됩니다.
+
+모든 `.greedyq/*.json` artifact는 generation manifest에 기록하기 전에 `schemas/ai/`의 정확한 published schema로 검증해야 합니다. Generator는 schema를 읽고 canonical template을 사용하며 field나 enum value를 발명하지 않아야 합니다. 실패 시 `validated` checkpoint를 보고하면 안 되며 schema validation을 사용할 수 없으면 unvalidated로 표시해야 합니다.
+
+Treatment confounding, contamination, construct validity, questionable exclusion 같은 methodological concern은 hard syntax error가 아닙니다. LLM은 concern과 구체적 option을 설명하고 unresolved decision으로 기록한 뒤 해당 checkpoint에서 명시적 researcher 결정을 받아야 합니다. Validator는 `GQ110`을 낼 수 있지만 design을 조용히 변경하면 안 됩니다.
 
 ## 13. Preregistration output 및 fielding gate
 

@@ -23,7 +23,9 @@ This fictional, minimal-risk study tests whether presenting the practical benefi
 
 ## Coverage
 
-The fixture covers governance metadata, versioned consent, Prolific parameters, duplicate resume, screening, pre-treatment measurement, persistent randomization, conditional stimuli, a manipulation check, an attention check, conditional follow-up, privacy-respecting demographics, partial save, withdrawal/deletion-request recording, distinct terminal outcomes, Supabase schema, Vercel configuration, and native surveydown export expectations.
+The fixture covers governance metadata, versioned consent, Prolific parameters, duplicate resume, screening, pre-treatment measurement, persistent randomization, conditional stimuli, a manipulation check, an attention check, conditional follow-up, privacy-respecting demographics, partial save, distinct terminal outcomes, schema-valid AI state, atomic deletion-on-withdrawal, paired RLS policies and grants, an identifier-free analysis export, Vercel configuration, and native surveydown export expectations.
+
+Its QMD demonstrates the normative named-vector direction: `"Displayed label" = "stored_value"`. The Supabase migration is the canonical generation base for v0.1; generated studies extend it rather than improvising deletion or access-control code.
 
 ## Files
 

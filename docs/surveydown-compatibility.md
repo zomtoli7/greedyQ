@@ -203,6 +203,8 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 
 `option` and `options` are aliases; `option` wins if both appear. Named vectors separate display labels from stored values. Except for image questions, unnamed values are both displayed and stored. For image questions, unnamed options suppress captions.
 
+The direction is normative: `"Displayed label" = "stored_value"`. An identifier-looking label on the left and prose on the right is a likely reversed mapping and MUST be diagnosed during generation. More importantly, the validator MUST resolve all values referenced by greedyQ logic and cross-artifact contracts against the right-hand stored-value set.
+
 ### 5.2 Question-type matrix
 
 | Type | Upstream semantics | Important data behavior | Proposed greedyQ classification |

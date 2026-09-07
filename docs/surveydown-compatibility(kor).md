@@ -203,6 +203,8 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 
 `option`과 `options`는 alias이며 둘 다 있으면 `option`이 우선합니다. Named vector는 표시 label과 저장 value를 구분합니다. Image question을 제외하면 unnamed value는 표시와 저장에 모두 사용됩니다. Image question에서 unnamed option은 caption을 숨깁니다.
 
+방향은 normative합니다. `"Displayed label" = "stored_value"`입니다. 왼쪽이 identifier처럼 보이고 오른쪽이 prose인 경우 likely reversed mapping으로 generation 중 진단해야 합니다. Validator는 greedyQ logic과 cross-artifact contract가 참조하는 모든 value를 오른쪽 저장-value set과 대조해야 합니다.
+
 ### 5.2 문항 타입 matrix
 
 | Type | Upstream semantics | 주요 데이터 동작 | 제안 greedyQ 분류 |

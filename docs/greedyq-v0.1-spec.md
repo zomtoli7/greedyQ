@@ -83,6 +83,17 @@ Required arguments are `id`, `type`, and `label`. v0.1 question types are `text`
 
 Allowed value forms are strings, numbers, booleans, null, `c(...)`, and named `c(label = value, ...)`. Arbitrary function calls, variable lookup, assignment, interpolation, and side effects are errors.
 
+In every named option vector, the left-hand name is the respondent-facing display label and the right-hand value is the stored value. Generators MUST use the following direction and MUST NOT reverse it:
+
+```r
+option = c(
+  "I agree to participate" = "agree",
+  "I do not agree" = "decline"
+)
+```
+
+The same rule applies to `option`, `options`, and matrix `row` vectors. Stored values are the only values used by logic, consent contracts, scoring, derivations, data dictionaries, and analysis plans. A validator MUST build a display-label/stored-value symbol table and MUST issue a blocking error when a referenced or documented stored value is absent. This cross-artifact check includes at least consent accept/refusal/withdrawal values, show/skip/validate expressions, attention-check answers, manipulation-check scoring, derived variables, and declared data-dictionary values.
+
 ### 4.5 Navigation
 
 Pages receive an automatic Next action unless an `sd_nav()` call or terminal outcome is declared. v0.1 supports `show_previous`, `show_next`, `page_next`, `label_previous`, and `label_next`. Back navigation MUST preserve valid answers and MUST NOT change a persisted random assignment.
@@ -97,6 +108,8 @@ logic randomization preregistration outcomes export
 ```
 
 Unknown root keys are errors in strict mode. Secrets MUST NOT appear in this file.
+
+Generators MUST use the canonical key names and shapes in `examples/complete-study/greedyq.yml`; they MUST NOT invent aliases or alternative object shapes. A declared alias is accepted only where this specification explicitly defines its normalization.
 
 ## 6. Expression language
 
@@ -120,6 +133,8 @@ Consent MUST be versioned and include an ID, version, effective date, document p
 
 Consent amendments MUST require renewed confirmation. Withdrawal policy MUST state whether already collected responses are retained, anonymized, or deleted, subject to researcher configuration and applicable obligations; greedyQ MUST NOT claim that a configured policy is legally sufficient.
 
+When deletion-on-withdrawal is selected, the runtime MUST perform the operation atomically and idempotently. It MUST lock the session, delete research answers, assignments, and external identifiers as configured, retain only the explicitly declared minimum operational record, append the terminal lifecycle event, and roll back the whole operation on failure. Generated Supabase projects MUST start from the reviewed canonical implementation in `examples/complete-study/supabase/migrations/001_initial.sql`; an agent MUST NOT replace it with an unreviewed approximation. Any study-specific deviation MUST be documented and researcher-approved.
+
 ## 9. Respondent sources and Prolific
 
 The generic respondent contract defines allowlisted inbound parameters, validation, canonical identifiers, duplicate policy, and outcome redirects. Raw query parameters MUST NOT be stored unless explicitly allowlisted.
@@ -140,6 +155,8 @@ Partial answers MUST be saved at successful page transitions. Resume MUST restor
 
 Row Level Security MUST prevent respondents from reading other respondents' data. Administrative analysis access MUST use a separate authenticated role.
 
+RLS enablement, grants, and policies MUST be validated together: a grant without a matching policy is not usable access. The canonical migration MUST provide a restricted analyst policy or security-definer export boundary, exclude external identifiers, and expose completed non-test sessions and their answers in a documented export shape. Generated migrations MUST use the canonical migration as their base and may only extend it through documented, validated changes.
+
 ## 12. Validation and diagnostics
 
 Diagnostics MUST include `code`, `severity`, `message`, `file`, `location`, and optional `related_ids` and `suggested_fix`. Stable v0.1 codes include:
@@ -156,10 +173,20 @@ Diagnostics MUST include `code`, `severity`, `message`, `file`, `location`, and 
 | `GQ008` | error | Respondent-source contract is incomplete |
 | `GQ009` | error | Secret or unsafe redirect detected |
 | `GQ010` | error | Preregistration contains unresolved or inconsistent commitments |
+| `GQ011` | error | Display-label/stored-value contract is inconsistent |
+| `GQ012` | error | AI state artifact fails its published JSON Schema |
+| `GQ013` | error | Generated persistence, withdrawal, RLS, or analysis-export contract is incomplete |
+| `GQ110` | warning | Methodological concern awaits researcher review |
 | `GQ101` | warning | Feature is greedyQ-only in native export |
 | `GQ102` | warning | Native export changes storage representation |
 
 Validation MUST be deterministic: identical bytes and validator version produce identical diagnostics and normalized AST.
+
+Unknown front-matter keys in `greedyq`, `theme-settings`, `survey-settings`, and `system-messages` MUST produce an error in strict or generation mode. Implementations MUST publish the accepted-key allowlist, types, enum values, and canonical spelling. Similar-looking invented keys MUST NOT be silently normalized.
+
+All `.greedyq/*.json` artifacts MUST validate against the exact published schemas in `schemas/ai/` before they are written to the generation manifest. Generators MUST read those schemas, MUST use canonical templates derived from them, MUST NOT invent fields or enum values, and MUST NOT report the `validated` checkpoint when any state artifact fails schema validation. When schema validation is unavailable, the artifact and checkpoint MUST be marked unvalidated rather than represented as successful.
+
+Methodological concerns such as treatment confounding, contamination, construct validity, or questionable exclusions do not become hard syntax errors merely because the LLM detects them. The LLM MUST explain the concern and concrete options, record it as an unresolved decision, and obtain an explicit researcher decision at the applicable checkpoint. A validator MAY emit `GQ110`, but MUST NOT silently alter the design.
 
 ## 13. Preregistration output and fielding gate
 

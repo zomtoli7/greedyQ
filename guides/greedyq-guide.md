@@ -127,6 +127,8 @@ Maintain these files when file access is available:
 
 Validate them against `schemas/ai/*.schema.json`. `study-state.json` is the current snapshot and explicitly records any proposed or confirmed assumptions. `decision-log.json` is append-only. `unresolved-decisions.json` contains open items that block or qualify generation. `generation-manifest.json` records generated artifacts, hashes, provenance, and verification state.
 
+Before creating or updating these files, read the actual schemas and construct only schema-valid objects. Do not infer a schema from filenames or prose, invent fields, invent enum values, or create a private substitute format. Validate all four files with the published JSON Schemas before recording the `validated` checkpoint. If schema validation cannot be performed, say so and mark the files unvalidated.
+
 Never delete or rewrite decision history to make the current design look cleaner. Supersede a decision with a new linked decision.
 
 ## 9. Artifact checkpoints
@@ -153,6 +155,12 @@ Regenerate derived files from confirmed source decisions. Never overwrite hand-e
 6. Record accepted warnings and their rationale.
 
 Self-check IDs, references, required fields, page reachability, cycles, mutually possible skips, hidden answers, randomization persistence, consent timing, secrets, redirect allowlists, respondent duplicates, outcome termination, preregistration completeness, and artifact hashes.
+
+For every named QMD vector, enforce `"Displayed label" = "stored_value"`. Build a stored-value table and cross-check it against consent values, routing expressions, validation expressions, attention/manipulation-check scoring, derivations, data dictionaries, and analysis plans. A missing stored value or likely reversed mapping is a blocking `GQ011` error, never an accepted warning.
+
+Treat methodological concerns differently from syntax failures. Explain confounding, contamination, construct-validity, or analysis risks; offer concrete options; record the concern; and ask the researcher to decide at the relevant checkpoint. Never silently redesign the study.
+
+At the deployment-candidate checkpoint, generate Supabase code from the canonical migration in `examples/complete-study/supabase/migrations/001_initial.sql`. Preserve its atomic idempotent withdrawal operation, RLS-plus-policy access boundary, external-identifier exclusion, and analysis export. Do not improvise security or deletion code from prose. Validate study-specific extensions and obtain approval for material policy changes.
 
 ## 11. Output contract
 

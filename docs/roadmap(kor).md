@@ -54,6 +54,10 @@ docs/surveydown-compatibility(kor).md
 - [ ] Generic external-respondent contract 및 Prolific preset 정의
 - [ ] 구조화된 preregistration contract, template adapter, artifact manifest 정의
 - [ ] 안정적인 validator diagnostic code 정의
+- [x] 표시 label/저장 value 방향과 필수 cross-artifact 검사 정의
+- [x] 모든 AI state artifact에 published-schema validation 요구
+- [x] Canonical atomic withdrawal, RLS, analysis-export SQL 동작 정의
+- [x] Methodological review warning과 deterministic conformance error 분리
 - [ ] 모든 기능을 directly portable, native surveydown으로 generated, greedyQ-only, unsupported로 분류
 - [ ] `survey.qmd`, 생성된 `app.R`, 보조 파일, 호환성 보고서에 대한 native surveydown export contract 정의
 
@@ -97,6 +101,10 @@ examples/complete-study/
 - [ ] Parser library 선택 및 grammar 구현 접근법 확정
 - [ ] TypeScript parser 및 정규화 AST package 생성
 - [ ] Validator 및 LLM-friendly diagnostic format 생성
+- [ ] `GQ011` stored-value symbol-table 및 cross-artifact validation 구현
+- [ ] 생성된 모든 `.greedyq/*.json`의 `GQ012` validation 구현
+- [ ] Withdrawal, RLS, export에 대한 `GQ013` migration-contract validation 구현
+- [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
 - [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
 - [ ] React/Next.js renderer skeleton 생성
 - [ ] Supabase migration 및 access policy 생성
