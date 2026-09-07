@@ -4,7 +4,7 @@
 
 ## 어떤 guide를 첨부할 것인가
 
-- 일반적인 사용에는 `greedyq-guide.md` 하나만 첨부합니다. 이 default self-contained guide에는 canonical preview, database, deployment, state-schema bundle이 내장되어 있습니다.
+- 일반적인 사용에는 `greedyq-guide.md` 하나만 첨부합니다. 이 default self-contained guide에는 Preview UI specification과 canonical preview, database, deployment, state-schema bundle이 내장되어 있습니다.
 - Context 또는 upload limit이 있을 때 `greedyq-guide-compact.md`를 conversation guidance용으로 사용할 수 있지만 deterministic artifact generation에는 단독으로 충분하지 않습니다.
 - Repository access는 development와 verification에 계속 유용하지만 사용자가 template folder나 specification을 별도로 첨부할 필요는 없어야 합니다.
 - `examples/complete-study/`는 reference로 사용하며 관련 없는 실제 연구에 content를 복사하지 않습니다.

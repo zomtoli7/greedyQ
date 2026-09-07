@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/preview-model.schema.json",
+  "title": "greedyQ Preview Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["study_id", "title", "start_page", "conditions", "pages"],
+  "properties": {
+    "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "title": {"type": "string", "minLength": 1},
+    "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
+    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}}
+  },
+  "$defs": {
+    "scalar": {"type": ["string", "number", "boolean", "null"]},
+    "option": {
+      "type": "object", "additionalProperties": false, "required": ["label", "value"],
+      "properties": {"label": {"type": "string", "minLength": 1}, "value": {"$ref": "#/$defs/scalar"}}
+    },
+    "rule": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["all"], "properties": {"all": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["any"], "properties": {"any": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["field"], "properties": {
+          "field": {"type": "string", "minLength": 1}, "equals": {"$ref": "#/$defs/scalar"}, "not_equals": {"$ref": "#/$defs/scalar"},
+          "lt": {"type": "number"}, "lte": {"type": "number"}, "gt": {"type": "number"}, "gte": {"type": "number"}
+        }, "minProperties": 2, "maxProperties": 2}
+      ]
+    },
+    "question": {
+      "type": "object", "additionalProperties": false, "required": ["id", "type", "label"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "type": {"enum": ["text", "textarea", "numeric", "mc", "select", "slider", "matrix"]},
+        "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
+        "min": {"type": "number"}, "max": {"type": "number"},
+        "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+        "rows": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+        "show_if": {"$ref": "#/$defs/rule"}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"enum": ["mc", "select", "slider", "matrix"]}}}, "then": {"required": ["options"]}},
+        {"if": {"properties": {"type": {"const": "matrix"}}}, "then": {"required": ["rows"]}}
+      ]
+    },
+    "route": {
+      "type": "object", "additionalProperties": false, "required": ["when", "to"],
+      "properties": {"when": {"$ref": "#/$defs/rule"}, "to": {"type": "string"}}
+    },
+    "page": {
+      "type": "object", "additionalProperties": false, "required": ["id", "title", "questions"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}, "title": {"type": "string", "minLength": 1},
+        "body": {"type": "string"}, "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}},
+        "next": {"type": ["string", "null"]}, "next_label": {"type": "string"}, "routes": {"type": "array", "items": {"$ref": "#/$defs/route"}},
+        "terminal": {"type": "string"}
+      }
+    }
+  }
+}

@@ -39,6 +39,9 @@ preregistration/                   OSF-oriented draft, structured data, and hash
 .greedyq/                          resumable state, decision history, and generation provenance
 supabase/migrations/001_initial.sql  reference persistence schema
 vercel.json                        deployment fixture
+preview-model.json                 validated preview-only study model
+preview.html                       generated self-contained interactive preview
+preview-test-report(kor).md        자동 검사 범위, 수정 사항, 남은 수동 승인 단계
 export/surveydown/                 expected native export fixture
 ```
 

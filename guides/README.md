@@ -4,7 +4,7 @@
 
 ## Which guide to attach
 
-- Attach only `greedyq-guide.md` for normal use. It is the default self-contained guide and embeds the canonical preview, database, deployment, and state-schema bundle.
+- Attach only `greedyq-guide.md` for normal use. It is the default self-contained guide and embeds the Preview UI specification plus the canonical preview, database, deployment, and state-schema bundle.
 - Attach `greedyq-guide-compact.md` only for conversation guidance when context or upload limits require it; it is not sufficient by itself for deterministic artifact generation.
 - Repository access remains useful for development and verification, but users should not have to attach a template folder or the specification separately.
 - Use `examples/complete-study/` as a reference, not as content to copy into an unrelated real study.

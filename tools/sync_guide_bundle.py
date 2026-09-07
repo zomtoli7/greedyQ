@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
+    ("docs/preview-ui-spec.md", "markdown", False),
     ("templates/preview/preview.html", "html", True),
     ("examples/complete-study/supabase/migrations/001_initial.sql", "sql", False),
     ("examples/complete-study/vercel.json", "json", False),
@@ -16,6 +17,7 @@ FILES = (
     ("schemas/ai/decision-log.schema.json", "json", False),
     ("schemas/ai/unresolved-decisions.schema.json", "json", False),
     ("schemas/ai/generation-manifest.schema.json", "json", False),
+    ("schemas/preview-model.schema.json", "json", False),
 )
 
 

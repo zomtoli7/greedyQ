@@ -234,177 +234,191 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `templates/preview/preview.html` | `9554e65ed6aa5231fe81fb68b3fb47369608551ffbb3d330f4c9e0bc670ddddd` | `yes` |
+| `docs/preview-ui-spec.md` | `b296bc9967a7de1dc3797039293e0447fca85b6b6e8de612319a4c03e9804c32` | `no` |
+| `templates/preview/preview.html` | `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd` | `yes` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
 | `examples/complete-study/vercel.json` | `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1` | `no` |
 | `schemas/ai/study-state.schema.json` | `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159` | `no` |
 | `schemas/ai/decision-log.schema.json` | `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093` | `no` |
+| `schemas/preview-model.schema.json` | `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034` | `no` |
+
+### FILE: `docs/preview-ui-spec.md`
+
+SHA-256: `b296bc9967a7de1dc3797039293e0447fca85b6b6e8de612319a4c03e9804c32`
+
+```markdown
+# greedyQ Preview UI Specification
+
+[한국어](./preview-ui-spec(kor).md)
+
+**Status:** Draft normative specification
+**Applies to:** self-contained preview and web-native respondent renderer
+
+## 1. Purpose
+
+The preview is the primary instrument-review surface. It must let a researcher experience the questionnaire as a respondent while making otherwise invisible state inspectable. A prose study summary is supporting documentation, not a substitute.
+
+The preview has two strictly separated layers:
+
+- **Respondent layer:** the questionnaire exactly as a participant should experience it.
+- **Researcher layer:** preview-only controls, state inspection, route forcing, and test evidence.
+
+Researcher controls must be visually marked and must never appear in production respondent mode.
+
+## 2. Default layout
+
+On screens at least 861 CSS pixels wide, use a centered two-column layout: a flexible respondent card no wider than 760 pixels and a 300–340 pixel researcher panel. On narrower screens, stack the researcher panel after the respondent card. The respondent card remains first in DOM and reading order.
+
+The persistent top bar contains the greedyQ wordmark, a conspicuous `RESEARCHER PREVIEW` badge, page progress, and an accessible progress value. Avoid application chrome, decorative dashboards, nested cards, or controls unrelated to completing the questionnaire.
+
+Use a calm neutral canvas, a white questionnaire surface, one restrained primary color, clear 1-pixel boundaries, and modest elevation. The minimum content width is 320 CSS pixels. At 200% zoom, content must reflow without horizontal scrolling except wide matrices, which receive their own labelled scroll region.
+
+## 3. Respondent page anatomy
+
+Render, in order:
+
+1. study title and stable page ID eyebrow in preview only;
+2. one page heading;
+3. concise introductory or stimulus content;
+4. questions in declared order;
+5. one page-level validation summary when needed;
+6. Previous and primary Continue/Submit actions; or
+7. a clearly identified terminal outcome with no outgoing production action.
+
+Use one primary action per page. Previous is visually secondary. Disable Previous only when history is empty or policy forbids it. Do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
+
+## 4. Question presentation
+
+- Use native semantic controls whenever possible.
+- Every control has a persistent visible label. Placeholder text is never the only label.
+- Mark required questions with text or an accessible label, not color alone.
+- Single choice uses a `fieldset`, `legend`, and native radios. The whole visible option row is clickable.
+- Each preview option shows its stored value beneath the display label. Production respondent mode hides stored values.
+- Select controls use an unselectable empty prompt and preserve the display/stored distinction.
+- Discrete scales use native radios, display meaningful endpoint labels, and remain keyboard operable. Do not use an unlabeled custom range slider for categorical Likert data.
+- Matrix questions use real table headers and unique radio-group names per row. On small screens, prefer one row at a time or a labelled horizontal-scrolling table; never shrink text below the base size.
+- Optional text areas say `Optional` in visible help or label text. Do not imply that open text is required.
+- Hidden questions are removed from the focus order. When `clear_on_hide` applies, the preview clears the hidden answer and records that event.
+
+## 5. Validation and feedback
+
+Validate authoritatively on forward navigation. Identify the first invalid question in text, set `aria-invalid=true`, connect the message with `aria-describedby`, focus the invalid control or its legend, and scroll it into view. Preserve all other valid answers.
+
+Errors explain how to fix the problem. Never rely on red color alone. A corrected response removes its stale error. Validation must cover required values, numeric ranges, complete required matrix rows, and declared cross-field rules.
+
+## 6. Progress and navigation
+
+Progress is based on the reachable respondent path, not the raw count of every condition page. It must never move backwards during ordinary forward navigation. Preview page jumping may change it and must be visibly identified as researcher behavior.
+
+Back navigation preserves valid answers and the persisted assignment. Refresh/resume restores the last committed page, answers, condition, history when safe, and lifecycle state. A reset control clears only preview-local state after an explicit action.
+
+## 7. Researcher controls
+
+The researcher panel provides:
+
+- deterministic condition selection;
+- page and terminal-outcome jump controls;
+- current page, reachable next page, condition, lifecycle state, and visit history;
+- every answer with question ID, display label, stored value, and type;
+- hidden-answer clearing events and validation events;
+- copyable state snapshot;
+- reset;
+- scenario runner result summary when automated cases are bundled; and
+- a visible statement that external writes and production redirects are disabled.
+
+Changing a forced condition resets condition-dependent answers and returns to the assignment boundary unless the researcher explicitly chooses a raw page jump. Debug controls must not mutate production services.
+
+## 8. Preview safety
+
+The preview runtime is fixed trusted code. Survey-authored JavaScript, inline event handlers from study content, `eval`, dynamic code construction, remote scripts, external fonts, analytics, network writes, and production redirects are prohibited. Study content is escaped or sanitized before insertion. Secrets and service-role credentials must never be embedded.
+
+The default Content Security Policy should allow only local document resources required by the self-contained artifact. The preview displays conspicuous draft text for unresolved consent, IRB, redirect, or data-policy fields and cannot mark those items approved.
+
+## 9. Accessibility baseline
+
+Target WCAG 2.2 AA. Use semantic HTML before ARIA, visible keyboard focus, logical heading order, native keyboard behavior, sufficient contrast, labelled status/error messages, and a reduced-motion mode. Interactive targets should be at least 24 by 24 CSS pixels, with larger option rows preferred. Radio groups follow native browser behavior and the WAI-ARIA Authoring Practices radio-group interaction model.
+
+Automated checks do not replace keyboard and screen-reader review. At minimum, manually test Tab/Shift+Tab, arrow and Space behavior in radio groups, Enter/Space on disclosures and buttons, focus after validation, zoom/reflow, and high-contrast or forced-color presentation.
+
+## 10. Responsive and visual acceptance
+
+Test at 320×568, 390×844, 768×1024, 1280×800, and 1440×900 CSS pixels, plus 200% browser zoom. Verify no clipped labels, overlapping actions, unreachable debug controls, unreadable matrices, unexpected horizontal page scroll, or content hidden by sticky regions.
+
+The UI should feel like a credible research instrument: quiet, spacious, direct, and free of decorative product-marketing elements. Preview tooling may be denser, but the respondent layer must remain visually dominant.
+
+## 11. Required scenario suite
+
+Every complete reference study must exercise:
+
+1. happy-path completion in every condition;
+2. required-field failure for every required question type;
+3. consent refusal without research answers;
+4. every screen-out route;
+5. every terminal outcome, including technical error;
+6. every show/hide branch and hidden-answer clearing;
+7. every skip route and priority decision;
+8. Previous plus answer revision;
+9. refresh/resume before and after assignment;
+10. assignment invariance across navigation and refresh;
+11. display-label/stored-value accuracy;
+12. complete matrix capture;
+13. withdrawal/deletion-request behavior;
+14. production redirect suppression;
+15. absence of network writes and secrets;
+16. keyboard-only completion;
+17. responsive viewport and zoom checks; and
+18. malformed model failure with a clear researcher-facing diagnostic.
+
+## 12. Review evidence
+
+`interactive_preview_reviewed` requires the preview version and hash, scenario-suite result, viewport/accessibility review result, unresolved deviations, researcher identity or decision reference, and confirmation timestamp when available. Opening or generating the preview alone is not approval.
+
+## References
+
+- [W3C WCAG 2.2: Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification)
+- [W3C WCAG 2.2: Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html)
+- [WAI-ARIA Authoring Practices: Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/)
+```
 
 ### FILE: `templates/preview/preview.html`
 
-SHA-256: `9554e65ed6aa5231fe81fb68b3fb47369608551ffbb3d330f4c9e0bc670ddddd`
+SHA-256: `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd`
 
 ```html
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>greedyQ study preview</title>
-  <style>
-    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; }
-    body { margin: 0; background: #f5f6f8; color: #17191c; }
-    main { width: min(720px, calc(100% - 32px)); margin: 48px auto; }
-    article, details { background: white; border: 1px solid #d9dde3; border-radius: 12px; padding: 24px; }
-    h1 { line-height: 1.2; }
-    fieldset { border: 0; padding: 0; margin: 24px 0; }
-    legend { font-weight: 650; margin-bottom: 10px; }
-    label { display: block; margin: 8px 0; }
-    input[type=text], input[type=number], textarea, select { box-sizing: border-box; width: 100%; padding: 10px; }
-    .actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
-    button { border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }
-    button.primary { background: #1f5eff; color: white; }
-    .error { color: #a40019; font-weight: 600; }
-    .banner { background: #fff2b8; border: 1px solid #d5b645; padding: 10px 14px; }
-    details { margin-top: 16px; font-size: 14px; }
-    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'"><title>greedyQ preview</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#dfe3eb;--soft:#f5f7fb;--brand:#315c8a;--danger:#b42318;font:16px/1.55 Inter,system-ui,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink)}button,input,select,textarea{font:inherit}.top{position:sticky;top:0;z-index:4;background:#fff;border-bottom:1px solid var(--line)}.top>div{max-width:1180px;margin:auto;padding:13px 24px;display:flex;align-items:center;gap:16px}.brand{font-size:19px;font-weight:850}.badge{padding:3px 9px;border-radius:99px;background:#fff1c2;color:#765600;font-size:12px;font-weight:750}.meter{margin-left:auto;width:min(340px,40vw)}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.bar{height:7px;background:#e9edf3;border-radius:9px;overflow:hidden}.bar span{display:block;height:100%;background:var(--brand);transition:width .2s}.layout{max-width:1180px;margin:38px auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,760px) 330px;gap:24px;align-items:start}.card,.debug{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px #1018280f}.card{padding:clamp(24px,5vw,52px)}.eyebrow{color:var(--brand);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.card h1{font-size:clamp(27px,4vw,38px);line-height:1.2;letter-spacing:-.025em;margin:.3em 0}.copy{color:#475467;white-space:pre-line}.q{border:0;padding:0;margin:34px 0}.q legend{font-weight:720;font-size:17px;margin-bottom:13px}.required{color:var(--danger)}.choice{display:flex;gap:11px;align-items:flex-start;padding:13px 15px;margin:9px 0;border:1px solid var(--line);border-radius:10px}.choice:hover{border-color:#aab7ca;background:#fafcff}.choice:has(input:checked){border-color:var(--brand);background:#f2f7fc;box-shadow:0 0 0 1px var(--brand)}.choice input{margin-top:5px}.choice small{display:block;color:var(--muted)}select,input[type=text],input[type=number],textarea{width:100%;border:1px solid #b9c1ce;border-radius:9px;padding:11px 12px;background:#fff}textarea{min-height:112px;resize:vertical}:focus-visible{outline:3px solid #84adff;outline-offset:2px}.scale{display:grid;grid-template-columns:repeat(auto-fit,minmax(58px,1fr));gap:7px}.scale label{border:1px solid var(--line);border-radius:9px;text-align:center;padding:10px 5px;font-size:13px}.scale input{display:block;margin:0 auto 5px}.matrix{width:100%;border-collapse:collapse}.matrix th,.matrix td{border-bottom:1px solid var(--line);padding:10px;text-align:center}.matrix th:first-child,.matrix td:first-child{text-align:left}.error{display:none;color:var(--danger);background:#fff1f0;border-left:4px solid var(--danger);padding:10px 12px}.error.show{display:block}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}.btn{cursor:pointer;border:1px solid #b9c1ce;border-radius:9px;background:#fff;padding:10px 17px;font-weight:700}.btn.primary{border-color:var(--brand);background:var(--brand);color:#fff}.btn:disabled{opacity:.4;cursor:not-allowed}.outcome{padding:11px 13px;border-radius:8px;background:#ecfdf3;color:#067647;font-weight:750}.debug{position:sticky;top:88px;overflow:hidden}.debug summary{cursor:pointer;padding:17px 19px;font-weight:780;border-bottom:1px solid var(--line)}.debug-body{padding:16px}.debug label{display:block;font-size:13px;font-weight:700;margin-bottom:13px}.debug select{margin-top:5px}.debug-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.debug pre{max-height:360px;overflow:auto;padding:12px;background:#101828;color:#d1e9ff;border-radius:8px;font:12px/1.5 monospace;white-space:pre-wrap;overflow-wrap:anywhere}.note{font-size:12px;color:var(--muted)}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:860px){.layout{grid-template-columns:1fr;margin-top:20px}.debug{position:static}.card{padding:24px}.matrix-wrap{overflow-x:auto}}@media(max-width:520px){.top>div{padding:11px 14px}.layout{padding:0 12px}.scale{grid-template-columns:repeat(4,1fr)}.actions .btn{flex:1}.badge{display:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <div class="banner">greedyQ PREVIEW — no external writes or production redirects</div>
-  <main>
-    <article id="survey"></article>
-    <details open>
-      <summary>Researcher debug panel</summary>
-      <label>Forced condition <select id="condition"></select></label>
-      <button id="reset" type="button">Reset preview</button>
-      <pre id="debug"></pre>
-    </details>
-  </main>
-
-  <!-- Replace only the JSON inside this element. Do not modify the runtime below. -->
-  <script id="greedyq-model" type="application/json">
-  {
-    "study_id": "replace_me",
-    "title": "Replace with study title",
-    "start_page": "welcome",
-    "conditions": ["default"],
-    "pages": [
-      {
-        "id": "welcome",
-        "title": "Preview not populated",
-        "body": "Replace the embedded model with the validated study AST.",
-        "questions": [],
-        "next": null,
-        "terminal": "preview_placeholder"
-      }
-    ]
-  }
-  </script>
-  <script>
-  (() => {
-    "use strict";
-    const model = JSON.parse(document.getElementById("greedyq-model").textContent);
-    const pageById = new Map(model.pages.map((page) => [page.id, page]));
-    const storageKey = `greedyq-preview:${model.study_id}`;
-    const state = Object.assign({
-      page: model.start_page,
-      history: [],
-      answers: {},
-      condition: model.conditions[0] || "default",
-      lifecycle: "preview"
-    }, JSON.parse(localStorage.getItem(storageKey) || "{}"));
-    const survey = document.getElementById("survey");
-    const debug = document.getElementById("debug");
-    const condition = document.getElementById("condition");
-
-    function save() {
-      localStorage.setItem(storageKey, JSON.stringify(state));
-      debug.textContent = JSON.stringify(state, null, 2);
-    }
-
-    function matches(rule) {
-      if (!rule) return true;
-      const actual = rule.field === "condition" ? state.condition : state.answers[rule.field];
-      if (Object.hasOwn(rule, "equals")) return actual === rule.equals;
-      if (Object.hasOwn(rule, "not_equals")) return actual !== rule.not_equals;
-      return false;
-    }
-
-    function visibleQuestions(page) {
-      return (page.questions || []).filter((question) => matches(question.show_if));
-    }
-
-    function resolveNext(page) {
-      const route = (page.routes || []).find((candidate) => matches(candidate.when));
-      return route ? route.to : page.next;
-    }
-
-    function questionHtml(question) {
-      const required = question.required ? " <span aria-hidden='true'>*</span>" : "";
-      const value = state.answers[question.id] ?? "";
-      const legend = `<legend>${question.label}${required}</legend>`;
-      if (["mc", "select"].includes(question.type)) {
-        const options = question.options || [];
-        if (question.type === "select") {
-          return `<fieldset data-question='${question.id}'>${legend}<select data-id='${question.id}'><option value=''>Choose…</option>${options.map((o) => `<option value='${o.value}' ${o.value === value ? "selected" : ""}>${o.label}</option>`).join("")}</select></fieldset>`;
-        }
-        return `<fieldset data-question='${question.id}'>${legend}${options.map((o) => `<label><input type='radio' name='${question.id}' value='${o.value}' ${o.value === value ? "checked" : ""}> ${o.label}</label>`).join("")}</fieldset>`;
-      }
-      const tag = question.type === "textarea"
-        ? `<textarea data-id='${question.id}'>${value}</textarea>`
-        : `<input data-id='${question.id}' type='${question.type === "numeric" ? "number" : "text"}' value='${value}'>`;
-      return `<fieldset data-question='${question.id}'>${legend}${tag}</fieldset>`;
-    }
-
-    function collect(page) {
-      for (const question of visibleQuestions(page)) {
-        const radio = survey.querySelector(`input[name='${question.id}']:checked`);
-        const field = survey.querySelector(`[data-id='${question.id}']`);
-        const value = radio ? radio.value : field ? field.value : "";
-        if (value === "") delete state.answers[question.id]; else state.answers[question.id] = value;
-      }
-    }
-
-    function render(message = "") {
-      const page = pageById.get(state.page);
-      if (!page) throw new Error(`Unknown preview page: ${state.page}`);
-      const questions = visibleQuestions(page);
-      survey.innerHTML = `<h1>${page.title || model.title}</h1><div>${page.body || ""}</div>${questions.map(questionHtml).join("")}<p class='error' role='alert'>${message}</p><div class='actions'><button id='previous' ${state.history.length ? "" : "disabled"}>Previous</button>${page.terminal ? `<strong>Outcome: ${page.terminal}</strong>` : "<button class='primary' id='next'>Next</button>"}</div>`;
-      document.getElementById("previous").onclick = () => {
-        collect(page);
-        state.page = state.history.pop();
-        save(); render();
-      };
-      const next = document.getElementById("next");
-      if (next) next.onclick = () => {
-        collect(page);
-        const missing = questions.find((q) => q.required && !Object.hasOwn(state.answers, q.id));
-        if (missing) return render(`Please answer: ${missing.label}`);
-        const target = resolveNext(page);
-        if (!target || !pageById.has(target)) return render("Preview route is missing or invalid.");
-        state.history.push(page.id);
-        state.page = target;
-        save(); render();
-      };
-      save();
-    }
-
-    for (const name of model.conditions || ["default"]) {
-      condition.add(new Option(name, name, false, name === state.condition));
-    }
-    condition.onchange = () => { state.condition = condition.value; save(); render(); };
-    document.getElementById("reset").onclick = () => {
-      localStorage.removeItem(storageKey);
-      location.reload();
-    };
-    render();
-  })();
-  </script>
-</body>
-</html>
+<header class="top"><div><div class="brand">greedyQ</div><span class="badge">RESEARCHER PREVIEW</span><div class="meter"><div class="meta"><span id="progress-label">Preview progress</span><span id="progress-count"></span></div><div class="bar" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="100"><span id="progress-bar"></span></div></div></div></header>
+<main class="layout"><article class="card" id="survey" aria-live="polite"></article><details class="debug" open><summary>Researcher controls</summary><div class="debug-body"><label>Test condition<select id="condition"></select></label><label>Jump to page<select id="page-jump"></select></label><div class="debug-actions"><button class="btn" id="validate-model" type="button">Validate model</button><button class="btn" id="copy-state" type="button">Copy state</button><button class="btn" id="reset" type="button">Reset</button></div><p class="note">Hidden from respondents. Labels, stored values, routing, and state appear below. This preview performs no external writes or production redirects.</p><pre id="debug"></pre></div></details></main>
+<!-- Replace only this JSON model. Keep the canonical runtime below byte-for-byte. -->
+<script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace with study title","start_page":"welcome","conditions":["default"],"pages":[{"id":"welcome","title":"Preview not populated","body":"Replace the embedded model with the validated study AST.","questions":[],"next":null,"terminal":"preview_placeholder"}]}</script>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id);let model;try{model=JSON.parse($("greedyq-model").textContent)}catch(error){$("survey").innerHTML="<h1>Preview model error</h1><p>The embedded preview model is not valid JSON.</p><pre></pre>";$("survey").querySelector("pre").textContent=String(error);return}const pages=new Map(model.pages.map(p=>[p.id,p])),key=`greedyq-preview:${model.study_id}`,readState=()=>{try{return JSON.parse(localStorage.getItem(key)||"{}")}catch{return{}}};
+const fresh=()=>({page:model.start_page,history:[],answers:{},condition:(model.conditions||["default"])[0],lifecycle:"preview",visited:[],events:[],activeError:null});let state=Object.assign(fresh(),readState());
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),scalar=v=>v===""?null:/^-?\d+(\.\d+)?$/.test(v)?Number(v):v;
+function value(f){return f==="condition"?state.condition:state.answers[f]}function matches(r){if(!r)return true;if(r.all)return r.all.every(matches);if(r.any)return r.any.some(matches);const a=value(r.field);if("equals"in r)return a===r.equals;if("not_equals"in r)return a!==r.not_equals;if("lt"in r)return Number(a)<r.lt;if("lte"in r)return Number(a)<=r.lte;if("gt"in r)return Number(a)>r.gt;if("gte"in r)return Number(a)>=r.gte;return false}const visible=p=>(p.questions||[]).filter(q=>matches(q.show_if)),nextFor=p=>((p.routes||[]).find(r=>matches(r.when))||{}).to??p.next;
+function opts(q,scale=false){return(q.options||[]).map(o=>`<label class="${scale?"":"choice"}"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${state.answers[q.id]===o.value?"checked":""}><span>${esc(o.label)}${scale?"":`<small>Stored: <code>${esc(o.value)}</code></small>`}</span></label>`).join("")}
+function qhtml(q){const bad=state.activeError===q.id?` aria-invalid="true" aria-describedby="page-error"`:"",legend=`<legend>${esc(q.label)}${q.required?` <span class="required" aria-label="required">*</span>`:""}</legend>`;if(q.type==="mc")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}${opts(q)}</fieldset>`;if(q.type==="slider")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="scale">${opts(q,true)}</div></fieldset>`;if(q.type==="select")return`<fieldset class="q" data-q="${esc(q.id)}">${legend}<select data-id="${esc(q.id)}"${bad}><option value="" disabled>${esc(q.placeholder||"Choose one")}</option>${q.options.map(o=>`<option value="${esc(o.value)}" ${state.answers[q.id]===o.value?"selected":""}>${esc(o.label)} — [${esc(o.value)}]</option>`).join("")}</select></fieldset>`;if(q.type==="matrix")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="matrix-wrap" role="region" aria-label="${esc(q.label)}"><table class="matrix"><thead><tr><th>Statement</th>${q.options.map(o=>`<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows.map(r=>`<tr><th scope="row">${esc(r.label)}</th>${q.options.map(o=>`<td><label><span class="sr">${esc(r.label)}: ${esc(o.label)}</span><input type="radio" name="${esc(q.id+":"+r.value)}" value="${esc(o.value)}" ${state.answers[q.id]?.[r.value]===o.value?"checked":""}></label></td>`).join("")}</tr>`).join("")}</tbody></table></div></fieldset>`;const tag=q.type==="textarea"?`<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder||"")}"${bad}>${esc(state.answers[q.id]??"")}</textarea>`:`<input data-id="${esc(q.id)}" type="${q.type==="numeric"?"number":"text"}" value="${esc(state.answers[q.id]??"")}" placeholder="${esc(q.placeholder||"")}"${bad}>`;return`<fieldset class="q" data-q="${esc(q.id)}">${legend}${tag}</fieldset>`}
+function collect(p){for(const q of visible(p)){if(q.type==="matrix"){const rows={};for(const r of q.rows){const e=document.querySelector(`input[name='${CSS.escape(q.id+":"+r.value)}']:checked`);if(e)rows[r.value]=scalar(e.value)}if(Object.keys(rows).length)state.answers[q.id]=rows;else delete state.answers[q.id];continue}const e=document.querySelector(`input[name='${CSS.escape(q.id)}']:checked`)||document.querySelector(`[data-id='${CSS.escape(q.id)}']`),v=e?scalar(e.value):null;if(v===null)delete state.answers[q.id];else state.answers[q.id]=v}}
+function clearHidden(p){for(const q of p.questions||[]){if(q.show_if&&!matches(q.show_if)&&Object.hasOwn(state.answers,q.id)){delete state.answers[q.id];state.events.push({type:"hidden_answer_cleared",question:q.id,page:p.id})}}}
+function invalid(q){if(q.required){const v=state.answers[q.id];if(q.type==="matrix"?q.rows.some(r=>!Object.hasOwn(v||{},r.value)):v===undefined||v===null||v==="")return"required"}const v=state.answers[q.id];if(v!=null&&q.min!=null&&Number(v)<q.min)return`must be at least ${q.min}`;if(v!=null&&q.max!=null&&Number(v)>q.max)return`must be at most ${q.max}`;return null}
+const allQuestions=()=>model.pages.flatMap(p=>p.questions||[]),questionById=id=>allQuestions().find(q=>q.id===id);function answerDetails(){return Object.fromEntries(Object.entries(state.answers).map(([id,stored])=>{const q=questionById(id),labelFor=v=>q?.options?.find(o=>o.value===v)?.label??null;return[id,{type:q?.type??"unknown",stored,display:q?.type==="matrix"?Object.fromEntries(Object.entries(stored).map(([row,v])=>[row,labelFor(v)])):labelFor(stored)}]}))}
+function selfCheck(){const ids=model.pages.map(p=>p.id),known=new Set(ids),qids=allQuestions().map(q=>q.id),errors=[];if(new Set(ids).size!==ids.length)errors.push("duplicate page id");if(new Set(qids).size!==qids.length)errors.push("duplicate question id");if(!known.has(model.start_page))errors.push("unknown start page");for(const p of model.pages){if(p.next&&!known.has(p.next))errors.push(`unknown next page: ${p.id} -> ${p.next}`);for(const r of p.routes||[])if(!known.has(r.to))errors.push(`unknown route: ${p.id} -> ${r.to}`)}return{status:errors.length?"failed":"passed",errors,page_count:ids.length,question_count:qids.length}}
+function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch{}$("debug").textContent=JSON.stringify({page:state.page,condition:state.condition,next:nextFor(pages.get(state.page)),lifecycle:state.lifecycle,visited:state.visited,answer_details:answerDetails(),events:state.events,model_check:state.modelCheck||null},null,2)}
+function render(message=""){const p=pages.get(state.page);if(!p){$("survey").innerHTML="<h1>Preview route error</h1><p>The current page does not exist in the model.</p>";return}if(p.terminal)state.lifecycle=p.terminal;if(!state.visited.includes(p.id))state.visited.push(p.id);const qs=visible(p),path=(model.progress_paths||{})[state.condition]||model.pages.map(x=>x.id),i=Math.max(0,path.indexOf(p.id)),pct=p.terminal?100:Math.round((i+1)/path.length*100);$("progress-bar").style.width=`${pct}%`;$("progress-bar").parentElement.setAttribute("aria-valuenow",pct);$("progress-count").textContent=p.terminal?"Complete":`${i+1} / ${path.length}`;$("page-jump").value=p.id;$("survey").innerHTML=`<div class="eyebrow">${esc(model.title)} · ${esc(p.id)}</div><h1>${esc(p.title||model.title)}</h1><div class="copy">${esc(p.body||"")}</div>${qs.map(qhtml).join("")}<div id="page-error" class="error ${message?"show":""}" role="alert" tabindex="-1">${esc(message)}</div><div class="actions"><button class="btn" id="previous" ${state.history.length?"":"disabled"}>Previous</button>${p.terminal?`<span class="outcome">Outcome: ${esc(p.terminal)}</span>`:`<button class="btn primary" id="next">${esc(p.next_label||"Continue")}</button>`}</div>`;$("previous").onclick=()=>{collect(p);clearHidden(p);state.activeError=null;state.page=state.history.pop();save();render();scrollTo(0,0)};const n=$("next");if(n)n.onclick=()=>{collect(p);clearHidden(p);const current=visible(p),q=current.find(x=>invalid(x));if(q){const reason=invalid(q);state.activeError=q.id;state.events.push({type:"validation_error",question:q.id,page:p.id,reason});render(`Please answer ${q.label}: ${reason}.`);const target=document.querySelector(`[data-q='${CSS.escape(q.id)}'] input,[data-q='${CSS.escape(q.id)}'] select,[data-q='${CSS.escape(q.id)}'] textarea`)||$("page-error");target.focus();target.scrollIntoView({block:"center"});return}state.activeError=null;const target=nextFor(p);if(!target||!pages.has(target))return render("The next route is missing or invalid.");state.history.push(p.id);state.page=target;save();render();scrollTo(0,0)};save()}
+for(const name of model.conditions||["default"])$("condition").add(new Option(name,name,false,name===state.condition));for(const p of model.pages)$("page-jump").add(new Option(`${p.title||p.id} [${p.id}]`,p.id));$("condition").onchange=()=>{const prior=state.condition,boundary=model.assignment_page||model.start_page,boundaryIndex=model.pages.findIndex(p=>p.id===boundary),cleared=[];for(const p of model.pages.slice(boundaryIndex+1))for(const q of p.questions||[])if(Object.hasOwn(state.answers,q.id)){delete state.answers[q.id];cleared.push(q.id)}state.condition=$("condition").value;state.page=boundary;state.history=[];state.lifecycle="preview";state.activeError=null;state.events.push({type:"condition_forced",from:prior,to:state.condition,cleared_answers:cleared});save();render()};$("page-jump").onchange=()=>{state.history.push(state.page);state.page=$("page-jump").value;state.activeError=null;state.events.push({type:"researcher_page_jump",to:state.page});save();render()};$("validate-model").onclick=()=>{state.modelCheck=selfCheck();state.events.push({type:"model_validated",status:state.modelCheck.status});save()};$("copy-state").onclick=async()=>{try{await navigator.clipboard.writeText($("debug").textContent);$("copy-state").textContent="Copied"}catch{$("copy-state").textContent="Copy unavailable"}};$("reset").onclick=()=>{try{localStorage.removeItem(key)}catch{}state=fresh();render()};state.modelCheck=selfCheck();render();
+})();
+</script>
+</body></html>
 ```
 
 ### FILE: `examples/complete-study/supabase/migrations/001_initial.sql`
@@ -876,6 +890,76 @@ SHA-256: `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093`
           "verified_at": { "type": ["string", "null"], "format": "date-time" },
           "approval_decision_id": { "type": ["string", "null"] }
         }
+      }
+    }
+  }
+}
+```
+
+### FILE: `schemas/preview-model.schema.json`
+
+SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/preview-model.schema.json",
+  "title": "greedyQ Preview Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["study_id", "title", "start_page", "conditions", "pages"],
+  "properties": {
+    "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "title": {"type": "string", "minLength": 1},
+    "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
+    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}}
+  },
+  "$defs": {
+    "scalar": {"type": ["string", "number", "boolean", "null"]},
+    "option": {
+      "type": "object", "additionalProperties": false, "required": ["label", "value"],
+      "properties": {"label": {"type": "string", "minLength": 1}, "value": {"$ref": "#/$defs/scalar"}}
+    },
+    "rule": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["all"], "properties": {"all": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["any"], "properties": {"any": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["field"], "properties": {
+          "field": {"type": "string", "minLength": 1}, "equals": {"$ref": "#/$defs/scalar"}, "not_equals": {"$ref": "#/$defs/scalar"},
+          "lt": {"type": "number"}, "lte": {"type": "number"}, "gt": {"type": "number"}, "gte": {"type": "number"}
+        }, "minProperties": 2, "maxProperties": 2}
+      ]
+    },
+    "question": {
+      "type": "object", "additionalProperties": false, "required": ["id", "type", "label"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "type": {"enum": ["text", "textarea", "numeric", "mc", "select", "slider", "matrix"]},
+        "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
+        "min": {"type": "number"}, "max": {"type": "number"},
+        "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+        "rows": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+        "show_if": {"$ref": "#/$defs/rule"}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"enum": ["mc", "select", "slider", "matrix"]}}}, "then": {"required": ["options"]}},
+        {"if": {"properties": {"type": {"const": "matrix"}}}, "then": {"required": ["rows"]}}
+      ]
+    },
+    "route": {
+      "type": "object", "additionalProperties": false, "required": ["when", "to"],
+      "properties": {"when": {"$ref": "#/$defs/rule"}, "to": {"type": "string"}}
+    },
+    "page": {
+      "type": "object", "additionalProperties": false, "required": ["id", "title", "questions"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}, "title": {"type": "string", "minLength": 1},
+        "body": {"type": "string"}, "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}},
+        "next": {"type": ["string", "null"]}, "next_label": {"type": "string"}, "routes": {"type": "array", "items": {"$ref": "#/$defs/route"}},
+        "terminal": {"type": "string"}
       }
     }
   }

@@ -48,6 +48,20 @@
       "sha256": "1c6ad1c23cb74c6ff574e8608d3b84a486d4b4997788bf4ee21ae41c3bcb257f",
       "status": "generated",
       "based_on_decision_ids": ["dec_preregistration_draft"]
+    },
+    {
+      "path": "preview-model.json",
+      "kind": "derived",
+      "sha256": "eb0a983e2d5b0d28ef463ee5d7a4499072cd83e77ddbe472b2bfd7d41f436b72",
+      "status": "validated",
+      "based_on_decision_ids": ["dec_randomization", "dec_instrument", "dec_consent_privacy"]
+    },
+    {
+      "path": "preview.html",
+      "kind": "derived",
+      "sha256": "b09108255093ac5964e1998a33cd7f033124c04fc286532914eddc54a5acaeec",
+      "status": "validated",
+      "based_on_decision_ids": ["dec_randomization", "dec_instrument", "dec_consent_privacy"]
     }
   ],
   "external_operations": [
