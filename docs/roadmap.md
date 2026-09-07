@@ -48,6 +48,9 @@ docs/surveydown-compatibility(kor).md
 - [ ] Define randomization semantics and stored metadata.
 - [ ] Define persistence and session behavior.
 - [ ] Define the Supabase schema.
+- [ ] Define ethics/IRB metadata without making compliance claims.
+- [ ] Define versioned consent, refusal, amendment, and withdrawal semantics.
+- [ ] Define the generic external-respondent contract and Prolific preset.
 - [ ] Define stable validator diagnostic codes.
 - [ ] Mark every surveydown feature as supported, partial, unsupported, or deferred.
 
@@ -101,6 +104,11 @@ Implement the smallest complete survey path.
 - [ ] Timers and page dwell time
 - [ ] Response revision history
 - [ ] Prolific participant and completion-code support
+- [ ] Structured ethics/IRB metadata and reusable information blocks
+- [ ] First-class consent with document version, hash, and timestamp
+- [ ] Generic respondent-collector integration contract
+- [ ] Prolific preset with completion and screen-out routes
+- [ ] Duplicate-participation and external-ID validation policies
 - [ ] Conjoint/CBC rendering and data capture
 - [ ] External CSV experimental designs
 - [ ] Multilingual surveys

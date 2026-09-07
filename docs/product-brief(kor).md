@@ -59,6 +59,7 @@ greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 �
 7. **GUI에 의존하지 않습니다.** 작성이나 배포에 GUI 설문 빌더가 필요하지 않습니다.
 8. **AI는 독점 의존성이 아닌 작성 인터페이스입니다.** 범용 LLM이 유효한 연구를 생성할 수 있도록 스펙을 설계합니다.
 9. **배포는 평범하고 단순해야 합니다.** GitHub, Vercel, Supabase만으로 production 설문을 운영할 수 있어야 합니다.
+10. **연구 governance를 명시해야 합니다.** 법적 또는 기관 compliance를 보증하지 않으면서 ethics-review metadata, consent, respondent-source 기록을 구조화하고 버전 관리하며 감사할 수 있어야 합니다.
 
 ## 5. 호환성 전략
 
@@ -290,7 +291,88 @@ Validator는 사용자가 결과를 LLM에 다시 전달해 수정할 수 있도
 6. 분석 가능한 데이터를 export합니다.
 7. Git commit과 기록된 스펙 버전으로 배포 당시 연구를 재현합니다.
 
-## 13. 미결정 사항
+## 13. 연구 governance 및 respondent source
+
+### 13.1 Ethics 및 IRB metadata
+
+greedyQualt는 ethics-review 정보를 위한 구조화된 metadata와 재사용 가능한 presentation block을 제공해야 합니다.
+
+```yaml
+study:
+  title: Hotel Choice Study
+
+  ethics:
+    institution: Example University
+    protocol-id: IRB-2026-0123
+    approval-date: 2026-08-01
+    principal-investigator: Jane Doe
+    contact: jane@example.edu
+```
+
+엔진은 필수 project field를 검증하고 선언된 정보를 render하며 실제 배포된 연구 버전과 함께 보존할 수 있습니다. 연구가 IRB 승인, 법적 compliance 또는 윤리적 충분성을 갖췄다고 주장해서는 안 됩니다. 승인과 compliance는 연구자 및 소속 기관의 책임입니다.
+
+### 13.2 First-class consent
+
+Consent는 관례적으로 일반 multiple-choice question을 사용하는 것이 아니라 semantic study primitive여야 합니다.
+
+```yaml
+consent:
+  page: consent
+  question: consent_agreement
+  accepted-value: yes
+  rejected-page: consent_declined
+  required: true
+  record:
+    - consent-version
+    - consent-timestamp
+    - consent-document-hash
+```
+
+v0.1 스펙은 다음을 정의해야 합니다.
+
+- 필수 consent가 수락될 때까지 study question 접근 차단
+- Consent 거부 시 결정론적 route
+- Consent document version 및 content hash
+- Server에 기록되는 acceptance timestamp
+- Fielding 중 consent 문구가 바뀔 때의 동작
+- Withdrawal 및 response-retention policy hook
+- 관할 규칙을 가정하지 않는 optional parental/guardian-consent extension
+- 불완전하거나 일관되지 않은 consent configuration에 대한 validator error
+
+전자서명과 관할별 compliance workflow는 법적·운영 요구사항을 별도로 정의할 때까지 deferred로 둡니다.
+
+### 13.3 External respondent collector
+
+greedyQualt는 provider-neutral integration contract와 일반 respondent platform을 위한 named preset을 제공해야 합니다.
+
+```yaml
+respondent-source:
+  provider: prolific
+
+  capture:
+    participant-id: PROLIFIC_PID
+    study-id: STUDY_ID
+    session-id: SESSION_ID
+
+  completion:
+    complete: https://app.prolific.com/submissions/complete?cc=ABC123
+    screenout: https://app.prolific.com/submissions/complete?cc=SCREEN1
+```
+
+Generic contract는 다음을 지원해야 합니다.
+
+- Allowlist된 inbound URL parameter
+- Required-parameter validation
+- Canonical participant, study, external-session identifier
+- Duplicate-participation policy
+- Complete, screen-out, quota-full, technical-error outcome별 completion route
+- Allowlist된 redirect destination에 대한 안전한 parameter interpolation
+- Raw external parameter의 명시적 storage 및 privacy policy
+- 실수로 production completion redirect를 실행하지 않게 하는 test mode
+
+Prolific preset은 초기 target입니다. 다른 provider는 provider-specific runtime logic을 추가하는 대신 같은 generic contract를 사용해야 합니다.
+
+## 14. 미결정 사항
 
 - 정확한 v0.1 surveydown 호환 범위
 - Parser 구현 및 grammar 전략
@@ -300,3 +382,6 @@ Validator는 사용자가 결과를 LLM에 다시 전달해 수정할 수 있도
 - 균형 무작위화를 위한 transaction 모델
 - 초기 라이선스: MIT 또는 Apache-2.0
 - 공개 배포 전 제품명 및 상표 검토
+- 최소 필수 ethics metadata 및 study template별 차이
+- Consent amendment, withdrawal, response-retention semantics
+- Prolific completion-status mapping 및 duplicate-participation default

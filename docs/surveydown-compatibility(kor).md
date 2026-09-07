@@ -420,6 +420,35 @@ Deferred:
 - 임의의 reactive URL construction
 - Generic primitive 위에 구축할 provider-specific Prolific preset
 
+### 11.1 IRB 및 연구 안내 form
+
+고정된 공식 문서와 package source에서 전용 `irb`, `ethics` 또는 research-information authoring primitive는 발견되지 않았습니다. 작성자는 일반 Markdown page에 IRB 승인 안내, 연구자 연락처, 위험, 이익, 보상, 철회 조건, document link를 배치할 수 있습니다.
+
+이는 presentation capability이지 구조화된 IRB 지원이 아닙니다. surveydown은 필수 ethics field를 검증하거나, 표시된 문구를 protocol/version에 연결하거나, 연구가 승인 또는 compliant하다는 증거를 제공하지 않습니다.
+
+greedyQualt 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 information block은 **v0.1 native target**입니다. Authoring, validation, display, audit metadata만 제공하며 compliance를 주장해서는 안 됩니다.
+
+### 11.2 Informed consent
+
+전용 `consent` question type 또는 consent schema는 발견되지 않았습니다. 공식 예제는 일반 Markdown page, `mc` question, required-question 동작, conditional navigation을 조합하여 informed consent를 구성합니다. Package example도 consent를 `sd_skip_if()`의 일반 condition으로 사용합니다.
+
+이 조합으로 answer를 수집할 수 있지만 document version, content hash, server acceptance time, amendment, withdrawal, parental/guardian consent 또는 response-retention policy 같은 consent-specific semantics를 정의하지는 않습니다.
+
+greedyQualt 분류: consent는 semantic하고 versioned contract를 갖는 **v0.1 native target**입니다. 전자서명과 관할별 compliance workflow는 **Deferred**입니다.
+
+### 11.3 External respondent collector
+
+surveydown은 turnkey provider connector 대신 generic panel workflow를 명시적으로 지원합니다.
+
+- `sd_get_url_pars()`가 inbound URL parameter에서 participant 및 study identifier를 읽습니다.
+- `sd_store_value()`가 해당 identifier를 저장할 수 있습니다.
+- `sd_redirect()`가 static/reactive completion destination, optional button, delay, new-tab 동작을 지원합니다.
+- Server code에서 호출한 `sd_completion_code()`가 저장 가능한 session별 numeric completion code를 생성할 수 있습니다.
+
+공식 external-redirect 문서는 Prolific과 Dynata를 사용 사례로 명시합니다. 그러나 작성자가 provider mapping, missing-ID check, storage call, completion/screen-out route, duplicate-participation policy를 직접 작성해야 합니다.
+
+greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 native target**입니다. 추가 provider preset은 **Post-v0.1**입니다.
+
 ## 12. 호환성 matrix 요약
 
 | Domain | v0.1 target | Post-v0.1 / native extension | Unsupported by design |
@@ -433,6 +462,8 @@ Deferred:
 | Randomization | Shuffle, simple/block persistent seeded assignment | Weighted, stratified, factorial, CSV design | Definition 내부 임의 executable code |
 | Persistence | Supabase, resume, partial save, completion | 추가 backend, offline mode | Core model로서 runtime schema mutation |
 | Data | Normalized native model 및 wide export | 풍부한 event/revision data | greedyQualt 중앙 소유 respondent store |
+| Research governance | Ethics metadata 및 versioned consent | 전자서명 및 관할별 workflow | 자동 IRB/legal compliance 주장 |
+| Respondent source | Generic URL/redirect contract 및 Prolific preset | 추가 provider preset | 검증되지 않은 임의 redirect code |
 
 ## 13. v0.1 스펙에 미치는 영향
 

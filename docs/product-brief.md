@@ -59,6 +59,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 7. **No GUI dependency.** A GUI survey builder is not required for authoring or deployment.
 8. **AI is an authoring interface, not a proprietary dependency.** The specification should enable general-purpose LLMs to generate valid studies.
 9. **Deployment should be mundane.** GitHub, Vercel, and Supabase should be sufficient for a production survey.
+10. **Research governance must be explicit.** Ethics-review metadata, consent, and respondent-source records should be structured, versioned, and auditable without claiming legal or institutional compliance.
 
 ## 5. Compatibility strategy
 
@@ -290,7 +291,88 @@ The first end-to-end milestone succeeds when a researcher can:
 6. Export analysis-ready data.
 7. Reproduce the fielded study from a Git commit and recorded specification version.
 
-## 13. Open decisions
+## 13. Research governance and respondent sources
+
+### 13.1 Ethics and IRB metadata
+
+greedyQualt should provide structured metadata and reusable presentation blocks for ethics-review information.
+
+```yaml
+study:
+  title: Hotel Choice Study
+
+  ethics:
+    institution: Example University
+    protocol-id: IRB-2026-0123
+    approval-date: 2026-08-01
+    principal-investigator: Jane Doe
+    contact: jane@example.edu
+```
+
+The engine may validate required project fields, render the declared information, and preserve it with a fielded study version. It must not claim that a study is IRB-approved, legally compliant, or ethically sufficient. Approval and compliance remain the researcher's and institution's responsibility.
+
+### 13.2 First-class consent
+
+Consent should be a semantic study primitive rather than an ordinary multiple-choice question by convention.
+
+```yaml
+consent:
+  page: consent
+  question: consent_agreement
+  accepted-value: yes
+  rejected-page: consent_declined
+  required: true
+  record:
+    - consent-version
+    - consent-timestamp
+    - consent-document-hash
+```
+
+The v0.1 specification should define:
+
+- Blocking access to study questions until required consent is accepted
+- A deterministic route for declined consent
+- Consent document version and content hash
+- Server-recorded acceptance timestamp
+- Behavior when consent wording changes during fielding
+- Withdrawal and response-retention policy hooks
+- Optional parental/guardian-consent extensions without assuming jurisdictional rules
+- Validator errors for incomplete or inconsistent consent configuration
+
+Electronic signatures and jurisdiction-specific compliance workflows are deferred until their legal and operational requirements are separately specified.
+
+### 13.3 External respondent collectors
+
+greedyQualt should provide a provider-neutral integration contract plus named presets for common respondent platforms.
+
+```yaml
+respondent-source:
+  provider: prolific
+
+  capture:
+    participant-id: PROLIFIC_PID
+    study-id: STUDY_ID
+    session-id: SESSION_ID
+
+  completion:
+    complete: https://app.prolific.com/submissions/complete?cc=ABC123
+    screenout: https://app.prolific.com/submissions/complete?cc=SCREEN1
+```
+
+The generic contract should support:
+
+- Allowlisted inbound URL parameters
+- Required-parameter validation
+- Canonical participant, study, and external-session identifiers
+- Duplicate-participation policy
+- Separate completion routes for complete, screen-out, quota-full, and technical-error outcomes
+- Safe parameter interpolation into allowlisted redirect destinations
+- Explicit storage and privacy policy for raw external parameters
+- Test mode that prevents accidental production completion redirects
+
+A Prolific preset is an initial target. Other providers should use the same generic contract rather than introducing provider-specific runtime logic.
+
+## 14. Open decisions
 
 - Exact v0.1 surveydown compatibility boundary
 - Parser implementation and grammar strategy
@@ -300,3 +382,6 @@ The first end-to-end milestone succeeds when a researcher can:
 - Transaction model for balanced randomization
 - Initial license: MIT or Apache-2.0
 - Public naming and trademark review before broad release
+- Minimum required ethics metadata and how it varies by study template
+- Consent amendment, withdrawal, and response-retention semantics
+- Prolific completion-status mapping and duplicate-participation defaults

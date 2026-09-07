@@ -48,6 +48,9 @@ docs/surveydown-compatibility(kor).md
 - [ ] Randomization semantics와 저장 metadata 정의
 - [ ] Persistence 및 session 동작 정의
 - [ ] Supabase schema 정의
+- [ ] Compliance를 주장하지 않는 ethics/IRB metadata 정의
+- [ ] Versioned consent, refusal, amendment, withdrawal semantics 정의
+- [ ] Generic external-respondent contract 및 Prolific preset 정의
 - [ ] 안정적인 validator diagnostic code 정의
 - [ ] 모든 surveydown 기능을 supported, partial, unsupported, deferred로 분류
 
@@ -101,6 +104,11 @@ docs/greedyqualt-v0.1-spec(kor).md
 - [ ] Timer 및 page dwell time
 - [ ] Response revision history
 - [ ] Prolific participant 및 completion-code 지원
+- [ ] 구조화된 ethics/IRB metadata 및 재사용 가능한 information block
+- [ ] Document version, hash, timestamp를 포함한 first-class consent
+- [ ] Generic respondent-collector integration contract
+- [ ] Completion 및 screen-out route를 포함한 Prolific preset
+- [ ] Duplicate-participation 및 external-ID validation policy
 - [ ] Conjoint/CBC render 및 데이터 수집
 - [ ] 외부 CSV experimental design
 - [ ] 다국어 설문

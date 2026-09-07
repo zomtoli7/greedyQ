@@ -420,6 +420,35 @@ Deferred:
 - Arbitrary reactive URL construction
 - Provider-specific Prolific presets, which should build on the generic primitives
 
+### 11.1 IRB and research-information forms
+
+No dedicated `irb`, `ethics`, or research-information authoring primitive was found in the pinned official documentation or package source. Authors can place IRB-approved information, investigator contacts, risks, benefits, compensation, withdrawal terms, and document links on ordinary Markdown pages.
+
+This is presentational capability, not structured IRB support. Surveydown does not validate required ethics fields, bind displayed wording to a protocol/version, or provide evidence that a study is approved or compliant.
+
+greedyQualt classification: structured ethics/IRB metadata and reusable information blocks are a **v0.1 native target**. They provide authoring, validation, display, and audit metadata only; they must not make compliance claims.
+
+### 11.2 Informed consent
+
+No dedicated `consent` question type or consent schema was found. Official examples construct informed consent with an ordinary Markdown page, an `mc` question, required-question behavior, and conditional navigation. Package examples also use consent as a normal condition in `sd_skip_if()`.
+
+This composition can collect an answer but does not define consent-specific semantics such as document version, content hash, server acceptance time, amendments, withdrawal, parental/guardian consent, or response-retention policy.
+
+greedyQualt classification: consent is a **v0.1 native target** with a semantic, versioned contract. Electronic signatures and jurisdiction-specific compliance workflows are **Deferred**.
+
+### 11.3 External respondent collectors
+
+Surveydown explicitly supports generic panel workflows rather than a turnkey provider connector:
+
+- `sd_get_url_pars()` reads participant and study identifiers from inbound URL parameters.
+- `sd_store_value()` can persist those identifiers.
+- `sd_redirect()` supports static and reactive completion destinations, optional buttons, delays, and new-tab behavior.
+- `sd_completion_code()` can generate a stored per-session numeric completion code when called in server code.
+
+The official external-redirect documentation names Prolific and Dynata as use cases. However, authors must still write provider mappings, missing-ID checks, storage calls, completion/screen-out routes, and duplicate-participation policy themselves.
+
+greedyQualt classification: the generic provider contract and a Prolific preset are **v0.1 native targets**. Additional provider presets are **Post-v0.1**.
+
 ## 12. Compatibility matrix summary
 
 | Domain | v0.1 target | Post-v0.1 / native extension | Unsupported by design |
@@ -433,6 +462,8 @@ Deferred:
 | Randomization | Shuffle, simple/block persistent seeded assignment | Weighted, stratified, factorial, CSV design | Arbitrary executable code in definitions |
 | Persistence | Supabase, resume, partial save, completion | Additional backends, offline mode | Runtime schema mutation as core model |
 | Data | Normalized native model and wide export | Rich event/revision data | Central greedyQualt-owned respondent store |
+| Research governance | Ethics metadata and versioned consent | Electronic signatures and jurisdiction-specific workflows | Claims of automatic IRB/legal compliance |
+| Respondent sources | Generic URL/redirect contract and Prolific preset | Additional provider presets | Unvalidated arbitrary redirect code |
 
 ## 13. Implications for the v0.1 specification
 
