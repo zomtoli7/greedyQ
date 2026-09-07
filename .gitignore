@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+coverage/
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Local Supabase state
+.supabase/
+supabase/.branches/
+supabase/.temp/
+
+# Test and tool caches
+.turbo/
+.cache/
+playwright-report/
+test-results/
