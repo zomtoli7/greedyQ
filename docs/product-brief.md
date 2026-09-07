@@ -10,13 +10,13 @@
 
 ## 1. Product definition
 
-greedyQualt is an open-source, Markdown-first platform for building, deploying, and operating academic surveys and experiments. It accepts surveydown-compatible survey definitions where practical, compiles them into a safe internal schema, renders them as web applications, and stores responses in researcher-owned infrastructure.
+greedyQualt is an open-source, AI-guided workflow for building, deploying, and operating academic surveys and experiments. Its primary experience is a structured conversation: a researcher attaches a versioned greedyQualt guide to GPT, Claude, or another capable agent; the AI interviews the researcher one decision at a time; and the workflow produces, validates, previews, and deploys deterministic study artifacts.
 
-The product is not intended to be a pixel-for-pixel Qualtrics clone or another GUI form builder. Its primary abstraction is a version-controlled study specification.
+The product is not intended to be a pixel-for-pixel Qualtrics clone, another GUI form builder, or a proprietary AI service. Its primary user interface is a guided conversation, while its durable abstraction is a version-controlled study specification. Direct QMD authoring remains an expert path.
 
 ### Core proposition
 
-> Keep the survey-as-code idea. Remove R, RStudio, Quarto, and Shiny from the required toolchain.
+> Combine frontier-model research assistance with a deterministic survey specification, validator, runtime, and deployment workflow.
 
 ### Product promise
 
@@ -40,7 +40,8 @@ These limitations are especially costly for studies involving random assignment,
 
 - Academic researchers seeking reproducible survey workflows
 - Researchers leaving or supplementing expensive proprietary platforms
-- Researchers willing to work with text files and Git, directly or with AI assistance
+- Researchers who want to create a rigorous survey through conversation without learning a survey DSL
+- Expert users who prefer to inspect or edit text files and Git directly
 - Experimental researchers who need randomization, factorial designs, or conjoint/CBC
 - Surveydown users who want to retain `survey.qmd` while replacing the R/Shiny runtime
 
@@ -57,9 +58,12 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 5. **Research comes first.** Reproducible randomization, experimental metadata, and analysis-ready data are core concerns.
 6. **Researchers own their data.** Responses go to the researcher's Supabase project; greedyQualt does not operate a central respondent-data service.
 7. **No GUI dependency.** A GUI survey builder is not required for authoring or deployment.
-8. **AI is an authoring interface, not a proprietary dependency.** The specification should enable general-purpose LLMs to generate valid studies.
+8. **AI-guided creation is the primary experience, not an add-on.** A general-purpose LLM should interview the researcher, maintain the study state, and produce valid artifacts.
 9. **Deployment should be mundane.** GitHub, Vercel, and Supabase should be sufficient for a production survey.
 10. **Research governance must be explicit.** Ethics-review metadata, consent, and respondent-source records should be structured, versioned, and auditable without claiming legal or institutional compliance.
+11. **The LLM provides research intelligence.** greedyQualt should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
+12. **Researcher authority is preserved.** The AI explains concerns and proposes alternatives but never silently changes a material research decision.
+13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
 
 ## 5. Compatibility strategy
 
@@ -94,6 +98,12 @@ app.R       -- migration tooling -> greedyqualt.yml
 ## 6. Proposed technical model
 
 ```text
+Versioned guide + natural-language study request
+      |
+      v
+Guided interview + researcher approval checkpoints
+      |
+      v
 survey.qmd
 greedyqualt.yml
 design/*.csv
@@ -211,13 +221,89 @@ event_log
 
 Required behavior includes anonymous sessions, resumable progress, page-level saves, completion state, URL metadata such as Prolific IDs, and analysis-ready export. The specification phase will decide where normalized relational tables or JSONB are appropriate.
 
-## 11. Authoring paths
+## 11. Primary experience and alternative authoring paths
 
-### 11.1 Direct authoring
+### 11.1 Main feature: AI-guided study creation and deployment
 
-Experienced users edit `survey.qmd`, `greedyqualt.yml`, and design files directly. Git history records the exact fielded study.
+A standalone, versioned Markdown guide turns a capable general-purpose LLM into the conversational interface for greedyQualt.
 
-### 11.2 Follow-up tool 1: PPTX converter
+```text
+greedyqualt-guide.md + "Let's build a survey"
+                   |
+                   v
+          capability detection
+                   |
+                   v
+          guided study interview
+                   |
+     +-------------+--------------+
+     | research design            |
+     | eligibility and consent    |
+     | questions and measurement  |
+     | logic and randomization    |
+     | respondent source          |
+     | data, privacy, deployment  |
+     +-------------+--------------+
+                   |
+                   v
+       researcher approval checkpoints
+                   |
+                   v
+     survey.qmd + greedyqualt.yml + design/*.csv
+                   |
+                   v
+       validate -> preview -> approve -> deploy
+```
+
+The interview asks one focused question at a time, keeps a structured record of confirmed decisions, and updates artifacts at stable checkpoints. The LLM may detect methodological risks, explain them, and suggest alternatives using its own research knowledge. The guide does not attempt to maintain an encyclopedia of survey methodology. It defines the review workflow and requires researcher confirmation before material decisions change.
+
+### 11.2 Chat mode and agent mode
+
+The guide begins by detecting available capabilities.
+
+- **Chat mode:** Conduct the interview, create all project artifacts, run guide-based self-checks, and provide precise validation/deployment handoff instructions.
+- **Agent mode:** Additionally edit the repository, execute the validator, provision or connect Supabase and Vercel, configure environment variables, deploy, and verify the live survey when tools and authorization permit.
+
+The workflow must never claim that a repository, database, deployment, or external panel was configured unless the operation was performed and verified.
+
+### 11.3 Division of responsibility
+
+| Actor | Responsibility |
+| --- | --- |
+| LLM | Research reasoning, question critique, design concerns, alternatives, natural-language collaboration |
+| greedyQualt guide | Interview sequence, required review moments, approval checkpoints, artifact and deployment workflow |
+| greedyQualt validator | IDs, references, reachability, cycles, configuration completeness, deterministic constraints |
+| Researcher | Substantive research decisions and final approval |
+
+### 11.4 Guide artifacts
+
+```text
+guides/greedyqualt-guide.md
+guides/greedyqualt-guide-compact.md
+examples/complete-study/
+```
+
+The full guide should define:
+
+- Role, scope, and prohibited behavior
+- Capability detection and mode selection
+- Phased interview protocol
+- One-question-at-a-time interaction
+- Research-review and researcher-confirmation checkpoints
+- Study-state and decision-log format
+- QMD, YAML, logic, randomization, and CSV contracts
+- IRB/ethics, consent, and respondent-source workflow
+- Artifact creation and update rules
+- Validation and LLM correction loop
+- Preview and pre-deployment approval
+- GitHub, Vercel, Supabase, and Prolific procedures
+- Deployment verification and study handoff
+
+### 11.5 Expert path: direct authoring
+
+Experienced users may edit `survey.qmd`, `greedyqualt.yml`, and design files directly. Their artifacts enter the same validation, preview, approval, and deployment pipeline.
+
+### 11.6 Import path: PPTX converter
 
 The converter produces a high-quality, editable first draft rather than claiming perfect semantic recovery.
 
@@ -231,65 +317,26 @@ greedyqualt convert survey.pptx
     +-- greedyqualt.yml
     +-- assets/*
     +-- conversion-report.md
+    |
+    v
+guided AI review -> validate -> preview -> deploy
 ```
 
 It should use PPTX structure, layout, tables, speaker notes, and optional metadata to infer pages and questions while reporting ambiguous conversions.
-
-### 11.3 Follow-up tool 2: LLM authoring vignette
-
-A standalone, versioned Markdown vignette teaches GPT, Claude, and other general-purpose LLMs how to generate valid greedyQualt projects from natural-language research requirements.
-
-```text
-llm-authoring-vignette.md
-             +
-natural-language study request
-             |
-             v
-        GPT / Claude
-             |
-             +-- survey.qmd
-             +-- greedyqualt.yml
-             +-- design/*.csv
-             +-- generation notes
-             |
-             v
-greedyqualt validate --format llm
-             |
-             v
-     LLM-assisted correction
-```
-
-The vignette should contain:
-
-- A normative project and output-file contract
-- Exact QMD, YAML, logic, randomization, and CSV syntax
-- Supported and prohibited constructs
-- Complete working examples
-- Stable specification-version declarations
-- A mandatory generation self-check
-- Machine-actionable validation guidance
-
-Planned artifacts:
-
-```text
-docs/llm-authoring-vignette.md
-docs/llm-authoring-vignette-compact.md
-examples/complete-study/
-```
-
-The validator should provide stable diagnostic codes and precise locations so a user can return the result to an LLM for correction.
 
 ## 12. Initial success criteria
 
 The first end-to-end milestone succeeds when a researcher can:
 
-1. Define a small study in a documented QMD subset.
-2. Validate it without installing R.
-3. Preview and deploy it as a web application.
-4. Enroll a respondent with persistent experimental assignment.
-5. Save partial and completed responses to the researcher's Supabase.
-6. Export analysis-ready data.
-7. Reproduce the fielded study from a Git commit and recorded specification version.
+1. Attach the guide, request a new survey, and complete a one-question-at-a-time interview.
+2. Review and approve the recorded material research decisions.
+3. Receive valid QMD, configuration, design, consent, and deployment artifacts.
+4. Validate the study without installing R.
+5. Preview and deploy it as a web application through chat-mode handoff or agent-mode execution.
+6. Enroll a respondent with persistent experimental assignment.
+7. Save partial and completed responses to the researcher's Supabase.
+8. Export analysis-ready data.
+9. Reproduce the interview decisions and fielded study from a Git commit and recorded specification version.
 
 ## 13. Research governance and respondent sources
 

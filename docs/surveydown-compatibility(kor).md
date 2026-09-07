@@ -41,6 +41,7 @@
 9. surveydown은 session당 하나의 wide response row를 사용합니다. PostgreSQL table을 자동 생성·확장하고 `session_id`를 primary key로 사용하며 값을 text column으로 기록합니다.
 10. Cookie가 session ID, current page, answer를 보존합니다. Database/CSV data는 페이지 전환과 browser/session 종료 시 갱신됩니다.
 11. greedyQualt는 대부분의 정적 QMD authoring을 보존하면서 `app.R`을 버전이 명시된 선언형 스펙으로 교체할 수 있습니다. 임의의 R/Shiny 동작은 일반적으로 변환할 수 없으며 설계상 지원하지 않습니다.
+12. AI-guided creation이 greedyQualt의 주요 경험이므로 compatibility detail은 expert author를 위한 prose에 머물지 않고 결정론적 generation rule과 validator diagnostic으로 표현할 수 있어야 합니다.
 
 ## 3. 프로젝트 및 런타임 모델
 
@@ -465,7 +466,26 @@ greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 nativ
 | Research governance | Ethics metadata 및 versioned consent | 전자서명 및 관할별 workflow | 자동 IRB/legal compliance 주장 |
 | Respondent source | Generic URL/redirect contract 및 Prolific preset | 추가 provider preset | 검증되지 않은 임의 redirect code |
 
-## 13. v0.1 스펙에 미치는 영향
+## 13. AI-guided workflow에 미치는 영향
+
+Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementation constraint입니다. 연구자가 자신의 요구사항이 compatible QMD syntax 또는 greedyQualt-native declaration 중 어디에 mapping되는지 알 필요는 없습니다.
+
+따라서 versioned guide와 validator는 다음을 수행해야 합니다.
+
+1. 사용자에게 syntax 선택을 요구하지 않고 domain language로 연구 의도를 질문합니다.
+2. Compatibility matrix가 허용하는 경우 확인된 의도를 surveydown-compatible QMD로 mapping합니다.
+3. Logic, randomization, consent, governance, privacy, respondent-source 동작에는 native declarative configuration을 사용합니다.
+4. Compatibility limitation이 연구 동작이나 migration path를 바꿀 때만 이를 설명합니다.
+5. 생성된 survey artifact와 별도로 구조화된 decision log를 보존합니다.
+6. Limitation에 대응하여 중요한 연구 결정을 바꾸기 전에 연구자 확인을 요구합니다.
+7. LLM이 correction loop에서 사용할 수 있는 안정적인 diagnostic code와 location을 생성합니다.
+8. Repository, database, deployment, panel operation을 약속하기 전에 Chat mode와 Agent mode를 구분합니다.
+9. 모든 external mutation을 완료했다고 보고하기 전에 검증합니다.
+10. 생성 artifact를 model-independent하게 유지하여 원래 대화 없이도 검사·편집·검증·재현할 수 있게 합니다.
+
+LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQualt는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
+
+## 14. v0.1 스펙에 미치는 영향
 
 규범적 스펙은 다음 사항을 명시적으로 결정해야 합니다.
 
@@ -480,7 +500,7 @@ greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 nativ
 9. Cookie, IP address, browser metadata, URL parameter에 privacy-safe default를 정의합니다.
 10. 사람과 LLM correction loop 모두에 적합한 안정적 validator diagnostic을 정의합니다.
 
-## 14. 알려진 모호성 및 후속 확인
+## 15. 알려진 모호성 및 후속 확인
 
 - Documentation과 source는 때때로 `show_prev`와 현재 `show_previous` signature처럼 다른 parameter name 또는 legacy terminology를 사용합니다.
 - Default material에는 `start-page: initial_page`가 있지만 narrative documentation은 실질적 default가 첫 페이지라고 설명합니다. greedyQualt는 하나의 모호하지 않은 동작을 정의해야 합니다.
@@ -489,7 +509,7 @@ greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 nativ
 - 현재 GitHub `main`은 package version `1.3.0`을 보고하지만 GitHub Releases는 이 버전까지 유지되지 않았습니다. 따라서 이 조사는 Releases page에 의존하지 않고 정확한 commit을 고정합니다.
 - v0.1을 확정하기 전에 모든 대상 문항 타입, navigation path, shuffle form, persistence transition에 대한 executable fixture를 수집해야 합니다.
 
-## 15. Primary source
+## 16. Primary source
 
 - [Surveydown documentation home](https://surveydown.org/docs/)
 - [Basic Components](https://surveydown.org/docs/basic-components)

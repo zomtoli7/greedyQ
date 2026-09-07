@@ -21,6 +21,11 @@
 
 - Treat `docs/product-brief.md` as the current product-direction reference.
 - Treat `docs/roadmap.md` as the current implementation-order reference.
+- Treat AI-guided study creation and deployment as the primary user experience.
+- Treat direct QMD authoring as an expert path and PPTX conversion as an import path.
+- Let the chosen LLM provide research reasoning; keep interview workflow, approval checkpoints, artifact contracts, validation, and reproducibility deterministic in greedyQualt.
+- Require explicit researcher confirmation for material research decisions.
+- Distinguish chat mode from agent mode and never claim an external service was configured without connected tools and verified results.
 - Prioritize specification work before runtime implementation.
 - Target public, user-facing surveydown compatibility without copying its internal implementation.
 - Do not execute arbitrary R or JavaScript from survey definitions.

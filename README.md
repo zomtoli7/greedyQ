@@ -2,11 +2,11 @@
 
 [한국어](./README(kor).md)
 
-> Surveydown-compatible survey-as-code, without R, RStudio, Quarto, or Shiny.
+> Create a rigorous, reproducible research survey through a guided conversation with an AI you already use.
 
-greedyQualt is an open-source, Markdown-first survey and experimental research engine. Researchers define studies in version-controlled text files, deploy survey applications through Vercel, and store responses in a Supabase project they own.
+greedyQualt is an open-source, AI-guided survey and experimental research workflow backed by a deterministic Markdown-first engine. A researcher gives a versioned greedyQualt guide to GPT, Claude, or another capable agent and starts with a simple request such as “Let's build a survey.” The AI interviews the researcher, records confirmed decisions, produces valid study files, validates them, and—when connected tools are available—sets up GitHub, Vercel, and Supabase.
 
-The project is intended for reproducible academic research, particularly studies that require branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
+The AI supplies research reasoning and natural-language collaboration. greedyQualt supplies the interview protocol, approval checkpoints, specification, validator, runtime, deployment contract, and reproducibility. The project is intended for academic studies that require auditable consent, external respondent panels, branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
 
 ## Why greedyQualt?
 
@@ -19,7 +19,7 @@ greedyQualt keeps the good parts:
 - Researcher-owned PostgreSQL data
 - Programmable research workflows
 
-It replaces the required R/Shiny runtime with a web-native TypeScript and React stack designed for GitHub, Vercel, and Supabase.
+It replaces the required R/Shiny runtime with a web-native TypeScript and React stack designed for GitHub, Vercel, and Supabase, then makes that deterministic stack usable through a guided AI conversation.
 
 ## Product principles
 
@@ -29,46 +29,57 @@ It replaces the required R/Shiny runtime with a web-native TypeScript and React 
 - Conditional logic and randomization are declarative, safe, and reproducible.
 - Researchers own and control their respondent data.
 - No GUI survey builder is required.
-- The specification must be readable by people and reliably usable by general-purpose language models.
+- The primary user experience is a guided conversation with a general-purpose LLM.
+- The LLM provides research intelligence; greedyQualt provides workflow, specification, validation, and reproducibility.
+- Material research decisions require explicit researcher confirmation.
+- The workflow must detect whether it can act through connected tools or must provide files and instructions for the user.
 
-## Intended workflow
+## Primary workflow
 
 ```text
-survey.qmd + greedyqualt.yml + design/*.csv
-                       |
-                       v
-        parser -> Survey AST -> validator
-                       |
-                       v
-             React/Next.js renderer
-                       |
-                       v
-                    Vercel
-                       |
-                       v
-         Researcher's own Supabase
+Versioned greedyQualt guide + researcher's study idea
+                         |
+                         v
+              Guided AI interview
+                         |
+     research design -> consent -> questions
+     -> logic -> randomization -> respondent source
+                         |
+                         v
+     survey.qmd + greedyqualt.yml + design/*.csv
+                         |
+                         v
+           parser -> Survey AST -> validator
+                         |
+                         v
+               preview and approval
+                         |
+                         v
+          GitHub -> Vercel -> Supabase
 ```
 
 The target onboarding experience is:
 
-1. Fork a greedyQualt template.
-2. Edit `survey.qmd` directly or generate it with an LLM.
-3. Create a Supabase project.
-4. Deploy the repository to Vercel.
-5. Enter the Supabase environment variables.
-6. Publish the survey.
+1. Attach the versioned greedyQualt guide to a capable LLM or agent.
+2. Say what study you want to build.
+3. Answer one focused question at a time and confirm material decisions.
+4. Review the generated study, consent, logic, randomization, and data plan.
+5. Validate and preview the generated project.
+6. Let a connected agent configure GitHub, Vercel, and Supabase, or follow the generated handoff instructions.
+7. Approve and publish the survey.
 
-## Authoring paths
+## Interaction modes and alternative paths
 
-greedyQualt is planned to support three authoring paths:
+The guide supports two capability-dependent modes:
 
-1. Direct authoring in `survey.qmd` and `greedyqualt.yml`.
-2. Conversion of a PowerPoint survey draft into QMD, configuration, and extracted assets.
-3. Generation of valid project files by GPT, Claude, or another LLM using a versioned Markdown authoring vignette.
+- **Chat mode:** The AI conducts the interview, creates the project files, validates its reasoning against the guide, and gives the user deployment instructions.
+- **Agent mode:** A connected agent can additionally edit the repository, run validation, configure services, deploy, and verify the live survey.
+
+Expert users may still author `survey.qmd` and `greedyqualt.yml` directly. A later PPTX importer will turn existing slide-based drafts into editable study artifacts that enter the same guided review workflow.
 
 ## Project status
 
-greedyQualt is in the specification phase. The first milestone is to document surveydown's public user-facing specification and define the greedyQualt v0.1 compatibility boundary before implementing the runtime.
+greedyQualt is in the specification phase. The current milestone is to turn the completed surveydown compatibility research into the greedyQualt v0.1 specification and the versioned guided-interview protocol before implementing the runtime.
 
 See the [product brief](./docs/product-brief.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 

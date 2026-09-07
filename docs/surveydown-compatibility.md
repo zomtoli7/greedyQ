@@ -41,6 +41,7 @@ Compatibility means compatibility with the documented authoring contract where p
 9. Surveydown uses one wide response row per session. It creates and extends a PostgreSQL table automatically, uses `session_id` as the primary key, and writes values as text columns.
 10. Cookies preserve the session ID, current page, and answers. Database/CSV data is updated on page transitions and browser/session end.
 11. greedyQualt can preserve most static QMD authoring while replacing `app.R` with a versioned declarative specification. Arbitrary R and Shiny behavior cannot be generally translated and remains unsupported by design.
+12. Because AI-guided creation is greedyQualt's primary experience, compatibility details must be expressible as deterministic generation rules and validator diagnostics, not merely prose for expert authors.
 
 ## 3. Project and runtime model
 
@@ -465,7 +466,26 @@ greedyQualt classification: the generic provider contract and a Prolific preset 
 | Research governance | Ethics metadata and versioned consent | Electronic signatures and jurisdiction-specific workflows | Claims of automatic IRB/legal compliance |
 | Respondent sources | Generic URL/redirect contract and Prolific preset | Additional provider presets | Unvalidated arbitrary redirect code |
 
-## 13. Implications for the v0.1 specification
+## 13. Implications for the AI-guided workflow
+
+Surveydown compatibility is an implementation constraint beneath the primary conversational experience. A researcher should not need to know whether a requirement maps to compatible QMD syntax or a greedyQualt-native declaration.
+
+The versioned guide and validator should therefore:
+
+1. Ask for research intent in domain language rather than asking the user to choose syntax.
+2. Map confirmed intent to surveydown-compatible QMD where the compatibility matrix permits.
+3. Use native declarative configuration for logic, randomization, consent, governance, privacy, and respondent-source behavior.
+4. Explain a compatibility limitation only when it changes the study's behavior or migration path.
+5. Preserve a structured decision log separately from generated survey artifacts.
+6. Require researcher confirmation before changing a material research decision in response to a limitation.
+7. Produce stable diagnostic codes and locations that an LLM can use in a correction loop.
+8. Detect Chat mode versus Agent mode before promising repository, database, deployment, or panel operations.
+9. Verify every external mutation before reporting it as complete.
+10. Keep generated artifacts model-independent so they can be inspected, edited, validated, and reproduced without the originating conversation.
+
+The LLM is responsible for applying its research-methods knowledge to critique questions and designs. greedyQualt is responsible for ensuring that the review occurs at the correct checkpoint, concerns are explained, the researcher retains final authority, and confirmed decisions become valid deterministic artifacts.
+
+## 14. Implications for the v0.1 specification
 
 The normative specification should make the following decisions explicitly:
 
@@ -480,7 +500,7 @@ The normative specification should make the following decisions explicitly:
 9. Define privacy-safe defaults for cookies, IP addresses, browser metadata, and URL parameters.
 10. Define stable validator diagnostics suitable for both people and LLM correction loops.
 
-## 14. Known ambiguities and follow-up checks
+## 15. Known ambiguities and follow-up checks
 
 - Documentation and source occasionally use different parameter names or legacy terminology, such as `show_prev` versus the current `show_previous` signature.
 - The default material lists `start-page: initial_page`, while narrative documentation says the first page is the effective default. greedyQualt should specify one unambiguous behavior.
@@ -489,7 +509,7 @@ The normative specification should make the following decisions explicitly:
 - The current GitHub `main` reports package version `1.3.0`, while GitHub Releases is not maintained through that version. This research therefore pins the exact commit rather than relying on the Releases page.
 - Before freezing v0.1, executable fixtures should be collected for every targeted question type, navigation path, shuffle form, and persistence transition.
 
-## 15. Primary sources
+## 16. Primary sources
 
 - [Surveydown documentation home](https://surveydown.org/docs/)
 - [Basic Components](https://surveydown.org/docs/basic-components)

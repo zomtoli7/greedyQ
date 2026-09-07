@@ -10,13 +10,13 @@
 
 ## 1. 제품 정의
 
-greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈소스 Markdown-first 플랫폼입니다. 가능한 범위에서 surveydown 호환 설문 정의를 받아 안전한 내부 schema로 compile하고, 웹 애플리케이션으로 render하며, 연구자가 소유한 인프라에 응답을 저장합니다.
+greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈소스 AI-guided workflow입니다. 주요 사용자 경험은 구조화된 대화입니다. 연구자가 버전이 명시된 greedyQualt guide를 GPT, Claude 등의 유능한 agent에게 첨부하면, AI가 연구자에게 한 번에 하나씩 결정을 질문하고 workflow가 결정론적 study artifact를 생성·검증·preview·배포합니다.
 
-이 제품은 Qualtrics를 화면 단위로 복제하거나 또 다른 GUI form builder가 되는 것을 목표로 하지 않습니다. 핵심 abstraction은 버전 관리되는 연구 스펙입니다.
+이 제품은 Qualtrics를 화면 단위로 복제하거나 또 다른 GUI form builder 또는 독점 AI 서비스가 되는 것을 목표로 하지 않습니다. 주요 사용자 interface는 안내형 대화이며 지속 가능한 abstraction은 버전 관리되는 연구 스펙입니다. QMD 직접 작성은 expert path로 유지합니다.
 
 ### 핵심 제안
 
-> Survey-as-code의 장점은 유지하고, 필수 도구 체인에서 R, RStudio, Quarto, Shiny를 제거합니다.
+> Frontier model의 연구 보조 능력을 결정론적인 설문 specification, validator, runtime, deployment workflow와 결합합니다.
 
 ### 제품 약속
 
@@ -40,7 +40,8 @@ greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 �
 
 - 재현 가능한 설문 워크플로를 원하는 학술 연구자
 - 비싼 독점 플랫폼을 대체하거나 보완하려는 연구자
-- 직접 또는 AI의 도움을 받아 텍스트 파일과 Git을 사용할 의향이 있는 연구자
+- 설문 DSL을 배우지 않고 대화를 통해 엄밀한 설문을 만들고 싶은 연구자
+- Text file과 Git을 직접 검사하거나 편집하려는 expert user
 - 무작위화, 요인 설계, conjoint/CBC가 필요한 실험 연구자
 - `survey.qmd`는 유지하면서 R/Shiny 런타임을 교체하고 싶은 surveydown 사용자
 
@@ -57,9 +58,12 @@ greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 �
 5. **연구를 우선합니다.** 재현 가능한 무작위화, 실험 metadata, 분석 가능한 데이터가 핵심 고려사항입니다.
 6. **연구자가 데이터를 소유합니다.** 응답은 연구자의 Supabase 프로젝트로 전송하며 greedyQualt는 중앙 응답 데이터 서비스를 운영하지 않습니다.
 7. **GUI에 의존하지 않습니다.** 작성이나 배포에 GUI 설문 빌더가 필요하지 않습니다.
-8. **AI는 독점 의존성이 아닌 작성 인터페이스입니다.** 범용 LLM이 유효한 연구를 생성할 수 있도록 스펙을 설계합니다.
+8. **AI-guided creation은 부가기능이 아니라 주요 경험입니다.** 범용 LLM이 연구자를 인터뷰하고 study state를 유지하며 유효한 artifact를 생성해야 합니다.
 9. **배포는 평범하고 단순해야 합니다.** GitHub, Vercel, Supabase만으로 production 설문을 운영할 수 있어야 합니다.
 10. **연구 governance를 명시해야 합니다.** 법적 또는 기관 compliance를 보증하지 않으면서 ethics-review metadata, consent, respondent-source 기록을 구조화하고 버전 관리하며 감사할 수 있어야 합니다.
+11. **LLM이 연구 지능을 제공합니다.** greedyQualt는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
+12. **연구자의 권한을 보존합니다.** AI는 문제를 설명하고 대안을 제시하지만 중요한 연구 결정을 조용히 변경하지 않습니다.
+13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
 
 ## 5. 호환성 전략
 
@@ -94,6 +98,12 @@ app.R       -- migration 도구 ---> greedyqualt.yml
 ## 6. 제안 기술 모델
 
 ```text
+Versioned guide + 자연어 연구 요청
+      |
+      v
+Guided interview + 연구자 approval checkpoint
+      |
+      v
 survey.qmd
 greedyqualt.yml
 design/*.csv
@@ -211,13 +221,89 @@ event_log
 
 익명 session, 재개 가능한 진행 상태, 페이지 단위 저장, 완료 상태, Prolific ID와 같은 URL metadata, 분석 가능한 export가 필요합니다. 정규화된 관계형 table과 JSONB를 어디에 사용할지는 스펙 단계에서 결정합니다.
 
-## 11. 설문 작성 경로
+## 11. 주요 경험 및 대안 작성 경로
 
-### 11.1 직접 작성
+### 11.1 메인 기능: AI-guided study creation 및 deployment
 
-숙련된 사용자는 `survey.qmd`, `greedyqualt.yml`, design 파일을 직접 편집합니다. Git history가 실제 배포된 연구를 기록합니다.
+독립적이고 버전이 명시된 Markdown guide는 유능한 범용 LLM을 greedyQualt의 대화형 interface로 만듭니다.
 
-### 11.2 후속 도구 1: PPTX converter
+```text
+greedyqualt-guide.md + "설문 만들자!"
+                   |
+                   v
+          capability detection
+                   |
+                   v
+           안내형 study interview
+                   |
+     +-------------+--------------+
+     | research design            |
+     | eligibility and consent    |
+     | questions and measurement  |
+     | logic and randomization    |
+     | respondent source          |
+     | data, privacy, deployment  |
+     +-------------+--------------+
+                   |
+                   v
+         연구자 approval checkpoint
+                   |
+                   v
+     survey.qmd + greedyqualt.yml + design/*.csv
+                   |
+                   v
+       validate -> preview -> approve -> deploy
+```
+
+Interview는 한 번에 하나의 집중된 질문을 하고, 확인된 결정을 구조적으로 기록하며, 안정된 checkpoint에서 artifact를 갱신합니다. LLM은 자체 연구 지식을 이용해 방법론적 위험을 발견하고 설명하며 대안을 제시할 수 있습니다. Guide는 설문 방법론 백과사전을 유지하려 하지 않습니다. Review workflow를 정의하고 중요한 결정이 바뀌기 전에 연구자의 확인을 요구합니다.
+
+### 11.2 Chat mode 및 agent mode
+
+Guide는 먼저 사용 가능한 capability를 감지합니다.
+
+- **Chat mode:** 인터뷰를 수행하고 모든 project artifact를 생성하며 guide 기반 self-check를 실행하고 정확한 validation/deployment handoff instruction을 제공합니다.
+- **Agent mode:** 도구와 권한이 허용할 때 repository 편집, validator 실행, Supabase 및 Vercel provision/연결, environment variable 설정, 배포, live survey 검증까지 수행합니다.
+
+Workflow는 실제 operation을 수행하고 검증하지 않은 repository, database, deployment 또는 external panel을 설정했다고 주장해서는 안 됩니다.
+
+### 11.3 책임 구분
+
+| Actor | 책임 |
+| --- | --- |
+| LLM | 연구 reasoning, question critique, design concern, 대안, 자연어 협업 |
+| greedyQualt guide | Interview sequence, 필수 review 시점, approval checkpoint, artifact 및 deployment workflow |
+| greedyQualt validator | ID, reference, reachability, cycle, configuration completeness, deterministic constraint |
+| 연구자 | 중요한 연구 결정 및 최종 승인 |
+
+### 11.4 Guide artifact
+
+```text
+guides/greedyqualt-guide.md
+guides/greedyqualt-guide-compact.md
+examples/complete-study/
+```
+
+전체 guide는 다음을 정의해야 합니다.
+
+- Role, scope, 금지 동작
+- Capability detection 및 mode 선택
+- Phase별 interview protocol
+- 한 번에 하나의 질문을 하는 interaction
+- Research review 및 연구자 확인 checkpoint
+- Study-state 및 decision-log format
+- QMD, YAML, logic, randomization, CSV contract
+- IRB/ethics, consent, respondent-source workflow
+- Artifact 생성 및 갱신 규칙
+- Validation 및 LLM correction loop
+- Preview 및 배포 전 승인
+- GitHub, Vercel, Supabase, Prolific 절차
+- Deployment verification 및 study handoff
+
+### 11.5 Expert path: 직접 작성
+
+숙련된 사용자는 `survey.qmd`, `greedyqualt.yml`, design 파일을 직접 편집할 수 있습니다. 해당 artifact도 같은 validation, preview, approval, deployment pipeline에 들어갑니다.
+
+### 11.6 Import path: PPTX converter
 
 Converter는 완벽한 semantic recovery를 주장하는 대신 수정 가능한 고품질 초안을 생성합니다.
 
@@ -231,65 +317,26 @@ greedyqualt convert survey.pptx
     +-- greedyqualt.yml
     +-- assets/*
     +-- conversion-report.md
+    |
+    v
+guided AI review -> validate -> preview -> deploy
 ```
 
 PPTX 구조, layout, table, speaker notes, optional metadata를 사용하여 페이지와 문항을 추론하고 모호한 변환을 보고해야 합니다.
-
-### 11.3 후속 도구 2: LLM authoring vignette
-
-독립적이고 버전이 명시된 Markdown vignette은 GPT, Claude 등의 범용 LLM이 자연어 연구 요구사항으로부터 유효한 greedyQualt 프로젝트를 생성하는 방법을 설명합니다.
-
-```text
-llm-authoring-vignette.md
-             +
-자연어 연구 요청
-             |
-             v
-        GPT / Claude
-             |
-             +-- survey.qmd
-             +-- greedyqualt.yml
-             +-- design/*.csv
-             +-- generation notes
-             |
-             v
-greedyqualt validate --format llm
-             |
-             v
-          LLM 보조 수정
-```
-
-Vignette에는 다음이 포함되어야 합니다.
-
-- 규범적 프로젝트 및 출력 파일 계약
-- 정확한 QMD, YAML, logic, randomization, CSV 문법
-- 지원 및 금지 구문
-- 완전하게 작동하는 예제
-- 안정적인 스펙 버전 선언
-- 필수 생성 self-check
-- machine-actionable validation 안내
-
-계획된 결과물:
-
-```text
-docs/llm-authoring-vignette.md
-docs/llm-authoring-vignette-compact.md
-examples/complete-study/
-```
-
-Validator는 사용자가 결과를 LLM에 다시 전달해 수정할 수 있도록 안정적인 diagnostic code와 정확한 위치를 제공해야 합니다.
 
 ## 12. 초기 성공 기준
 
 첫 end-to-end milestone은 연구자가 다음을 수행할 수 있을 때 성공한 것입니다.
 
-1. 문서화된 QMD subset으로 작은 연구를 정의합니다.
-2. R을 설치하지 않고 검증합니다.
-3. 웹 애플리케이션으로 preview하고 배포합니다.
-4. 지속적인 실험 배정으로 respondent를 등록합니다.
-5. 연구자의 Supabase에 부분 및 완료 응답을 저장합니다.
-6. 분석 가능한 데이터를 export합니다.
-7. Git commit과 기록된 스펙 버전으로 배포 당시 연구를 재현합니다.
+1. Guide를 첨부하고 새 설문을 요청하며 한 번에 하나씩 진행되는 인터뷰를 완료합니다.
+2. 기록된 중요한 연구 결정을 검토하고 승인합니다.
+3. 유효한 QMD, configuration, design, consent, deployment artifact를 받습니다.
+4. R을 설치하지 않고 연구를 검증합니다.
+5. Chat-mode handoff 또는 agent-mode execution으로 웹 애플리케이션을 preview하고 배포합니다.
+6. 지속적인 실험 배정으로 respondent를 등록합니다.
+7. 연구자의 Supabase에 부분 및 완료 응답을 저장합니다.
+8. 분석 가능한 데이터를 export합니다.
+9. Git commit과 기록된 스펙 버전으로 interview decision과 배포 당시 연구를 재현합니다.
 
 ## 13. 연구 governance 및 respondent source
 

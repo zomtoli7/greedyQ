@@ -13,8 +13,8 @@
 - [x] Require a synchronized `(kor).md` copy for every Markdown document.
 - [x] Create the initial README, product brief, and roadmap.
 - [ ] Select an open-source license.
-- [ ] Initialize the local Git repository.
-- [ ] Create and connect the GitHub repository.
+- [x] Initialize the local Git repository.
+- [x] Create and connect the GitHub repository.
 
 ## Phase 1: Surveydown specification research
 
@@ -61,21 +61,52 @@ docs/greedyqualt-v0.1-spec.md
 docs/greedyqualt-v0.1-spec(kor).md
 ```
 
-## Phase 3: Architecture and deployment skeleton
+## Phase 3: AI-guided workflow specification
+
+Specify the primary product experience before building the runtime.
+
+- [ ] Define capability detection and Chat/Agent mode selection.
+- [ ] Define the phased, one-question-at-a-time interview protocol.
+- [ ] Define study-state, assumption, unresolved-decision, and decision-log formats.
+- [ ] Define when the LLM performs research review and when researcher confirmation is mandatory.
+- [ ] Define artifact update checkpoints and resumable conversation handoff.
+- [ ] Define IRB/ethics, consent, respondent-source, privacy, and deployment interview stages.
+- [ ] Define the LLM output-file contract and generation notes.
+- [ ] Define the validation/correction loop and stable LLM-facing diagnostics.
+- [ ] Define pre-preview and pre-deployment approval gates.
+- [ ] Define truthful completion and verification requirements for external operations.
+- [ ] Publish full and compact versioned guides with a complete reference study.
+- [ ] Test guided creation and correction workflows with multiple capable LLMs.
+
+Deliverables:
+
+```text
+guides/greedyqualt-guide.md
+guides/greedyqualt-guide(kor).md
+guides/greedyqualt-guide-compact.md
+guides/greedyqualt-guide-compact(kor).md
+examples/complete-study/
+```
+
+## Phase 4: Architecture and deployment skeleton
 
 - [ ] Select parser libraries and finalize the grammar implementation approach.
 - [ ] Create the TypeScript parser and normalized AST packages.
-- [ ] Create the validator and diagnostic format.
+- [ ] Create the validator and LLM-friendly diagnostic format.
 - [ ] Create the React/Next.js renderer skeleton.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.
 - [ ] Implement local validation and preview commands.
 - [ ] Add automated tests for documented conformance fixtures.
 
-## Phase 4: End-to-end MVP
+## Phase 5: AI-guided end-to-end MVP
 
-Implement the smallest complete survey path.
+Implement the smallest complete conversational study path.
 
+- [ ] Start from the versioned guide and a natural-language study request.
+- [ ] Conduct a resumable one-question-at-a-time interview.
+- [ ] Record and obtain approval for material research decisions.
+- [ ] Generate valid study, consent, respondent-source, and deployment artifacts.
 - [ ] Render Markdown pages and basic navigation.
 - [ ] Implement text, textarea, numeric, single-choice, and multiple-choice questions.
 - [ ] Implement required fields and basic validation.
@@ -83,10 +114,11 @@ Implement the smallest complete survey path.
 - [ ] Persist partial progress and completed responses.
 - [ ] Implement simple and block random assignment.
 - [ ] Persist assignment metadata across resumed sessions.
+- [ ] Support Chat-mode deployment handoff and Agent-mode verified deployment.
 - [ ] Export analysis-ready data.
-- [ ] Deploy a complete example study to Vercel and Supabase.
+- [ ] Deploy and verify a complete example study on Vercel and Supabase.
 
-## Phase 5: Compatibility expansion
+## Phase 6: Compatibility expansion
 
 - [ ] Implement select, slider, date, Likert, and matrix questions.
 - [ ] Implement supported surveydown settings.
@@ -95,7 +127,7 @@ Implement the smallest complete survey path.
 - [ ] Improve migration diagnostics for unsupported `app.R` code.
 - [ ] Add regression tests for the compatibility matrix.
 
-## Phase 6: Research-specific capabilities
+## Phase 7: Research-specific capabilities
 
 - [ ] Weighted and stratified randomization
 - [ ] Factorial experiment definitions
@@ -113,36 +145,14 @@ Implement the smallest complete survey path.
 - [ ] External CSV experimental designs
 - [ ] Multilingual surveys
 
-## Phase 7: LLM authoring vignette
-
-Design the specification and validation surface so general-purpose language models can reliably author studies.
-
-- [ ] Publish a full versioned authoring vignette.
-- [ ] Publish a token-efficient compact vignette.
-- [ ] Provide a complete reference study.
-- [ ] Define the LLM output-file contract and generation notes.
-- [ ] Add a mandatory pre-output self-check.
-- [ ] Implement `greedyqualt validate --format llm`.
-- [ ] Test generation and correction workflows with GPT and Claude.
-- [ ] Add conformance tests for common natural-language study requests.
-
-Deliverables:
-
-```text
-docs/llm-authoring-vignette.md
-docs/llm-authoring-vignette(kor).md
-docs/llm-authoring-vignette-compact.md
-docs/llm-authoring-vignette-compact(kor).md
-examples/complete-study/
-```
-
-## Phase 8: PPTX converter
+## Phase 8: PPTX import path
 
 - [ ] Extract text, tables, images, and speaker notes from PPTX.
 - [ ] Infer pages and common question structures from slide layout.
 - [ ] Support optional authoring metadata for deterministic conversion.
 - [ ] Generate `survey.qmd`, `greedyqualt.yml`, and assets.
 - [ ] Produce a conversion report with confidence and warnings.
+- [ ] Feed generated artifacts into the guided AI review workflow.
 - [ ] Validate generated projects automatically.
 
 ## Cross-cutting requirements
@@ -156,10 +166,13 @@ These requirements apply to every phase:
 - Preserve researcher ownership of respondent data.
 - Record enough metadata to reproduce fielded experiments.
 - Keep the core workflow usable without R, RStudio, Quarto, or Shiny.
+- Keep the primary experience model-agnostic and usable with multiple capable LLMs.
+- Preserve researcher authority through explicit approval of material decisions.
+- Never claim external setup or deployment succeeded without performing and verifying it.
 
 ## Immediate next actions
 
-1. Collect executable conformance fixtures for the v0.1 compatibility targets.
-2. Turn the research findings into the normative greedyQualt v0.1 specification.
-3. Define the restricted QMD/R-expression grammar and normalized Survey AST.
-4. Define persistence, randomization, privacy, and validation semantics.
+1. Turn the research findings into the normative greedyQualt v0.1 specification.
+2. Specify the guided interview, study-state, and researcher-approval protocols.
+3. Draft the full and compact versioned greedyQualt guides.
+4. Collect executable conformance fixtures and test LLM-generated artifacts against them.
