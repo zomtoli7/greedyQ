@@ -1,42 +1,42 @@
 {
-  "study_id": "digital_service_info_001",
-  "title": "Digital Service Information Study",
-  "start_page": "welcome",
-  "brand_color": "#315c8a",
-  "messages": {
-    "previous": "Previous",
-    "next": "Next",
-    "required": "Please answer the required questions before continuing."
-  },
-  "conditions": [
-    "control",
-    "treatment"
-  ],
-  "progress_paths": {
-    "control": [
-      "welcome",
-      "consent",
-      "eligibility",
-      "baseline",
-      "stimulus_control",
-      "post_measure",
-      "outcomes",
-      "demographics",
-      "participant_control",
-      "complete"
-    ],
-    "treatment": [
-      "welcome",
-      "consent",
-      "eligibility",
-      "baseline",
-      "stimulus_treatment",
-      "post_measure",
-      "outcomes",
-      "demographics",
-      "participant_control",
-      "complete"
-    ]
+  "schema_version": "0.2",
+  "source": "survey.qmd",
+  "front_matter": {
+    "title": "Digital Service Information Study",
+    "greedyq": {
+      "spec_version": "0.2"
+    },
+    "theme-settings": {
+      "theme": "default",
+      "barposition": "top",
+      "barcolor": "#315c8a",
+      "footer-center": "Fictional greedyQ reference study"
+    },
+    "survey-settings": {
+      "show-previous": true,
+      "use-cookies": true,
+      "all-required": false,
+      "start-page": "welcome",
+      "highlight-unanswered": true,
+      "capture-metadata": false,
+      "required": [
+        "consent_choice",
+        "age",
+        "support_pre",
+        "familiarity",
+        "comprehension",
+        "frame_perception",
+        "attention_check",
+        "support_post",
+        "usefulness",
+        "withdraw_now"
+      ]
+    },
+    "system-messages": {
+      "previous": "Previous",
+      "next": "Next",
+      "required": "Please answer the required questions before continuing."
+    }
   },
   "pages": [
     {
@@ -44,9 +44,10 @@
       "title": "Digital Service Information Study",
       "body": "This fictional research fixture asks about a hypothetical municipal program. It takes approximately five minutes.\n\nIf you arrived through a respondent panel, your panel identifiers are validated before this page but are not displayed here.",
       "questions": [],
-      "show_previous": false,
-      "next": "consent",
-      "next_label": "Read participant information"
+      "nav": {
+        "show_previous": false,
+        "label_next": "Read participant information"
+      }
     },
     {
       "id": "consent",
@@ -57,6 +58,7 @@
           "id": "consent_choice",
           "type": "mc",
           "label": "Do you consent to participate in this study?",
+          "_line": 51,
           "options": [
             {
               "label": "Yes, I consent",
@@ -66,22 +68,13 @@
               "label": "No, I do not consent",
               "value": "no"
             }
-          ],
-          "required": true
+          ]
         }
       ],
-      "show_previous": false,
-      "next": "eligibility",
-      "next_label": "Continue",
-      "routes": [
-        {
-          "when": {
-            "field": "consent_choice",
-            "equals": "no"
-          },
-          "to": "consent_refused"
-        }
-      ]
+      "nav": {
+        "show_previous": false,
+        "label_next": "Continue"
+      }
     },
     {
       "id": "eligibility",
@@ -92,21 +85,8 @@
           "id": "age",
           "type": "numeric",
           "label": "What is your age in years?",
-          "placeholder": "Age",
-          "required": true,
-          "max": 120,
-          "min": 0
-        }
-      ],
-      "show_previous": true,
-      "next": "baseline",
-      "routes": [
-        {
-          "when": {
-            "field": "age",
-            "lt": 18
-          },
-          "to": "screened_out"
+          "_line": 71,
+          "placeholder": "Age"
         }
       ]
     },
@@ -119,6 +99,7 @@
           "id": "support_pre",
           "type": "slider",
           "label": "Before seeing details, how much would you support a city program that helps residents use online public services?",
+          "_line": 86,
           "options": [
             {
               "label": "Strongly oppose",
@@ -148,13 +129,13 @@
               "label": "Strongly support",
               "value": 7
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "familiarity",
           "type": "select",
           "label": "Before today, how familiar were you with municipal digital-assistance programs?",
+          "_line": 104,
           "options": [
             {
               "label": "Not at all familiar",
@@ -173,26 +154,7 @@
               "value": "very"
             }
           ],
-          "placeholder": "Choose one",
-          "required": true
-        }
-      ],
-      "show_previous": true,
-      "next": "stimulus_control",
-      "routes": [
-        {
-          "when": {
-            "field": "condition",
-            "equals": "control"
-          },
-          "to": "stimulus_control"
-        },
-        {
-          "when": {
-            "field": "condition",
-            "equals": "treatment"
-          },
-          "to": "stimulus_treatment"
+          "placeholder": "Choose one"
         }
       ]
     },
@@ -201,18 +163,20 @@
       "title": "Municipal Digital Help Desk",
       "body": "The city is considering a program with telephone and in-person help for residents using online public services. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",
       "questions": [],
-      "show_previous": true,
-      "next": "post_measure",
-      "next_label": "Continue"
+      "nav": {
+        "page_next": "post_measure",
+        "label_next": "Continue"
+      }
     },
     {
       "id": "stimulus_treatment",
       "title": "Making Online Public Services Easier",
       "body": "The city is considering a program with telephone and in-person help so residents can complete online public services more easily and avoid unnecessary trips. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",
       "questions": [],
-      "show_previous": true,
-      "next": "post_measure",
-      "next_label": "Continue"
+      "nav": {
+        "page_next": "post_measure",
+        "label_next": "Continue"
+      }
     },
     {
       "id": "post_measure",
@@ -223,6 +187,7 @@
           "id": "comprehension",
           "type": "mc",
           "label": "At how many libraries would the proposed program operate?",
+          "_line": 143,
           "options": [
             {
               "label": "One library",
@@ -240,13 +205,13 @@
               "label": "The description did not say",
               "value": "not_stated"
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "frame_perception",
           "type": "slider",
           "label": "How strongly did the description emphasize practical benefits to residents?",
+          "_line": 158,
           "options": [
             {
               "label": "Not at all",
@@ -276,13 +241,13 @@
               "label": "Very strongly",
               "value": 7
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "attention_check",
           "type": "mc",
           "label": "For data-quality purposes, please select ‘Somewhat agree.’",
+          "_line": 176,
           "options": [
             {
               "label": "Strongly disagree",
@@ -312,12 +277,9 @@
               "label": "Strongly agree",
               "value": 7
             }
-          ],
-          "required": true
+          ]
         }
-      ],
-      "show_previous": true,
-      "next": "outcomes"
+      ]
     },
     {
       "id": "outcomes",
@@ -328,6 +290,7 @@
           "id": "support_post",
           "type": "slider",
           "label": "After reading the description, how much do you support the proposed program?",
+          "_line": 197,
           "options": [
             {
               "label": "Strongly oppose",
@@ -357,13 +320,13 @@
               "label": "Strongly support",
               "value": 7
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "usefulness",
           "type": "matrix",
           "label": "Please indicate your agreement with each statement.",
+          "_line": 215,
           "options": [
             {
               "label": "Strongly disagree",
@@ -395,30 +358,23 @@
               "label": "The program would make online services easier to access.",
               "value": "access"
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "opposition_reason",
           "type": "textarea",
           "label": "What is the main reason you do not support the proposed program?",
-          "placeholder": "Optional additional detail",
-          "required": false,
-          "show_if": {
-            "field": "support_post",
-            "lte": 3
-          }
+          "_line": 235,
+          "placeholder": "Optional additional detail"
         },
         {
           "id": "comments",
           "type": "textarea",
           "label": "Is there anything else you would like the research team to know?",
-          "placeholder": "Optional",
-          "required": false
+          "_line": 245,
+          "placeholder": "Optional"
         }
-      ],
-      "show_previous": true,
-      "next": "demographics"
+      ]
     },
     {
       "id": "demographics",
@@ -429,6 +385,7 @@
           "id": "education",
           "type": "select",
           "label": "What is the highest level of education you have completed?",
+          "_line": 258,
           "options": [
             {
               "label": "Less than secondary school",
@@ -455,13 +412,13 @@
               "value": "prefer_not"
             }
           ],
-          "placeholder": "Choose one or prefer not to answer",
-          "required": false
+          "placeholder": "Choose one or prefer not to answer"
         },
         {
           "id": "gender",
           "type": "mc",
           "label": "How do you describe your gender?",
+          "_line": 276,
           "options": [
             {
               "label": "Woman",
@@ -483,23 +440,16 @@
               "label": "Prefer not to answer",
               "value": "prefer_not"
             }
-          ],
-          "required": false
+          ]
         },
         {
           "id": "gender_self_description",
           "type": "text",
           "label": "How would you like to describe your gender?",
-          "placeholder": "Self-description",
-          "required": false,
-          "show_if": {
-            "field": "gender",
-            "equals": "self_describe"
-          }
+          "_line": 292,
+          "placeholder": "Self-description"
         }
-      ],
-      "show_previous": true,
-      "next": "participant_control"
+      ]
     },
     {
       "id": "participant_control",
@@ -510,6 +460,7 @@
           "id": "withdraw_now",
           "type": "mc",
           "label": "What would you like to do?",
+          "_line": 307,
           "options": [
             {
               "label": "Submit my responses",
@@ -519,13 +470,13 @@
               "label": "Withdraw from the study",
               "value": "withdraw"
             }
-          ],
-          "required": true
+          ]
         },
         {
           "id": "deletion_request",
           "type": "mc",
           "label": "Should the research team receive a request to delete responses already collected in this session?",
+          "_line": 320,
           "options": [
             {
               "label": "Yes, record a deletion request",
@@ -535,30 +486,7 @@
               "label": "No",
               "value": "no"
             }
-          ],
-          "required": true,
-          "show_if": {
-            "field": "withdraw_now",
-            "equals": "withdraw"
-          }
-        }
-      ],
-      "show_previous": true,
-      "next": "complete",
-      "routes": [
-        {
-          "when": {
-            "field": "withdraw_now",
-            "equals": "withdraw"
-          },
-          "to": "withdrawn"
-        },
-        {
-          "when": {
-            "field": "withdraw_now",
-            "equals": "submit"
-          },
-          "to": "complete"
+          ]
         }
       ]
     },
@@ -566,42 +494,31 @@
       "id": "complete",
       "title": "Thank you",
       "body": "Your responses have been submitted. In a production panel run, greedyQ now uses the verified completion route.",
-      "questions": [],
-      "show_previous": true,
-      "terminal": "completed"
+      "questions": []
     },
     {
       "id": "screened_out",
       "title": "You are not eligible",
       "body": "This fixture is limited to adults. No research questions beyond consent and eligibility were collected.",
-      "questions": [],
-      "show_previous": true,
-      "terminal": "screened_out"
+      "questions": []
     },
     {
       "id": "consent_refused",
       "title": "Participation declined",
       "body": "No research responses were collected. You may close this page or follow the configured panel return route.",
-      "questions": [],
-      "show_previous": true,
-      "terminal": "consent_refused"
+      "questions": []
     },
     {
       "id": "withdrawn",
       "title": "Participation ended",
       "body": "The session is marked as withdrawn. If you requested deletion, the request has been recorded for the research team; this message does not claim deletion is complete.",
-      "questions": [],
-      "show_previous": true,
-      "terminal": "withdrawn"
+      "questions": []
     },
     {
       "id": "technical_error",
       "title": "We could not continue",
       "body": "The study encountered a technical problem. In a production panel run, greedyQ uses the separately configured technical-error route.",
-      "questions": [],
-      "show_previous": true,
-      "terminal": "technical_error"
+      "questions": []
     }
-  ],
-  "assignment_page": "baseline"
+  ]
 }

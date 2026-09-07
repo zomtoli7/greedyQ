@@ -73,7 +73,7 @@
     {
       "path": "preview-model.json",
       "kind": "derived",
-      "sha256": "eb0a983e2d5b0d28ef463ee5d7a4499072cd83e77ddbe472b2bfd7d41f436b72",
+      "sha256": "130d3259899519a0088a8f0343b576474c731f67dee98bfb855ca5c03d6cf5a8",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "b09108255093ac5964e1998a33cd7f033124c04fc286532914eddc54a5acaeec",
+      "sha256": "2426ff383e32ad3896c394a03475194116a4b571933201b7b44884741b0f5b76",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "8564afd8c670043b70a07f5fb55fa5e61d20819017f8dfd41c5b7f1852b8672f",
+      "sha256": "82a18d2d6d531ce366e687407078a7235183ba875878284e9fc4466c030bf51b",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -130,6 +130,20 @@
         "dec_randomization",
         "dec_consent_privacy"
       ]
+    },
+    {
+      "path": ".greedyq/normalized-survey.json",
+      "kind": "derived",
+      "sha256": "e16ff1eb6d88c1bdf59def9fa5a2a1f6b6f836203ca9a668c58b0268b457007c",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": ".greedyq/validation-report.runtime.json",
+      "kind": "derived",
+      "sha256": "281f67c0ad1d92c49be06ea20312abd037e4617bbd01ccf1d313a47b05bf4f20",
+      "status": "validated",
+      "based_on_decision_ids": []
     }
   ],
   "external_operations": [

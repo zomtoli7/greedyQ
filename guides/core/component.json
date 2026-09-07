@@ -17,6 +17,13 @@
     "schemas/ai/generation-manifest.schema.json",
     "schemas/ai/validation-report.schema.json",
     "schemas/preview-model.schema.json",
-    "templates/preview/preview.html"
+    "templates/preview/preview.html",
+    "greedyq/__init__.py",
+    "greedyq/__main__.py",
+    "greedyq/yaml_min.py",
+    "greedyq/parser.py",
+    "greedyq/validator.py",
+    "greedyq/compiler.py",
+    "greedyq/build.py"
   ]
 }

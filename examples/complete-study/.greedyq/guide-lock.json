@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "e99fad50e90b1229f4012be02bec294ca389d944f06c60d84165abd4394c17af",
+  "registry_sha256": "955fe1dedeb23c360e64b64c666b11003e06c7493e20183b8af13101fff4331e",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -18,7 +18,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "98c43a545190700b214c4fc8b7d58e745a82f6a5c9a544ea871a47cdb64a2e21"
+      "manifest_sha256": "373b920c1266dfc22d7aec54a78917b2180a993140394a6e14407194bf39257f"
     },
     {
       "id": "experiment",
@@ -74,7 +74,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "ec2dce3d0de905fb289c638540b37c80b7ce6f2b3ec33d22cf05ed99bc7fa75f"
+      "sha256": "3cc350f0a2e703cd451cf1c419e79e5d1d39f59354a584384366470f1897bb6d"
     },
     {
       "component": "core",
@@ -124,12 +124,47 @@
     {
       "component": "core",
       "path": "schemas/preview-model.schema.json",
-      "sha256": "8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034"
+      "sha256": "d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66"
     },
     {
       "component": "core",
       "path": "templates/preview/preview.html",
-      "sha256": "105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd"
+      "sha256": "a6f2e3c2675275e4e2fb0b37a8bab3ed9b0acccbb151d8c4ae49221fb65fa2cd"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/__init__.py",
+      "sha256": "ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/__main__.py",
+      "sha256": "0fb222f888f3a39314b98a8ac9b5c1cc8e006218e60254bf98557ea23e9e29d3"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/yaml_min.py",
+      "sha256": "87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/parser.py",
+      "sha256": "ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/validator.py",
+      "sha256": "2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/compiler.py",
+      "sha256": "48330158ae7f48908805bc9ad045daa6a40e86847dd135ecee8d21d45a032a2a"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/build.py",
+      "sha256": "f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f"
     },
     {
       "component": "experiment",

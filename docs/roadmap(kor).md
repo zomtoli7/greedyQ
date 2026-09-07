@@ -115,6 +115,10 @@ examples/complete-study/
 
 ## Phase 4: Architecture 및 배포 skeleton
 
+- [x] 지원 QMD subset을 위한 별도 설치 없는 Python reference parser 생성
+- [x] QMD와 `greedyq.yml`을 normalized model 및 deterministic preview로 compile
+- [x] 연구자가 이해할 수 있는 구조, option 방향, route validation 제공
+- [x] 로컬 `validate`, `build`, 브라우저 `preview` 명령 제공
 - [ ] Parser library 선택 및 grammar 구현 접근법 확정
 - [ ] TypeScript parser 및 정규화 AST package 생성
 - [ ] Validator 및 LLM-friendly diagnostic format 생성
@@ -127,7 +131,7 @@ examples/complete-study/
 - [x] 초기 안전한 self-contained preview runtime과 researcher debug panel 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성
-- [ ] 로컬 validation 및 preview 명령 구현
+- [x] 초기 로컬 validation 및 preview 명령 구현
 - [ ] 독립 작성한 conformance fixture 및 native export snapshot 자동 테스트 추가
 
 ## Phase 5: AI-guided end-to-end MVP

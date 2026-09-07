@@ -115,6 +115,10 @@ examples/complete-study/
 
 ## Phase 4: Architecture and deployment skeleton
 
+- [x] Create a zero-install Python reference parser for the supported QMD subset.
+- [x] Compile QMD and `greedyq.yml` into a normalized model and deterministic preview.
+- [x] Provide researcher-readable structural, option-direction, and route validation.
+- [x] Provide local `validate`, `build`, and browser `preview` commands.
 - [ ] Select parser libraries and finalize the grammar implementation approach.
 - [ ] Create the TypeScript parser and normalized AST packages.
 - [ ] Create the validator and LLM-friendly diagnostic format.
@@ -127,7 +131,7 @@ examples/complete-study/
 - [x] Create the initial safe self-contained preview runtime and researcher debug panel.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.
-- [ ] Implement local validation and preview commands.
+- [x] Implement initial local validation and preview commands.
 - [ ] Add automated tests for independently authored conformance fixtures and native export snapshots.
 
 ## Phase 5: AI-guided end-to-end MVP

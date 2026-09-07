@@ -8,7 +8,8 @@ This report covers the golden reference study preview model, the self-contained 
 
 ## Automated result
 
-- 32 contract tests passed on 2026-09-07.
+- 76 repository tests, including 11 QMD-to-browser pipeline scenarios, passed on 2026-09-07.
+- The preview model and HTML were regenerated directly from `survey.qmd` and `greedyq.yml`; no separately hand-authored model was used.
 - The canonical runtime JavaScript passed `node --check`.
 - The preview model passed its JSON Schema.
 - Every QMD page and question is represented in the preview model.
@@ -27,7 +28,7 @@ This report covers the golden reference study preview model, the self-contained 
 
 ## Scenario coverage
 
-The model tests exercise both control and treatment happy paths, refusal and screen-out routes, withdrawal with and without a deletion request, every terminal outcome, both states of conditional questions, required-field failures, numeric bounds, route resolution, progress paths, duplicate identifiers, and exact option mapping.
+The model tests exercise both control and treatment happy paths, refusal and screen-out routes, withdrawal with and without a deletion request, every terminal outcome, both states of conditional questions, required-field failures, numeric bounds, route resolution, progress paths, duplicate identifiers, and exact option mapping. Failure simulations cover malformed QMD calls, missing question IDs, missing route targets, reversed display/store mappings, unsafe raw HTML, and every supported preview input type.
 
 The normative visual and interaction acceptance criteria are in [`docs/preview-ui-spec.md`](../../docs/preview-ui-spec.md). They include desktop, tablet, phone, keyboard, focus, validation, matrix overflow, 200% zoom, and researcher-control review cases.
 

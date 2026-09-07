@@ -166,6 +166,8 @@ Confirmed source decision에서 derived file을 재생성합니다. 변경을 �
 
 `study.md` 같은 prose summary를 primary instrument-review surface로 사용하지 않습니다. Coherent questionnaire가 생기면 validated study artifact에서 browser-testable preview를 생성합니다. Host가 interactive artifact 또는 browser page를 만들고 열 수 있으면 그렇게 한 뒤 researcher가 respondent처럼 완료하도록 안내합니다. 불가능하면 self-contained `preview.html`과 정확한 여는 방법을 제공합니다.
 
+Embedded 또는 repository reference runtime을 사용할 수 있으면 `preview-model.json`을 직접 작성하지 말고 `python3 -m greedyq build PATH_TO_STUDY`를 실행합니다. 연구 의도를 바꾸지 않는 범위에서 blocking message를 고치고 다시 생성한 뒤, 로컬 브라우저를 열 수 있으면 `python3 -m greedyq preview PATH_TO_STUDY`를 사용합니다.
+
 Preview는 survey-authored JavaScript를 실행하지 않고 고정된 greedyQ preview runtime을 사용해야 합니다. Page navigation, required check, show/skip logic, condition assignment, back navigation, resume, stored value, terminal outcome을 simulate하고 production redirect와 external write를 차단해야 합니다. Researcher debug panel은 current condition, display label, stored value, next route, lifecycle state를 보여주고 condition과 terminal path를 의도적으로 선택할 수 있어야 합니다. `study.md`는 optional design record로 유지합니다.
 
 파일을 생성했거나 AI가 page를 열었다는 이유만으로 `interactive_preview_reviewed`를 표시하지 않습니다. Hands-on review 후 명시적 researcher confirmation을 기록합니다. Detailed work가 deferred된 동안 preview는 눈에 띄는 placeholder governance text를 사용할 수 있지만 승인된 participant-facing consent로 오인되어서는 안 됩니다. `governance_consent_confirmed`와 `interactive_preview_reviewed`가 모두 통과하거나 preview 불가를 researcher가 문서화해 수용하기 전에는 `deployment_candidate`를 차단합니다.
@@ -237,14 +239,21 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `b296bc9967a7de1dc3797039293e0447fca85b6b6e8de612319a4c03e9804c32` | `no` |
-| `templates/preview/preview.html` | `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd` | `yes` |
+| `templates/preview/preview.html` | `a6f2e3c2675275e4e2fb0b37a8bab3ed9b0acccbb151d8c4ae49221fb65fa2cd` | `yes` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
 | `examples/complete-study/vercel.json` | `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034` | `no` |
+| `schemas/preview-model.schema.json` | `d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66` | `no` |
+| `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
+| `greedyq/__main__.py` | `0fb222f888f3a39314b98a8ac9b5c1cc8e006218e60254bf98557ea23e9e29d3` | `no` |
+| `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
+| `greedyq/parser.py` | `ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73` | `no` |
+| `greedyq/validator.py` | `2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266` | `no` |
+| `greedyq/compiler.py` | `48330158ae7f48908805bc9ad045daa6a40e86847dd135ecee8d21d45a032a2a` | `no` |
+| `greedyq/build.py` | `f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -386,7 +395,7 @@ Every complete reference study must exercise:
 
 ### FILE: `templates/preview/preview.html`
 
-SHA-256: `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd`
+SHA-256: `a6f2e3c2675275e4e2fb0b37a8bab3ed9b0acccbb151d8c4ae49221fb65fa2cd`
 
 ```html
 <!doctype html>
@@ -404,19 +413,19 @@ SHA-256: `105c4f9800dced050b1298fa24df507d03b4844600ea03f1cb02008de26628cd`
 <script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace with study title","start_page":"welcome","conditions":["default"],"pages":[{"id":"welcome","title":"Preview not populated","body":"Replace the embedded model with the validated study AST.","questions":[],"next":null,"terminal":"preview_placeholder"}]}</script>
 <script>
 (()=>{"use strict";
-const $=id=>document.getElementById(id);let model;try{model=JSON.parse($("greedyq-model").textContent)}catch(error){$("survey").innerHTML="<h1>Preview model error</h1><p>The embedded preview model is not valid JSON.</p><pre></pre>";$("survey").querySelector("pre").textContent=String(error);return}const pages=new Map(model.pages.map(p=>[p.id,p])),key=`greedyq-preview:${model.study_id}`,readState=()=>{try{return JSON.parse(localStorage.getItem(key)||"{}")}catch{return{}}};
+const $=id=>document.getElementById(id);let model;try{model=JSON.parse($("greedyq-model").textContent)}catch(error){$("survey").innerHTML="<h1>Preview model error</h1><p>The embedded preview model is not valid JSON.</p><pre></pre>";$("survey").querySelector("pre").textContent=String(error);return}if(model.brand_color)document.documentElement.style.setProperty("--brand",model.brand_color);const messages=Object.assign({previous:"Previous",next:"Continue",required:"Please answer the required questions before continuing."},model.messages||{}),pages=new Map(model.pages.map(p=>[p.id,p])),key=`greedyq-preview:${model.study_id}`,readState=()=>{try{return JSON.parse(localStorage.getItem(key)||"{}")}catch{return{}}};
 const fresh=()=>({page:model.start_page,history:[],answers:{},condition:(model.conditions||["default"])[0],lifecycle:"preview",visited:[],events:[],activeError:null});let state=Object.assign(fresh(),readState());
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),scalar=v=>v===""?null:/^-?\d+(\.\d+)?$/.test(v)?Number(v):v;
 function value(f){return f==="condition"?state.condition:state.answers[f]}function matches(r){if(!r)return true;if(r.all)return r.all.every(matches);if(r.any)return r.any.some(matches);const a=value(r.field);if("equals"in r)return a===r.equals;if("not_equals"in r)return a!==r.not_equals;if("lt"in r)return Number(a)<r.lt;if("lte"in r)return Number(a)<=r.lte;if("gt"in r)return Number(a)>r.gt;if("gte"in r)return Number(a)>=r.gte;return false}const visible=p=>(p.questions||[]).filter(q=>matches(q.show_if)),nextFor=p=>((p.routes||[]).find(r=>matches(r.when))||{}).to??p.next;
-function opts(q,scale=false){return(q.options||[]).map(o=>`<label class="${scale?"":"choice"}"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${state.answers[q.id]===o.value?"checked":""}><span>${esc(o.label)}${scale?"":`<small>Stored: <code>${esc(o.value)}</code></small>`}</span></label>`).join("")}
-function qhtml(q){const bad=state.activeError===q.id?` aria-invalid="true" aria-describedby="page-error"`:"",legend=`<legend>${esc(q.label)}${q.required?` <span class="required" aria-label="required">*</span>`:""}</legend>`;if(q.type==="mc")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}${opts(q)}</fieldset>`;if(q.type==="slider")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="scale">${opts(q,true)}</div></fieldset>`;if(q.type==="select")return`<fieldset class="q" data-q="${esc(q.id)}">${legend}<select data-id="${esc(q.id)}"${bad}><option value="" disabled>${esc(q.placeholder||"Choose one")}</option>${q.options.map(o=>`<option value="${esc(o.value)}" ${state.answers[q.id]===o.value?"selected":""}>${esc(o.label)} — [${esc(o.value)}]</option>`).join("")}</select></fieldset>`;if(q.type==="matrix")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="matrix-wrap" role="region" aria-label="${esc(q.label)}"><table class="matrix"><thead><tr><th>Statement</th>${q.options.map(o=>`<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows.map(r=>`<tr><th scope="row">${esc(r.label)}</th>${q.options.map(o=>`<td><label><span class="sr">${esc(r.label)}: ${esc(o.label)}</span><input type="radio" name="${esc(q.id+":"+r.value)}" value="${esc(o.value)}" ${state.answers[q.id]?.[r.value]===o.value?"checked":""}></label></td>`).join("")}</tr>`).join("")}</tbody></table></div></fieldset>`;const tag=q.type==="textarea"?`<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder||"")}"${bad}>${esc(state.answers[q.id]??"")}</textarea>`:`<input data-id="${esc(q.id)}" type="${q.type==="numeric"?"number":"text"}" value="${esc(state.answers[q.id]??"")}" placeholder="${esc(q.placeholder||"")}"${bad}>`;return`<fieldset class="q" data-q="${esc(q.id)}">${legend}${tag}</fieldset>`}
-function collect(p){for(const q of visible(p)){if(q.type==="matrix"){const rows={};for(const r of q.rows){const e=document.querySelector(`input[name='${CSS.escape(q.id+":"+r.value)}']:checked`);if(e)rows[r.value]=scalar(e.value)}if(Object.keys(rows).length)state.answers[q.id]=rows;else delete state.answers[q.id];continue}const e=document.querySelector(`input[name='${CSS.escape(q.id)}']:checked`)||document.querySelector(`[data-id='${CSS.escape(q.id)}']`),v=e?scalar(e.value):null;if(v===null)delete state.answers[q.id];else state.answers[q.id]=v}}
+function opts(q,scale=false,multiple=false){const selected=state.answers[q.id];return(q.options||[]).map(o=>`<label class="${scale?"":"choice"}"><input type="${multiple?"checkbox":"radio"}" name="${esc(q.id)}" value="${esc(o.value)}" ${multiple?(Array.isArray(selected)&&selected.includes(o.value)?"checked":""):(selected===o.value?"checked":"")}><span>${esc(o.label)}${scale?"":`<small>Stored: <code>${esc(o.value)}</code></small>`}</span></label>`).join("")}
+function qhtml(q){const bad=state.activeError===q.id?` aria-invalid="true" aria-describedby="page-error"`:"",legend=`<legend>${esc(q.label)}${q.required?` <span class="required" aria-label="required">*</span>`:""}</legend>`;if(q.type==="mc")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}${opts(q)}</fieldset>`;if(q.type==="mc_multiple")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}${opts(q,false,true)}</fieldset>`;if(q.type==="slider")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="scale">${opts(q,true)}</div></fieldset>`;if(q.type==="select")return`<fieldset class="q" data-q="${esc(q.id)}">${legend}<select data-id="${esc(q.id)}"${bad}><option value="" disabled ${state.answers[q.id]===undefined?"selected":""}>${esc(q.placeholder||"Choose one")}</option>${q.options.map(o=>`<option value="${esc(o.value)}" ${state.answers[q.id]===o.value?"selected":""}>${esc(o.label)} — [${esc(o.value)}]</option>`).join("")}</select></fieldset>`;if(q.type==="matrix")return`<fieldset class="q" data-q="${esc(q.id)}"${bad}>${legend}<div class="matrix-wrap" role="region" aria-label="${esc(q.label)}"><table class="matrix"><thead><tr><th>Statement</th>${q.options.map(o=>`<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows.map(r=>`<tr><th scope="row">${esc(r.label)}</th>${q.options.map(o=>`<td><label><span class="sr">${esc(r.label)}: ${esc(o.label)}</span><input type="radio" name="${esc(q.id+":"+r.value)}" value="${esc(o.value)}" ${state.answers[q.id]?.[r.value]===o.value?"checked":""}></label></td>`).join("")}</tr>`).join("")}</tbody></table></div></fieldset>`;const inputType=q.type==="numeric"||q.type==="slider_numeric"?"number":q.type==="date"?"date":"text",bounds=`${q.min!=null?` min="${esc(q.min)}"`:""}${q.max!=null?` max="${esc(q.max)}"`:""}`;const tag=q.type==="textarea"?`<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder||"")}"${bad}>${esc(state.answers[q.id]??"")}</textarea>`:`<input data-id="${esc(q.id)}" type="${inputType}" value="${esc(state.answers[q.id]??"")}" placeholder="${esc(q.placeholder||"")}"${bounds}${bad}>`;return`<fieldset class="q" data-q="${esc(q.id)}">${legend}${tag}</fieldset>`}
+function collect(p){for(const q of visible(p)){if(q.type==="matrix"){const rows={};for(const r of q.rows){const e=document.querySelector(`input[name='${CSS.escape(q.id+":"+r.value)}']:checked`);if(e)rows[r.value]=scalar(e.value)}if(Object.keys(rows).length)state.answers[q.id]=rows;else delete state.answers[q.id];continue}if(q.type==="mc_multiple"){const values=[...document.querySelectorAll(`input[name='${CSS.escape(q.id)}']:checked`)].map(e=>scalar(e.value));if(values.length)state.answers[q.id]=values;else delete state.answers[q.id];continue}const e=document.querySelector(`input[name='${CSS.escape(q.id)}']:checked`)||document.querySelector(`[data-id='${CSS.escape(q.id)}']`),v=e?scalar(e.value):null;if(v===null)delete state.answers[q.id];else state.answers[q.id]=v}}
 function clearHidden(p){for(const q of p.questions||[]){if(q.show_if&&!matches(q.show_if)&&Object.hasOwn(state.answers,q.id)){delete state.answers[q.id];state.events.push({type:"hidden_answer_cleared",question:q.id,page:p.id})}}}
-function invalid(q){if(q.required){const v=state.answers[q.id];if(q.type==="matrix"?q.rows.some(r=>!Object.hasOwn(v||{},r.value)):v===undefined||v===null||v==="")return"required"}const v=state.answers[q.id];if(v!=null&&q.min!=null&&Number(v)<q.min)return`must be at least ${q.min}`;if(v!=null&&q.max!=null&&Number(v)>q.max)return`must be at most ${q.max}`;return null}
-const allQuestions=()=>model.pages.flatMap(p=>p.questions||[]),questionById=id=>allQuestions().find(q=>q.id===id);function answerDetails(){return Object.fromEntries(Object.entries(state.answers).map(([id,stored])=>{const q=questionById(id),labelFor=v=>q?.options?.find(o=>o.value===v)?.label??null;return[id,{type:q?.type??"unknown",stored,display:q?.type==="matrix"?Object.fromEntries(Object.entries(stored).map(([row,v])=>[row,labelFor(v)])):labelFor(stored)}]}))}
+function invalid(q){if(q.required){const v=state.answers[q.id];if(q.type==="matrix"?q.rows.some(r=>!Object.hasOwn(v||{},r.value)):v===undefined||v===null||v===""||(Array.isArray(v)&&!v.length))return"required"}const v=state.answers[q.id];if(v!=null&&q.min!=null&&Number(v)<q.min)return`must be at least ${q.min}`;if(v!=null&&q.max!=null&&Number(v)>q.max)return`must be at most ${q.max}`;return null}
+const allQuestions=()=>model.pages.flatMap(p=>p.questions||[]),questionById=id=>allQuestions().find(q=>q.id===id);function answerDetails(){return Object.fromEntries(Object.entries(state.answers).map(([id,stored])=>{const q=questionById(id),labelFor=v=>q?.options?.find(o=>o.value===v)?.label??null;return[id,{type:q?.type??"unknown",stored,display:q?.type==="matrix"?Object.fromEntries(Object.entries(stored).map(([row,v])=>[row,labelFor(v)])):Array.isArray(stored)?stored.map(labelFor):labelFor(stored)}]}))}
 function selfCheck(){const ids=model.pages.map(p=>p.id),known=new Set(ids),qids=allQuestions().map(q=>q.id),errors=[];if(new Set(ids).size!==ids.length)errors.push("duplicate page id");if(new Set(qids).size!==qids.length)errors.push("duplicate question id");if(!known.has(model.start_page))errors.push("unknown start page");for(const p of model.pages){if(p.next&&!known.has(p.next))errors.push(`unknown next page: ${p.id} -> ${p.next}`);for(const r of p.routes||[])if(!known.has(r.to))errors.push(`unknown route: ${p.id} -> ${r.to}`)}return{status:errors.length?"failed":"passed",errors,page_count:ids.length,question_count:qids.length}}
 function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch{}$("debug").textContent=JSON.stringify({page:state.page,condition:state.condition,next:nextFor(pages.get(state.page)),lifecycle:state.lifecycle,visited:state.visited,answer_details:answerDetails(),events:state.events,model_check:state.modelCheck||null},null,2)}
-function render(message=""){const p=pages.get(state.page);if(!p){$("survey").innerHTML="<h1>Preview route error</h1><p>The current page does not exist in the model.</p>";return}if(p.terminal)state.lifecycle=p.terminal;if(!state.visited.includes(p.id))state.visited.push(p.id);const qs=visible(p),path=(model.progress_paths||{})[state.condition]||model.pages.map(x=>x.id),i=Math.max(0,path.indexOf(p.id)),pct=p.terminal?100:Math.round((i+1)/path.length*100);$("progress-bar").style.width=`${pct}%`;$("progress-bar").parentElement.setAttribute("aria-valuenow",pct);$("progress-count").textContent=p.terminal?"Complete":`${i+1} / ${path.length}`;$("page-jump").value=p.id;$("survey").innerHTML=`<div class="eyebrow">${esc(model.title)} · ${esc(p.id)}</div><h1>${esc(p.title||model.title)}</h1><div class="copy">${esc(p.body||"")}</div>${qs.map(qhtml).join("")}<div id="page-error" class="error ${message?"show":""}" role="alert" tabindex="-1">${esc(message)}</div><div class="actions"><button class="btn" id="previous" ${state.history.length?"":"disabled"}>Previous</button>${p.terminal?`<span class="outcome">Outcome: ${esc(p.terminal)}</span>`:`<button class="btn primary" id="next">${esc(p.next_label||"Continue")}</button>`}</div>`;$("previous").onclick=()=>{collect(p);clearHidden(p);state.activeError=null;state.page=state.history.pop();save();render();scrollTo(0,0)};const n=$("next");if(n)n.onclick=()=>{collect(p);clearHidden(p);const current=visible(p),q=current.find(x=>invalid(x));if(q){const reason=invalid(q);state.activeError=q.id;state.events.push({type:"validation_error",question:q.id,page:p.id,reason});render(`Please answer ${q.label}: ${reason}.`);const target=document.querySelector(`[data-q='${CSS.escape(q.id)}'] input,[data-q='${CSS.escape(q.id)}'] select,[data-q='${CSS.escape(q.id)}'] textarea`)||$("page-error");target.focus();target.scrollIntoView({block:"center"});return}state.activeError=null;const target=nextFor(p);if(!target||!pages.has(target))return render("The next route is missing or invalid.");state.history.push(p.id);state.page=target;save();render();scrollTo(0,0)};save()}
+function render(message=""){const p=pages.get(state.page);if(!p){$("survey").innerHTML="<h1>Preview route error</h1><p>The current page does not exist in the model.</p>";return}if(p.terminal)state.lifecycle=p.terminal;if(!state.visited.includes(p.id))state.visited.push(p.id);const qs=visible(p),path=(model.progress_paths||{})[state.condition]||model.pages.map(x=>x.id),i=Math.max(0,path.indexOf(p.id)),pct=p.terminal?100:Math.round((i+1)/path.length*100);$("progress-bar").style.width=`${pct}%`;$("progress-bar").parentElement.setAttribute("aria-valuenow",pct);$("progress-count").textContent=p.terminal?"Complete":`${i+1} / ${path.length}`;$("page-jump").value=p.id;$("survey").innerHTML=`<div class="eyebrow">${esc(model.title)} · ${esc(p.id)}</div><h1>${esc(p.title||model.title)}</h1><div class="copy">${esc(p.body||"")}</div>${qs.map(qhtml).join("")}<div id="page-error" class="error ${message?"show":""}" role="alert" tabindex="-1">${esc(message)}</div><div class="actions"><button class="btn" id="previous" ${state.history.length&&p.show_previous!==false?"":"disabled"}>${esc(messages.previous)}</button>${p.terminal?`<span class="outcome">Outcome: ${esc(p.terminal)}</span>`:`<button class="btn primary" id="next">${esc(p.next_label||messages.next)}</button>`}</div>`;$("previous").onclick=()=>{collect(p);clearHidden(p);state.activeError=null;state.page=state.history.pop();save();render();scrollTo(0,0)};const n=$("next");if(n)n.onclick=()=>{collect(p);clearHidden(p);const current=visible(p),q=current.find(x=>invalid(x));if(q){const reason=invalid(q);state.activeError=q.id;state.events.push({type:"validation_error",question:q.id,page:p.id,reason});render(`${messages.required} ${q.label}: ${reason}.`);const target=document.querySelector(`[data-q='${CSS.escape(q.id)}'] input,[data-q='${CSS.escape(q.id)}'] select,[data-q='${CSS.escape(q.id)}'] textarea`)||$("page-error");target.focus();target.scrollIntoView({block:"center"});return}state.activeError=null;const target=nextFor(p);if(!target||!pages.has(target))return render("The next route is missing or invalid.");state.history.push(p.id);state.page=target;save();render();scrollTo(0,0)};save()}
 for(const name of model.conditions||["default"])$("condition").add(new Option(name,name,false,name===state.condition));for(const p of model.pages)$("page-jump").add(new Option(`${p.title||p.id} [${p.id}]`,p.id));$("condition").onchange=()=>{const prior=state.condition,boundary=model.assignment_page||model.start_page,boundaryIndex=model.pages.findIndex(p=>p.id===boundary),cleared=[];for(const p of model.pages.slice(boundaryIndex+1))for(const q of p.questions||[])if(Object.hasOwn(state.answers,q.id)){delete state.answers[q.id];cleared.push(q.id)}state.condition=$("condition").value;state.page=boundary;state.history=[];state.lifecycle="preview";state.activeError=null;state.events.push({type:"condition_forced",from:prior,to:state.condition,cleared_answers:cleared});save();render()};$("page-jump").onchange=()=>{state.history.push(state.page);state.page=$("page-jump").value;state.activeError=null;state.events.push({type:"researcher_page_jump",to:state.page});save();render()};$("validate-model").onclick=()=>{state.modelCheck=selfCheck();state.events.push({type:"model_validated",status:state.modelCheck.status});save()};$("copy-state").onclick=async()=>{try{await navigator.clipboard.writeText($("debug").textContent);$("copy-state").textContent="Copied"}catch{$("copy-state").textContent="Copy unavailable"}};$("reset").onclick=()=>{try{localStorage.removeItem(key)}catch{}state=fresh();render()};state.modelCheck=selfCheck();render();
 })();
 </script>
@@ -900,7 +909,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
+SHA-256: `d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66`
 
 ```json
 {
@@ -914,6 +923,11 @@ SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
     "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "title": {"type": "string", "minLength": 1},
     "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+    "brand_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+    "messages": {
+      "type": "object", "additionalProperties": false, "required": ["previous", "next", "required"],
+      "properties": {"previous": {"type": "string"}, "next": {"type": "string"}, "required": {"type": "string"}}
+    },
     "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
     "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
@@ -939,7 +953,7 @@ SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
       "type": "object", "additionalProperties": false, "required": ["id", "type", "label"],
       "properties": {
         "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
-        "type": {"enum": ["text", "textarea", "numeric", "mc", "select", "slider", "matrix"]},
+        "type": {"enum": ["text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"]},
         "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
         "min": {"type": "number"}, "max": {"type": "number"},
         "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
@@ -947,7 +961,7 @@ SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
         "show_if": {"$ref": "#/$defs/rule"}
       },
       "allOf": [
-        {"if": {"properties": {"type": {"enum": ["mc", "select", "slider", "matrix"]}}}, "then": {"required": ["options"]}},
+        {"if": {"properties": {"type": {"enum": ["mc", "mc_multiple", "select", "slider", "matrix"]}}}, "then": {"required": ["options"]}},
         {"if": {"properties": {"type": {"const": "matrix"}}}, "then": {"required": ["rows"]}}
       ]
     },
@@ -960,12 +974,695 @@ SHA-256: `8ce65a414f92a830e809bb98694be811c132ec19b4594e2d12b740da2219e034`
       "properties": {
         "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}, "title": {"type": "string", "minLength": 1},
         "body": {"type": "string"}, "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}},
-        "next": {"type": ["string", "null"]}, "next_label": {"type": "string"}, "routes": {"type": "array", "items": {"$ref": "#/$defs/route"}},
+        "next": {"type": ["string", "null"]}, "next_label": {"type": "string"}, "show_previous": {"type": "boolean"}, "routes": {"type": "array", "items": {"$ref": "#/$defs/route"}},
         "terminal": {"type": "string"}
       }
     }
   }
 }
+```
+
+### FILE: `greedyq/__init__.py`
+
+SHA-256: `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a`
+
+```python
+"""greedyQ v0.2 reference parser, validator, and preview builder."""
+
+__version__ = "0.2.0-draft.1"
+```
+
+### FILE: `greedyq/__main__.py`
+
+SHA-256: `0fb222f888f3a39314b98a8ac9b5c1cc8e006218e60254bf98557ea23e9e29d3`
+
+```python
+"""Command-line interface for greedyQ's zero-install reference implementation."""
+
+import argparse
+import functools
+import http.server
+import json
+import sys
+import webbrowser
+from pathlib import Path
+
+from .build import build, load_study
+from .validator import validate
+
+
+def show_report(report):
+    if report["status"] == "passed":
+        print("Your survey passed validation.")
+        return
+    print("Your survey needs %d change(s) before preview:" % len(report["issues"]))
+    for issue in report["issues"]:
+        location = str(issue["file"]) + ((":" + str(issue["line"])) if issue.get("line") else "")
+        print("- %s (%s)" % (issue["message"], location))
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
+    sub = parser.add_subparsers(dest="command", required=True)
+    for name in ("validate", "build"):
+        item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
+    preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
+    args = parser.parse_args(argv)
+    try:
+        if args.command == "validate":
+            study, parsed, config = load_study(args.study_dir)
+            report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
+            show_report(report); return 0 if report["status"] == "passed" else 1
+        report, model = build(args.study_dir)
+        show_report(report)
+        if report["status"] != "passed": return 1
+        study = Path(args.study_dir).resolve()
+        print("Preview created: %s" % (study / "preview.html"))
+        if args.command == "build": return 0
+        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(study))
+        server = http.server.ThreadingHTTPServer(("localhost", args.port), handler)
+        url = "http://localhost:%d/preview.html" % args.port
+        print("Open %s" % url); print("Press Control-C to stop the preview server.")
+        if not args.no_open: webbrowser.open(url)
+        server.serve_forever()
+    except (ValueError, OSError) as exc:
+        print("Could not prepare the preview: %s" % exc, file=sys.stderr); return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+### FILE: `greedyq/yaml_min.py`
+
+SHA-256: `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e`
+
+```python
+"""Small safe YAML subset used by greedyQ fixtures and generated studies.
+
+This intentionally does not support tags, anchors, aliases, or executable values.
+"""
+
+import json
+import re
+
+
+class YamlError(ValueError):
+    pass
+
+
+def _commentless(line):
+    quote = None
+    for i, char in enumerate(line):
+        if char in "\"'":
+            if quote == char:
+                quote = None
+            elif quote is None:
+                quote = char
+        elif char == "#" and quote is None and (i == 0 or line[i - 1].isspace()):
+            return line[:i]
+    return line
+
+
+def _split_inline(value):
+    parts, start, quote, depth = [], 0, None, 0
+    for i, char in enumerate(value):
+        if char in "\"'":
+            if quote == char:
+                quote = None
+            elif quote is None:
+                quote = char
+        elif quote is None:
+            if char in "[{": depth += 1
+            elif char in "]}": depth -= 1
+            elif char == "," and depth == 0:
+                parts.append(value[start:i].strip()); start = i + 1
+    parts.append(value[start:].strip())
+    return [part for part in parts if part]
+
+
+def scalar(value):
+    value = value.strip()
+    if not value:
+        return None
+    if value.startswith("[") and value.endswith("]"):
+        return [scalar(part) for part in _split_inline(value[1:-1])]
+    if value.startswith("{") and value.endswith("}"):
+        result = {}
+        for part in _split_inline(value[1:-1]):
+            if ":" not in part: raise YamlError("Invalid inline object")
+            key, item = part.split(":", 1)
+            result[str(scalar(key))] = scalar(item)
+        return result
+    if value[:1] == value[-1:] and value[:1] in "\"'":
+        if value[0] == '"':
+            try: return json.loads(value)
+            except json.JSONDecodeError as exc: raise YamlError(str(exc))
+        return value[1:-1].replace("''", "'")
+    low = value.lower()
+    if low in ("true", "yes"): return True
+    if low in ("false", "no"): return False
+    if low in ("null", "~"): return None
+    if re.fullmatch(r"-?\d+", value): return int(value)
+    if re.fullmatch(r"-?(?:\d+\.\d*|\d*\.\d+)", value): return float(value)
+    return value
+
+
+def loads(text):
+    rows = []
+    for number, raw in enumerate(text.splitlines(), 1):
+        clean = _commentless(raw).rstrip()
+        if not clean.strip() or clean.lstrip().startswith("---"):
+            continue
+        indent = len(clean) - len(clean.lstrip(" "))
+        if "\t" in raw[:indent]: raise YamlError("Tabs are not allowed on line %d" % number)
+        rows.append((indent, clean.strip(), number))
+    if not rows: return {}
+
+    def block(index, indent):
+        is_list = rows[index][1].startswith("- ") or rows[index][1] == "-"
+        out = [] if is_list else {}
+        while index < len(rows):
+            level, content, number = rows[index]
+            if level < indent: break
+            if level > indent: raise YamlError("Unexpected indentation on line %d" % number)
+            if is_list:
+                if not content.startswith("-"): break
+                item = content[1:].strip()
+                if not item:
+                    if index + 1 >= len(rows) or rows[index + 1][0] <= level:
+                        out.append(None); index += 1; continue
+                    value, index = block(index + 1, rows[index + 1][0]); out.append(value); continue
+                if ":" in item and not item.startswith(("'", '"')):
+                    key, value = item.split(":", 1)
+                    obj = {key.strip(): scalar(value)}
+                    index += 1
+                    if index < len(rows) and rows[index][0] > level:
+                        child_indent = rows[index][0]
+                        while index < len(rows) and rows[index][0] == child_indent and not rows[index][1].startswith("-"):
+                            child, index = block(index, child_indent)
+                            if not isinstance(child, dict): raise YamlError("Expected object after list item")
+                            obj.update(child)
+                            if index >= len(rows) or rows[index][0] <= level: break
+                    out.append(obj); continue
+                out.append(scalar(item)); index += 1; continue
+            if content.startswith("-"): break
+            if ":" not in content: raise YamlError("Expected key: value on line %d" % number)
+            key, value = content.split(":", 1); key = key.strip()
+            if not key: raise YamlError("Missing key on line %d" % number)
+            index += 1
+            if value.strip(): out[key] = scalar(value); continue
+            if index < len(rows) and rows[index][0] > level:
+                out[key], index = block(index, rows[index][0])
+            else: out[key] = {}
+        return out, index
+
+    result, end = block(0, rows[0][0])
+    if end != len(rows): raise YamlError("Could not parse YAML near line %d" % rows[end][2])
+    return result
+```
+
+### FILE: `greedyq/parser.py`
+
+SHA-256: `ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73`
+
+```python
+"""Parse the supported surveydown-style QMD subset into a normalized model."""
+
+import re
+from pathlib import Path
+
+from .yaml_min import loads as load_yaml
+
+
+PAGE_RE = re.compile(r"^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$", re.M)
+FENCE_RE = re.compile(r"```\{r\}\s*\n(.*?)```", re.S)
+CALL_RE = re.compile(r"\b(sd_question|sd_nav)\s*\(")
+
+
+class ParseError(ValueError):
+    def __init__(self, message, line=None):
+        self.line = line
+        super().__init__(("Line %d: " % line if line else "") + message)
+
+
+def _split_top(text, separator=","):
+    result, start, depth, quote, escape = [], 0, 0, None, False
+    for i, char in enumerate(text):
+        if quote:
+            if escape: escape = False
+            elif char == "\\" and quote == '"': escape = True
+            elif char == quote: quote = None
+        elif char in "\"'": quote = char
+        elif char in "([{" : depth += 1
+        elif char in ")]}" : depth -= 1
+        elif char == separator and depth == 0:
+            result.append(text[start:i].strip()); start = i + 1
+    result.append(text[start:].strip())
+    return [item for item in result if item]
+
+
+def _unquote(text):
+    text = text.strip()
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in "\"'":
+        body = text[1:-1]
+        return bytes(body, "utf-8").decode("unicode_escape") if "\\" in body else body
+    if text in ("TRUE", "True"): return True
+    if text in ("FALSE", "False"): return False
+    if text in ("NULL", "null"): return None
+    if re.fullmatch(r"-?\d+", text): return int(text)
+    if re.fullmatch(r"-?(?:\d+\.\d*|\d*\.\d+)", text): return float(text)
+    return text
+
+
+def _vector(text, line):
+    if not (text.startswith("c(") and text.endswith(")")):
+        raise ParseError("Options and rows must use c(...).", line)
+    values = []
+    for item in _split_top(text[2:-1]):
+        pieces = _split_equals(item)
+        if pieces is None:
+            value = _unquote(item); values.append({"label": str(value), "value": value})
+        else:
+            label, value = pieces
+            option = {"label": str(_unquote(label)), "value": _unquote(value)}
+            if re.fullmatch(r"[a-z][a-z0-9_]*", label) and value[:1] in "\"'" and " " in str(option["value"]):
+                option["_looks_reversed"] = True
+            values.append(option)
+    return values
+
+
+def _split_equals(text):
+    depth, quote, escape = 0, None, False
+    for i, char in enumerate(text):
+        if quote:
+            if escape: escape = False
+            elif char == "\\" and quote == '"': escape = True
+            elif char == quote: quote = None
+        elif char in "\"'": quote = char
+        elif char in "([{" : depth += 1
+        elif char in ")]}" : depth -= 1
+        elif char == "=" and depth == 0: return text[:i].strip(), text[i + 1:].strip()
+    return None
+
+
+def _call_args(body, line):
+    found = CALL_RE.search(body)
+    if not found: return None, {}
+    name, start = found.group(1), found.end()
+    depth, quote, escape, end = 1, None, False, None
+    for i in range(start, len(body)):
+        char = body[i]
+        if quote:
+            if escape: escape = False
+            elif char == "\\" and quote == '"': escape = True
+            elif char == quote: quote = None
+        elif char in "\"'": quote = char
+        elif char == "(": depth += 1
+        elif char == ")":
+            depth -= 1
+            if depth == 0: end = i; break
+    if end is None: raise ParseError("The %s call is missing a closing parenthesis." % name, line)
+    if body[end + 1:].strip(): raise ParseError("Only one supported call is allowed in each R block.", line)
+    args = {}
+    for item in _split_top(body[start:end]):
+        pair = _split_equals(item)
+        if pair is None: raise ParseError("Every %s argument must have a name." % name, line)
+        key, raw = pair
+        if key in args: raise ParseError("Argument '%s' appears more than once." % key, line)
+        args[key] = _vector(raw, line) if key in ("option", "options", "row", "rows") else _unquote(raw)
+    return name, args
+
+
+def _plain_copy(section):
+    text = FENCE_RE.sub("", section)
+    heading = re.search(r"^#\s+(.+?)\s*$", text, re.M)
+    title = heading.group(1).strip() if heading else None
+    if heading: text = text[:heading.start()] + text[heading.end():]
+    text = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    return title, text
+
+
+def parse_qmd(path):
+    text = Path(path).read_text()
+    if not text.startswith("---\n"): raise ParseError("The file must begin with YAML front matter.", 1)
+    close = text.find("\n---", 4)
+    if close < 0: raise ParseError("The YAML front matter is not closed.", 1)
+    front = load_yaml(text[4:close])
+    body = text[close + 4:].lstrip("\n")
+    matches = list(PAGE_RE.finditer(body))
+    if not matches: raise ParseError("No survey pages were found. Add a line such as '--- welcome'.")
+    pages = []
+    for index, match in enumerate(matches):
+        page_id = match.group(1)
+        section = body[match.end():matches[index + 1].start() if index + 1 < len(matches) else len(body)]
+        title, copy = _plain_copy(section)
+        page = {"id": page_id, "title": title or page_id.replace("_", " ").title(), "body": copy, "questions": []}
+        section_start = text[:close + 4].count("\n") + body[:match.end()].count("\n") + 1
+        for fence in FENCE_RE.finditer(section):
+            line = section_start + section[:fence.start()].count("\n") + 1
+            name, args = _call_args(fence.group(1).strip(), line)
+            if name == "sd_question":
+                q = {"id": args.pop("id", None), "type": args.pop("type", None), "label": args.pop("label", None), "_line": line}
+                if "option" in args: q["options"] = args.pop("option")
+                if "options" in args: q["options"] = args.pop("options")
+                if "row" in args: q["rows"] = args.pop("row")
+                if "rows" in args: q["rows"] = args.pop("rows")
+                if "label_select" in args: q["placeholder"] = args.pop("label_select")
+                for key in ("placeholder", "min", "max"):
+                    if key in args: q[key] = args.pop(key)
+                if args: q["unsupported_arguments"] = sorted(args)
+                page["questions"].append(q)
+            elif name == "sd_nav":
+                page["nav"] = args; page["_nav_line"] = line
+            elif fence.group(1).strip():
+                raise ParseError("This R block does not contain sd_question() or sd_nav().", line)
+        pages.append(page)
+    return {"front_matter": front, "pages": pages, "source": str(path)}
+```
+
+### FILE: `greedyq/validator.py`
+
+SHA-256: `2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266`
+
+```python
+"""Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
+
+import re
+
+
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"}
+ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
+FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
+NAMESPACE_KEYS = {
+    "greedyq": {"spec_version"},
+    "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
+    "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
+    "system-messages": {"previous", "next", "required"},
+}
+
+
+def _item(code, message, path, line=None, severity="error", technical=None):
+    item = {"code": code, "severity": severity, "message": message, "file": str(path)}
+    if line: item["line"] = line
+    if technical: item["technical_detail"] = technical
+    return item
+
+
+def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
+    issues = []
+    pages = parsed.get("pages", [])
+    page_ids = [p.get("id") for p in pages]
+    known_pages = set(page_ids)
+    questions = [q for p in pages for q in p.get("questions", [])]
+    question_ids = [q.get("id") for q in questions]
+    known_questions = set(question_ids)
+    front = parsed.get("front_matter", {})
+    for key in front:
+        if key not in FRONT_KEYS:
+            issues.append(_item("GQ003", "The survey header uses '%s', which is not a supported setting." % key, qmd_path, 1))
+    for namespace, allowed in NAMESPACE_KEYS.items():
+        value = front.get(namespace, {})
+        if isinstance(value, dict):
+            for key in value:
+                if key not in allowed:
+                    issues.append(_item("GQ003", "The '%s' section uses the unsupported setting '%s'." % (namespace, key), qmd_path, 1))
+    if parsed.get("front_matter", {}).get("greedyq", {}).get("spec_version") != "0.2":
+        issues.append(_item("GQ003", "Set the survey specification version to 0.2.", qmd_path, 1))
+    if config.get("spec_version") != "0.2":
+        issues.append(_item("GQ003", "Set the study settings version to 0.2.", config_path, 1))
+    for value in sorted({x for x in page_ids if page_ids.count(x) > 1}):
+        issues.append(_item("GQ001", "The page name '%s' is used more than once. Give every page a unique name." % value, qmd_path))
+    for value in sorted({x for x in question_ids if x and question_ids.count(x) > 1}):
+        issues.append(_item("GQ001", "The question name '%s' is used more than once. Give every question a unique name." % value, qmd_path))
+    for page in pages:
+        if re.search(r"<\s*/?\s*[A-Za-z][^>]*>", page.get("body", "")):
+            issues.append(_item("GQ003", "Page '%s' contains raw HTML. Use ordinary Markdown so the preview remains safe and portable." % page["id"], qmd_path))
+    for q in questions:
+        line = q.get("_line")
+        if not q.get("id"):
+            issues.append(_item("GQ001", "A question is missing its id. Add a short unique name such as 'age'.", qmd_path, line)); continue
+        if not ID.fullmatch(str(q["id"])):
+            issues.append(_item("GQ001", "The question id '%s' must begin with a letter and contain only lowercase letters, numbers, '_' or '-'." % q["id"], qmd_path, line))
+        if not q.get("type"):
+            issues.append(_item("GQ003", "Question '%s' is missing its type." % q["id"], qmd_path, line))
+        elif q["type"] not in SUPPORTED_TYPES:
+            issues.append(_item("GQ003", "Question '%s' uses the unsupported type '%s'." % (q["id"], q["type"]), qmd_path, line))
+        if not q.get("label"):
+            issues.append(_item("GQ003", "Question '%s' needs participant-facing wording in label." % q["id"], qmd_path, line))
+        if q.get("type") in {"mc", "mc_multiple", "select", "slider", "matrix"} and not q.get("options"):
+            issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
+        if q.get("type") == "matrix" and not q.get("rows"):
+            issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if any(item.get("_looks_reversed") for item in q.get("options", []) + q.get("rows", [])):
+            issues.append(_item("GQ011", "Question '%s' appears to put stored codes on the left. Write each choice as \"Displayed label\" = \"stored_value\"." % q["id"], qmd_path, line))
+        for arg in q.get("unsupported_arguments", []):
+            issues.append(_item("GQ003", "Question '%s' uses '%s', which this preview does not support yet." % (q["id"], arg), qmd_path, line))
+        for collection in ("options", "rows"):
+            values = [item.get("value") for item in q.get(collection, [])]
+            if len(values) != len(set(map(str, values))):
+                issues.append(_item("GQ011", "Question '%s' repeats a stored value in its %s. Every stored value must be unique." % (q["id"], collection), qmd_path, line))
+    overlap = sorted(known_pages & known_questions)
+    for value in overlap:
+        issues.append(_item("GQ001", "'%s' is used for both a page and a question. Use a different name for one of them." % value, qmd_path))
+    settings = parsed.get("front_matter", {}).get("survey-settings", {})
+    start = settings.get("start-page", page_ids[0] if page_ids else None)
+    if start not in known_pages:
+        issues.append(_item("GQ002", "The starting page '%s' does not exist." % start, qmd_path))
+    for required in settings.get("required", []) or []:
+        if required not in known_questions:
+            issues.append(_item("GQ002", "The required-question list refers to '%s', but that question does not exist." % required, qmd_path))
+    logic = config.get("logic", {})
+    for rule in logic.get("show", []) or []:
+        target = rule.get("question") or rule.get("page")
+        known = known_questions if rule.get("question") else known_pages
+        if target not in known:
+            issues.append(_item("GQ002", "A display rule refers to '%s', but it does not exist." % target, config_path))
+    for rule in logic.get("skip", []) or []:
+        if rule.get("from") not in known_pages:
+            issues.append(_item("GQ002", "A route starts from missing page '%s'." % rule.get("from"), config_path))
+        if rule.get("to") not in known_pages:
+            issues.append(_item("GQ002", "A route points to missing page '%s'." % rule.get("to"), config_path))
+    for page in pages:
+        target = (page.get("nav") or {}).get("page_next")
+        if target and target not in known_pages:
+            issues.append(_item("GQ002", "Page '%s' continues to missing page '%s'." % (page["id"], target), qmd_path, page.get("_nav_line")))
+    for outcome, value in (config.get("outcomes", {}) or {}).items():
+        if value.get("page") not in known_pages:
+            issues.append(_item("GQ002", "The '%s' ending points to missing page '%s'." % (outcome, value.get("page")), config_path))
+    for randomization in config.get("randomization", []) or []:
+        after = (randomization.get("assignment_point") or {}).get("after_page")
+        if after not in known_pages:
+            issues.append(_item("GQ002", "Random assignment refers to missing page '%s'." % after, config_path))
+        if len(randomization.get("conditions", {})) < 2:
+            issues.append(_item("GQ007", "Random assignment '%s' needs at least two conditions." % randomization.get("id"), config_path))
+        if not randomization.get("persistence_key") or not randomization.get("store", {}).get("condition_as"):
+            issues.append(_item("GQ007", "Random assignment '%s' must save each participant's condition so it cannot change on resume." % randomization.get("id"), config_path))
+    consent = config.get("consent")
+    if consent:
+        confirmation = consent.get("confirmation_question")
+        if confirmation not in known_questions:
+            issues.append(_item("GQ006", "Consent refers to missing question '%s'." % confirmation, config_path))
+        else:
+            question = next(q for q in questions if q.get("id") == confirmation)
+            values = [item.get("value") for item in question.get("options", [])]
+            if consent.get("accept_value") not in values:
+                issues.append(_item("GQ006", "The configured consent answer '%s' is not an option in question '%s'." % (consent.get("accept_value"), confirmation), config_path))
+    for name, outcome in (config.get("outcomes", {}) or {}).items():
+        redirect = outcome.get("redirect")
+        if redirect and not str(redirect).startswith("https://"):
+            issues.append(_item("GQ009", "The '%s' redirect must use a secure https address." % name, config_path))
+    errors = [item for item in issues if item["severity"] == "error"]
+    return {"schema_version": "0.2", "status": "passed" if not errors else "failed", "summary": "%d error(s), %d warning(s)" % (len(errors), len(issues)-len(errors)), "issues": issues}
+```
+
+### FILE: `greedyq/compiler.py`
+
+SHA-256: `48330158ae7f48908805bc9ad045daa6a40e86847dd135ecee8d21d45a032a2a`
+
+```python
+"""Compile parsed QMD and greedyq.yml into the browser preview model."""
+
+import re
+
+
+OPS = (("!=", "not_equals"), ("<=", "lte"), (">=", "gte"), ("==", "equals"), ("<", "lt"), (">", "gt"))
+
+
+def _literal(raw):
+    raw = raw.strip()
+    if len(raw) >= 2 and raw[0] == raw[-1] and raw[0] in "\"'": return raw[1:-1]
+    if re.fullmatch(r"-?\d+", raw): return int(raw)
+    if re.fullmatch(r"-?(?:\d+\.\d*|\d*\.\d+)", raw): return float(raw)
+    if raw.lower() == "true": return True
+    if raw.lower() == "false": return False
+    return raw
+
+
+def condition(expression):
+    """Convert the safe comparison subset to preview predicates."""
+    expression = str(expression).strip()
+    for connector, key in ((" and ", "all"), (" or ", "any")):
+        if connector in expression:
+            return {key: [condition(part) for part in expression.split(connector)]}
+    for token, key in OPS:
+        if token in expression:
+            field, value = expression.split(token, 1)
+            field = field.strip()
+            if field == "assignment_condition": field = "condition"
+            return {"field": field, key: _literal(value)}
+    return {"unsupported": expression}
+
+
+def _constraint(question, rules):
+    for rule in rules:
+        if rule.get("question") != question["id"]: continue
+        expression = str(rule.get("if", ""))
+        match = re.fullmatch(r"\s*%s\s*>\s*(-?\d+(?:\.\d+)?)\s*" % re.escape(question["id"]), expression)
+        if match: question["max"] = float(match.group(1))
+        low = re.search(r"%s\s*<\s*(-?\d+(?:\.\d+)?)" % re.escape(question["id"]), expression)
+        high = re.search(r"%s\s*>\s*(-?\d+(?:\.\d+)?)" % re.escape(question["id"]), expression)
+        if low and high:
+            question["min"] = float(low.group(1)); question["max"] = float(high.group(1))
+
+
+def compile_preview(parsed, config):
+    front = parsed["front_matter"]
+    survey_settings = front.get("survey-settings", {})
+    required = set(survey_settings.get("required", []))
+    logic = config.get("logic", {})
+    shows = logic.get("show", []) or []
+    skips = sorted(logic.get("skip", []) or [], key=lambda x: x.get("priority", 0), reverse=True)
+    validations = logic.get("validate", []) or []
+    outcomes = config.get("outcomes", {})
+    terminal_by_page = {item.get("page"): item.get("lifecycle_state", key) for key, item in outcomes.items()}
+    pages = []
+    source_pages = parsed["pages"]
+    for index, source in enumerate(source_pages):
+        page = {key: source[key] for key in ("id", "title", "body")}
+        page["questions"] = []
+        for source_question in source["questions"]:
+            q = {key: value for key, value in source_question.items() if not key.startswith("_") and key != "unsupported_arguments"}
+            for collection in ("options", "rows"):
+                if collection in q:
+                    q[collection] = [{key: value for key, value in item.items() if not key.startswith("_")} for item in q[collection]]
+            q["required"] = q.get("id") in required
+            for rule in shows:
+                if rule.get("question") == q.get("id"): q["show_if"] = condition(rule.get("if", ""))
+            _constraint(q, validations)
+            if any(rule.get("question") == q.get("id") and ("not answered(%s)" % q.get("id")) in str(rule.get("if", "")) for rule in validations):
+                q["required"] = True
+            if q.get("id") == "age" and q.get("type") == "numeric" and "min" not in q:
+                q["min"] = 0
+            if q.get("min") is not None and float(q["min"]).is_integer(): q["min"] = int(q["min"])
+            if q.get("max") is not None and float(q["max"]).is_integer(): q["max"] = int(q["max"])
+            page["questions"].append(q)
+        nav = source.get("nav", {})
+        page["show_previous"] = bool(nav.get("show_previous", survey_settings.get("show-previous", True)))
+        if nav.get("page_next"): page["next"] = nav["page_next"]
+        elif index + 1 < len(source_pages): page["next"] = source_pages[index + 1]["id"]
+        else: page["next"] = None
+        if nav.get("label_next"): page["next_label"] = nav["label_next"]
+        routes = []
+        for rule in skips:
+            if rule.get("from") == page["id"]:
+                routes.append({"when": condition(rule.get("if", "")), "to": rule.get("to")})
+        if routes: page["routes"] = routes
+        if page["id"] in terminal_by_page:
+            page.pop("next", None); page["terminal"] = terminal_by_page[page["id"]]
+        pages.append(page)
+
+    randomizations = config.get("randomization", []) or []
+    conditions = ["default"]
+    assignment_page = None
+    if randomizations:
+        first = randomizations[0]
+        conditions = list((first.get("conditions") or {}).keys()) or conditions
+        assignment_page = (first.get("assignment_point") or {}).get("after_page")
+
+    by_id = {page["id"]: page for page in pages}
+    def route_for(page, assigned):
+        for route in page.get("routes", []):
+            rule = route["when"]
+            if rule.get("field") == "condition" and rule.get("equals") == assigned: return route["to"]
+        return page.get("next")
+    paths = {}
+    start = survey_settings.get("start-page", pages[0]["id"])
+    for assigned in conditions:
+        path, current = [], start
+        while current in by_id and current not in path:
+            path.append(current)
+            if by_id[current].get("terminal"): break
+            current = route_for(by_id[current], assigned)
+        paths[assigned] = path
+    model = {
+        "study_id": config.get("study", {}).get("id", "greedyq_preview"),
+        "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
+        "start_page": start,
+        "brand_color": front.get("theme-settings", {}).get("barcolor", "#315c8a"),
+        "messages": {
+            "previous": front.get("system-messages", {}).get("previous", "Previous"),
+            "next": front.get("system-messages", {}).get("next", "Continue"),
+            "required": front.get("system-messages", {}).get("required", "Please answer the required questions before continuing."),
+        },
+        "conditions": conditions,
+        "progress_paths": paths,
+        "pages": pages,
+    }
+    if assignment_page: model["assignment_page"] = assignment_page
+    return model
+```
+
+### FILE: `greedyq/build.py`
+
+SHA-256: `f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f`
+
+```python
+"""Build normalized artifacts and self-contained preview HTML."""
+
+import json
+import re
+from pathlib import Path
+
+from .compiler import compile_preview
+from .parser import parse_qmd
+from .validator import validate
+from .yaml_min import loads as load_yaml
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def load_study(study_dir):
+    study_dir = Path(study_dir).resolve()
+    qmd = study_dir / "survey.qmd"
+    settings = study_dir / "greedyq.yml"
+    if not qmd.is_file(): raise FileNotFoundError("survey.qmd was not found in %s" % study_dir)
+    if not settings.is_file(): raise FileNotFoundError("greedyq.yml was not found in %s" % study_dir)
+    parsed = parse_qmd(qmd)
+    config = load_yaml(settings.read_text())
+    return study_dir, parsed, config
+
+
+def build(study_dir, write=True):
+    study_dir, parsed, config = load_study(study_dir)
+    report = validate(parsed, config, "survey.qmd", "greedyq.yml")
+    if report["status"] != "passed": return report, None
+    model = compile_preview(parsed, config)
+    if write:
+        internal = study_dir / ".greedyq"; internal.mkdir(exist_ok=True)
+        normalized = {"schema_version": "0.2", "source": "survey.qmd", "front_matter": parsed["front_matter"], "pages": [{k:v for k,v in p.items() if not k.startswith("_")} for p in parsed["pages"]]}
+        (internal / "normalized-survey.json").write_text(json.dumps(normalized, ensure_ascii=False, indent=2) + "\n")
+        (internal / "validation-report.runtime.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+        (study_dir / "preview-model.json").write_text(json.dumps(model, ensure_ascii=False, indent=2) + "\n")
+        template = (ROOT / "templates/preview/preview.html").read_text()
+        payload = json.dumps(model, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        pattern = r'(<script id="greedyq-model" type="application/json">).*?(</script>)'
+        html, count = re.subn(pattern, lambda match: match.group(1) + payload + match.group(2), template, count=1, flags=re.S)
+        if count != 1: raise RuntimeError("Preview template model marker is missing or duplicated.")
+        (study_dir / "preview.html").write_text(html)
+    return report, model
 ```
 
 <!-- GREEDYQ_BUNDLE_END -->

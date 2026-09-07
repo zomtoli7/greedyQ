@@ -39,7 +39,9 @@
     ".greedyq/validation-report.json",
     "preregistration/osf-preregistration.md",
     "preregistration/preregistration.json",
-    "preregistration/artifact-manifest.json"
+    "preregistration/artifact-manifest.json",
+    ".greedyq/normalized-survey.json",
+    ".greedyq/validation-report.runtime.json"
   ],
   "gates": {
     "design": {

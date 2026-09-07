@@ -18,6 +18,13 @@ FILES = (
     ("schemas/ai/unresolved-decisions.schema.json", "json", False),
     ("schemas/ai/generation-manifest.schema.json", "json", False),
     ("schemas/preview-model.schema.json", "json", False),
+    ("greedyq/__init__.py", "python", False),
+    ("greedyq/__main__.py", "python", False),
+    ("greedyq/yaml_min.py", "python", False),
+    ("greedyq/parser.py", "python", False),
+    ("greedyq/validator.py", "python", False),
+    ("greedyq/compiler.py", "python", False),
+    ("greedyq/build.py", "python", False),
 )
 
 

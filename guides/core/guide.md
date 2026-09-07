@@ -35,3 +35,5 @@ A fork must not reuse a production database destination, deployment alias, parti
 ## Review and status
 
 Use `study-plan.md` for a short researcher-readable record and `preview.html` for hands-on review. Keep detailed diagnostics in `.greedyq/validation-report.json`. Distinguish drafted, reviewed, validated, deployed, and fielding states truthfully.
+
+When the reference runtime is available, generate the preview with `python3 -m greedyq build PATH_TO_STUDY`; never maintain `preview-model.json` separately by hand. Correct blocking structural errors, rebuild, and then open `preview.html` or run `python3 -m greedyq preview PATH_TO_STUDY`. Do not describe parser internals to the researcher unless requested. A successful preview build is not production deployment or permission to recruit.

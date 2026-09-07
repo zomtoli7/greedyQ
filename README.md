@@ -113,9 +113,25 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 ## Project status
 
-greedyQ is in the specification and prototyping phase. The repository-first modular guide architecture is available as a compatibility structure; the next milestone is behavioral evaluation with multiple LLMs while the v0.2 parser and runtime contracts are completed.
+greedyQ is in the specification and working-preview phase. The zero-install Python reference implementation parses the supported v0.2 QMD subset, validates structural and routing errors, builds a normalized model, and serves a self-contained researcher preview. Production response storage and deployment are not implemented yet.
 
-See [START-HERE.md](./START-HERE.md), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.2 specification](./docs/greedyq-v0.2-spec.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+## Try the browser preview
+
+From the repository root, run:
+
+```bash
+python3 -m greedyq preview examples/complete-study
+```
+
+Your browser should open `http://localhost:4173/preview.html`. To try the simple survey instead:
+
+```bash
+python3 -m greedyq preview examples/simple-satisfaction-study
+```
+
+Use `python3 -m greedyq validate PATH_TO_STUDY` to check a study without generating a preview, or `python3 -m greedyq build PATH_TO_STUDY` to create `preview-model.json`, `preview.html`, and normalized validation artifacts without starting a server. No respondent data leaves the browser in preview mode. See the [browser preview guide](./docs/browser-preview.md).
+
+See [START-HERE.md](./START-HERE.md), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.2 specification](./docs/greedyq-v0.2-spec.md), [browser preview guide](./docs/browser-preview.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

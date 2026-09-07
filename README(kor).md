@@ -113,9 +113,25 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 ## 프로젝트 상태
 
-greedyQ는 현재 specification 및 prototyping 단계입니다. Repository-first modular guide architecture가 호환 구조로 준비되었으며, 다음 milestone은 v0.2 parser와 runtime contract를 완성하는 동안 여러 LLM에서 behavioral evaluation을 수행하는 것입니다.
+greedyQ는 현재 specification 및 working-preview 단계입니다. 별도 설치가 필요 없는 Python reference implementation이 지원되는 v0.2 QMD subset을 parse하고, 구조 및 routing 오류를 검사하고, normalized model을 만들어 self-contained 연구자 preview를 제공합니다. Production 응답 저장과 배포는 아직 구현되지 않았습니다.
 
-현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+## 브라우저 프리뷰 사용하기
+
+Repository root에서 다음을 실행합니다.
+
+```bash
+python3 -m greedyq preview examples/complete-study
+```
+
+브라우저에서 `http://localhost:4173/preview.html`이 열립니다. Simple survey를 시험하려면 다음을 실행합니다.
+
+```bash
+python3 -m greedyq preview examples/simple-satisfaction-study
+```
+
+Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH_TO_STUDY`, 서버를 시작하지 않고 `preview-model.json`, `preview.html`, normalized validation artifact를 만들려면 `python3 -m greedyq build PATH_TO_STUDY`를 사용합니다. Preview mode에서는 respondent data가 브라우저 밖으로 전송되지 않습니다. 자세한 내용은 [브라우저 프리뷰 안내](./docs/browser-preview(kor).md)를 참고하십시오.
+
+현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

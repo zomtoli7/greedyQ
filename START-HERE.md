@@ -28,3 +28,5 @@ For a new study, begin with:
 For modification, summarize the existing study in plain language and ask what the researcher wants to change. For a fork, first create an independent copy according to the core guide, then ask what should differ.
 
 Ask one focused question at a time. Show the interactive participant preview—not an implementation report—as soon as a coherent questionnaire exists.
+
+When repository tools are available, do not hand-author `preview-model.json`. Run `python3 -m greedyq build PATH_TO_STUDY`, correct every blocking message without changing research intent, and open the generated `preview.html`. Run `python3 -m greedyq preview PATH_TO_STUDY` when a local browser can be opened. Tell the researcher only what they need to review; keep parser and validation details out of the ordinary conversation unless they ask.
