@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "025c790134de51d924edb8e8a8210ea9fb48ae4b6392420af4bdf4ffb7b966ef",
+  "registry_sha256": "e0f23693c6e5fe01ab0f5816461d10f92ba3c061347f9513b41b2b9f8124121c",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -15,7 +15,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "13caef0fd596347d28fbbf32faec22e2316555e9c5e15f11dc1ef32527e28e2d"
+      "manifest_sha256": "80a1df1e67ce926de3e502bb33e981afa887e8c85ba0678daeebc158d398752b"
     },
     {
       "id": "simple",
@@ -50,7 +50,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "25de43b20310e108515483ed8c6b72b912ea62ddbfa7ebb8a8cf722e18f217e6"
+      "sha256": "ec2dce3d0de905fb289c638540b37c80b7ce6f2b3ec33d22cf05ed99bc7fa75f"
     },
     {
       "component": "core",
@@ -61,6 +61,11 @@
       "component": "core",
       "path": "guides/core/checkpoints.json",
       "sha256": "2f27f4fb6824b8de340dce5b8b82872a13142221aed43fc6c24b21bbc640deec"
+    },
+    {
+      "component": "core",
+      "path": "docs/greedyq-v0.1-spec.md",
+      "sha256": "fee8eae9883e2199c4e10deb4a86928824e8a7fb3106682f1f2cedcff3848181"
     },
     {
       "component": "core",

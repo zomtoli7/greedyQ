@@ -10,7 +10,9 @@
 
 ## 1. Product definition
 
-greedyQ is an open-source, AI-guided workflow for building, deploying, and operating academic surveys and experiments. Its primary experience is a structured conversation: a researcher attaches a versioned greedyQ guide to GPT, Claude, or another capable agent; the AI interviews the researcher one decision at a time; and the workflow produces, validates, previews, and deploys deterministic study artifacts.
+greedyQ is a specification-driven, AI-native application for online academic research. Rather than implementing the application itself in conventional source code, greedyQ specifies how a general-purpose generative AI agent should instantiate and operate the application. Its Markdown guides, schemas, checkpoints, and exact templates form a portable **agent-executable application specification**.
+
+greedyQ itself is not an agent. The greedyQ specification combined with a capable host GenAI instantiates a greedyQ research agent. That research agent collaborates with the researcher and produces research-design artifacts plus executable respondent-facing survey software.
 
 The product is not intended to be a pixel-for-pixel Qualtrics clone, another GUI form builder, or a proprietary AI service. Its primary user interface is a guided conversation, while its durable abstraction is a version-controlled study specification. Direct QMD authoring remains an expert path.
 
@@ -18,7 +20,13 @@ greedyQ is an independent MIT-licensed implementation. Its primary product is it
 
 ### Core proposition
 
-> Combine frontier-model research assistance with a deterministic survey specification, validator, runtime, and deployment workflow.
+> Package a reproducible research methodology and workflow as an agent-executable specification that turns a capable general-purpose GenAI into a domain-specific research application.
+
+### Architectural identity
+
+1. **Architecture:** a specification-driven AI-native application whose normative behavior is distributed as a human-readable, agent-executable specification.
+2. **Domain:** online academic research, including research design, consent, measurement, experiments, respondent collection, data planning, preregistration, deployment, and fielding.
+3. **Implementation:** greedyQ, a concrete and testable implementation of that architecture.
 
 ### Product promise
 
@@ -60,7 +68,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 5. **Research comes first.** Reproducible randomization, experimental metadata, and analysis-ready data are core concerns.
 6. **Researchers own their data.** Responses go to the researcher's Supabase project; greedyQ does not operate a central respondent-data service.
 7. **No GUI dependency.** A GUI survey builder is not required for authoring or deployment.
-8. **AI-guided creation is the primary experience, not an add-on.** A general-purpose LLM should interview the researcher, maintain the study state, and produce valid artifacts.
+8. **The agent-executable specification is the application core.** A capable general-purpose GenAI instantiates it as a greedyQ research agent that interviews the researcher, maintains study state, and produces valid artifacts.
 9. **Deployment should be mundane.** GitHub, Vercel, and Supabase should be sufficient for a production survey.
 10. **Research governance must be explicit.** Ethics-review metadata, consent, and respondent-source records should be structured, versioned, and auditable without claiming legal or institutional compliance.
 11. **The LLM provides research intelligence.** greedyQ should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
@@ -246,18 +254,18 @@ Required behavior includes anonymous sessions, resumable progress, page-level sa
 
 ## 11. Primary experience and alternative authoring paths
 
-### 11.1 Main feature: AI-guided study creation and deployment
+### 11.1 Main feature: instantiating the greedyQ research agent
 
-A standalone, versioned Markdown guide turns a capable general-purpose LLM into the conversational interface for greedyQ.
+A versioned greedyQ repository supplies an agent-executable application specification. A capable general-purpose GenAI loads that specification and instantiates the greedyQ research agent. Different hosts may use different interfaces and native capabilities, but the resulting agent remains accountable to the same normative checkpoints, artifact contracts, and conformance tests.
 
 ```text
-greedyq-guide.md + "Let's build a survey"
+START-HERE.md + registry + resolved specification
                    |
                    v
-          capability detection
+         capable general-purpose GenAI
                    |
                    v
-          guided study interview
+          greedyQ research agent
                    |
      +-------------+--------------+
      | research design            |

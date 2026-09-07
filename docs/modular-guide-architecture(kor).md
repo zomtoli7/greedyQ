@@ -10,6 +10,10 @@
 
 ## 1. 제품 결정
 
+greedyQ는 online academic research를 위한 specification-driven, AI-native application입니다. 차별점은 단순히 AI를 사용한다는 것이 아닙니다. Application logic을 portable하고 사람이 읽을 수 있는 **agent-executable application specification**으로 배포하여 general-purpose GenAI가 application을 어떻게 instantiate하고 operate할지 알려줍니다.
+
+greedyQ 자체는 agent가 아닙니다. `greedyQ specification + host GenAI = greedyQ research agent`입니다. Instantiate된 agent가 연구자와 협업하고 연구설계 artifact와 실행 가능한 respondent-facing survey software를 만듭니다. 이러한 분리로 model 간 portability와 conformance가 핵심 architecture property가 됩니다.
+
 greedyQ는 개발자에게 말하는 코드 생성기가 아니라 연구자를 위한 설문 제작 서비스처럼 행동해야 합니다.
 
 연구자는 다음처럼 일상적인 요청 하나로 시작합니다.

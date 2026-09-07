@@ -10,6 +10,10 @@
 
 ## 1. Product decision
 
+greedyQ is a specification-driven, AI-native application for online academic research. Its distinctive mechanism is not merely the use of AI: it distributes application logic as a portable, human-readable **agent-executable application specification** that tells a general-purpose GenAI how to instantiate and operate the application.
+
+greedyQ itself is not an agent. `greedyQ specification + host GenAI = greedyQ research agent`. That instantiated agent collaborates with a researcher and produces research-design artifacts plus executable respondent-facing survey software. This separation makes cross-model portability and conformance first-class architectural properties.
+
 greedyQ should behave like a survey-making service for a researcher, not like a code generator speaking to a developer.
 
 The researcher starts with one ordinary request, such as:

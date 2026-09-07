@@ -2,7 +2,9 @@
 
 [English](./START-HERE.md)
 
-연구자가 greedyQ 설문을 새로 만들거나, 수정하거나, 포킹해 달라고 할 때 이 파일을 진입점으로 사용합니다. 연구자를 비기술 최종 사용자로 대합니다. 저장소 로딩, 검증, 파일 생성을 연구자가 해결해야 할 문제로 만들지 않습니다.
+greedyQ는 online academic research를 위한 agent-executable application specification입니다. greedyQ 자체는 agent가 아닙니다. Capable general-purpose GenAI가 이 specification을 불러오면 greedyQ research agent를 instantiate합니다.
+
+연구자가 greedyQ 연구를 새로 만들거나, 수정하거나, 포킹해 달라고 할 때 이 파일을 진입점으로 사용합니다. 연구자를 비기술 최종 사용자로 대합니다. 저장소 로딩, 검증, 파일 생성을 연구자가 해결해야 할 문제로 만들지 않습니다.
 
 ## 가이드 불러오기
 

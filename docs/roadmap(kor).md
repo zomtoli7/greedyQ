@@ -73,6 +73,7 @@ docs/greedyq-v0.1-spec(kor).md
 런타임 구현 전에 주요 제품 경험을 정의합니다.
 
 - [x] Capability detection 및 Chat/Agent mode 선택 정의
+- [x] greedyQ를 specification-driven AI-native application으로 정의하고 specification, instantiate된 research agent, 생성된 survey application을 구분
 - [x] Phase별 one-question-at-a-time interview protocol 정의
 - [x] Study-state, assumption, unresolved-decision, decision-log format 정의
 - [x] LLM의 research review 시점과 연구자 확인 필수 시점 정의
@@ -94,6 +95,7 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Golden reference를 lock된 `greedyQExperiment` compatibility object로 migration
 - [x] 완전한 `greedyQSimple` 사용자 만족도 golden reference 추가
 - [ ] GPT와 Claude에서 modular loader를 통한 생성·수정·fork behavioral evaluation 수행
+- [ ] 같은 tagged specification과 study brief를 GPT, Claude, Gemini 등의 capable host에 제공하여 model 간 portability와 semantic conformance 평가
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 
 결과물:

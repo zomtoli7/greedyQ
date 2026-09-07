@@ -19,6 +19,9 @@
 
 ## Product direction
 
+- Define greedyQ as a specification-driven, AI-native application for online academic research, and its normative bundle as an agent-executable application specification.
+- Keep the entities distinct: greedyQ is not an agent; the greedyQ specification plus a capable host GenAI instantiates a greedyQ research agent, which then produces research artifacts and respondent-facing survey software.
+- Treat cross-model portability and conformance as core research and engineering goals; host-specific interfaces may differ, but normative decisions, participant protections, artifact semantics, and truthful status must remain testable invariants.
 - Treat `docs/product-brief.md` as the current product-direction reference.
 - Treat `docs/greedyq-v0.1-spec.md` as the current normative-format draft and `examples/complete-study/` as its pre-implementation golden reference.
 - Treat `docs/roadmap.md` as the current implementation-order reference.

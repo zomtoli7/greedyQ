@@ -4,11 +4,13 @@
 
 **Status:** Draft normative specification
 **Specification version:** `0.1.0-draft.1`
-**Primary conformance fixture:** `examples/complete-study/`
+**Primary conformance fixtures:** `examples/complete-study/` and `examples/simple-satisfaction-study/`
 
 ## 1. Purpose and conformance language
 
 This specification defines the smallest complete greedyQ study format, web-native runtime behavior, validation contract, and native surveydown export boundary. The words MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are normative.
+
+greedyQ is a specification-driven, AI-native application for online academic research. The modular greedyQ bundle is an agent-executable application specification: combined with a capable general-purpose GenAI, it instantiates a greedyQ research agent that applies this normative format and produces research artifacts plus executable survey software. greedyQ itself is not an agent and MUST NOT be represented as one. Differences in host AI or interface MUST NOT weaken the conformance requirements in this document.
 
 greedyQ is an independent implementation. It MUST NOT incorporate or execute surveydown source code. Compatibility targets publicly documented surveydown-style `survey.qmd` authoring conventions. The primary runtime is greedyQ on Vercel and Supabase; generated native surveydown files are a first-class parallel output.
 

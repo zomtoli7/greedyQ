@@ -73,6 +73,7 @@ docs/greedyq-v0.1-spec(kor).md
 Specify the primary product experience before building the runtime.
 
 - [x] Define capability detection and Chat/Agent mode selection.
+- [x] Define greedyQ as a specification-driven AI-native application and distinguish the specification, instantiated research agent, and generated survey application.
 - [x] Define the phased, one-question-at-a-time interview protocol.
 - [x] Define study-state, assumption, unresolved-decision, and decision-log formats.
 - [x] Define when the LLM performs research review and when researcher confirmation is mandatory.
@@ -94,6 +95,7 @@ Specify the primary product experience before building the runtime.
 - [x] Migrate the golden reference to a locked `greedyQExperiment` compatibility object.
 - [x] Add a complete `greedyQSimple` user-satisfaction golden reference.
 - [ ] Run behavioral creation, modification, and fork evaluations through the modular loader with GPT and Claude.
+- [ ] Evaluate cross-model portability and semantic conformance using the same tagged specification and study briefs across GPT, Claude, Gemini, and other capable hosts.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 
 Deliverables:

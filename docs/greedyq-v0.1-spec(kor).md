@@ -4,11 +4,13 @@
 
 **상태:** Draft normative specification
 **스펙 버전:** `0.1.0-draft.1`
-**주요 conformance fixture:** `examples/complete-study/`
+**주요 conformance fixture:** `examples/complete-study/` 및 `examples/simple-satisfaction-study/`
 
 ## 1. 목적 및 규범 언어
 
 이 스펙은 완전한 최소 greedyQ 연구 형식, web-native runtime 동작, validation contract, native surveydown export 경계를 정의합니다. MUST, MUST NOT, SHOULD, SHOULD NOT, MAY는 규범적 의미로 사용합니다.
+
+greedyQ는 online academic research를 위한 specification-driven, AI-native application입니다. 모듈형 greedyQ bundle은 agent-executable application specification입니다. Capable general-purpose GenAI와 결합하면 이 normative format을 적용하고 연구 artifact와 실행 가능한 survey software를 만드는 greedyQ research agent를 instantiate합니다. greedyQ 자체는 agent가 아니며 그렇게 표현해서는 안 됩니다. Host AI나 interface의 차이가 이 문서의 conformance requirement를 약화해서도 안 됩니다.
 
 greedyQ는 독립 구현입니다. Surveydown 소스 코드를 포함하거나 실행해서는 안 됩니다. 호환성은 공개적으로 문서화된 surveydown-style `survey.qmd` 작성 관례를 대상으로 합니다. 주 runtime은 Vercel과 Supabase에서 실행되는 greedyQ이며, 생성된 native surveydown 파일은 핵심 병렬 출력입니다.
 

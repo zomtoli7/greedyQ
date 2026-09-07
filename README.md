@@ -4,9 +4,34 @@
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
-greedyQ is an open-source, AI-guided survey and experimental research workflow backed by a deterministic Markdown-first engine. Its primary target is an independent web-native runtime deployed with Vercel and Supabase, while the same study can also be exported as a native surveydown project. A researcher points GPT, Claude, or another capable agent to the versioned greedyQ repository and starts with a simple request such as “Let's build a survey.” The AI loads only the relevant modular guides, interviews the researcher in plain language, produces valid study files, validates them, and—when connected tools are available—sets up deployment services.
+greedyQ is a specification-driven, AI-native application for online academic research. Rather than implementing the application itself in conventional source code, greedyQ specifies how a general-purpose generative AI agent should instantiate and operate the application.
 
-The AI supplies research reasoning and natural-language collaboration. greedyQ supplies the interview protocol, approval checkpoints, specification, validator, preregistration output, runtime, deployment contract, and reproducibility. The project is intended for academic studies that require auditable consent, external respondent panels, branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
+Its portable Markdown, schemas, checkpoints, and exact templates form an **agent-executable application specification**. A researcher points GPT, Claude, or another capable general-purpose AI to the versioned greedyQ repository and starts with an ordinary request such as “Let's build a survey.” The instantiated research agent then conducts the guided research workflow and produces both research-design artifacts and executable respondent-facing survey software.
+
+## greedyQ as an AI-native application
+
+greedyQ itself is not an agent. The distinction is:
+
+```text
+greedyQ agent-executable application specification
+                         +
+              capable host GenAI
+                         =
+             greedyQ research agent
+                         |
+                         v
+       research-design artifacts + survey application
+```
+
+This architecture has three layers:
+
+1. **Architecture — specification-driven AI-native application.** Application behavior is defined and distributed primarily through a human-readable, agent-executable specification rather than a conventional application codebase alone.
+2. **Domain — online academic research.** The scope includes research design, consent, questionnaires, experiments, randomization, respondent panels, data plans, preregistration, deployment, and fielding—not surveys alone.
+3. **Implementation — greedyQ.** greedyQ is the concrete application of this architecture to reproducible online academic research.
+
+The host model may present different interfaces or use different native capabilities, but it must apply the same normative research specification. Portability therefore means that GPT, Claude, Gemini, or another capable general-purpose AI can instantiate greedyQ while remaining testable against common conformance requirements.
+
+The AI supplies research reasoning and natural-language collaboration. The greedyQ specification supplies the interview protocol, approval checkpoints, artifact contracts, validation requirements, preregistration workflow, runtime templates, deployment contract, and reproducibility boundaries.
 
 ## Why greedyQ?
 
@@ -90,7 +115,7 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 greedyQ is in the specification and prototyping phase. The repository-first modular guide architecture is available as a compatibility structure; the next milestone is behavioral evaluation with multiple LLMs while the v0.1 parser and runtime contracts are completed.
 
-See [START-HERE.md](./START-HERE.md), the [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+See [START-HERE.md](./START-HERE.md), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

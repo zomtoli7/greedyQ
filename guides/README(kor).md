@@ -2,6 +2,8 @@
 
 [English](./README.md)
 
+이 guide들은 greedyQ **agent-executable application specification**의 module입니다. greedyQ 자체는 agent가 아닙니다. Capable host GenAI가 이 specification을 해석하여 greedyQ research agent를 instantiate합니다.
+
 ## 기본 방식: 저장소에서 시작하기
 
 - 일반적인 사용에는 tag가 지정된 `START-HERE.md` URL을 공유합니다. AI는 `registry/guide-index.json`을 통해 core, 하나의 study profile, 연구에 필요한 capability module만 불러옵니다.

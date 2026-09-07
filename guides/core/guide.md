@@ -5,7 +5,7 @@
 **Component:** `core`
 **Version:** `0.2.0-draft.1`
 
-This guide applies to every `greedyQObject`.
+This guide is part of the greedyQ agent-executable application specification and applies to every `greedyQObject`. greedyQ itself is not an agent. A capable host GenAI that resolves and follows the specification instantiates the greedyQ research agent.
 
 ## Required behavior
 

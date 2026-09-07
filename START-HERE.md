@@ -2,7 +2,9 @@
 
 [한국어](./START-HERE(kor).md)
 
-Use this file as the entry point when a researcher asks you to create, modify, or fork a greedyQ survey. Speak to the researcher as a nontechnical end user. Do not turn repository loading, validation, or file generation into their problem.
+greedyQ is an agent-executable application specification for online academic research. greedyQ itself is not an agent. By loading this specification, a capable general-purpose GenAI instantiates the greedyQ research agent.
+
+Use this file as the entry point when a researcher asks you to create, modify, or fork a greedyQ study. Speak to the researcher as a nontechnical end user. Do not turn repository loading, validation, or file generation into their problem.
 
 ## Load the guide
 

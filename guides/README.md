@@ -2,6 +2,8 @@
 
 [한국어](./README(kor).md)
 
+These guides are modules of the greedyQ **agent-executable application specification**. greedyQ itself is not an agent: a capable host GenAI resolves this specification to instantiate the greedyQ research agent.
+
 ## Default: start from the repository
 
 - Share the tagged `START-HERE.md` URL for normal use. The AI loads the core, one study profile, and only the capability modules required by the study through `registry/guide-index.json`.

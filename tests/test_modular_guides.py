@@ -120,6 +120,15 @@ class ModularGuideTests(unittest.TestCase):
         plan = (ROOT / "examples" / "complete-study" / "study-plan.md").read_text().lower()
         for term in ("schema", "manifest", "referential integrity", "route graph", "rls", "csp"):
             self.assertNotIn(term, plan)
+        positioning_files = (
+            "README.md", "START-HERE.md", "docs/product-brief.md",
+            "docs/greedyq-v0.1-spec.md", "docs/modular-guide-architecture.md",
+            "guides/core/guide.md",
+        )
+        for relative in positioning_files:
+            text = (ROOT / relative).read_text()
+            self.assertIn("agent-executable application specification", text, relative)
+            self.assertRegex(text, r"greedyQ (itself )?is not an agent", relative)
 
 
 if __name__ == "__main__":

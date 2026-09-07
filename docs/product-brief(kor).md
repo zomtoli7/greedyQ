@@ -10,7 +10,9 @@
 
 ## 1. 제품 정의
 
-greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈소스 AI-guided workflow입니다. 주요 사용자 경험은 구조화된 대화입니다. 연구자가 버전이 명시된 greedyQ guide를 GPT, Claude 등의 유능한 agent에게 첨부하면, AI가 연구자에게 한 번에 하나씩 결정을 질문하고 workflow가 결정론적 study artifact를 생성·검증·preview·배포합니다.
+greedyQ는 online academic research를 위한 specification-driven, AI-native application입니다. Application 자체를 conventional source code로 구현하는 대신, greedyQ는 general-purpose generative AI agent가 application을 어떻게 instantiate하고 operate해야 하는지 명시합니다. Markdown guide, schema, checkpoint, exact template이 portable **agent-executable application specification**을 이룹니다.
+
+greedyQ 자체는 agent가 아닙니다. greedyQ specification과 capable host GenAI가 결합하여 greedyQ research agent를 instantiate합니다. 이 research agent가 연구자와 협업하고 연구설계 artifact와 실행 가능한 respondent-facing survey software를 만듭니다.
 
 이 제품은 Qualtrics를 화면 단위로 복제하거나 또 다른 GUI form builder 또는 독점 AI 서비스가 되는 것을 목표로 하지 않습니다. 주요 사용자 interface는 안내형 대화이며 지속 가능한 abstraction은 버전 관리되는 연구 스펙입니다. QMD 직접 작성은 expert path로 유지합니다.
 
@@ -18,7 +20,13 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 
 ### 핵심 제안
 
-> Frontier model의 연구 보조 능력을 결정론적인 설문 specification, validator, runtime, deployment workflow와 결합합니다.
+> 재현 가능한 연구방법론과 workflow를 agent-executable specification으로 package하여 capable general-purpose GenAI를 domain-specific research application으로 전환합니다.
+
+### Architecture 정체성
+
+1. **Architecture:** normative behavior가 사람이 읽고 agent가 실행할 수 있는 specification으로 배포되는 specification-driven AI-native application입니다.
+2. **Domain:** 연구설계, consent, measurement, experiment, respondent collection, data planning, preregistration, deployment, fielding을 포함하는 online academic research입니다.
+3. **Implementation:** 이 architecture를 구체적이고 검증 가능하게 구현한 greedyQ입니다.
 
 ### 제품 약속
 
@@ -60,7 +68,7 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 5. **연구를 우선합니다.** 재현 가능한 무작위화, 실험 metadata, 분석 가능한 데이터가 핵심 고려사항입니다.
 6. **연구자가 데이터를 소유합니다.** 응답은 연구자의 Supabase 프로젝트로 전송하며 greedyQ는 중앙 응답 데이터 서비스를 운영하지 않습니다.
 7. **GUI에 의존하지 않습니다.** 작성이나 배포에 GUI 설문 빌더가 필요하지 않습니다.
-8. **AI-guided creation은 부가기능이 아니라 주요 경험입니다.** 범용 LLM이 연구자를 인터뷰하고 study state를 유지하며 유효한 artifact를 생성해야 합니다.
+8. **Agent-executable specification이 application core입니다.** Capable general-purpose GenAI가 이를 greedyQ research agent로 instantiate하고, 이 agent가 연구자를 인터뷰하며 study state를 유지하고 유효한 artifact를 생성합니다.
 9. **배포는 평범하고 단순해야 합니다.** GitHub, Vercel, Supabase만으로 production 설문을 운영할 수 있어야 합니다.
 10. **연구 governance를 명시해야 합니다.** 법적 또는 기관 compliance를 보증하지 않으면서 ethics-review metadata, consent, respondent-source 기록을 구조화하고 버전 관리하며 감사할 수 있어야 합니다.
 11. **LLM이 연구 지능을 제공합니다.** greedyQ는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
@@ -246,18 +254,18 @@ event_log
 
 ## 11. 주요 경험 및 대안 작성 경로
 
-### 11.1 메인 기능: AI-guided study creation 및 deployment
+### 11.1 메인 기능: greedyQ research agent instantiate
 
-독립적이고 버전이 명시된 Markdown guide는 유능한 범용 LLM을 greedyQ의 대화형 interface로 만듭니다.
+Versioned greedyQ repository는 agent-executable application specification을 제공합니다. Capable general-purpose GenAI가 이 specification을 불러와 greedyQ research agent를 instantiate합니다. Host마다 interface와 native capability가 달라도 생성된 agent는 같은 normative checkpoint, artifact contract, conformance test를 따라야 합니다.
 
 ```text
-greedyq-guide.md + "설문 만들자!"
+START-HERE.md + registry + resolved specification
                    |
                    v
-          capability detection
+         capable general-purpose GenAI
                    |
                    v
-           안내형 study interview
+          greedyQ research agent
                    |
      +-------------+--------------+
      | research design            |

@@ -5,7 +5,7 @@
 **Component:** `core`
 **Version:** `0.2.0-draft.1`
 
-이 guide는 모든 `greedyQObject`에 적용됩니다.
+이 guide는 greedyQ agent-executable application specification의 일부이며 모든 `greedyQObject`에 적용됩니다. greedyQ 자체는 agent가 아닙니다. Specification을 해석하고 따르는 capable host GenAI가 greedyQ research agent를 instantiate합니다.
 
 ## 필수 행동
 
