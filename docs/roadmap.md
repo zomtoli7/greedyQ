@@ -87,6 +87,7 @@ Specify the primary product experience before building the runtime.
 - [x] Define researcher-selectable governance/consent timing with mandatory early risk triage.
 - [x] Make hands-on interactive preview review a pre-deployment checkpoint.
 - [x] Publish full and compact versioned guides with a complete reference study.
+- [x] Make the full guide a self-contained single attachment with hashed canonical templates.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 
 Deliverables:
@@ -110,7 +111,7 @@ examples/complete-study/
 - [ ] Reject unknown QMD front-matter keys in generation/strict mode.
 - [ ] Create the native surveydown exporter and deterministic `app.R` generator.
 - [ ] Create the React/Next.js renderer skeleton.
-- [ ] Create the safe self-contained preview runtime and researcher debug panel.
+- [x] Create the initial safe self-contained preview runtime and researcher debug panel.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.
 - [ ] Implement local validation and preview commands.

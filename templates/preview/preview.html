@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>greedyQ study preview</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; }
+    body { margin: 0; background: #f5f6f8; color: #17191c; }
+    main { width: min(720px, calc(100% - 32px)); margin: 48px auto; }
+    article, details { background: white; border: 1px solid #d9dde3; border-radius: 12px; padding: 24px; }
+    h1 { line-height: 1.2; }
+    fieldset { border: 0; padding: 0; margin: 24px 0; }
+    legend { font-weight: 650; margin-bottom: 10px; }
+    label { display: block; margin: 8px 0; }
+    input[type=text], input[type=number], textarea, select { box-sizing: border-box; width: 100%; padding: 10px; }
+    .actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
+    button { border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }
+    button.primary { background: #1f5eff; color: white; }
+    .error { color: #a40019; font-weight: 600; }
+    .banner { background: #fff2b8; border: 1px solid #d5b645; padding: 10px 14px; }
+    details { margin-top: 16px; font-size: 14px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <div class="banner">greedyQ PREVIEW — no external writes or production redirects</div>
+  <main>
+    <article id="survey"></article>
+    <details open>
+      <summary>Researcher debug panel</summary>
+      <label>Forced condition <select id="condition"></select></label>
+      <button id="reset" type="button">Reset preview</button>
+      <pre id="debug"></pre>
+    </details>
+  </main>
+
+  <!-- Replace only the JSON inside this element. Do not modify the runtime below. -->
+  <script id="greedyq-model" type="application/json">
+  {
+    "study_id": "replace_me",
+    "title": "Replace with study title",
+    "start_page": "welcome",
+    "conditions": ["default"],
+    "pages": [
+      {
+        "id": "welcome",
+        "title": "Preview not populated",
+        "body": "Replace the embedded model with the validated study AST.",
+        "questions": [],
+        "next": null,
+        "terminal": "preview_placeholder"
+      }
+    ]
+  }
+  </script>
+  <script>
+  (() => {
+    "use strict";
+    const model = JSON.parse(document.getElementById("greedyq-model").textContent);
+    const pageById = new Map(model.pages.map((page) => [page.id, page]));
+    const storageKey = `greedyq-preview:${model.study_id}`;
+    const state = Object.assign({
+      page: model.start_page,
+      history: [],
+      answers: {},
+      condition: model.conditions[0] || "default",
+      lifecycle: "preview"
+    }, JSON.parse(localStorage.getItem(storageKey) || "{}"));
+    const survey = document.getElementById("survey");
+    const debug = document.getElementById("debug");
+    const condition = document.getElementById("condition");
+
+    function save() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      debug.textContent = JSON.stringify(state, null, 2);
+    }
+
+    function matches(rule) {
+      if (!rule) return true;
+      const actual = rule.field === "condition" ? state.condition : state.answers[rule.field];
+      if (Object.hasOwn(rule, "equals")) return actual === rule.equals;
+      if (Object.hasOwn(rule, "not_equals")) return actual !== rule.not_equals;
+      return false;
+    }
+
+    function visibleQuestions(page) {
+      return (page.questions || []).filter((question) => matches(question.show_if));
+    }
+
+    function resolveNext(page) {
+      const route = (page.routes || []).find((candidate) => matches(candidate.when));
+      return route ? route.to : page.next;
+    }
+
+    function questionHtml(question) {
+      const required = question.required ? " <span aria-hidden='true'>*</span>" : "";
+      const value = state.answers[question.id] ?? "";
+      const legend = `<legend>${question.label}${required}</legend>`;
+      if (["mc", "select"].includes(question.type)) {
+        const options = question.options || [];
+        if (question.type === "select") {
+          return `<fieldset data-question='${question.id}'>${legend}<select data-id='${question.id}'><option value=''>Choose…</option>${options.map((o) => `<option value='${o.value}' ${o.value === value ? "selected" : ""}>${o.label}</option>`).join("")}</select></fieldset>`;
+        }
+        return `<fieldset data-question='${question.id}'>${legend}${options.map((o) => `<label><input type='radio' name='${question.id}' value='${o.value}' ${o.value === value ? "checked" : ""}> ${o.label}</label>`).join("")}</fieldset>`;
+      }
+      const tag = question.type === "textarea"
+        ? `<textarea data-id='${question.id}'>${value}</textarea>`
+        : `<input data-id='${question.id}' type='${question.type === "numeric" ? "number" : "text"}' value='${value}'>`;
+      return `<fieldset data-question='${question.id}'>${legend}${tag}</fieldset>`;
+    }
+
+    function collect(page) {
+      for (const question of visibleQuestions(page)) {
+        const radio = survey.querySelector(`input[name='${question.id}']:checked`);
+        const field = survey.querySelector(`[data-id='${question.id}']`);
+        const value = radio ? radio.value : field ? field.value : "";
+        if (value === "") delete state.answers[question.id]; else state.answers[question.id] = value;
+      }
+    }
+
+    function render(message = "") {
+      const page = pageById.get(state.page);
+      if (!page) throw new Error(`Unknown preview page: ${state.page}`);
+      const questions = visibleQuestions(page);
+      survey.innerHTML = `<h1>${page.title || model.title}</h1><div>${page.body || ""}</div>${questions.map(questionHtml).join("")}<p class='error' role='alert'>${message}</p><div class='actions'><button id='previous' ${state.history.length ? "" : "disabled"}>Previous</button>${page.terminal ? `<strong>Outcome: ${page.terminal}</strong>` : "<button class='primary' id='next'>Next</button>"}</div>`;
+      document.getElementById("previous").onclick = () => {
+        collect(page);
+        state.page = state.history.pop();
+        save(); render();
+      };
+      const next = document.getElementById("next");
+      if (next) next.onclick = () => {
+        collect(page);
+        const missing = questions.find((q) => q.required && !Object.hasOwn(state.answers, q.id));
+        if (missing) return render(`Please answer: ${missing.label}`);
+        const target = resolveNext(page);
+        if (!target || !pageById.has(target)) return render("Preview route is missing or invalid.");
+        state.history.push(page.id);
+        state.page = target;
+        save(); render();
+      };
+      save();
+    }
+
+    for (const name of model.conditions || ["default"]) {
+      condition.add(new Option(name, name, false, name === state.condition));
+    }
+    condition.onchange = () => { state.condition = condition.value; save(); render(); };
+    document.getElementById("reset").onclick = () => {
+      localStorage.removeItem(storageKey);
+      location.reload();
+    };
+    render();
+  })();
+  </script>
+</body>
+</html>

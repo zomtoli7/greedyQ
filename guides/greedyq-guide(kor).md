@@ -223,3 +223,663 @@ export/surveydown/*
 각 중단 시점에 current phase, confirmed decision, unresolved blocker, 생성·변경한 file, validation status, 실제 수행·검증한 external operation, 필요한 approval, 권장 next action 하나를 보고합니다.
 
 Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabase의 greedyQ가 주 경로이고 compatibility report가 포함된 native surveydown export가 고급 사용자 정의 경로입니다.
+
+## Appendix A. Embedded canonical bundle
+
+이 full guide는 GPT, Claude 및 다른 capable agent에 첨부하는 default single file입니다. Researcher가 template directory를 별도로 첨부하지 않아도 되도록 아래 파일을 literal하게 내장합니다. 각 block을 선언된 `FILE` path로 추출하고 replaceable study data라고 명시된 block이 아니면 byte를 보존하며 성공적인 추출을 주장하기 전에 SHA-256을 검증합니다. Compact guide는 standalone generation bundle이 아닙니다.
+
+<!-- GREEDYQ_BUNDLE_START -->
+
+### Canonical file manifest
+
+| FILE | SHA-256 | Study data may be replaced |
+| --- | --- | --- |
+| `templates/preview/preview.html` | `9554e65ed6aa5231fe81fb68b3fb47369608551ffbb3d330f4c9e0bc670ddddd` | `yes` |
+| `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
+| `examples/complete-study/vercel.json` | `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1` | `no` |
+| `schemas/ai/study-state.schema.json` | `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159` | `no` |
+| `schemas/ai/decision-log.schema.json` | `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d` | `no` |
+| `schemas/ai/unresolved-decisions.schema.json` | `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16` | `no` |
+| `schemas/ai/generation-manifest.schema.json` | `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093` | `no` |
+
+### FILE: `templates/preview/preview.html`
+
+SHA-256: `9554e65ed6aa5231fe81fb68b3fb47369608551ffbb3d330f4c9e0bc670ddddd`
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>greedyQ study preview</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; }
+    body { margin: 0; background: #f5f6f8; color: #17191c; }
+    main { width: min(720px, calc(100% - 32px)); margin: 48px auto; }
+    article, details { background: white; border: 1px solid #d9dde3; border-radius: 12px; padding: 24px; }
+    h1 { line-height: 1.2; }
+    fieldset { border: 0; padding: 0; margin: 24px 0; }
+    legend { font-weight: 650; margin-bottom: 10px; }
+    label { display: block; margin: 8px 0; }
+    input[type=text], input[type=number], textarea, select { box-sizing: border-box; width: 100%; padding: 10px; }
+    .actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
+    button { border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }
+    button.primary { background: #1f5eff; color: white; }
+    .error { color: #a40019; font-weight: 600; }
+    .banner { background: #fff2b8; border: 1px solid #d5b645; padding: 10px 14px; }
+    details { margin-top: 16px; font-size: 14px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <div class="banner">greedyQ PREVIEW — no external writes or production redirects</div>
+  <main>
+    <article id="survey"></article>
+    <details open>
+      <summary>Researcher debug panel</summary>
+      <label>Forced condition <select id="condition"></select></label>
+      <button id="reset" type="button">Reset preview</button>
+      <pre id="debug"></pre>
+    </details>
+  </main>
+
+  <!-- Replace only the JSON inside this element. Do not modify the runtime below. -->
+  <script id="greedyq-model" type="application/json">
+  {
+    "study_id": "replace_me",
+    "title": "Replace with study title",
+    "start_page": "welcome",
+    "conditions": ["default"],
+    "pages": [
+      {
+        "id": "welcome",
+        "title": "Preview not populated",
+        "body": "Replace the embedded model with the validated study AST.",
+        "questions": [],
+        "next": null,
+        "terminal": "preview_placeholder"
+      }
+    ]
+  }
+  </script>
+  <script>
+  (() => {
+    "use strict";
+    const model = JSON.parse(document.getElementById("greedyq-model").textContent);
+    const pageById = new Map(model.pages.map((page) => [page.id, page]));
+    const storageKey = `greedyq-preview:${model.study_id}`;
+    const state = Object.assign({
+      page: model.start_page,
+      history: [],
+      answers: {},
+      condition: model.conditions[0] || "default",
+      lifecycle: "preview"
+    }, JSON.parse(localStorage.getItem(storageKey) || "{}"));
+    const survey = document.getElementById("survey");
+    const debug = document.getElementById("debug");
+    const condition = document.getElementById("condition");
+
+    function save() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      debug.textContent = JSON.stringify(state, null, 2);
+    }
+
+    function matches(rule) {
+      if (!rule) return true;
+      const actual = rule.field === "condition" ? state.condition : state.answers[rule.field];
+      if (Object.hasOwn(rule, "equals")) return actual === rule.equals;
+      if (Object.hasOwn(rule, "not_equals")) return actual !== rule.not_equals;
+      return false;
+    }
+
+    function visibleQuestions(page) {
+      return (page.questions || []).filter((question) => matches(question.show_if));
+    }
+
+    function resolveNext(page) {
+      const route = (page.routes || []).find((candidate) => matches(candidate.when));
+      return route ? route.to : page.next;
+    }
+
+    function questionHtml(question) {
+      const required = question.required ? " <span aria-hidden='true'>*</span>" : "";
+      const value = state.answers[question.id] ?? "";
+      const legend = `<legend>${question.label}${required}</legend>`;
+      if (["mc", "select"].includes(question.type)) {
+        const options = question.options || [];
+        if (question.type === "select") {
+          return `<fieldset data-question='${question.id}'>${legend}<select data-id='${question.id}'><option value=''>Choose…</option>${options.map((o) => `<option value='${o.value}' ${o.value === value ? "selected" : ""}>${o.label}</option>`).join("")}</select></fieldset>`;
+        }
+        return `<fieldset data-question='${question.id}'>${legend}${options.map((o) => `<label><input type='radio' name='${question.id}' value='${o.value}' ${o.value === value ? "checked" : ""}> ${o.label}</label>`).join("")}</fieldset>`;
+      }
+      const tag = question.type === "textarea"
+        ? `<textarea data-id='${question.id}'>${value}</textarea>`
+        : `<input data-id='${question.id}' type='${question.type === "numeric" ? "number" : "text"}' value='${value}'>`;
+      return `<fieldset data-question='${question.id}'>${legend}${tag}</fieldset>`;
+    }
+
+    function collect(page) {
+      for (const question of visibleQuestions(page)) {
+        const radio = survey.querySelector(`input[name='${question.id}']:checked`);
+        const field = survey.querySelector(`[data-id='${question.id}']`);
+        const value = radio ? radio.value : field ? field.value : "";
+        if (value === "") delete state.answers[question.id]; else state.answers[question.id] = value;
+      }
+    }
+
+    function render(message = "") {
+      const page = pageById.get(state.page);
+      if (!page) throw new Error(`Unknown preview page: ${state.page}`);
+      const questions = visibleQuestions(page);
+      survey.innerHTML = `<h1>${page.title || model.title}</h1><div>${page.body || ""}</div>${questions.map(questionHtml).join("")}<p class='error' role='alert'>${message}</p><div class='actions'><button id='previous' ${state.history.length ? "" : "disabled"}>Previous</button>${page.terminal ? `<strong>Outcome: ${page.terminal}</strong>` : "<button class='primary' id='next'>Next</button>"}</div>`;
+      document.getElementById("previous").onclick = () => {
+        collect(page);
+        state.page = state.history.pop();
+        save(); render();
+      };
+      const next = document.getElementById("next");
+      if (next) next.onclick = () => {
+        collect(page);
+        const missing = questions.find((q) => q.required && !Object.hasOwn(state.answers, q.id));
+        if (missing) return render(`Please answer: ${missing.label}`);
+        const target = resolveNext(page);
+        if (!target || !pageById.has(target)) return render("Preview route is missing or invalid.");
+        state.history.push(page.id);
+        state.page = target;
+        save(); render();
+      };
+      save();
+    }
+
+    for (const name of model.conditions || ["default"]) {
+      condition.add(new Option(name, name, false, name === state.condition));
+    }
+    condition.onchange = () => { state.condition = condition.value; save(); render(); };
+    document.getElementById("reset").onclick = () => {
+      localStorage.removeItem(storageKey);
+      location.reload();
+    };
+    render();
+  })();
+  </script>
+</body>
+</html>
+```
+
+### FILE: `examples/complete-study/supabase/migrations/001_initial.sql`
+
+SHA-256: `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62`
+
+```sql
+create extension if not exists pgcrypto;
+
+create table public.gq_sessions (
+  id uuid primary key default gen_random_uuid(),
+  study_id text not null,
+  study_version text not null,
+  spec_version text not null,
+  current_page text not null default 'welcome',
+  is_test boolean not null default false,
+  lifecycle_state text not null default 'created' check (
+    lifecycle_state in (
+      'created', 'consented', 'in_progress', 'completed', 'screened_out',
+      'consent_refused', 'withdrawn', 'technical_error'
+    )
+  ),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  terminal_at timestamptz
+);
+
+create table public.gq_external_identifiers (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  provider text not null,
+  participant_id text not null,
+  external_study_id text,
+  external_session_id text,
+  created_at timestamptz not null default now(),
+  primary key (provider, participant_id, external_study_id)
+);
+
+create table public.gq_consent_events (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  consent_id text not null,
+  consent_version text not null,
+  document_sha256 text not null check (document_sha256 ~ '^[0-9a-f]{64}$'),
+  decision text not null check (decision in ('accepted', 'refused', 'withdrawn')),
+  occurred_at timestamptz not null default now()
+);
+
+create table public.gq_answers (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  question_id text not null,
+  value jsonb,
+  answered_at timestamptz not null default now(),
+  cleared_at timestamptz,
+  primary key (session_id, question_id)
+);
+
+create table public.gq_assignments (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  randomization_id text not null,
+  condition text not null,
+  method text not null,
+  block_id text,
+  draw_id text not null,
+  spec_version text not null,
+  assigned_at timestamptz not null default now(),
+  primary key (session_id, randomization_id)
+);
+
+create table public.gq_lifecycle_events (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  from_state text,
+  to_state text not null,
+  page_id text,
+  metadata jsonb not null default '{}'::jsonb,
+  occurred_at timestamptz not null default now()
+);
+
+create table public.gq_data_requests (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  request_type text not null check (request_type in ('deletion', 'withdrawal')),
+  status text not null default 'recorded' check (
+    status in ('recorded', 'reviewing', 'completed', 'denied_with_reason')
+  ),
+  requested_at timestamptz not null default now(),
+  resolved_at timestamptz
+);
+
+alter table public.gq_sessions enable row level security;
+alter table public.gq_external_identifiers enable row level security;
+alter table public.gq_consent_events enable row level security;
+alter table public.gq_answers enable row level security;
+alter table public.gq_assignments enable row level security;
+alter table public.gq_lifecycle_events enable row level security;
+alter table public.gq_data_requests enable row level security;
+
+-- The reference runtime writes through server-controlled functions or a server role.
+-- No direct anonymous SELECT policy is created; respondents cannot enumerate study data.
+
+-- Canonical withdrawal operation. The server role calls this function inside one
+-- transaction. Repeated calls are safe and do not recreate deleted research data.
+create or replace function public.gq_withdraw_and_delete(p_session_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = public, pg_temp
+as $$
+declare
+  v_state text;
+begin
+  select lifecycle_state
+    into v_state
+    from public.gq_sessions
+   where id = p_session_id
+   for update;
+
+  if not found then
+    raise exception 'unknown greedyQ session';
+  end if;
+
+  if v_state = 'withdrawn' then
+    return;
+  end if;
+
+  delete from public.gq_answers where session_id = p_session_id;
+  delete from public.gq_assignments where session_id = p_session_id;
+  delete from public.gq_external_identifiers where session_id = p_session_id;
+  delete from public.gq_consent_events where session_id = p_session_id;
+  delete from public.gq_data_requests where session_id = p_session_id;
+
+  update public.gq_sessions
+     set lifecycle_state = 'withdrawn',
+         current_page = 'withdrawn',
+         updated_at = now(),
+         terminal_at = coalesce(terminal_at, now())
+   where id = p_session_id;
+
+  insert into public.gq_lifecycle_events (
+    session_id, from_state, to_state, page_id, metadata
+  ) values (
+    p_session_id, v_state, 'withdrawn', 'withdrawn',
+    jsonb_build_object('research_data_deleted', true)
+  );
+end;
+$$;
+
+revoke all on function public.gq_withdraw_and_delete(uuid) from public;
+grant execute on function public.gq_withdraw_and_delete(uuid) to service_role;
+
+-- Canonical analysis boundary. It exposes completed, non-test sessions and their
+-- answers as a stable JSON object while deliberately omitting external identifiers.
+create or replace view public.gq_analysis_export
+with (security_invoker = true)
+as
+select
+  s.id as session_id,
+  s.study_id,
+  s.study_version,
+  s.spec_version,
+  s.created_at,
+  s.terminal_at as completed_at,
+  coalesce(
+    jsonb_object_agg(a.question_id, a.value)
+      filter (where a.question_id is not null),
+    '{}'::jsonb
+  ) as answers
+from public.gq_sessions s
+left join public.gq_answers a on a.session_id = s.id
+where s.lifecycle_state = 'completed'
+  and not s.is_test
+group by s.id;
+
+-- The deployment creates/maps this NOLOGIN role for the authenticated analysis
+-- identity. RLS and grants are both required; either one alone is insufficient.
+do $$
+begin
+  if not exists (select 1 from pg_roles where rolname = 'gq_analyst') then
+    create role gq_analyst nologin;
+  end if;
+end
+$$;
+
+create policy gq_analyst_sessions_read on public.gq_sessions
+  for select to gq_analyst
+  using (lifecycle_state = 'completed' and not is_test);
+
+create policy gq_analyst_answers_read on public.gq_answers
+  for select to gq_analyst
+  using (
+    exists (
+      select 1 from public.gq_sessions s
+       where s.id = gq_answers.session_id
+         and s.lifecycle_state = 'completed'
+         and not s.is_test
+    )
+  );
+
+grant usage on schema public to gq_analyst;
+grant select on public.gq_sessions, public.gq_answers to gq_analyst;
+grant select on public.gq_analysis_export to gq_analyst;
+-- Never grant gq_external_identifiers to gq_analyst.
+```
+
+### FILE: `examples/complete-study/vercel.json`
+
+SHA-256: `42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1`
+
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "regions": ["icn1"]
+}
+```
+
+### FILE: `schemas/ai/study-state.schema.json`
+
+SHA-256: `a0ba152959345fca60d4a76dbdd682130190db3e358e469f0c106813ec54e159`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/study-state.schema.json",
+  "title": "greedyQ Study State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "study_id", "study_version", "guide_version",
+    "spec_version", "mode", "phase", "status", "checkpoint", "gates",
+    "confirmed_decision_ids", "unresolved_decision_ids", "assumptions", "artifact_paths"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "study_version": { "type": "string", "minLength": 1 },
+    "guide_version": { "type": "string", "minLength": 1 },
+    "spec_version": { "type": "string", "minLength": 1 },
+    "mode": { "enum": ["chat", "agent"] },
+    "phase": {
+      "enum": [
+        "research_purpose", "hypotheses_estimands", "sampling_stopping",
+        "design_randomization", "governance_consent_privacy", "questionnaire",
+        "flow_outcomes", "analysis", "preregistration", "deployment",
+        "fielding_ready"
+      ]
+    },
+    "status": { "enum": ["in_progress", "blocked", "awaiting_approval", "complete"] },
+    "checkpoint": {
+      "enum": [
+        "none", "design_confirmed", "instrument_confirmed", "governance_consent_confirmed", "interactive_preview_reviewed",
+        "analysis_confirmed", "preregistration_draft", "validated",
+        "deployment_candidate", "fielding_locked"
+      ]
+    },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "confirmed_decision_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" }
+    },
+    "unresolved_decision_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^open_[a-z0-9_]+$" }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assumption_id", "statement", "material", "status"],
+        "properties": {
+          "assumption_id": { "type": "string", "pattern": "^asm_[a-z0-9_]+$" },
+          "statement": { "type": "string", "minLength": 1 },
+          "material": { "type": "boolean" },
+          "status": { "enum": ["proposed", "confirmed", "rejected"] },
+          "confirmation_decision_id": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "artifact_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["design", "instrument", "analysis", "preregistration", "deployment", "fielding"],
+      "properties": {
+        "design": { "$ref": "#/$defs/gate" },
+        "instrument": { "$ref": "#/$defs/gate" },
+        "analysis": { "$ref": "#/$defs/gate" },
+        "preregistration": { "$ref": "#/$defs/gate" },
+        "deployment": { "$ref": "#/$defs/gate" },
+        "fielding": { "$ref": "#/$defs/gate" }
+      }
+    },
+    "next_question": { "type": ["string", "null"] },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["pending", "blocked", "approved", "verified", "not_applicable"] },
+        "approval_decision_id": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
+```
+
+### FILE: `schemas/ai/decision-log.schema.json`
+
+SHA-256: `c6b2585cfaebefa10efaae9f9309b938dcde26bb2ef417e44d109ea57ee1a09d`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/decision-log.schema.json",
+  "title": "greedyQ Decision Log",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "append_only", "decisions"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "append_only": { "const": true },
+    "decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/decision" }
+    }
+  },
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_id", "topic", "status", "source", "question", "decision",
+        "researcher_confirmation", "based_on", "supersedes"
+      ],
+      "properties": {
+        "decision_id": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" },
+        "topic": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["confirmed", "rejected", "superseded"] },
+        "source": { "enum": ["researcher", "llm_suggestion", "reversible_default", "imported"] },
+        "question": { "type": "string", "minLength": 1 },
+        "options_considered": { "type": "array", "items": { "type": "string" } },
+        "decision": { "type": "string", "minLength": 1 },
+        "rationale": { "type": ["string", "null"] },
+        "researcher_confirmation": { "type": "string", "minLength": 1 },
+        "decided_at": { "type": ["string", "null"], "format": "date-time" },
+        "based_on": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" }
+        },
+        "supersedes": { "type": ["string", "null"], "pattern": "^dec_[a-z0-9_]+$" },
+        "artifact_paths": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
+```
+
+### FILE: `schemas/ai/unresolved-decisions.schema.json`
+
+SHA-256: `7cdc32fd9c1fc619f833dcda4254003095ea4f6f5b716fc2f54dd01e09c89b16`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/unresolved-decisions.schema.json",
+  "title": "greedyQ Unresolved Decisions",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "items"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["decision_id", "topic", "question", "blocking_scopes", "status"],
+        "properties": {
+          "decision_id": { "type": "string", "pattern": "^open_[a-z0-9_]+$" },
+          "topic": { "type": "string", "minLength": 1 },
+          "question": { "type": "string", "minLength": 1 },
+          "why_it_matters": { "type": ["string", "null"] },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "blocking_scopes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": ["artifact_generation", "validation", "preregistration", "deployment", "fielding"]
+            }
+          },
+          "status": { "enum": ["open", "resolved"] },
+          "created_at": { "type": ["string", "null"], "format": "date-time" },
+          "resolved_by": { "type": ["string", "null"], "pattern": "^dec_[a-z0-9_]+$" }
+        }
+      }
+    }
+  }
+}
+```
+
+### FILE: `schemas/ai/generation-manifest.schema.json`
+
+SHA-256: `5bc5a780b5dd274c3c8dce9c4a80540d2cd37e75b9c35c3aba218675414aa093`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/generation-manifest.schema.json",
+  "title": "greedyQ Generation Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "study_id", "study_version", "guide_version",
+    "spec_version", "artifacts", "external_operations"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "study_version": { "type": "string", "minLength": 1 },
+    "guide_version": { "type": "string", "minLength": 1 },
+    "spec_version": { "type": "string", "minLength": 1 },
+    "source_commit": { "type": ["string", "null"], "pattern": "^[0-9a-f]{7,40}$" },
+    "generated_at": { "type": ["string", "null"], "format": "date-time" },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "kind", "sha256", "status", "based_on_decision_ids"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["source", "derived", "expected_fixture"] },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "status": { "enum": ["generated", "validated", "approved", "stale"] },
+          "based_on_decision_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" }
+          }
+        }
+      }
+    },
+    "external_operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["operation", "status", "verified"],
+        "properties": {
+          "operation": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["not_attempted", "draft_created", "submitted", "complete", "failed"] },
+          "verified": { "type": "boolean" },
+          "external_id": { "type": ["string", "null"] },
+          "url": { "type": ["string", "null"], "format": "uri" },
+          "verified_at": { "type": ["string", "null"], "format": "date-time" },
+          "approval_decision_id": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}
+```
+
+<!-- GREEDYQ_BUNDLE_END -->

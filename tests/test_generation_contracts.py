@@ -1,4 +1,5 @@
 import json
+import hashlib
 import re
 import unittest
 from pathlib import Path
@@ -80,6 +81,33 @@ class GenerationContractTests(unittest.TestCase):
             "not s.is_test",
         ):
             self.assertIn(required, sql.lower())
+
+    def test_full_guides_embed_the_canonical_bundle_verbatim(self):
+        bundled_files = (
+            "templates/preview/preview.html",
+            "examples/complete-study/supabase/migrations/001_initial.sql",
+            "examples/complete-study/vercel.json",
+            "schemas/ai/study-state.schema.json",
+            "schemas/ai/decision-log.schema.json",
+            "schemas/ai/unresolved-decisions.schema.json",
+            "schemas/ai/generation-manifest.schema.json",
+        )
+        for guide_name in ("greedyq-guide.md", "greedyq-guide(kor).md"):
+            guide = (ROOT / "guides" / guide_name).read_text()
+            for relative in bundled_files:
+                source = (ROOT / relative).read_text().rstrip("\n")
+                digest = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+                self.assertIn(f"### FILE: `{relative}`", guide)
+                self.assertIn(f"SHA-256: `{digest}`", guide)
+                self.assertIn(source, guide)
+
+    def test_preview_template_is_self_contained_and_safe_by_default(self):
+        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
+        self.assertNotIn("<script src=", preview)
+        self.assertNotIn("fetch(", preview)
+        self.assertNotIn("eval(", preview)
+        self.assertIn("no external writes or production redirects", preview)
+        self.assertIn('id="greedyq-model"', preview)
 
 
 if __name__ == "__main__":

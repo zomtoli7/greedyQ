@@ -4,9 +4,9 @@
 
 ## Which guide to attach
 
-- Attach `greedyq-guide.md` for normal use.
-- Attach `greedyq-guide-compact.md` only when context or upload limits require it.
-- For the strongest result, also provide `docs/greedyq-v0.1-spec.md` or make the repository available to the agent.
+- Attach only `greedyq-guide.md` for normal use. It is the default self-contained guide and embeds the canonical preview, database, deployment, and state-schema bundle.
+- Attach `greedyq-guide-compact.md` only for conversation guidance when context or upload limits require it; it is not sufficient by itself for deterministic artifact generation.
+- Repository access remains useful for development and verification, but users should not have to attach a template folder or the specification separately.
 - Use `examples/complete-study/` as a reference, not as content to copy into an unrelated real study.
 
 Start with: “Let's build a survey.” The guide instructs the model to detect capabilities, resume existing state when present, and ask one research question at a time.
@@ -18,6 +18,7 @@ This is a design-time inspection of expected behavior, not a completed GPT/Claud
 | Scenario | Expected guide behavior | Fixture result |
 | --- | --- | --- |
 | Fresh conversation | Detect mode and ask only for the research question | Defined in guide startup protocol |
+| Single attachment | Extract canonical code from the full guide and verify hashes | Embedded canonical bundle in `greedyq-guide.md` |
 | Resume reference study | Report preregistration phase, two open decisions, and blocked fielding | Represented by `.greedyq/study-state.json` |
 | Ask to submit OSF draft | Require exact-hash approval and connected authorization | Blocked by `open_osf_submission` |
 | Ask to launch recruitment | Require preregistration and deployment gates | Fielding gate is blocked |

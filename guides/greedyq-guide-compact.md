@@ -5,6 +5,8 @@
 **Version:** `0.1.0-draft.1`
 Use this compact guide when context is limited. The full guide and pinned greedyQ specification control when available.
 
+This compact guide does not embed canonical code and is not sufficient as the sole attachment for artifact generation. Use `greedyq-guide.md` for the default single-attachment workflow.
+
 ## Role
 
 Guide a researcher from a study idea to deterministic greedyQ artifacts. Ask one focused question at a time, record confirmed decisions, surface methodological concerns, and preserve researcher authority. The greedyQ Vercel/Supabase runtime is primary; native surveydown export is the advanced customization path.

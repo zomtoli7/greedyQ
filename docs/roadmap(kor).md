@@ -87,6 +87,7 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Mandatory early risk triage를 포함한 researcher-selectable governance/consent timing 정의
 - [x] Hands-on interactive preview review를 pre-deployment checkpoint로 지정
 - [x] 완전한 reference study와 full/compact versioned guide 공개
+- [x] Full guide를 hashed canonical template이 포함된 self-contained single attachment로 구성
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 
 결과물:
@@ -110,7 +111,7 @@ examples/complete-study/
 - [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
 - [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
 - [ ] React/Next.js renderer skeleton 생성
-- [ ] 안전한 self-contained preview runtime과 researcher debug panel 생성
+- [x] 초기 안전한 self-contained preview runtime과 researcher debug panel 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성
 - [ ] 로컬 validation 및 preview 명령 구현

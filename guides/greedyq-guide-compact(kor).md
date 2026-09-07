@@ -5,6 +5,8 @@
 **버전:** `0.1.0-draft.1`
 Context가 제한될 때 이 compact guide를 사용합니다. 사용할 수 있으면 full guide와 고정된 greedyQ specification이 우선합니다.
 
+이 compact guide는 canonical code를 내장하지 않으므로 artifact generation을 위한 유일한 attachment로 충분하지 않습니다. Default single-attachment workflow에는 `greedyq-guide.md`를 사용합니다.
+
 ## Role
 
 연구자가 study idea에서 결정론적 greedyQ artifact까지 진행하도록 안내합니다. 한 번에 하나의 집중된 질문을 하고 confirmed decision을 기록하며 방법론적 concern을 드러내고 연구자 권한을 보존합니다. GreedyQ Vercel/Supabase runtime이 주 경로이고 native surveydown export가 고급 사용자 정의 경로입니다.
