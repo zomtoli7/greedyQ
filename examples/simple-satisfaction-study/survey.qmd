@@ -1,0 +1,433 @@
+---
+title: "greedyQ User Experience Survey"
+greedyq:
+  spec_version: "0.1"
+theme-settings:
+  theme: default
+  barposition: top
+  barcolor: "#315c8a"
+  footer-center: "greedyQ user feedback"
+survey-settings:
+  show-previous: true
+  use-cookies: true
+  all-required: false
+  start-page: welcome
+  highlight-unanswered: true
+  capture-metadata: false
+  required:
+    - consent_choice
+    - age
+    - used_greedyq
+    - use_frequency
+    - primary_use
+    - ai_host
+    - completion_status
+    - guide_access
+    - overall_satisfaction
+    - experience_ratings
+    - confidence
+    - time_saved
+    - had_problem
+    - recommend_score
+    - use_again
+    - withdraw_now
+system-messages:
+  previous: "Previous"
+  next: "Next"
+  required: "Please answer the required questions before continuing."
+---
+
+--- welcome
+
+# Tell us about your greedyQ experience
+
+This survey is for people who have used greedyQ to create or revise a questionnaire. It takes about four minutes.
+
+```{r}
+sd_nav(show_previous = FALSE, label_next = "Read participant information")
+```
+
+--- consent
+
+# Participant information and consent
+
+Please read the versioned [participant information and consent](./consent.md). Taking part is voluntary, and you may stop at any time.
+
+```{r}
+sd_question(
+  id = "consent_choice",
+  type = "mc",
+  label = "Do you consent to participate in this survey?",
+  option = c(
+    "Yes, I consent" = "yes",
+    "No, I do not consent" = "no"
+  )
+)
+```
+
+```{r}
+sd_nav(show_previous = FALSE, label_next = "Continue")
+```
+
+--- eligibility
+
+# About your eligibility
+
+```{r}
+sd_question(
+  id = "age",
+  type = "numeric",
+  label = "What is your age in years?",
+  placeholder = "Age"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "used_greedyq",
+  type = "mc",
+  label = "Have you used greedyQ to create or revise a questionnaire?",
+  option = c(
+    "Yes" = "yes",
+    "No" = "no"
+  )
+)
+```
+
+--- usage
+
+# How you used greedyQ
+
+```{r}
+sd_question(
+  id = "use_frequency",
+  type = "select",
+  label = "How many times have you used greedyQ?",
+  option = c(
+    "Once" = "once",
+    "Two or three times" = "two_three",
+    "Four or five times" = "four_five",
+    "More than five times" = "more_than_five"
+  ),
+  label_select = "Choose one"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "primary_use",
+  type = "select",
+  label = "What was your main reason for using greedyQ most recently?",
+  option = c(
+    "Create a new survey" = "new_survey",
+    "Revise an existing survey" = "revise_survey",
+    "Create a survey experiment" = "experiment",
+    "Prepare consent or preregistration materials" = "research_documents",
+    "Explore or test greedyQ" = "exploration",
+    "Something else" = "other"
+  ),
+  label_select = "Choose one"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "primary_use_other",
+  type = "text",
+  label = "What was your main reason for using greedyQ?",
+  placeholder = "Brief description"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "ai_host",
+  type = "select",
+  label = "Which AI product did you mainly use with greedyQ?",
+  option = c(
+    "ChatGPT" = "chatgpt",
+    "Claude" = "claude",
+    "Codex" = "codex",
+    "Claude Code" = "claude_code",
+    "Another AI product" = "other",
+    "I am not sure" = "not_sure"
+  ),
+  label_select = "Choose one"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "completion_status",
+  type = "mc",
+  label = "How far did you get in your most recent use?",
+  option = c(
+    "I created and tested a complete survey" = "tested_complete",
+    "I created a survey draft" = "draft_created",
+    "I started but did not get a usable draft" = "no_usable_draft",
+    "I was only exploring the workflow" = "exploration_only"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "guide_access",
+  type = "mc",
+  label = "How did you give the greedyQ instructions to your AI?",
+  option = c(
+    "I shared the greedyQ repository or START-HERE link" = "repository_link",
+    "I attached the self-contained guide file" = "guide_attachment",
+    "The instructions were already available in my coding agent" = "local_repository",
+    "I am not sure" = "not_sure"
+  )
+)
+```
+
+--- evaluation
+
+# Your experience
+
+```{r}
+sd_question(
+  id = "overall_satisfaction",
+  type = "slider",
+  label = "Overall, how satisfied were you with greedyQ?",
+  option = c(
+    "Very dissatisfied" = 1,
+    "Dissatisfied" = 2,
+    "Somewhat dissatisfied" = 3,
+    "Neither satisfied nor dissatisfied" = 4,
+    "Somewhat satisfied" = 5,
+    "Satisfied" = 6,
+    "Very satisfied" = 7
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "experience_ratings",
+  type = "matrix",
+  label = "How much do you agree with each statement about greedyQ?",
+  row = c(
+    "It was easy to get started." = "easy_start",
+    "The AI asked questions I could understand." = "clear_questions",
+    "The preview helped me evaluate the survey." = "useful_preview",
+    "The resulting survey matched my decisions." = "decision_fidelity"
+  ),
+  option = c(
+    "Strongly disagree" = 1,
+    "Disagree" = 2,
+    "Neither agree nor disagree" = 3,
+    "Agree" = 4,
+    "Strongly agree" = 5
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "confidence",
+  type = "slider",
+  label = "How confident were you that the resulting survey reflected what you wanted?",
+  option = c(
+    "Not at all confident" = 1,
+    "Slightly confident" = 2,
+    "Somewhat confident" = 3,
+    "Moderately confident" = 4,
+    "Very confident" = 5
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "time_saved",
+  type = "select",
+  label = "Compared with your usual way of making a survey, how did greedyQ affect the time required?",
+  option = c(
+    "It took much more time" = "much_more",
+    "It took somewhat more time" = "somewhat_more",
+    "It took about the same time" = "same",
+    "It saved some time" = "some_saved",
+    "It saved a great deal of time" = "great_deal_saved",
+    "I cannot compare yet" = "cannot_compare"
+  ),
+  label_select = "Choose one"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "low_satisfaction_reason",
+  type = "textarea",
+  label = "What most contributed to your dissatisfaction?",
+  placeholder = "Optional detail"
+)
+```
+
+--- problems
+
+# Problems you encountered
+
+```{r}
+sd_question(
+  id = "had_problem",
+  type = "mc",
+  label = "Did you encounter a problem that made it harder to complete your survey?",
+  option = c(
+    "Yes" = "yes",
+    "No" = "no",
+    "I am not sure" = "not_sure"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "problem_area",
+  type = "select",
+  label = "Where did the most important problem occur?",
+  option = c(
+    "The AI conversation or questions" = "conversation",
+    "The survey questions or answer choices" = "questionnaire",
+    "The participant preview" = "preview",
+    "The generated files" = "generated_files",
+    "Deployment or database setup" = "deployment",
+    "Something else" = "other"
+  ),
+  label_select = "Choose one"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "problem_detail",
+  type = "textarea",
+  label = "What happened, and what would you have expected instead?",
+  placeholder = "Please avoid including names, credentials, or private research data"
+)
+```
+
+--- future_use
+
+# Looking ahead
+
+```{r}
+sd_question(
+  id = "recommend_score",
+  type = "numeric",
+  label = "How likely are you to recommend greedyQ to another researcher, from 0 (not at all likely) to 10 (extremely likely)?",
+  placeholder = "0 to 10"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "use_again",
+  type = "mc",
+  label = "Would you use greedyQ for another survey?",
+  option = c(
+    "Definitely not" = 1,
+    "Probably not" = 2,
+    "Not sure" = 3,
+    "Probably yes" = 4,
+    "Definitely yes" = 5
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "most_valuable",
+  type = "textarea",
+  label = "What was the most valuable part of greedyQ for you?",
+  placeholder = "Optional"
+)
+
+```
+
+```{r}
+sd_question(
+  id = "improvement",
+  type = "textarea",
+  label = "What is the single most important improvement we should make?",
+  placeholder = "Optional"
+)
+```
+
+--- participant_control
+
+# Before submitting
+
+You may submit your feedback or withdraw. If you withdraw, you may also ask us to delete the responses associated with this session.
+
+```{r}
+sd_question(
+  id = "withdraw_now",
+  type = "mc",
+  label = "What would you like to do?",
+  option = c(
+    "Submit my feedback" = "submit",
+    "Withdraw from the survey" = "withdraw"
+  )
+)
+
+```
+
+```{r}
+sd_question(
+  id = "deletion_request",
+  type = "mc",
+  label = "Should the research team receive a request to delete responses already collected in this session?",
+  option = c(
+    "Yes, record a deletion request" = "yes",
+    "No" = "no"
+  )
+)
+```
+
+--- complete
+
+# Thank you
+
+Your feedback has been submitted. It will be used to improve greedyQ.
+
+--- screened_out
+
+# This survey is not the right fit
+
+This feedback survey is for adults who have already used greedyQ. No product-feedback questions were collected.
+
+--- consent_refused
+
+# Participation declined
+
+No product-feedback responses were collected. You may close this page.
+
+--- withdrawn
+
+# Participation ended
+
+Your session is marked as withdrawn. If you requested deletion, the request has been recorded; this message does not claim deletion is already complete.
+
+--- technical_error
+
+# We could not continue
+
+The survey encountered a technical problem. Please close this page and try again later.

@@ -92,6 +92,7 @@ Specify the primary product experience before building the runtime.
 - [x] Add the repository-first `START-HERE.md`, hashed guide registry, and deterministic resolver.
 - [x] Add `greedyq.study.json`, `.greedyq/guide-lock.json`, and internal validation-report contracts.
 - [x] Migrate the golden reference to a locked `greedyQExperiment` compatibility object.
+- [x] Add a complete `greedyQSimple` user-satisfaction golden reference.
 - [ ] Run behavioral creation, modification, and fork evaluations through the modular loader with GPT and Claude.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 

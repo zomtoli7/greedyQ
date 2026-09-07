@@ -1,0 +1,8 @@
+{
+  "schema_version": "0.1",
+  "study_id": "greedyq_user_satisfaction_001",
+  "items": [
+    {"decision_id":"open_real_governance","topic":"governance","question":"Which real institution, responsible researcher, and contact details will govern a live survey?","why_it_matters":"Fixture contacts cannot be used for real participants.","options":[],"blocking_scopes":["deployment","fielding"],"status":"open","created_at":null,"resolved_by":null},
+    {"decision_id":"open_live_launch","topic":"fielding","question":"Has the final preview been reviewed and is this exact version approved for live responses?","why_it_matters":"A generated fixture is not authorization to collect data.","options":["Review and approve","Revise survey","Keep as a fixture"],"blocking_scopes":["deployment","fielding"],"status":"open","created_at":null,"resolved_by":null}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1",
+  "study_id": "greedyq_user_satisfaction_001",
+  "study_version": "1.0.0-fixture",
+  "guide_version": "0.2.0-draft.1",
+  "spec_version": "0.1.0-draft.1",
+  "mode": "agent",
+  "phase": "deployment",
+  "status": "blocked",
+  "checkpoint": "validated",
+  "updated_at": null,
+  "confirmed_decision_ids": ["dec_purpose_population", "dec_instrument", "dec_consent_privacy", "dec_analysis", "dec_deployment_fixture"],
+  "unresolved_decision_ids": ["open_real_governance", "open_live_launch"],
+  "assumptions": [],
+  "artifact_paths": ["greedyq.study.json", "survey.qmd", "greedyq.yml", "study-plan.md", "consent.md", "analysis/README.md", "analysis/data-dictionary.csv", "preview-model.json", "preview.html", "preview-test-report.md", "supabase/migrations/001_initial.sql", "vercel.json", ".env.example", ".greedyq/guide-lock.json", ".greedyq/validation-report.json"],
+  "gates": {
+    "design": {"status":"approved","approval_decision_id":"dec_purpose_population","reason":"Approved as the greedyQSimple golden-reference purpose and population."},
+    "instrument": {"status":"approved","approval_decision_id":"dec_instrument","reason":"Approved as the reference satisfaction instrument."},
+    "analysis": {"status":"approved","approval_decision_id":"dec_analysis","reason":"Approved as descriptive fixture intent."},
+    "preregistration": {"status":"not_applicable","approval_decision_id":null,"reason":"Preregistration is not enabled for this product-feedback fixture."},
+    "deployment": {"status":"blocked","approval_decision_id":null,"reason":"Real governance details and verified service configuration are absent."},
+    "fielding": {"status":"blocked","approval_decision_id":null,"reason":"The preview and a live deployment have not been approved and verified."}
+  },
+  "next_question": "Which real institution and researcher would be responsible for a live feedback survey?",
+  "notes": ["This state describes a fictional golden-reference fixture.", "No production data collection or external operation has been performed."]
+}

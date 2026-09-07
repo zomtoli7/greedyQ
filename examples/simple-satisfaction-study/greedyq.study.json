@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.2",
+  "study_id": "greedyq_user_satisfaction_001",
+  "study_version": "1.0.0-fixture",
+  "object": "greedyQSimple",
+  "profile": "simple",
+  "modules": ["consent", "deployment-vercel-supabase", "governance-irb"],
+  "origin": {"mode": "new", "source_study_id": null, "source_study_version": null, "source_location": null},
+  "language": "en",
+  "entry_points": {
+    "survey": "survey.qmd",
+    "config": "greedyq.yml",
+    "preview": "preview.html",
+    "study_plan": "study-plan.md",
+    "consent": "consent.md",
+    "guide_lock": ".greedyq/guide-lock.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.2",
+  "study_id": "greedyq_user_satisfaction_001",
+  "study_version": "1.0.0-fixture",
+  "generated_at": null,
+  "overall_status": "incomplete",
+  "checks": [
+    {"id":"structure","status":"passed","summary":"Study files, identifiers, references, and routes are structurally consistent.","details":[]},
+    {"id":"display_storage_mapping","status":"passed","summary":"Displayed labels and stored values match across the QMD and preview.","details":[]},
+    {"id":"simple_profile","status":"passed","summary":"The study has no random assignment or experimental-condition routing.","details":[]},
+    {"id":"privacy","status":"passed","summary":"The instrument does not request direct identifiers or credentials.","details":[]},
+    {"id":"browser_review","status":"not_run","summary":"A human browser, keyboard, and screen-reader review has not been recorded.","details":[]},
+    {"id":"live_services","status":"not_run","summary":"No Vercel or Supabase production operation has been attempted.","details":[]}
+  ],
+  "manual_gates": [
+    {"id":"interactive_preview","status":"pending","researcher_prompt":"Please try the eligible, consent-decline, screen-out, withdrawal, low-satisfaction, and problem-report paths.","evidence":null},
+    {"id":"fielding","status":"blocked","researcher_prompt":"Replace the fixture contacts, deploy the survey, and complete a test response before inviting users.","evidence":null}
+  ]
+}

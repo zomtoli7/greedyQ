@@ -92,6 +92,7 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Repository-first `START-HERE.md`, hash 기반 guide registry, deterministic resolver 추가
 - [x] `greedyq.study.json`, `.greedyq/guide-lock.json`, 내부 validation-report contract 추가
 - [x] Golden reference를 lock된 `greedyQExperiment` compatibility object로 migration
+- [x] 완전한 `greedyQSimple` 사용자 만족도 golden reference 추가
 - [ ] GPT와 Claude에서 modular loader를 통한 생성·수정·fork behavioral evaluation 수행
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 

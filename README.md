@@ -90,7 +90,7 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 greedyQ is in the specification and prototyping phase. The repository-first modular guide architecture is available as a compatibility structure; the next milestone is behavioral evaluation with multiple LLMs while the v0.1 parser and runtime contracts are completed.
 
-See [START-HERE.md](./START-HERE.md), the [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [complete reference study](./examples/complete-study/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+See [START-HERE.md](./START-HERE.md), the [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.1 specification](./docs/greedyq-v0.1-spec.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

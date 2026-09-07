@@ -1,0 +1,150 @@
+spec_version: "0.1"
+
+study:
+  id: greedyq_user_satisfaction_001
+  title: greedyQ User Experience Survey
+  version: 1.0.0-fixture
+  language: en
+  estimated_minutes: 4
+  status: fixture_only
+
+governance:
+  protocol_title: greedyQ User Experience and Satisfaction Survey
+  institution: greedyQ Project (fixture placeholder)
+  review_status: not_submitted_fixture
+  protocol_id: null
+  principal_investigator_email: researcher@example.org
+  data_contact_email: data@example.org
+  review_office_email: null
+  jurisdiction_notes: Replace the placeholder contacts and obtain any review required by the responsible institution before real recruitment.
+
+consent:
+  id: consent_main
+  version: 1.0.0
+  effective_date: 2026-09-07
+  document: consent.md
+  sha256: 8ece5ba9e4c5b07489c83a9516f9a10c324ed958cab7dbfdaffdbc0558cd72e2
+  confirmation_question: consent_choice
+  accept_value: "yes"
+  refusal_outcome: consent_refused
+  collect_research_data_only_after_acceptance: true
+  amendment_requires_reconsent: true
+  withdrawal:
+    default_response_policy: retain_flagged
+    deletion_request_question: deletion_request
+    deletion_is_manual_until_verified: true
+
+respondents:
+  source: direct_link
+  mode: test
+  inbound_parameters: {}
+  duplicate_policy: resume
+  store_unlisted_parameters: false
+
+runtime:
+  primary: web_native
+  framework: nextjs
+  hosting: vercel
+  region: icn1
+  preview_banner: true
+  collect_browser_metadata: false
+  collect_ip_address: false
+
+persistence:
+  provider: supabase
+  save_on: page_transition
+  resume: true
+  session_cookie:
+    name: greedyq_session
+    same_site: lax
+    secure: true
+    http_only: true
+  multiple_choice_storage: array
+
+logic:
+  hidden_answer_policy: clear_on_hide
+  show:
+    - id: show_primary_use_other
+      question: primary_use_other
+      if: primary_use == "other"
+    - id: show_low_satisfaction_reason
+      question: low_satisfaction_reason
+      if: overall_satisfaction <= 3
+    - id: show_problem_area
+      question: problem_area
+      if: had_problem == "yes"
+    - id: show_problem_detail
+      question: problem_detail
+      if: had_problem == "yes"
+    - id: show_deletion_request
+      question: deletion_request
+      if: withdraw_now == "withdraw"
+  skip:
+    - id: refuse_consent
+      from: consent
+      if: consent_choice == "no"
+      to: consent_refused
+      priority: 100
+    - id: screen_minor
+      from: eligibility
+      if: age < 18
+      to: screened_out
+      priority: 100
+    - id: screen_nonuser
+      from: eligibility
+      if: used_greedyq == "no"
+      to: screened_out
+      priority: 90
+    - id: route_withdrawal
+      from: participant_control
+      if: withdraw_now == "withdraw"
+      to: withdrawn
+      priority: 100
+    - id: route_completion
+      from: participant_control
+      if: withdraw_now == "submit"
+      to: complete
+      priority: 50
+  validate:
+    - id: plausible_age
+      question: age
+      if: age > 120
+      message: Enter an age of 120 or less.
+    - id: recommend_score_range
+      question: recommend_score
+      if: recommend_score < 0 or recommend_score > 10
+      message: Enter a number from 0 to 10.
+    - id: problem_area_required
+      question: problem_area
+      if: had_problem == "yes" and not answered(problem_area)
+      message: Choose the area where the most important problem occurred.
+    - id: withdrawal_deletion_choice
+      question: deletion_request
+      if: withdraw_now == "withdraw" and not answered(deletion_request)
+      message: Choose whether to record a deletion request before withdrawing.
+
+outcomes:
+  complete:
+    page: complete
+    lifecycle_state: completed
+    redirect: null
+  screened_out:
+    page: screened_out
+    lifecycle_state: screened_out
+    redirect: null
+  consent_refused:
+    page: consent_refused
+    lifecycle_state: consent_refused
+    redirect: null
+  withdrawn:
+    page: withdrawn
+    lifecycle_state: withdrawn
+    redirect: null
+  technical_error:
+    page: technical_error
+    lifecycle_state: technical_error
+    redirect: null
+
+export:
+  native_surveydown:
+    enabled: false

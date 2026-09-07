@@ -1,0 +1,24 @@
+variable,type,role,description
+consent_choice,categorical,governance,Affirmative or declined consent
+age,numeric,eligibility,Age in completed years
+used_greedyq,categorical,eligibility,Whether respondent has used greedyQ
+use_frequency,categorical,descriptor,Number of greedyQ uses in categories
+primary_use,categorical,descriptor,Main purpose of the most recent use
+primary_use_other,text,descriptor,Optional description when main purpose is something else
+ai_host,categorical,descriptor,AI product mainly used with greedyQ
+completion_status,categorical,descriptor,Furthest point reached in the most recent use
+guide_access,categorical,descriptor,How greedyQ instructions were made available to the AI
+overall_satisfaction,integer,primary_outcome,Overall satisfaction from 1 to 7
+experience_ratings,matrix,secondary_outcome,Separate ratings of start conversation preview and decision fidelity
+confidence,integer,secondary_outcome,Confidence that the survey reflected respondent intent from 1 to 5
+time_saved,categorical,secondary_outcome,Perceived time difference relative to usual survey creation
+low_satisfaction_reason,text,qualitative,Optional reason shown when overall satisfaction is 1 to 3
+had_problem,categorical,secondary_outcome,Whether a consequential problem was encountered
+problem_area,categorical,diagnostic,Area of the most important problem when one was reported
+problem_detail,text,qualitative,Optional problem description and expected behavior
+recommend_score,integer,secondary_outcome,Likelihood of recommendation from 0 to 10
+use_again,integer,secondary_outcome,Intention to use greedyQ again from 1 to 5
+most_valuable,text,qualitative,Optional description of most valuable aspect
+improvement,text,qualitative,Optional single most important improvement
+withdraw_now,categorical,governance,Submit or withdraw choice
+deletion_request,categorical,governance,Conditional request concerning responses in the current session

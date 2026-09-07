@@ -90,7 +90,7 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 greedyQ는 현재 specification 및 prototyping 단계입니다. Repository-first modular guide architecture가 호환 구조로 준비되었으며, 다음 milestone은 v0.1 parser와 runtime contract를 완성하는 동안 여러 LLM에서 behavioral evaluation을 수행하는 것입니다.
 
-현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [완전한 기준 연구](./examples/complete-study/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 
