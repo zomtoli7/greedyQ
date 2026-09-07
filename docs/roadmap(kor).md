@@ -20,15 +20,15 @@
 
 Primary source와 실행 가능한 예제로 현재 surveydown의 공개된 사용자 대상 동작을 조사합니다.
 
-- [ ] 프로젝트 및 파일 구조 목록화
-- [ ] QMD front matter와 페이지 grammar 문서화
-- [ ] 모든 공개 문항 타입과 인수 목록화
-- [ ] Navigation과 설문 lifecycle 동작 문서화
-- [ ] Theme 및 survey settings 문서화
-- [ ] Required, validation, shuffle, metadata 동작 분석
-- [ ] `app.R` logic의 show, skip, stop, reactive 동작 분석
-- [ ] Randomization과 stored-value 동작 분석
-- [ ] Session persistence와 PostgreSQL/Supabase 동작 분석
+- [x] 프로젝트 및 파일 구조 목록화
+- [x] QMD front matter와 페이지 grammar 문서화
+- [x] 모든 공개 문항 타입과 인수 목록화
+- [x] Navigation과 설문 lifecycle 동작 문서화
+- [x] Theme 및 survey settings 문서화
+- [x] Required, validation, shuffle, metadata 동작 분석
+- [x] `app.R` logic의 show, skip, stop, reactive 동작 분석
+- [x] Randomization과 stored-value 동작 분석
+- [x] Session persistence와 PostgreSQL/Supabase 동작 분석
 - [ ] 대표 공식 예제를 conformance fixture로 수집
 
 결과물:
@@ -151,7 +151,7 @@ examples/complete-study/
 
 ## 바로 다음 작업
 
-1. Git을 초기화하고 비공개 GitHub 저장소 연결
-2. Primary source 기반 surveydown 스펙 검토 수행
-3. Compatibility matrix 초안 작성
-4. 조사 결과를 규범적 greedyQualt v0.1 스펙으로 전환
+1. v0.1 호환 대상을 위한 executable conformance fixture 수집
+2. 조사 결과를 규범적 greedyQualt v0.1 스펙으로 전환
+3. 제한된 QMD/R-expression grammar와 정규화 Survey AST 정의
+4. Persistence, randomization, privacy, validation semantics 정의

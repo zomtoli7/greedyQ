@@ -70,7 +70,7 @@ greedyQualt는 다음 세 가지 설문 작성 경로를 지원할 예정입니�
 
 greedyQualt는 현재 스펙 정의 단계입니다. 첫 번째 milestone은 런타임을 구현하기 전에 surveydown의 공개된 사용자 대상 스펙을 문서화하고 greedyQualt v0.1의 호환 범위를 확정하는 것입니다.
 
-현재 방향은 [제품 개요](./docs/product-brief(kor).md)와 [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+현재 방향은 [제품 개요](./docs/product-brief(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

@@ -70,7 +70,7 @@ greedyQualt is planned to support three authoring paths:
 
 greedyQualt is in the specification phase. The first milestone is to document surveydown's public user-facing specification and define the greedyQualt v0.1 compatibility boundary before implementing the runtime.
 
-See the [product brief](./docs/product-brief.md) and [roadmap](./docs/roadmap.md) for the current direction.
+See the [product brief](./docs/product-brief.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

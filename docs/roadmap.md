@@ -20,15 +20,15 @@
 
 Research the current public, user-facing surveydown behavior from primary sources and executable examples.
 
-- [ ] Inventory project and file structure.
-- [ ] Document QMD front matter and page grammar.
-- [ ] Inventory all public question types and arguments.
-- [ ] Document navigation and survey lifecycle behavior.
-- [ ] Document theme and survey settings.
-- [ ] Analyze required, validation, shuffle, and metadata behavior.
-- [ ] Analyze `app.R` logic: show, skip, stop, and reactive behavior.
-- [ ] Analyze randomization and stored-value behavior.
-- [ ] Analyze session persistence and PostgreSQL/Supabase behavior.
+- [x] Inventory project and file structure.
+- [x] Document QMD front matter and page grammar.
+- [x] Inventory all public question types and arguments.
+- [x] Document navigation and survey lifecycle behavior.
+- [x] Document theme and survey settings.
+- [x] Analyze required, validation, shuffle, and metadata behavior.
+- [x] Analyze `app.R` logic: show, skip, stop, and reactive behavior.
+- [x] Analyze randomization and stored-value behavior.
+- [x] Analyze session persistence and PostgreSQL/Supabase behavior.
 - [ ] Collect representative official examples as conformance fixtures.
 
 Deliverables:
@@ -151,7 +151,7 @@ These requirements apply to every phase:
 
 ## Immediate next actions
 
-1. Initialize Git and connect a private GitHub repository.
-2. Conduct a primary-source surveydown specification review.
-3. Draft the compatibility matrix.
-4. Turn the findings into the normative greedyQualt v0.1 specification.
+1. Collect executable conformance fixtures for the v0.1 compatibility targets.
+2. Turn the research findings into the normative greedyQualt v0.1 specification.
+3. Define the restricted QMD/R-expression grammar and normalized Survey AST.
+4. Define persistence, randomization, privacy, and validation semantics.
