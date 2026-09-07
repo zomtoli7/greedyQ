@@ -20,6 +20,13 @@ class GenerationContractTests(unittest.TestCase):
             errors = list(Draft202012Validator(schema).iter_errors(state))
             self.assertEqual([], errors, state_path.name)
 
+    def test_state_schema_supports_interactive_preview_checkpoint(self):
+        schema = json.loads(
+            (ROOT / "schemas" / "ai" / "study-state.schema.json").read_text()
+        )
+        checkpoints = schema["properties"]["checkpoint"]["enum"]
+        self.assertIn("interactive_preview_reviewed", checkpoints)
+
     def test_reference_qmd_uses_display_label_on_the_left(self):
         qmd = (ROOT / "examples" / "complete-study" / "survey.qmd").read_text()
         vectors = re.findall(r"(?:option|row)\s*=\s*c\((.*?)\n\s*\)", qmd, re.DOTALL)

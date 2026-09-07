@@ -27,8 +27,9 @@
     "status": { "enum": ["in_progress", "blocked", "awaiting_approval", "complete"] },
     "checkpoint": {
       "enum": [
-        "none", "design_confirmed", "instrument_confirmed", "analysis_confirmed",
-        "preregistration_draft", "validated", "deployment_candidate", "fielding_locked"
+        "none", "design_confirmed", "instrument_confirmed", "interactive_preview_reviewed",
+        "analysis_confirmed", "preregistration_draft", "validated",
+        "deployment_candidate", "fielding_locked"
       ]
     },
     "updated_at": { "type": ["string", "null"], "format": "date-time" },

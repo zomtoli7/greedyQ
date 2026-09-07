@@ -30,6 +30,7 @@ design/*.csv
 assets/*
 supabase/migrations/*.sql
 vercel.json
+preview.html
 export/surveydown/*
 ```
 
@@ -201,6 +202,10 @@ Once the researcher approves a preregistration package, greedyQ MUST record an i
 ## 14. Web-native runtime
 
 The primary renderer is a React/Next.js application deployable to Vercel. It consumes only a validated AST, renders sanitized content, performs client feedback and authoritative server validation, and writes through server-controlled Supabase operations.
+
+Instrument review MUST be preview-first rather than prose-first. A generator MUST produce a browser-testable preview after a coherent instrument exists and SHOULD open it directly when the host supports interactive artifacts or browser control. Otherwise it MUST provide a self-contained `preview.html`; `study.md` MAY accompany it but MUST NOT substitute for respondent-flow review.
+
+The preview MUST use a fixed trusted runtime over the validated AST, MUST NOT execute survey-authored JavaScript, and MUST disable external writes and production redirects. It MUST exercise navigation, required checks, show/skip logic, stored values, assignment, back navigation, resume, and terminal outcomes. It SHOULD expose a researcher-only debug panel and deterministic condition/path selectors. Generation or automated opening alone does not constitute review: `interactive_preview_reviewed` requires explicit researcher confirmation after hands-on testing and is a gate for `deployment_candidate` unless preview inability is explicitly accepted and recorded.
 
 Preview mode MUST use non-production outcome handling and visibly identify itself. Production deployment MUST fail closed when required environment variables, migrations, or redirect configuration are missing. A tool or AI MUST NOT report successful deployment without verifying the live endpoint and persistence health.
 

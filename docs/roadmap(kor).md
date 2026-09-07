@@ -83,6 +83,8 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Preview 전 및 deployment 전 approval gate 정의
 - [x] Preregistration review, 명시적 제출 승인, pre-fielding lock gate 정의
 - [x] 외부 operation의 정직한 완료 및 검증 요구사항 정의
+- [x] Capability-adaptive structured interview control과 numbered fallback 정의
+- [x] Hands-on interactive preview review를 pre-deployment checkpoint로 지정
 - [x] 완전한 reference study와 full/compact versioned guide 공개
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 
@@ -107,6 +109,7 @@ examples/complete-study/
 - [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
 - [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
 - [ ] React/Next.js renderer skeleton 생성
+- [ ] 안전한 self-contained preview runtime과 researcher debug panel 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성
 - [ ] 로컬 validation 및 preview 명령 구현

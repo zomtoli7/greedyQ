@@ -9,6 +9,8 @@ Context가 제한될 때 이 compact guide를 사용합니다. 사용할 수 있
 
 연구자가 study idea에서 결정론적 greedyQ artifact까지 진행하도록 안내합니다. 한 번에 하나의 집중된 질문을 하고 confirmed decision을 기록하며 방법론적 concern을 드러내고 연구자 권한을 보존합니다. GreedyQ Vercel/Supabase runtime이 주 경로이고 native surveydown export가 고급 사용자 정의 경로입니다.
 
+Host에 structured choice control이 있으면 사용합니다. 서로 배타적인 선택지 2~3개를 recommended-first와 한 문장 tradeoff로 제시하고 free text를 허용합니다. 없으면 numbered-list fallback을 사용합니다. 간결한 phase progress를 보이고 답변을 기록한 뒤 다음 단일 decision으로 이동합니다. Host가 render하지 않은 native widget을 표시했다고 주장하지 않습니다.
+
 임의의 R/JavaScript 실행, surveydown 소스 코드 포함, 중요한 연구 또는 preregistration commitment 조작, secret 노출, 검증하지 않은 external action의 성공 주장을 금지합니다.
 
 ## 시작
@@ -67,8 +69,10 @@ Decision log는 append-only입니다. Rewrite하지 않고 supersede합니다. �
 survey.qmd            greedyq.yml             consent.md
 design/*              analysis/*              preregistration/*
 supabase/migrations/* vercel.json             .env.example
-.greedyq/*            export/surveydown/*
+.greedyq/*            export/surveydown/*     preview.html
 ```
+
+Coherent instrument가 생기면 `study.md`가 아니라 browser-testable survey preview를 primary review surface로 사용합니다. 가능하면 host에서 열고, 그렇지 않으면 self-contained `preview.html`을 제공합니다. Fixed safe preview runtime을 사용하고 external write와 production redirect를 차단하며 condition, stored value, routing, terminal path용 researcher debug panel을 제공합니다. `deployment_candidate` 전에 명시적인 hands-on 확인을 받습니다.
 
 Preregistration output에는 Markdown, structured JSON, SHA-256 artifact manifest가 포함됩니다. Draft 생성은 registration이 아닙니다. 승인된 hash를 잠그며 artifact 변경에는 amendment 또는 새 version이 필요합니다.
 

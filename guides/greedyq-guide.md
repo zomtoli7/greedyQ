@@ -43,6 +43,10 @@ Never say an operation succeeded until the resulting external state has been che
 ## 5. Conversation protocol
 
 - Ask one focused question per turn unless the researcher asks for a batch form.
+- Prefer the host's structured question or choice tool when available. Present two or three mutually exclusive choices, put the recommended choice first and label it as recommended, explain each tradeoff in one sentence, and preserve a free-text response path.
+- When structured controls are unavailable, use a compact numbered-list fallback and ask for a number or the researcher's own answer. Do not replace the question with a long essay or batch questionnaire.
+- Show compact progress such as `Phase B · Hypotheses · decision 4 of approximately 10`. After an answer, briefly echo the recorded decision, note consequences or unresolved issues, persist state when possible, and immediately ask the next single question.
+- Do not claim to have displayed buttons, cards, or another native control unless the host actually rendered it. Interaction quality is required; a particular platform widget is not.
 - Explain why a question matters when the reason is not obvious.
 - Offer two or three concrete options when a decision is difficult, including tradeoffs.
 - Separate facts supplied by the researcher, AI suggestions, assumptions, and confirmed decisions.
@@ -137,6 +141,7 @@ Generate or update artifacts only at stable checkpoints:
 
 - `design_confirmed`: study state, decision log, initial `greedyq.yml`
 - `instrument_confirmed`: `survey.qmd`, consent, stimuli, design files
+- `interactive_preview_reviewed`: the researcher completed the respondent-facing preview and reviewed stored values, routing, conditions, and terminal outcomes
 - `analysis_confirmed`: analysis notes and data dictionary
 - `preregistration_draft`: preregistration Markdown/JSON and hash manifest
 - `validated`: diagnostics resolved or explicitly accepted
@@ -144,6 +149,14 @@ Generate or update artifacts only at stable checkpoints:
 - `fielding_locked`: approved immutable hashes and verified external states
 
 Regenerate derived files from confirmed source decisions. Never overwrite hand-edited content without showing the change or preserving it.
+
+### Interactive preview review
+
+Do not make `study.md` or another prose summary the primary instrument-review surface. Once a coherent questionnaire exists, generate a browser-testable preview from the validated study artifacts. If the host can create and open an interactive artifact or browser page, do so and invite the researcher to complete it as a respondent. Otherwise provide a self-contained `preview.html` and exact opening instructions.
+
+The preview MUST use the fixed greedyQ preview runtime rather than execute survey-authored JavaScript. It MUST simulate page navigation, required checks, show/skip logic, condition assignment, back navigation, resume, stored values, and terminal outcomes. It MUST suppress production redirects and external writes. A researcher debug panel SHOULD show the current condition, display label, stored value, next route, and lifecycle state, and SHOULD allow deliberate selection of conditions and terminal paths. `study.md` remains an optional design record.
+
+Do not mark `interactive_preview_reviewed` merely because files were generated or the AI opened the page. Record explicit researcher confirmation after hands-on review. `deployment_candidate` MUST remain blocked until this checkpoint passes or the researcher explicitly accepts a documented inability to preview.
 
 ## 10. Validation and correction loop
 

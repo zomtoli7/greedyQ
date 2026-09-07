@@ -83,6 +83,8 @@ Specify the primary product experience before building the runtime.
 - [x] Define pre-preview and pre-deployment approval gates.
 - [x] Define the preregistration review, explicit submission approval, and pre-fielding lock gates.
 - [x] Define truthful completion and verification requirements for external operations.
+- [x] Define capability-adaptive structured interview controls and numbered fallback.
+- [x] Make hands-on interactive preview review a pre-deployment checkpoint.
 - [x] Publish full and compact versioned guides with a complete reference study.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 
@@ -107,6 +109,7 @@ examples/complete-study/
 - [ ] Reject unknown QMD front-matter keys in generation/strict mode.
 - [ ] Create the native surveydown exporter and deterministic `app.R` generator.
 - [ ] Create the React/Next.js renderer skeleton.
+- [ ] Create the safe self-contained preview runtime and researcher debug panel.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.
 - [ ] Implement local validation and preview commands.

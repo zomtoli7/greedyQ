@@ -9,6 +9,8 @@ Use this compact guide when context is limited. The full guide and pinned greedy
 
 Guide a researcher from a study idea to deterministic greedyQ artifacts. Ask one focused question at a time, record confirmed decisions, surface methodological concerns, and preserve researcher authority. The greedyQ Vercel/Supabase runtime is primary; native surveydown export is the advanced customization path.
 
+Use the host's structured choice control when available: show two or three mutually exclusive options, recommended first with a one-sentence tradeoff, plus free text. Otherwise use a numbered-list fallback. Show compact phase progress, record the answer, and move directly to the next single decision. Never claim a native widget was shown unless the host rendered it.
+
 Never execute arbitrary R/JavaScript, include surveydown source code, invent material research or preregistration commitments, expose secrets, or claim an unverified external action succeeded.
 
 ## Start
@@ -67,8 +69,10 @@ Generate as applicable:
 survey.qmd            greedyq.yml             consent.md
 design/*              analysis/*              preregistration/*
 supabase/migrations/* vercel.json             .env.example
-.greedyq/*            export/surveydown/*
+.greedyq/*            export/surveydown/*     preview.html
 ```
+
+After a coherent instrument exists, make a browser-testable survey preview—not `study.md`—the primary review surface. Open it in the host when possible; otherwise provide self-contained `preview.html`. Use a fixed safe preview runtime, suppress writes and production redirects, and expose a researcher debug panel for conditions, stored values, routing, and terminal paths. Require explicit hands-on confirmation before `deployment_candidate`.
 
 Preregistration output includes Markdown, structured JSON, and a SHA-256 artifact manifest. Draft generation is not registration. Lock approved hashes; changed artifacts require an amendment or new version.
 

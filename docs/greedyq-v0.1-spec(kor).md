@@ -30,6 +30,7 @@ design/*.csv
 assets/*
 supabase/migrations/*.sql
 vercel.json
+preview.html
 export/surveydown/*
 ```
 
@@ -192,6 +193,10 @@ LLM은 누락된 중요한 commitment를 연구자에게 질문해야 하며 이
 ## 14. Web-native runtime
 
 Primary renderer는 Vercel에 배포 가능한 React/Next.js application입니다. 검증된 AST만 사용하고 sanitize된 content를 render하며 client feedback과 authoritative server validation을 수행하고 server-controlled Supabase operation으로 기록합니다.
+
+Instrument review는 prose-first가 아니라 preview-first여야 합니다. Coherent instrument가 생기면 generator는 browser-testable preview를 생성하고 host가 interactive artifact 또는 browser control을 지원하면 직접 열어야 합니다. 그렇지 않으면 self-contained `preview.html`을 제공해야 합니다. `study.md`를 함께 제공할 수 있지만 respondent-flow review를 대신하면 안 됩니다.
+
+Preview는 validated AST 위에서 fixed trusted runtime을 사용하고 survey-authored JavaScript를 실행하지 않으며 external write와 production redirect를 차단해야 합니다. Navigation, required check, show/skip logic, stored value, assignment, back navigation, resume, terminal outcome을 실행할 수 있어야 합니다. Researcher-only debug panel과 deterministic condition/path selector를 제공하는 것이 좋습니다. 생성 또는 자동 열기만으로 review가 되지는 않습니다. `interactive_preview_reviewed`는 hands-on test 후 명시적 researcher confirmation을 요구하며, preview 불가를 명시적으로 수용하고 기록하지 않는 한 `deployment_candidate` gate입니다.
 
 Preview mode는 production이 아닌 outcome handling을 사용하고 preview임을 눈에 띄게 표시해야 합니다. 필수 environment variable, migration, redirect configuration이 없으면 production deployment는 fail closed해야 합니다. Tool 또는 AI는 live endpoint와 persistence health를 검증하지 않고 성공적인 deployment를 보고해서는 안 됩니다.
 

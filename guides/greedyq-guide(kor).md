@@ -43,6 +43,10 @@ File, shell command, GitHub, Vercel, Supabase, OSF, panel service를 직접 다�
 ## 5. Conversation protocol
 
 - 연구자가 batch form을 요청하지 않으면 turn당 하나의 집중된 질문을 합니다.
+- Host에 structured question 또는 choice tool이 있으면 우선 사용합니다. 서로 배타적인 선택지 2~3개를 제시하고 recommended choice를 첫 번째에 두어 표시하며 tradeoff를 각각 한 문장으로 설명하고 free-text response path를 유지합니다.
+- Structured control이 없으면 간결한 번호 목록 fallback을 사용하고 번호 또는 researcher의 직접 답변을 요청합니다. 긴 essay나 batch questionnaire로 대체하지 않습니다.
+- `Phase B · Hypotheses · 약 10개 결정 중 4번째`처럼 간결한 progress를 표시합니다. 답변 후 기록한 결정을 짧게 확인하고 consequence나 unresolved issue를 알리며, 가능하면 state를 저장한 뒤 즉시 다음 단일 질문을 묻습니다.
+- Host가 실제로 render하지 않은 button, card 또는 native control을 표시했다고 주장하지 않습니다. 특정 platform widget이 아니라 interaction quality가 필수입니다.
 - 이유가 명확하지 않은 질문은 왜 필요한지 설명합니다.
 - 어려운 결정에는 tradeoff와 함께 두세 가지 구체적 option을 제공합니다.
 - 연구자가 제공한 fact, AI suggestion, assumption, confirmed decision을 구분합니다.
@@ -137,6 +141,7 @@ File access가 있으면 다음 파일을 유지합니다.
 
 - `design_confirmed`: study state, decision log, 초기 `greedyq.yml`
 - `instrument_confirmed`: `survey.qmd`, consent, stimulus, design file
+- `interactive_preview_reviewed`: researcher가 respondent-facing preview를 직접 완료하고 저장 value, routing, condition, terminal outcome을 검토함
 - `analysis_confirmed`: analysis note 및 data dictionary
 - `preregistration_draft`: preregistration Markdown/JSON 및 hash manifest
 - `validated`: diagnostic 해결 또는 명시적 수용
@@ -144,6 +149,14 @@ File access가 있으면 다음 파일을 유지합니다.
 - `fielding_locked`: 승인된 immutable hash 및 검증된 external state
 
 Confirmed source decision에서 derived file을 재생성합니다. 변경을 보여주거나 보존하지 않고 hand-edited content를 덮어쓰지 않습니다.
+
+### Interactive preview review
+
+`study.md` 같은 prose summary를 primary instrument-review surface로 사용하지 않습니다. Coherent questionnaire가 생기면 validated study artifact에서 browser-testable preview를 생성합니다. Host가 interactive artifact 또는 browser page를 만들고 열 수 있으면 그렇게 한 뒤 researcher가 respondent처럼 완료하도록 안내합니다. 불가능하면 self-contained `preview.html`과 정확한 여는 방법을 제공합니다.
+
+Preview는 survey-authored JavaScript를 실행하지 않고 고정된 greedyQ preview runtime을 사용해야 합니다. Page navigation, required check, show/skip logic, condition assignment, back navigation, resume, stored value, terminal outcome을 simulate하고 production redirect와 external write를 차단해야 합니다. Researcher debug panel은 current condition, display label, stored value, next route, lifecycle state를 보여주고 condition과 terminal path를 의도적으로 선택할 수 있어야 합니다. `study.md`는 optional design record로 유지합니다.
+
+파일을 생성했거나 AI가 page를 열었다는 이유만으로 `interactive_preview_reviewed`를 표시하지 않습니다. Hands-on review 후 명시적 researcher confirmation을 기록합니다. 이 checkpoint가 통과하거나 preview 불가를 researcher가 문서화해 수용하기 전에는 `deployment_candidate`를 차단합니다.
 
 ## 10. Validation 및 correction loop
 
