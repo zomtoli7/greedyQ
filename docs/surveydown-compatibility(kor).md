@@ -14,7 +14,9 @@
 
 ## 1. 범위 및 용어
 
-이 문서는 surveydown 공식 문서, package reference, source repository, 유지 관리되는 예제를 바탕으로 동작을 기록합니다. 이는 규범적 greedyQ v0.1 스펙을 위한 조사 자료이며 그 자체가 구현 보증은 아닙니다.
+이 문서는 공식 문서, package reference, repository metadata, 유지 관리되는 예제에서 공개적으로 관찰 가능한 surveydown 작성 동작을 기록합니다. 이는 규범적 greedyQ v0.1 스펙을 위한 조사 자료이며 그 자체가 구현 보증이나 소스 코드 재사용 계획은 아닙니다.
+
+greedyQ는 독립 구현이며 surveydown 소스 코드를 포함하지 않습니다. Parser, AST, validator, web-native runtime, deployment integration, export generator, template, conformance fixture는 독립적으로 작성해야 합니다. 이 문서의 repository link는 구현 세부사항을 복사하기 위한 허가가 아니라 출처와 version snapshot을 확립합니다. Surveydown은 MIT License로 배포되는 선행 오픈소스 작업이며 출처 표시와 비제휴 조건은 repository의 `NOTICE(kor).md`에 기록합니다.
 
 제안하는 greedyQ 분류는 다음과 같습니다.
 
@@ -22,11 +24,13 @@
 | --- | --- |
 | **v0.1 target** | 첫 규범적 greedyQ 스펙 및 MVP에 포함할 예정 |
 | **Post-v0.1** | MVP 이후 호환 또는 동등 동작을 제공하는 것이 바람직함 |
-| **Native replacement** | R/Shiny 대신 greedyQ 선언형 기능으로 사용 사례 지원 |
+| **Native implementation** | Web-native runtime에서 greedyQ 선언형 기능으로 사용 사례 지원 |
+| **Generated export** | 검증된 동작을 `app.R` 또는 native surveydown 보조 파일로 변환 |
+| **greedyQ-only** | Export report에 명시적인 제한 또는 대안이 필요한 기능 |
 | **Deferred** | 가치가 있지만 호환 방식에 추가 조사 또는 구현 성숙도가 필요함 |
 | **Unsupported by design** | greedyQ의 보안, 런타임 또는 제품 원칙과 충돌함 |
 
-호환성은 가능한 범위에서 문서화된 authoring contract와 호환됨을 의미합니다. surveydown의 R object, Shiny internals, 생성 HTML, CSS 또는 데이터베이스 구현을 재현한다는 뜻은 아닙니다.
+호환성은 가능한 범위에서 문서화된 authoring contract와 호환됨을 의미합니다. surveydown의 R object, Shiny internals, 생성 HTML, CSS, 데이터베이스 구현 또는 소스 코드를 재현한다는 뜻은 아닙니다. 각 규범 기능은 greedyQ runtime 지원과 native surveydown export 동작을 별도로 선언해야 합니다.
 
 ## 2. 핵심 조사 결과
 
@@ -40,7 +44,7 @@
 8. Randomization은 선언된 study primitive가 아니라 programming pattern입니다. 작성자는 `app.R`에서 무작위 값을 생성하거나 불러오고, 명시적으로 저장하고, reactive question을 `sd_output()`으로 표시합니다.
 9. surveydown은 session당 하나의 wide response row를 사용합니다. PostgreSQL table을 자동 생성·확장하고 `session_id`를 primary key로 사용하며 값을 text column으로 기록합니다.
 10. Cookie가 session ID, current page, answer를 보존합니다. Database/CSV data는 페이지 전환과 browser/session 종료 시 갱신됩니다.
-11. greedyQ는 대부분의 정적 QMD authoring을 보존하면서 `app.R`을 버전이 명시된 선언형 스펙으로 교체할 수 있습니다. 임의의 R/Shiny 동작은 일반적으로 변환할 수 없으며 설계상 지원하지 않습니다.
+11. greedyQ는 대부분의 정적 QMD authoring을 보존하면서 runtime 동작을 버전이 명시된 선언형 스펙으로 표현할 수 있습니다. Web-native runtime은 이를 직접 사용하고 export generator는 지원되는 native surveydown 동작을 위한 `app.R`을 생성합니다. 임의의 사용자 작성 R/Shiny 동작은 일반적으로 변환할 수 없으며 입력으로 지원하지 않습니다.
 12. AI-guided creation이 greedyQ의 주요 경험이므로 compatibility detail은 expert author를 위한 prose에 머물지 않고 결정론적 generation rule과 validator diagnostic으로 표현할 수 있어야 합니다.
 
 ## 3. 프로젝트 및 런타임 모델
@@ -76,9 +80,10 @@ shiny::shinyApp(ui = ui, server = server)
 ```text
 survey.qmd             -> compatible static authoring surface
 questions*.yml         -> compatible question definitions where specified
-greedyq.yml        -> native logic, randomization, lifecycle, persistence
+greedyq.yml            -> native logic, randomization, lifecycle, persistence
 design/*.csv           -> native experimental designs
-app.R                  -> migration input only; never executed
+existing app.R         -> optional migration input; never executed
+generated app.R        -> native surveydown export from the validated AST
 ```
 
 | Surveydown component | 제안 greedyQ 처리 |
@@ -86,7 +91,8 @@ app.R                  -> migration input only; never executed
 | `survey.qmd` | **v0.1 target** |
 | Root `questions.yml` | **v0.1 target** |
 | Custom question YAML path | **Post-v0.1** |
-| `app.R` 표준 pattern | **Native replacement** 및 migration diagnostic |
+| 기존 `app.R` 표준 pattern | Optional migration input, 절대 실행하지 않음 |
+| 생성된 `app.R` | **Generated export** 및 compatibility diagnostic |
 | 임의의 R/Shiny code | **Unsupported by design** |
 | 생성된 `_survey/` 파일 | 호환성 대상 아님 |
 | RStudio gadget / sdstudio | 제품 대상 아님 |
@@ -256,7 +262,7 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 | Button 숨김 | `show_previous`, `show_next` | **v0.1 target** |
 | `sd_next()` | Legacy single Next button | **Post-v0.1** parser alias |
 | `sd_close()` | Exit flow, optional rating/restart/cookie clear | Basic exit **v0.1**, 확장 option **Post-v0.1** |
-| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**, reactive redirect **Native replacement** |
+| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**, reactive redirect **Native implementation** |
 | 빈 terminal page | Forward control 없음 | **v0.1 target** |
 
 현재 `sd_nav()` source signature는 `show_previous`를 사용하지만 일부 narrative documentation은 `show_prev`를 사용합니다. greedyQ는 package reference/source signature를 따르고 narrative alias에는 유용한 diagnostic을 제공할 수 있습니다.
@@ -280,7 +286,7 @@ Upstream progress는 page가 아니라 답변한 question마다 증가합니다.
 
 | Key | Upstream default | 제안 greedyQ 분류 |
 | --- | --- | --- |
-| `mode` | `database`, `preview`, `local`도 지원 | 동등 environment **Native replacement** |
+| `mode` | `database`, `preview`, `local`도 지원 | 동등 environment **Native implementation** |
 | `show-previous` | `no` | **v0.1 target** |
 | `use-cookies` | `yes` | **v0.1 target**, 명시적 privacy semantics 필요 |
 | `auto-scroll` | `no` | **Post-v0.1** |
@@ -331,16 +337,16 @@ redirect-error
 
 | Upstream function/pattern | Semantics | 제안 greedyQ 처리 |
 | --- | --- | --- |
-| `sd_show_if(condition ~ target)` | True일 때 question 또는 page 표시 | **Native replacement**, v0.1 선언형 rule |
-| `sd_skip_if(condition ~ page)` | True일 때 forward skip | **Native replacement**, v0.1 선언형 rule |
-| `sd_stop_if(condition ~ message)` | Navigation을 막고 validation error 표시 | **Native replacement**, v0.1 선언형 rule |
-| `sd_is_answered(id)` | Answer-completeness predicate, matrix는 모든 row 필요 | **Native replacement**, v0.1 expression function |
-| `sd_value()` / `sd_values()` | Reactive answer lookup 및 type conversion | **Native replacement**, expression reference |
-| `sd_store_value()` | Derived/custom value 저장 | **Native replacement**, v0.1 assignment primitive |
-| `sd_output(type = "value")` | Answer 또는 stored value 표시 | **Native replacement**, v0.1 interpolation |
+| `sd_show_if(condition ~ target)` | True일 때 question 또는 page 표시 | **Native implementation**, v0.1 선언형 rule |
+| `sd_skip_if(condition ~ page)` | True일 때 forward skip | **Native implementation**, v0.1 선언형 rule |
+| `sd_stop_if(condition ~ message)` | Navigation을 막고 validation error 표시 | **Native implementation**, v0.1 선언형 rule |
+| `sd_is_answered(id)` | Answer-completeness predicate, matrix는 모든 row 필요 | **Native implementation**, v0.1 expression function |
+| `sd_value()` / `sd_values()` | Reactive answer lookup 및 type conversion | **Native implementation**, expression reference |
+| `sd_store_value()` | Derived/custom value 저장 | **Native implementation**, v0.1 assignment primitive |
+| `sd_output(type = "value")` | Answer 또는 stored value 표시 | **Native implementation**, v0.1 interpolation |
 | `sd_output(type = "question")` | Server-defined reactive question render | **Deferred**, declared dynamic property 선호 |
 | `sd_output()` label mode | Option 또는 question label 표시 | **Post-v0.1** |
-| `sd_reactive()` | Reactive value 계산 및 저장 | **Native replacement**, v0.1 core 이후 safe expression graph |
+| `sd_reactive()` | Reactive value 계산 및 저장 | **Native implementation**, v0.1 core 이후 safe expression graph |
 | `sd_copy_value()` | Shiny output ID uniqueness workaround | Web renderer에서는 호환 필요 없음 |
 | Custom R function | 임의 condition/calculation logic | **Unsupported by design** |
 | `observe()` 및 Shiny reactive | 임의 reactive programming | **Unsupported by design** |
@@ -468,7 +474,7 @@ greedyQ 분류: generic provider contract와 Prolific preset은 **v0.1 native ta
 
 ## 13. AI-guided workflow에 미치는 영향
 
-Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementation constraint입니다. 연구자가 자신의 요구사항이 compatible QMD syntax 또는 greedyQ-native declaration 중 어디에 mapping되는지 알 필요는 없습니다.
+Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementation 및 export constraint입니다. 주 실행 대상은 Vercel과 Supabase의 독립적인 greedyQ web runtime입니다. 연구자가 자신의 요구사항이 compatible QMD syntax 또는 greedyQ-native declaration 중 어디에 mapping되는지 알 필요는 없지만, native surveydown export가 동작을 변경하거나 보존할 수 없을 때는 이를 알려야 합니다.
 
 따라서 versioned guide와 validator는 다음을 수행해야 합니다.
 
@@ -482,6 +488,8 @@ Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementat
 8. Repository, database, deployment, panel operation을 약속하기 전에 Chat mode와 Agent mode를 구분합니다.
 9. 모든 external mutation을 완료했다고 보고하기 전에 검증합니다.
 10. 생성 artifact를 model-independent하게 유지하여 원래 대화 없이도 검사·편집·검증·재현할 수 있게 합니다.
+11. Native surveydown export를 요청하면 `survey.qmd`, `app.R`, 보조 파일, 호환성 보고서를 생성합니다.
+12. greedyQ가 surveydown 프로젝트와 제휴하거나 이들의 보증을 받거나 공동 유지된다고 암시하지 않습니다.
 
 LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQ는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
 
@@ -499,6 +507,8 @@ LLM은 자신의 research-methods knowledge를 적용하여 question과 design�
 8. Versioned database migration과 Row Level Security policy를 정의합니다.
 9. Cookie, IP address, browser metadata, URL parameter에 privacy-safe default를 정의합니다.
 10. 사람과 LLM correction loop 모두에 적합한 안정적 validator diagnostic을 정의합니다.
+11. 결정론적 `app.R` 생성 규칙과 directly portable, generated, greedyQ-only, unsupported 동작의 경계를 정의합니다.
+12. surveydown 소스나 test material을 복사하지 않고 독립 작성한 conformance fixture를 요구합니다.
 
 ## 15. 알려진 모호성 및 후속 확인
 

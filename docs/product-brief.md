@@ -14,6 +14,8 @@ greedyQ is an open-source, AI-guided workflow for building, deploying, and opera
 
 The product is not intended to be a pixel-for-pixel Qualtrics clone, another GUI form builder, or a proprietary AI service. Its primary user interface is a guided conversation, while its durable abstraction is a version-controlled study specification. Direct QMD authoring remains an expert path.
 
+greedyQ is an independent MIT-licensed implementation. Its primary product is its own Vercel/Supabase web runtime; it adopts a documented subset of surveydown-style `survey.qmd` conventions for authoring compatibility and generates native surveydown projects for advanced R, Shiny, and Quarto customization. It incorporates no surveydown source code and claims no affiliation or endorsement.
+
 ### Core proposition
 
 > Combine frontier-model research assistance with a deterministic survey specification, validator, runtime, and deployment workflow.
@@ -43,7 +45,7 @@ These limitations are especially costly for studies involving random assignment,
 - Researchers who want to create a rigorous survey through conversation without learning a survey DSL
 - Expert users who prefer to inspect or edit text files and Git directly
 - Experimental researchers who need randomization, factorial designs, or conjoint/CBC
-- Surveydown users who want to retain `survey.qmd` while replacing the R/Shiny runtime
+- Surveydown users who want a web-native runtime while retaining a path to native R/Shiny customization
 
 ### Not an initial target
 
@@ -52,7 +54,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 ## 4. Product principles
 
 1. **The study specification is the source of truth.** Survey content, logic, and design must be inspectable and version controlled.
-2. **Compatibility is user-facing.** Target surveydown's public authoring specification, not its internal implementation.
+2. **Compatibility is user-facing and independently implemented.** Target surveydown's publicly documented authoring conventions without incorporating surveydown source code.
 3. **No arbitrary code execution.** R chunks are parsed only as a restricted set of supported `sd_*()` expressions.
 4. **Logic is declarative.** Branching, validation, and randomization use a safe, documented DSL.
 5. **Research comes first.** Reproducible randomization, experimental metadata, and analysis-ready data are core concerns.
@@ -64,6 +66,8 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 11. **The LLM provides research intelligence.** greedyQ should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
 12. **Researcher authority is preserved.** The AI explains concerns and proposes alternatives but never silently changes a material research decision.
 13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
+14. **The web-native runtime comes first.** Vercel and Supabase are the primary execution path; native surveydown export is a first-class parallel output, not the greedyQ runtime.
+15. **Advanced customization has an escape hatch.** Generate `app.R` and related native project files so researchers can continue directly in surveydown when unrestricted R, Shiny, or Quarto is required.
 
 ## 5. Compatibility strategy
 
@@ -71,7 +75,8 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 | --- | --- |
 | `survey.qmd` page and question syntax | Compatible wherever practical |
 | Surveydown YAML settings | Compatible where documented and feasible |
-| `app.R` | Not executed; replaced by declarative configuration |
+| Existing `app.R` input | Never executed; recognized patterns may be migrated with diagnostics |
+| Generated `app.R` output | First-class native surveydown export generated from the validated AST |
 | Arbitrary R/Shiny reactive code | Unsupported |
 | Question types | Implement surveydown's public question API first |
 | Conditional logic | Native declarative DSL |
@@ -80,19 +85,29 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 | Runtime | TypeScript, React, and a web-native server/runtime layer |
 | Hosting | Vercel-first |
 
-The intended migration story is:
+Every feature must be classified across both output paths:
+
+- **Directly portable:** represented in compatible QMD and preserved in native surveydown output
+- **Generated:** implemented natively by greedyQ and translated into generated `app.R` or supporting files
+- **greedyQ-only:** available in the web-native runtime but exported with an explicit limitation or alternative
+- **Unsupported:** rejected with a stable diagnostic rather than silently changed
+
+The intended execution and export pipeline is:
 
 ```text
-Existing surveydown project
-
-survey.qmd  ----------------------> retained where compatible
-app.R       -- migration tooling -> greedyq.yml
-                                      |
-                                      v
-                               greedyQ runtime
-                                      |
-                                      v
-                              Vercel + Supabase
+survey.qmd + greedyq.yml + design/*.csv + assets
+                         |
+                         v
+              parser -> validated AST
+                    /             \
+                   v               v
+       greedyQ web runtime    export generator
+                   |               |
+                   v               v
+         Vercel + Supabase   survey.qmd + app.R
+                                     |
+                                     v
+                           native surveydown project
 ```
 
 ## 6. Proposed technical model
@@ -119,6 +134,7 @@ Internal Survey AST / JSON schema
       +-- logic engine
       +-- randomization engine
       +-- migration diagnostics
+      +-- native surveydown export generator
       |
       v
 React/Next.js survey renderer
@@ -141,6 +157,11 @@ my-survey/
 ├── design/
 │   └── choice_sets.csv
 ├── assets/
+├── export/
+│   └── surveydown/
+│       ├── survey.qmd
+│       ├── app.R
+│       └── compatibility-report.json
 └── supabase/
     └── migrations/
 ```
@@ -149,11 +170,12 @@ my-survey/
 - `greedyq.yml`: Display rules, branching, validation, and randomization
 - `design/*.csv`: Conjoint/CBC and repeated experimental designs
 - `assets/`: Images and experimental stimuli
+- `export/surveydown/`: Generated native surveydown project and compatibility report
 - `supabase/`: Reproducible database migrations
 
 ## 8. Declarative logic
 
-`greedyq.yml` replaces supported `app.R` use cases with a constrained expression language.
+`greedyq.yml` expresses supported runtime behavior in a constrained language. The greedyQ runtime evaluates it directly; the native export generator translates supported behavior into `app.R` without executing arbitrary R during parsing, validation, preview, or deployment.
 
 ```yaml
 logic:
@@ -427,7 +449,6 @@ A Prolific preset is an initial target. Other providers should use the same gene
 - Supabase relational/JSONB schema boundaries
 - Safe expression-language grammar
 - Transaction model for balanced randomization
-- Initial license: MIT or Apache-2.0
 - Public naming and trademark review before broad release
 - Minimum required ethics metadata and how it varies by study template
 - Consent amendment, withdrawal, and response-retention semantics

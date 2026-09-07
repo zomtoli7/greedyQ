@@ -28,6 +28,9 @@
 - Distinguish chat mode from agent mode and never claim an external service was configured without connected tools and verified results.
 - Prioritize specification work before runtime implementation.
 - Target public, user-facing surveydown compatibility without copying its internal implementation.
+- Do not incorporate surveydown source code, tests, or copied fixtures; author implementations and conformance fixtures independently from public documentation and observable behavior.
+- Keep the Vercel/Supabase web-native runtime primary while treating generated native surveydown projects, including `app.R`, as a first-class output.
+- Classify export behavior as directly portable, generated, greedyQ-only, or unsupported, and report every material mismatch.
 - Do not execute arbitrary R or JavaScript from survey definitions.
 - Preserve researcher ownership and control of respondent data.
 - Do not introduce a GUI survey builder unless the product direction is explicitly changed.

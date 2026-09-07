@@ -14,7 +14,9 @@
 
 ## 1. Scope and terminology
 
-This document records surveydown behavior from its official documentation, package reference, source repository, and maintained examples. It is research input for the normative greedyQ v0.1 specification; it is not itself an implementation guarantee.
+This document records publicly observable surveydown authoring behavior from official documentation, package references, repository metadata, and maintained examples. It is research input for the normative greedyQ v0.1 specification; it is not itself an implementation guarantee or a source-code reuse plan.
+
+greedyQ is an independent implementation. It does not incorporate surveydown source code. The parser, AST, validator, web-native runtime, deployment integration, export generator, templates, and conformance fixtures must be authored independently. Repository links in this document establish provenance and version snapshots, not permission to copy implementation details. Surveydown is prior open-source work distributed under the MIT License; attribution and non-affiliation terms are recorded in the repository `NOTICE.md`.
 
 The proposed greedyQ classifications are:
 
@@ -22,11 +24,13 @@ The proposed greedyQ classifications are:
 | --- | --- |
 | **v0.1 target** | Intended for the first normative greedyQ specification and MVP |
 | **Post-v0.1** | Compatible or equivalent behavior is desirable after the MVP |
-| **Native replacement** | The use case is supported through a greedyQ declarative feature rather than R/Shiny |
+| **Native implementation** | The use case is supported through a greedyQ declarative feature in the web-native runtime |
+| **Generated export** | Validated behavior is translated into `app.R` or supporting native surveydown files |
+| **greedyQ-only** | The feature requires an explicit limitation or alternative in the export report |
 | **Deferred** | Valuable, but the compatibility shape needs more research or implementation maturity |
 | **Unsupported by design** | Conflicts with greedyQ's security, runtime, or product principles |
 
-Compatibility means compatibility with the documented authoring contract where practical. It does not mean reproducing surveydown's R objects, Shiny internals, generated HTML, CSS, or database implementation.
+Compatibility means compatibility with the documented authoring contract where practical. It does not mean reproducing surveydown's R objects, Shiny internals, generated HTML, CSS, database implementation, or source code. Each normative feature must separately declare greedyQ runtime support and native surveydown export behavior.
 
 ## 2. Executive findings
 
@@ -40,7 +44,7 @@ Compatibility means compatibility with the documented authoring contract where p
 8. Randomization is a programming pattern rather than a declared study primitive. Authors generate or load randomized values in `app.R`, store them explicitly, and display reactive questions through `sd_output()`.
 9. Surveydown uses one wide response row per session. It creates and extends a PostgreSQL table automatically, uses `session_id` as the primary key, and writes values as text columns.
 10. Cookies preserve the session ID, current page, and answers. Database/CSV data is updated on page transitions and browser/session end.
-11. greedyQ can preserve most static QMD authoring while replacing `app.R` with a versioned declarative specification. Arbitrary R and Shiny behavior cannot be generally translated and remains unsupported by design.
+11. greedyQ can preserve most static QMD authoring while expressing runtime behavior in a versioned declarative specification. The web-native runtime consumes it directly, and the export generator produces `app.R` for supported native surveydown behavior. Arbitrary user-authored R and Shiny behavior cannot be generally translated and remains unsupported as input.
 12. Because AI-guided creation is greedyQ's primary experience, compatibility details must be expressible as deterministic generation rules and validator diagnostics, not merely prose for expert authors.
 
 ## 3. Project and runtime model
@@ -76,9 +80,10 @@ shiny::shinyApp(ui = ui, server = server)
 ```text
 survey.qmd             -> compatible static authoring surface
 questions*.yml         -> compatible question definitions where specified
-greedyq.yml        -> native logic, randomization, lifecycle, persistence
+greedyq.yml            -> native logic, randomization, lifecycle, persistence
 design/*.csv           -> native experimental designs
-app.R                  -> migration input only; never executed
+existing app.R         -> optional migration input; never executed
+generated app.R        -> native surveydown export from the validated AST
 ```
 
 | Surveydown component | Proposed greedyQ treatment |
@@ -86,7 +91,8 @@ app.R                  -> migration input only; never executed
 | `survey.qmd` | **v0.1 target** |
 | Root `questions.yml` | **v0.1 target** |
 | Custom question YAML paths | **Post-v0.1** |
-| `app.R` standard patterns | **Native replacement** plus migration diagnostics |
+| Existing `app.R` standard patterns | Optional migration input; never executed |
+| Generated `app.R` | **Generated export** plus compatibility diagnostics |
 | Arbitrary R/Shiny code | **Unsupported by design** |
 | Generated `_survey/` files | Not a compatibility target |
 | RStudio gadgets / sdstudio | Not a product target |
@@ -256,7 +262,7 @@ The official [Page Navigation](https://surveydown.org/docs/page-navigation) docu
 | Hide buttons | `show_previous`, `show_next` | **v0.1 target** |
 | `sd_next()` | Legacy single Next button | **Post-v0.1** parser alias |
 | `sd_close()` | Exit flow, optional rating/restart/cookie clearing | Basic exit **v0.1**; extended options **Post-v0.1** |
-| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**; reactive redirect **Native replacement** |
+| `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**; reactive redirect **Native implementation** |
 | Empty terminal page | No forward control | **v0.1 target** |
 
 The current `sd_nav()` source signature uses `show_previous`; some narrative documentation uses `show_prev`. greedyQ must follow the package reference/source signature and may emit a helpful diagnostic for the narrative alias.
@@ -280,7 +286,7 @@ Upstream progress advances per answered question, not per page.
 
 | Key | Upstream default | Proposed greedyQ classification |
 | --- | --- | --- |
-| `mode` | `database`; also `preview`, `local` | Equivalent environments **Native replacement** |
+| `mode` | `database`; also `preview`, `local` | Equivalent environments **Native implementation** |
 | `show-previous` | `no` | **v0.1 target** |
 | `use-cookies` | `yes` | **v0.1 target**, with explicit privacy semantics |
 | `auto-scroll` | `no` | **Post-v0.1** |
@@ -331,16 +337,16 @@ The official [Conditional Logic](https://surveydown.org/docs/conditional-logic),
 
 | Upstream function/pattern | Semantics | Proposed greedyQ treatment |
 | --- | --- | --- |
-| `sd_show_if(condition ~ target)` | Show question or page when true | **Native replacement**, v0.1 declarative rule |
-| `sd_skip_if(condition ~ page)` | Skip forward when true | **Native replacement**, v0.1 declarative rule |
-| `sd_stop_if(condition ~ message)` | Block navigation and show validation errors | **Native replacement**, v0.1 declarative rule |
-| `sd_is_answered(id)` | Answer-completeness predicate; matrix requires all rows | **Native replacement**, v0.1 expression function |
-| `sd_value()` / `sd_values()` | Reactive answer lookup and type conversion | **Native replacement**, expression references |
-| `sd_store_value()` | Store a derived/custom value | **Native replacement**, v0.1 assignment primitive |
-| `sd_output(type = "value")` | Display an answer or stored value | **Native replacement**, v0.1 interpolation |
+| `sd_show_if(condition ~ target)` | Show question or page when true | **Native implementation**, v0.1 declarative rule |
+| `sd_skip_if(condition ~ page)` | Skip forward when true | **Native implementation**, v0.1 declarative rule |
+| `sd_stop_if(condition ~ message)` | Block navigation and show validation errors | **Native implementation**, v0.1 declarative rule |
+| `sd_is_answered(id)` | Answer-completeness predicate; matrix requires all rows | **Native implementation**, v0.1 expression function |
+| `sd_value()` / `sd_values()` | Reactive answer lookup and type conversion | **Native implementation**, expression references |
+| `sd_store_value()` | Store a derived/custom value | **Native implementation**, v0.1 assignment primitive |
+| `sd_output(type = "value")` | Display an answer or stored value | **Native implementation**, v0.1 interpolation |
 | `sd_output(type = "question")` | Render a server-defined reactive question | **Deferred**; prefer declared dynamic properties |
 | `sd_output()` label modes | Display option or question labels | **Post-v0.1** |
-| `sd_reactive()` | Calculate and persist a reactive value | **Native replacement**, safe expression graph after v0.1 core |
+| `sd_reactive()` | Calculate and persist a reactive value | **Native implementation**, safe expression graph after v0.1 core |
 | `sd_copy_value()` | Work around unique Shiny output IDs | No compatibility need in web renderer |
 | Custom R functions | Arbitrary condition/calculation logic | **Unsupported by design** |
 | `observe()` and Shiny reactives | Arbitrary reactive programming | **Unsupported by design** |
@@ -468,7 +474,7 @@ greedyQ classification: the generic provider contract and a Prolific preset are 
 
 ## 13. Implications for the AI-guided workflow
 
-Surveydown compatibility is an implementation constraint beneath the primary conversational experience. A researcher should not need to know whether a requirement maps to compatible QMD syntax or a greedyQ-native declaration.
+Surveydown compatibility is an implementation and export constraint beneath the primary conversational experience. The primary execution target remains the independent greedyQ web runtime on Vercel and Supabase. A researcher should not need to know whether a requirement maps to compatible QMD syntax or a greedyQ-native declaration, but must be told when native surveydown export changes or cannot preserve behavior.
 
 The versioned guide and validator should therefore:
 
@@ -482,6 +488,8 @@ The versioned guide and validator should therefore:
 8. Detect Chat mode versus Agent mode before promising repository, database, deployment, or panel operations.
 9. Verify every external mutation before reporting it as complete.
 10. Keep generated artifacts model-independent so they can be inspected, edited, validated, and reproduced without the originating conversation.
+11. Generate `survey.qmd`, `app.R`, supporting files, and a compatibility report whenever native surveydown export is requested.
+12. Never imply that greedyQ is affiliated with, endorsed by, or maintained by the surveydown project.
 
 The LLM is responsible for applying its research-methods knowledge to critique questions and designs. greedyQ is responsible for ensuring that the review occurs at the correct checkpoint, concerns are explained, the researcher retains final authority, and confirmed decisions become valid deterministic artifacts.
 
@@ -499,6 +507,8 @@ The normative specification should make the following decisions explicitly:
 8. Define versioned database migrations and Row Level Security policies.
 9. Define privacy-safe defaults for cookies, IP addresses, browser metadata, and URL parameters.
 10. Define stable validator diagnostics suitable for both people and LLM correction loops.
+11. Define deterministic `app.R` generation rules and the boundary between directly portable, generated, greedyQ-only, and unsupported behavior.
+12. Require independently authored conformance fixtures rather than copied surveydown source or test material.
 
 ## 15. Known ambiguities and follow-up checks
 

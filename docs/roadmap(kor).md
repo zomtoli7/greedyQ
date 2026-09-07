@@ -12,7 +12,7 @@
 - [x] 영문 문서를 source of truth로 지정
 - [x] 모든 Markdown 문서에 동기화된 `(kor).md` 사본 요구
 - [x] 초기 README, 제품 개요, 로드맵 생성
-- [ ] 오픈소스 라이선스 선택
+- [x] greedyQ에 MIT License 선택
 - [x] 로컬 Git 저장소 초기화
 - [x] GitHub 저장소 생성 및 연결
 
@@ -29,7 +29,8 @@ Primary source와 실행 가능한 예제로 현재 surveydown의 공개된 사�
 - [x] `app.R` logic의 show, skip, stop, reactive 동작 분석
 - [x] Randomization과 stored-value 동작 분석
 - [x] Session persistence와 PostgreSQL/Supabase 동작 분석
-- [ ] 대표 공식 예제를 conformance fixture로 수집
+- [ ] 문서화된 공개 동작을 바탕으로 독립 작성한 conformance fixture 생성
+- [x] 독립 구현을 위한 소스 코드 비사용 정책 확립
 
 결과물:
 
@@ -52,7 +53,8 @@ docs/surveydown-compatibility(kor).md
 - [ ] Versioned consent, refusal, amendment, withdrawal semantics 정의
 - [ ] Generic external-respondent contract 및 Prolific preset 정의
 - [ ] 안정적인 validator diagnostic code 정의
-- [ ] 모든 surveydown 기능을 supported, partial, unsupported, deferred로 분류
+- [ ] 모든 기능을 directly portable, native surveydown으로 generated, greedyQ-only, unsupported로 분류
+- [ ] `survey.qmd`, 생성된 `app.R`, 보조 파일, 호환성 보고서에 대한 native surveydown export contract 정의
 
 결과물:
 
@@ -93,11 +95,12 @@ examples/complete-study/
 - [ ] Parser library 선택 및 grammar 구현 접근법 확정
 - [ ] TypeScript parser 및 정규화 AST package 생성
 - [ ] Validator 및 LLM-friendly diagnostic format 생성
+- [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
 - [ ] React/Next.js renderer skeleton 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성
 - [ ] 로컬 validation 및 preview 명령 구현
-- [ ] 문서화된 conformance fixture 자동 테스트 추가
+- [ ] 독립 작성한 conformance fixture 및 native export snapshot 자동 테스트 추가
 
 ## Phase 5: AI-guided end-to-end MVP
 
@@ -107,6 +110,7 @@ examples/complete-study/
 - [ ] 재개 가능한 one-question-at-a-time interview 수행
 - [ ] 중요한 연구 결정을 기록하고 승인 획득
 - [ ] 유효한 study, consent, respondent-source, deployment artifact 생성
+- [ ] 동일한 검증된 study에서 native surveydown 프로젝트와 명시적 호환성 보고서 생성
 - [ ] Markdown 페이지 및 기본 navigation render
 - [ ] Text, textarea, numeric, single-choice, multiple-choice 문항 구현
 - [ ] Required field와 기본 validation 구현
@@ -166,6 +170,10 @@ examples/complete-study/
 - 연구자의 응답 데이터 소유권 유지
 - 배포된 실험을 재현하기에 충분한 metadata 기록
 - R, RStudio, Quarto, Shiny 없이 핵심 workflow 사용 가능
+- Vercel/Supabase web-native runtime을 주 실행 경로로 유지
+- 제한 없는 R, Shiny, Quarto 사용자 정의를 위한 핵심 경로로 native surveydown 프로젝트 생성
+- surveydown 소스 코드를 포함하지 않고 공개 문서를 바탕으로 호환성을 독립 구현
+- 제휴, 보증, 공동 유지 관리를 암시하지 않으면서 출처 표시
 - 주요 경험을 model-agnostic하게 유지하고 여러 유능한 LLM에서 사용할 수 있게 함
 - 중요한 결정의 명시적 승인을 통해 연구자 권한 보존
 - 외부 설정이나 배포를 실제 수행하고 검증하지 않은 상태에서 성공했다고 주장하지 않음
@@ -175,4 +183,5 @@ examples/complete-study/
 1. 조사 결과를 규범적 greedyQ v0.1 스펙으로 전환
 2. Guided interview, study-state, researcher-approval protocol 정의
 3. Full/compact versioned greedyQ guide 초안 작성
-4. Executable conformance fixture를 수집하고 LLM 생성 artifact를 대상으로 테스트
+4. Native surveydown export contract와 `app.R` 생성 규칙 작성
+5. 독립적인 executable conformance fixture를 만들고 runtime과 export artifact를 모두 테스트

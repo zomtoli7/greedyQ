@@ -12,7 +12,7 @@
 - [x] Define English as the documentation source of truth.
 - [x] Require a synchronized `(kor).md` copy for every Markdown document.
 - [x] Create the initial README, product brief, and roadmap.
-- [ ] Select an open-source license.
+- [x] Select the MIT License for greedyQ.
 - [x] Initialize the local Git repository.
 - [x] Create and connect the GitHub repository.
 
@@ -29,7 +29,8 @@ Research the current public, user-facing surveydown behavior from primary source
 - [x] Analyze `app.R` logic: show, skip, stop, and reactive behavior.
 - [x] Analyze randomization and stored-value behavior.
 - [x] Analyze session persistence and PostgreSQL/Supabase behavior.
-- [ ] Collect representative official examples as conformance fixtures.
+- [ ] Create independently authored conformance fixtures from documented public behavior.
+- [x] Establish a no-source-code-reuse policy for the independent implementation.
 
 Deliverables:
 
@@ -52,7 +53,8 @@ docs/surveydown-compatibility(kor).md
 - [ ] Define versioned consent, refusal, amendment, and withdrawal semantics.
 - [ ] Define the generic external-respondent contract and Prolific preset.
 - [ ] Define stable validator diagnostic codes.
-- [ ] Mark every surveydown feature as supported, partial, unsupported, or deferred.
+- [ ] Classify every feature as directly portable, generated to native surveydown, greedyQ-only, or unsupported.
+- [ ] Define the native surveydown export contract for `survey.qmd`, generated `app.R`, supporting files, and compatibility reports.
 
 Deliverables:
 
@@ -93,11 +95,12 @@ examples/complete-study/
 - [ ] Select parser libraries and finalize the grammar implementation approach.
 - [ ] Create the TypeScript parser and normalized AST packages.
 - [ ] Create the validator and LLM-friendly diagnostic format.
+- [ ] Create the native surveydown exporter and deterministic `app.R` generator.
 - [ ] Create the React/Next.js renderer skeleton.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.
 - [ ] Implement local validation and preview commands.
-- [ ] Add automated tests for documented conformance fixtures.
+- [ ] Add automated tests for independently authored conformance fixtures and native export snapshots.
 
 ## Phase 5: AI-guided end-to-end MVP
 
@@ -107,6 +110,7 @@ Implement the smallest complete conversational study path.
 - [ ] Conduct a resumable one-question-at-a-time interview.
 - [ ] Record and obtain approval for material research decisions.
 - [ ] Generate valid study, consent, respondent-source, and deployment artifacts.
+- [ ] Generate a native surveydown project and explicit compatibility report from the same validated study.
 - [ ] Render Markdown pages and basic navigation.
 - [ ] Implement text, textarea, numeric, single-choice, and multiple-choice questions.
 - [ ] Implement required fields and basic validation.
@@ -166,6 +170,10 @@ These requirements apply to every phase:
 - Preserve researcher ownership of respondent data.
 - Record enough metadata to reproduce fielded experiments.
 - Keep the core workflow usable without R, RStudio, Quarto, or Shiny.
+- Keep the Vercel/Supabase web-native runtime as the primary execution path.
+- Generate native surveydown projects as a first-class path for unrestricted R, Shiny, and Quarto customization.
+- Implement compatibility from public documentation without incorporating surveydown source code.
+- Preserve attribution without implying affiliation, endorsement, or shared maintainership.
 - Keep the primary experience model-agnostic and usable with multiple capable LLMs.
 - Preserve researcher authority through explicit approval of material decisions.
 - Never claim external setup or deployment succeeded without performing and verifying it.
@@ -175,4 +183,5 @@ These requirements apply to every phase:
 1. Turn the research findings into the normative greedyQ v0.1 specification.
 2. Specify the guided interview, study-state, and researcher-approval protocols.
 3. Draft the full and compact versioned greedyQ guides.
-4. Collect executable conformance fixtures and test LLM-generated artifacts against them.
+4. Build the native surveydown export contract and `app.R` generation rules.
+5. Create independent executable conformance fixtures and test both runtime and export artifacts against them.

@@ -28,6 +28,9 @@
 - Chat mode와 agent mode를 구분하고 연결된 도구와 검증 결과 없이 외부 서비스를 설정했다고 주장하지 않습니다.
 - 런타임 구현보다 스펙 작업을 우선합니다.
 - surveydown 내부 구현을 복제하지 않고 공개된 사용자 대상 문법과의 호환을 목표로 합니다.
+- surveydown 소스 코드, test, 복사한 fixture를 포함하지 않으며 공개 문서와 관찰 가능한 동작을 바탕으로 구현과 conformance fixture를 독립 작성합니다.
+- Vercel/Supabase web-native runtime을 우선하면서 `app.R`을 포함한 native surveydown 프로젝트 생성을 핵심 출력으로 다룹니다.
+- Export 동작을 directly portable, generated, greedyQ-only, unsupported로 분류하고 중요한 불일치를 모두 보고합니다.
 - 설문 정의에서 임의의 R 또는 JavaScript를 실행하지 않습니다.
 - 연구자가 응답 데이터의 소유권과 통제권을 유지하도록 합니다.
 - 제품 방향이 명시적으로 변경되지 않는 한 GUI 설문 빌더를 도입하지 않습니다.

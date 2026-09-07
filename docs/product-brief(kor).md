@@ -14,6 +14,8 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 
 이 제품은 Qualtrics를 화면 단위로 복제하거나 또 다른 GUI form builder 또는 독점 AI 서비스가 되는 것을 목표로 하지 않습니다. 주요 사용자 interface는 안내형 대화이며 지속 가능한 abstraction은 버전 관리되는 연구 스펙입니다. QMD 직접 작성은 expert path로 유지합니다.
 
+greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자체 Vercel/Supabase web runtime이며, 작성 호환성을 위해 문서화된 surveydown-style `survey.qmd` 관례의 일부를 채택하고 고급 R, Shiny, Quarto 사용자 정의를 위한 native surveydown 프로젝트를 생성합니다. Surveydown 소스 코드를 포함하지 않으며 제휴 또는 보증 관계를 주장하지 않습니다.
+
 ### 핵심 제안
 
 > Frontier model의 연구 보조 능력을 결정론적인 설문 specification, validator, runtime, deployment workflow와 결합합니다.
@@ -43,7 +45,7 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 - 설문 DSL을 배우지 않고 대화를 통해 엄밀한 설문을 만들고 싶은 연구자
 - Text file과 Git을 직접 검사하거나 편집하려는 expert user
 - 무작위화, 요인 설계, conjoint/CBC가 필요한 실험 연구자
-- `survey.qmd`는 유지하면서 R/Shiny 런타임을 교체하고 싶은 surveydown 사용자
+- Web-native runtime을 사용하면서도 native R/Shiny 사용자 정의 경로를 유지하려는 surveydown 사용자
 
 ### 초기 대상이 아닌 사용자
 
@@ -52,7 +54,7 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 ## 4. 제품 원칙
 
 1. **연구 스펙이 source of truth입니다.** 설문 콘텐츠, 로직, 설계를 검사하고 버전 관리할 수 있어야 합니다.
-2. **호환성은 사용자 문법을 대상으로 합니다.** surveydown 내부 구현이 아니라 공개된 작성 스펙을 목표로 합니다.
+2. **호환성은 사용자 문법을 대상으로 하며 독립 구현합니다.** surveydown 소스 코드를 포함하지 않고 공개적으로 문서화된 작성 관례를 목표로 합니다.
 3. **임의 코드를 실행하지 않습니다.** R chunk는 지원되는 제한적 `sd_*()` expression 집합으로만 parse합니다.
 4. **로직은 선언적입니다.** 분기, 검증, 무작위화에는 안전하고 문서화된 DSL을 사용합니다.
 5. **연구를 우선합니다.** 재현 가능한 무작위화, 실험 metadata, 분석 가능한 데이터가 핵심 고려사항입니다.
@@ -64,6 +66,8 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 11. **LLM이 연구 지능을 제공합니다.** greedyQ는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
 12. **연구자의 권한을 보존합니다.** AI는 문제를 설명하고 대안을 제시하지만 중요한 연구 결정을 조용히 변경하지 않습니다.
 13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
+14. **Web-native runtime이 우선입니다.** Vercel과 Supabase가 주 실행 경로이며 native surveydown export는 greedyQ runtime이 아닌 핵심 병렬 출력입니다.
+15. **고급 사용자 정의에는 escape hatch가 있습니다.** 제한 없는 R, Shiny, Quarto가 필요할 때 연구자가 surveydown에서 직접 이어갈 수 있도록 `app.R`과 관련 native 프로젝트 파일을 생성합니다.
 
 ## 5. 호환성 전략
 
@@ -71,7 +75,8 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 | --- | --- |
 | `survey.qmd` 페이지 및 문항 문법 | 가능한 범위에서 호환 |
 | surveydown YAML 설정 | 문서화되고 구현 가능한 범위에서 호환 |
-| `app.R` | 실행하지 않고 선언형 설정으로 대체 |
+| 기존 `app.R` 입력 | 절대 실행하지 않으며 인식 가능한 pattern만 diagnostic과 함께 migration 가능 |
+| 생성되는 `app.R` 출력 | 검증된 AST에서 생성하는 핵심 native surveydown export |
 | 임의의 R/Shiny reactive code | 미지원 |
 | 문항 타입 | surveydown의 공개 question API 우선 구현 |
 | 조건 로직 | 네이티브 선언형 DSL |
@@ -80,19 +85,29 @@ greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈
 | 런타임 | TypeScript, React, 웹 네이티브 server/runtime 계층 |
 | 호스팅 | Vercel 우선 |
 
-목표로 하는 migration 경로는 다음과 같습니다.
+모든 기능은 두 출력 경로에 걸쳐 다음과 같이 분류해야 합니다.
+
+- **Directly portable:** 호환 QMD로 표현되며 native surveydown 출력에서도 보존
+- **Generated:** greedyQ에서 native로 구현하고 생성된 `app.R` 또는 보조 파일로 변환
+- **greedyQ-only:** web-native runtime에서 사용할 수 있지만 export 시 명시적인 제한 또는 대안 제공
+- **Unsupported:** 조용히 변경하지 않고 안정적인 diagnostic으로 거부
+
+목표로 하는 실행 및 export pipeline은 다음과 같습니다.
 
 ```text
-기존 surveydown 프로젝트
-
-survey.qmd  ----------------------> 호환 범위에서 유지
-app.R       -- migration 도구 ---> greedyq.yml
-                                      |
-                                      v
-                               greedyQ runtime
-                                      |
-                                      v
-                              Vercel + Supabase
+survey.qmd + greedyq.yml + design/*.csv + assets
+                         |
+                         v
+              parser -> validated AST
+                    /             \
+                   v               v
+       greedyQ web runtime    export generator
+                   |               |
+                   v               v
+         Vercel + Supabase   survey.qmd + app.R
+                                     |
+                                     v
+                           native surveydown project
 ```
 
 ## 6. 제안 기술 모델
@@ -119,6 +134,7 @@ Internal Survey AST / JSON schema
       +-- logic engine
       +-- randomization engine
       +-- migration diagnostics
+      +-- native surveydown export generator
       |
       v
 React/Next.js survey renderer
@@ -141,6 +157,11 @@ my-survey/
 ├── design/
 │   └── choice_sets.csv
 ├── assets/
+├── export/
+│   └── surveydown/
+│       ├── survey.qmd
+│       ├── app.R
+│       └── compatibility-report.json
 └── supabase/
     └── migrations/
 ```
@@ -149,11 +170,12 @@ my-survey/
 - `greedyq.yml`: 표시 규칙, 분기, 검증, 무작위화
 - `design/*.csv`: conjoint/CBC 및 반복 실험 설계
 - `assets/`: 이미지와 실험 자극물
+- `export/surveydown/`: 생성된 native surveydown 프로젝트 및 호환성 보고서
 - `supabase/`: 재현 가능한 데이터베이스 migration
 
 ## 8. 선언형 로직
 
-`greedyq.yml`은 지원 가능한 `app.R` 사용 사례를 제한된 expression language로 대체합니다.
+`greedyq.yml`은 지원되는 runtime 동작을 제한된 언어로 표현합니다. greedyQ runtime은 이를 직접 평가하며, native export generator는 parsing, validation, preview, deployment 과정에서 임의의 R을 실행하지 않고 지원 동작을 `app.R`로 변환합니다.
 
 ```yaml
 logic:
@@ -427,7 +449,6 @@ Prolific preset은 초기 target입니다. 다른 provider는 provider-specific 
 - Supabase 관계형/JSONB schema 경계
 - 안전한 expression-language grammar
 - 균형 무작위화를 위한 transaction 모델
-- 초기 라이선스: MIT 또는 Apache-2.0
 - 공개 배포 전 제품명 및 상표 검토
 - 최소 필수 ethics metadata 및 study template별 차이
 - Consent amendment, withdrawal, response-retention semantics
