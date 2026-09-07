@@ -84,6 +84,7 @@ Specify the primary product experience before building the runtime.
 - [x] Define the preregistration review, explicit submission approval, and pre-fielding lock gates.
 - [x] Define truthful completion and verification requirements for external operations.
 - [x] Define capability-adaptive structured interview controls and numbered fallback.
+- [x] Define researcher-selectable governance/consent timing with mandatory early risk triage.
 - [x] Make hands-on interactive preview review a pre-deployment checkpoint.
 - [x] Publish full and compact versioned guides with a complete reference study.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.

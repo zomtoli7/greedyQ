@@ -26,6 +26,7 @@ class GenerationContractTests(unittest.TestCase):
         )
         checkpoints = schema["properties"]["checkpoint"]["enum"]
         self.assertIn("interactive_preview_reviewed", checkpoints)
+        self.assertIn("governance_consent_confirmed", checkpoints)
 
     def test_reference_qmd_uses_display_label_on_the_left(self):
         qmd = (ROOT / "examples" / "complete-study" / "survey.qmd").read_text()

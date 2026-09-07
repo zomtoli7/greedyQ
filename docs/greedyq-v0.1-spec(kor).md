@@ -121,9 +121,13 @@ Lifecycle state는 `created`, `consented`, `in_progress`, `completed`, `screened
 
 Governance metadata는 승인 또는 compliance를 주장하지 않으면서 기관 context를 기록합니다. Protocol title, institution, review status, protocol identifier, investigator contact, data contact, jurisdiction note를 지원합니다.
 
+AI workflow는 초기 topic, objective, broad design을 이해한 뒤 `governance_timing`을 `now` 또는 `after_instrument_draft`로 기록해야 합니다. Detailed governance collection은 연기할 수 있지만, 초기 minimal triage에서 vulnerable population, sensitive/directly identifying data, deception/incomplete disclosure, elevated-risk procedure, regulated intervention, known institutional restriction을 확인해야 합니다. Design-changing concern은 instrument work를 계속하기 전에 해결하거나 blocking으로 명시해야 합니다.
+
 Consent는 versioned여야 하며 ID, version, effective date, document path, confirmation question, refusal outcome을 포함해야 합니다. Consent acceptance는 연구 response를 수집하기 전에 document version, content hash, timestamp, session ID를 기록해야 합니다. Refusal은 최소 operational event record 외에 연구-response row를 만들면 안 됩니다.
 
 Consent amendment는 재확인을 요구해야 합니다. Withdrawal policy는 연구자 설정과 적용 의무에 따라 이미 수집한 response를 retain, anonymize, delete 중 어떻게 처리하는지 명시해야 하며 greedyQ는 설정된 policy가 법적으로 충분하다고 주장해서는 안 됩니다.
+
+Detailed work를 연기하면 draft preview에 눈에 띄는 placeholder governance 및 consent content를 사용할 수 있습니다. 이를 reviewed 또는 approved로 표현하면 안 됩니다. Detailed governance, privacy, withdrawal, retention, participant-facing consent는 coherent instrument draft 후 interactive preview approval 전에 확인해야 합니다. 이 confirmation이 기록되기 전에는 production deployment를 차단해야 합니다.
 
 Deletion-on-withdrawal을 선택하면 runtime은 operation을 atomic하고 idempotent하게 수행해야 합니다. Session을 lock하고, 설정에 따라 research answer, assignment, external identifier를 삭제하고, 명시된 최소 operational record만 유지하며, terminal lifecycle event를 append하고, 실패 시 전체 operation을 rollback해야 합니다. 생성되는 Supabase project는 `examples/complete-study/supabase/migrations/001_initial.sql`의 검토된 canonical implementation을 출발점으로 사용해야 합니다. Study-specific deviation은 문서화하고 researcher 승인을 받아야 합니다.
 

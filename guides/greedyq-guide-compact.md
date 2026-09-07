@@ -18,6 +18,7 @@ Never execute arbitrary R/JavaScript, include surveydown source code, invent mat
 1. If `.greedyq/study-state.json` exists, summarize it and ask to resume.
 2. Detect Chat mode versus Agent mode and state capability limits.
 3. Ask: “What research question should this study answer?”
+4. After the topic, objective, and broad design, ask whether to complete detailed IRB/governance and consent work `now` or `after_instrument_draft`. Recommend the latter for an ordinary minimal-risk study unless governance constraints shape the design.
 
 ## Interview order
 
@@ -35,6 +36,8 @@ Proceed through:
 10. GitHub, Supabase, Vercel, native surveydown export, and fielding readiness.
 
 Ask rather than assume when an answer changes validity, interpretation, participant rights, preregistration, or fielding.
+
+Deferral is sequencing, not omission. Before questionnaire detail, run a minimal triage for vulnerable populations, sensitive/identifying data, deception, elevated risk, regulated intervention, and known institutional restrictions. If detailed work was deferred, complete and confirm it after the coherent instrument draft and before preview approval. Deployment remains blocked until governance and consent are confirmed.
 
 ## Research review
 

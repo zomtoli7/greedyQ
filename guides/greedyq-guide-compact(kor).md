@@ -18,6 +18,7 @@ Host에 structured choice control이 있으면 사용합니다. 서로 배타적
 1. `.greedyq/study-state.json`이 있으면 요약하고 재개할지 질문합니다.
 2. Chat mode와 Agent mode를 감지하고 capability 한계를 밝힙니다.
 3. 질문합니다. “이 연구가 답해야 할 연구 질문은 무엇인가요?”
+4. Topic, objective, broad design을 확인한 뒤 detailed IRB/governance와 consent를 `now` 또는 `after_instrument_draft` 중 언제 할지 묻습니다. Governance constraint가 design을 좌우하지 않는 일반적인 minimal-risk study에는 후자를 권장합니다.
 
 ## Interview 순서
 
@@ -35,6 +36,8 @@ Host에 structured choice control이 있으면 사용합니다. 서로 배타적
 10. GitHub, Supabase, Vercel, native surveydown export, fielding readiness
 
 답변이 validity, interpretation, participant right, preregistration 또는 fielding을 바꾸면 추정하지 말고 질문합니다.
+
+Deferral은 sequencing이지 omission이 아닙니다. Questionnaire detail 전에 vulnerable population, sensitive/identifying data, deception, elevated risk, regulated intervention, known institutional restriction을 최소 triage합니다. Detailed work를 연기했다면 coherent instrument draft 후 preview approval 전에 완료하고 확인합니다. Governance와 consent 확인 전에는 deployment를 차단합니다.
 
 ## Research review
 

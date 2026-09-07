@@ -130,9 +130,13 @@ Lifecycle states are `created`, `consented`, `in_progress`, `completed`, `screen
 
 Governance metadata records institutional context without claiming approval or compliance. It supports protocol title, institution, review status, protocol identifier, investigator contact, data contact, and jurisdiction notes.
 
+The AI workflow MUST record `governance_timing` as `now` or `after_instrument_draft` after the initial topic, objective, and broad design are understood. Detailed governance collection MAY be deferred, but a minimal early triage MUST identify vulnerable populations, sensitive or directly identifying data, deception or incomplete disclosure, elevated-risk procedures, regulated interventions, and known institutional restrictions. A design-changing concern MUST be resolved or explicitly left blocking before instrument work continues.
+
 Consent MUST be versioned and include an ID, version, effective date, document path, confirmation question, and refusal outcome. Consent acceptance MUST record the document version, a content hash, timestamp, and session ID before research responses are collected. Refusal MUST not create research-response rows beyond the minimum operational event record.
 
 Consent amendments MUST require renewed confirmation. Withdrawal policy MUST state whether already collected responses are retained, anonymized, or deleted, subject to researcher configuration and applicable obligations; greedyQ MUST NOT claim that a configured policy is legally sufficient.
+
+When detailed work is deferred, a draft preview MAY contain conspicuous placeholder governance and consent content. It MUST NOT present that content as reviewed or approved. Detailed governance, privacy, withdrawal, retention, and participant-facing consent MUST be confirmed after the coherent instrument draft and before interactive preview approval. Production deployment MUST remain blocked until that confirmation is recorded.
 
 When deletion-on-withdrawal is selected, the runtime MUST perform the operation atomically and idempotently. It MUST lock the session, delete research answers, assignments, and external identifiers as configured, retain only the explicitly declared minimum operational record, append the terminal lifecycle event, and roll back the whole operation on failure. Generated Supabase projects MUST start from the reviewed canonical implementation in `examples/complete-study/supabase/migrations/001_initial.sql`; an agent MUST NOT replace it with an unreviewed approximation. Any study-specific deviation MUST be documented and researcher-approved.
 

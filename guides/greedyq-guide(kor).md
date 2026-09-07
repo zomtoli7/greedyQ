@@ -25,6 +25,11 @@ Platform safety 및 tool rule, 연구자의 명시적 요청, 이 guide, 고정�
 3. 없으면 사용 가능한 capability를 감지하고 Chat mode 또는 Agent mode를 선택합니다.
 4. Mode와 한계를 간단히 밝힙니다.
 5. 첫 질문 하나를 합니다. “이 연구가 답해야 할 연구 질문은 무엇인가요?”
+6. 초기 topic, objective, broad design을 이해한 뒤 detailed IRB/governance와 consent 작업 시점을 묻습니다.
+   - `now`: questionnaire drafting 전에 완료
+   - `after_instrument_draft`: coherent survey draft가 생길 때까지 detailed workflow 연기
+
+Governance constraint가 design을 바꾼다고 이미 알려진 경우가 아니라면 일반적인 minimal-risk study에는 `after_instrument_draft`를 권장합니다. 이것은 workflow timing 결정이지 governance 또는 consent 생략 허가가 아닙니다.
 
 처음부터 모든 field를 한꺼번에 질문하지 않습니다. 최소 연구설계를 이해하기 전에 final artifact를 생성하지 않습니다.
 
@@ -75,9 +80,13 @@ Recruitment source, eligibility, target sample, power 또는 precision rationale
 
 Condition, stimulus, assignment unit, allocation, randomization method, block/strata 정의, assignment point, persistence key, blinding, contamination risk, 저장할 metadata를 확인합니다. Assignment는 consent 이후 condition exposure 전에 이루어져야 합니다.
 
+Detailed governance를 연기한 경우에도 questionnaire 상세 작성 전 짧은 governance triage를 수행합니다. Design을 바꿀 수 있는 constraint만 확인합니다: minor 또는 vulnerable population, sensitive/directly identifying data, deception 또는 incomplete disclosure, more-than-minimal-risk procedure, regulated intervention, 알려진 institutional restriction. Unknown은 답을 발명하지 않고 기록합니다. 답변이 design을 materially 바꿀 수 있으면 계속하기 전에 해당 issue를 해결합니다.
+
 ### Phase E: governance, consent, privacy
 
 Compliance를 주장하지 않고 institution 및 review metadata를 수집합니다. Consent version, 표시 text, acceptance, refusal, amendment, withdrawal, retention/deletion-request 동작, sensitive field, URL parameter, metadata collection, retention period, access role을 확인합니다. Consent 전에 research response를 수집하지 않습니다.
+
+`governance_timing`이 `now`이면 이 detailed phase를 즉시 수행합니다. `after_instrument_draft`이면 첫 coherent Phase F questionnaire draft 후, interactive preview approval 전에 수행합니다. Draft instrument가 consent language와 data handling에 어떤 영향을 주는지 보여준 뒤 명시적 confirmation을 받습니다. Detailed governance와 consent는 연기할 수 있지만 생략하거나 조용히 default하거나 deployment까지 unresolved로 남길 수 없습니다.
 
 ### Phase F: questionnaire
 
@@ -141,6 +150,7 @@ File access가 있으면 다음 파일을 유지합니다.
 
 - `design_confirmed`: study state, decision log, 초기 `greedyq.yml`
 - `instrument_confirmed`: `survey.qmd`, consent, stimulus, design file
+- `governance_consent_confirmed`: detailed governance, consent, privacy, withdrawal, retention decision을 명시적으로 확인함
 - `interactive_preview_reviewed`: researcher가 respondent-facing preview를 직접 완료하고 저장 value, routing, condition, terminal outcome을 검토함
 - `analysis_confirmed`: analysis note 및 data dictionary
 - `preregistration_draft`: preregistration Markdown/JSON 및 hash manifest
@@ -156,7 +166,7 @@ Confirmed source decision에서 derived file을 재생성합니다. 변경을 �
 
 Preview는 survey-authored JavaScript를 실행하지 않고 고정된 greedyQ preview runtime을 사용해야 합니다. Page navigation, required check, show/skip logic, condition assignment, back navigation, resume, stored value, terminal outcome을 simulate하고 production redirect와 external write를 차단해야 합니다. Researcher debug panel은 current condition, display label, stored value, next route, lifecycle state를 보여주고 condition과 terminal path를 의도적으로 선택할 수 있어야 합니다. `study.md`는 optional design record로 유지합니다.
 
-파일을 생성했거나 AI가 page를 열었다는 이유만으로 `interactive_preview_reviewed`를 표시하지 않습니다. Hands-on review 후 명시적 researcher confirmation을 기록합니다. 이 checkpoint가 통과하거나 preview 불가를 researcher가 문서화해 수용하기 전에는 `deployment_candidate`를 차단합니다.
+파일을 생성했거나 AI가 page를 열었다는 이유만으로 `interactive_preview_reviewed`를 표시하지 않습니다. Hands-on review 후 명시적 researcher confirmation을 기록합니다. Detailed work가 deferred된 동안 preview는 눈에 띄는 placeholder governance text를 사용할 수 있지만 승인된 participant-facing consent로 오인되어서는 안 됩니다. `governance_consent_confirmed`와 `interactive_preview_reviewed`가 모두 통과하거나 preview 불가를 researcher가 문서화해 수용하기 전에는 `deployment_candidate`를 차단합니다.
 
 ## 10. Validation 및 correction loop
 

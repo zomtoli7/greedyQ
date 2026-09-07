@@ -84,6 +84,7 @@ docs/greedyq-v0.1-spec(kor).md
 - [x] Preregistration review, 명시적 제출 승인, pre-fielding lock gate 정의
 - [x] 외부 operation의 정직한 완료 및 검증 요구사항 정의
 - [x] Capability-adaptive structured interview control과 numbered fallback 정의
+- [x] Mandatory early risk triage를 포함한 researcher-selectable governance/consent timing 정의
 - [x] Hands-on interactive preview review를 pre-deployment checkpoint로 지정
 - [x] 완전한 reference study와 full/compact versioned guide 공개
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
