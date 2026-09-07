@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/decision-log.schema.json",
+  "title": "greedyQ Decision Log",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "append_only", "decisions"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "append_only": { "const": true },
+    "decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/decision" }
+    }
+  },
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_id", "topic", "status", "source", "question", "decision",
+        "researcher_confirmation", "based_on", "supersedes"
+      ],
+      "properties": {
+        "decision_id": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" },
+        "topic": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["confirmed", "rejected", "superseded"] },
+        "source": { "enum": ["researcher", "llm_suggestion", "reversible_default", "imported"] },
+        "question": { "type": "string", "minLength": 1 },
+        "options_considered": { "type": "array", "items": { "type": "string" } },
+        "decision": { "type": "string", "minLength": 1 },
+        "rationale": { "type": ["string", "null"] },
+        "researcher_confirmation": { "type": "string", "minLength": 1 },
+        "decided_at": { "type": ["string", "null"], "format": "date-time" },
+        "based_on": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^dec_[a-z0-9_]+$" }
+        },
+        "supersedes": { "type": ["string", "null"], "pattern": "^dec_[a-z0-9_]+$" },
+        "artifact_paths": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

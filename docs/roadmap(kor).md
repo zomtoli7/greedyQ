@@ -68,18 +68,18 @@ docs/greedyq-v0.1-spec(kor).md
 
 런타임 구현 전에 주요 제품 경험을 정의합니다.
 
-- [ ] Capability detection 및 Chat/Agent mode 선택 정의
-- [ ] Phase별 one-question-at-a-time interview protocol 정의
-- [ ] Study-state, assumption, unresolved-decision, decision-log format 정의
-- [ ] LLM의 research review 시점과 연구자 확인 필수 시점 정의
-- [ ] Artifact update checkpoint 및 재개 가능한 conversation handoff 정의
-- [ ] IRB/ethics, consent, respondent-source, privacy, deployment interview 단계 정의
-- [ ] LLM output-file contract 및 generation notes 정의
-- [ ] Validation/correction loop 및 안정적인 LLM-facing diagnostic 정의
-- [ ] Preview 전 및 deployment 전 approval gate 정의
-- [ ] Preregistration review, 명시적 제출 승인, pre-fielding lock gate 정의
-- [ ] 외부 operation의 정직한 완료 및 검증 요구사항 정의
-- [ ] 완전한 reference study와 full/compact versioned guide 공개
+- [x] Capability detection 및 Chat/Agent mode 선택 정의
+- [x] Phase별 one-question-at-a-time interview protocol 정의
+- [x] Study-state, assumption, unresolved-decision, decision-log format 정의
+- [x] LLM의 research review 시점과 연구자 확인 필수 시점 정의
+- [x] Artifact update checkpoint 및 재개 가능한 conversation handoff 정의
+- [x] IRB/ethics, consent, respondent-source, privacy, deployment interview 단계 정의
+- [x] LLM output-file contract 및 generation notes 정의
+- [x] Validation/correction loop 및 안정적인 LLM-facing diagnostic 정의
+- [x] Preview 전 및 deployment 전 approval gate 정의
+- [x] Preregistration review, 명시적 제출 승인, pre-fielding lock gate 정의
+- [x] 외부 operation의 정직한 완료 및 검증 요구사항 정의
+- [x] 완전한 reference study와 full/compact versioned guide 공개
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
 
 결과물:
@@ -186,8 +186,8 @@ examples/complete-study/
 
 ## 바로 다음 작업
 
-1. 조사 결과를 규범적 greedyQ v0.1 스펙으로 전환
-2. Guided interview, study-state, researcher-approval protocol 정의
-3. Full/compact versioned greedyQ guide 초안 작성
-4. Native surveydown export contract와 `app.R` 생성 규칙 작성
-5. 독립적인 executable conformance fixture를 만들고 runtime과 export artifact를 모두 테스트
+1. Golden reference를 기준으로 v0.1 grammar 및 state contract를 검토하고 freeze
+2. 여러 GPT 및 Claude configuration에서 full/compact guide 실행
+3. Behavioral failure를 guide revision과 반복 가능한 evaluation case로 전환
+4. 독립 fixture를 기준으로 QMD parser, normalized AST, validator 구현
+5. 동일 AST에서 native surveydown exporter와 web-runtime skeleton 구현

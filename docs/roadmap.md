@@ -68,18 +68,18 @@ docs/greedyq-v0.1-spec(kor).md
 
 Specify the primary product experience before building the runtime.
 
-- [ ] Define capability detection and Chat/Agent mode selection.
-- [ ] Define the phased, one-question-at-a-time interview protocol.
-- [ ] Define study-state, assumption, unresolved-decision, and decision-log formats.
-- [ ] Define when the LLM performs research review and when researcher confirmation is mandatory.
-- [ ] Define artifact update checkpoints and resumable conversation handoff.
-- [ ] Define IRB/ethics, consent, respondent-source, privacy, and deployment interview stages.
-- [ ] Define the LLM output-file contract and generation notes.
-- [ ] Define the validation/correction loop and stable LLM-facing diagnostics.
-- [ ] Define pre-preview and pre-deployment approval gates.
-- [ ] Define the preregistration review, explicit submission approval, and pre-fielding lock gates.
-- [ ] Define truthful completion and verification requirements for external operations.
-- [ ] Publish full and compact versioned guides with a complete reference study.
+- [x] Define capability detection and Chat/Agent mode selection.
+- [x] Define the phased, one-question-at-a-time interview protocol.
+- [x] Define study-state, assumption, unresolved-decision, and decision-log formats.
+- [x] Define when the LLM performs research review and when researcher confirmation is mandatory.
+- [x] Define artifact update checkpoints and resumable conversation handoff.
+- [x] Define IRB/ethics, consent, respondent-source, privacy, and deployment interview stages.
+- [x] Define the LLM output-file contract and generation notes.
+- [x] Define the validation/correction loop and stable LLM-facing diagnostics.
+- [x] Define pre-preview and pre-deployment approval gates.
+- [x] Define the preregistration review, explicit submission approval, and pre-fielding lock gates.
+- [x] Define truthful completion and verification requirements for external operations.
+- [x] Publish full and compact versioned guides with a complete reference study.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
 
 Deliverables:
@@ -186,8 +186,8 @@ These requirements apply to every phase:
 
 ## Immediate next actions
 
-1. Turn the research findings into the normative greedyQ v0.1 specification.
-2. Specify the guided interview, study-state, and researcher-approval protocols.
-3. Draft the full and compact versioned greedyQ guides.
-4. Build the native surveydown export contract and `app.R` generation rules.
-5. Create independent executable conformance fixtures and test both runtime and export artifacts against them.
+1. Review and freeze the v0.1 grammar and state contracts against the golden reference.
+2. Run the full and compact guides with multiple GPT and Claude configurations.
+3. Turn behavioral failures into guide revisions and repeatable evaluation cases.
+4. Implement the QMD parser, normalized AST, and validator against independent fixtures.
+5. Implement the native surveydown exporter and web-runtime skeleton from the same AST.

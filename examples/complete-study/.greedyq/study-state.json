@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "study_id": "digital_service_info_001",
+  "study_version": "1.0.0-fixture",
+  "guide_version": "0.1.0-draft.1",
+  "spec_version": "0.1.0-draft.1",
+  "mode": "agent",
+  "phase": "preregistration",
+  "status": "blocked",
+  "checkpoint": "preregistration_draft",
+  "updated_at": null,
+  "confirmed_decision_ids": [
+    "dec_research_question",
+    "dec_hypothesis",
+    "dec_sampling_stopping",
+    "dec_randomization",
+    "dec_consent_privacy",
+    "dec_instrument",
+    "dec_analysis",
+    "dec_preregistration_draft"
+  ],
+  "unresolved_decision_ids": [
+    "open_real_contributors",
+    "open_osf_submission"
+  ],
+  "assumptions": [],
+  "artifact_paths": [
+    "survey.qmd",
+    "greedyq.yml",
+    "consent.md",
+    "design/stimuli.csv",
+    "analysis/README.md",
+    "analysis/data-dictionary.csv",
+    "preregistration/osf-preregistration.md",
+    "preregistration/preregistration.json",
+    "preregistration/artifact-manifest.json"
+  ],
+  "gates": {
+    "design": {
+      "status": "approved",
+      "approval_decision_id": "dec_randomization",
+      "reason": "Approved as a fictional golden-reference design."
+    },
+    "instrument": {
+      "status": "approved",
+      "approval_decision_id": "dec_instrument",
+      "reason": "Approved as a pre-implementation fixture."
+    },
+    "analysis": {
+      "status": "approved",
+      "approval_decision_id": "dec_analysis",
+      "reason": "Confirmed as fixture analysis intent, not a real-study preregistration."
+    },
+    "preregistration": {
+      "status": "blocked",
+      "approval_decision_id": null,
+      "reason": "Real contributors and an explicit OSF submission approval are absent."
+    },
+    "deployment": {
+      "status": "blocked",
+      "approval_decision_id": null,
+      "reason": "The greedyQ runtime has not been implemented or deployed."
+    },
+    "fielding": {
+      "status": "blocked",
+      "approval_decision_id": null,
+      "reason": "Preregistration and deployment gates have not passed."
+    }
+  },
+  "next_question": "Who are the real contributors and institutional affiliations for a future OSF registration?",
+  "notes": [
+    "This state describes a fictional pre-implementation fixture.",
+    "No OSF, Vercel, Supabase, or Prolific production operation has been performed."
+  ]
+}

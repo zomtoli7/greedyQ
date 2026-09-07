@@ -90,7 +90,7 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 greedyQ는 현재 스펙 정의 단계입니다. 현재 milestone은 완료된 surveydown 호환성 조사를 greedyQ v0.1 스펙과 버전이 명시된 guided-interview protocol로 전환한 후 런타임을 구현하는 것입니다.
 
-현재 방향은 [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [완전한 기준 연구](./examples/complete-study/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+현재 방향은 [AI guide](./guides/README(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.1 스펙](./docs/greedyq-v0.1-spec(kor).md), [완전한 기준 연구](./examples/complete-study/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

@@ -34,6 +34,7 @@ consent.md                         versioned participant information
 design/stimuli.csv                 condition content and analysis labels
 analysis/                          analysis intent and data dictionary
 preregistration/                   OSF-oriented draft, structured data, and hash manifest
+.greedyq/                          resumable state, decision history, and generation provenance
 supabase/migrations/001_initial.sql  reference persistence schema
 vercel.json                        deployment fixture
 export/surveydown/                 expected native export fixture

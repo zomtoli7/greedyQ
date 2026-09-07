@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.dev/schemas/ai/unresolved-decisions.schema.json",
+  "title": "greedyQ Unresolved Decisions",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "study_id", "items"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["decision_id", "topic", "question", "blocking_scopes", "status"],
+        "properties": {
+          "decision_id": { "type": "string", "pattern": "^open_[a-z0-9_]+$" },
+          "topic": { "type": "string", "minLength": 1 },
+          "question": { "type": "string", "minLength": 1 },
+          "why_it_matters": { "type": ["string", "null"] },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "blocking_scopes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": ["artifact_generation", "validation", "preregistration", "deployment", "fielding"]
+            }
+          },
+          "status": { "enum": ["open", "resolved"] },
+          "created_at": { "type": ["string", "null"], "format": "date-time" },
+          "resolved_by": { "type": ["string", "null"], "pattern": "^dec_[a-z0-9_]+$" }
+        }
+      }
+    }
+  }
+}

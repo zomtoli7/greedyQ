@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1",
+  "study_id": "digital_service_info_001",
+  "study_version": "1.0.0-fixture",
+  "guide_version": "0.1.0-draft.1",
+  "spec_version": "0.1.0-draft.1",
+  "source_commit": null,
+  "generated_at": null,
+  "artifacts": [
+    {
+      "path": "survey.qmd",
+      "kind": "source",
+      "sha256": "f942ed6cbc3019433d50483e92abd50d20268b618297a76d323d95c4b4fbc392",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_research_question", "dec_randomization", "dec_instrument"]
+    },
+    {
+      "path": "greedyq.yml",
+      "kind": "source",
+      "sha256": "9787ec7bd3c3641adf02eb8d8f3e16d923d6cb633b3a48beb8757704f4e96ce6",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_randomization", "dec_consent_privacy", "dec_preregistration_draft"]
+    },
+    {
+      "path": "consent.md",
+      "kind": "source",
+      "sha256": "c3fdddb7256900faadb9bdfa127b8522c6e0a562ca6cd2de3576764343a68e08",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_consent_privacy"]
+    },
+    {
+      "path": "analysis/README.md",
+      "kind": "source",
+      "sha256": "84a26fec77a0c7604149c469e96292392a5c2b7040a5880c538d8cd013c6c7ac",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_hypothesis", "dec_analysis"]
+    },
+    {
+      "path": "preregistration/osf-preregistration.md",
+      "kind": "derived",
+      "sha256": "31c8abd417f650c4ce4037a82c0b01b1ecaff85a24e7cd2e916987455289ed09",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_hypothesis", "dec_sampling_stopping", "dec_randomization", "dec_analysis", "dec_preregistration_draft"]
+    },
+    {
+      "path": "preregistration/artifact-manifest.json",
+      "kind": "derived",
+      "sha256": "1c6ad1c23cb74c6ff574e8608d3b84a486d4b4997788bf4ee21ae41c3bcb257f",
+      "status": "generated",
+      "based_on_decision_ids": ["dec_preregistration_draft"]
+    }
+  ],
+  "external_operations": [
+    {
+      "operation": "osf_registration",
+      "status": "not_attempted",
+      "verified": false,
+      "external_id": null,
+      "url": null,
+      "verified_at": null,
+      "approval_decision_id": null
+    },
+    {
+      "operation": "vercel_deployment",
+      "status": "not_attempted",
+      "verified": false,
+      "external_id": null,
+      "url": null,
+      "verified_at": null,
+      "approval_decision_id": null
+    },
+    {
+      "operation": "supabase_provisioning",
+      "status": "not_attempted",
+      "verified": false,
+      "external_id": null,
+      "url": null,
+      "verified_at": null,
+      "approval_decision_id": null
+    }
+  ]
+}

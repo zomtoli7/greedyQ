@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "study_id": "digital_service_info_001",
+  "items": [
+    {
+      "decision_id": "open_real_contributors",
+      "topic": "registry_metadata",
+      "question": "Who are the real contributors and institutional affiliations for a future OSF registration?",
+      "why_it_matters": "Fixture identities must not be submitted as real registry metadata.",
+      "options": [],
+      "blocking_scopes": ["preregistration", "fielding"],
+      "status": "open",
+      "created_at": null,
+      "resolved_by": null
+    },
+    {
+      "decision_id": "open_osf_submission",
+      "topic": "registry_submission",
+      "question": "Does the researcher approve the exact artifact hashes, OSF submission, and embargo choice?",
+      "why_it_matters": "Draft generation is not authorization for an external registration.",
+      "options": ["Approve exact package and embargo", "Revise package", "Keep local draft only"],
+      "blocking_scopes": ["preregistration", "fielding"],
+      "status": "open",
+      "created_at": null,
+      "resolved_by": null
+    }
+  ]
+}
