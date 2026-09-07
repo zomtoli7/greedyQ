@@ -470,6 +470,7 @@ greedyQ classification: the generic provider contract and a Prolific preset are 
 | Persistence | Supabase, resume, partial save, completion | Additional backends, offline mode | Runtime schema mutation as core model |
 | Data | Normalized native model and wide export | Rich event/revision data | Central greedyQ-owned respondent store |
 | Research governance | Ethics metadata and versioned consent | Electronic signatures and jurisdiction-specific workflows | Claims of automatic IRB/legal compliance |
+| Preregistration | Versioned draft, structured data, and artifact manifest | Additional registry adapters and verified submission | Invented commitments or unverified registration claims |
 | Respondent sources | Generic URL/redirect contract and Prolific preset | Additional provider presets | Unvalidated arbitrary redirect code |
 
 ## 13. Implications for the AI-guided workflow
@@ -490,6 +491,7 @@ The versioned guide and validator should therefore:
 10. Keep generated artifacts model-independent so they can be inspected, edited, validated, and reproduced without the originating conversation.
 11. Generate `survey.qmd`, `app.R`, supporting files, and a compatibility report whenever native surveydown export is requested.
 12. Never imply that greedyQ is affiliated with, endorsed by, or maintained by the surveydown project.
+13. Treat preregistration as a greedyQ-native research-workflow output rather than a surveydown syntax compatibility claim.
 
 The LLM is responsible for applying its research-methods knowledge to critique questions and designs. greedyQ is responsible for ensuring that the review occurs at the correct checkpoint, concerns are explained, the researcher retains final authority, and confirmed decisions become valid deterministic artifacts.
 

@@ -26,6 +26,7 @@
 - QMD 직접 작성을 expert path로, PPTX conversion을 import path로 취급합니다.
 - 선택한 LLM이 연구 reasoning을 제공하게 하고 interview workflow, approval checkpoint, artifact contract, validation, reproducibility는 greedyQ에서 결정론적으로 유지합니다.
 - 중요한 연구 결정에는 연구자의 명시적 확인을 요구합니다.
+- Preregistration을 핵심 generated artifact 및 pre-fielding gate로 다루며 unresolved commitment를 지어내거나 명시적 승인과 검증 없이 registry에 제출하지 않습니다.
 - Chat mode와 agent mode를 구분하고 연결된 도구와 검증 결과 없이 외부 서비스를 설정했다고 주장하지 않습니다.
 - 런타임 구현보다 스펙 작업을 우선합니다.
 - surveydown 내부 구현을 복제하지 않고 공개된 사용자 대상 문법과의 호환을 목표로 합니다.

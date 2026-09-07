@@ -68,6 +68,7 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
 14. **Web-native runtime이 우선입니다.** Vercel과 Supabase가 주 실행 경로이며 native surveydown export는 greedyQ runtime이 아닌 핵심 병렬 출력입니다.
 15. **고급 사용자 정의에는 escape hatch가 있습니다.** 제한 없는 R, Shiny, Quarto가 필요할 때 연구자가 surveydown에서 직접 이어갈 수 있도록 `app.R`과 관련 native 프로젝트 파일을 생성합니다.
+16. **Preregistration은 핵심 출력입니다.** 확인된 연구 및 분석 결정에서 검토 가능하고 versioned된 preregistration package를 생성하고 registry 제출 또는 sample collection 전에 연구자의 명시적 승인을 요구합니다.
 
 ## 5. 호환성 전략
 
@@ -274,10 +275,10 @@ greedyq-guide.md + "설문 만들자!"
      survey.qmd + greedyq.yml + design/*.csv
                    |
                    v
-       validate -> preview -> approve -> deploy
+ validate -> preregister -> preview -> approve -> deploy
 ```
 
-Interview는 한 번에 하나의 집중된 질문을 하고, 확인된 결정을 구조적으로 기록하며, 안정된 checkpoint에서 artifact를 갱신합니다. LLM은 자체 연구 지식을 이용해 방법론적 위험을 발견하고 설명하며 대안을 제시할 수 있습니다. Guide는 설문 방법론 백과사전을 유지하려 하지 않습니다. Review workflow를 정의하고 중요한 결정이 바뀌기 전에 연구자의 확인을 요구합니다.
+Interview는 한 번에 하나의 집중된 질문을 하고, 확인된 결정을 구조적으로 기록하며, 안정된 checkpoint에서 artifact를 갱신합니다. Fielding 전에 hypothesis, design, sampling, exclusion, variable, analysis를 다루는 preregistration package를 생성합니다. LLM은 자체 연구 지식을 이용해 방법론적 위험을 발견하고 설명하며 대안을 제시할 수 있지만 해결되지 않은 preregistration commitment를 지어내면 안 됩니다. Guide는 설문 방법론 백과사전을 유지하려 하지 않습니다. Review workflow를 정의하고 중요한 결정이 바뀌기 전에 연구자의 확인을 요구합니다.
 
 ### 11.2 Chat mode 및 agent mode
 
@@ -315,6 +316,7 @@ examples/complete-study/
 - Study-state 및 decision-log format
 - QMD, YAML, logic, randomization, CSV contract
 - IRB/ethics, consent, respondent-source workflow
+- Preregistration interview, template 선택, artifact hash, pre-fielding approval gate
 - Artifact 생성 및 갱신 규칙
 - Validation 및 LLM correction loop
 - Preview 및 배포 전 승인
@@ -354,11 +356,12 @@ PPTX 구조, layout, table, speaker notes, optional metadata를 사용하여 페
 2. 기록된 중요한 연구 결정을 검토하고 승인합니다.
 3. 유효한 QMD, configuration, design, consent, deployment artifact를 받습니다.
 4. R을 설치하지 않고 연구를 검증합니다.
-5. Chat-mode handoff 또는 agent-mode execution으로 웹 애플리케이션을 preview하고 배포합니다.
-6. 지속적인 실험 배정으로 respondent를 등록합니다.
-7. 연구자의 Supabase에 부분 및 완료 응답을 저장합니다.
-8. 분석 가능한 데이터를 export합니다.
-9. Git commit과 기록된 스펙 버전으로 interview decision과 배포 당시 연구를 재현합니다.
+5. Sample collection 전에 생성된 preregistration package를 검토하고 승인합니다.
+6. Chat-mode handoff 또는 agent-mode execution으로 연구를 preview하고 배포합니다.
+7. 지속적인 실험 배정으로 respondent를 등록합니다.
+8. 연구자의 Supabase에 부분 및 완료 응답을 저장합니다.
+9. 분석 가능한 데이터를 export합니다.
+10. Git commit과 기록된 스펙 버전으로 interview decision과 배포 당시 연구를 재현합니다.
 
 ## 13. 연구 governance 및 respondent source
 

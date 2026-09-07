@@ -1,0 +1,45 @@
+{
+  "manifest_version": "0.1",
+  "algorithm": "sha256",
+  "status": "draft_unapproved",
+  "generated_at": "2026-09-07T00:00:00Z",
+  "study_id": "digital_service_info_001",
+  "study_version": "1.0.0-fixture",
+  "artifacts": [
+    {
+      "path": "survey.qmd",
+      "sha256": "f942ed6cbc3019433d50483e92abd50d20268b618297a76d323d95c4b4fbc392"
+    },
+    {
+      "path": "greedyq.yml",
+      "sha256": "9787ec7bd3c3641adf02eb8d8f3e16d923d6cb633b3a48beb8757704f4e96ce6"
+    },
+    {
+      "path": "consent.md",
+      "sha256": "c3fdddb7256900faadb9bdfa127b8522c6e0a562ca6cd2de3576764343a68e08"
+    },
+    {
+      "path": "design/stimuli.csv",
+      "sha256": "63ad0888498c76cdb48e67607f36a1d36803fe8883f22e6ed0f2b38d6db22893"
+    },
+    {
+      "path": "analysis/README.md",
+      "sha256": "84a26fec77a0c7604149c469e96292392a5c2b7040a5880c538d8cd013c6c7ac"
+    },
+    {
+      "path": "analysis/data-dictionary.csv",
+      "sha256": "50b5533963f066251e8ee9cc84f806bdb52d628e802641690b47fb6d725fbb3e"
+    },
+    {
+      "path": "preregistration/osf-preregistration.md",
+      "sha256": "31c8abd417f650c4ce4037a82c0b01b1ecaff85a24e7cd2e916987455289ed09"
+    },
+    {
+      "path": "preregistration/preregistration.json",
+      "sha256": "6c1dd099daad51abcc0ad441a642ff9b1383ab54ce200abf582615b51fa24d33"
+    }
+  ],
+  "researcher_approved": false,
+  "registry_submission_verified": false,
+  "fielding_allowed": false
+}

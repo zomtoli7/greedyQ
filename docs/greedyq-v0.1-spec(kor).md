@@ -93,7 +93,7 @@ Root key는 다음과 같습니다.
 
 ```text
 spec_version study governance consent respondents runtime persistence
-logic randomization outcomes export
+logic randomization preregistration outcomes export
 ```
 
 알 수 없는 root key는 strict mode에서 error입니다. Secret은 이 파일에 포함해서는 안 됩니다.
@@ -155,18 +155,29 @@ Diagnostic은 `code`, `severity`, `message`, `file`, `location`, 선택적인 `r
 | `GQ007` | error | Randomization persistence 정의 누락 |
 | `GQ008` | error | 불완전한 respondent-source contract |
 | `GQ009` | error | Secret 또는 unsafe redirect 감지 |
+| `GQ010` | error | Preregistration에 unresolved 또는 inconsistent commitment 포함 |
 | `GQ101` | warning | Native export에서 greedyQ-only인 기능 |
 | `GQ102` | warning | Native export가 storage representation을 변경함 |
 
 Validation은 결정론적이어야 합니다. 동일한 byte와 validator version은 동일한 diagnostic과 normalized AST를 생성합니다.
 
-## 13. Web-native runtime
+## 13. Preregistration output 및 fielding gate
+
+Preregistration은 핵심 generated output입니다. `greedyq.yml`은 template adapter, output directory, registration status, fielding gate를 식별해야 합니다. v0.1은 `osf_preregistration`과 `generic_markdown`을 지원하며 추가 registry template은 study model 변경이 아니라 adapter입니다.
+
+Package는 사람이 읽을 수 있는 Markdown draft, 기계가 읽을 수 있는 JSON representation, 등록 대상 study·consent·stimuli·analysis-plan의 정확한 version을 다루는 SHA-256 artifact manifest를 포함해야 합니다. Hypothesis, design, sampling plan, stopping rule, exclusion, condition, randomization, variable, primary/secondary outcome, analysis model, missing-data handling, 알려진 deviation 또는 unresolved decision을 포함해야 합니다.
+
+LLM은 누락된 중요한 commitment를 연구자에게 질문해야 하며 이를 지어내면 안 됩니다. 모든 unresolved item은 눈에 띄게 표시하고 `ready_for_submission`을 차단해야 합니다. Draft 생성은 submission이 아닙니다. External draft 생성, 제출, public release 또는 embargo 선택, sample collection 시작은 서로 다른 action입니다. 각 external mutation에는 적절한 권한이 필요하며 submission과 public/embargo 선택에는 연구자의 명시적 승인 및 결과 registry state 검증이 필요합니다.
+
+연구자가 preregistration package를 승인하면 greedyQ는 immutable local snapshot을 기록하고 대상 artifact hash가 변경된 경우 fielding을 차단해야 합니다. 변경에는 문서화된 amendment 또는 새 preregistration version이 필요하며 greedyQ는 승인된 record를 조용히 다시 생성하면 안 됩니다. Registry-specific behavior는 변경될 수 있으므로 adapter는 대상 external template/version을 선언해야 하고 검증 없이 성공적인 registration을 주장하면 안 됩니다.
+
+## 14. Web-native runtime
 
 Primary renderer는 Vercel에 배포 가능한 React/Next.js application입니다. 검증된 AST만 사용하고 sanitize된 content를 render하며 client feedback과 authoritative server validation을 수행하고 server-controlled Supabase operation으로 기록합니다.
 
 Preview mode는 production이 아닌 outcome handling을 사용하고 preview임을 눈에 띄게 표시해야 합니다. 필수 environment variable, migration, redirect configuration이 없으면 production deployment는 fail closed해야 합니다. Tool 또는 AI는 live endpoint와 persistence health를 검증하지 않고 성공적인 deployment를 보고해서는 안 됩니다.
 
-## 14. Native surveydown export
+## 15. Native surveydown export
 
 Exporter는 동일한 검증된 AST를 사용하고 최소한 `survey.qmd`, `app.R`, 필요한 question/design file, asset, `compatibility-report.json`을 포함하는 self-contained export directory를 생성합니다.
 
@@ -179,7 +190,7 @@ Exporter는 동일한 검증된 AST를 사용하고 최소한 `survey.qmd`, `app
 
 생성된 `app.R`은 surveydown R package에 의존할 수 있지만 surveydown 소스를 복사하지 않고 greedyQ template과 AST transform으로 작성해야 합니다. Compatibility report에 중요한 mismatch가 있으면 export가 behavior equivalence를 주장해서는 안 됩니다.
 
-## 15. Reference study acceptance criteria
+## 16. Reference study acceptance criteria
 
 Complete reference study는 다음을 입증해야 합니다.
 
@@ -193,15 +204,16 @@ Complete reference study는 다음을 입증해야 합니다.
 8. Privacy를 존중하는 demographic
 9. Partial save, resume, withdrawal, deletion-request 기록
 10. 구분된 completion, screen-out, refusal, error outcome
-11. Supabase migration과 Vercel configuration
-12. Native surveydown export expectation
+11. 사람이 읽고 기계가 읽을 수 있는 preregistration artifact 및 artifact-hash manifest
+12. Supabase migration과 Vercel configuration
+13. Native surveydown export expectation
 
 Parser, validator, runtime, exporter 구현이 존재하기 전까지 reference study는 pre-implementation fixture이며 실제로 실행·배포·conform한다고 설명해서는 안 됩니다.
 
-## 16. v0.1에서 deferred된 기능
+## 17. v0.1에서 deferred된 기능
 
 임의의 R/Shiny 또는 JavaScript, raw HTML, custom Quarto extension, image question, date range, multiple-response matrix, arbitrary widget, weighted/stratified allocation, factorial/conjoint 실행, electronic signature, 관할별 compliance automation은 deferred입니다.
 
-## 17. Versioning
+## 18. Versioning
 
-Breaking grammar 또는 semantic change에는 새 specification version이 필요합니다. Fielded study는 greedyQ specification, validator, runtime, schema migration, consent document, guide, export-generator version을 고정해야 합니다. 생성 artifact는 source commit과 configuration을 재현하기에 충분한 provenance를 포함해야 합니다.
+Breaking grammar 또는 semantic change에는 새 specification version이 필요합니다. Fielded study는 greedyQ specification, validator, runtime, schema migration, consent document, preregistration package, guide, export-generator version을 고정해야 합니다. 생성 artifact는 source commit과 configuration을 재현하기에 충분한 provenance를 포함해야 합니다.

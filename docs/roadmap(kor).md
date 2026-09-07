@@ -52,6 +52,7 @@ docs/surveydown-compatibility(kor).md
 - [ ] Compliance를 주장하지 않는 ethics/IRB metadata 정의
 - [ ] Versioned consent, refusal, amendment, withdrawal semantics 정의
 - [ ] Generic external-respondent contract 및 Prolific preset 정의
+- [ ] 구조화된 preregistration contract, template adapter, artifact manifest 정의
 - [ ] 안정적인 validator diagnostic code 정의
 - [ ] 모든 기능을 directly portable, native surveydown으로 generated, greedyQ-only, unsupported로 분류
 - [ ] `survey.qmd`, 생성된 `app.R`, 보조 파일, 호환성 보고서에 대한 native surveydown export contract 정의
@@ -76,6 +77,7 @@ docs/greedyq-v0.1-spec(kor).md
 - [ ] LLM output-file contract 및 generation notes 정의
 - [ ] Validation/correction loop 및 안정적인 LLM-facing diagnostic 정의
 - [ ] Preview 전 및 deployment 전 approval gate 정의
+- [ ] Preregistration review, 명시적 제출 승인, pre-fielding lock gate 정의
 - [ ] 외부 operation의 정직한 완료 및 검증 요구사항 정의
 - [ ] 완전한 reference study와 full/compact versioned guide 공개
 - [ ] 여러 유능한 LLM로 guided creation 및 correction workflow 테스트
@@ -110,6 +112,7 @@ examples/complete-study/
 - [ ] 재개 가능한 one-question-at-a-time interview 수행
 - [ ] 중요한 연구 결정을 기록하고 승인 획득
 - [ ] 유효한 study, consent, respondent-source, deployment artifact 생성
+- [ ] 확인된 결정에서 사람이 읽고 기계가 읽을 수 있는 preregistration artifact 생성
 - [ ] 동일한 검증된 study에서 native surveydown 프로젝트와 명시적 호환성 보고서 생성
 - [ ] Markdown 페이지 및 기본 navigation render
 - [ ] Text, textarea, numeric, single-choice, multiple-choice 문항 구현
@@ -141,6 +144,7 @@ examples/complete-study/
 - [ ] Response revision history
 - [ ] Prolific participant 및 completion-code 지원
 - [ ] 구조화된 ethics/IRB metadata 및 재사용 가능한 information block
+- [ ] 추가 registry 및 분야별 preregistration template adapter
 - [ ] Document version, hash, timestamp를 포함한 first-class consent
 - [ ] Generic respondent-collector integration contract
 - [ ] Completion 및 screen-out route를 포함한 Prolific preset
@@ -176,6 +180,8 @@ examples/complete-study/
 - 제휴, 보증, 공동 유지 관리를 암시하지 않으면서 출처 표시
 - 주요 경험을 model-agnostic하게 유지하고 여러 유능한 LLM에서 사용할 수 있게 함
 - 중요한 결정의 명시적 승인을 통해 연구자 권한 보존
+- 해결되지 않은 hypothesis, sample size, exclusion, outcome, analysis commitment를 preregistration에 지어내지 않음
+- 연구자의 명시적 승인과 검증된 외부 결과 없이 registration을 submit, publish, embargo하지 않음
 - 외부 설정이나 배포를 실제 수행하고 검증하지 않은 상태에서 성공했다고 주장하지 않음
 
 ## 바로 다음 작업

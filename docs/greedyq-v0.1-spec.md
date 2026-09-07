@@ -93,7 +93,7 @@ The root keys are:
 
 ```text
 spec_version study governance consent respondents runtime persistence
-logic randomization outcomes export
+logic randomization preregistration outcomes export
 ```
 
 Unknown root keys are errors in strict mode. Secrets MUST NOT appear in this file.
@@ -155,18 +155,29 @@ Diagnostics MUST include `code`, `severity`, `message`, `file`, `location`, and 
 | `GQ007` | error | Randomization is not persistently defined |
 | `GQ008` | error | Respondent-source contract is incomplete |
 | `GQ009` | error | Secret or unsafe redirect detected |
+| `GQ010` | error | Preregistration contains unresolved or inconsistent commitments |
 | `GQ101` | warning | Feature is greedyQ-only in native export |
 | `GQ102` | warning | Native export changes storage representation |
 
 Validation MUST be deterministic: identical bytes and validator version produce identical diagnostics and normalized AST.
 
-## 13. Web-native runtime
+## 13. Preregistration output and fielding gate
+
+Preregistration is a first-class generated output. `greedyq.yml` MUST identify a template adapter, output directory, registration status, and fielding gate. v0.1 supports `osf_preregistration` and `generic_markdown`; additional registry templates are adapters rather than changes to the study model.
+
+The package MUST include a human-readable Markdown draft, a machine-readable JSON representation, and a SHA-256 artifact manifest covering the exact study, consent, stimuli, and analysis-plan versions being registered. It SHOULD include hypotheses, design, sampling plan, stopping rule, exclusions, conditions, randomization, variables, primary and secondary outcomes, analysis models, missing-data handling, and known deviations or unresolved decisions.
+
+The LLM MUST ask the researcher about missing material commitments and MUST NOT invent them. Every unresolved item MUST remain visibly marked and MUST block `ready_for_submission`. Generation of a draft is not submission. Creating an external draft, submitting it, choosing public release or embargo, and starting sample collection are distinct actions. Each external mutation requires appropriate authorization, and submission plus public/embargo choice requires explicit researcher approval and verification of the resulting registry state.
+
+Once the researcher approves a preregistration package, greedyQ MUST record an immutable local snapshot and block fielding when covered artifact hashes change. A change requires a documented amendment or a new preregistration version; greedyQ MUST NOT silently regenerate the approved record. Registry-specific behavior can change, so adapters MUST declare the external template/version they target and MUST not claim successful registration without verification.
+
+## 14. Web-native runtime
 
 The primary renderer is a React/Next.js application deployable to Vercel. It consumes only a validated AST, renders sanitized content, performs client feedback and authoritative server validation, and writes through server-controlled Supabase operations.
 
 Preview mode MUST use non-production outcome handling and visibly identify itself. Production deployment MUST fail closed when required environment variables, migrations, or redirect configuration are missing. A tool or AI MUST NOT report successful deployment without verifying the live endpoint and persistence health.
 
-## 14. Native surveydown export
+## 15. Native surveydown export
 
 The exporter consumes the same validated AST and produces a self-contained export directory containing at least `survey.qmd`, `app.R`, required question/design files, assets, and `compatibility-report.json`.
 
@@ -179,7 +190,7 @@ Every feature is classified as:
 
 Generated `app.R` MAY depend on the surveydown R package but MUST be authored from greedyQ templates and AST transforms, not copied from surveydown source. Export MUST never claim behavioral equivalence when the compatibility report contains a material mismatch.
 
-## 15. Reference-study acceptance criteria
+## 16. Reference-study acceptance criteria
 
 The complete reference study MUST demonstrate:
 
@@ -193,15 +204,16 @@ The complete reference study MUST demonstrate:
 8. privacy-respecting demographics;
 9. partial save, resume, withdrawal, and deletion-request recording;
 10. distinct completion, screen-out, refusal, and error outcomes;
-11. Supabase migration and Vercel configuration; and
-12. native surveydown export expectations.
+11. human-readable and machine-readable preregistration artifacts plus an artifact-hash manifest;
+12. Supabase migration and Vercel configuration; and
+13. native surveydown export expectations.
 
 Until parser, validator, runtime, and exporter implementations exist, the reference study is a pre-implementation fixture and MUST NOT be described as executed, deployed, or conforming in practice.
 
-## 16. Deferred from v0.1
+## 17. Deferred from v0.1
 
 Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, image questions, date ranges, multiple-response matrices, arbitrary widgets, weighted or stratified allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
 
-## 17. Versioning
+## 18. Versioning
 
-Breaking grammar or semantic changes require a new specification version. A fielded study MUST pin the greedyQ specification, validator, runtime, schema migration, consent document, guide, and export-generator versions. Generated artifacts MUST include provenance sufficient to reproduce their source commit and configuration.
+Breaking grammar or semantic changes require a new specification version. A fielded study MUST pin the greedyQ specification, validator, runtime, schema migration, consent document, preregistration package, guide, and export-generator versions. Generated artifacts MUST include provenance sufficient to reproduce their source commit and configuration.

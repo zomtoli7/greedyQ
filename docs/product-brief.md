@@ -68,6 +68,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
 14. **The web-native runtime comes first.** Vercel and Supabase are the primary execution path; native surveydown export is a first-class parallel output, not the greedyQ runtime.
 15. **Advanced customization has an escape hatch.** Generate `app.R` and related native project files so researchers can continue directly in surveydown when unrestricted R, Shiny, or Quarto is required.
+16. **Preregistration is a first-class output.** Generate a reviewable, versioned preregistration package from confirmed study and analysis decisions, and require explicit researcher approval before any registry submission or sample collection.
 
 ## 5. Compatibility strategy
 
@@ -274,10 +275,10 @@ greedyq-guide.md + "Let's build a survey"
      survey.qmd + greedyq.yml + design/*.csv
                    |
                    v
-       validate -> preview -> approve -> deploy
+ validate -> preregister -> preview -> approve -> deploy
 ```
 
-The interview asks one focused question at a time, keeps a structured record of confirmed decisions, and updates artifacts at stable checkpoints. The LLM may detect methodological risks, explain them, and suggest alternatives using its own research knowledge. The guide does not attempt to maintain an encyclopedia of survey methodology. It defines the review workflow and requires researcher confirmation before material decisions change.
+The interview asks one focused question at a time, keeps a structured record of confirmed decisions, and updates artifacts at stable checkpoints. Before fielding, it generates a preregistration package covering hypotheses, design, sampling, exclusions, variables, and analysis. The LLM may detect methodological risks, explain them, and suggest alternatives using its own research knowledge, but it must not invent unresolved preregistration commitments. The guide does not attempt to maintain an encyclopedia of survey methodology. It defines the review workflow and requires researcher confirmation before material decisions change.
 
 ### 11.2 Chat mode and agent mode
 
@@ -315,6 +316,7 @@ The full guide should define:
 - Study-state and decision-log format
 - QMD, YAML, logic, randomization, and CSV contracts
 - IRB/ethics, consent, and respondent-source workflow
+- Preregistration interview, template selection, artifact hashes, and pre-fielding approval gate
 - Artifact creation and update rules
 - Validation and LLM correction loop
 - Preview and pre-deployment approval
@@ -354,7 +356,8 @@ The first end-to-end milestone succeeds when a researcher can:
 2. Review and approve the recorded material research decisions.
 3. Receive valid QMD, configuration, design, consent, and deployment artifacts.
 4. Validate the study without installing R.
-5. Preview and deploy it as a web application through chat-mode handoff or agent-mode execution.
+5. Review and approve a generated preregistration package before sample collection.
+6. Preview and deploy the study through chat-mode handoff or agent-mode execution.
 6. Enroll a respondent with persistent experimental assignment.
 7. Save partial and completed responses to the researcher's Supabase.
 8. Export analysis-ready data.

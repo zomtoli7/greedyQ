@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1",
+  "adapter": "osf_preregistration",
+  "status": "draft_unapproved",
+  "study_id": "digital_service_info_001",
+  "study_version": "1.0.0-fixture",
+  "title": "Effects of Digital-Service Information Framing on Support for a Hypothetical Municipal Program",
+  "hypotheses": [
+    {
+      "id": "h1",
+      "type": "confirmatory",
+      "statement": "Mean support_post will be higher in treatment than control."
+    }
+  ],
+  "design": {
+    "type": "between_subjects",
+    "conditions": ["control", "treatment"],
+    "allocation": "1:1",
+    "randomization": "fixed_block_4",
+    "primary_outcome": "support_post",
+    "prespecified_covariate": "support_pre"
+  },
+  "sampling": {
+    "source": "prolific_compatible",
+    "target_primary_outcome_completions": 400,
+    "maximum_consented_eligible_sessions": 500,
+    "latest_stop_at": "2026-12-31T23:59:00Z",
+    "stopping_rule": "Stop at the first satisfied limit."
+  },
+  "exclusions": {
+    "before_primary_analysis": [
+      "consent not accepted",
+      "age below 18",
+      "age above 120",
+      "proven test session",
+      "proven technical duplicate"
+    ],
+    "not_primary_exclusions": [
+      "attention-check failure",
+      "comprehension failure"
+    ]
+  },
+  "analysis": {
+    "estimand": "intention_to_treat_mean_difference",
+    "contrast": "treatment_minus_control",
+    "alpha": 0.05,
+    "confidence_interval": 0.95,
+    "primary_model": "unadjusted_difference_in_means",
+    "sensitivity_model": "ols_support_post_on_treatment_and_centered_support_pre",
+    "primary_missing_data": "complete_outcome_no_imputation",
+    "confirmatory_hypothesis_count": 1
+  },
+  "registry": {
+    "visibility": "embargo",
+    "embargo_end": "2027-09-07",
+    "submitted": false,
+    "verified": false,
+    "registration_id": null,
+    "url": null
+  },
+  "unresolved_decisions": [],
+  "researcher_approved": false,
+  "fielding_allowed": false
+}

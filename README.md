@@ -6,7 +6,7 @@
 
 greedyQ is an open-source, AI-guided survey and experimental research workflow backed by a deterministic Markdown-first engine. Its primary target is an independent web-native runtime deployed with Vercel and Supabase, while the same study can also be exported as a native surveydown project. A researcher gives a versioned greedyQ guide to GPT, Claude, or another capable agent and starts with a simple request such as “Let's build a survey.” The AI interviews the researcher, records confirmed decisions, produces valid study files, validates them, and—when connected tools are available—sets up deployment services.
 
-The AI supplies research reasoning and natural-language collaboration. greedyQ supplies the interview protocol, approval checkpoints, specification, validator, runtime, deployment contract, and reproducibility. The project is intended for academic studies that require auditable consent, external respondent panels, branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
+The AI supplies research reasoning and natural-language collaboration. greedyQ supplies the interview protocol, approval checkpoints, specification, validator, preregistration output, runtime, deployment contract, and reproducibility. The project is intended for academic studies that require auditable consent, external respondent panels, branching, persistent random assignment, factorial experiments, or conjoint/CBC designs.
 
 ## Why greedyQ?
 
@@ -35,6 +35,7 @@ It provides its own TypeScript and React runtime designed for GitHub, Vercel, an
 - The primary user experience is a guided conversation with a general-purpose LLM.
 - The LLM provides research intelligence; greedyQ provides workflow, specification, validation, and reproducibility.
 - Material research decisions require explicit researcher confirmation.
+- A fielding-ready study should generate a reviewable preregistration package before sample collection begins.
 - The workflow must detect whether it can act through connected tools or must provide files and instructions for the user.
 
 ## Primary workflow
@@ -46,10 +47,10 @@ Versioned greedyQ guide + researcher's study idea
               Guided AI interview
                          |
      research design -> consent -> questions
-     -> logic -> randomization -> respondent source
+     -> logic -> randomization -> analysis plan
                          |
                          v
- survey.qmd + greedyq.yml + design/*.csv + assets
+ survey files + preregistration package + assets
                          |
                          v
            parser -> Survey AST -> validator
@@ -66,10 +67,11 @@ The target onboarding experience is:
 1. Attach the versioned greedyQ guide to a capable LLM or agent.
 2. Say what study you want to build.
 3. Answer one focused question at a time and confirm material decisions.
-4. Review the generated study, consent, logic, randomization, and data plan.
+4. Review the generated study, consent, logic, randomization, data plan, and preregistration draft.
 5. Validate and preview the generated project.
-6. Let a connected agent configure GitHub, Vercel, and Supabase, or follow the generated handoff instructions.
-7. Approve and publish the web-native survey and, when useful, export the native surveydown project.
+6. Explicitly approve the preregistration package and submit it manually or through an authorized connected agent before fielding.
+7. Let a connected agent configure GitHub, Vercel, and Supabase, or follow the generated handoff instructions.
+8. Approve and publish the web-native survey and, when useful, export the native surveydown project.
 
 ## Interaction modes and alternative paths
 

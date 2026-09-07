@@ -52,6 +52,7 @@ docs/surveydown-compatibility(kor).md
 - [ ] Define ethics/IRB metadata without making compliance claims.
 - [ ] Define versioned consent, refusal, amendment, and withdrawal semantics.
 - [ ] Define the generic external-respondent contract and Prolific preset.
+- [ ] Define the structured preregistration contract, template adapters, and artifact manifest.
 - [ ] Define stable validator diagnostic codes.
 - [ ] Classify every feature as directly portable, generated to native surveydown, greedyQ-only, or unsupported.
 - [ ] Define the native surveydown export contract for `survey.qmd`, generated `app.R`, supporting files, and compatibility reports.
@@ -76,6 +77,7 @@ Specify the primary product experience before building the runtime.
 - [ ] Define the LLM output-file contract and generation notes.
 - [ ] Define the validation/correction loop and stable LLM-facing diagnostics.
 - [ ] Define pre-preview and pre-deployment approval gates.
+- [ ] Define the preregistration review, explicit submission approval, and pre-fielding lock gates.
 - [ ] Define truthful completion and verification requirements for external operations.
 - [ ] Publish full and compact versioned guides with a complete reference study.
 - [ ] Test guided creation and correction workflows with multiple capable LLMs.
@@ -110,6 +112,7 @@ Implement the smallest complete conversational study path.
 - [ ] Conduct a resumable one-question-at-a-time interview.
 - [ ] Record and obtain approval for material research decisions.
 - [ ] Generate valid study, consent, respondent-source, and deployment artifacts.
+- [ ] Generate human-readable and machine-readable preregistration artifacts from confirmed decisions.
 - [ ] Generate a native surveydown project and explicit compatibility report from the same validated study.
 - [ ] Render Markdown pages and basic navigation.
 - [ ] Implement text, textarea, numeric, single-choice, and multiple-choice questions.
@@ -141,6 +144,7 @@ Implement the smallest complete conversational study path.
 - [ ] Response revision history
 - [ ] Prolific participant and completion-code support
 - [ ] Structured ethics/IRB metadata and reusable information blocks
+- [ ] Additional registry and discipline-specific preregistration template adapters
 - [ ] First-class consent with document version, hash, and timestamp
 - [ ] Generic respondent-collector integration contract
 - [ ] Prolific preset with completion and screen-out routes
@@ -176,6 +180,8 @@ These requirements apply to every phase:
 - Preserve attribution without implying affiliation, endorsement, or shared maintainership.
 - Keep the primary experience model-agnostic and usable with multiple capable LLMs.
 - Preserve researcher authority through explicit approval of material decisions.
+- Never invent unresolved hypotheses, sample sizes, exclusions, outcomes, or analysis commitments in a preregistration.
+- Never submit, publish, or embargo a registration without explicit researcher approval and verified external results.
 - Never claim external setup or deployment succeeded without performing and verifying it.
 
 ## Immediate next actions

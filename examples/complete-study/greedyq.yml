@@ -156,6 +156,27 @@ randomization:
       timestamp_as: assignment_at
       spec_version_as: assignment_spec_version
 
+preregistration:
+  enabled: true
+  adapter: osf_preregistration
+  template_reference:
+    name: OSF Preregistration
+    source: https://help.osf.io/article/330-welcome-to-registrations
+    checked_on: 2026-09-07
+  output_directory: preregistration
+  human_readable: osf-preregistration.md
+  machine_readable: preregistration.json
+  artifact_manifest: artifact-manifest.json
+  status: draft_unapproved
+  unresolved_decisions: []
+  visibility_on_submission: embargo
+  embargo_end: 2027-09-07
+  fielding_gate:
+    required_before_fielding: true
+    require_researcher_approval: true
+    require_verified_registration: true
+    block_on_artifact_hash_change: true
+
 outcomes:
   complete:
     page: complete

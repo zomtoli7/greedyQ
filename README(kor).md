@@ -6,7 +6,7 @@
 
 greedyQ는 결정론적인 Markdown-first 엔진을 기반으로 하는 오픈소스 AI-guided 설문 및 실험 연구 workflow입니다. 주 실행 대상은 Vercel과 Supabase에 배포하는 독립적인 web-native runtime이며, 같은 연구를 native surveydown 프로젝트로도 export할 수 있습니다. 연구자는 버전이 명시된 greedyQ guide를 GPT, Claude 등의 유능한 agent에게 제공하고 “설문 만들자!”와 같은 간단한 요청으로 시작합니다. AI는 연구자를 인터뷰하고, 확인된 결정을 기록하며, 유효한 연구 파일을 생성·검증하고, 연결된 도구가 있으면 배포 서비스도 설정합니다.
 
-AI는 연구 reasoning과 자연어 협업을 제공합니다. greedyQ는 interview protocol, 승인 checkpoint, specification, validator, runtime, deployment contract, reproducibility를 제공합니다. 이 프로젝트는 감사 가능한 consent, 외부 respondent panel, 분기, 지속적인 무작위 배정, 요인 실험, conjoint/CBC 설계가 필요한 학술 연구를 대상으로 합니다.
+AI는 연구 reasoning과 자연어 협업을 제공합니다. greedyQ는 interview protocol, 승인 checkpoint, specification, validator, preregistration output, runtime, deployment contract, reproducibility를 제공합니다. 이 프로젝트는 감사 가능한 consent, 외부 respondent panel, 분기, 지속적인 무작위 배정, 요인 실험, conjoint/CBC 설계가 필요한 학술 연구를 대상으로 합니다.
 
 ## 왜 greedyQ인가?
 
@@ -35,6 +35,7 @@ greedyQ는 다음 장점을 유지합니다.
 - 주요 사용자 경험은 범용 LLM과의 안내형 대화입니다.
 - LLM은 연구 지능을 제공하고, greedyQ는 workflow, specification, validation, reproducibility를 제공합니다.
 - 중요한 연구 결정에는 연구자의 명시적 확인이 필요합니다.
+- Fielding-ready study는 sample collection 시작 전에 검토 가능한 preregistration package를 생성해야 합니다.
 - Workflow는 연결 도구로 직접 작업할 수 있는지, 사용자에게 파일과 지침을 제공해야 하는지 감지해야 합니다.
 
 ## 주요 workflow
@@ -46,10 +47,10 @@ Versioned greedyQ guide + 연구자의 연구 아이디어
                  안내형 AI 인터뷰
                          |
      연구 설계 -> consent -> questions
-     -> logic -> randomization -> respondent source
+     -> logic -> randomization -> analysis plan
                          |
                          v
- survey.qmd + greedyq.yml + design/*.csv + assets
+ survey files + preregistration package + assets
                          |
                          v
            parser -> Survey AST -> validator
@@ -66,10 +67,11 @@ Versioned greedyQ guide + 연구자의 연구 아이디어
 1. 버전이 명시된 greedyQ guide를 유능한 LLM 또는 agent에 첨부합니다.
 2. 만들고 싶은 연구를 말합니다.
 3. 한 번에 하나씩 제시되는 질문에 답하고 중요한 결정을 확인합니다.
-4. 생성된 연구, consent, logic, randomization, data plan을 검토합니다.
+4. 생성된 연구, consent, logic, randomization, data plan, preregistration draft를 검토합니다.
 5. 생성된 프로젝트를 validate하고 preview합니다.
-6. 연결된 agent가 GitHub, Vercel, Supabase를 설정하게 하거나 생성된 handoff 안내를 따릅니다.
-7. Web-native 설문을 승인·공개하고, 필요하면 native surveydown 프로젝트를 export합니다.
+6. Preregistration package를 명시적으로 승인하고 fielding 전에 직접 제출하거나 권한 있는 연결 agent를 통해 제출합니다.
+7. 연결된 agent가 GitHub, Vercel, Supabase를 설정하게 하거나 생성된 handoff 안내를 따릅니다.
+8. Web-native 설문을 승인·공개하고, 필요하면 native surveydown 프로젝트를 export합니다.
 
 ## Interaction mode 및 대안 경로
 

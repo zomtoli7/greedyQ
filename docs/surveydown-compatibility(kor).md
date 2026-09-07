@@ -470,6 +470,7 @@ greedyQ 분류: generic provider contract와 Prolific preset은 **v0.1 native ta
 | Persistence | Supabase, resume, partial save, completion | 추가 backend, offline mode | Core model로서 runtime schema mutation |
 | Data | Normalized native model 및 wide export | 풍부한 event/revision data | greedyQ 중앙 소유 respondent store |
 | Research governance | Ethics metadata 및 versioned consent | 전자서명 및 관할별 workflow | 자동 IRB/legal compliance 주장 |
+| Preregistration | Versioned draft, structured data, artifact manifest | 추가 registry adapter 및 검증된 submission | 지어낸 commitment 또는 검증되지 않은 registration 주장 |
 | Respondent source | Generic URL/redirect contract 및 Prolific preset | 추가 provider preset | 검증되지 않은 임의 redirect code |
 
 ## 13. AI-guided workflow에 미치는 영향
@@ -490,6 +491,7 @@ Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementat
 10. 생성 artifact를 model-independent하게 유지하여 원래 대화 없이도 검사·편집·검증·재현할 수 있게 합니다.
 11. Native surveydown export를 요청하면 `survey.qmd`, `app.R`, 보조 파일, 호환성 보고서를 생성합니다.
 12. greedyQ가 surveydown 프로젝트와 제휴하거나 이들의 보증을 받거나 공동 유지된다고 암시하지 않습니다.
+13. Preregistration을 surveydown syntax compatibility 주장이 아니라 greedyQ-native research-workflow output으로 다룹니다.
 
 LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQ는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
 

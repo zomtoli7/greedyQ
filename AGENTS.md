@@ -26,6 +26,7 @@
 - Treat direct QMD authoring as an expert path and PPTX conversion as an import path.
 - Let the chosen LLM provide research reasoning; keep interview workflow, approval checkpoints, artifact contracts, validation, and reproducibility deterministic in greedyQ.
 - Require explicit researcher confirmation for material research decisions.
+- Treat preregistration as a first-class generated artifact and pre-fielding gate; never invent unresolved commitments or submit to a registry without explicit approval and verification.
 - Distinguish chat mode from agent mode and never claim an external service was configured without connected tools and verified results.
 - Prioritize specification work before runtime implementation.
 - Target public, user-facing surveydown compatibility without copying its internal implementation.
