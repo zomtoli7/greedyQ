@@ -1,4 +1,4 @@
-# greedyQualt 로드맵
+# greedyQ 로드맵
 
 [English](./roadmap.md)
 
@@ -38,12 +38,12 @@ docs/surveydown-compatibility.md
 docs/surveydown-compatibility(kor).md
 ```
 
-## Phase 2: greedyQualt v0.1 스펙
+## Phase 2: greedyQ v0.1 스펙
 
 - [ ] 지원할 QMD grammar 정의
 - [ ] 제한된 `sd_*()` expression grammar 정의
 - [ ] Survey AST / JSON schema 정의
-- [ ] `greedyqualt.yml`과 expression language 정의
+- [ ] `greedyq.yml`과 expression language 정의
 - [ ] Navigation, validation, lifecycle semantics 정의
 - [ ] Randomization semantics와 저장 metadata 정의
 - [ ] Persistence 및 session 동작 정의
@@ -57,8 +57,8 @@ docs/surveydown-compatibility(kor).md
 결과물:
 
 ```text
-docs/greedyqualt-v0.1-spec.md
-docs/greedyqualt-v0.1-spec(kor).md
+docs/greedyq-v0.1-spec.md
+docs/greedyq-v0.1-spec(kor).md
 ```
 
 ## Phase 3: AI-guided workflow 스펙
@@ -81,10 +81,10 @@ docs/greedyqualt-v0.1-spec(kor).md
 결과물:
 
 ```text
-guides/greedyqualt-guide.md
-guides/greedyqualt-guide(kor).md
-guides/greedyqualt-guide-compact.md
-guides/greedyqualt-guide-compact(kor).md
+guides/greedyq-guide.md
+guides/greedyq-guide(kor).md
+guides/greedyq-guide-compact.md
+guides/greedyq-guide-compact(kor).md
 examples/complete-study/
 ```
 
@@ -150,7 +150,7 @@ examples/complete-study/
 - [ ] PPTX에서 text, table, image, speaker notes 추출
 - [ ] Slide layout에서 페이지와 일반 문항 구조 추론
 - [ ] 결정론적 변환을 위한 optional authoring metadata 지원
-- [ ] `survey.qmd`, `greedyqualt.yml`, asset 생성
+- [ ] `survey.qmd`, `greedyq.yml`, asset 생성
 - [ ] Confidence와 warning이 포함된 conversion report 생성
 - [ ] 생성된 artifact를 guided AI review workflow에 전달
 - [ ] 생성된 프로젝트 자동 검증
@@ -172,7 +172,7 @@ examples/complete-study/
 
 ## 바로 다음 작업
 
-1. 조사 결과를 규범적 greedyQualt v0.1 스펙으로 전환
+1. 조사 결과를 규범적 greedyQ v0.1 스펙으로 전환
 2. Guided interview, study-state, researcher-approval protocol 정의
-3. Full/compact versioned greedyQualt guide 초안 작성
+3. Full/compact versioned greedyQ guide 초안 작성
 4. Executable conformance fixture를 수집하고 LLM 생성 artifact를 대상으로 테스트

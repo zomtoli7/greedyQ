@@ -23,7 +23,7 @@
 - `docs/roadmap.md`를 현재 구현 순서의 기준으로 사용합니다.
 - AI-guided study creation 및 deployment를 주요 사용자 경험으로 취급합니다.
 - QMD 직접 작성을 expert path로, PPTX conversion을 import path로 취급합니다.
-- 선택한 LLM이 연구 reasoning을 제공하게 하고 interview workflow, approval checkpoint, artifact contract, validation, reproducibility는 greedyQualt에서 결정론적으로 유지합니다.
+- 선택한 LLM이 연구 reasoning을 제공하게 하고 interview workflow, approval checkpoint, artifact contract, validation, reproducibility는 greedyQ에서 결정론적으로 유지합니다.
 - 중요한 연구 결정에는 연구자의 명시적 확인을 요구합니다.
 - Chat mode와 agent mode를 구분하고 연결된 도구와 검증 결과 없이 외부 서비스를 설정했다고 주장하지 않습니다.
 - 런타임 구현보다 스펙 작업을 우선합니다.

@@ -1,4 +1,4 @@
-# greedyQualt 제품 개요
+# greedyQ 제품 개요
 
 [English](./product-brief.md)
 
@@ -10,7 +10,7 @@
 
 ## 1. 제품 정의
 
-greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈소스 AI-guided workflow입니다. 주요 사용자 경험은 구조화된 대화입니다. 연구자가 버전이 명시된 greedyQualt guide를 GPT, Claude 등의 유능한 agent에게 첨부하면, AI가 연구자에게 한 번에 하나씩 결정을 질문하고 workflow가 결정론적 study artifact를 생성·검증·preview·배포합니다.
+greedyQ는 학술 설문과 실험을 제작·배포·운영하기 위한 오픈소스 AI-guided workflow입니다. 주요 사용자 경험은 구조화된 대화입니다. 연구자가 버전이 명시된 greedyQ guide를 GPT, Claude 등의 유능한 agent에게 첨부하면, AI가 연구자에게 한 번에 하나씩 결정을 질문하고 workflow가 결정론적 study artifact를 생성·검증·preview·배포합니다.
 
 이 제품은 Qualtrics를 화면 단위로 복제하거나 또 다른 GUI form builder 또는 독점 AI 서비스가 되는 것을 목표로 하지 않습니다. 주요 사용자 interface는 안내형 대화이며 지속 가능한 abstraction은 버전 관리되는 연구 스펙입니다. QMD 직접 작성은 expert path로 유지합니다.
 
@@ -56,18 +56,18 @@ greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 �
 3. **임의 코드를 실행하지 않습니다.** R chunk는 지원되는 제한적 `sd_*()` expression 집합으로만 parse합니다.
 4. **로직은 선언적입니다.** 분기, 검증, 무작위화에는 안전하고 문서화된 DSL을 사용합니다.
 5. **연구를 우선합니다.** 재현 가능한 무작위화, 실험 metadata, 분석 가능한 데이터가 핵심 고려사항입니다.
-6. **연구자가 데이터를 소유합니다.** 응답은 연구자의 Supabase 프로젝트로 전송하며 greedyQualt는 중앙 응답 데이터 서비스를 운영하지 않습니다.
+6. **연구자가 데이터를 소유합니다.** 응답은 연구자의 Supabase 프로젝트로 전송하며 greedyQ는 중앙 응답 데이터 서비스를 운영하지 않습니다.
 7. **GUI에 의존하지 않습니다.** 작성이나 배포에 GUI 설문 빌더가 필요하지 않습니다.
 8. **AI-guided creation은 부가기능이 아니라 주요 경험입니다.** 범용 LLM이 연구자를 인터뷰하고 study state를 유지하며 유효한 artifact를 생성해야 합니다.
 9. **배포는 평범하고 단순해야 합니다.** GitHub, Vercel, Supabase만으로 production 설문을 운영할 수 있어야 합니다.
 10. **연구 governance를 명시해야 합니다.** 법적 또는 기관 compliance를 보증하지 않으면서 ethics-review metadata, consent, respondent-source 기록을 구조화하고 버전 관리하며 감사할 수 있어야 합니다.
-11. **LLM이 연구 지능을 제공합니다.** greedyQualt는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
+11. **LLM이 연구 지능을 제공합니다.** greedyQ는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
 12. **연구자의 권한을 보존합니다.** AI는 문제를 설명하고 대안을 제시하지만 중요한 연구 결정을 조용히 변경하지 않습니다.
 13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
 
 ## 5. 호환성 전략
 
-| 계층 | greedyQualt 정책 |
+| 계층 | greedyQ 정책 |
 | --- | --- |
 | `survey.qmd` 페이지 및 문항 문법 | 가능한 범위에서 호환 |
 | surveydown YAML 설정 | 문서화되고 구현 가능한 범위에서 호환 |
@@ -86,10 +86,10 @@ greedyQualt는 학술 설문과 실험을 제작·배포·운영하기 위한 �
 기존 surveydown 프로젝트
 
 survey.qmd  ----------------------> 호환 범위에서 유지
-app.R       -- migration 도구 ---> greedyqualt.yml
+app.R       -- migration 도구 ---> greedyq.yml
                                       |
                                       v
-                               greedyQualt runtime
+                               greedyQ runtime
                                       |
                                       v
                               Vercel + Supabase
@@ -105,7 +105,7 @@ Guided interview + 연구자 approval checkpoint
       |
       v
 survey.qmd
-greedyqualt.yml
+greedyq.yml
 design/*.csv
 assets/*
       |
@@ -137,7 +137,7 @@ Vercel deployment
 ```text
 my-survey/
 ├── survey.qmd
-├── greedyqualt.yml
+├── greedyq.yml
 ├── design/
 │   └── choice_sets.csv
 ├── assets/
@@ -146,14 +146,14 @@ my-survey/
 ```
 
 - `survey.qmd`: 페이지, Markdown 콘텐츠, 문항, navigation
-- `greedyqualt.yml`: 표시 규칙, 분기, 검증, 무작위화
+- `greedyq.yml`: 표시 규칙, 분기, 검증, 무작위화
 - `design/*.csv`: conjoint/CBC 및 반복 실험 설계
 - `assets/`: 이미지와 실험 자극물
 - `supabase/`: 재현 가능한 데이터베이스 migration
 
 ## 8. 선언형 로직
 
-`greedyqualt.yml`은 지원 가능한 `app.R` 사용 사례를 제한된 expression language로 대체합니다.
+`greedyq.yml`은 지원 가능한 `app.R` 사용 사례를 제한된 expression language로 대체합니다.
 
 ```yaml
 logic:
@@ -225,10 +225,10 @@ event_log
 
 ### 11.1 메인 기능: AI-guided study creation 및 deployment
 
-독립적이고 버전이 명시된 Markdown guide는 유능한 범용 LLM을 greedyQualt의 대화형 interface로 만듭니다.
+독립적이고 버전이 명시된 Markdown guide는 유능한 범용 LLM을 greedyQ의 대화형 interface로 만듭니다.
 
 ```text
-greedyqualt-guide.md + "설문 만들자!"
+greedyq-guide.md + "설문 만들자!"
                    |
                    v
           capability detection
@@ -249,7 +249,7 @@ greedyqualt-guide.md + "설문 만들자!"
          연구자 approval checkpoint
                    |
                    v
-     survey.qmd + greedyqualt.yml + design/*.csv
+     survey.qmd + greedyq.yml + design/*.csv
                    |
                    v
        validate -> preview -> approve -> deploy
@@ -271,15 +271,15 @@ Workflow는 실제 operation을 수행하고 검증하지 않은 repository, dat
 | Actor | 책임 |
 | --- | --- |
 | LLM | 연구 reasoning, question critique, design concern, 대안, 자연어 협업 |
-| greedyQualt guide | Interview sequence, 필수 review 시점, approval checkpoint, artifact 및 deployment workflow |
-| greedyQualt validator | ID, reference, reachability, cycle, configuration completeness, deterministic constraint |
+| greedyQ guide | Interview sequence, 필수 review 시점, approval checkpoint, artifact 및 deployment workflow |
+| greedyQ validator | ID, reference, reachability, cycle, configuration completeness, deterministic constraint |
 | 연구자 | 중요한 연구 결정 및 최종 승인 |
 
 ### 11.4 Guide artifact
 
 ```text
-guides/greedyqualt-guide.md
-guides/greedyqualt-guide-compact.md
+guides/greedyq-guide.md
+guides/greedyq-guide-compact.md
 examples/complete-study/
 ```
 
@@ -301,7 +301,7 @@ examples/complete-study/
 
 ### 11.5 Expert path: 직접 작성
 
-숙련된 사용자는 `survey.qmd`, `greedyqualt.yml`, design 파일을 직접 편집할 수 있습니다. 해당 artifact도 같은 validation, preview, approval, deployment pipeline에 들어갑니다.
+숙련된 사용자는 `survey.qmd`, `greedyq.yml`, design 파일을 직접 편집할 수 있습니다. 해당 artifact도 같은 validation, preview, approval, deployment pipeline에 들어갑니다.
 
 ### 11.6 Import path: PPTX converter
 
@@ -311,10 +311,10 @@ Converter는 완벽한 semantic recovery를 주장하는 대신 수정 가능한
 survey.pptx
     |
     v
-greedyqualt convert survey.pptx
+greedyq convert survey.pptx
     |
     +-- survey.qmd
-    +-- greedyqualt.yml
+    +-- greedyq.yml
     +-- assets/*
     +-- conversion-report.md
     |
@@ -342,7 +342,7 @@ PPTX 구조, layout, table, speaker notes, optional metadata를 사용하여 페
 
 ### 13.1 Ethics 및 IRB metadata
 
-greedyQualt는 ethics-review 정보를 위한 구조화된 metadata와 재사용 가능한 presentation block을 제공해야 합니다.
+greedyQ는 ethics-review 정보를 위한 구조화된 metadata와 재사용 가능한 presentation block을 제공해야 합니다.
 
 ```yaml
 study:
@@ -390,7 +390,7 @@ v0.1 스펙은 다음을 정의해야 합니다.
 
 ### 13.3 External respondent collector
 
-greedyQualt는 provider-neutral integration contract와 일반 respondent platform을 위한 named preset을 제공해야 합니다.
+greedyQ는 provider-neutral integration contract와 일반 respondent platform을 위한 named preset을 제공해야 합니다.
 
 ```yaml
 respondent-source:

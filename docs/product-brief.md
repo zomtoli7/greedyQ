@@ -1,4 +1,4 @@
-# greedyQualt Product Brief
+# greedyQ Product Brief
 
 [한국어](./product-brief(kor).md)
 
@@ -10,7 +10,7 @@
 
 ## 1. Product definition
 
-greedyQualt is an open-source, AI-guided workflow for building, deploying, and operating academic surveys and experiments. Its primary experience is a structured conversation: a researcher attaches a versioned greedyQualt guide to GPT, Claude, or another capable agent; the AI interviews the researcher one decision at a time; and the workflow produces, validates, previews, and deploys deterministic study artifacts.
+greedyQ is an open-source, AI-guided workflow for building, deploying, and operating academic surveys and experiments. Its primary experience is a structured conversation: a researcher attaches a versioned greedyQ guide to GPT, Claude, or another capable agent; the AI interviews the researcher one decision at a time; and the workflow produces, validates, previews, and deploys deterministic study artifacts.
 
 The product is not intended to be a pixel-for-pixel Qualtrics clone, another GUI form builder, or a proprietary AI service. Its primary user interface is a guided conversation, while its durable abstraction is a version-controlled study specification. Direct QMD authoring remains an expert path.
 
@@ -56,18 +56,18 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 3. **No arbitrary code execution.** R chunks are parsed only as a restricted set of supported `sd_*()` expressions.
 4. **Logic is declarative.** Branching, validation, and randomization use a safe, documented DSL.
 5. **Research comes first.** Reproducible randomization, experimental metadata, and analysis-ready data are core concerns.
-6. **Researchers own their data.** Responses go to the researcher's Supabase project; greedyQualt does not operate a central respondent-data service.
+6. **Researchers own their data.** Responses go to the researcher's Supabase project; greedyQ does not operate a central respondent-data service.
 7. **No GUI dependency.** A GUI survey builder is not required for authoring or deployment.
 8. **AI-guided creation is the primary experience, not an add-on.** A general-purpose LLM should interview the researcher, maintain the study state, and produce valid artifacts.
 9. **Deployment should be mundane.** GitHub, Vercel, and Supabase should be sufficient for a production survey.
 10. **Research governance must be explicit.** Ethics-review metadata, consent, and respondent-source records should be structured, versioned, and auditable without claiming legal or institutional compliance.
-11. **The LLM provides research intelligence.** greedyQualt should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
+11. **The LLM provides research intelligence.** greedyQ should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
 12. **Researcher authority is preserved.** The AI explains concerns and proposes alternatives but never silently changes a material research decision.
 13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
 
 ## 5. Compatibility strategy
 
-| Layer | greedyQualt policy |
+| Layer | greedyQ policy |
 | --- | --- |
 | `survey.qmd` page and question syntax | Compatible wherever practical |
 | Surveydown YAML settings | Compatible where documented and feasible |
@@ -86,10 +86,10 @@ The intended migration story is:
 Existing surveydown project
 
 survey.qmd  ----------------------> retained where compatible
-app.R       -- migration tooling -> greedyqualt.yml
+app.R       -- migration tooling -> greedyq.yml
                                       |
                                       v
-                               greedyQualt runtime
+                               greedyQ runtime
                                       |
                                       v
                               Vercel + Supabase
@@ -105,7 +105,7 @@ Guided interview + researcher approval checkpoints
       |
       v
 survey.qmd
-greedyqualt.yml
+greedyq.yml
 design/*.csv
 assets/*
       |
@@ -137,7 +137,7 @@ The exact libraries, framework versions, schema layout, and supported function a
 ```text
 my-survey/
 ├── survey.qmd
-├── greedyqualt.yml
+├── greedyq.yml
 ├── design/
 │   └── choice_sets.csv
 ├── assets/
@@ -146,14 +146,14 @@ my-survey/
 ```
 
 - `survey.qmd`: Pages, Markdown content, questions, and navigation
-- `greedyqualt.yml`: Display rules, branching, validation, and randomization
+- `greedyq.yml`: Display rules, branching, validation, and randomization
 - `design/*.csv`: Conjoint/CBC and repeated experimental designs
 - `assets/`: Images and experimental stimuli
 - `supabase/`: Reproducible database migrations
 
 ## 8. Declarative logic
 
-`greedyqualt.yml` replaces supported `app.R` use cases with a constrained expression language.
+`greedyq.yml` replaces supported `app.R` use cases with a constrained expression language.
 
 ```yaml
 logic:
@@ -225,10 +225,10 @@ Required behavior includes anonymous sessions, resumable progress, page-level sa
 
 ### 11.1 Main feature: AI-guided study creation and deployment
 
-A standalone, versioned Markdown guide turns a capable general-purpose LLM into the conversational interface for greedyQualt.
+A standalone, versioned Markdown guide turns a capable general-purpose LLM into the conversational interface for greedyQ.
 
 ```text
-greedyqualt-guide.md + "Let's build a survey"
+greedyq-guide.md + "Let's build a survey"
                    |
                    v
           capability detection
@@ -249,7 +249,7 @@ greedyqualt-guide.md + "Let's build a survey"
        researcher approval checkpoints
                    |
                    v
-     survey.qmd + greedyqualt.yml + design/*.csv
+     survey.qmd + greedyq.yml + design/*.csv
                    |
                    v
        validate -> preview -> approve -> deploy
@@ -271,15 +271,15 @@ The workflow must never claim that a repository, database, deployment, or extern
 | Actor | Responsibility |
 | --- | --- |
 | LLM | Research reasoning, question critique, design concerns, alternatives, natural-language collaboration |
-| greedyQualt guide | Interview sequence, required review moments, approval checkpoints, artifact and deployment workflow |
-| greedyQualt validator | IDs, references, reachability, cycles, configuration completeness, deterministic constraints |
+| greedyQ guide | Interview sequence, required review moments, approval checkpoints, artifact and deployment workflow |
+| greedyQ validator | IDs, references, reachability, cycles, configuration completeness, deterministic constraints |
 | Researcher | Substantive research decisions and final approval |
 
 ### 11.4 Guide artifacts
 
 ```text
-guides/greedyqualt-guide.md
-guides/greedyqualt-guide-compact.md
+guides/greedyq-guide.md
+guides/greedyq-guide-compact.md
 examples/complete-study/
 ```
 
@@ -301,7 +301,7 @@ The full guide should define:
 
 ### 11.5 Expert path: direct authoring
 
-Experienced users may edit `survey.qmd`, `greedyqualt.yml`, and design files directly. Their artifacts enter the same validation, preview, approval, and deployment pipeline.
+Experienced users may edit `survey.qmd`, `greedyq.yml`, and design files directly. Their artifacts enter the same validation, preview, approval, and deployment pipeline.
 
 ### 11.6 Import path: PPTX converter
 
@@ -311,10 +311,10 @@ The converter produces a high-quality, editable first draft rather than claiming
 survey.pptx
     |
     v
-greedyqualt convert survey.pptx
+greedyq convert survey.pptx
     |
     +-- survey.qmd
-    +-- greedyqualt.yml
+    +-- greedyq.yml
     +-- assets/*
     +-- conversion-report.md
     |
@@ -342,7 +342,7 @@ The first end-to-end milestone succeeds when a researcher can:
 
 ### 13.1 Ethics and IRB metadata
 
-greedyQualt should provide structured metadata and reusable presentation blocks for ethics-review information.
+greedyQ should provide structured metadata and reusable presentation blocks for ethics-review information.
 
 ```yaml
 study:
@@ -390,7 +390,7 @@ Electronic signatures and jurisdiction-specific compliance workflows are deferre
 
 ### 13.3 External respondent collectors
 
-greedyQualt should provide a provider-neutral integration contract plus named presets for common respondent platforms.
+greedyQ should provide a provider-neutral integration contract plus named presets for common respondent platforms.
 
 ```yaml
 respondent-source:

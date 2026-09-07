@@ -10,21 +10,21 @@
 
 **문서 snapshot:** commit [`f1325a3`](https://github.com/surveydown-dev/website/commit/f1325a32ad937817bb23bc017356f0636ef6d8da)
 
-**문서 역할:** surveydown의 공개 authoring surface에 대한 기술적 목록과 greedyQualt v0.1의 제안 호환 범위
+**문서 역할:** surveydown의 공개 authoring surface에 대한 기술적 목록과 greedyQ v0.1의 제안 호환 범위
 
 ## 1. 범위 및 용어
 
-이 문서는 surveydown 공식 문서, package reference, source repository, 유지 관리되는 예제를 바탕으로 동작을 기록합니다. 이는 규범적 greedyQualt v0.1 스펙을 위한 조사 자료이며 그 자체가 구현 보증은 아닙니다.
+이 문서는 surveydown 공식 문서, package reference, source repository, 유지 관리되는 예제를 바탕으로 동작을 기록합니다. 이는 규범적 greedyQ v0.1 스펙을 위한 조사 자료이며 그 자체가 구현 보증은 아닙니다.
 
-제안하는 greedyQualt 분류는 다음과 같습니다.
+제안하는 greedyQ 분류는 다음과 같습니다.
 
 | 분류 | 의미 |
 | --- | --- |
-| **v0.1 target** | 첫 규범적 greedyQualt 스펙 및 MVP에 포함할 예정 |
+| **v0.1 target** | 첫 규범적 greedyQ 스펙 및 MVP에 포함할 예정 |
 | **Post-v0.1** | MVP 이후 호환 또는 동등 동작을 제공하는 것이 바람직함 |
-| **Native replacement** | R/Shiny 대신 greedyQualt 선언형 기능으로 사용 사례 지원 |
+| **Native replacement** | R/Shiny 대신 greedyQ 선언형 기능으로 사용 사례 지원 |
 | **Deferred** | 가치가 있지만 호환 방식에 추가 조사 또는 구현 성숙도가 필요함 |
-| **Unsupported by design** | greedyQualt의 보안, 런타임 또는 제품 원칙과 충돌함 |
+| **Unsupported by design** | greedyQ의 보안, 런타임 또는 제품 원칙과 충돌함 |
 
 호환성은 가능한 범위에서 문서화된 authoring contract와 호환됨을 의미합니다. surveydown의 R object, Shiny internals, 생성 HTML, CSS 또는 데이터베이스 구현을 재현한다는 뜻은 아닙니다.
 
@@ -40,8 +40,8 @@
 8. Randomization은 선언된 study primitive가 아니라 programming pattern입니다. 작성자는 `app.R`에서 무작위 값을 생성하거나 불러오고, 명시적으로 저장하고, reactive question을 `sd_output()`으로 표시합니다.
 9. surveydown은 session당 하나의 wide response row를 사용합니다. PostgreSQL table을 자동 생성·확장하고 `session_id`를 primary key로 사용하며 값을 text column으로 기록합니다.
 10. Cookie가 session ID, current page, answer를 보존합니다. Database/CSV data는 페이지 전환과 browser/session 종료 시 갱신됩니다.
-11. greedyQualt는 대부분의 정적 QMD authoring을 보존하면서 `app.R`을 버전이 명시된 선언형 스펙으로 교체할 수 있습니다. 임의의 R/Shiny 동작은 일반적으로 변환할 수 없으며 설계상 지원하지 않습니다.
-12. AI-guided creation이 greedyQualt의 주요 경험이므로 compatibility detail은 expert author를 위한 prose에 머물지 않고 결정론적 generation rule과 validator diagnostic으로 표현할 수 있어야 합니다.
+11. greedyQ는 대부분의 정적 QMD authoring을 보존하면서 `app.R`을 버전이 명시된 선언형 스펙으로 교체할 수 있습니다. 임의의 R/Shiny 동작은 일반적으로 변환할 수 없으며 설계상 지원하지 않습니다.
+12. AI-guided creation이 greedyQ의 주요 경험이므로 compatibility detail은 expert author를 위한 prose에 머물지 않고 결정론적 generation rule과 validator diagnostic으로 표현할 수 있어야 합니다.
 
 ## 3. 프로젝트 및 런타임 모델
 
@@ -71,17 +71,17 @@ shiny::shinyApp(ui = ui, server = server)
 
 `survey.qmd`는 parse 및 render되어 `_survey/` directory를 생성합니다. 공식 문서는 생성된 `settings.yml`을 편집하지 말라고 안내하며 source configuration은 `survey.qmd`에 둡니다.
 
-### 3.2 greedyQualt 경계
+### 3.2 greedyQ 경계
 
 ```text
 survey.qmd             -> compatible static authoring surface
 questions*.yml         -> compatible question definitions where specified
-greedyqualt.yml        -> native logic, randomization, lifecycle, persistence
+greedyq.yml        -> native logic, randomization, lifecycle, persistence
 design/*.csv           -> native experimental designs
 app.R                  -> migration input only; never executed
 ```
 
-| Surveydown component | 제안 greedyQualt 처리 |
+| Surveydown component | 제안 greedyQ 처리 |
 | --- | --- |
 | `survey.qmd` | **v0.1 target** |
 | Root `questions.yml` | **v0.1 target** |
@@ -108,7 +108,7 @@ survey-settings:
 ---
 ```
 
-greedyQualt는 이해하는 세 surveydown namespace를 parse하고 임의의 Quarto configuration을 조용히 수용하는 대신 diagnostic을 제공해야 합니다.
+greedyQ는 이해하는 세 surveydown namespace를 parse하고 임의의 Quarto configuration을 조용히 수용하는 대신 diagnostic을 제공해야 합니다.
 
 ### 4.2 Page syntax
 
@@ -134,7 +134,7 @@ Legacy/explicit fence syntax:
 :::
 ```
 
-| 기능 | Surveydown 동작 | 제안 greedyQualt 분류 |
+| 기능 | Surveydown 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | `--- page_id` | 페이지를 열고 이전 페이지를 암묵적으로 닫음 | **v0.1 target** |
 | `.sd_page` fence | 명시적 페이지 경계 | **Post-v0.1** |
@@ -155,7 +155,7 @@ browser
 ip_address
 ```
 
-greedyQualt의 실제 데이터 모델이 다른 column name을 사용하더라도 migration compatibility를 위해 이 이름을 reserve해야 합니다.
+greedyQ의 실제 데이터 모델이 다른 column name을 사용하더라도 migration compatibility를 위해 이 이름을 reserve해야 합니다.
 
 ## 5. 문항
 
@@ -199,7 +199,7 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 
 ### 5.2 문항 타입 matrix
 
-| Type | Upstream semantics | 주요 데이터 동작 | 제안 greedyQualt 분류 |
+| Type | Upstream semantics | 주요 데이터 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- | --- |
 | `text` | Single-line text input | Scalar value 하나 | **v0.1 target** |
 | `textarea` | Multi-line text input | Scalar value 하나 | **v0.1 target** |
@@ -218,11 +218,11 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 | `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.1 target** |
 | `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **Post-v0.1** |
 
-greedyQualt는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
+greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
 
 ### 5.3 `sd_question()` argument 목록
 
-| Argument | Upstream 목적 | 제안 greedyQualt 분류 |
+| Argument | Upstream 목적 | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | `id`, `type`, `label` | Identity와 핵심 정의 | **v0.1 target** |
 | `option`, `options` | 표시/저장 value 선택지 | **v0.1 target** |
@@ -240,13 +240,13 @@ greedyQualt는 논리적 response shape와 migration/export 동작을 보존해�
 | `matrix_question_width` | Matrix prompt-column width | **Post-v0.1** |
 | `...` | 임의의 input-specific Shiny argument | **Unsupported by design**, portable argument만 명시적으로 allowlist |
 
-Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw HTML도 가능하지만 greedyQualt는 sanitization과 portable Markdown subset을 정의해야 합니다.
+Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw HTML도 가능하지만 greedyQ는 sanitization과 portable Markdown subset을 정의해야 합니다.
 
 ## 6. Navigation 및 종료
 
 공식 [Page Navigation](https://surveydown.org/docs/page-navigation) 문서에 따르면 page-level navigation 또는 close 동작이 명시되지 않은 경우 Next 버튼이 자동 삽입됩니다.
 
-| Surface | Upstream 동작 | 제안 greedyQualt 분류 |
+| Surface | Upstream 동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | Automatic Next | 기본적으로 페이지에 추가 | **v0.1 target** |
 | Global `show-previous` | 모든 페이지에서 Previous 활성화 | **v0.1 target** |
@@ -259,7 +259,7 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 | `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.1**, reactive redirect **Native replacement** |
 | 빈 terminal page | Forward control 없음 | **v0.1 target** |
 
-현재 `sd_nav()` source signature는 `show_previous`를 사용하지만 일부 narrative documentation은 `show_prev`를 사용합니다. greedyQualt는 package reference/source signature를 따르고 narrative alias에는 유용한 diagnostic을 제공할 수 있습니다.
+현재 `sd_nav()` source signature는 `show_previous`를 사용하지만 일부 narrative documentation은 `show_prev`를 사용합니다. greedyQ는 package reference/source signature를 따르고 narrative alias에는 유용한 diagnostic을 제공할 수 있습니다.
 
 ## 7. Survey settings
 
@@ -267,7 +267,7 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 
 ### 7.1 Theme settings
 
-| Key | Upstream default/동작 | 제안 greedyQualt 분류 |
+| Key | Upstream default/동작 | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | `theme` | `default`, Quarto를 통한 Bootswatch/custom SCSS | Portable named theme **Post-v0.1**, arbitrary SCSS deferred |
 | `barposition` | `top`, `bottom` 또는 `none` | **v0.1 target** |
@@ -278,7 +278,7 @@ Upstream progress는 page가 아니라 답변한 question마다 증가합니다.
 
 ### 7.2 Survey settings
 
-| Key | Upstream default | 제안 greedyQualt 분류 |
+| Key | Upstream default | 제안 greedyQ 분류 |
 | --- | --- | --- |
 | `mode` | `database`, `preview`, `local`도 지원 | 동등 environment **Native replacement** |
 | `show-previous` | `no` | **v0.1 target** |
@@ -291,7 +291,7 @@ Upstream progress는 page가 아니라 답변한 question마다 증가합니다.
 | `system-language` | `en`, upstream은 `de`, `es`, `fr`, `it`, `zh-CN` 포함 | **Post-v0.1**, v0.1부터 i18n-ready |
 | `highlight-unanswered` | `yes` | **v0.1 target** |
 | `highlight-color` | `gray`, 문서화된 palette | **Post-v0.1** |
-| `capture-metadata` | `yes`, browser 및 IP | **Deferred**, greedyQualt에서는 privacy-first 및 opt-in |
+| `capture-metadata` | `yes`, browser 및 IP | **Deferred**, greedyQ에서는 privacy-first 및 opt-in |
 | `all-shuffled` | `no` | 지원 타입에 대해 **v0.1 target** |
 | `shuffled` | `[]` | 지원 타입과 index syntax에 대해 **v0.1 target** |
 
@@ -329,7 +329,7 @@ redirect-error
 
 공식 [Conditional Logic](https://surveydown.org/docs/conditional-logic), [Accessing Values](https://surveydown.org/docs/accessing-values), [Reactivity](https://surveydown.org/docs/reactivity) 문서는 R/Shiny 동작을 설명합니다.
 
-| Upstream function/pattern | Semantics | 제안 greedyQualt 처리 |
+| Upstream function/pattern | Semantics | 제안 greedyQ 처리 |
 | --- | --- | --- |
 | `sd_show_if(condition ~ target)` | True일 때 question 또는 page 표시 | **Native replacement**, v0.1 선언형 rule |
 | `sd_skip_if(condition ~ page)` | True일 때 forward skip | **Native replacement**, v0.1 선언형 rule |
@@ -345,7 +345,7 @@ redirect-error
 | Custom R function | 임의 condition/calculation logic | **Unsupported by design** |
 | `observe()` 및 Shiny reactive | 임의 reactive programming | **Unsupported by design** |
 
-greedyQualt expression language는 literal, answer reference, stored value, boolean operator, comparison, membership, length, answer status, 작은 pure-function allowlist를 지원해야 합니다. 임의 function call과 side effect는 거부해야 합니다.
+greedyQ expression language는 literal, answer reference, stored value, boolean operator, comparison, membership, length, answer status, 작은 pure-function allowlist를 지원해야 합니다. 임의 function call과 side effect는 거부해야 합니다.
 
 ## 9. Randomization
 
@@ -356,9 +356,9 @@ surveydown 공식 [Randomization](https://surveydown.org/docs/randomization) 안
 3. Label/option이 respondent별로 달라지면 server-side `sd_question()`을 만듭니다.
 4. `survey.qmd`에서 `sd_output(type = "question")`으로 render합니다.
 
-Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단일 공개 선언형 upstream contract는 없습니다. 따라서 greedyQualt는 native randomization syntax를 “surveydown compatible”이라고 부르면 안 됩니다. 이는 일반적인 R pattern을 대체하는 의도적 확장입니다.
+Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단일 공개 선언형 upstream contract는 없습니다. 따라서 greedyQ는 native randomization syntax를 “surveydown compatible”이라고 부르면 안 됩니다. 이는 일반적인 R pattern을 대체하는 의도적 확장입니다.
 
-| Capability | Upstream | greedyQualt 방향 |
+| Capability | Upstream | greedyQ 방향 |
 | --- | --- | --- |
 | Option/row shuffle | 지원 문항 타입에 YAML 선언 | **v0.1 target compatibility** |
 | 단순 respondent assignment | 사용자가 작성한 R | **v0.1 native primitive** |
@@ -388,7 +388,7 @@ Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단�
 
 ### 제안 호환 범위
 
-| 동작 | 제안 greedyQualt 분류 |
+| 동작 | 제안 greedyQ 분류 |
 | --- | --- |
 | 익명 stable respondent/session ID | **v0.1 target** |
 | Current page와 기존 answer 재개 | **v0.1 target** |
@@ -401,9 +401,9 @@ Balanced, blocked, stratified, factorial 또는 seeded assignment에 대한 단�
 | Pipe-separated multiple response | Export compatibility만 제공 |
 | Production에서 automatic schema mutation | **Unsupported by design**, versioned migration 사용 |
 | Server `.env`의 database password | Vercel/Supabase environment configuration으로 교체 |
-| Browser 및 IP capture 기본 활성화 | **호환하지 않음**, greedyQualt는 privacy-first |
+| Browser 및 IP capture 기본 활성화 | **호환하지 않음**, greedyQ는 privacy-first |
 
-greedyQualt native schema는 respondent identity/session state, answer, assignment, repeated task, event data를 분리하되 필요하면 surveydown-compatible wide export를 제공해야 합니다.
+greedyQ native schema는 respondent identity/session state, answer, assignment, repeated task, event data를 분리하되 필요하면 surveydown-compatible wide export를 제공해야 합니다.
 
 ## 11. Redirect, metadata 및 external panel
 
@@ -427,7 +427,7 @@ Deferred:
 
 이는 presentation capability이지 구조화된 IRB 지원이 아닙니다. surveydown은 필수 ethics field를 검증하거나, 표시된 문구를 protocol/version에 연결하거나, 연구가 승인 또는 compliant하다는 증거를 제공하지 않습니다.
 
-greedyQualt 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 information block은 **v0.1 native target**입니다. Authoring, validation, display, audit metadata만 제공하며 compliance를 주장해서는 안 됩니다.
+greedyQ 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 information block은 **v0.1 native target**입니다. Authoring, validation, display, audit metadata만 제공하며 compliance를 주장해서는 안 됩니다.
 
 ### 11.2 Informed consent
 
@@ -435,7 +435,7 @@ greedyQualt 분류: 구조화된 ethics/IRB metadata와 재사용 가능한 info
 
 이 조합으로 answer를 수집할 수 있지만 document version, content hash, server acceptance time, amendment, withdrawal, parental/guardian consent 또는 response-retention policy 같은 consent-specific semantics를 정의하지는 않습니다.
 
-greedyQualt 분류: consent는 semantic하고 versioned contract를 갖는 **v0.1 native target**입니다. 전자서명과 관할별 compliance workflow는 **Deferred**입니다.
+greedyQ 분류: consent는 semantic하고 versioned contract를 갖는 **v0.1 native target**입니다. 전자서명과 관할별 compliance workflow는 **Deferred**입니다.
 
 ### 11.3 External respondent collector
 
@@ -448,7 +448,7 @@ surveydown은 turnkey provider connector 대신 generic panel workflow를 명시
 
 공식 external-redirect 문서는 Prolific과 Dynata를 사용 사례로 명시합니다. 그러나 작성자가 provider mapping, missing-ID check, storage call, completion/screen-out route, duplicate-participation policy를 직접 작성해야 합니다.
 
-greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 native target**입니다. 추가 provider preset은 **Post-v0.1**입니다.
+greedyQ 분류: generic provider contract와 Prolific preset은 **v0.1 native target**입니다. 추가 provider preset은 **Post-v0.1**입니다.
 
 ## 12. 호환성 matrix 요약
 
@@ -462,13 +462,13 @@ greedyQualt 분류: generic provider contract와 Prolific preset은 **v0.1 nativ
 | Logic | 선언형 show/skip/stop 및 safe expression | Derived reactive graph | 임의 R/Shiny |
 | Randomization | Shuffle, simple/block persistent seeded assignment | Weighted, stratified, factorial, CSV design | Definition 내부 임의 executable code |
 | Persistence | Supabase, resume, partial save, completion | 추가 backend, offline mode | Core model로서 runtime schema mutation |
-| Data | Normalized native model 및 wide export | 풍부한 event/revision data | greedyQualt 중앙 소유 respondent store |
+| Data | Normalized native model 및 wide export | 풍부한 event/revision data | greedyQ 중앙 소유 respondent store |
 | Research governance | Ethics metadata 및 versioned consent | 전자서명 및 관할별 workflow | 자동 IRB/legal compliance 주장 |
 | Respondent source | Generic URL/redirect contract 및 Prolific preset | 추가 provider preset | 검증되지 않은 임의 redirect code |
 
 ## 13. AI-guided workflow에 미치는 영향
 
-Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementation constraint입니다. 연구자가 자신의 요구사항이 compatible QMD syntax 또는 greedyQualt-native declaration 중 어디에 mapping되는지 알 필요는 없습니다.
+Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementation constraint입니다. 연구자가 자신의 요구사항이 compatible QMD syntax 또는 greedyQ-native declaration 중 어디에 mapping되는지 알 필요는 없습니다.
 
 따라서 versioned guide와 validator는 다음을 수행해야 합니다.
 
@@ -483,7 +483,7 @@ Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementat
 9. 모든 external mutation을 완료했다고 보고하기 전에 검증합니다.
 10. 생성 artifact를 model-independent하게 유지하여 원래 대화 없이도 검사·편집·검증·재현할 수 있게 합니다.
 
-LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQualt는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
+LLM은 자신의 research-methods knowledge를 적용하여 question과 design을 비평할 책임이 있습니다. greedyQ는 올바른 checkpoint에서 review가 이루어지고, concern이 설명되며, 연구자가 최종 권한을 유지하고, 확인된 결정이 유효하고 결정론적인 artifact가 되도록 할 책임이 있습니다.
 
 ## 14. v0.1 스펙에 미치는 영향
 
@@ -503,7 +503,7 @@ LLM은 자신의 research-methods knowledge를 적용하여 question과 design�
 ## 15. 알려진 모호성 및 후속 확인
 
 - Documentation과 source는 때때로 `show_prev`와 현재 `show_previous` signature처럼 다른 parameter name 또는 legacy terminology를 사용합니다.
-- Default material에는 `start-page: initial_page`가 있지만 narrative documentation은 실질적 default가 첫 페이지라고 설명합니다. greedyQualt는 하나의 모호하지 않은 동작을 정의해야 합니다.
+- Default material에는 `start-page: initial_page`가 있지만 narrative documentation은 실질적 default가 첫 페이지라고 설명합니다. greedyQ는 하나의 모호하지 않은 동작을 정의해야 합니다.
 - Public package reference는 광범위한 `...` input argument를 노출하며 이는 안정적인 cross-runtime contract가 될 수 없습니다.
 - Quarto와 Shiny에서는 임의 formatting과 behavior가 가능하므로 문서화된 portable subset만 호환성 대상이 될 수 있습니다.
 - 현재 GitHub `main`은 package version `1.3.0`을 보고하지만 GitHub Releases는 이 버전까지 유지되지 않았습니다. 따라서 이 조사는 Releases page에 의존하지 않고 정확한 commit을 고정합니다.

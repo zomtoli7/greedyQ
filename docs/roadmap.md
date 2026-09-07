@@ -1,4 +1,4 @@
-# greedyQualt Roadmap
+# greedyQ Roadmap
 
 [한국어](./roadmap(kor).md)
 
@@ -38,12 +38,12 @@ docs/surveydown-compatibility.md
 docs/surveydown-compatibility(kor).md
 ```
 
-## Phase 2: greedyQualt v0.1 specification
+## Phase 2: greedyQ v0.1 specification
 
 - [ ] Define the supported QMD grammar.
 - [ ] Define the restricted `sd_*()` expression grammar.
 - [ ] Define the Survey AST / JSON schema.
-- [ ] Define `greedyqualt.yml` and its expression language.
+- [ ] Define `greedyq.yml` and its expression language.
 - [ ] Define navigation, validation, and lifecycle semantics.
 - [ ] Define randomization semantics and stored metadata.
 - [ ] Define persistence and session behavior.
@@ -57,8 +57,8 @@ docs/surveydown-compatibility(kor).md
 Deliverables:
 
 ```text
-docs/greedyqualt-v0.1-spec.md
-docs/greedyqualt-v0.1-spec(kor).md
+docs/greedyq-v0.1-spec.md
+docs/greedyq-v0.1-spec(kor).md
 ```
 
 ## Phase 3: AI-guided workflow specification
@@ -81,10 +81,10 @@ Specify the primary product experience before building the runtime.
 Deliverables:
 
 ```text
-guides/greedyqualt-guide.md
-guides/greedyqualt-guide(kor).md
-guides/greedyqualt-guide-compact.md
-guides/greedyqualt-guide-compact(kor).md
+guides/greedyq-guide.md
+guides/greedyq-guide(kor).md
+guides/greedyq-guide-compact.md
+guides/greedyq-guide-compact(kor).md
 examples/complete-study/
 ```
 
@@ -150,7 +150,7 @@ Implement the smallest complete conversational study path.
 - [ ] Extract text, tables, images, and speaker notes from PPTX.
 - [ ] Infer pages and common question structures from slide layout.
 - [ ] Support optional authoring metadata for deterministic conversion.
-- [ ] Generate `survey.qmd`, `greedyqualt.yml`, and assets.
+- [ ] Generate `survey.qmd`, `greedyq.yml`, and assets.
 - [ ] Produce a conversion report with confidence and warnings.
 - [ ] Feed generated artifacts into the guided AI review workflow.
 - [ ] Validate generated projects automatically.
@@ -172,7 +172,7 @@ These requirements apply to every phase:
 
 ## Immediate next actions
 
-1. Turn the research findings into the normative greedyQualt v0.1 specification.
+1. Turn the research findings into the normative greedyQ v0.1 specification.
 2. Specify the guided interview, study-state, and researcher-approval protocols.
-3. Draft the full and compact versioned greedyQualt guides.
+3. Draft the full and compact versioned greedyQ guides.
 4. Collect executable conformance fixtures and test LLM-generated artifacts against them.
