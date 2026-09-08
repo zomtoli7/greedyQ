@@ -40,7 +40,7 @@
       "files": [
         {
           "path": "guides/core/guide.md",
-          "sha256": "9ec831ba42b0acba9bfb96570cf9a0c96129ef751b96b4dc68d92f3c7ab72ffc"
+          "sha256": "9d47e8216bf540f2ee30d1c85a8b2a75e0c4c7a073a28c5e055fa2b7eebcbfe8"
         },
         {
           "path": "guides/core/communication.md",
@@ -52,7 +52,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "f7df84bb4171bfdf0e27ff67666cb40e72c942e58721341d5dd15138e3eb50f9"
+          "sha256": "9f4adce991b03c31e328c6ee0e3a908dde547a2f47e5f29cc59aa8b213e1d62d"
         },
         {
           "path": "docs/preview-ui-spec.md",

@@ -91,7 +91,10 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 | Conditional logic | Native declarative DSL |
 | Randomization | Native first-class feature |
 | Database | Researcher-owned Supabase/PostgreSQL |
-| Runtime | TypeScript, React, and a web-native server/runtime layer |
+| Parser core | Platform-neutral TypeScript/JavaScript with no Node-specific dependency |
+| Final-user runtime | Browser-native JavaScript; no local Python or Node.js requirement |
+| Reference implementation | Dependency-light Python for semantic development and conformance |
+| Secure persistence | Supabase/PostgreSQL RPC, transactions, and row-level security |
 | Hosting | Vercel-first |
 
 Every feature must be classified across both output paths:
@@ -134,7 +137,7 @@ design/*.csv
 assets/*
       |
       v
-QMD parser + restricted sd_* parser
+Browser-neutral JS parser + restricted sd_* parser
       |
       v
 Internal Survey AST / JSON schema
@@ -146,7 +149,7 @@ Internal Survey AST / JSON schema
       +-- native surveydown export generator
       |
       v
-React/Next.js survey renderer
+Browser-native survey renderer
       |
       v
 Vercel deployment
@@ -154,6 +157,10 @@ Vercel deployment
       v
 Researcher's Supabase/PostgreSQL
 ```
+
+Development proceeds reference-first. The Python implementation is used to make grammar and semantic decisions explicit and testable. The final-user JavaScript implementation then reproduces those decisions in a platform-neutral core exposing string-to-data operations such as `parseSurvey(qmdText)`, `validateSurvey(ast)`, and `renderSurvey(ast)`. The core MUST NOT depend on a filesystem, Node.js APIs, or a build step. Browser and optional Node adapters may wrap it without changing its semantics.
+
+Both implementations run the same conformance corpus. A JavaScript build is not conforming merely because it renders successfully: normalized ASTs, stable diagnostic codes, routing, stored values, conditional logic, and participant-visible behavior must match the reference contract.
 
 The exact libraries, framework versions, schema layout, and supported function arguments remain specification-stage decisions.
 

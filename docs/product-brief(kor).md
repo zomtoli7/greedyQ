@@ -91,7 +91,10 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 | 조건 로직 | 네이티브 선언형 DSL |
 | 무작위화 | 네이티브 first-class feature |
 | 데이터베이스 | 연구자 소유 Supabase/PostgreSQL |
-| 런타임 | TypeScript, React, 웹 네이티브 server/runtime 계층 |
+| Parser core | Node-specific dependency가 없는 platform-neutral TypeScript/JavaScript |
+| 최종 사용자 runtime | 로컬 Python 또는 Node.js가 필요 없는 browser-native JavaScript |
+| Reference implementation | 의미론 개발 및 conformance를 위한 dependency-light Python |
+| 보안 persistence | Supabase/PostgreSQL RPC, transaction, row-level security |
 | 호스팅 | Vercel 우선 |
 
 모든 기능은 두 출력 경로에 걸쳐 다음과 같이 분류해야 합니다.
@@ -134,7 +137,7 @@ design/*.csv
 assets/*
       |
       v
-QMD parser + restricted sd_* parser
+Browser-neutral JS parser + restricted sd_* parser
       |
       v
 Internal Survey AST / JSON schema
@@ -146,7 +149,7 @@ Internal Survey AST / JSON schema
       +-- native surveydown export generator
       |
       v
-React/Next.js survey renderer
+Browser-native survey renderer
       |
       v
 Vercel deployment
@@ -154,6 +157,10 @@ Vercel deployment
       v
 연구자 소유 Supabase/PostgreSQL
 ```
+
+개발은 reference-first 방식으로 진행합니다. Python 구현으로 grammar와 semantic decision을 명시하고 테스트합니다. 그런 다음 최종 사용자용 JavaScript 구현이 `parseSurvey(qmdText)`, `validateSurvey(ast)`, `renderSurvey(ast)` 같은 string-to-data operation으로 동일한 결정을 재현합니다. Core는 filesystem, Node.js API 또는 build step에 의존하면 안 됩니다. Browser 및 optional Node adapter는 의미론을 바꾸지 않고 core를 감쌀 수 있습니다.
+
+두 구현은 동일한 conformance corpus를 실행합니다. JavaScript build가 화면을 표시한다는 사실만으로 conforming한 것은 아닙니다. Normalized AST, stable diagnostic code, routing, stored value, conditional logic, participant-visible behavior가 reference contract와 일치해야 합니다.
 
 정확한 라이브러리, framework 버전, schema 구조, 지원할 함수 인수는 스펙 단계에서 결정합니다.
 

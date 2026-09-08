@@ -198,7 +198,7 @@ LLM은 누락된 중요한 commitment를 연구자에게 질문해야 하며 이
 
 ## 14. Web-native runtime
 
-Primary renderer는 Vercel에 배포 가능한 React/Next.js application입니다. 검증된 AST만 사용하고 sanitize된 content를 render하며 client feedback과 authoritative server validation을 수행하고 server-controlled Supabase operation으로 기록합니다.
+Primary renderer는 static asset으로 Vercel에 배포할 수 있는 browser-native JavaScript application입니다. 검증된 AST만 사용하고 sanitize된 content를 render하며 client feedback과 authoritative Supabase/PostgreSQL validation 및 transaction을 수행하고 로컬 Python, Node.js 또는 framework runtime을 요구하지 않습니다.
 
 Instrument review는 prose-first가 아니라 preview-first여야 합니다. Coherent instrument가 생기면 generator는 browser-testable preview를 생성하고 host가 interactive artifact 또는 browser control을 지원하면 직접 열어야 합니다. 그렇지 않으면 self-contained `preview.html`을 제공해야 합니다. `study.md`를 함께 제공할 수 있지만 respondent-flow review를 대신하면 안 됩니다.
 
@@ -239,7 +239,9 @@ Complete reference study는 다음을 입증해야 합니다.
 12. Supabase migration과 Vercel configuration
 13. Native surveydown export expectation
 
-Parser, validator, runtime, exporter 구현이 존재하기 전까지 reference study는 pre-implementation fixture이며 실제로 실행·배포·conform한다고 설명해서는 안 됩니다.
+Python reference implementation은 개발 중 예상 grammar와 runtime semantics를 확립할 수 있지만 최종 사용자 prerequisite로 제시하면 안 됩니다. Production parser, validator, compiler, preview, respondent renderer는 로컬 Python 또는 Node.js 설치 없이 modern browser에서 실행되어야 합니다. Platform-neutral core는 text/data input을 받아야 하며 filesystem 또는 Node-specific API에 의존하면 안 됩니다.
+
+Browser implementation은 Python reference와 동일하게 독립 작성된 conformance fixture로 테스트해야 합니다. 동일 input은 의미론적으로 동등한 normalized AST, stable diagnostic, route, condition, stored value, participant-visible behavior를 생성해야 합니다. 의미적 영향이 없는 implementation-language-specific metadata와 serialization ordering은 다를 수 있습니다. Cross-runtime conformance suite를 통과하기 전에는 production ready라고 주장하면 안 됩니다.
 
 ## 17. v0.2에서 deferred된 기능
 

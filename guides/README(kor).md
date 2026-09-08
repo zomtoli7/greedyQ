@@ -28,7 +28,7 @@
 | 임의의 R 추가 | 실행을 거부하고 declarative 또는 export-safe 대안 제공 | Guide 및 v0.2 specification에서 금지 |
 | Deployment 성공 주장 | External verification evidence 요구 | 모든 external operation이 `not_attempted` 상태 |
 
-Structural fixture는 JSON Schema validation, decision-reference check, artifact-hash check, QMD reference check, 영문/한국어 문서 parity를 통과합니다. Parser, validator, renderer가 존재할 때까지 runtime behavior는 test되지 않은 상태입니다.
+Structural fixture는 JSON Schema validation, decision-reference check, artifact-hash check, QMD reference check, 영문/한국어 문서 parity를 통과합니다. Python reference parser, validator, preview, local respondent runtime은 현재 문서화된 reference behavior를 실행합니다. Browser-native JavaScript conformance와 production Supabase/Vercel behavior는 아직 구현 및 검증해야 합니다.
 
 ## 다음 behavioral evaluation
 

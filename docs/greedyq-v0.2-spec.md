@@ -207,7 +207,7 @@ Once the researcher approves a preregistration package, greedyQ MUST record an i
 
 ## 14. Web-native runtime
 
-The primary renderer is a React/Next.js application deployable to Vercel. It consumes only a validated AST, renders sanitized content, performs client feedback and authoritative server validation, and writes through server-controlled Supabase operations.
+The primary renderer is a browser-native JavaScript application deployable as static assets on Vercel. It consumes only validated AST data, renders sanitized content, provides client feedback plus authoritative Supabase/PostgreSQL validation and transactions, and does not require a local Python, Node.js, or framework runtime.
 
 Instrument review MUST be preview-first rather than prose-first. A generator MUST produce a browser-testable preview after a coherent instrument exists and SHOULD open it directly when the host supports interactive artifacts or browser control. Otherwise it MUST provide a self-contained `preview.html`; `study.md` MAY accompany it but MUST NOT substitute for respondent-flow review.
 
@@ -248,7 +248,9 @@ The complete reference study MUST demonstrate:
 12. Supabase migration and Vercel configuration; and
 13. native surveydown export expectations.
 
-Until parser, validator, runtime, and exporter implementations exist, the reference study is a pre-implementation fixture and MUST NOT be described as executed, deployed, or conforming in practice.
+The Python reference implementation MAY establish expected grammar and runtime semantics during development, but it MUST NOT be presented as a final-user prerequisite. The production parser, validator, compiler, preview, and respondent renderer MUST execute in a modern browser without requiring a locally installed Python or Node.js runtime. Its platform-neutral core MUST accept text/data inputs and MUST NOT depend on filesystem or Node-specific APIs.
+
+The browser implementation MUST be tested against the same independently authored conformance fixtures as the Python reference. Equivalent input MUST yield semantically equivalent normalized ASTs, stable diagnostics, routes, conditions, stored values, and participant-visible behavior. Implementation-language-specific metadata and serialization ordering MAY differ when they have no semantic effect. Production readiness MUST NOT be claimed until this cross-runtime conformance suite passes.
 
 ## 17. Deferred from v0.2
 

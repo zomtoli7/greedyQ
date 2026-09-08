@@ -36,6 +36,6 @@ Fork는 기본적으로 운영 database destination, deployment alias, participa
 
 `study-plan.md`는 연구자가 읽는 짧은 기록으로, `preview.html`은 직접 조작하는 검토 수단으로 사용합니다. 상세 진단은 `.greedyq/validation-report.json`에 둡니다. 작성, 검토, 검증, 배포, 조사 시작 상태를 정직하게 구분합니다.
 
-Reference runtime을 사용할 수 있으면 `python3 -m greedyq build PATH_TO_STUDY`로 preview를 생성하며 `preview-model.json`을 별도로 직접 관리하지 않습니다. Blocking structural error를 고치고 다시 생성한 다음 `preview.html`을 열거나 `python3 -m greedyq preview PATH_TO_STUDY`를 실행합니다. 요청받지 않으면 parser 내부를 연구자에게 설명하지 않습니다. Preview 생성 성공은 production 배포나 모집 허가가 아닙니다.
+Browser-native greedyQ parser, validator, preview를 사용할 수 있으면 이를 우선하며 정상 workflow에서 연구자에게 Python이나 Node.js 설치를 요구하면 안 됩니다. 개발 또는 conformance test 중에는 Python reference implementation으로 `python3 -m greedyq build PATH_TO_STUDY`를 실행할 수 있습니다. `preview-model.json`을 별도로 직접 관리하지 않습니다. Blocking structural error를 고치고 다시 생성한 다음 결과 preview를 엽니다. 요청받지 않으면 parser 내부를 연구자에게 설명하지 않습니다. Preview 생성 성공은 production 배포나 모집 허가가 아닙니다.
 
-Preview 검토 후 `python3 -m greedyq run PATH_TO_STUDY`를 사용하여 durable local session, consent, resume, routing, withdrawal, randomization을 시험할 수 있습니다. 이를 배포된 설문이나 Supabase 검증이 아니라 local respondent test라고 설명합니다. 실제 participant 모집에 사용하면 안 됩니다.
+개발 용도로만 `python3 -m greedyq run PATH_TO_STUDY`를 사용하여 reference semantics에 대한 durable local session, consent, resume, routing, withdrawal, randomization을 시험할 수 있습니다. 이를 최종 사용자 runtime, 배포된 설문 또는 Supabase 검증이 아니라 Python-based local reference test라고 설명합니다. 실제 participant 모집에 사용하면 안 됩니다.

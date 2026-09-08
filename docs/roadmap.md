@@ -115,21 +115,24 @@ examples/complete-study/
 
 ## Phase 4: Architecture and deployment skeleton
 
-- [x] Create a zero-install Python reference parser for the supported QMD subset.
+- [x] Create a dependency-light Python reference parser for the supported QMD subset (Python interpreter required).
 - [x] Compile QMD and `greedyq.yml` into a normalized model and deterministic preview.
 - [x] Provide researcher-readable structural, option-direction, and route validation.
 - [x] Provide local `validate`, `build`, and browser `preview` commands.
 - [x] Implement the local SQLite respondent-session reference runtime.
 - [x] Test consent-first persistence, resume, terminal outcomes, atomic withdrawal deletion, and concurrent fixed-block assignment locally.
-- [ ] Select parser libraries and finalize the grammar implementation approach.
-- [ ] Create the TypeScript parser and normalized AST packages.
-- [ ] Create the validator and LLM-friendly diagnostic format.
+- [x] Establish Python as the development reference implementation, not a final-user runtime dependency.
+- [ ] Freeze the normalized AST, diagnostic, rendering, and routing conformance contracts from the Python fixtures.
+- [ ] Implement a platform-neutral TypeScript/JavaScript parser core with no filesystem, Node.js API, or framework dependency.
+- [ ] Implement the browser-native validator, compiler, preview, and respondent renderer over the same core.
+- [ ] Add Python-versus-JavaScript conformance tests for normalized ASTs, diagnostics, routes, conditions, stored values, and render snapshots.
+- [ ] Package a browser entry point that accepts QMD/config text or local file selection without requiring an installation or build step.
 - [ ] Implement `GQ011` stored-value symbol-table and cross-artifact validation.
 - [ ] Implement `GQ012` validation of all generated `.greedyq/*.json` files.
 - [ ] Implement `GQ013` migration-contract validation for withdrawal, RLS, and export.
 - [ ] Reject unknown QMD front-matter keys in generation/strict mode.
 - [ ] Create the native surveydown exporter and deterministic `app.R` generator.
-- [ ] Create the React/Next.js renderer skeleton.
+- [ ] Create the framework-independent browser renderer; evaluate optional framework adapters only after the core contract passes conformance.
 - [x] Create the initial safe self-contained preview runtime and researcher debug panel.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.

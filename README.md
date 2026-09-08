@@ -44,13 +44,16 @@ greedyQ keeps the good parts:
 - Researcher-owned PostgreSQL data
 - Programmable research workflows
 
-It provides its own TypeScript and React runtime designed for GitHub, Vercel, and Supabase, then makes that deterministic stack usable through a guided AI conversation. It also generates `app.R` and related native surveydown artifacts as a first-class escape hatch for researchers who need unrestricted R, Shiny, or Quarto customization.
+It provides its own deterministic, browser-native JavaScript runtime designed for GitHub, Vercel, and Supabase, then makes that stack usable through a guided AI conversation. It also generates `app.R` and related native surveydown artifacts as a first-class escape hatch for researchers who need unrestricted R, Shiny, or Quarto customization.
 
 ## Product principles
 
 - `survey.qmd` is the source of truth for survey content and questions.
 - The user-facing QMD syntax should be compatible with surveydown wherever practical.
 - The Vercel/Supabase runtime is the primary execution target.
+- The final-user parser, validator, preview, and renderer run in a modern browser without requiring Python or Node.js.
+- A dependency-light Python implementation establishes reference semantics during development and remains available for conformance testing and developer tooling.
+- The Python and JavaScript implementations must pass the same fixtures and produce semantically equivalent normalized ASTs, diagnostics, and rendered behavior.
 - Native surveydown export, including generated `app.R`, is a core output path.
 - Compatibility is implemented independently from public documentation; surveydown source code is not incorporated.
 - Arbitrary R and Shiny code is not executed.
@@ -113,9 +116,9 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 ## Project status
 
-greedyQ is in the specification and working-preview phase. The zero-install Python reference implementation parses the supported v0.2 QMD subset, validates structural and routing errors, builds a normalized model, and serves a self-contained researcher preview. Production response storage and deployment are not implemented yet.
+greedyQ is in the specification and working-preview phase. The current Python-based reference implementation requires a Python interpreter but no third-party Python packages. It parses the supported v0.2 QMD subset, validates structural and routing errors, builds a normalized model, and serves a self-contained researcher preview. It is the semantic reference for development, not the final-user dependency. The browser-native JavaScript core and production Supabase/Vercel runtime are not implemented yet.
 
-## Try the browser preview
+## Try the current reference preview
 
 From the repository root, run:
 
@@ -131,7 +134,7 @@ python3 -m greedyq preview examples/simple-satisfaction-study
 
 Use `python3 -m greedyq validate PATH_TO_STUDY` to check a study without generating a preview, or `python3 -m greedyq build PATH_TO_STUDY` to create `preview-model.json`, `preview.html`, and normalized validation artifacts without starting a server. No respondent data leaves the browser in preview mode. See the [browser preview guide](./docs/browser-preview.md).
 
-To test durable respondent sessions locally, run `python3 -m greedyq run examples/complete-study` and open `http://localhost:4180/study`. This test runtime writes responses to a local ignored SQLite database; it is not yet the Supabase/Vercel production runtime. See the [local respondent runtime guide](./docs/local-respondent-runtime.md).
+These commands currently require Python 3 and are intended for development and conformance work. The planned final-user path needs only a capable AI and a modern browser. To test durable respondent sessions locally, run `python3 -m greedyq run examples/complete-study` and open `http://localhost:4180/study`. This test runtime writes responses to a local ignored SQLite database; it is not yet the Supabase/Vercel production runtime. See the [runtime architecture](./docs/runtime-architecture.md) and [local respondent runtime guide](./docs/local-respondent-runtime.md).
 
 See [START-HERE.md](./START-HERE.md), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.2 specification](./docs/greedyq-v0.2-spec.md), [browser preview guide](./docs/browser-preview.md), [local respondent runtime](./docs/local-respondent-runtime.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 

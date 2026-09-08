@@ -115,21 +115,24 @@ examples/complete-study/
 
 ## Phase 4: Architecture 및 배포 skeleton
 
-- [x] 지원 QMD subset을 위한 별도 설치 없는 Python reference parser 생성
+- [x] 지원 QMD subset을 위한 dependency-light Python reference parser 생성(Python interpreter 필요)
 - [x] QMD와 `greedyq.yml`을 normalized model 및 deterministic preview로 compile
 - [x] 연구자가 이해할 수 있는 구조, option 방향, route validation 제공
 - [x] 로컬 `validate`, `build`, 브라우저 `preview` 명령 제공
 - [x] 로컬 SQLite respondent-session reference runtime 구현
 - [x] Consent-first 저장, resume, terminal outcome, atomic withdrawal 삭제, 동시 fixed-block 배정을 로컬에서 테스트
-- [ ] Parser library 선택 및 grammar 구현 접근법 확정
-- [ ] TypeScript parser 및 정규화 AST package 생성
-- [ ] Validator 및 LLM-friendly diagnostic format 생성
+- [x] Python을 최종 사용자 runtime dependency가 아닌 개발 reference implementation으로 확립
+- [ ] Python fixture에서 normalized AST, diagnostic, rendering, routing conformance contract 고정
+- [ ] Filesystem, Node.js API, framework dependency가 없는 platform-neutral TypeScript/JavaScript parser core 구현
+- [ ] 동일 core 기반 browser-native validator, compiler, preview, respondent renderer 구현
+- [ ] Normalized AST, diagnostic, route, condition, stored value, render snapshot의 Python-JavaScript conformance test 추가
+- [ ] 설치나 build step 없이 QMD/config text 또는 local file selection을 받는 browser entry point package 구성
 - [ ] `GQ011` stored-value symbol-table 및 cross-artifact validation 구현
 - [ ] 생성된 모든 `.greedyq/*.json`의 `GQ012` validation 구현
 - [ ] Withdrawal, RLS, export에 대한 `GQ013` migration-contract validation 구현
 - [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
 - [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
-- [ ] React/Next.js renderer skeleton 생성
+- [ ] Framework-independent browser renderer 생성; core conformance 통과 후에만 optional framework adapter 평가
 - [x] 초기 안전한 self-contained preview runtime과 researcher debug panel 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성

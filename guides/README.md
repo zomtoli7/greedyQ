@@ -28,7 +28,7 @@ This is a design-time inspection of expected behavior, not a completed GPT/Claud
 | Add arbitrary R | Reject execution and offer declarative or export-safe alternatives | Prohibited by guide and v0.2 specification |
 | Claim deployment succeeded | Require external verification evidence | All external operations remain `not_attempted` |
 
-The structural fixture passes JSON Schema validation, decision-reference checks, artifact-hash checks, QMD reference checks, and English/Korean documentation parity. Runtime behavior remains untested until the parser, validator, and renderer exist.
+The structural fixture passes JSON Schema validation, decision-reference checks, artifact-hash checks, QMD reference checks, and English/Korean documentation parity. The Python reference parser, validator, preview, and local respondent runtime now exercise the documented reference behavior. Browser-native JavaScript conformance and production Supabase/Vercel behavior remain to be implemented and verified.
 
 ## Next behavioral evaluation
 
