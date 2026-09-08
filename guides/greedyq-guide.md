@@ -238,11 +238,11 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `docs/preview-ui-spec.md` | `8ce8ff378f10ca8b7b93ede186b532589aecb12ba31e399e14dc4765467a868d` | `no` |
-| `web/greedyq-core.js` | `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5` | `no` |
-| `web/greedyq-runtime.css` | `0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8` | `no` |
+| `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
+| `web/greedyq-core.js` | `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa` | `no` |
+| `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
 | `templates/browser/respondent.html` | `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f` | `no` |
-| `templates/browser/preview.html` | `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693` | `no` |
+| `templates/browser/preview.html` | `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
@@ -268,7 +268,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 
 ### FILE: `docs/preview-ui-spec.md`
 
-SHA-256: `8ce8ff378f10ca8b7b93ede186b532589aecb12ba31e399e14dc4765467a868d`
+SHA-256: `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa`
 
 ```markdown
 # greedyQ Preview UI Specification
@@ -344,6 +344,9 @@ Back navigation preserves valid answers and the persisted assignment. Refresh/re
 
 The researcher panel provides:
 
+- a `View structure` action that opens a read-only, dismissible dialog;
+- a collapsible page hierarchy in respondent order, with text blocks marked `T` and questions marked `Q`;
+- each page ID and title, each question ID, label, type, required status, and every terminal outcome;
 - deterministic condition selection;
 - page and terminal-outcome jump controls;
 - current page, reachable next page, condition, lifecycle state, and visit history;
@@ -355,6 +358,8 @@ The researcher panel provides:
 - a visible statement that external writes and production redirects are disabled.
 
 Changing a forced condition resets condition-dependent answers and returns to the assignment boundary unless the researcher explicitly chooses a raw page jump. Debug controls must not mutate production services.
+
+The structure dialog is an overview, not an editor and not an sdstudio replacement. Opening, expanding, collapsing, or closing it MUST NOT alter answers, navigation history, assignments, or source files. Survey content inserted into the hierarchy MUST be escaped. Keyboard users must be able to open it, operate each disclosure, close it, and return to the invoking control.
 
 ## 8. Preview safety
 
@@ -410,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5`
+SHA-256: `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1873,8 +1878,35 @@ SHA-256: `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5`
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
-      if (["matrix", "matrix_multiple"].includes(q.type))
-        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="${q.type === "matrix_multiple" ? "checkbox" : "radio"}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${q.type === "matrix_multiple" ? (Array.isArray(selected?.[r.value]) && selected[r.value].includes(o.value) ? "checked" : "") : selected?.[r.value] === o.value ? "checked" : ""}>${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (["matrix", "matrix_multiple"].includes(q.type)) {
+        const rawWidth = String(q.matrix_question_width ?? "40").replace(
+            "%",
+            "",
+          ),
+          numericWidth = Number(rawWidth),
+          promptWidth =
+            Number.isFinite(numericWidth) &&
+            numericWidth > 0 &&
+            numericWidth < 100
+              ? numericWidth
+              : 40,
+          cellType = q.type === "matrix_multiple" ? "checkbox" : "radio";
+        return `<div class="gq-matrix" role="region" aria-label="${esc(q.label)}" tabindex="0"><table><colgroup><col style="width:${promptWidth}%">${q.options.map(() => `<col style="width:${(100 - promptWidth) / q.options.length}%">`).join("")}</colgroup><thead><tr><th class="gq-matrix-corner" scope="col"></th>${q.options.map((o) => `<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows
+          .map(
+            (r) =>
+              `<tr><th scope="row">${esc(r.label)}</th>${q.options
+                .map((o) => {
+                  const checked =
+                    q.type === "matrix_multiple"
+                      ? Array.isArray(selected?.[r.value]) &&
+                        selected[r.value].includes(o.value)
+                      : selected?.[r.value] === o.value;
+                  return `<td><label class="gq-matrix-cell"><input type="${cellType}" aria-label="${esc(`${r.label} — ${o.label}`)}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${checked ? "checked" : ""}></label></td>`;
+                })
+                .join("")}</tr>`,
+          )
+          .join("")}</tbody></table></div>`;
+      }
       if (q.type === "daterange") {
         const range = Array.isArray(selected) ? selected : ["", ""];
         return `<div class="gq-date-range"><label>Start<input data-id="${esc(q.id)}" data-date-index="0" type="date" value="${esc(range[0] || "")}"></label><label>End<input data-id="${esc(q.id)}" data-date-index="1" type="date" value="${esc(range[1] || "")}"></label></div>`;
@@ -2248,7 +2280,7 @@ SHA-256: `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5`
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8`
+SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ```css
 :root {
@@ -2435,7 +2467,64 @@ SHA-256: `0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8`
   border-left: 4px solid var(--gq-danger);
 }
 .gq-matrix {
-  overflow: auto;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+  border-top: 1px solid var(--gq-line);
+  border-bottom: 1px solid var(--gq-line);
+}
+.gq-matrix table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.gq-matrix th,
+.gq-matrix td {
+  border-bottom: 1px solid var(--gq-line);
+  padding: 14px 12px;
+  vertical-align: middle;
+}
+.gq-matrix thead th {
+  text-align: center;
+  font-weight: 750;
+  background: #f8fafc;
+}
+.gq-matrix tbody th {
+  text-align: left;
+  font-weight: 500;
+  background: #fff;
+}
+.gq-matrix td {
+  text-align: center;
+}
+.gq-matrix tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.gq-matrix-cell {
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.gq-matrix-cell input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--gq-brand);
+}
+.gq-mobile .gq-matrix table {
+  min-width: 620px;
+}
+.gq-mobile .gq-matrix thead th:first-child,
+.gq-mobile .gq-matrix tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  box-shadow: 1px 0 0 var(--gq-line);
+}
+.gq-mobile .gq-matrix thead th:first-child {
+  z-index: 2;
 }
 .gq-slider {
   display: grid;
@@ -2651,7 +2740,7 @@ SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
+SHA-256: `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65`
 
 ```html
 <!doctype html>
@@ -2728,6 +2817,95 @@ SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
       .tools select {
         padding: 8px 12px;
       }
+      .tools button {
+        border: 1px solid #98a2b3;
+        border-radius: 7px;
+        background: #fff;
+        color: #101828;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      dialog {
+        width: min(760px, calc(100vw - 32px));
+        max-height: min(82vh, 850px);
+        padding: 0;
+        border: 0;
+        border-radius: 16px;
+        box-shadow: 0 24px 80px #0008;
+        color: #172033;
+      }
+      dialog::backdrop {
+        background: #101828b8;
+      }
+      .structure-head {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        border-bottom: 1px solid #d0d5dd;
+        background: #fff;
+      }
+      .structure-head h2 {
+        margin: 0 0 4px;
+        font-size: 20px;
+      }
+      .structure-head p {
+        margin: 0;
+        color: #667085;
+        font-size: 13px;
+      }
+      .structure-head button {
+        align-self: start;
+      }
+      .structure-tree {
+        padding: 16px 20px 22px;
+        overflow: auto;
+      }
+      .structure-tree details {
+        border: 1px solid #d0d5dd;
+        border-radius: 10px;
+        margin: 0 0 10px;
+      }
+      .structure-tree summary {
+        padding: 12px;
+        cursor: pointer;
+        font-weight: 750;
+        background: #f8fafc;
+      }
+      .structure-items {
+        margin: 0;
+        padding: 6px 12px 10px 42px;
+        list-style: none;
+      }
+      .structure-items li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #eaecf0;
+      }
+      .structure-items li:last-child {
+        border: 0;
+      }
+      .structure-badge {
+        display: inline-grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: #e9d7fe;
+        color: #6941c6;
+        font-size: 12px;
+        font-weight: 850;
+      }
+      .structure-meta {
+        color: #667085;
+        font-size: 12px;
+        margin-top: 2px;
+      }
       .state {
         margin: 0 20px 20px;
         background: #1d2939;
@@ -2752,6 +2930,7 @@ SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
     </div>
     <div class="tools">
       <button id="reset">Reset both virtual participants</button
+      ><button id="structure-open">View structure</button
       ><label
         >Desktop condition
         <select id="condition"></select></label
@@ -2770,6 +2949,18 @@ SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
         <div class="screen"><div id="mobile"></div></div>
       </section>
     </main>
+    <dialog id="structure-dialog" aria-labelledby="structure-title">
+      <div class="structure-head">
+        <div>
+          <h2 id="structure-title">Survey structure</h2>
+          <p>Pages, text, and questions in respondent order</p>
+        </div>
+        <button id="structure-close" aria-label="Close survey structure">
+          Close
+        </button>
+      </div>
+      <div id="structure-tree" class="structure-tree"></div>
+    </dialog>
     <pre id="state" class="state"></pre>
     <script src="greedyq-core.js"></script>
     <script id="greedyq-model" type="application/json">
@@ -2838,6 +3029,56 @@ SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
         desktop.reset();
         mobile.reset();
         show();
+      };
+      const escapeHtml = (value) =>
+          String(value ?? "").replace(
+            /[&<>"']/g,
+            (character) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              })[character],
+          ),
+        excerpt = (value) => {
+          const words = String(value ?? "")
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
+          return words.slice(0, 5).join(" ") + (words.length > 5 ? "…" : "");
+        },
+        structureDialog = document.getElementById("structure-dialog"),
+        structureTree = document.getElementById("structure-tree");
+      structureTree.innerHTML = model.pages
+        .map((page, pageIndex) => {
+          const items = [];
+          if (page.body)
+            items.push(
+              `<li><span class="structure-badge">T</span><div>${escapeHtml(excerpt(page.body))}<div class="structure-meta">Text block</div></div></li>`,
+            );
+          for (const question of page.questions || [])
+            items.push(
+              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? " · required" : ""}</div></div></li>`,
+            );
+          if (!items.length)
+            items.push(
+              `<li><span class="structure-badge">—</span><div>No content items</div></li>`,
+            );
+          return `<details ${pageIndex === 0 ? "open" : ""}><summary>${pageIndex + 1}. ${escapeHtml(page.title)} <code>[${escapeHtml(page.id)}]</code>${page.terminal ? ` · ${escapeHtml(page.terminal)}` : ""}</summary><ul class="structure-items">${items.join("")}</ul></details>`;
+        })
+        .join("");
+      document.getElementById("structure-open").onclick = () =>
+        structureDialog.showModal
+          ? structureDialog.showModal()
+          : structureDialog.setAttribute("open", "");
+      document.getElementById("structure-close").onclick = () =>
+        structureDialog.close
+          ? structureDialog.close()
+          : structureDialog.removeAttribute("open");
+      structureDialog.onclick = (event) => {
+        if (event.target === structureDialog) structureDialog.close();
       };
       document.getElementById("condition").onchange = (e) => {
         desktop.state.condition = e.target.value;

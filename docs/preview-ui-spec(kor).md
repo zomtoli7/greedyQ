@@ -71,6 +71,9 @@ Back navigation은 valid answer와 persisted assignment를 보존합니다. Refr
 
 Researcher panel은 다음을 제공합니다.
 
+- 읽기 전용이며 닫을 수 있는 dialog를 여는 `View structure` action
+- 응답자 순서에 따른 접이식 page hierarchy (`T`는 text block, `Q`는 question)
+- 각 page ID와 title, 각 question ID·label·type·required 상태 및 모든 terminal outcome
 - deterministic condition 선택
 - page 및 terminal-outcome jump
 - current page, reachable next page, condition, lifecycle state, visit history
@@ -82,6 +85,8 @@ Researcher panel은 다음을 제공합니다.
 - external write 및 production redirect가 꺼졌다는 visible statement
 
 Forced condition을 바꾸면 condition-dependent answer를 reset하고 assignment boundary로 돌아갑니다. Researcher가 raw page jump를 명시적으로 선택한 경우는 예외입니다. Debug control은 production service를 변경하면 안 됩니다.
+
+Structure dialog는 overview이며 editor나 sdstudio 대체물이 아닙니다. 이를 열거나 펼치거나 접거나 닫아도 answer, navigation history, assignment 또는 source file이 바뀌어서는 안 됩니다. Hierarchy에 삽입되는 survey content는 반드시 escape합니다. Keyboard user가 dialog를 열고 disclosure를 조작하고 닫은 뒤 호출한 control로 돌아갈 수 있어야 합니다.
 
 ## 8. Preview safety
 

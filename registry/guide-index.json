@@ -56,7 +56,7 @@
         },
         {
           "path": "docs/preview-ui-spec.md",
-          "sha256": "8ce8ff378f10ca8b7b93ede186b532589aecb12ba31e399e14dc4765467a868d"
+          "sha256": "163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa"
         },
         {
           "path": "schemas/ai/study-state.schema.json",
@@ -84,11 +84,11 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5"
+          "sha256": "7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa"
         },
         {
           "path": "web/greedyq-runtime.css",
-          "sha256": "0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8"
+          "sha256": "f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048"
         },
         {
           "path": "templates/browser/respondent.html",
@@ -96,7 +96,7 @@
         },
         {
           "path": "templates/browser/preview.html",
-          "sha256": "1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693"
+          "sha256": "8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65"
         },
         {
           "path": "templates/browser/studio.html",
@@ -235,7 +235,7 @@
         },
         {
           "path": "docs/surveydown-compatibility.md",
-          "sha256": "98e76a74976d131f96d9e1468902e50dd664aa50862ca3060fc2311b24071922"
+          "sha256": "ca0c9532b5c9920f0da96dc429adfa82dbda0f070787fe5dfb1e526268d26b38"
         }
       ]
     },

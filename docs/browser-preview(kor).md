@@ -28,6 +28,14 @@ Preview는 virtual participant ID와 local mock adapter를 사용합니다. 데�
 
 Mock data는 synthetic browser-local state이며 Supabase가 설정 또는 검증되었다는 뜻이 아닙니다. Reset은 virtual session을 제거합니다. Production credential과 participant identifier는 preview에서 금지합니다.
 
+## 구조 개요
+
+`preview.html`의 **View structure**를 누르면 설문을 완료하지 않고도 모든 page, text block, question ID, question type, required 표시 및 terminal outcome을 볼 수 있습니다. Page는 펼치거나 접을 수 있습니다. 이는 sdstudio Build tab의 유용한 hierarchy view에서 영감을 받은 읽기 전용 보조 기능이며, sdstudio를 구현하지 않고 QMD도 편집하지 않습니다.
+
+## 온라인 컨트롤 갤러리
+
+[컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)는 지원되는 모든 컨트롤을 같은 desktop/mobile preview에서 시험합니다. GitHub Pages가 `main`의 canonical static example을 게시하므로 Vercel이나 Supabase 계정 없이 볼 수 있습니다.
+
 ## Deployment 경계
 
 모든 deterministic behavior는 external connection 전에 로컬에서 통과해야 합니다. Vercel은 이미 테스트한 static bundle을 받아 제공할 뿐 questionnaire를 다시 해석하면 안 됩니다. Supabase는 승인된 RPC와 row-level security를 통해 persistence/assignment adapter만 교체합니다. Supabase 연결은 parsing, validation, rendering, routing, consent 또는 outcome semantics를 바꾸면 안 됩니다.

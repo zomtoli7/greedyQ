@@ -2,16 +2,9 @@
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
   "registry_sha256": "0ce8a9dbd2babdb78a1f8f6ba8c7da277f8388cbf4508aeadbedecf8e9cc3aff",
-  "object": "greedyQExperiment",
-  "profile": "experiment",
-  "modules": [
-    "consent",
-    "deployment-vercel-supabase",
-    "export-surveydown",
-    "governance-irb",
-    "preregistration",
-    "prolific"
-  ],
+  "object": "greedyQSimple",
+  "profile": "simple",
+  "modules": [],
   "resolved_components": [
     {
       "id": "core",
@@ -21,53 +14,11 @@
       "manifest_sha256": "cf9dff02a2073a0b4c4207832db92c72e0e5ecb5a18878b52b2556eb60d05f3b"
     },
     {
-      "id": "experiment",
+      "id": "simple",
       "kind": "profile",
       "version": "0.2.0-draft.1",
-      "manifest": "guides/profiles/experiment/component.json",
-      "manifest_sha256": "32b673998c323b2bbcdbf245353d8d71f011c9cb5ff48afd5d8d2c9791f160d7"
-    },
-    {
-      "id": "governance-irb",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/governance-irb/component.json",
-      "manifest_sha256": "a242bb84920b9514c43cdffa11b42f1b232bf722cfb703d9555cbb093e91ba2c"
-    },
-    {
-      "id": "consent",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/consent/component.json",
-      "manifest_sha256": "38d77987410483ad5e2506c2961c9f825d5d023f1284c20696d065825c9600dd"
-    },
-    {
-      "id": "deployment-vercel-supabase",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/deployment-vercel-supabase/component.json",
-      "manifest_sha256": "a51ae5ab5f299943d4e91b6f5c8dc61074e0478372164c362f91ed88386d6bfc"
-    },
-    {
-      "id": "export-surveydown",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/export-surveydown/component.json",
-      "manifest_sha256": "7fe89dd0b67885873b2456154dbba4186be312dd8204a1974dafcbab991563a6"
-    },
-    {
-      "id": "preregistration",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/preregistration/component.json",
-      "manifest_sha256": "76c3b28e1a3e345979a15db46b5e68b02d6382ba097ceb72d0fa566f9770f8d9"
-    },
-    {
-      "id": "prolific",
-      "kind": "module",
-      "version": "0.2.0-draft.1",
-      "manifest": "guides/modules/prolific/component.json",
-      "manifest_sha256": "9b04a698e4c5dd315277ff7d7835c1b35bd14f1b2bc7cb02cf6659ce9fbf140f"
+      "manifest": "guides/profiles/simple/component.json",
+      "manifest_sha256": "72d6d49d6b1af8954958dca83db2863e565a287d5d1fc2ffc56043adf62a4eba"
     }
   ],
   "resolved_files": [
@@ -222,89 +173,14 @@
       "sha256": "d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f"
     },
     {
-      "component": "experiment",
-      "path": "guides/profiles/experiment/guide.md",
-      "sha256": "da240a800d03d36437214368175e9e6509c1cabaecae914f65905f9a14956e47"
+      "component": "simple",
+      "path": "guides/profiles/simple/guide.md",
+      "sha256": "b2dcd183cc06dc540b90168868cdfdc54df7042b9fe506e1823d55dacf40452a"
     },
     {
-      "component": "experiment",
-      "path": "guides/profiles/experiment/checkpoints.json",
-      "sha256": "349204d0419a35c4d9e8d1956feac2ffe8fb2f30ee1d518eb4b745dd3b256414"
-    },
-    {
-      "component": "governance-irb",
-      "path": "guides/modules/governance-irb/guide.md",
-      "sha256": "66ec5e6b633869fb593e3dcaa4f229fefc4ad1a94a6ce74f55eba7c867819bd0"
-    },
-    {
-      "component": "governance-irb",
-      "path": "guides/modules/governance-irb/checkpoints.json",
-      "sha256": "5f387105e8cbcdc89535247183cbcba4861d69ec0fcb5c6d33f859aacb42fe3e"
-    },
-    {
-      "component": "consent",
-      "path": "guides/modules/consent/guide.md",
-      "sha256": "517c152c03a84871622e9ac6a75bc78b63659042db7c7e076292bad1c6dfe9e9"
-    },
-    {
-      "component": "consent",
-      "path": "guides/modules/consent/checkpoints.json",
-      "sha256": "760c8769c8710006016bef4532dd539904106a8d74bb110be9d3859324eaee6f"
-    },
-    {
-      "component": "deployment-vercel-supabase",
-      "path": "guides/modules/deployment-vercel-supabase/guide.md",
-      "sha256": "35d13e78052194e956c4a39f26f9ae54eb649bfd8cbda0141576fb230613512c"
-    },
-    {
-      "component": "deployment-vercel-supabase",
-      "path": "guides/modules/deployment-vercel-supabase/checkpoints.json",
-      "sha256": "9c44323d150869e9b3021d9e9e38cb0c5b349805a636c82cb81563bcad4e3104"
-    },
-    {
-      "component": "deployment-vercel-supabase",
-      "path": "examples/complete-study/supabase/migrations/001_initial.sql",
-      "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62"
-    },
-    {
-      "component": "deployment-vercel-supabase",
-      "path": "examples/complete-study/vercel.json",
-      "sha256": "fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34"
-    },
-    {
-      "component": "export-surveydown",
-      "path": "guides/modules/export-surveydown/guide.md",
-      "sha256": "cdb9d88eeef29c0302618eba6b7689e4cc4f83f2279fe17b2ee51a53adb42b5a"
-    },
-    {
-      "component": "export-surveydown",
-      "path": "guides/modules/export-surveydown/checkpoints.json",
-      "sha256": "9648e7f167958d3916d99a16176b7d684e9be79637c5384834dfff0a58743e57"
-    },
-    {
-      "component": "export-surveydown",
-      "path": "docs/surveydown-compatibility.md",
-      "sha256": "ca0c9532b5c9920f0da96dc429adfa82dbda0f070787fe5dfb1e526268d26b38"
-    },
-    {
-      "component": "preregistration",
-      "path": "guides/modules/preregistration/guide.md",
-      "sha256": "df3ae2bde65d015dfd37b2386c34a2140900cc02ce767d60e37abc2a2e8a8a8c"
-    },
-    {
-      "component": "preregistration",
-      "path": "guides/modules/preregistration/checkpoints.json",
-      "sha256": "de0e9030a21f4cd43feaa851e6e9244c4d0ca28d07f34c83cd6c825f673fc453"
-    },
-    {
-      "component": "prolific",
-      "path": "guides/modules/prolific/guide.md",
-      "sha256": "ada72dcf4704432f1f24bf60c90aa4058ca0730d9eca609acac765c9cf896fdd"
-    },
-    {
-      "component": "prolific",
-      "path": "guides/modules/prolific/checkpoints.json",
-      "sha256": "446ef652a3d44387ffcc8fa960eb9965bb1d0945fb6c135a7e109a33ab879873"
+      "component": "simple",
+      "path": "guides/profiles/simple/checkpoints.json",
+      "sha256": "860743f7b5cb1504a10fe19290ba1448d8722abb30a5cb374cb4f2e303f105b4"
     }
   ]
 }

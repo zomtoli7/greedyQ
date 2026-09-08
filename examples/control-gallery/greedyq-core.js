@@ -1458,8 +1458,35 @@
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
-      if (["matrix", "matrix_multiple"].includes(q.type))
-        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="${q.type === "matrix_multiple" ? "checkbox" : "radio"}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${q.type === "matrix_multiple" ? (Array.isArray(selected?.[r.value]) && selected[r.value].includes(o.value) ? "checked" : "") : selected?.[r.value] === o.value ? "checked" : ""}>${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (["matrix", "matrix_multiple"].includes(q.type)) {
+        const rawWidth = String(q.matrix_question_width ?? "40").replace(
+            "%",
+            "",
+          ),
+          numericWidth = Number(rawWidth),
+          promptWidth =
+            Number.isFinite(numericWidth) &&
+            numericWidth > 0 &&
+            numericWidth < 100
+              ? numericWidth
+              : 40,
+          cellType = q.type === "matrix_multiple" ? "checkbox" : "radio";
+        return `<div class="gq-matrix" role="region" aria-label="${esc(q.label)}" tabindex="0"><table><colgroup><col style="width:${promptWidth}%">${q.options.map(() => `<col style="width:${(100 - promptWidth) / q.options.length}%">`).join("")}</colgroup><thead><tr><th class="gq-matrix-corner" scope="col"></th>${q.options.map((o) => `<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows
+          .map(
+            (r) =>
+              `<tr><th scope="row">${esc(r.label)}</th>${q.options
+                .map((o) => {
+                  const checked =
+                    q.type === "matrix_multiple"
+                      ? Array.isArray(selected?.[r.value]) &&
+                        selected[r.value].includes(o.value)
+                      : selected?.[r.value] === o.value;
+                  return `<td><label class="gq-matrix-cell"><input type="${cellType}" aria-label="${esc(`${r.label} — ${o.label}`)}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${checked ? "checked" : ""}></label></td>`;
+                })
+                .join("")}</tr>`,
+          )
+          .join("")}</tbody></table></div>`;
+      }
       if (q.type === "daterange") {
         const range = Array.isArray(selected) ? selected : ["", ""];
         return `<div class="gq-date-range"><label>Start<input data-id="${esc(q.id)}" data-date-index="0" type="date" value="${esc(range[0] || "")}"></label><label>End<input data-id="${esc(q.id)}" data-date-index="1" type="date" value="${esc(range[1] || "")}"></label></div>`;

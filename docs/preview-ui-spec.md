@@ -71,6 +71,9 @@ Back navigation preserves valid answers and the persisted assignment. Refresh/re
 
 The researcher panel provides:
 
+- a `View structure` action that opens a read-only, dismissible dialog;
+- a collapsible page hierarchy in respondent order, with text blocks marked `T` and questions marked `Q`;
+- each page ID and title, each question ID, label, type, required status, and every terminal outcome;
 - deterministic condition selection;
 - page and terminal-outcome jump controls;
 - current page, reachable next page, condition, lifecycle state, and visit history;
@@ -82,6 +85,8 @@ The researcher panel provides:
 - a visible statement that external writes and production redirects are disabled.
 
 Changing a forced condition resets condition-dependent answers and returns to the assignment boundary unless the researcher explicitly chooses a raw page jump. Debug controls must not mutate production services.
+
+The structure dialog is an overview, not an editor and not an sdstudio replacement. Opening, expanding, collapsing, or closing it MUST NOT alter answers, navigation history, assignments, or source files. Survey content inserted into the hierarchy MUST be escaped. Keyboard users must be able to open it, operate each disclosure, close it, and return to the invoking control.
 
 ## 8. Preview safety
 

@@ -28,6 +28,14 @@ Preview uses virtual participant IDs and a local mock adapter. It tests required
 
 Mock data is synthetic browser-local state, not a claim that Supabase has been configured or verified. Reset removes the virtual sessions. Production credentials and participant identifiers are prohibited in preview.
 
+## Structure overview
+
+Use **View structure** in `preview.html` to see every page, text block, question ID, question type, required marker, and terminal outcome without completing the survey. Pages can be expanded or collapsed. This is a read-only aid inspired by the useful hierarchy view in sdstudio's Build tab; it does not implement sdstudio and cannot edit the QMD.
+
+## Live control gallery
+
+The built [control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html) exercises every supported control in the same desktop/mobile preview. GitHub Pages publishes the canonical static example from `main`; no Vercel or Supabase account is needed to view it.
+
 ## Deployment boundary
 
 All deterministic behavior must pass locally before external connection. Vercel receives the already-tested static bundle and serves it; it must not reinterpret the questionnaire. Supabase replaces only the persistence/assignment adapter through approved RPCs and row-level security. Connecting Supabase must not alter parsing, validation, rendering, routing, consent, or outcome semantics.

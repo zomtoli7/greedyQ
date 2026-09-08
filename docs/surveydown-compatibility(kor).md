@@ -245,7 +245,7 @@ greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 �
 | `image` | Option과 평행한 image path/URL | **v0.2 구현 완료** |
 | `option_attr` | Option별 HTML attribute | Raw form은 **Unsupported by design** |
 | `yml` | 외부 question-definition path | **Post-v0.2**, root default는 v0.2 |
-| `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |
+| `matrix_question_width` | Matrix prompt-column width | **v0.2 구현 완료** |
 | `...` | 임의의 input-specific Shiny argument | **Unsupported by design**, portable argument만 명시적으로 allowlist |
 
 Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw HTML도 가능하지만 greedyQ는 sanitization과 portable Markdown subset을 정의해야 합니다.

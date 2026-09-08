@@ -245,7 +245,7 @@ greedyQ should preserve the logical response shape and migration/export behavior
 | `image` | Image paths/URLs parallel to options | **v0.2 implemented** |
 | `option_attr` | Per-option HTML attributes | **Unsupported by design** in its raw form |
 | `yml` | External question-definition path | **Post-v0.2**; root default is v0.2 |
-| `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |
+| `matrix_question_width` | Matrix prompt-column width | **v0.2 implemented** |
 | `...` | Arbitrary input-specific Shiny arguments | **Unsupported by design**; explicitly whitelist portable arguments |
 
 Labels and regular option labels accept Markdown upstream. Raw HTML is also possible, but greedyQ should specify sanitization and a portable Markdown subset.
