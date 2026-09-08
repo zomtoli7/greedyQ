@@ -68,6 +68,8 @@ greedyQ는 다음 장점을 유지합니다.
 
 ## 주요 workflow
 
+비기술 사용자를 위한 단계별 안내는 [greedyQ 사용자 설명서](./USER-GUIDE(kor).md)에서 시작하십시오.
+
 ```text
 Versioned greedyQ repository + 연구자의 연구 아이디어
                          |

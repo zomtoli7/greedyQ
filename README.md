@@ -68,6 +68,8 @@ It provides its own deterministic, browser-native JavaScript runtime designed fo
 
 ## Primary workflow
 
+For a nontechnical, click-by-click walkthrough, begin with the [greedyQ User Guide](./USER-GUIDE.md).
+
 ```text
 Versioned greedyQ repository + researcher's study idea
                          |
