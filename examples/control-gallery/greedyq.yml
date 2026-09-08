@@ -1,0 +1,11 @@
+spec_version: "0.2"
+study:
+  id: control_gallery
+  title: greedyQ Control Gallery
+respondents:
+  mode: test
+outcomes:
+  complete:
+    page: complete
+    lifecycle_state: completed
+    redirect: null

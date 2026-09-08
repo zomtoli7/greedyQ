@@ -114,11 +114,11 @@ Expert user는 계속 `survey.qmd`와 `greedyq.yml`을 직접 작성할 수 있�
 
 ## surveydown과의 관계
 
-greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원하는 독립 구현입니다. surveydown 소스 코드를 포함하지 않으며 surveydown 프로젝트 또는 maintainer와 제휴하거나 이들의 보증을 받지 않습니다. 호환성이 greedyQ native 기능을 제한하지 않으며, 각 기능은 직접 이동 가능, `app.R`로 생성 가능, 또는 명시적인 export diagnostic이 있는 greedyQ-only로 분류합니다. 출처 및 라이선스 정보는 [NOTICE(kor).md](./NOTICE(kor).md)를 참고하십시오.
+greedyQ는 surveydown-style `survey.qmd` 문법의 독립 구현입니다. v0.2 browser runtime은 현재 공식 question-types documentation의 control 16종을 모두 구현하며, 나머지 문법은 compatibility level을 명시적으로 구분합니다. surveydown 소스 코드를 포함하지 않으며 surveydown 프로젝트 또는 maintainer와 제휴하거나 이들의 보증을 받지 않습니다. 호환성이 greedyQ native 기능을 제한하지 않으며, 각 기능은 직접 이동 가능, `app.R`로 생성 가능, 또는 명시적인 export diagnostic이 있는 greedyQ-only로 분류합니다. 출처 및 라이선스 정보는 [NOTICE(kor).md](./NOTICE(kor).md)를 참고하십시오.
 
 ## 프로젝트 상태
 
-greedyQ에는 이제 계정 없이 검증할 수 있는 connection-ready v0.2 runtime candidate가 있습니다. 고정 JavaScript core가 지원 QMD/YAML subset을 parse·validate·compile하고 adaptive desktop/mobile respondent view와 mock persistence/assignment를 사용하는 동시 preview를 render합니다. 두 golden study 및 잘못된 validator fixture에서 normalized output이 Python reference와 conform합니다. Static Vercel file, canonical Supabase RPC migration, Prolific launch validation, preregistration draft, native surveydown export, offline preflight가 구현되었습니다. Live service 연결 및 검증은 의도적으로 수행하지 않았습니다. 자세한 내용은 [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)를 참고하십시오.
+greedyQ에는 이제 계정 없이 검증할 수 있는 connection-ready v0.2 runtime candidate가 있습니다. 고정 JavaScript core가 지원 QMD/YAML 문법을 parse·validate·compile하고 공식 surveydown question control을 adaptive desktop/mobile respondent view에 모두 render하며 mock persistence/assignment를 사용하는 동시 preview를 제공합니다. Golden study, 전체 control gallery 및 잘못된 validator fixture에서 normalized output이 Python reference와 conform합니다. Static Vercel file, canonical Supabase RPC migration, Prolific launch validation, preregistration draft, native surveydown export, offline preflight가 구현되었습니다. Live service 연결 및 검증은 의도적으로 수행하지 않았습니다. 자세한 내용은 [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)를 참고하십시오.
 
 ## Responsive preview 사용하기
 

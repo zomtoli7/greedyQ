@@ -23,7 +23,7 @@ def show_report(report):
         return
     print("Your survey needs %d change(s) before preview:" % len(report["issues"]))
     for issue in report["issues"]:
-        location = str(issue["file"]) + ((":" + str(issue["line"])) if issue.get("line") else "")
+        location = str(issue.get("file", "study folder")) + ((":" + str(issue["line"])) if issue.get("line") else "")
         print("- %s (%s)" % (issue["message"], location))
 
 

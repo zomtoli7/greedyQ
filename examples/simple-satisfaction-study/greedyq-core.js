@@ -15,11 +15,17 @@
     "numeric",
     "mc",
     "mc_multiple",
+    "mc_buttons",
+    "mc_multiple_buttons",
+    "mc_image",
+    "mc_multiple_image",
     "select",
     "slider",
     "slider_numeric",
     "date",
+    "daterange",
     "matrix",
+    "matrix_multiple",
   ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
@@ -217,9 +223,13 @@
       const pair = splitEquals(item);
       if (!pair) {
         const value = scalar(item);
-        return { label: String(value), value };
+        return { label: String(value), value, _named: false };
       }
-      const option = { label: String(scalar(pair[0])), value: scalar(pair[1]) };
+      const option = {
+        label: String(scalar(pair[0])),
+        value: scalar(pair[1]),
+        _named: true,
+      };
       if (
         /^[a-z][a-z0-9_]*$/.test(pair[0]) &&
         /^["']/.test(pair[1]) &&
@@ -228,6 +238,35 @@
         option._looks_reversed = true;
       return option;
     });
+  }
+  function sequence(raw, line) {
+    const match =
+      /^seq\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)$/.exec(
+        raw,
+      );
+    if (!match) return vector(raw, line);
+    const start = Number(match[1]),
+      stop = Number(match[2]),
+      step = Number(match[3]);
+    if (!step || (stop - start) * step < 0)
+      throw new ParseError(
+        "seq() needs a non-zero step that moves toward its endpoint.",
+        line,
+      );
+    const result = [];
+    for (
+      let value = start;
+      step > 0
+        ? value <= stop + Math.abs(step) / 1e6
+        : value >= stop - Math.abs(step) / 1e6;
+      value += step
+    ) {
+      const normalized = Number(value.toFixed(12));
+      result.push({ label: String(normalized), value: normalized });
+      if (result.length > 10000)
+        throw new ParseError("seq() creates too many slider values.", line);
+    }
+    return result;
   }
   function callArgs(body, line) {
     const found = CALL_RE.exec(body);
@@ -274,9 +313,18 @@
           `Argument '${pair[0]}' appears more than once.`,
           line,
         );
-      args[pair[0]] = ["option", "options", "row", "rows"].includes(pair[0])
-        ? vector(pair[1], line)
-        : scalar(pair[1]);
+      args[pair[0]] =
+        [
+          "option",
+          "options",
+          "row",
+          "rows",
+          "image",
+          "default",
+          "selected",
+        ].includes(pair[0]) && /^(?:c|seq)\(/.test(pair[1])
+          ? sequence(pair[1], line)
+          : scalar(pair[1]);
     }
     return [found[1], args];
   }
@@ -336,9 +384,15 @@
           delete args.type;
           delete args.label;
           if (args.option) q.options = args.option;
-          if (args.options) q.options = args.options;
+          if (args.options && !q.options) q.options = args.options;
           if (args.row) q.rows = args.row;
           if (args.rows) q.rows = args.rows;
+          if (args.image) q.images = args.image.map((item) => item.value);
+          if (["mc_image", "mc_multiple_image"].includes(q.type))
+            for (const option of q.options || [])
+              option.caption = option._named !== false;
+          for (const option of [...(q.options || []), ...(q.rows || [])])
+            delete option._named;
           if (args.label_select) q.placeholder = args.label_select;
           for (const key of [
             "option",
@@ -346,6 +400,7 @@
             "row",
             "rows",
             "label_select",
+            "image",
           ])
             delete args[key];
           for (const key of [
@@ -354,9 +409,29 @@
             "max",
             "step",
             "orientation",
+            "direction",
+            "status",
+            "width",
+            "height",
+            "selected",
+            "default",
+            "grid",
+            "individual",
+            "justified",
+            "force_edges",
+            "resize",
+            "cols",
+            "matrix_question_width",
+            "pre",
+            "sep",
+            "animate",
           ]) {
             if (Object.hasOwn(args, key)) {
-              q[key] = args[key];
+              q[key] =
+                ["default", "selected"].includes(key) &&
+                Array.isArray(args[key])
+                  ? args[key].map((item) => item.value)
+                  : args[key];
               delete args[key];
             }
           }
@@ -473,7 +548,18 @@
           ),
         );
       if (
-        ["mc", "mc_multiple", "select", "slider", "matrix"].includes(q.type) &&
+        [
+          "mc",
+          "mc_multiple",
+          "mc_buttons",
+          "mc_multiple_buttons",
+          "mc_image",
+          "mc_multiple_image",
+          "select",
+          "slider",
+          "matrix",
+          "matrix_multiple",
+        ].includes(q.type) &&
         !q.options?.length
       )
         issues.push(
@@ -484,11 +570,86 @@
             q._line,
           ),
         );
-      if (q.type === "matrix" && !q.rows?.length)
+      if (["matrix", "matrix_multiple"].includes(q.type) && !q.rows?.length)
         issues.push(
           issue(
             "GQ003",
             `Matrix question '${q.id}' needs at least one row.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        ["mc_image", "mc_multiple_image"].includes(q.type) &&
+        (q.images || []).length !== (q.options || []).length
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Image question '${q.id}' needs exactly one image for each answer choice.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (![null, undefined, "horizontal", "vertical"].includes(q.direction))
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses an unsupported button direction.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        ![null, undefined, "none", "both", "horizontal", "vertical"].includes(
+          q.resize,
+        )
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses an unsupported textarea resize setting.`,
+            qmd,
+            q._line,
+          ),
+        );
+      for (const dimension of ["width", "height"])
+        if (
+          q[dimension] != null &&
+          !/^\d+(?:\.\d+)?(?:px|%|rem|em|vw|vh)$/.test(String(q[dimension]))
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Question '${q.id}' needs a safe CSS ${dimension}.`,
+              qmd,
+              q._line,
+            ),
+          );
+      for (const image of q.images || [])
+        if (
+          !(
+            String(image).startsWith("https://") ||
+            /^(?!\/)(?!.*\.\.)[A-Za-z0-9_./-]+$/.test(String(image))
+          )
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Image question '${q.id}' contains an unsafe image path.`,
+              qmd,
+              q._line,
+            ),
+          );
+      if (
+        q.type === "slider_numeric" &&
+        Array.isArray(q.default) &&
+        ![1, 2].includes(q.default.length)
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Numeric slider '${q.id}' default must contain one value or two range endpoints.`,
             qmd,
             q._line,
           ),
@@ -1239,21 +1400,25 @@
       nextFor = (p) =>
         (p.routes || []).find((r) => matches(r.when))?.to ?? p.next;
     function input(q) {
-      const selected = state.answers[q.id];
-      if (q.type === "mc")
+      const selected = state.answers[q.id],
+        initial = selected ?? q.selected,
+        today = new Date().toISOString().slice(0, 10);
+      if (["mc", "mc_buttons", "mc_image"].includes(q.type))
         return (q.options || [])
           .map(
-            (o) =>
-              `<label class="gq-choice"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${selected === o.value ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+            (o, index) =>
+              `<label class="gq-choice${q.type === "mc_buttons" ? " gq-button-choice" : ""}${q.type === "mc_image" ? " gq-image-choice" : ""}"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${initial === o.value ? "checked" : ""}>${q.type === "mc_image" ? `<img src="${esc(q.images?.[index] || "")}" alt="${esc(o.label || "Option " + (index + 1))}">` : ""}${q.type !== "mc_image" || o.caption !== false ? `<span>${esc(o.label)}</span>` : ""}</label>`,
           )
           .join("");
       if (q.type === "slider") {
         const options = q.options || [],
-          found = options.findIndex((option) => option.value === selected),
+          found = options.findIndex((option) => option.value === initial),
           index =
             found >= 0
               ? found
-              : Math.floor(Math.max(0, options.length - 1) / 2),
+              : options.some((option) => option.value === q.selected)
+                ? options.findIndex((option) => option.value === q.selected)
+                : Math.floor(Math.max(0, options.length - 1) / 2),
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
@@ -1265,26 +1430,43 @@
           max = q.max ?? (values.length ? Math.max(...values) : 100),
           step =
             q.step ?? (values.length > 1 ? Math.abs(values[1] - values[0]) : 1),
-          current = selected ?? Math.round((min + max) / 2),
+          defaults = Array.isArray(q.default)
+            ? q.default
+            : q.default != null
+              ? [q.default]
+              : [],
+          current = selected ?? defaults[0] ?? Math.round((min + max) / 2),
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        if (defaults.length === 2 || Array.isArray(selected)) {
+          const range = Array.isArray(selected) ? selected : defaults;
+          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} minimum" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} maximum" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        }
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc((q.pre || "") + current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
       }
-      if (q.type === "mc_multiple")
+      if (
+        ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
+          q.type,
+        )
+      )
         return (q.options || [])
           .map(
-            (o) =>
-              `<label class="gq-choice"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(selected) && selected.includes(o.value) ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+            (o, index) =>
+              `<label class="gq-choice${q.type === "mc_multiple_buttons" ? " gq-button-choice" : ""}${q.type === "mc_multiple_image" ? " gq-image-choice" : ""}"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(initial) && initial.includes(o.value) ? "checked" : ""}>${q.type === "mc_multiple_image" ? `<img src="${esc(q.images?.[index] || "")}" alt="${esc(o.label || "Option " + (index + 1))}">` : ""}${q.type !== "mc_multiple_image" || o.caption !== false ? `<span>${esc(o.label)}</span>` : ""}</label>`,
           )
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
-      if (q.type === "matrix")
-        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="radio" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}">${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (["matrix", "matrix_multiple"].includes(q.type))
+        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="${q.type === "matrix_multiple" ? "checkbox" : "radio"}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${q.type === "matrix_multiple" ? (Array.isArray(selected?.[r.value]) && selected[r.value].includes(o.value) ? "checked" : "") : selected?.[r.value] === o.value ? "checked" : ""}>${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (q.type === "daterange") {
+        const range = Array.isArray(selected) ? selected : ["", ""];
+        return `<div class="gq-date-range"><label>Start<input data-id="${esc(q.id)}" data-date-index="0" type="date" value="${esc(range[0] || "")}"></label><label>End<input data-id="${esc(q.id)}" data-date-index="1" type="date" value="${esc(range[1] || "")}"></label></div>`;
+      }
       if (q.type === "textarea")
-        return `<textarea data-id="${esc(q.id)}">${esc(selected || "")}</textarea>`;
-      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" || q.type === "slider_numeric" ? "number" : q.type === "date" ? "date" : "text"}" value="${esc(selected ?? "")}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
+        return `<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder || "")}" style="${q.height ? `height:${esc(q.height)};` : ""}${q.resize ? `resize:${esc(q.resize)};` : ""}" cols="${esc(q.cols || 80)}">${esc(selected || "")}</textarea>`;
+      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? (q.type === "date" ? today : ""))}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
     }
     function collect(p) {
       for (const q of visible(p)) {
@@ -1295,7 +1477,11 @@
           else delete state.answers[q.id];
           continue;
         }
-        if (q.type === "mc_multiple") {
+        if (
+          ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
+            q.type,
+          )
+        ) {
           const v = [
             ...root.querySelectorAll(`[name="${CSS.escape(q.id)}"]:checked`),
           ].map((x) => scalar(x.value));
@@ -1303,15 +1489,41 @@
           else delete state.answers[q.id];
           continue;
         }
-        if (q.type === "matrix") {
+        if (["matrix", "matrix_multiple"].includes(q.type)) {
           const v = {};
           for (const row of q.rows) {
-            const e = root.querySelector(
-              `[name="${CSS.escape(q.id + ":" + row.value)}"]:checked`,
-            );
-            if (e) v[row.value] = scalar(e.value);
+            const found = [
+              ...root.querySelectorAll(
+                `[name="${CSS.escape(q.id + ":" + row.value)}"]:checked`,
+              ),
+            ];
+            if (found.length)
+              v[row.value] =
+                q.type === "matrix_multiple"
+                  ? found.map((e) => scalar(e.value))
+                  : scalar(found[0].value);
           }
           if (Object.keys(v).length) state.answers[q.id] = v;
+          continue;
+        }
+        if (
+          q.type === "daterange" ||
+          (q.type === "slider_numeric" &&
+            root.querySelector(
+              `[data-id="${CSS.escape(q.id)}"][data-range-index]`,
+            ))
+        ) {
+          const attribute = q.type === "daterange" ? "dateIndex" : "rangeIndex";
+          const values = [
+            ...root.querySelectorAll(`[data-id="${CSS.escape(q.id)}"]`),
+          ]
+            .sort(
+              (a, b) =>
+                Number(a.dataset[attribute]) - Number(b.dataset[attribute]),
+            )
+            .map((e) => scalar(e.value));
+          if (values.every((item) => item !== "")) state.answers[q.id] = values;
+          else delete state.answers[q.id];
           continue;
         }
         const e =
@@ -1328,7 +1540,7 @@
         (v == null ||
           v === "" ||
           (Array.isArray(v) && !v.length) ||
-          (q.type === "matrix" &&
+          (["matrix", "matrix_multiple"].includes(q.type) &&
             q.rows.some((r) => !Object.hasOwn(v || {}, r.value))))
       );
     }
@@ -1359,7 +1571,7 @@
       )
         .map(
           (q) =>
-            `<fieldset class="gq-q" data-q="${esc(q.id)}"><legend>${esc(q.label)}${q.required ? ' <span aria-label="required">*</span>' : ""}</legend>${input(q)}</fieldset>`,
+            `<fieldset class="gq-q gq-${esc(q.type)} gq-direction-${esc(q.direction || "horizontal")}${q.justified ? " gq-justified" : ""}" data-q="${esc(q.id)}" style="${q.width ? `width:${esc(q.width)}` : ""}"><legend>${esc(q.label)}${q.required ? ' <span aria-label="required">*</span>' : ""}</legend>${input(q)}</fieldset>`,
         )
         .join(
           "",
@@ -1380,11 +1592,27 @@
             output = card.querySelector(
               `[data-slider-output="${CSS.escape(slider.dataset.id)}"]`,
             );
-          if (output)
-            output.textContent =
-              slider.dataset.sliderKind === "categorical"
-                ? question?.options?.[Number(slider.value)]?.label || ""
-                : slider.value;
+          if (output) {
+            if (slider.dataset.sliderKind === "categorical")
+              output.textContent =
+                question?.options?.[Number(slider.value)]?.label || "";
+            else if (slider.dataset.sliderKind === "numeric-range") {
+              const sliders = [
+                ...card.querySelectorAll(
+                  `[data-id="${CSS.escape(slider.dataset.id)}"][data-range-index]`,
+                ),
+              ].sort(
+                (a, b) =>
+                  Number(a.dataset.rangeIndex) - Number(b.dataset.rangeIndex),
+              );
+              if (Number(sliders[0].value) > Number(sliders[1].value))
+                slider.value =
+                  sliders[Number(slider.dataset.rangeIndex) ? 0 : 1].value;
+              output.textContent = sliders
+                .map((item) => item.value)
+                .join(question?.sep || " – ");
+            } else output.textContent = `${question?.pre || ""}${slider.value}`;
+          }
         };
       const next = card.querySelector("[data-next]");
       if (next)

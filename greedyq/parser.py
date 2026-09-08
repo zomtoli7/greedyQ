@@ -53,13 +53,31 @@ def _vector(text, line):
     for item in _split_top(text[2:-1]):
         pieces = _split_equals(item)
         if pieces is None:
-            value = _unquote(item); values.append({"label": str(value), "value": value})
+            value = _unquote(item); values.append({"label": str(value), "value": value, "_named": False})
         else:
             label, value = pieces
-            option = {"label": str(_unquote(label)), "value": _unquote(value)}
+            option = {"label": str(_unquote(label)), "value": _unquote(value), "_named": True}
             if re.fullmatch(r"[a-z][a-z0-9_]*", label) and value[:1] in "\"'" and " " in str(option["value"]):
                 option["_looks_reversed"] = True
             values.append(option)
+    return values
+
+
+def _sequence(text, line):
+    match = re.fullmatch(r"seq\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)", text)
+    if not match:
+        return _vector(text, line)
+    start, stop, step = map(float, match.groups())
+    if step == 0 or (stop - start) * step < 0:
+        raise ParseError("seq() needs a non-zero step that moves toward its endpoint.", line)
+    values, current = [], start
+    compare = (lambda value: value <= stop + abs(step) / 1_000_000) if step > 0 else (lambda value: value >= stop - abs(step) / 1_000_000)
+    while compare(current):
+        value = int(current) if current.is_integer() else current
+        values.append({"label": str(value), "value": value})
+        current += step
+        if len(values) > 10000:
+            raise ParseError("seq() creates too many slider values.", line)
     return values
 
 
@@ -101,7 +119,7 @@ def _call_args(body, line):
         if pair is None: raise ParseError("Every %s argument must have a name." % name, line)
         key, raw = pair
         if key in args: raise ParseError("Argument '%s' appears more than once." % key, line)
-        args[key] = _vector(raw, line) if key in ("option", "options", "row", "rows") else _unquote(raw)
+        args[key] = _sequence(raw, line) if key in ("option", "options", "row", "rows", "image", "default", "selected") and (raw.startswith("c(") or raw.startswith("seq(")) else _unquote(raw)
     return name, args
 
 
@@ -137,11 +155,19 @@ def parse_qmd(path):
             if name == "sd_question":
                 q = {"id": args.pop("id", None), "type": args.pop("type", None), "label": args.pop("label", None), "_line": line}
                 if "option" in args: q["options"] = args.pop("option")
-                if "options" in args: q["options"] = args.pop("options")
+                if "options" in args:
+                    if "options" not in q: q["options"] = args["options"]
+                    args.pop("options")
                 if "row" in args: q["rows"] = args.pop("row")
                 if "rows" in args: q["rows"] = args.pop("rows")
+                if "image" in args: q["images"] = [item["value"] for item in args.pop("image")]
+                if q.get("type") in ("mc_image", "mc_multiple_image"):
+                    for option in q.get("options", []): option["caption"] = option.get("_named", True)
+                for option in q.get("options", []) + q.get("rows", []): option.pop("_named", None)
+                if isinstance(args.get("default"), list): args["default"] = [item["value"] for item in args["default"]]
+                if isinstance(args.get("selected"), list): args["selected"] = [item["value"] for item in args["selected"]]
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max", "step", "orientation"):
+                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "pre", "sep", "animate"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)

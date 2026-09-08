@@ -238,11 +238,11 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `docs/preview-ui-spec.md` | `194b638f80db2a9f6f12487ea10149876d02d256725acc78e95d06b3493e8a70` | `no` |
-| `web/greedyq-core.js` | `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73` | `no` |
-| `web/greedyq-runtime.css` | `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c` | `no` |
-| `templates/browser/respondent.html` | `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df` | `no` |
-| `templates/browser/preview.html` | `824eff7e5d5e8be117ce31601fce7310c7d2b8969e5e20b860bfcb232014e77d` | `no` |
+| `docs/preview-ui-spec.md` | `8ce8ff378f10ca8b7b93ede186b532589aecb12ba31e399e14dc4765467a868d` | `no` |
+| `web/greedyq-core.js` | `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5` | `no` |
+| `web/greedyq-runtime.css` | `0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8` | `no` |
+| `templates/browser/respondent.html` | `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f` | `no` |
+| `templates/browser/preview.html` | `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
@@ -251,12 +251,12 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `0b7a9c3e6c359cae22d44de8a780b30e4106f444bb1a41303b1fa5fccb87088a` | `no` |
+| `schemas/preview-model.schema.json` | `ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60` | `no` |
 | `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
-| `greedyq/__main__.py` | `c569eddcf218e0a7ccbb00f67f1efadffb50b351e147aa4a3a1f9eabbe88a272` | `no` |
+| `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
-| `greedyq/parser.py` | `59b3ef13315837e31588f30af1f86a8d5f3c90c661f978c4422cd8a642db9ba8` | `no` |
-| `greedyq/validator.py` | `adfd5d9414b763df0810e66a3c1fc5243cc06525b9f4c7392dbf37e3d1b30d07` | `no` |
+| `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
+| `greedyq/validator.py` | `52ae540a3b3ff4edfc9ac7097e69cefd22826595f6540ac3746012a2d9bf8f10` | `no` |
 | `greedyq/compiler.py` | `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3` | `no` |
 | `greedyq/build.py` | `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
@@ -268,7 +268,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 ### FILE: `docs/preview-ui-spec.md`
 
-SHA-256: `194b638f80db2a9f6f12487ea10149876d02d256725acc78e95d06b3493e8a70`
+SHA-256: `8ce8ff378f10ca8b7b93ede186b532589aecb12ba31e399e14dc4765467a868d`
 
 ```markdown
 # greedyQ Preview UI Specification
@@ -314,6 +314,8 @@ Render, in order:
 Use one primary action per page. Previous is visually secondary. Disable Previous only when history is empty or policy forbids it. Do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
 
 ## 4. Question presentation
+
+The respondent renderer MUST implement every documented surveydown control: text, textarea, numeric, single and multiple choice, button-style single and multiple choice, image-card single and multiple choice, select, labeled and numeric sliders (including a two-handle numeric range), date, date range, single-choice matrix, and multiple-choice matrix. All controls MUST remain keyboard operable, expose an accessible name, preserve stored values rather than display labels, and rehydrate saved answers.
 
 - Use native semantic controls whenever possible.
 - Every control has a persistent visible label. Placeholder text is never the only label.
@@ -408,7 +410,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
+SHA-256: `6380fcea1072d91f2b73f0e25f2b23d2feb526018e0b167a06e8a351ae41a8c5`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -428,11 +430,17 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
     "numeric",
     "mc",
     "mc_multiple",
+    "mc_buttons",
+    "mc_multiple_buttons",
+    "mc_image",
+    "mc_multiple_image",
     "select",
     "slider",
     "slider_numeric",
     "date",
+    "daterange",
     "matrix",
+    "matrix_multiple",
   ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
@@ -630,9 +638,13 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
       const pair = splitEquals(item);
       if (!pair) {
         const value = scalar(item);
-        return { label: String(value), value };
+        return { label: String(value), value, _named: false };
       }
-      const option = { label: String(scalar(pair[0])), value: scalar(pair[1]) };
+      const option = {
+        label: String(scalar(pair[0])),
+        value: scalar(pair[1]),
+        _named: true,
+      };
       if (
         /^[a-z][a-z0-9_]*$/.test(pair[0]) &&
         /^["']/.test(pair[1]) &&
@@ -641,6 +653,35 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
         option._looks_reversed = true;
       return option;
     });
+  }
+  function sequence(raw, line) {
+    const match =
+      /^seq\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)$/.exec(
+        raw,
+      );
+    if (!match) return vector(raw, line);
+    const start = Number(match[1]),
+      stop = Number(match[2]),
+      step = Number(match[3]);
+    if (!step || (stop - start) * step < 0)
+      throw new ParseError(
+        "seq() needs a non-zero step that moves toward its endpoint.",
+        line,
+      );
+    const result = [];
+    for (
+      let value = start;
+      step > 0
+        ? value <= stop + Math.abs(step) / 1e6
+        : value >= stop - Math.abs(step) / 1e6;
+      value += step
+    ) {
+      const normalized = Number(value.toFixed(12));
+      result.push({ label: String(normalized), value: normalized });
+      if (result.length > 10000)
+        throw new ParseError("seq() creates too many slider values.", line);
+    }
+    return result;
   }
   function callArgs(body, line) {
     const found = CALL_RE.exec(body);
@@ -687,9 +728,18 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           `Argument '${pair[0]}' appears more than once.`,
           line,
         );
-      args[pair[0]] = ["option", "options", "row", "rows"].includes(pair[0])
-        ? vector(pair[1], line)
-        : scalar(pair[1]);
+      args[pair[0]] =
+        [
+          "option",
+          "options",
+          "row",
+          "rows",
+          "image",
+          "default",
+          "selected",
+        ].includes(pair[0]) && /^(?:c|seq)\(/.test(pair[1])
+          ? sequence(pair[1], line)
+          : scalar(pair[1]);
     }
     return [found[1], args];
   }
@@ -749,9 +799,15 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           delete args.type;
           delete args.label;
           if (args.option) q.options = args.option;
-          if (args.options) q.options = args.options;
+          if (args.options && !q.options) q.options = args.options;
           if (args.row) q.rows = args.row;
           if (args.rows) q.rows = args.rows;
+          if (args.image) q.images = args.image.map((item) => item.value);
+          if (["mc_image", "mc_multiple_image"].includes(q.type))
+            for (const option of q.options || [])
+              option.caption = option._named !== false;
+          for (const option of [...(q.options || []), ...(q.rows || [])])
+            delete option._named;
           if (args.label_select) q.placeholder = args.label_select;
           for (const key of [
             "option",
@@ -759,6 +815,7 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
             "row",
             "rows",
             "label_select",
+            "image",
           ])
             delete args[key];
           for (const key of [
@@ -767,9 +824,29 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
             "max",
             "step",
             "orientation",
+            "direction",
+            "status",
+            "width",
+            "height",
+            "selected",
+            "default",
+            "grid",
+            "individual",
+            "justified",
+            "force_edges",
+            "resize",
+            "cols",
+            "matrix_question_width",
+            "pre",
+            "sep",
+            "animate",
           ]) {
             if (Object.hasOwn(args, key)) {
-              q[key] = args[key];
+              q[key] =
+                ["default", "selected"].includes(key) &&
+                Array.isArray(args[key])
+                  ? args[key].map((item) => item.value)
+                  : args[key];
               delete args[key];
             }
           }
@@ -886,7 +963,18 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           ),
         );
       if (
-        ["mc", "mc_multiple", "select", "slider", "matrix"].includes(q.type) &&
+        [
+          "mc",
+          "mc_multiple",
+          "mc_buttons",
+          "mc_multiple_buttons",
+          "mc_image",
+          "mc_multiple_image",
+          "select",
+          "slider",
+          "matrix",
+          "matrix_multiple",
+        ].includes(q.type) &&
         !q.options?.length
       )
         issues.push(
@@ -897,11 +985,86 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
             q._line,
           ),
         );
-      if (q.type === "matrix" && !q.rows?.length)
+      if (["matrix", "matrix_multiple"].includes(q.type) && !q.rows?.length)
         issues.push(
           issue(
             "GQ003",
             `Matrix question '${q.id}' needs at least one row.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        ["mc_image", "mc_multiple_image"].includes(q.type) &&
+        (q.images || []).length !== (q.options || []).length
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Image question '${q.id}' needs exactly one image for each answer choice.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (![null, undefined, "horizontal", "vertical"].includes(q.direction))
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses an unsupported button direction.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        ![null, undefined, "none", "both", "horizontal", "vertical"].includes(
+          q.resize,
+        )
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses an unsupported textarea resize setting.`,
+            qmd,
+            q._line,
+          ),
+        );
+      for (const dimension of ["width", "height"])
+        if (
+          q[dimension] != null &&
+          !/^\d+(?:\.\d+)?(?:px|%|rem|em|vw|vh)$/.test(String(q[dimension]))
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Question '${q.id}' needs a safe CSS ${dimension}.`,
+              qmd,
+              q._line,
+            ),
+          );
+      for (const image of q.images || [])
+        if (
+          !(
+            String(image).startsWith("https://") ||
+            /^(?!\/)(?!.*\.\.)[A-Za-z0-9_./-]+$/.test(String(image))
+          )
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Image question '${q.id}' contains an unsafe image path.`,
+              qmd,
+              q._line,
+            ),
+          );
+      if (
+        q.type === "slider_numeric" &&
+        Array.isArray(q.default) &&
+        ![1, 2].includes(q.default.length)
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Numeric slider '${q.id}' default must contain one value or two range endpoints.`,
             qmd,
             q._line,
           ),
@@ -1652,21 +1815,25 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
       nextFor = (p) =>
         (p.routes || []).find((r) => matches(r.when))?.to ?? p.next;
     function input(q) {
-      const selected = state.answers[q.id];
-      if (q.type === "mc")
+      const selected = state.answers[q.id],
+        initial = selected ?? q.selected,
+        today = new Date().toISOString().slice(0, 10);
+      if (["mc", "mc_buttons", "mc_image"].includes(q.type))
         return (q.options || [])
           .map(
-            (o) =>
-              `<label class="gq-choice"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${selected === o.value ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+            (o, index) =>
+              `<label class="gq-choice${q.type === "mc_buttons" ? " gq-button-choice" : ""}${q.type === "mc_image" ? " gq-image-choice" : ""}"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${initial === o.value ? "checked" : ""}>${q.type === "mc_image" ? `<img src="${esc(q.images?.[index] || "")}" alt="${esc(o.label || "Option " + (index + 1))}">` : ""}${q.type !== "mc_image" || o.caption !== false ? `<span>${esc(o.label)}</span>` : ""}</label>`,
           )
           .join("");
       if (q.type === "slider") {
         const options = q.options || [],
-          found = options.findIndex((option) => option.value === selected),
+          found = options.findIndex((option) => option.value === initial),
           index =
             found >= 0
               ? found
-              : Math.floor(Math.max(0, options.length - 1) / 2),
+              : options.some((option) => option.value === q.selected)
+                ? options.findIndex((option) => option.value === q.selected)
+                : Math.floor(Math.max(0, options.length - 1) / 2),
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
@@ -1678,26 +1845,43 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           max = q.max ?? (values.length ? Math.max(...values) : 100),
           step =
             q.step ?? (values.length > 1 ? Math.abs(values[1] - values[0]) : 1),
-          current = selected ?? Math.round((min + max) / 2),
+          defaults = Array.isArray(q.default)
+            ? q.default
+            : q.default != null
+              ? [q.default]
+              : [],
+          current = selected ?? defaults[0] ?? Math.round((min + max) / 2),
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        if (defaults.length === 2 || Array.isArray(selected)) {
+          const range = Array.isArray(selected) ? selected : defaults;
+          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} minimum" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} maximum" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        }
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc((q.pre || "") + current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
       }
-      if (q.type === "mc_multiple")
+      if (
+        ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
+          q.type,
+        )
+      )
         return (q.options || [])
           .map(
-            (o) =>
-              `<label class="gq-choice"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(selected) && selected.includes(o.value) ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+            (o, index) =>
+              `<label class="gq-choice${q.type === "mc_multiple_buttons" ? " gq-button-choice" : ""}${q.type === "mc_multiple_image" ? " gq-image-choice" : ""}"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(initial) && initial.includes(o.value) ? "checked" : ""}>${q.type === "mc_multiple_image" ? `<img src="${esc(q.images?.[index] || "")}" alt="${esc(o.label || "Option " + (index + 1))}">` : ""}${q.type !== "mc_multiple_image" || o.caption !== false ? `<span>${esc(o.label)}</span>` : ""}</label>`,
           )
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
-      if (q.type === "matrix")
-        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="radio" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}">${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (["matrix", "matrix_multiple"].includes(q.type))
+        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="${q.type === "matrix_multiple" ? "checkbox" : "radio"}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${q.type === "matrix_multiple" ? (Array.isArray(selected?.[r.value]) && selected[r.value].includes(o.value) ? "checked" : "") : selected?.[r.value] === o.value ? "checked" : ""}>${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (q.type === "daterange") {
+        const range = Array.isArray(selected) ? selected : ["", ""];
+        return `<div class="gq-date-range"><label>Start<input data-id="${esc(q.id)}" data-date-index="0" type="date" value="${esc(range[0] || "")}"></label><label>End<input data-id="${esc(q.id)}" data-date-index="1" type="date" value="${esc(range[1] || "")}"></label></div>`;
+      }
       if (q.type === "textarea")
-        return `<textarea data-id="${esc(q.id)}">${esc(selected || "")}</textarea>`;
-      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" || q.type === "slider_numeric" ? "number" : q.type === "date" ? "date" : "text"}" value="${esc(selected ?? "")}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
+        return `<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder || "")}" style="${q.height ? `height:${esc(q.height)};` : ""}${q.resize ? `resize:${esc(q.resize)};` : ""}" cols="${esc(q.cols || 80)}">${esc(selected || "")}</textarea>`;
+      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? (q.type === "date" ? today : ""))}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
     }
     function collect(p) {
       for (const q of visible(p)) {
@@ -1708,7 +1892,11 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           else delete state.answers[q.id];
           continue;
         }
-        if (q.type === "mc_multiple") {
+        if (
+          ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
+            q.type,
+          )
+        ) {
           const v = [
             ...root.querySelectorAll(`[name="${CSS.escape(q.id)}"]:checked`),
           ].map((x) => scalar(x.value));
@@ -1716,15 +1904,41 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
           else delete state.answers[q.id];
           continue;
         }
-        if (q.type === "matrix") {
+        if (["matrix", "matrix_multiple"].includes(q.type)) {
           const v = {};
           for (const row of q.rows) {
-            const e = root.querySelector(
-              `[name="${CSS.escape(q.id + ":" + row.value)}"]:checked`,
-            );
-            if (e) v[row.value] = scalar(e.value);
+            const found = [
+              ...root.querySelectorAll(
+                `[name="${CSS.escape(q.id + ":" + row.value)}"]:checked`,
+              ),
+            ];
+            if (found.length)
+              v[row.value] =
+                q.type === "matrix_multiple"
+                  ? found.map((e) => scalar(e.value))
+                  : scalar(found[0].value);
           }
           if (Object.keys(v).length) state.answers[q.id] = v;
+          continue;
+        }
+        if (
+          q.type === "daterange" ||
+          (q.type === "slider_numeric" &&
+            root.querySelector(
+              `[data-id="${CSS.escape(q.id)}"][data-range-index]`,
+            ))
+        ) {
+          const attribute = q.type === "daterange" ? "dateIndex" : "rangeIndex";
+          const values = [
+            ...root.querySelectorAll(`[data-id="${CSS.escape(q.id)}"]`),
+          ]
+            .sort(
+              (a, b) =>
+                Number(a.dataset[attribute]) - Number(b.dataset[attribute]),
+            )
+            .map((e) => scalar(e.value));
+          if (values.every((item) => item !== "")) state.answers[q.id] = values;
+          else delete state.answers[q.id];
           continue;
         }
         const e =
@@ -1741,7 +1955,7 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
         (v == null ||
           v === "" ||
           (Array.isArray(v) && !v.length) ||
-          (q.type === "matrix" &&
+          (["matrix", "matrix_multiple"].includes(q.type) &&
             q.rows.some((r) => !Object.hasOwn(v || {}, r.value))))
       );
     }
@@ -1772,7 +1986,7 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
       )
         .map(
           (q) =>
-            `<fieldset class="gq-q" data-q="${esc(q.id)}"><legend>${esc(q.label)}${q.required ? ' <span aria-label="required">*</span>' : ""}</legend>${input(q)}</fieldset>`,
+            `<fieldset class="gq-q gq-${esc(q.type)} gq-direction-${esc(q.direction || "horizontal")}${q.justified ? " gq-justified" : ""}" data-q="${esc(q.id)}" style="${q.width ? `width:${esc(q.width)}` : ""}"><legend>${esc(q.label)}${q.required ? ' <span aria-label="required">*</span>' : ""}</legend>${input(q)}</fieldset>`,
         )
         .join(
           "",
@@ -1793,11 +2007,27 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
             output = card.querySelector(
               `[data-slider-output="${CSS.escape(slider.dataset.id)}"]`,
             );
-          if (output)
-            output.textContent =
-              slider.dataset.sliderKind === "categorical"
-                ? question?.options?.[Number(slider.value)]?.label || ""
-                : slider.value;
+          if (output) {
+            if (slider.dataset.sliderKind === "categorical")
+              output.textContent =
+                question?.options?.[Number(slider.value)]?.label || "";
+            else if (slider.dataset.sliderKind === "numeric-range") {
+              const sliders = [
+                ...card.querySelectorAll(
+                  `[data-id="${CSS.escape(slider.dataset.id)}"][data-range-index]`,
+                ),
+              ].sort(
+                (a, b) =>
+                  Number(a.dataset.rangeIndex) - Number(b.dataset.rangeIndex),
+              );
+              if (Number(sliders[0].value) > Number(sliders[1].value))
+                slider.value =
+                  sliders[Number(slider.dataset.rangeIndex) ? 0 : 1].value;
+              output.textContent = sliders
+                .map((item) => item.value)
+                .join(question?.sep || " – ");
+            } else output.textContent = `${question?.pre || ""}${slider.value}`;
+          }
         };
       const next = card.querySelector("[data-next]");
       if (next)
@@ -2018,7 +2248,7 @@ SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c`
+SHA-256: `0aef4d2670cdb9388de5d9eeca45f80f20262cc3faaba65e9b55771d10eebbf8`
 
 ```css
 :root {
@@ -2093,6 +2323,73 @@ SHA-256: `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c`
 .gq-choice:has(input:checked) {
   border-color: var(--gq-brand);
   background: #f2f7fc;
+}
+.gq-mc_buttons,
+.gq-mc_multiple_buttons,
+.gq-mc_image,
+.gq-mc_multiple_image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.gq-mc_buttons > legend,
+.gq-mc_multiple_buttons > legend,
+.gq-mc_image > legend,
+.gq-mc_multiple_image > legend {
+  flex-basis: 100%;
+}
+.gq-direction-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+.gq-button-choice {
+  cursor: pointer;
+  margin: 0;
+}
+.gq-button-choice input,
+.gq-image-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.gq-button-choice:focus-within,
+.gq-image-choice:focus-within {
+  outline: 3px solid color-mix(in srgb, var(--gq-brand) 35%, transparent);
+  outline-offset: 2px;
+}
+.gq-justified .gq-button-choice {
+  flex: 1;
+  justify-content: center;
+}
+.gq-image-choice {
+  width: min(220px, 100%);
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.gq-image-choice img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.gq-date-range {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.gq-date-range label {
+  display: grid;
+  gap: 6px;
+  font-weight: 650;
+}
+.gq-slider-range input[type="range"] {
+  grid-column: 1;
+  grid-row: 2;
+  pointer-events: none;
+}
+.gq-slider-range input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
 }
 .gq-q input[type="text"],
 .gq-q input[type="number"],
@@ -2217,6 +2514,12 @@ SHA-256: `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c`
   flex: 1;
   margin: 0 4px;
 }
+.gq-mobile .gq-date-range {
+  grid-template-columns: 1fr;
+}
+.gq-mobile .gq-image-choice {
+  width: 100%;
+}
 @media (max-width: 700px), (pointer: coarse) {
   .gq-desktop-auto .gq-card {
     border: 0;
@@ -2239,36 +2542,116 @@ SHA-256: `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df`
+SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
 
 ```html
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
-<title>greedyQ survey</title><link rel="stylesheet" href="greedyq-runtime.css">
-</head><body style="margin:0"><div id="survey"></div>
-<script src="greedyq-core.js"></script>
-<script id="greedyq-deployment" type="application/json">{"mode":"mock","supabase_url":null,"supabase_anon_key":null}</script>
-<script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace me","start_page":"welcome","conditions":["default"],"messages":{"previous":"Previous","next":"Continue","required":"Please answer the required questions before continuing."},"progress_paths":{"default":["welcome"]},"pages":[{"id":"welcome","title":"Not built","body":"Build the study first.","questions":[],"terminal":"placeholder"}]}</script>
-<script>
-(async()=>{
-  const model=JSON.parse(document.getElementById("greedyq-model").textContent),deployment=JSON.parse(document.getElementById("greedyq-deployment").textContent),root=document.getElementById("survey"),params=new URLSearchParams(location.search);
-  document.documentElement.style.setProperty("--gq-brand",model.brand_color||"#315c8a");
-  if(model.runtime_policy?.respondent_source?.startsWith("prolific")){
-    const launch=greedyQ.parseProlificLaunch(location.search,model.runtime_policy.mode);
-    if(launch.status!=="passed"){root.innerHTML='<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';return}
-  }
-  const sessionId=greedyQ.stableSessionId(model.study_id,params.get("session")||params.get("SESSION_ID"));
-  if(deployment.mode==="supabase")await greedyQ.mountSupabaseRespondent(root,model,{url:deployment.supabase_url,anonKey:deployment.supabase_anon_key,sessionId,onError:error=>{root.insertAdjacentHTML("afterbegin",'<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>');console.error(error)}});
-  else greedyQ.mountRespondent(root,model,{mode:greedyQ.detectDevice(),backend:greedyQ.createLocalMockBackend(`greedyq:${model.study_id}`),sessionId});
-})().catch(error=>{document.getElementById("survey").innerHTML='<main class="gq-card"><h1>Survey unavailable</h1><p>The secure data connection could not be started.</p></main>';console.error(error)});
-</script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data: https:; base-uri 'none'; frame-ancestors 'none'"
+    />
+    <title>greedyQ survey</title>
+    <link rel="stylesheet" href="greedyq-runtime.css" />
+  </head>
+  <body style="margin: 0">
+    <div id="survey"></div>
+    <script src="greedyq-core.js"></script>
+    <script id="greedyq-deployment" type="application/json">
+      { "mode": "mock", "supabase_url": null, "supabase_anon_key": null }
+    </script>
+    <script id="greedyq-model" type="application/json">
+      {
+        "study_id": "replace_me",
+        "title": "Replace me",
+        "start_page": "welcome",
+        "conditions": ["default"],
+        "messages": {
+          "previous": "Previous",
+          "next": "Continue",
+          "required": "Please answer the required questions before continuing."
+        },
+        "progress_paths": { "default": ["welcome"] },
+        "pages": [
+          {
+            "id": "welcome",
+            "title": "Not built",
+            "body": "Build the study first.",
+            "questions": [],
+            "terminal": "placeholder"
+          }
+        ]
+      }
+    </script>
+    <script>
+      (async () => {
+        const model = JSON.parse(
+            document.getElementById("greedyq-model").textContent,
+          ),
+          deployment = JSON.parse(
+            document.getElementById("greedyq-deployment").textContent,
+          ),
+          root = document.getElementById("survey"),
+          params = new URLSearchParams(location.search);
+        document.documentElement.style.setProperty(
+          "--gq-brand",
+          model.brand_color || "#315c8a",
+        );
+        if (model.runtime_policy?.respondent_source?.startsWith("prolific")) {
+          const launch = greedyQ.parseProlificLaunch(
+            location.search,
+            model.runtime_policy.mode,
+          );
+          if (launch.status !== "passed") {
+            root.innerHTML =
+              '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
+            return;
+          }
+        }
+        const sessionId = greedyQ.stableSessionId(
+          model.study_id,
+          params.get("session") || params.get("SESSION_ID"),
+        );
+        if (deployment.mode === "supabase")
+          await greedyQ.mountSupabaseRespondent(root, model, {
+            url: deployment.supabase_url,
+            anonKey: deployment.supabase_anon_key,
+            sessionId,
+            onError: (error) => {
+              root.insertAdjacentHTML(
+                "afterbegin",
+                '<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>',
+              );
+              console.error(error);
+            },
+          });
+        else
+          greedyQ.mountRespondent(root, model, {
+            mode: greedyQ.detectDevice(),
+            backend: greedyQ.createLocalMockBackend(
+              `greedyq:${model.study_id}`,
+            ),
+            sessionId,
+          });
+      })().catch((error) => {
+        document.getElementById("survey").innerHTML =
+          '<main class="gq-card"><h1>Survey unavailable</h1><p>The secure data connection could not be started.</p></main>';
+        console.error(error);
+      });
+    </script>
+  </body>
+</html>
 ```
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `824eff7e5d5e8be117ce31601fce7310c7d2b8969e5e20b860bfcb232014e77d`
+SHA-256: `1d77a9563bd5c6e6105013bc8686e8f395d754008619a8be883707071daa4693`
 
 ```html
 <!doctype html>
@@ -2278,7 +2661,7 @@ SHA-256: `824eff7e5d5e8be117ce31601fce7310c7d2b8969e5e20b860bfcb232014e77d`
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data: https:; base-uri 'none'"
     />
     <title>greedyQ dual preview</title>
     <link rel="stylesheet" href="greedyq-runtime.css" />
@@ -3178,7 +3561,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `0b7a9c3e6c359cae22d44de8a780b30e4106f444bb1a41303b1fa5fccb87088a`
+SHA-256: `ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60`
 
 ```json
 {
@@ -3189,74 +3572,244 @@ SHA-256: `0b7a9c3e6c359cae22d44de8a780b30e4106f444bb1a41303b1fa5fccb87088a`
   "additionalProperties": false,
   "required": ["study_id", "title", "start_page", "conditions", "pages"],
   "properties": {
-    "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
-    "title": {"type": "string", "minLength": 1},
-    "organization": {"type": "string", "minLength": 1, "maxLength": 120},
-    "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
-    "brand_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "title": { "type": "string", "minLength": 1 },
+    "organization": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "start_page": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "brand_color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
     "messages": {
-      "type": "object", "additionalProperties": false, "required": ["previous", "next", "required"],
-      "properties": {"previous": {"type": "string"}, "next": {"type": "string"}, "required": {"type": "string"}}
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["previous", "next", "required"],
+      "properties": {
+        "previous": { "type": "string" },
+        "next": { "type": "string" },
+        "required": { "type": "string" }
+      }
     },
-    "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
-    "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
-    "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
-    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}},
+    "assignment_page": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "conditions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "progress_paths": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "type": "string" }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/page" }
+    },
     "runtime_policy": {
-      "type": "object", "additionalProperties": false,
+      "type": "object",
+      "additionalProperties": false,
       "required": ["mode", "consent", "respondent_source", "duplicate_policy"],
       "properties": {
-        "mode": {"enum": ["test", "production"]},
-        "consent": {"type": ["object", "null"], "properties": {"question": {"type": ["string", "null"]}, "accept_value": {"$ref": "#/$defs/scalar"}, "refusal_outcome": {"type": ["string", "null"]}}, "additionalProperties": false},
-        "respondent_source": {"type": "string"},
-        "duplicate_policy": {"enum": ["resume", "reject", "allow"]}
+        "mode": { "enum": ["test", "production"] },
+        "consent": {
+          "type": ["object", "null"],
+          "properties": {
+            "question": { "type": ["string", "null"] },
+            "accept_value": { "$ref": "#/$defs/scalar" },
+            "refusal_outcome": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "respondent_source": { "type": "string" },
+        "duplicate_policy": { "enum": ["resume", "reject", "allow"] }
       }
     }
   },
   "$defs": {
-    "scalar": {"type": ["string", "number", "boolean", "null"]},
+    "scalar": { "type": ["string", "number", "boolean", "null"] },
     "option": {
-      "type": "object", "additionalProperties": false, "required": ["label", "value"],
-      "properties": {"label": {"type": "string", "minLength": 1}, "value": {"$ref": "#/$defs/scalar"}}
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "value"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "value": { "$ref": "#/$defs/scalar" },
+        "caption": { "type": "boolean" }
+      }
     },
     "rule": {
       "oneOf": [
-        {"type": "object", "additionalProperties": false, "required": ["all"], "properties": {"all": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
-        {"type": "object", "additionalProperties": false, "required": ["any"], "properties": {"any": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rule"}}}},
-        {"type": "object", "additionalProperties": false, "required": ["field"], "properties": {
-          "field": {"type": "string", "minLength": 1}, "equals": {"$ref": "#/$defs/scalar"}, "not_equals": {"$ref": "#/$defs/scalar"},
-          "lt": {"type": "number"}, "lte": {"type": "number"}, "gt": {"type": "number"}, "gte": {"type": "number"}
-        }, "minProperties": 2, "maxProperties": 2}
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["all"],
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/rule" }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["any"],
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/rule" }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["field"],
+          "properties": {
+            "field": { "type": "string", "minLength": 1 },
+            "equals": { "$ref": "#/$defs/scalar" },
+            "not_equals": { "$ref": "#/$defs/scalar" },
+            "lt": { "type": "number" },
+            "lte": { "type": "number" },
+            "gt": { "type": "number" },
+            "gte": { "type": "number" }
+          },
+          "minProperties": 2,
+          "maxProperties": 2
+        }
       ]
     },
     "question": {
-      "type": "object", "additionalProperties": false, "required": ["id", "type", "label"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "label"],
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
-        "type": {"enum": ["text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"]},
-        "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
-        "min": {"type": "number"}, "max": {"type": "number"}, "step": {"type": "number", "exclusiveMinimum": 0},
-        "orientation": {"enum": ["horizontal", "vertical"]},
-        "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
-        "rows": {"type": "array", "items": {"$ref": "#/$defs/option"}},
-        "show_if": {"$ref": "#/$defs/rule"}
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+        "type": {
+          "enum": [
+            "text",
+            "textarea",
+            "numeric",
+            "mc",
+            "mc_multiple",
+            "mc_buttons",
+            "mc_multiple_buttons",
+            "mc_image",
+            "mc_multiple_image",
+            "select",
+            "slider",
+            "slider_numeric",
+            "date",
+            "daterange",
+            "matrix",
+            "matrix_multiple"
+          ]
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "placeholder": { "type": "string" },
+        "required": { "type": "boolean" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number", "exclusiveMinimum": 0 },
+        "orientation": { "enum": ["horizontal", "vertical"] },
+        "direction": { "enum": ["horizontal", "vertical"] },
+        "images": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "width": { "type": ["string", "number"] },
+        "height": { "type": "string" },
+        "resize": { "type": "string" },
+        "cols": { "type": ["string", "number"] },
+        "selected": {},
+        "default": {
+          "type": ["array", "number"],
+          "items": { "$ref": "#/$defs/scalar" }
+        },
+        "grid": { "type": "boolean" },
+        "individual": { "type": "boolean" },
+        "justified": { "type": "boolean" },
+        "force_edges": { "type": "boolean" },
+        "status": { "type": "string" },
+        "matrix_question_width": { "type": ["string", "number"] },
+        "pre": { "type": "string" },
+        "sep": { "type": "string" },
+        "animate": {},
+        "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "show_if": { "$ref": "#/$defs/rule" }
       },
       "allOf": [
-        {"if": {"properties": {"type": {"enum": ["mc", "mc_multiple", "select", "slider", "matrix"]}}}, "then": {"required": ["options"]}},
-        {"if": {"properties": {"type": {"const": "matrix"}}}, "then": {"required": ["rows"]}}
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "mc",
+                  "mc_multiple",
+                  "mc_buttons",
+                  "mc_multiple_buttons",
+                  "mc_image",
+                  "mc_multiple_image",
+                  "select",
+                  "slider",
+                  "matrix",
+                  "matrix_multiple"
+                ]
+              }
+            }
+          },
+          "then": { "required": ["options"] }
+        },
+        {
+          "if": {
+            "properties": { "type": { "enum": ["matrix", "matrix_multiple"] } }
+          },
+          "then": { "required": ["rows"] }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "enum": ["mc_image", "mc_multiple_image"] }
+            }
+          },
+          "then": { "required": ["images"] }
+        }
       ]
     },
     "route": {
-      "type": "object", "additionalProperties": false, "required": ["when", "to"],
-      "properties": {"when": {"$ref": "#/$defs/rule"}, "to": {"type": "string"}}
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["when", "to"],
+      "properties": {
+        "when": { "$ref": "#/$defs/rule" },
+        "to": { "type": "string" }
+      }
     },
     "page": {
-      "type": "object", "additionalProperties": false, "required": ["id", "title", "questions"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "questions"],
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}, "title": {"type": "string", "minLength": 1},
-        "body": {"type": "string"}, "questions": {"type": "array", "items": {"$ref": "#/$defs/question"}},
-        "next": {"type": ["string", "null"]}, "next_label": {"type": "string"}, "show_previous": {"type": "boolean"}, "routes": {"type": "array", "items": {"$ref": "#/$defs/route"}},
-        "terminal": {"type": "string"}
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+        "title": { "type": "string", "minLength": 1 },
+        "body": { "type": "string" },
+        "questions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/question" }
+        },
+        "next": { "type": ["string", "null"] },
+        "next_label": { "type": "string" },
+        "show_previous": { "type": "boolean" },
+        "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+        "terminal": { "type": "string" }
       }
     }
   }
@@ -3275,7 +3828,7 @@ __version__ = "0.2.0-draft.1"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `c569eddcf218e0a7ccbb00f67f1efadffb50b351e147aa4a3a1f9eabbe88a272`
+SHA-256: `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21`
 
 ```python
 """CLI for greedyQ's dependency-light Python reference implementation."""
@@ -3303,7 +3856,7 @@ def show_report(report):
         return
     print("Your survey needs %d change(s) before preview:" % len(report["issues"]))
     for issue in report["issues"]:
-        location = str(issue["file"]) + ((":" + str(issue["line"])) if issue.get("line") else "")
+        location = str(issue.get("file", "study folder")) + ((":" + str(issue["line"])) if issue.get("line") else "")
         print("- %s (%s)" % (issue["message"], location))
 
 
@@ -3496,7 +4049,7 @@ def loads(text):
 
 ### FILE: `greedyq/parser.py`
 
-SHA-256: `59b3ef13315837e31588f30af1f86a8d5f3c90c661f978c4422cd8a642db9ba8`
+SHA-256: `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa`
 
 ```python
 """Parse the supported surveydown-style QMD subset into a normalized model."""
@@ -3554,13 +4107,31 @@ def _vector(text, line):
     for item in _split_top(text[2:-1]):
         pieces = _split_equals(item)
         if pieces is None:
-            value = _unquote(item); values.append({"label": str(value), "value": value})
+            value = _unquote(item); values.append({"label": str(value), "value": value, "_named": False})
         else:
             label, value = pieces
-            option = {"label": str(_unquote(label)), "value": _unquote(value)}
+            option = {"label": str(_unquote(label)), "value": _unquote(value), "_named": True}
             if re.fullmatch(r"[a-z][a-z0-9_]*", label) and value[:1] in "\"'" and " " in str(option["value"]):
                 option["_looks_reversed"] = True
             values.append(option)
+    return values
+
+
+def _sequence(text, line):
+    match = re.fullmatch(r"seq\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)", text)
+    if not match:
+        return _vector(text, line)
+    start, stop, step = map(float, match.groups())
+    if step == 0 or (stop - start) * step < 0:
+        raise ParseError("seq() needs a non-zero step that moves toward its endpoint.", line)
+    values, current = [], start
+    compare = (lambda value: value <= stop + abs(step) / 1_000_000) if step > 0 else (lambda value: value >= stop - abs(step) / 1_000_000)
+    while compare(current):
+        value = int(current) if current.is_integer() else current
+        values.append({"label": str(value), "value": value})
+        current += step
+        if len(values) > 10000:
+            raise ParseError("seq() creates too many slider values.", line)
     return values
 
 
@@ -3602,7 +4173,7 @@ def _call_args(body, line):
         if pair is None: raise ParseError("Every %s argument must have a name." % name, line)
         key, raw = pair
         if key in args: raise ParseError("Argument '%s' appears more than once." % key, line)
-        args[key] = _vector(raw, line) if key in ("option", "options", "row", "rows") else _unquote(raw)
+        args[key] = _sequence(raw, line) if key in ("option", "options", "row", "rows", "image", "default", "selected") and (raw.startswith("c(") or raw.startswith("seq(")) else _unquote(raw)
     return name, args
 
 
@@ -3638,11 +4209,19 @@ def parse_qmd(path):
             if name == "sd_question":
                 q = {"id": args.pop("id", None), "type": args.pop("type", None), "label": args.pop("label", None), "_line": line}
                 if "option" in args: q["options"] = args.pop("option")
-                if "options" in args: q["options"] = args.pop("options")
+                if "options" in args:
+                    if "options" not in q: q["options"] = args["options"]
+                    args.pop("options")
                 if "row" in args: q["rows"] = args.pop("row")
                 if "rows" in args: q["rows"] = args.pop("rows")
+                if "image" in args: q["images"] = [item["value"] for item in args.pop("image")]
+                if q.get("type") in ("mc_image", "mc_multiple_image"):
+                    for option in q.get("options", []): option["caption"] = option.get("_named", True)
+                for option in q.get("options", []) + q.get("rows", []): option.pop("_named", None)
+                if isinstance(args.get("default"), list): args["default"] = [item["value"] for item in args["default"]]
+                if isinstance(args.get("selected"), list): args["selected"] = [item["value"] for item in args["selected"]]
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max", "step", "orientation"):
+                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "pre", "sep", "animate"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)
@@ -3656,7 +4235,7 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `adfd5d9414b763df0810e66a3c1fc5243cc06525b9f4c7392dbf37e3d1b30d07`
+SHA-256: `52ae540a3b3ff4edfc9ac7097e69cefd22826595f6540ac3746012a2d9bf8f10`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
@@ -3664,7 +4243,7 @@ SHA-256: `adfd5d9414b763df0810e66a3c1fc5243cc06525b9f4c7392dbf37e3d1b30d07`
 import re
 
 
-SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"}
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
@@ -3726,10 +4305,24 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' uses the unsupported type '%s'." % (q["id"], q["type"]), qmd_path, line))
         if not q.get("label"):
             issues.append(_item("GQ003", "Question '%s' needs participant-facing wording in label." % q["id"], qmd_path, line))
-        if q.get("type") in {"mc", "mc_multiple", "select", "slider", "matrix"} and not q.get("options"):
+        if q.get("type") in {"mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "matrix", "matrix_multiple"} and not q.get("options"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
-        if q.get("type") == "matrix" and not q.get("rows"):
+        if q.get("type") in {"matrix", "matrix_multiple"} and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") in {"mc_image", "mc_multiple_image"} and len(q.get("images", [])) != len(q.get("options", [])):
+            issues.append(_item("GQ003", "Image question '%s' needs exactly one image for each answer choice." % q["id"], qmd_path, line))
+        if q.get("direction") not in (None, "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported button direction." % q["id"], qmd_path, line))
+        if q.get("resize") not in (None, "none", "both", "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported textarea resize setting." % q["id"], qmd_path, line))
+        for dimension in ("width", "height"):
+            if q.get(dimension) is not None and not re.fullmatch(r"\d+(?:\.\d+)?(?:px|%|rem|em|vw|vh)", str(q[dimension])):
+                issues.append(_item("GQ003", "Question '%s' needs a safe CSS %s such as '100%%' or '120px'." % (q["id"], dimension), qmd_path, line))
+        for image in q.get("images", []):
+            if not (str(image).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(image))):
+                issues.append(_item("GQ003", "Image question '%s' contains an unsafe image path." % q["id"], qmd_path, line))
+        if q.get("type") == "slider_numeric" and isinstance(q.get("default"), list) and len(q["default"]) not in (1, 2):
+            issues.append(_item("GQ003", "Numeric slider '%s' default must contain one value or two range endpoints." % q["id"], qmd_path, line))
         if q.get("type") == "slider" and len(q.get("options", [])) < 2:
             issues.append(_item("GQ003", "Slider question '%s' needs at least two ordered choices." % q["id"], qmd_path, line))
         if q.get("type") == "slider_numeric" and q.get("min") is not None and q.get("max") is not None and q["min"] >= q["max"]:

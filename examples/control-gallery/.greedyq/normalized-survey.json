@@ -1,0 +1,377 @@
+{
+  "schema_version": "0.2",
+  "source": "survey.qmd",
+  "front_matter": {
+    "title": "greedyQ Control Gallery",
+    "greedyq": {
+      "spec_version": "0.2",
+      "organization": "greedyQ"
+    },
+    "survey-settings": {
+      "start-page": "controls"
+    }
+  },
+  "pages": [
+    {
+      "id": "controls",
+      "title": "All surveydown-compatible controls",
+      "body": "Use this page to test every control in desktop and mobile preview modes.",
+      "questions": [
+        {
+          "id": "short_text",
+          "type": "text",
+          "label": "Text",
+          "_line": 15,
+          "placeholder": "Type here"
+        },
+        {
+          "id": "long_text",
+          "type": "textarea",
+          "label": "Textarea",
+          "_line": 19,
+          "placeholder": "Write more",
+          "height": "120px",
+          "resize": "vertical",
+          "cols": 50
+        },
+        {
+          "id": "number",
+          "type": "numeric",
+          "label": "Numeric",
+          "_line": 23,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "id": "single",
+          "type": "mc",
+          "label": "Single choice",
+          "_line": 27,
+          "options": [
+            {
+              "label": "Alpha",
+              "value": "a"
+            },
+            {
+              "label": "Beta",
+              "value": "b"
+            }
+          ]
+        },
+        {
+          "id": "multiple",
+          "type": "mc_multiple",
+          "label": "Multiple choice",
+          "_line": 31,
+          "options": [
+            {
+              "label": "Alpha",
+              "value": "a"
+            },
+            {
+              "label": "Beta",
+              "value": "b"
+            }
+          ]
+        },
+        {
+          "id": "buttons",
+          "type": "mc_buttons",
+          "label": "Single-choice buttons",
+          "_line": 35,
+          "options": [
+            {
+              "label": "Alpha",
+              "value": "a"
+            },
+            {
+              "label": "Beta",
+              "value": "b"
+            }
+          ],
+          "justified": true
+        },
+        {
+          "id": "multi_buttons",
+          "type": "mc_multiple_buttons",
+          "label": "Multiple-choice buttons",
+          "_line": 39,
+          "options": [
+            {
+              "label": "Alpha",
+              "value": "a"
+            },
+            {
+              "label": "Beta",
+              "value": "b"
+            }
+          ],
+          "direction": "vertical"
+        },
+        {
+          "id": "image",
+          "type": "mc_image",
+          "label": "Single image choice",
+          "_line": 43,
+          "options": [
+            {
+              "label": "Blue square",
+              "value": "blue",
+              "caption": true
+            },
+            {
+              "label": "Gold circle",
+              "value": "gold",
+              "caption": true
+            }
+          ],
+          "images": [
+            "images/blue.svg",
+            "images/gold.svg"
+          ]
+        },
+        {
+          "id": "multi_image",
+          "type": "mc_multiple_image",
+          "label": "Multiple image choice",
+          "_line": 47,
+          "options": [
+            {
+              "label": "Blue square",
+              "value": "blue",
+              "caption": true
+            },
+            {
+              "label": "Gold circle",
+              "value": "gold",
+              "caption": true
+            }
+          ],
+          "images": [
+            "images/blue.svg",
+            "images/gold.svg"
+          ]
+        },
+        {
+          "id": "menu",
+          "type": "select",
+          "label": "Select",
+          "_line": 51,
+          "options": [
+            {
+              "label": "Alpha",
+              "value": "a"
+            },
+            {
+              "label": "Beta",
+              "value": "b"
+            }
+          ],
+          "placeholder": "Choose one"
+        },
+        {
+          "id": "labeled_slider",
+          "type": "slider",
+          "label": "Labeled slider",
+          "_line": 55,
+          "options": [
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Middle",
+              "value": "middle"
+            },
+            {
+              "label": "High",
+              "value": "high"
+            }
+          ],
+          "selected": "middle"
+        },
+        {
+          "id": "numeric_slider",
+          "type": "slider_numeric",
+          "label": "Numeric slider",
+          "_line": 59,
+          "options": [
+            {
+              "label": "0",
+              "value": 0
+            },
+            {
+              "label": "1",
+              "value": 1
+            },
+            {
+              "label": "2",
+              "value": 2
+            },
+            {
+              "label": "3",
+              "value": 3
+            },
+            {
+              "label": "4",
+              "value": 4
+            },
+            {
+              "label": "5",
+              "value": 5
+            },
+            {
+              "label": "6",
+              "value": 6
+            },
+            {
+              "label": "7",
+              "value": 7
+            },
+            {
+              "label": "8",
+              "value": 8
+            },
+            {
+              "label": "9",
+              "value": 9
+            },
+            {
+              "label": "10",
+              "value": 10
+            }
+          ],
+          "default": 5,
+          "pre": "Score: "
+        },
+        {
+          "id": "range_slider",
+          "type": "slider_numeric",
+          "label": "Range slider",
+          "_line": 63,
+          "options": [
+            {
+              "label": "0",
+              "value": 0
+            },
+            {
+              "label": "1",
+              "value": 1
+            },
+            {
+              "label": "2",
+              "value": 2
+            },
+            {
+              "label": "3",
+              "value": 3
+            },
+            {
+              "label": "4",
+              "value": 4
+            },
+            {
+              "label": "5",
+              "value": 5
+            },
+            {
+              "label": "6",
+              "value": 6
+            },
+            {
+              "label": "7",
+              "value": 7
+            },
+            {
+              "label": "8",
+              "value": 8
+            },
+            {
+              "label": "9",
+              "value": 9
+            },
+            {
+              "label": "10",
+              "value": 10
+            }
+          ],
+          "default": [
+            3,
+            7
+          ],
+          "sep": " to "
+        },
+        {
+          "id": "one_date",
+          "type": "date",
+          "label": "Date",
+          "_line": 67
+        },
+        {
+          "id": "date_range",
+          "type": "daterange",
+          "label": "Date range",
+          "_line": 71
+        },
+        {
+          "id": "one_matrix",
+          "type": "matrix",
+          "label": "Single-choice matrix",
+          "_line": 75,
+          "options": [
+            {
+              "label": "No",
+              "value": "no"
+            },
+            {
+              "label": "Yes",
+              "value": "yes"
+            }
+          ],
+          "rows": [
+            {
+              "label": "First row",
+              "value": "first"
+            },
+            {
+              "label": "Second row",
+              "value": "second"
+            }
+          ]
+        },
+        {
+          "id": "multi_matrix",
+          "type": "matrix_multiple",
+          "label": "Multiple-choice matrix",
+          "_line": 79,
+          "options": [
+            {
+              "label": "Web",
+              "value": "web"
+            },
+            {
+              "label": "App",
+              "value": "app"
+            }
+          ],
+          "rows": [
+            {
+              "label": "First row",
+              "value": "first"
+            },
+            {
+              "label": "Second row",
+              "value": "second"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "complete",
+      "title": "Control test complete",
+      "body": "All controls were displayed.",
+      "questions": []
+    }
+  ]
+}

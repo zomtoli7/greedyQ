@@ -1,4 +1,5 @@
 import json
+import subprocess
 import shutil
 import tempfile
 import unittest
@@ -13,7 +14,7 @@ from greedyq.validator import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"}
+SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
 
 
 class RuntimePipelineTests(unittest.TestCase):
@@ -136,19 +137,37 @@ sd_question(id = "single", type = "mc", label = "Choose one", option = c("Alpha"
 sd_question(id = "multiple", type = "mc_multiple", label = "Choose several", option = c("Alpha" = "a", "Beta" = "b"))
 ```
 ```{r}
+sd_question(id = "buttons", type = "mc_buttons", label = "Buttons", option = c("Alpha" = "a", "Beta" = "b"), direction = "vertical", justified = TRUE)
+```
+```{r}
+sd_question(id = "multi_buttons", type = "mc_multiple_buttons", label = "Several buttons", option = c("Alpha" = "a", "Beta" = "b"))
+```
+```{r}
+sd_question(id = "picture", type = "mc_image", label = "Picture", option = c("Cat" = "cat", "Dog" = "dog"), image = c("images/cat.png", "images/dog.png"))
+```
+```{r}
+sd_question(id = "pictures", type = "mc_multiple_image", label = "Pictures", option = c("Cat" = "cat", "Dog" = "dog"), image = c("images/cat.png", "images/dog.png"))
+```
+```{r}
 sd_question(id = "menu", type = "select", label = "Menu", option = c("Alpha" = "a", "Beta" = "b"))
 ```
 ```{r}
 sd_question(id = "scale", type = "slider", label = "Scale", option = c("Low" = 1, "High" = 2), orientation = "vertical")
 ```
 ```{r}
-sd_question(id = "amount", type = "slider_numeric", label = "Amount", min = 1, max = 5, step = 0.5)
+sd_question(id = "amount", type = "slider_numeric", label = "Amount", option = seq(0, 10, 1), default = c(3, 5), sep = " to ")
 ```
 ```{r}
 sd_question(id = "day", type = "date", label = "Day")
 ```
 ```{r}
+sd_question(id = "days", type = "daterange", label = "Date range")
+```
+```{r}
 sd_question(id = "grid", type = "matrix", label = "Grid", row = c("First" = "r1"), option = c("No" = 0, "Yes" = 1))
+```
+```{r}
+sd_question(id = "multi_grid", type = "matrix_multiple", label = "Grid multiple", row = c("First" = "r1"), option = c("No" = 0, "Yes" = 1))
 ```
 
 --- done
@@ -170,9 +189,18 @@ outcomes:
             self.assertEqual(SUPPORTED_TYPES_FOR_TEST, types)
             questions = {q["id"]: q for q in model["pages"][0]["questions"]}
             self.assertEqual("vertical", questions["scale"]["orientation"])
-            self.assertEqual(0.5, questions["amount"]["step"])
+            self.assertEqual([3, 5], questions["amount"]["default"])
+            self.assertEqual(0, questions["amount"]["options"][0]["value"])
+            self.assertEqual("vertical", questions["buttons"]["direction"])
             schema = json.loads((ROOT / "schemas/preview-model.schema.json").read_text())
             self.assertEqual([], list(Draft202012Validator(schema).iter_errors(model)))
+            node = Path("/Users/dongsookim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node")
+            if node.is_file():
+                script = '''const fs=require("fs"),gq=require("./web/greedyq-core.js"),p=process.argv[1];const parsed=gq.parseSurvey(fs.readFileSync(p+"/survey.qmd","utf8"));const config=gq.parseYaml(fs.readFileSync(p+"/greedyq.yml","utf8"));console.log(JSON.stringify({report:gq.validateSurvey(parsed,config),model:gq.compileSurvey(parsed,config)}));'''
+                result = subprocess.run([str(node), "-e", script, str(target)], cwd=ROOT, text=True, capture_output=True, check=True)
+                browser = json.loads(result.stdout)
+                self.assertEqual("passed", browser["report"]["status"], browser["report"])
+                self.assertEqual(model, browser["model"])
 
     def test_raw_html_is_rejected_before_preview(self):
         _, parsed, config = load_study(ROOT / "examples/simple-satisfaction-study")

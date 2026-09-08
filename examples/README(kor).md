@@ -4,6 +4,10 @@
 
 Golden reference는 완전한 tutorial, AI가 만들어야 할 기대 산출물, conformance fixture의 역할을 동시에 합니다.
 
+## Control conformance gallery
+
+[Control Gallery](./control-gallery/preview.html)는 공식 surveydown question control 16종과 `slider_numeric`의 single-value 및 two-handle 형식을 모두 담은 비실전용 fixture입니다. Python/JavaScript conformance와 desktop/mobile interaction test에 사용합니다.
+
 ## `greedyQSimple`
 
 [사용자 경험 설문](./simple-satisfaction-study/README(kor).md)은 greedyQ를 사용한 성인에게 만족도, 사용성, 문제, 향후 사용 의향을 묻습니다. Consent, eligibility, conditional follow-up, withdrawal, descriptive analysis, deployment artifact가 있는 비실험 direct-link 설문을 보여줍니다.

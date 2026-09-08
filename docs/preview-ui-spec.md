@@ -42,6 +42,8 @@ Use one primary action per page. Previous is visually secondary. Disable Previou
 
 ## 4. Question presentation
 
+The respondent renderer MUST implement every documented surveydown control: text, textarea, numeric, single and multiple choice, button-style single and multiple choice, image-card single and multiple choice, select, labeled and numeric sliders (including a two-handle numeric range), date, date range, single-choice matrix, and multiple-choice matrix. All controls MUST remain keyboard operable, expose an accessible name, preserve stored values rather than display labels, and rehydrate saved answers.
+
 - Use native semantic controls whenever possible.
 - Every control has a persistent visible label. Placeholder text is never the only label.
 - Mark required questions with text or an accessible label, not color alone.

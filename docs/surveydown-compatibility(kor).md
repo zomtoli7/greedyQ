@@ -214,17 +214,17 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 | `numeric` | Numeric input | Numeric-looking value 하나 | **v0.2 target** |
 | `mc` | Single-choice radio group | Option value | **v0.2 target** |
 | `mc_multiple` | Multiple-choice checkbox group | Upstream은 pipe-separated로 저장 | **v0.2 target** |
-| `mc_buttons` | Single-choice button | Option value | **Post-v0.2** |
-| `mc_multiple_buttons` | Multiple-choice button | Upstream은 pipe-separated로 저장 | **Post-v0.2** |
-| `mc_image` | Single-choice image card | Option value, caption 선택 가능 | **Post-v0.2** |
-| `mc_multiple_image` | Multiple-choice image card | Multiple value | **Post-v0.2** |
+| `mc_buttons` | Single-choice button | Option value | **v0.2 구현 완료** |
+| `mc_multiple_buttons` | Multiple-choice button | Upstream은 pipe-separated로 저장 | **v0.2 구현 완료** |
+| `mc_image` | Single-choice image card | Option value, caption 선택 가능 | **v0.2 구현 완료** |
+| `mc_multiple_image` | Multiple-choice image card | Multiple value | **v0.2 구현 완료** |
 | `select` | Dropdown | Option value | **v0.2 target** |
 | `slider` | Discrete labeled slider | 선택된 option value | **v0.2 target** |
 | `slider_numeric` | Numeric single/range slider | Scalar 또는 range | **v0.2 target** |
 | `date` | Date input, upstream default는 오늘 | Date value | **v0.2 target** |
-| `daterange` | Date-range input | Endpoint 두 개 | **Post-v0.2** |
+| `daterange` | Date-range input | Endpoint 두 개 | **v0.2 구현 완료** |
 | `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.2 target** |
-| `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **Post-v0.2** |
+| `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **v0.2 구현 완료** |
 
 greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
 
@@ -237,12 +237,12 @@ greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 �
 | `row` | Matrix row label/ID mapping | **v0.2 target** |
 | `selected`, `default` | 초기 choice 또는 slider value/range | **v0.2 target** |
 | `placeholder` | Text/textarea placeholder | **v0.2 target** |
-| `width`, `height`, `cols`, `resize` | Size/layout control | **Post-v0.2** |
-| `direction` | Horizontal/vertical button group | **Post-v0.2** |
+| `width`, `height`, `cols`, `resize` | Size/layout control | **v0.2 구현 완료** |
+| `direction` | Horizontal/vertical button group | **v0.2 구현 완료** |
 | `status`, `individual`, `justified` | Shiny button styling | **Deferred**, portable한 경우만 mapping |
 | `label_select` | Select placeholder | **v0.2 target** |
 | `grid`, `force_edges` | Slider presentation | **Post-v0.2** |
-| `image` | Option과 평행한 image path/URL | **Post-v0.2** |
+| `image` | Option과 평행한 image path/URL | **v0.2 구현 완료** |
 | `option_attr` | Option별 HTML attribute | Raw form은 **Unsupported by design** |
 | `yml` | 외부 question-definition path | **Post-v0.2**, root default는 v0.2 |
 | `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |

@@ -27,7 +27,7 @@ class BrowserNativeRuntimeTests(unittest.TestCase):
 const parsed=gq.parseSurvey(fs.readFileSync(base+"/survey.qmd","utf8"));
 const config=gq.parseYaml(fs.readFileSync(base+"/greedyq.yml","utf8"));
 console.log(JSON.stringify({report:gq.validateSurvey(parsed,config),model:gq.compileSurvey(parsed,config),pages:parsed.pages.length,questions:parsed.pages.flatMap(p=>p.questions).length}));'''
-        for name in ("complete-study", "simple-satisfaction-study"):
+        for name in ("complete-study", "simple-satisfaction-study", "control-gallery"):
             base = ROOT / "examples" / name
             actual = self.node(script, base)
             _, parsed, config = load_study(base)
@@ -130,7 +130,7 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         respondent = (ROOT / "templates/browser/respondent.html").read_text()
         for token in ("PROLIFIC_PID", "STUDY_ID", "SESSION_ID"):
             self.assertIn(token, core)
-        self.assertIn("parseProlificLaunch(location.search", respondent)
+        self.assertIn("parseProlificLaunch(location.search", "".join(respondent.split()))
         self.assertIn("stableSessionId", respondent)
         result = self.node('const gq=require("./web/greedyq-core.js");console.log(JSON.stringify(gq.parseProlificLaunch("?PROLIFIC_PID=p&STUDY_ID=s&SESSION_ID=x","test")));')
         self.assertEqual("passed", result["status"])
@@ -151,7 +151,7 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         css = (ROOT / "web/greedyq-runtime.css").read_text()
         preview = (ROOT / "templates/browser/preview.html").read_text()
         studio = (ROOT / "templates/browser/studio.html").read_text()
-        for token in ("model.organization", 'type=\"range\"', "data-slider-kind", "requestAnimationFrame", "scrollTo({", "!p.terminal"):
+        for token in ("model.organization", 'type=\"range\"', "data-slider-kind", "mc_buttons", "mc_image", "daterange", "matrix_multiple", "data-range-index", "requestAnimationFrame", "scrollTo({", "!p.terminal"):
             self.assertIn(token, core)
         self.assertIn("color: #344054", css)
         self.assertIn("min-height: 0", css)

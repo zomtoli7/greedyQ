@@ -116,29 +116,7 @@
     </main>
     <pre id="state" class="state"></pre>
     <script src="greedyq-core.js"></script>
-    <script id="greedyq-model" type="application/json">
-      {
-        "study_id": "replace_me",
-        "title": "Replace me",
-        "start_page": "welcome",
-        "conditions": ["default"],
-        "messages": {
-          "previous": "Previous",
-          "next": "Continue",
-          "required": "Required"
-        },
-        "progress_paths": { "default": ["welcome"] },
-        "pages": [
-          {
-            "id": "welcome",
-            "title": "Not built",
-            "body": "Build the study first.",
-            "questions": [],
-            "terminal": "placeholder"
-          }
-        ]
-      }
-    </script>
+    <script id="greedyq-model" type="application/json">{"study_id":"control_gallery","title":"greedyQ Control Gallery","organization":"greedyQ","start_page":"controls","brand_color":"#315c8a","messages":{"previous":"Previous","next":"Continue","required":"Please answer the required questions before continuing."},"conditions":["default"],"progress_paths":{"default":["controls","complete"]},"pages":[{"id":"controls","title":"All surveydown-compatible controls","body":"Use this page to test every control in desktop and mobile preview modes.","questions":[{"id":"short_text","type":"text","label":"Text","placeholder":"Type here","required":false},{"id":"long_text","type":"textarea","label":"Textarea","placeholder":"Write more","height":"120px","resize":"vertical","cols":50,"required":false},{"id":"number","type":"numeric","label":"Numeric","min":0,"max":100,"required":false},{"id":"single","type":"mc","label":"Single choice","options":[{"label":"Alpha","value":"a"},{"label":"Beta","value":"b"}],"required":false},{"id":"multiple","type":"mc_multiple","label":"Multiple choice","options":[{"label":"Alpha","value":"a"},{"label":"Beta","value":"b"}],"required":false},{"id":"buttons","type":"mc_buttons","label":"Single-choice buttons","options":[{"label":"Alpha","value":"a"},{"label":"Beta","value":"b"}],"justified":true,"required":false},{"id":"multi_buttons","type":"mc_multiple_buttons","label":"Multiple-choice buttons","options":[{"label":"Alpha","value":"a"},{"label":"Beta","value":"b"}],"direction":"vertical","required":false},{"id":"image","type":"mc_image","label":"Single image choice","options":[{"label":"Blue square","value":"blue","caption":true},{"label":"Gold circle","value":"gold","caption":true}],"images":["images/blue.svg","images/gold.svg"],"required":false},{"id":"multi_image","type":"mc_multiple_image","label":"Multiple image choice","options":[{"label":"Blue square","value":"blue","caption":true},{"label":"Gold circle","value":"gold","caption":true}],"images":["images/blue.svg","images/gold.svg"],"required":false},{"id":"menu","type":"select","label":"Select","options":[{"label":"Alpha","value":"a"},{"label":"Beta","value":"b"}],"placeholder":"Choose one","required":false},{"id":"labeled_slider","type":"slider","label":"Labeled slider","options":[{"label":"Low","value":"low"},{"label":"Middle","value":"middle"},{"label":"High","value":"high"}],"selected":"middle","required":false},{"id":"numeric_slider","type":"slider_numeric","label":"Numeric slider","options":[{"label":"0","value":0},{"label":"1","value":1},{"label":"2","value":2},{"label":"3","value":3},{"label":"4","value":4},{"label":"5","value":5},{"label":"6","value":6},{"label":"7","value":7},{"label":"8","value":8},{"label":"9","value":9},{"label":"10","value":10}],"default":5,"pre":"Score: ","required":false},{"id":"range_slider","type":"slider_numeric","label":"Range slider","options":[{"label":"0","value":0},{"label":"1","value":1},{"label":"2","value":2},{"label":"3","value":3},{"label":"4","value":4},{"label":"5","value":5},{"label":"6","value":6},{"label":"7","value":7},{"label":"8","value":8},{"label":"9","value":9},{"label":"10","value":10}],"default":[3,7],"sep":" to ","required":false},{"id":"one_date","type":"date","label":"Date","required":false},{"id":"date_range","type":"daterange","label":"Date range","required":false},{"id":"one_matrix","type":"matrix","label":"Single-choice matrix","options":[{"label":"No","value":"no"},{"label":"Yes","value":"yes"}],"rows":[{"label":"First row","value":"first"},{"label":"Second row","value":"second"}],"required":false},{"id":"multi_matrix","type":"matrix_multiple","label":"Multiple-choice matrix","options":[{"label":"Web","value":"web"},{"label":"App","value":"app"}],"rows":[{"label":"First row","value":"first"},{"label":"Second row","value":"second"}],"required":false}],"show_previous":true,"next":"complete"},{"id":"complete","title":"Control test complete","body":"All controls were displayed.","questions":[],"show_previous":true,"terminal":"completed"}],"runtime_policy":{"mode":"test","consent":null,"respondent_source":"direct_link","duplicate_policy":"resume"}}</script>
     <script>
       const model = JSON.parse(
           document.getElementById("greedyq-model").textContent,

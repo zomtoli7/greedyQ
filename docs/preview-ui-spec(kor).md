@@ -42,6 +42,8 @@ Page마다 primary action은 하나입니다. Previous는 secondary입니다. Hi
 
 ## 4. Question presentation
 
+Respondent renderer는 문서화된 surveydown control을 모두 구현해야 합니다. Text, textarea, numeric, single/multiple choice, button-style single/multiple choice, image-card single/multiple choice, select, labeled/numeric slider(두 손잡이 numeric range 포함), date, date range, single-choice matrix, multiple-choice matrix입니다. 모든 control은 keyboard로 조작 가능하고 accessible name을 제공하며 표시 label이 아닌 저장 value를 보존하고 저장된 answer를 다시 표시해야 합니다.
+
 - 가능하면 native semantic control을 사용합니다.
 - 모든 control에는 persistent visible label이 있습니다. Placeholder만 label로 사용하지 않습니다.
 - Required question은 color만이 아니라 text 또는 accessible label로 표시합니다.

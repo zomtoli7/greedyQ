@@ -214,17 +214,17 @@ The direction is normative: `"Displayed label" = "stored_value"`. An identifier-
 | `numeric` | Numeric input | One numeric-looking value | **v0.2 target** |
 | `mc` | Single-choice radio group | Option value | **v0.2 target** |
 | `mc_multiple` | Multiple-choice checkbox group | Pipe-separated upstream storage | **v0.2 target** |
-| `mc_buttons` | Single-choice buttons | Option value | **Post-v0.2** |
-| `mc_multiple_buttons` | Multiple-choice buttons | Pipe-separated upstream storage | **Post-v0.2** |
-| `mc_image` | Single-choice image cards | Option value; optional caption | **Post-v0.2** |
-| `mc_multiple_image` | Multiple-choice image cards | Multiple values | **Post-v0.2** |
+| `mc_buttons` | Single-choice buttons | Option value | **v0.2 implemented** |
+| `mc_multiple_buttons` | Multiple-choice buttons | Pipe-separated upstream storage | **v0.2 implemented** |
+| `mc_image` | Single-choice image cards | Option value; optional caption | **v0.2 implemented** |
+| `mc_multiple_image` | Multiple-choice image cards | Multiple values | **v0.2 implemented** |
 | `select` | Dropdown | Option value | **v0.2 target** |
 | `slider` | Discrete labeled slider | Selected option value | **v0.2 target** |
 | `slider_numeric` | Numeric single/range slider | Scalar or range | **v0.2 target** |
 | `date` | Date input, today as upstream default | Date value | **v0.2 target** |
-| `daterange` | Date-range input | Two endpoints | **Post-v0.2** |
+| `daterange` | Date-range input | Two endpoints | **v0.2 implemented** |
 | `matrix` | One radio selection per row | `<id>_<row_id>` columns upstream | **v0.2 target** |
-| `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **Post-v0.2** |
+| `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **v0.2 implemented** |
 
 greedyQ should preserve the logical response shape and migration/export behavior, but its native database does not need to reproduce pipe-separated or wide-column physical storage internally.
 
@@ -237,12 +237,12 @@ greedyQ should preserve the logical response shape and migration/export behavior
 | `row` | Matrix row label/ID mapping | **v0.2 target** |
 | `selected`, `default` | Initial choice or slider value/range | **v0.2 target** |
 | `placeholder` | Text/textarea placeholder | **v0.2 target** |
-| `width`, `height`, `cols`, `resize` | Size/layout controls | **Post-v0.2** |
-| `direction` | Horizontal/vertical button groups | **Post-v0.2** |
+| `width`, `height`, `cols`, `resize` | Size/layout controls | **v0.2 implemented** |
+| `direction` | Horizontal/vertical button groups | **v0.2 implemented** |
 | `status`, `individual`, `justified` | Shiny button styling | **Deferred**, map only if portable |
 | `label_select` | Select placeholder | **v0.2 target** |
 | `grid`, `force_edges` | Slider presentation | **Post-v0.2** |
-| `image` | Image paths/URLs parallel to options | **Post-v0.2** |
+| `image` | Image paths/URLs parallel to options | **v0.2 implemented** |
 | `option_attr` | Per-option HTML attributes | **Unsupported by design** in its raw form |
 | `yml` | External question-definition path | **Post-v0.2**; root default is v0.2 |
 | `matrix_question_width` | Matrix prompt-column width | **Post-v0.2** |

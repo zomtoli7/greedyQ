@@ -23,6 +23,7 @@
 - Pin된 greedyQ repository의 canonical browser runtime file을 byte-for-byte로 복사합니다. AI에게 이를 다시 작성, 단순화, restyle 또는 optimize하도록 요청하면 안 됩니다. Study-specific data는 문서화된 model/configuration slot을 통해서만 입력합니다.
 - Vercel 또는 Supabase 연결을 요청하기 전에 가능한 parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, terminal-path test를 모두 로컬에서 완료합니다.
 - `show_previous = FALSE`이거나 terminal page이면 Previous를 숨기고, navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
+- Widget을 임의로 만들지 말고 canonical surveydown control 16개에서 선택합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다. 고정 parser와 renderer를 사용하며 study마다 control code를 다시 만들지 않습니다.
 
 ## 공통 연구 checkpoint
 

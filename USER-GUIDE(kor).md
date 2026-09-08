@@ -106,6 +106,8 @@ AI가 preview를 열거나 interactive artifact를 보여주거나 다운로드�
 
 Preview mode는 컴퓨터와 모바일 화면을 보여주며 가상 참여자를 사용하고 test response를 local에만 보관합니다. 외부 service로 응답을 보내면 안 됩니다.
 
+지원되는 모든 question control을 한곳에서 확인하려면 `examples/control-gallery/preview.html`을 build하여 엽니다. Surveydown-compatible control 16종과 numeric slider의 single-value 및 range 형식을 모두 포함합니다.
+
 ## 5. 참여자처럼 테스트하기
 
 모든 설문에서 다음을 확인합니다.

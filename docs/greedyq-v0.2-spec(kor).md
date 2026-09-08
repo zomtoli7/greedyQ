@@ -83,7 +83,9 @@ v0.2은 heading, paragraph, emphasis, strong text, link, ordered/unordered list,
 
 Question은 allowlist된 `sd_question()` call 하나를 포함하는 실행되지 않는 R-style fenced chunk로 선언합니다. Parser는 제한된 expression을 parse해야 하며 R을 실행해서는 안 됩니다.
 
-필수 argument는 `id`, `type`, `label`입니다. v0.2 question type은 `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `select`, `slider`, `slider_numeric`, `date`, `matrix`입니다.
+필수 argument는 `id`, `type`, `label`입니다. v0.2은 surveydown이 문서화한 16개 question control을 모두 구현합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다.
+
+Button control은 `direction`, `selected`, `justified`를 지원합니다. Image control은 option마다 하나의 안전한 relative 또는 HTTPS `image` source가 필요합니다. `daterange`는 순서가 있는 두 날짜 array를 저장합니다. `matrix_multiple`은 row별 선택 value array를 저장합니다. greedyQ native persistence는 array와 row object를 사용하고, surveydown export 시 필요한 pipe-separated 및 wide-column 표현으로 변환합니다.
 
 `slider`는 named option vector를 순서가 있는 labeled scale로 사용하고 선택한 option value를 저장합니다. `slider_numeric`은 숫자 `min`, `max`, 선택적인 양수 `step` argument를 사용합니다. 둘 다 drag와 keyboard 조작이 가능한 native range control로 표시됩니다. `orientation`은 `horizontal`(portable default) 또는 `vertical`일 수 있습니다. Vertical orientation은 greedyQ extension이므로 native surveydown export diagnostic에서 반드시 알려야 합니다.
 

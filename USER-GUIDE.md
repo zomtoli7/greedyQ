@@ -106,6 +106,8 @@ The AI may open the preview, show an interactive artifact, or give you a folder 
 
 Preview mode shows desktop and mobile versions, uses imaginary participants, and keeps test responses local. It must not send responses to an external service.
 
+To inspect every supported question control in one place, build and open `examples/control-gallery/preview.html`. It contains all 16 surveydown-compatible control types plus both single-value and range forms of the numeric slider.
+
 ## 5. Test it like a participant
 
 For every survey:

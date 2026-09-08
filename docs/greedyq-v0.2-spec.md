@@ -83,7 +83,9 @@ v0.2 supports headings, paragraphs, emphasis, strong text, links, ordered and un
 
 Questions are declared in non-executed R-style fenced chunks containing one allowlisted `sd_question()` call. The parser MUST parse the restricted expression and MUST NOT invoke R.
 
-Required arguments are `id`, `type`, and `label`. v0.2 question types are `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `select`, `slider`, `slider_numeric`, `date`, and `matrix`.
+Required arguments are `id`, `type`, and `label`. v0.2 implements all 16 question controls documented by surveydown: `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, and `matrix_multiple`.
+
+Button controls support `direction`, `selected`, and `justified`. Image controls require one safe relative or HTTPS `image` source per option. `daterange` stores an ordered two-date array. `matrix_multiple` stores an array of selected values for each row. Native greedyQ persistence uses arrays and row objects; surveydown export converts these to its pipe-separated and wide-column representation where required.
 
 `slider` uses a named option vector as an ordered labeled scale and stores the selected option value. `slider_numeric` uses numeric `min`, `max`, and optional positive `step` arguments. Both render as draggable, keyboard-operable native range controls. `orientation` may be `horizontal` (the portable default) or `vertical`; vertical orientation is a greedyQ extension and MUST be identified in native surveydown export diagnostics.
 

@@ -4,6 +4,10 @@
 
 Golden references serve simultaneously as complete tutorials, expected AI outputs, and conformance fixtures.
 
+## Control conformance gallery
+
+[Control Gallery](./control-gallery/preview.html) is a non-fielding fixture containing all 16 officially documented surveydown question controls, plus both the single-value and two-handle forms of `slider_numeric`. It is used for Python/JavaScript conformance and desktop/mobile interaction tests.
+
 ## `greedyQSimple`
 
 [User Experience Survey](./simple-satisfaction-study/README.md) asks adults who have used greedyQ about satisfaction, usability, problems, and future use. It demonstrates a nonexperimental direct-link survey with consent, eligibility, conditional follow-ups, withdrawal, descriptive analysis, and deployment artifacts.

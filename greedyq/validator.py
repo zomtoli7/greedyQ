@@ -3,7 +3,7 @@
 import re
 
 
-SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"}
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
@@ -65,10 +65,24 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' uses the unsupported type '%s'." % (q["id"], q["type"]), qmd_path, line))
         if not q.get("label"):
             issues.append(_item("GQ003", "Question '%s' needs participant-facing wording in label." % q["id"], qmd_path, line))
-        if q.get("type") in {"mc", "mc_multiple", "select", "slider", "matrix"} and not q.get("options"):
+        if q.get("type") in {"mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "matrix", "matrix_multiple"} and not q.get("options"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
-        if q.get("type") == "matrix" and not q.get("rows"):
+        if q.get("type") in {"matrix", "matrix_multiple"} and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") in {"mc_image", "mc_multiple_image"} and len(q.get("images", [])) != len(q.get("options", [])):
+            issues.append(_item("GQ003", "Image question '%s' needs exactly one image for each answer choice." % q["id"], qmd_path, line))
+        if q.get("direction") not in (None, "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported button direction." % q["id"], qmd_path, line))
+        if q.get("resize") not in (None, "none", "both", "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported textarea resize setting." % q["id"], qmd_path, line))
+        for dimension in ("width", "height"):
+            if q.get(dimension) is not None and not re.fullmatch(r"\d+(?:\.\d+)?(?:px|%|rem|em|vw|vh)", str(q[dimension])):
+                issues.append(_item("GQ003", "Question '%s' needs a safe CSS %s such as '100%%' or '120px'." % (q["id"], dimension), qmd_path, line))
+        for image in q.get("images", []):
+            if not (str(image).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(image))):
+                issues.append(_item("GQ003", "Image question '%s' contains an unsafe image path." % q["id"], qmd_path, line))
+        if q.get("type") == "slider_numeric" and isinstance(q.get("default"), list) and len(q["default"]) not in (1, 2):
+            issues.append(_item("GQ003", "Numeric slider '%s' default must contain one value or two range endpoints." % q["id"], qmd_path, line))
         if q.get("type") == "slider" and len(q.get("options", [])) < 2:
             issues.append(_item("GQ003", "Slider question '%s' needs at least two ordered choices." % q["id"], qmd_path, line))
         if q.get("type") == "slider_numeric" and q.get("min") is not None and q.get("max") is not None and q["min"] >= q["max"]:
