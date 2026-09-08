@@ -1,61 +1,39 @@
-# Browser Preview
+# Browser-Native Preview and Runtime
 
 [한국어](./browser-preview(kor).md)
 
-The v0.2 reference pipeline turns the study's source files into a safe, self-contained browser preview:
+greedyQ v0.2 has one fixed browser core and three rendering modes:
 
-```text
-survey.qmd + greedyq.yml
-            ↓
-       QMD/YAML parser
-            ↓
- normalized-survey.json
-            ↓
-         validator
-            ↓
- preview-model.json + preview.html
-```
+| Mode | Purpose | Selection |
+| --- | --- | --- |
+| `desktop` | Respondent experience for wide screens and precise pointers | Detected automatically in `index.html` |
+| `mobile` | Touch-friendly respondent experience for narrow/mobile devices | Detected automatically in `index.html` |
+| `preview` | Researcher review showing independent desktop and mobile sessions together | Always used in `preview.html` |
 
-## Start a preview
+The browser core performs `QMD/YAML text → parse → validate → normalized model → render`. It does not require Python, Node.js, R, Quarto, or a build tool. `templates/browser/studio.html` accepts local `survey.qmd` and `greedyq.yml` files through browser file selection and performs the entire transformation locally.
 
-From the greedyQ repository root:
+## Generated bundle
+
+The current Python reference builder can generate the same static bundle while cross-runtime conformance is being developed:
 
 ```bash
-python3 -m greedyq preview examples/complete-study
+python3 -m greedyq build examples/complete-study
 ```
 
-The command validates and rebuilds the study before serving it at `http://localhost:4173/preview.html`. Stop the server with Control-C. Use `--port 4174` when the default port is occupied, and `--no-open` when you do not want greedyQ to open a browser automatically.
+It writes `index.html`, dual-mode `preview.html`, fixed `greedyq-core.js`, fixed `greedyq-runtime.css`, `preview-model.json`, and internal validation evidence under `.greedyq/`. Generated JavaScript and CSS must match the pinned repository files byte-for-byte. An AI agent may replace only documented study-data slots and must not regenerate or customize the runtime.
 
-## What to test
+## Local simulation
 
-Complete the questionnaire as a respondent, then use the researcher controls to test:
+Preview uses virtual participant IDs and a local mock adapter. It tests required answers, display/skip logic, desktop and mobile layouts, balanced persistent assignment, partial-save resume, terminal outcomes, and withdrawal deletion without transmitting data. Desktop and mobile preview panes have independent sessions so both paths can be exercised side by side.
 
-- every experimental condition;
-- consent refusal and screening paths;
-- required-field messages and numeric limits;
-- conditional questions and hidden-answer clearing;
-- Previous navigation and saved local preview state;
-- completion, withdrawal, and technical-error endings;
-- displayed labels and stored values in the debug panel;
-- narrow/mobile browser widths.
+Mock data is synthetic browser-local state, not a claim that Supabase has been configured or verified. Reset removes the virtual sessions. Production credentials and participant identifiers are prohibited in preview.
 
-The preview deliberately blocks network connections, form submission, and production redirects through its Content Security Policy. Answers are retained only in browser `localStorage` for preview resume testing and can be removed with Reset.
+## Deployment boundary
 
-## Commands
+All deterministic behavior must pass locally before external connection. Vercel receives the already-tested static bundle and serves it; it must not reinterpret the questionnaire. Supabase replaces only the persistence/assignment adapter through approved RPCs and row-level security. Connecting Supabase must not alter parsing, validation, rendering, routing, consent, or outcome semantics.
 
-```bash
-# Check only; do not write generated files
-python3 -m greedyq validate PATH_TO_STUDY
+The preview Content Security Policy blocks network writes. The participant entry point permits HTTPS only because production Supabase RPCs require it. Service-role keys, database passwords, administrator credentials, and randomization secrets must never be placed in browser files.
 
-# Validate and create generated preview files
-python3 -m greedyq build PATH_TO_STUDY
+## Required review scenarios
 
-# Validate, build, serve, and open the preview
-python3 -m greedyq preview PATH_TO_STUDY
-```
-
-A successful build writes `preview-model.json`, `preview.html`, `.greedyq/normalized-survey.json`, and `.greedyq/validation-report.runtime.json`. The source of truth remains `survey.qmd` plus `greedyq.yml`; do not hand-edit the generated preview files.
-
-## Current boundary
-
-This is a researcher preview, not a production respondent runtime. It does not create server sessions, write to Supabase, perform concurrency-safe randomization, validate Prolific participants, send completion redirects, or collect deployable responses. Those operations remain blocked even when the preview passes.
+Before deployment, test desktop and mobile completion; required answers and numeric limits; consent refusal and screening; every condition; conditional questions and hidden-answer removal; back, save, refresh, and resume; withdrawal/deletion; every terminal outcome; keyboard focus, zoom, and narrow-screen overflow.

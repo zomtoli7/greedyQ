@@ -349,7 +349,7 @@ Checkpoint는 해석된 계약에서 조립합니다.
 | 내장 canonical appendix | Registry 참조로 대체하고 생성형 release bundle은 fallback으로 유지 |
 | `guides/greedyq-guide-compact.md` | Bootstrap start guide로 대체하거나 호환 기간 후 폐기 |
 | `docs/preview-ui-spec.md` | 모든 profile이 참조하는 core preview specification |
-| `templates/preview/preview.html` | 그대로 유지하되 registry에서 참조하고 hash로 고정 |
+| Legacy monolithic preview template | 고정 `web/greedyq-core.js`, `web/greedyq-runtime.css`, `templates/browser/*`로 교체하고 registry에서 참조·hash 고정 |
 | AI state schema | `.greedyq/` 내부 계약으로 유지하고 guide lock과 object descriptor schema 추가 |
 | `examples/complete-study/` | 첫 `greedyQExperiment` golden reference |
 | 현재 generation test | core, profile, module, cross-composition conformance test로 분리 |

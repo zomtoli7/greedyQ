@@ -10,7 +10,11 @@ START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
     ("docs/preview-ui-spec.md", "markdown", False),
-    ("templates/preview/preview.html", "html", True),
+    ("web/greedyq-core.js", "javascript", False),
+    ("web/greedyq-runtime.css", "css", False),
+    ("templates/browser/respondent.html", "html", False),
+    ("templates/browser/preview.html", "html", False),
+    ("templates/browser/studio.html", "html", False),
     ("examples/complete-study/supabase/migrations/001_initial.sql", "sql", False),
     ("examples/complete-study/vercel.json", "json", False),
     ("schemas/ai/study-state.schema.json", "json", False),

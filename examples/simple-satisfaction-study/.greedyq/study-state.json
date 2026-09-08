@@ -31,6 +31,9 @@
     "analysis/data-dictionary.csv",
     "preview-model.json",
     "preview.html",
+    "greedyq-runtime.css",
+    "greedyq-core.js",
+    "index.html",
     "preview-test-report.md",
     "supabase/migrations/001_initial.sql",
     "vercel.json",
@@ -38,7 +41,8 @@
     ".greedyq/guide-lock.json",
     ".greedyq/validation-report.json",
     ".greedyq/normalized-survey.json",
-    ".greedyq/validation-report.runtime.json"
+    ".greedyq/validation-report.runtime.json",
+    "studio.html"
   ],
   "gates": {
     "design": {

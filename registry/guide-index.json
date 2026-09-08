@@ -34,13 +34,13 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "bcee62665680c74e6d90a7eb50db8ec7de28b7aa0968adc14a279f5c7d44a356",
+      "manifest_sha256": "2d2e1a17dd40e3b76df3c41b6b3da906c431ee27646badeec00ecf5fe2bf8d24",
       "dependencies": [],
       "conflicts": [],
       "files": [
         {
           "path": "guides/core/guide.md",
-          "sha256": "9d47e8216bf540f2ee30d1c85a8b2a75e0c4c7a073a28c5e055fa2b7eebcbfe8"
+          "sha256": "0eff06f9a1c41f92b690e38bede2f962b882e795c82bb8c14f668a56ee225d0c"
         },
         {
           "path": "guides/core/communication.md",
@@ -56,7 +56,7 @@
         },
         {
           "path": "docs/preview-ui-spec.md",
-          "sha256": "b296bc9967a7de1dc3797039293e0447fca85b6b6e8de612319a4c03e9804c32"
+          "sha256": "3790906bfe1d8040e4c22898a85d6f526eb92e9b02c5bb97a6e4a2057e0ec176"
         },
         {
           "path": "schemas/ai/study-state.schema.json",
@@ -83,8 +83,24 @@
           "sha256": "d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66"
         },
         {
-          "path": "templates/preview/preview.html",
-          "sha256": "a6f2e3c2675275e4e2fb0b37a8bab3ed9b0acccbb151d8c4ae49221fb65fa2cd"
+          "path": "web/greedyq-core.js",
+          "sha256": "00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a"
+        },
+        {
+          "path": "web/greedyq-runtime.css",
+          "sha256": "8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd"
+        },
+        {
+          "path": "templates/browser/respondent.html",
+          "sha256": "3ddf0629a84dd31b3cce1388257906675349b8034b70061e9f44a6d30e46939a"
+        },
+        {
+          "path": "templates/browser/preview.html",
+          "sha256": "372518c983bf943557769b5af63db112a7e65a00f8d1ed395fb07647d90ba11f"
+        },
+        {
+          "path": "templates/browser/studio.html",
+          "sha256": "9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644"
         },
         {
           "path": "greedyq/__init__.py",
@@ -112,7 +128,7 @@
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f"
+          "sha256": "68290bcebc4f26f5be8c9c8c06c81045b4185ff665e7d0329209388b4f6a4f98"
         },
         {
           "path": "greedyq/runtime.py",
@@ -149,7 +165,7 @@
         },
         {
           "path": "examples/complete-study/vercel.json",
-          "sha256": "42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1"
+          "sha256": "fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34"
         }
       ]
     },

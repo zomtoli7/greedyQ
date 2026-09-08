@@ -30,7 +30,7 @@
     {
       "path": "greedyq.yml",
       "kind": "source",
-      "sha256": "9bad27314bbd42efb83528ba1db0c4af8460a5b10e0b36b2000121d83d69dcc0",
+      "sha256": "1704d53ca6914a82963c82607b7aee7ec8007719cbaeab770d6a98bb60259afe",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_consent_privacy",
@@ -89,7 +89,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "b93622f1e3023ae241703122512856190a99d53cc0dd028ac46091c61892f2bf",
+      "sha256": "95fac70bb9b59c1e6ecdee41dcce4cfb52096bfecb5fa6cb85645dc010d6bf4d",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_instrument",
@@ -99,7 +99,7 @@
     {
       "path": "preview-test-report.md",
       "kind": "derived",
-      "sha256": "2138cd054382c2af6edc187ec39e1f19936fd9f23a2aee0b0fecff8881d2e5f6",
+      "sha256": "3f22794a3b7c0462854fc83f7bd48a9e018b16518076e2d1c7fc275451522c81",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_instrument",
@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "698fb1f693ab3234c9d6e30b38fc261ab7fca79674adccc89997f6dba581ea80",
+      "sha256": "9a41c55b5db2c00ddcc358b42333524ebb57383e7407ec11f3d7e88b0fd5d1b4",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -137,7 +137,7 @@
     {
       "path": "vercel.json",
       "kind": "source",
-      "sha256": "42b9a4b5eeb990614fe733f6e7149f29ecd67c103f47e856126fcb19cab728a1",
+      "sha256": "fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -163,6 +163,34 @@
       "path": ".greedyq/validation-report.runtime.json",
       "kind": "derived",
       "sha256": "281f67c0ad1d92c49be06ea20312abd037e4617bbd01ccf1d313a47b05bf4f20",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "index.html",
+      "kind": "derived",
+      "sha256": "09516a1173ef0774ef3bcf3399c0f89b608ad8c23dd5856b64106ddc4e6fc947",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "greedyq-core.js",
+      "kind": "derived",
+      "sha256": "00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "greedyq-runtime.css",
+      "kind": "derived",
+      "sha256": "8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "studio.html",
+      "kind": "derived",
+      "sha256": "9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644",
       "status": "validated",
       "based_on_decision_ids": []
     }

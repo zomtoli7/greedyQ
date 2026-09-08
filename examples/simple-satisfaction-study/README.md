@@ -27,7 +27,11 @@ consent.md                           versioned participant information
 analysis/README.md                   descriptive analysis plan
 analysis/data-dictionary.csv         variable definitions
 preview-model.json                   validated preview model
-preview.html                         generated self-contained preview
+index.html                           adaptive static respondent entry point
+preview.html                         generated desktop/mobile preview
+studio.html                          browser-only source-file builder
+greedyq-core.js                      fixed browser parser/validator/runtime
+greedyq-runtime.css                  fixed responsive presentation
 preview-test-report.md              automated coverage and remaining manual gate
 .greedyq/guide-lock.json             pinned modular guide resolution
 .greedyq/study-state.json            resumable workflow state

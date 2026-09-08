@@ -21,7 +21,7 @@
     {
       "path": "greedyq.yml",
       "kind": "source",
-      "sha256": "5f9aa1f83d44559d22f99eb77c10ba0c52adfd3ddb8e5b32f44c8dc4a997aec9",
+      "sha256": "1394d1d63c788f77b72dde9de5208bdcd14e0a46b86193ad788441a18c595289",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "2426ff383e32ad3896c394a03475194116a4b571933201b7b44884741b0f5b76",
+      "sha256": "da17fca12184d7112624aaa09716c02389201a3ee96dea3bb839b708ca9f1856",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "422922b5c2abed7547e95d895cd7d2fcdefb084a6047d22538f3f02be82f0dc3",
+      "sha256": "fbabaaf1095aa018749ad596e1911b11ef098f3783512e69ea0e67cd67a19d6b",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -142,6 +142,55 @@
       "path": ".greedyq/validation-report.runtime.json",
       "kind": "derived",
       "sha256": "281f67c0ad1d92c49be06ea20312abd037e4617bbd01ccf1d313a47b05bf4f20",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "index.html",
+      "kind": "derived",
+      "sha256": "3ec2e59204aef3319706030a7b7c226e8d71448344954509e27918835a2e1eb1",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "greedyq-core.js",
+      "kind": "derived",
+      "sha256": "00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "greedyq-runtime.css",
+      "kind": "derived",
+      "sha256": "8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "design/stimuli.csv",
+      "kind": "derived",
+      "sha256": "63ad0888498c76cdb48e67607f36a1d36803fe8883f22e6ed0f2b38d6db22893",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "analysis/data-dictionary.csv",
+      "kind": "derived",
+      "sha256": "50b5533963f066251e8ee9cc84f806bdb52d628e802641690b47fb6d725fbb3e",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "preregistration/preregistration.json",
+      "kind": "derived",
+      "sha256": "3d813741633bfebe6d603095bdc04f6e6322f19897e90505dea94391c8117502",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "studio.html",
+      "kind": "derived",
+      "sha256": "9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644",
       "status": "validated",
       "based_on_decision_ids": []
     }

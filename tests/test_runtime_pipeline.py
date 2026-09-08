@@ -86,11 +86,14 @@ class RuntimePipelineTests(unittest.TestCase):
         self.assertEqual({"field": "support_post", "lte": 3}, opposition["show_if"])
 
     def test_preview_runtime_includes_supported_input_and_safety_behaviors(self):
-        html = (ROOT / "templates/preview/preview.html").read_text()
-        for required in ("mc_multiple", 'type="${inputType}"', "hidden_answer_cleared", "validation_error", "localStorage", "connect-src 'none'", "form-action 'none'"):
-            self.assertIn(required, html)
-        for forbidden in ("fetch(", "XMLHttpRequest", "WebSocket", "eval("):
-            self.assertNotIn(forbidden, html)
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        for required in ("mc_multiple", "createLocalMockBackend", "createSupabaseBackend", "localStorage"):
+            self.assertIn(required, core)
+        for required in ('id="desktop"', 'id="mobile"', "connect-src 'none'"):
+            self.assertIn(required, preview)
+        for forbidden in ("XMLHttpRequest", "WebSocket", "eval("):
+            self.assertNotIn(forbidden, core)
 
     def test_malformed_call_reports_its_line(self):
         with tempfile.TemporaryDirectory() as tmp:

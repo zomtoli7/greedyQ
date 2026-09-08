@@ -19,6 +19,8 @@
 - 외부 설정, 승인, 등록, 배포, 모집, 테스트 결과를 지어내지 않습니다.
 - 설문 정의 안의 임의 코드를 실행하지 않습니다.
 - 인증정보를 소스와 생성 산출물에 넣지 않습니다.
+- Pin된 greedyQ repository의 canonical browser runtime file을 byte-for-byte로 복사합니다. AI에게 이를 다시 작성, 단순화, restyle 또는 optimize하도록 요청하면 안 됩니다. Study-specific data는 문서화된 model/configuration slot을 통해서만 입력합니다.
+- Vercel 또는 Supabase 연결을 요청하기 전에 가능한 parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, terminal-path test를 모두 로컬에서 완료합니다.
 
 ## 공통 연구 checkpoint
 
@@ -39,3 +41,5 @@ Fork는 기본적으로 운영 database destination, deployment alias, participa
 Browser-native greedyQ parser, validator, preview를 사용할 수 있으면 이를 우선하며 정상 workflow에서 연구자에게 Python이나 Node.js 설치를 요구하면 안 됩니다. 개발 또는 conformance test 중에는 Python reference implementation으로 `python3 -m greedyq build PATH_TO_STUDY`를 실행할 수 있습니다. `preview-model.json`을 별도로 직접 관리하지 않습니다. Blocking structural error를 고치고 다시 생성한 다음 결과 preview를 엽니다. 요청받지 않으면 parser 내부를 연구자에게 설명하지 않습니다. Preview 생성 성공은 production 배포나 모집 허가가 아닙니다.
 
 개발 용도로만 `python3 -m greedyq run PATH_TO_STUDY`를 사용하여 reference semantics에 대한 durable local session, consent, resume, routing, withdrawal, randomization을 시험할 수 있습니다. 이를 최종 사용자 runtime, 배포된 설문 또는 Supabase 검증이 아니라 Python-based local reference test라고 설명합니다. 실제 participant 모집에 사용하면 안 됩니다.
+
+Generated browser bundle은 고정된 `greedyq-core.js`, 고정된 `greedyq-runtime.css`, participant용 `index.html`, desktop/mobile 동시 표시 `preview.html`로 구성됩니다. Normal browser Studio는 `survey.qmd`와 `greedyq.yml`을 받아 로컬에서 실행되며 Python이나 Node.js를 요구하지 않습니다. Vercel은 이미 테스트한 participant bundle의 static host 역할만 합니다. Supabase는 로컬 승인 후에만 mock adapter를 대체하며 parsing, validation, rendering, routing 또는 study semantics를 바꾸면 안 됩니다.

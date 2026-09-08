@@ -162,7 +162,7 @@ Vercel deployment
 
 두 구현은 동일한 conformance corpus를 실행합니다. JavaScript build가 화면을 표시한다는 사실만으로 conforming한 것은 아닙니다. Normalized AST, stable diagnostic code, routing, stored value, conditional logic, participant-visible behavior가 reference contract와 일치해야 합니다.
 
-정확한 라이브러리, framework 버전, schema 구조, 지원할 함수 인수는 스펙 단계에서 결정합니다.
+v0.2 core는 framework-independent vanilla JavaScript입니다. Optional adapter, production schema 확장, 추가 지원 function argument는 versioned implementation decision으로 남습니다.
 
 ## 7. 제안 프로젝트 형식
 
@@ -463,7 +463,7 @@ Prolific preset은 초기 target입니다. 다른 provider는 provider-specific 
 
 - 정확한 v0.2 surveydown 호환 범위
 - Parser 구현 및 grammar 전략
-- Next.js 및 runtime architecture
+- Browser-native runtime 및 optional framework adapter
 - Supabase 관계형/JSONB schema 경계
 - 안전한 expression-language grammar
 - 균형 무작위화를 위한 transaction 모델

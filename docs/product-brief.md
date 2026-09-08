@@ -162,7 +162,7 @@ Development proceeds reference-first. The Python implementation is used to make 
 
 Both implementations run the same conformance corpus. A JavaScript build is not conforming merely because it renders successfully: normalized ASTs, stable diagnostic codes, routing, stored values, conditional logic, and participant-visible behavior must match the reference contract.
 
-The exact libraries, framework versions, schema layout, and supported function arguments remain specification-stage decisions.
+The v0.2 core is framework-independent vanilla JavaScript. Optional adapters, production schema expansion, and additional supported function arguments remain versioned implementation decisions.
 
 ## 7. Proposed project format
 
@@ -463,7 +463,7 @@ A Prolific preset is an initial target. Other providers should use the same gene
 
 - Exact v0.2 surveydown compatibility boundary
 - Parser implementation and grammar strategy
-- Next.js and runtime architecture
+- Browser-native runtime and optional framework adapters
 - Supabase relational/JSONB schema boundaries
 - Safe expression-language grammar
 - Transaction model for balanced randomization

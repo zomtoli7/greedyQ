@@ -116,9 +116,13 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 ## Project status
 
-greedyQ is in the specification and working-preview phase. The current Python-based reference implementation requires a Python interpreter but no third-party Python packages. It parses the supported v0.2 QMD subset, validates structural and routing errors, builds a normalized model, and serves a self-contained researcher preview. It is the semantic reference for development, not the final-user dependency. The browser-native JavaScript core and production Supabase/Vercel runtime are not implemented yet.
+greedyQ is in the browser-native working-preview phase. The fixed JavaScript core parses QMD/YAML, validates and compiles the supported v0.2 subset, renders adaptive desktop/mobile respondent views, and renders both views together with mock persistence and assignment for local review. Its normalized output conforms to the Python reference on both golden studies. Static production-shaped files are generated for Vercel; the authoritative production Supabase adapter and live deployment verification remain incomplete.
 
-## Try the current reference preview
+## Try the responsive preview
+
+No-install path: open `examples/complete-study/preview.html` directly in a modern browser. It shows independent desktop and mobile sessions together. Open `studio.html` in the same folder to select a `survey.qmd` and `greedyq.yml` and parse, validate, compile, and preview them entirely in the browser.
+
+The following Python commands remain available for reference development and deterministic regeneration:
 
 From the repository root, run:
 
@@ -132,7 +136,7 @@ Your browser should open `http://localhost:4173/preview.html`. To try the simple
 python3 -m greedyq preview examples/simple-satisfaction-study
 ```
 
-Use `python3 -m greedyq validate PATH_TO_STUDY` to check a study without generating a preview, or `python3 -m greedyq build PATH_TO_STUDY` to create `preview-model.json`, `preview.html`, and normalized validation artifacts without starting a server. No respondent data leaves the browser in preview mode. See the [browser preview guide](./docs/browser-preview.md).
+Use `python3 -m greedyq validate PATH_TO_STUDY` to check a study without generating a preview, or `python3 -m greedyq build PATH_TO_STUDY` to create the fixed browser bundle (`index.html`, `preview.html`, `studio.html`, JavaScript, CSS, and normalized artifacts) without starting a server. No respondent data leaves the browser in preview mode. See the [browser preview guide](./docs/browser-preview.md).
 
 These commands currently require Python 3 and are intended for development and conformance work. The planned final-user path needs only a capable AI and a modern browser. To test durable respondent sessions locally, run `python3 -m greedyq run examples/complete-study` and open `http://localhost:4180/study`. This test runtime writes responses to a local ignored SQLite database; it is not yet the Supabase/Vercel production runtime. See the [runtime architecture](./docs/runtime-architecture.md) and [local respondent runtime guide](./docs/local-respondent-runtime.md).
 

@@ -349,7 +349,7 @@ Classification is a recommendation, not an invisible decision.
 | embedded canonical appendix | replace with registry references; retain generated release bundle as fallback |
 | `guides/greedyq-guide-compact.md` | replace with the bootstrap start guide or retire after compatibility period |
 | `docs/preview-ui-spec.md` | core preview specification referenced by every profile |
-| `templates/preview/preview.html` | `templates/preview/preview.html`, referenced and hashed by registry |
+| Legacy monolithic preview template | Fixed `web/greedyq-core.js`, `web/greedyq-runtime.css`, and `templates/browser/*`, referenced and hashed by registry |
 | AI state schemas | `.greedyq/` internal contract, extended with guide lock and object descriptor schemas |
 | `examples/complete-study/` | first `greedyQExperiment` golden reference |
 | current generation tests | split into core conformance, profile conformance, module conformance, and cross-composition tests |

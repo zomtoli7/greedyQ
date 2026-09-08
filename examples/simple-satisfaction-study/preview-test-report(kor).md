@@ -4,7 +4,7 @@
 
 ## 자동 검증 결과
 
-2026-09-08 기준 QMD-to-browser pipeline 시나리오 11개와 durable respondent-runtime 시나리오 11개를 포함한 저장소 전체 테스트 87개 안에서 이 연구의 전용 테스트가 모두 통과했습니다.
+2026-09-08 기준 95개 repository test suite 안에서 이 연구의 전용 테스트가 모두 통과했습니다. Suite에는 browser-native cross-runtime, device-selection, validation, mock-persistence, static-bundle, Supabase fail-closed scenario 8개가 포함됩니다.
 
 이제 preview는 `survey.qmd`와 `greedyq.yml`에서 직접 다시 생성되며 `preview-model.json`을 별도의 source로 관리하지 않습니다.
 
@@ -20,7 +20,7 @@
 - Age와 recommendation score 범위
 - 제품 feedback 문항보다 앞선 consent timing
 - Participant redirect와 직접 identifier 문항이 없음
-- 자체 포함 preview의 재현 가능한 생성
+- 고정 desktop/mobile browser runtime bundle의 재현 가능한 생성
 - 기술적이고 비인과적인 분석 표현
 
 ## 연구설계 선택

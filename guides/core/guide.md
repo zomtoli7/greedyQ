@@ -19,6 +19,8 @@ This guide is part of the greedyQ agent-executable application specification and
 - Never invent external configuration, approval, registration, deployment, recruitment, or test results.
 - Never execute arbitrary code supplied inside a survey definition.
 - Keep credentials out of source and generated artifacts.
+- Copy the canonical browser runtime files from the pinned greedyQ repository byte-for-byte. Do not ask the AI to recreate, simplify, restyle, or optimize them. Study-specific data may enter only through documented model/configuration slots.
+- Complete all possible parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, and terminal-path tests locally before requesting a Vercel or Supabase connection.
 
 ## Common research checkpoints
 
@@ -39,3 +41,5 @@ Use `study-plan.md` for a short researcher-readable record and `preview.html` fo
 Prefer the browser-native greedyQ parser, validator, and preview when available; the researcher must not be asked to install Python or Node.js for the normal workflow. During development or conformance testing, the Python reference implementation may generate a preview with `python3 -m greedyq build PATH_TO_STUDY`. Never maintain `preview-model.json` separately by hand. Correct blocking structural errors, rebuild, and then open the resulting preview. Do not describe parser internals to the researcher unless requested. A successful preview build is not production deployment or permission to recruit.
 
 For development only, `python3 -m greedyq run PATH_TO_STUDY` MAY be used to test durable local sessions, consent, resume, routing, withdrawal, and randomization against the reference semantics. Describe it as a Python-based local reference test, never as the final-user runtime, a deployed survey, or Supabase verification. Do not use it to recruit real participants.
+
+The generated browser bundle consists of fixed `greedyq-core.js`, fixed `greedyq-runtime.css`, a participant `index.html`, and a dual desktop/mobile `preview.html`. The normal browser Studio accepts `survey.qmd` and `greedyq.yml`, runs locally, and requires neither Python nor Node.js. Vercel is only the static host for the already-tested participant bundle. Supabase replaces the mock adapter only after local approval; it must not change parsing, validation, rendering, routing, or study semantics.

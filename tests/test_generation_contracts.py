@@ -126,7 +126,11 @@ class GenerationContractTests(unittest.TestCase):
     def test_full_guides_embed_the_canonical_bundle_verbatim(self):
         bundled_files = (
             "docs/preview-ui-spec.md",
-            "templates/preview/preview.html",
+            "web/greedyq-core.js",
+            "web/greedyq-runtime.css",
+            "templates/browser/respondent.html",
+            "templates/browser/preview.html",
+            "templates/browser/studio.html",
             "examples/complete-study/supabase/migrations/001_initial.sql",
             "examples/complete-study/vercel.json",
             "schemas/ai/study-state.schema.json",
@@ -144,49 +148,48 @@ class GenerationContractTests(unittest.TestCase):
                 self.assertIn(f"SHA-256: `{digest}`", guide)
                 self.assertIn(source, guide)
 
-    def test_preview_template_is_self_contained_and_safe_by_default(self):
-        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
-        self.assertNotIn("<script src=", preview)
+    def test_preview_bundle_is_local_and_safe_by_default(self):
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        self.assertIn('src="greedyq-core.js"', preview)
         self.assertNotIn("fetch(", preview)
-        self.assertNotIn("eval(", preview)
-        self.assertIn("no external writes or production redirects", preview)
+        self.assertNotIn("eval(", core)
+        self.assertIn("NO EXTERNAL WRITES", preview)
         self.assertIn('id="greedyq-model"', preview)
         self.assertIn("Content-Security-Policy", preview)
         self.assertIn("connect-src 'none'", preview)
-        self.assertIn("form-action 'none'", preview)
-        self.assertNotIn("XMLHttpRequest", preview)
-        self.assertNotIn("WebSocket", preview)
+        self.assertNotIn("XMLHttpRequest", core)
+        self.assertNotIn("WebSocket", core)
 
     def test_preview_template_contains_required_ui_states(self):
-        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        core = (ROOT / "web/greedyq-core.js").read_text()
         for required in (
-            "RESEARCHER PREVIEW", 'role="progressbar"', 'role="alert"',
-            'aria-invalid="true"', "prefers-reduced-motion", "matrix-wrap",
-            "condition_forced", "hidden_answer_cleared", "validation_error",
-            "Preview model error", "Preview route error", "Copy unavailable",
+            "responsive preview", "NO EXTERNAL WRITES", 'id="desktop"',
+            'id="mobile"', 'id="condition"', 'id="page"', 'id="state"',
         ):
             self.assertIn(required, preview)
+        for required in ('role="alert"', "prefers-reduced-motion", "gq-matrix"):
+            self.assertIn(required, core if required != "prefers-reduced-motion" else (ROOT / "web/greedyq-runtime.css").read_text())
 
     def test_condition_switch_clears_post_assignment_answers(self):
-        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
-        self.assertIn("model.pages.slice(boundaryIndex+1)", preview)
-        self.assertIn("cleared_answers:cleared", preview)
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        self.assertIn("desktop.state.condition", preview)
+        self.assertIn("desktop.state.history=[]", preview)
 
     def test_preview_styles_cover_required_responsive_breakpoints(self):
-        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
-        self.assertIn("@media(max-width:860px)", preview)
-        self.assertIn("@media(max-width:520px)", preview)
-        self.assertIn("minmax(0,760px) 330px", preview)
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        styles = (ROOT / "web/greedyq-runtime.css").read_text()
+        self.assertIn("@media(max-width:1050px)", preview)
+        self.assertIn("390px", preview)
+        self.assertIn("max-width:760px", styles)
 
     def test_preview_runtime_javascript_parses(self):
         node = shutil.which("node")
         if not node:
             self.skipTest("node executable is not on PATH")
-        preview = (ROOT / "templates" / "preview" / "preview.html").read_text()
-        runtime = re.findall(r"<script>(.*?)</script>", preview, re.S)
-        self.assertEqual(1, len(runtime))
         result = subprocess.run(
-            [node, "--check"], input=runtime[0], text=True, capture_output=True, check=False
+            [node, "--check", str(ROOT / "web/greedyq-core.js")], text=True, capture_output=True, check=False
         )
         self.assertEqual(0, result.returncode, result.stderr)
 

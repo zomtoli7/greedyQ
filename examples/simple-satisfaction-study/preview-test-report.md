@@ -4,7 +4,7 @@
 
 ## Automated result
 
-The study passed its dedicated survey tests as part of an 87-test repository suite, including 11 QMD-to-browser pipeline scenarios and 11 durable respondent-runtime scenarios, on 2026-09-08.
+The study passed its dedicated survey tests as part of a 95-test repository suite on 2026-09-08. The suite includes eight browser-native cross-runtime, device-selection, validation, mock-persistence, static-bundle, and Supabase fail-closed scenarios.
 
 The preview is now regenerated directly from `survey.qmd` and `greedyq.yml`; `preview-model.json` is no longer a separately maintained source.
 
@@ -20,7 +20,7 @@ The automated checks cover:
 - age and recommendation-score bounds;
 - consent timing before product-feedback questions;
 - the absence of participant redirects and direct-identifier questions;
-- reproducible generation of the self-contained preview;
+- reproducible generation of the fixed desktop/mobile browser runtime bundle;
 - descriptive, noncausal analysis language.
 
 ## Research-design choices

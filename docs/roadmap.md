@@ -122,17 +122,17 @@ examples/complete-study/
 - [x] Implement the local SQLite respondent-session reference runtime.
 - [x] Test consent-first persistence, resume, terminal outcomes, atomic withdrawal deletion, and concurrent fixed-block assignment locally.
 - [x] Establish Python as the development reference implementation, not a final-user runtime dependency.
-- [ ] Freeze the normalized AST, diagnostic, rendering, and routing conformance contracts from the Python fixtures.
-- [ ] Implement a platform-neutral TypeScript/JavaScript parser core with no filesystem, Node.js API, or framework dependency.
-- [ ] Implement the browser-native validator, compiler, preview, and respondent renderer over the same core.
-- [ ] Add Python-versus-JavaScript conformance tests for normalized ASTs, diagnostics, routes, conditions, stored values, and render snapshots.
-- [ ] Package a browser entry point that accepts QMD/config text or local file selection without requiring an installation or build step.
+- [x] Freeze the initial normalized AST, diagnostic, rendering, and routing conformance contracts from the Python fixtures.
+- [x] Implement a platform-neutral TypeScript/JavaScript parser core with no filesystem, Node.js API, or framework dependency.
+- [x] Implement the browser-native validator, compiler, desktop/mobile respondent renderer, and dual preview over the same core.
+- [x] Add Python-versus-JavaScript conformance tests for both golden-study normalized models plus mock assignment and device selection.
+- [x] Package a browser entry point that accepts QMD/config text or local file selection without requiring an installation or build step.
 - [ ] Implement `GQ011` stored-value symbol-table and cross-artifact validation.
 - [ ] Implement `GQ012` validation of all generated `.greedyq/*.json` files.
 - [ ] Implement `GQ013` migration-contract validation for withdrawal, RLS, and export.
 - [ ] Reject unknown QMD front-matter keys in generation/strict mode.
 - [ ] Create the native surveydown exporter and deterministic `app.R` generator.
-- [ ] Create the framework-independent browser renderer; evaluate optional framework adapters only after the core contract passes conformance.
+- [x] Create the initial framework-independent browser renderer; evaluate optional framework adapters only after the core contract passes conformance.
 - [x] Create the initial safe self-contained preview runtime and researcher debug panel.
 - [ ] Create Supabase migrations and access policies.
 - [ ] Create a Vercel deployment template.

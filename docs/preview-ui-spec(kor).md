@@ -9,6 +9,8 @@
 
 Preview는 primary instrument-review surface입니다. Researcher가 questionnaire를 respondent처럼 경험하면서 보이지 않는 state를 검사할 수 있어야 합니다. Prose study summary는 보조 문서이며 대체물이 아닙니다.
 
+Canonical renderer에는 정확히 `desktop`, `mobile`, `preview` 세 mode가 있습니다. Respondent entry point는 현재 viewport와 pointer capability로 desktop 또는 mobile을 runtime에서 감지하며 user-agent brand sniffing을 authoritative signal로 사용하면 안 됩니다. Preview mode는 독립된 desktop 및 mobile respondent session을 동시에 render합니다. 세 mode는 동일한 고정 parser, validator, normalized AST, question component, routing engine, state semantics를 사용합니다. Responsive presentation은 달라도 되지만 question meaning, stored value, validation, navigation, randomization, lifecycle behavior는 달라지면 안 됩니다.
+
 Preview는 엄격히 분리된 두 layer를 갖습니다.
 
 - **Respondent layer:** participant가 실제로 경험해야 하는 questionnaire
@@ -18,7 +20,7 @@ Researcher control은 시각적으로 표시하고 production respondent mode에
 
 ## 2. Default layout
 
-861 CSS pixel 이상에서는 중앙 two-column layout을 사용합니다. Respondent card는 최대 760 pixel의 flexible width이고 researcher panel은 300–340 pixel입니다. 더 좁은 화면에서는 researcher panel을 respondent card 뒤에 배치합니다. Respondent card는 DOM과 reading order에서 항상 먼저입니다.
+Preview는 flexible desktop frame과 390 CSS-pixel mobile frame이라는 두 labelled viewport를 사용합니다. 각 frame은 독립 virtual session을 가집니다. Preview workspace 자체가 좁아지면 forced respondent mode를 바꾸지 않고 frame을 세로로 배치합니다. Production desktop은 최대 760 pixel의 centered respondent card를 사용합니다. Production mobile은 decorative card elevation을 제거하고 available width를 사용하며 touch target을 최소 44 CSS pixel로 키우고 navigation이 question을 가리지 않으면서 접근 가능하게 유지합니다.
 
 Persistent top bar에는 greedyQ wordmark, 눈에 띄는 `RESEARCHER PREVIEW` badge, page progress, accessible progress value를 둡니다. Questionnaire 완료와 관계없는 application chrome, decorative dashboard, nested card, control은 피합니다.
 

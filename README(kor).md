@@ -116,9 +116,13 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 ## 프로젝트 상태
 
-greedyQ는 현재 specification 및 working-preview 단계입니다. 현재 Python-based reference implementation은 Python interpreter가 필요하지만 third-party Python package는 요구하지 않습니다. 지원되는 v0.2 QMD subset을 parse하고 구조 및 routing 오류를 검사하며 normalized model과 self-contained preview를 만듭니다. 이는 개발의 semantic reference이지 최종 사용자 dependency가 아닙니다. Browser-native JavaScript core와 production Supabase/Vercel runtime은 아직 구현되지 않았습니다.
+greedyQ는 현재 browser-native working-preview 단계입니다. 고정 JavaScript core가 QMD/YAML을 parse하고 지원되는 v0.2 subset을 validate·compile하며 adaptive desktop/mobile respondent view와 mock persistence/assignment를 사용하는 동시 preview를 render합니다. Normalized output은 두 golden study에서 Python reference와 conform합니다. Vercel용 static production-shaped file도 생성합니다. Authoritative production Supabase adapter와 live deployment verification은 아직 완료되지 않았습니다.
 
-## 현재 reference preview 사용하기
+## Responsive preview 사용하기
+
+No-install 경로에서는 modern browser로 `examples/complete-study/preview.html`을 직접 엽니다. 독립 desktop/mobile session을 동시에 보여줍니다. 같은 폴더의 `studio.html`을 열고 `survey.qmd`와 `greedyq.yml`을 선택하면 browser 안에서 parse, validate, compile, preview 전 과정을 실행합니다.
+
+다음 Python command는 reference 개발 및 deterministic regeneration을 위해 계속 제공합니다.
 
 Repository root에서 다음을 실행합니다.
 
@@ -132,7 +136,7 @@ python3 -m greedyq preview examples/complete-study
 python3 -m greedyq preview examples/simple-satisfaction-study
 ```
 
-Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH_TO_STUDY`, 서버를 시작하지 않고 `preview-model.json`, `preview.html`, normalized validation artifact를 만들려면 `python3 -m greedyq build PATH_TO_STUDY`를 사용합니다. Preview mode에서는 respondent data가 브라우저 밖으로 전송되지 않습니다. 자세한 내용은 [브라우저 프리뷰 안내](./docs/browser-preview(kor).md)를 참고하십시오.
+Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH_TO_STUDY`, 서버를 시작하지 않고 고정 browser bundle(`index.html`, `preview.html`, `studio.html`, JavaScript, CSS, normalized artifact)을 만들려면 `python3 -m greedyq build PATH_TO_STUDY`를 사용합니다. Preview mode에서는 respondent data가 브라우저 밖으로 전송되지 않습니다. 자세한 내용은 [브라우저 프리뷰 안내](./docs/browser-preview(kor).md)를 참고하십시오.
 
 이 명령은 현재 Python 3가 필요하며 개발 및 conformance 작업을 위한 것입니다. 목표로 하는 최종 사용자 경로에는 capable AI와 modern browser만 필요합니다. 로컬에서 실제로 저장되는 respondent session을 시험하려면 `python3 -m greedyq run examples/complete-study`를 실행하고 `http://localhost:4180/study`를 엽니다. 이 test runtime은 git에서 제외되는 로컬 SQLite database에 응답을 기록하며 아직 Supabase/Vercel production runtime은 아닙니다. [런타임 아키텍처](./docs/runtime-architecture(kor).md)와 [로컬 respondent runtime 안내](./docs/local-respondent-runtime(kor).md)를 참고하십시오.
 

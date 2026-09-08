@@ -4,11 +4,11 @@ Korean copy: [preview-test-report(kor).md](preview-test-report(kor).md)
 
 ## Scope
 
-This report covers the golden reference study preview model, the self-contained preview runtime, its generated HTML, and the AI-generation contracts that protect them. The preview is a researcher review artifact; it is not a production data-collection runtime.
+This report covers the golden reference study preview model, the fixed browser-native runtime bundle, its generated HTML, and the AI-generation contracts that protect them. The preview is a researcher review artifact; it is not a production data-collection runtime.
 
 ## Automated result
 
-- 87 repository tests, including 11 QMD-to-browser pipeline scenarios and 11 durable respondent-runtime scenarios, passed on 2026-09-08.
+- 95 repository tests passed on 2026-09-08, including eight browser-native cross-runtime, device-selection, validation, mock-persistence, static-bundle, and Supabase fail-closed scenarios.
 - The preview model and HTML were regenerated directly from `survey.qmd` and `greedyq.yml`; no separately hand-authored model was used.
 - The canonical runtime JavaScript passed `node --check`.
 - The preview model passed its JSON Schema.
@@ -16,7 +16,7 @@ This report covers the golden reference study preview model, the self-contained 
 - Display labels and stored values match the QMD source exactly.
 - Both experimental conditions and all five terminal outcomes have resolved paths.
 - Consent refusal, minor screen-out, withdrawal, conditional deletion request, hidden-answer clearing, validation, and condition switching are covered.
-- The generated preview embeds the canonical model byte-for-byte and its manifest hashes match.
+- The generated preview embeds the canonical model byte-for-byte; generated JavaScript and CSS match the repository runtime byte-for-byte; manifest hashes match.
 - English/Korean Markdown pairing and repository whitespace checks passed.
 
 ## Defects found and corrected
@@ -24,7 +24,7 @@ This report covers the golden reference study preview model, the self-contained 
 1. Several support-scale labels in the preview model did not exactly match the QMD source. They now preserve the complete respondent-facing labels and stored values.
 2. A conditional deletion-request field was omitted from the required-field parity assertion. It is now represented as conditionally required and tested against `greedyq.yml`.
 3. Forced condition changes could retain answers collected after assignment. The runtime now clears those answers and records their IDs in a `condition_forced` audit event.
-4. The former preview was too sparse for meaningful researcher review. It now includes respondent-grade controls, validation, progress, mobile behavior, a separate researcher panel, routing/state inspection, terminal outcomes, and a safe no-network execution boundary.
+4. The former preview was too sparse for meaningful researcher review. It now renders independent desktop and mobile sessions simultaneously, with condition/page controls, mock-state inspection, validation, progress, routing, terminal outcomes, and a safe no-network boundary.
 
 ## Scenario coverage
 

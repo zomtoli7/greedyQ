@@ -43,7 +43,7 @@ respondents:
 
 runtime:
   primary: web_native
-  framework: nextjs
+  framework: static_html
   hosting: vercel
   region: icn1
   preview_banner: true

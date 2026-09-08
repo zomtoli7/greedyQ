@@ -1,61 +1,39 @@
-# 브라우저 프리뷰
+# Browser-Native Preview와 Runtime
 
 [English](./browser-preview.md)
 
-v0.2 reference pipeline은 연구 source file을 안전한 self-contained 브라우저 preview로 변환합니다.
+greedyQ v0.2는 하나의 고정 browser core와 세 가지 rendering mode를 사용합니다.
 
-```text
-survey.qmd + greedyq.yml
-            ↓
-       QMD/YAML parser
-            ↓
- normalized-survey.json
-            ↓
-         validator
-            ↓
- preview-model.json + preview.html
-```
+| Mode | 목적 | 선택 방식 |
+| --- | --- | --- |
+| `desktop` | Wide screen 및 precise pointer용 respondent experience | `index.html`에서 자동 감지 |
+| `mobile` | Narrow/mobile device용 touch-friendly respondent experience | `index.html`에서 자동 감지 |
+| `preview` | 독립된 desktop/mobile session을 동시에 표시하는 researcher review | `preview.html`에서 항상 사용 |
 
-## 프리뷰 시작
+Browser core가 `QMD/YAML text → parse → validate → normalized model → render` 전 과정을 수행합니다. Python, Node.js, R, Quarto 또는 build tool을 요구하지 않습니다. `templates/browser/studio.html`은 browser file selection으로 local `survey.qmd`와 `greedyq.yml`을 받아 전체 변환을 로컬에서 수행합니다.
 
-greedyQ repository root에서 실행합니다.
+## Generated bundle
+
+Cross-runtime conformance 개발 중에는 현재 Python reference builder도 동일 static bundle을 생성할 수 있습니다.
 
 ```bash
-python3 -m greedyq preview examples/complete-study
+python3 -m greedyq build examples/complete-study
 ```
 
-명령은 연구를 먼저 검사하고 다시 생성한 후 `http://localhost:4173/preview.html`에서 제공합니다. Control-C로 서버를 종료합니다. 기본 port가 사용 중이면 `--port 4174`, 브라우저를 자동으로 열지 않으려면 `--no-open`을 사용합니다.
+`index.html`, dual-mode `preview.html`, 고정 `greedyq-core.js`, 고정 `greedyq-runtime.css`, `preview-model.json`, `.greedyq/` 아래 internal validation evidence를 생성합니다. Generated JavaScript와 CSS는 pin된 repository file과 byte-for-byte 일치해야 합니다. AI agent는 문서화된 study-data slot만 교체할 수 있으며 runtime을 다시 생성하거나 customize하면 안 됩니다.
 
-## 확인할 내용
+## 로컬 simulation
 
-Respondent처럼 설문을 완료한 후 researcher control을 사용해 다음을 시험합니다.
+Preview는 virtual participant ID와 local mock adapter를 사용합니다. 데이터를 전송하지 않고 required answer, display/skip logic, desktop/mobile layout, balanced persistent assignment, partial-save resume, terminal outcome, withdrawal deletion을 시험합니다. Desktop과 mobile preview pane은 독립 session을 사용하므로 양쪽 경로를 나란히 테스트할 수 있습니다.
 
-- 모든 실험 조건
-- Consent 거부와 screening 경로
-- 필수 문항 메시지와 숫자 범위
-- 조건부 문항과 숨겨진 응답 삭제
-- Previous navigation과 로컬 preview 상태 저장
-- 완료, 철회, technical-error 종료 화면
-- Debug panel의 표시 label과 저장 value
-- 좁은 화면과 모바일 너비
+Mock data는 synthetic browser-local state이며 Supabase가 설정 또는 검증되었다는 뜻이 아닙니다. Reset은 virtual session을 제거합니다. Production credential과 participant identifier는 preview에서 금지합니다.
 
-Preview는 Content Security Policy를 통해 network connection, form submission, production redirect를 의도적으로 차단합니다. 응답은 preview resume 시험을 위해 브라우저 `localStorage`에만 남으며 Reset으로 삭제할 수 있습니다.
+## Deployment 경계
 
-## 명령
+모든 deterministic behavior는 external connection 전에 로컬에서 통과해야 합니다. Vercel은 이미 테스트한 static bundle을 받아 제공할 뿐 questionnaire를 다시 해석하면 안 됩니다. Supabase는 승인된 RPC와 row-level security를 통해 persistence/assignment adapter만 교체합니다. Supabase 연결은 parsing, validation, rendering, routing, consent 또는 outcome semantics를 바꾸면 안 됩니다.
 
-```bash
-# 검사만 하고 생성 파일은 쓰지 않음
-python3 -m greedyq validate PATH_TO_STUDY
+Preview Content Security Policy는 network write를 차단합니다. Participant entry point는 production Supabase RPC에 필요하므로 HTTPS만 허용합니다. Service-role key, database password, administrator credential, randomization secret은 browser file에 절대 넣으면 안 됩니다.
 
-# 검사하고 preview 파일 생성
-python3 -m greedyq build PATH_TO_STUDY
+## 필수 review scenario
 
-# 검사, 생성, 서버 실행, 브라우저 열기
-python3 -m greedyq preview PATH_TO_STUDY
-```
-
-성공하면 `preview-model.json`, `preview.html`, `.greedyq/normalized-survey.json`, `.greedyq/validation-report.runtime.json`을 생성합니다. Source of truth는 계속 `survey.qmd`와 `greedyq.yml`이며 생성된 preview 파일을 직접 수정하면 안 됩니다.
-
-## 현재 경계
-
-이 기능은 researcher preview이며 production respondent runtime이 아닙니다. Server session 생성, Supabase 저장, concurrency-safe randomization, Prolific participant 검증, completion redirect, 실제 응답 수집은 수행하지 않습니다. Preview가 통과해도 이러한 operation은 계속 차단됩니다.
+배포 전에 desktop/mobile completion, required answer와 numeric limit, consent refusal와 screening, 모든 condition, conditional question과 hidden-answer removal, back/save/refresh/resume, withdrawal/deletion, 모든 terminal outcome, keyboard focus, zoom, narrow-screen overflow를 시험합니다.

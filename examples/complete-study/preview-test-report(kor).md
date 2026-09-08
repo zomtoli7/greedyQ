@@ -4,11 +4,11 @@
 
 ## 범위
 
-이 보고서는 골든 레퍼런스 연구의 프리뷰 모델, 단일 파일 프리뷰 런타임, 생성된 HTML, 그리고 이를 보호하는 AI 생성 계약을 다룹니다. 프리뷰는 연구자 검토용 산출물이며 실제 데이터 수집용 운영 런타임이 아닙니다.
+이 보고서는 골든 레퍼런스 연구의 프리뷰 모델, 고정 browser-native runtime bundle, 생성된 HTML, 그리고 이를 보호하는 AI 생성 계약을 다룹니다. 프리뷰는 연구자 검토용 산출물이며 실제 데이터 수집용 운영 런타임이 아닙니다.
 
 ## 자동 검증 결과
 
-- 2026-09-08 기준 QMD-to-browser pipeline 시나리오 11개와 durable respondent-runtime 시나리오 11개를 포함한 저장소 테스트 87개가 통과했습니다.
+- 2026-09-08 기준 browser-native cross-runtime, device-selection, validation, mock-persistence, static-bundle, Supabase fail-closed scenario 8개를 포함한 저장소 테스트 95개가 통과했습니다.
 - 별도로 직접 작성한 모델을 사용하지 않고 `survey.qmd`와 `greedyq.yml`에서 프리뷰 모델과 HTML을 다시 생성했습니다.
 - 기준 런타임 JavaScript가 `node --check`를 통과했습니다.
 - 프리뷰 모델이 전용 JSON Schema를 통과했습니다.
@@ -16,7 +16,7 @@
 - 화면 표시 라벨과 저장값이 QMD 원본과 정확히 일치합니다.
 - 두 실험 조건과 5개 종료 결과의 모든 경로가 정상적으로 해석됩니다.
 - 동의 거부, 미성년자 탈락, 철회, 조건부 삭제 요청, 숨겨진 응답 제거, 검증, 조건 전환을 검사합니다.
-- 생성 프리뷰가 기준 모델을 그대로 포함하며 manifest 해시도 일치합니다.
+- 생성 프리뷰가 기준 모델을 그대로 포함하고 generated JavaScript/CSS는 repository runtime과 byte-for-byte로 일치하며 manifest hash도 일치합니다.
 - 영문/한국어 Markdown 쌍과 저장소 공백 검사도 통과했습니다.
 
 ## 발견하고 수정한 결함
@@ -24,7 +24,7 @@
 1. 프리뷰 모델의 일부 지지도 척도 라벨이 QMD 원본과 정확히 같지 않았습니다. 이제 응답자용 전체 라벨과 저장값을 그대로 보존합니다.
 2. 조건부 삭제 요청 필드가 필수 문항 일치 검사에서 빠져 있었습니다. 이제 조건부 필수 문항으로 표현하고 `greedyq.yml`과 대조합니다.
 3. 연구자 패널에서 조건을 강제 변경하면 배정 이후의 이전 응답이 남을 수 있었습니다. 이제 해당 응답을 삭제하고 삭제된 ID를 `condition_forced` 감사 이벤트에 기록합니다.
-4. 기존 프리뷰는 연구자가 실질적으로 검토하기에 지나치게 단순했습니다. 이제 응답자 수준의 입력 컨트롤, 검증, 진행률, 모바일 동작, 분리된 연구자 패널, 라우팅·상태 검사, 종료 결과, 네트워크 차단 경계를 제공합니다.
+4. 기존 프리뷰는 연구자가 실질적으로 검토하기에 지나치게 단순했습니다. 이제 독립 desktop/mobile session을 동시에 render하고 condition/page control, mock-state inspection, validation, progress, routing, terminal outcome, 안전한 no-network boundary를 제공합니다.
 
 ## 시나리오 범위
 

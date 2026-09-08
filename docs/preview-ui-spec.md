@@ -9,6 +9,8 @@
 
 The preview is the primary instrument-review surface. It must let a researcher experience the questionnaire as a respondent while making otherwise invisible state inspectable. A prose study summary is supporting documentation, not a substitute.
 
+The canonical renderer has exactly three modes: `desktop`, `mobile`, and `preview`. The respondent entry point detects desktop versus mobile from current viewport and pointer capabilities at runtime and must not use user-agent brand sniffing as the authoritative signal. Preview mode renders independent desktop and mobile respondent sessions simultaneously. All three modes use the same fixed parser, validator, normalized AST, question components, routing engine, and state semantics. Responsive presentation may differ; question meaning, stored values, validation, navigation, randomization, and lifecycle behavior may not.
+
 The preview has two strictly separated layers:
 
 - **Respondent layer:** the questionnaire exactly as a participant should experience it.
@@ -18,7 +20,7 @@ Researcher controls must be visually marked and must never appear in production 
 
 ## 2. Default layout
 
-On screens at least 861 CSS pixels wide, use a centered two-column layout: a flexible respondent card no wider than 760 pixels and a 300–340 pixel researcher panel. On narrower screens, stack the researcher panel after the respondent card. The respondent card remains first in DOM and reading order.
+Preview uses two labelled viewport frames: a flexible desktop frame and a 390 CSS-pixel mobile frame. Each frame owns an independent virtual session. When the preview workspace itself is narrow, stack the frames without changing their forced respondent modes. Production desktop uses a centered respondent card no wider than 760 pixels. Production mobile removes decorative card elevation, uses the available width, increases touch targets to at least 44 CSS pixels, and keeps navigation reachable without covering questions.
 
 The persistent top bar contains the greedyQ wordmark, a conspicuous `RESEARCHER PREVIEW` badge, page progress, and an accessible progress value. Avoid application chrome, decorative dashboards, nested cards, or controls unrelated to completing the questionnaire.
 

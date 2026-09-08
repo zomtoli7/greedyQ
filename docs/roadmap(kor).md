@@ -122,17 +122,17 @@ examples/complete-study/
 - [x] 로컬 SQLite respondent-session reference runtime 구현
 - [x] Consent-first 저장, resume, terminal outcome, atomic withdrawal 삭제, 동시 fixed-block 배정을 로컬에서 테스트
 - [x] Python을 최종 사용자 runtime dependency가 아닌 개발 reference implementation으로 확립
-- [ ] Python fixture에서 normalized AST, diagnostic, rendering, routing conformance contract 고정
-- [ ] Filesystem, Node.js API, framework dependency가 없는 platform-neutral TypeScript/JavaScript parser core 구현
-- [ ] 동일 core 기반 browser-native validator, compiler, preview, respondent renderer 구현
-- [ ] Normalized AST, diagnostic, route, condition, stored value, render snapshot의 Python-JavaScript conformance test 추가
-- [ ] 설치나 build step 없이 QMD/config text 또는 local file selection을 받는 browser entry point package 구성
+- [x] Python fixture에서 초기 normalized AST, diagnostic, rendering, routing conformance contract 고정
+- [x] Filesystem, Node.js API, framework dependency가 없는 platform-neutral TypeScript/JavaScript parser core 구현
+- [x] 동일 core 기반 browser-native validator, compiler, desktop/mobile respondent renderer, dual preview 구현
+- [x] 두 golden study normalized model, mock assignment, device selection의 Python-JavaScript conformance test 추가
+- [x] 설치나 build step 없이 QMD/config text 또는 local file selection을 받는 browser entry point package 구성
 - [ ] `GQ011` stored-value symbol-table 및 cross-artifact validation 구현
 - [ ] 생성된 모든 `.greedyq/*.json`의 `GQ012` validation 구현
 - [ ] Withdrawal, RLS, export에 대한 `GQ013` migration-contract validation 구현
 - [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
 - [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
-- [ ] Framework-independent browser renderer 생성; core conformance 통과 후에만 optional framework adapter 평가
+- [x] 초기 framework-independent browser renderer 생성; core conformance 통과 후에만 optional framework adapter 평가
 - [x] 초기 안전한 self-contained preview runtime과 researcher debug panel 생성
 - [ ] Supabase migration 및 access policy 생성
 - [ ] Vercel 배포 template 생성

@@ -1,4 +1,4 @@
-"""Build normalized artifacts and self-contained preview HTML."""
+"""Build normalized artifacts and the fixed browser-native runtime bundle."""
 
 import json
 import re
@@ -35,10 +35,15 @@ def build(study_dir, write=True):
         (internal / "normalized-survey.json").write_text(json.dumps(normalized, ensure_ascii=False, indent=2) + "\n")
         (internal / "validation-report.runtime.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
         (study_dir / "preview-model.json").write_text(json.dumps(model, ensure_ascii=False, indent=2) + "\n")
-        template = (ROOT / "templates/preview/preview.html").read_text()
         payload = json.dumps(model, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         pattern = r'(<script id="greedyq-model" type="application/json">).*?(</script>)'
-        html, count = re.subn(pattern, lambda match: match.group(1) + payload + match.group(2), template, count=1, flags=re.S)
-        if count != 1: raise RuntimeError("Preview template model marker is missing or duplicated.")
-        (study_dir / "preview.html").write_text(html)
+        browser = ROOT / "templates/browser"
+        for source, destination in (("preview.html", "preview.html"), ("respondent.html", "index.html")):
+            template = (browser / source).read_text()
+            html, count = re.subn(pattern, lambda match: match.group(1) + payload + match.group(2), template, count=1, flags=re.S)
+            if count != 1: raise RuntimeError("Browser template model marker is missing or duplicated in %s." % source)
+            (study_dir / destination).write_text(html)
+        (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
+        (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
+        (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
     return report, model
