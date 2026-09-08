@@ -8,7 +8,7 @@
 
 ## 자동 검증 결과
 
-- 2026-09-07 기준 QMD-to-browser pipeline 시나리오 11개를 포함한 저장소 테스트 76개가 통과했습니다.
+- 2026-09-08 기준 QMD-to-browser pipeline 시나리오 11개와 durable respondent-runtime 시나리오 11개를 포함한 저장소 테스트 87개가 통과했습니다.
 - 별도로 직접 작성한 모델을 사용하지 않고 `survey.qmd`와 `greedyq.yml`에서 프리뷰 모델과 HTML을 다시 생성했습니다.
 - 기준 런타임 JavaScript가 `node --check`를 통과했습니다.
 - 프리뷰 모델이 전용 JSON Schema를 통과했습니다.

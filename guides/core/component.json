@@ -24,6 +24,8 @@
     "greedyq/parser.py",
     "greedyq/validator.py",
     "greedyq/compiler.py",
-    "greedyq/build.py"
+    "greedyq/build.py",
+    "greedyq/runtime.py",
+    "greedyq/server.py"
   ]
 }

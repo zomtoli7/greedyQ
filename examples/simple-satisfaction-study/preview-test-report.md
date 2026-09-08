@@ -4,7 +4,7 @@
 
 ## Automated result
 
-The study passed its dedicated survey tests as part of a 76-test repository suite, including 11 QMD-to-browser pipeline scenarios, on 2026-09-07.
+The study passed its dedicated survey tests as part of an 87-test repository suite, including 11 QMD-to-browser pipeline scenarios and 11 durable respondent-runtime scenarios, on 2026-09-08.
 
 The preview is now regenerated directly from `survey.qmd` and `greedyq.yml`; `preview-model.json` is no longer a separately maintained source.
 

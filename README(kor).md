@@ -131,7 +131,9 @@ python3 -m greedyq preview examples/simple-satisfaction-study
 
 Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH_TO_STUDY`, 서버를 시작하지 않고 `preview-model.json`, `preview.html`, normalized validation artifact를 만들려면 `python3 -m greedyq build PATH_TO_STUDY`를 사용합니다. Preview mode에서는 respondent data가 브라우저 밖으로 전송되지 않습니다. 자세한 내용은 [브라우저 프리뷰 안내](./docs/browser-preview(kor).md)를 참고하십시오.
 
-현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+로컬에서 실제로 저장되는 respondent session을 시험하려면 `python3 -m greedyq run examples/complete-study`를 실행하고 `http://localhost:4180/study`를 엽니다. 이 test runtime은 git에서 제외되는 로컬 SQLite database에 응답을 기록하며 아직 Supabase/Vercel production runtime은 아닙니다. [로컬 respondent runtime 안내](./docs/local-respondent-runtime(kor).md)를 참고하십시오.
+
+현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [로컬 respondent runtime](./docs/local-respondent-runtime(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

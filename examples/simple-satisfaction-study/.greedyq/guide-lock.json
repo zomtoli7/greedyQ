@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "955fe1dedeb23c360e64b64c666b11003e06c7493e20183b8af13101fff4331e",
+  "registry_sha256": "b89b4d8fa957016b40a2228f69c2aa6ff3e133ce84f83df782d971f283b38dcd",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -15,7 +15,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "373b920c1266dfc22d7aec54a78917b2180a993140394a6e14407194bf39257f"
+      "manifest_sha256": "bcee62665680c74e6d90a7eb50db8ec7de28b7aa0968adc14a279f5c7d44a356"
     },
     {
       "id": "simple",
@@ -50,7 +50,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "3cc350f0a2e703cd451cf1c419e79e5d1d39f59354a584384366470f1897bb6d"
+      "sha256": "9ec831ba42b0acba9bfb96570cf9a0c96129ef751b96b4dc68d92f3c7ab72ffc"
     },
     {
       "component": "core",
@@ -115,7 +115,7 @@
     {
       "component": "core",
       "path": "greedyq/__main__.py",
-      "sha256": "0fb222f888f3a39314b98a8ac9b5c1cc8e006218e60254bf98557ea23e9e29d3"
+      "sha256": "12ac1d26cc21808cdc3fd9c48027123a4cbf0b91b5debcba9f1084e85416c8a8"
     },
     {
       "component": "core",
@@ -141,6 +141,16 @@
       "component": "core",
       "path": "greedyq/build.py",
       "sha256": "f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/runtime.py",
+      "sha256": "e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/server.py",
+      "sha256": "8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406"
     },
     {
       "component": "simple",

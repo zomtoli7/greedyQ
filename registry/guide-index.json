@@ -34,13 +34,13 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "373b920c1266dfc22d7aec54a78917b2180a993140394a6e14407194bf39257f",
+      "manifest_sha256": "bcee62665680c74e6d90a7eb50db8ec7de28b7aa0968adc14a279f5c7d44a356",
       "dependencies": [],
       "conflicts": [],
       "files": [
         {
           "path": "guides/core/guide.md",
-          "sha256": "3cc350f0a2e703cd451cf1c419e79e5d1d39f59354a584384366470f1897bb6d"
+          "sha256": "9ec831ba42b0acba9bfb96570cf9a0c96129ef751b96b4dc68d92f3c7ab72ffc"
         },
         {
           "path": "guides/core/communication.md",
@@ -92,7 +92,7 @@
         },
         {
           "path": "greedyq/__main__.py",
-          "sha256": "0fb222f888f3a39314b98a8ac9b5c1cc8e006218e60254bf98557ea23e9e29d3"
+          "sha256": "12ac1d26cc21808cdc3fd9c48027123a4cbf0b91b5debcba9f1084e85416c8a8"
         },
         {
           "path": "greedyq/yaml_min.py",
@@ -113,6 +113,14 @@
         {
           "path": "greedyq/build.py",
           "sha256": "f8782df2b975c9a29e2b660e9e2bc862afa361447d412c450344f26a165b536f"
+        },
+        {
+          "path": "greedyq/runtime.py",
+          "sha256": "e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda"
+        },
+        {
+          "path": "greedyq/server.py",
+          "sha256": "8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406"
         }
       ]
     },

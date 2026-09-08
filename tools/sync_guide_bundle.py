@@ -25,6 +25,8 @@ FILES = (
     ("greedyq/validator.py", "python", False),
     ("greedyq/compiler.py", "python", False),
     ("greedyq/build.py", "python", False),
+    ("greedyq/runtime.py", "python", False),
+    ("greedyq/server.py", "python", False),
 )
 
 

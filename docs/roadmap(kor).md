@@ -119,6 +119,8 @@ examples/complete-study/
 - [x] QMD와 `greedyq.yml`을 normalized model 및 deterministic preview로 compile
 - [x] 연구자가 이해할 수 있는 구조, option 방향, route validation 제공
 - [x] 로컬 `validate`, `build`, 브라우저 `preview` 명령 제공
+- [x] 로컬 SQLite respondent-session reference runtime 구현
+- [x] Consent-first 저장, resume, terminal outcome, atomic withdrawal 삭제, 동시 fixed-block 배정을 로컬에서 테스트
 - [ ] Parser library 선택 및 grammar 구현 접근법 확정
 - [ ] TypeScript parser 및 정규화 AST package 생성
 - [ ] Validator 및 LLM-friendly diagnostic format 생성
@@ -147,10 +149,10 @@ examples/complete-study/
 - [ ] Markdown 페이지 및 기본 navigation render
 - [ ] Text, textarea, numeric, single-choice, multiple-choice 문항 구현
 - [ ] Required field와 기본 validation 구현
-- [ ] 익명 respondent session 생성
-- [ ] 부분 진행 상태 및 완료 응답 저장
-- [ ] 단순 및 block random assignment 구현
-- [ ] 재개된 session 전반에 배정 metadata 유지
+- [x] 로컬 reference runtime에서 익명 respondent session 생성
+- [x] 로컬 reference runtime에서 부분 진행 상태 및 완료 응답 저장
+- [x] 로컬 simple 및 block random assignment 구현
+- [x] 재개된 로컬 session 전반에 배정 metadata 유지
 - [ ] Chat-mode deployment handoff 및 Agent-mode verified deployment 지원
 - [ ] 분석 가능한 데이터 export
 - [ ] 완전한 예제 연구를 Vercel과 Supabase에 배포하고 검증

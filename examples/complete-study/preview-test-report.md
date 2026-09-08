@@ -8,7 +8,7 @@ This report covers the golden reference study preview model, the self-contained 
 
 ## Automated result
 
-- 76 repository tests, including 11 QMD-to-browser pipeline scenarios, passed on 2026-09-07.
+- 87 repository tests, including 11 QMD-to-browser pipeline scenarios and 11 durable respondent-runtime scenarios, passed on 2026-09-08.
 - The preview model and HTML were regenerated directly from `survey.qmd` and `greedyq.yml`; no separately hand-authored model was used.
 - The canonical runtime JavaScript passed `node --check`.
 - The preview model passed its JSON Schema.

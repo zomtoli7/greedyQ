@@ -4,7 +4,7 @@
 
 ## 자동 검증 결과
 
-2026-09-07 기준 QMD-to-browser pipeline 시나리오 11개를 포함한 저장소 전체 테스트 76개 안에서 이 연구의 전용 테스트가 모두 통과했습니다.
+2026-09-08 기준 QMD-to-browser pipeline 시나리오 11개와 durable respondent-runtime 시나리오 11개를 포함한 저장소 전체 테스트 87개 안에서 이 연구의 전용 테스트가 모두 통과했습니다.
 
 이제 preview는 `survey.qmd`와 `greedyq.yml`에서 직접 다시 생성되며 `preview-model.json`을 별도의 source로 관리하지 않습니다.
 

@@ -9,6 +9,8 @@ import webbrowser
 from pathlib import Path
 
 from .build import build, load_study
+from .server import serve
+from .runtime import Store
 from .validator import validate
 
 
@@ -28,6 +30,7 @@ def main(argv=None):
     for name in ("validate", "build"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
     preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
+    run = sub.add_parser("run"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
         if args.command == "validate":
@@ -40,12 +43,25 @@ def main(argv=None):
         study = Path(args.study_dir).resolve()
         print("Preview created: %s" % (study / "preview.html"))
         if args.command == "build": return 0
+        if args.command == "run":
+            _, _, config = load_study(study)
+            database = Path(args.database).resolve() if args.database else study / ".greedyq/runtime.sqlite3"
+            server = serve(model, config, Store(database), args.port)
+            url = "http://localhost:%d/study" % args.port
+            print("Respondent test server: %s" % url); print("Test data: %s" % database); print("Press Control-C to stop the server.")
+            if not args.no_open: webbrowser.open(url)
+            try: server.serve_forever()
+            except KeyboardInterrupt: print("\nRespondent test server stopped.")
+            finally: server.server_close()
+            return 0
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(study))
         server = http.server.ThreadingHTTPServer(("localhost", args.port), handler)
         url = "http://localhost:%d/preview.html" % args.port
         print("Open %s" % url); print("Press Control-C to stop the preview server.")
         if not args.no_open: webbrowser.open(url)
-        server.serve_forever()
+        try: server.serve_forever()
+        except KeyboardInterrupt: print("\nPreview server stopped.")
+        finally: server.server_close()
     except (ValueError, OSError) as exc:
         print("Could not prepare the preview: %s" % exc, file=sys.stderr); return 1
 

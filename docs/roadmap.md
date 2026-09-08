@@ -119,6 +119,8 @@ examples/complete-study/
 - [x] Compile QMD and `greedyq.yml` into a normalized model and deterministic preview.
 - [x] Provide researcher-readable structural, option-direction, and route validation.
 - [x] Provide local `validate`, `build`, and browser `preview` commands.
+- [x] Implement the local SQLite respondent-session reference runtime.
+- [x] Test consent-first persistence, resume, terminal outcomes, atomic withdrawal deletion, and concurrent fixed-block assignment locally.
 - [ ] Select parser libraries and finalize the grammar implementation approach.
 - [ ] Create the TypeScript parser and normalized AST packages.
 - [ ] Create the validator and LLM-friendly diagnostic format.
@@ -147,10 +149,10 @@ Implement the smallest complete conversational study path.
 - [ ] Render Markdown pages and basic navigation.
 - [ ] Implement text, textarea, numeric, single-choice, and multiple-choice questions.
 - [ ] Implement required fields and basic validation.
-- [ ] Create anonymous respondent sessions.
-- [ ] Persist partial progress and completed responses.
-- [ ] Implement simple and block random assignment.
-- [ ] Persist assignment metadata across resumed sessions.
+- [x] Create anonymous respondent sessions in the local reference runtime.
+- [x] Persist partial progress and completed responses in the local reference runtime.
+- [x] Implement local simple and block random assignment.
+- [x] Persist local assignment metadata across resumed sessions.
 - [ ] Support Chat-mode deployment handoff and Agent-mode verified deployment.
 - [ ] Export analysis-ready data.
 - [ ] Deploy and verify a complete example study on Vercel and Supabase.

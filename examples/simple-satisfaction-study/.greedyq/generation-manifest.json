@@ -99,7 +99,7 @@
     {
       "path": "preview-test-report.md",
       "kind": "derived",
-      "sha256": "e6654622015b3f0544f6fecb1485edf88712ede1deb5b1a97754581d7a2cfa8e",
+      "sha256": "2138cd054382c2af6edc187ec39e1f19936fd9f23a2aee0b0fecff8881d2e5f6",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_instrument",
@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "b56e5462e3d6e96dad275dba0e3f2becf72ea4571d33e6ad9356a0a01b676f6f",
+      "sha256": "24746d2b642e7abb7c0b8a0d2a1a890ebe740ea8852fcebc6e3bbeae6fe3b234",
       "status": "validated",
       "based_on_decision_ids": []
     },
