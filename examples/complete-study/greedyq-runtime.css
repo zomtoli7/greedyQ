@@ -1,1 +1,214 @@
-:root{--gq-brand:#315c8a;--gq-ink:#172033;--gq-muted:#667085;--gq-line:#dfe3eb;--gq-soft:#f5f7fb;--gq-danger:#b42318;font-family:Inter,system-ui,sans-serif}.gq-app{color:var(--gq-ink);background:var(--gq-soft);min-height:100%;line-height:1.55}.gq-app *{box-sizing:border-box}.gq-top{background:#fff;border-bottom:1px solid var(--gq-line);padding:14px 22px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:2}.gq-card{background:#fff;border:1px solid var(--gq-line);border-radius:16px;box-shadow:0 8px 24px #1018280f;margin:34px auto;padding:48px;max-width:760px}.gq-eyebrow{color:var(--gq-brand);font-size:13px;font-weight:800;text-transform:uppercase}.gq-card h1{font-size:36px;line-height:1.2}.gq-copy{white-space:pre-line;color:#475467}.gq-q{border:0;margin:32px 0;padding:0}.gq-q legend{font-size:17px;font-weight:720;margin-bottom:12px}.gq-choice{border:1px solid var(--gq-line);border-radius:10px;padding:13px;margin:8px 0;display:flex;gap:10px}.gq-choice:has(input:checked){border-color:var(--gq-brand);background:#f2f7fc}.gq-q input[type=text],.gq-q input[type=number],.gq-q input[type=date],.gq-q select,.gq-q textarea{width:100%;padding:12px;border:1px solid #b9c1ce;border-radius:9px;font:inherit}.gq-q textarea{min-height:120px}.gq-actions{border-top:1px solid var(--gq-line);padding-top:22px;display:flex;justify-content:space-between}.gq-actions button{padding:11px 18px;border:1px solid #b9c1ce;border-radius:9px;background:#fff;font-weight:700}.gq-actions button[data-next]{background:var(--gq-brand);border-color:var(--gq-brand);color:#fff}.gq-actions button:disabled{opacity:.4}.gq-error{color:var(--gq-danger);background:#fff1f0;padding:12px;border-left:4px solid var(--gq-danger)}.gq-matrix{overflow:auto}.gq-mobile .gq-top{padding:11px 14px}.gq-mobile .gq-card{border:0;border-radius:0;box-shadow:none;margin:0;padding:24px 16px;min-height:calc(100vh - 50px)}.gq-mobile .gq-card h1{font-size:27px}.gq-mobile .gq-choice{padding:15px 12px;min-height:52px}.gq-mobile .gq-actions{position:sticky;bottom:0;background:#fff;padding:14px 0}.gq-mobile .gq-actions button{min-height:48px;flex:1;margin:0 4px}@media(max-width:700px),(pointer:coarse){.gq-desktop-auto .gq-card{border:0;border-radius:0;box-shadow:none;margin:0;padding:24px 16px}.gq-desktop-auto .gq-card h1{font-size:27px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+:root {
+  --gq-brand: #315c8a;
+  --gq-ink: #172033;
+  --gq-muted: #667085;
+  --gq-line: #dfe3eb;
+  --gq-soft: #f5f7fb;
+  --gq-danger: #b42318;
+  font-family: Inter, system-ui, sans-serif;
+}
+.gq-app {
+  color: var(--gq-ink);
+  background: var(--gq-soft);
+  min-height: 100%;
+  line-height: 1.55;
+}
+.gq-app * {
+  box-sizing: border-box;
+}
+.gq-top {
+  background: #fff;
+  border-bottom: 1px solid var(--gq-line);
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.gq-card {
+  background: #fff;
+  border: 1px solid var(--gq-line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px #1018280f;
+  margin: 34px auto;
+  padding: 48px;
+  max-width: 760px;
+}
+.gq-eyebrow {
+  color: var(--gq-brand);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.gq-card h1 {
+  font-size: 36px;
+  line-height: 1.2;
+}
+.gq-copy {
+  white-space: pre-line;
+  color: #475467;
+}
+.gq-q {
+  border: 0;
+  margin: 32px 0;
+  padding: 0;
+}
+.gq-q legend {
+  font-size: 17px;
+  font-weight: 720;
+  margin-bottom: 12px;
+}
+.gq-choice {
+  border: 1px solid var(--gq-line);
+  border-radius: 10px;
+  padding: 13px;
+  margin: 8px 0;
+  display: flex;
+  gap: 10px;
+}
+.gq-choice:has(input:checked) {
+  border-color: var(--gq-brand);
+  background: #f2f7fc;
+}
+.gq-q input[type="text"],
+.gq-q input[type="number"],
+.gq-q input[type="date"],
+.gq-q select,
+.gq-q textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9c1ce;
+  border-radius: 9px;
+  font: inherit;
+}
+.gq-q textarea {
+  min-height: 120px;
+}
+.gq-actions {
+  border-top: 1px solid var(--gq-line);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+.gq-actions button {
+  padding: 11px 18px;
+  border: 1px solid #b9c1ce;
+  border-radius: 9px;
+  background: #fff;
+  color: #344054;
+  color-scheme: light;
+  font-weight: 700;
+}
+.gq-actions button[data-next] {
+  background: var(--gq-brand);
+  border-color: var(--gq-brand);
+  color: #fff;
+}
+.gq-actions button:disabled {
+  opacity: 0.4;
+}
+.gq-error {
+  color: var(--gq-danger);
+  background: #fff1f0;
+  padding: 12px;
+  border-left: 4px solid var(--gq-danger);
+}
+.gq-matrix {
+  overflow: auto;
+}
+.gq-slider {
+  display: grid;
+  gap: 10px;
+}
+.gq-slider output {
+  justify-self: center;
+  background: var(--gq-brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+.gq-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--gq-brand);
+  min-height: 44px;
+}
+.gq-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--gq-muted);
+  font-size: 12px;
+}
+.gq-slider-labels span {
+  text-align: center;
+}
+.gq-slider-vertical {
+  grid-template-columns: 56px auto;
+  justify-content: start;
+  min-height: 260px;
+}
+.gq-slider-vertical output {
+  grid-column: 2;
+}
+.gq-slider-vertical input[type="range"] {
+  grid-row: 1 / span 2;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 44px;
+  height: 240px;
+}
+.gq-slider-vertical .gq-slider-labels {
+  grid-column: 2;
+  grid-row: 2;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.gq-mobile .gq-top {
+  padding: 11px 14px;
+}
+.gq-mobile .gq-card {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 24px 16px;
+  min-height: 0;
+}
+.gq-mobile .gq-card h1 {
+  font-size: 27px;
+}
+.gq-mobile .gq-choice {
+  padding: 15px 12px;
+  min-height: 52px;
+}
+.gq-mobile .gq-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 14px 0;
+}
+.gq-mobile .gq-actions button {
+  min-height: 48px;
+  flex: 1;
+  margin: 0 4px;
+}
+@media (max-width: 700px), (pointer: coarse) {
+  .gq-desktop-auto .gq-card {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 24px 16px;
+  }
+  .gq-desktop-auto .gq-card h1 {
+    font-size: 27px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

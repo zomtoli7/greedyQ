@@ -115,6 +115,7 @@ def compile_preview(parsed, config):
     model = {
         "study_id": config.get("study", {}).get("id", "greedyq_preview"),
         "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
+        "organization": front.get("greedyq", {}).get("organization", "Research team"),
         "start_page": start,
         "brand_color": front.get("theme-settings", {}).get("barcolor", "#315c8a"),
         "messages": {

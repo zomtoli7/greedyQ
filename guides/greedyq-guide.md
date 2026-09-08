@@ -238,12 +238,12 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `docs/preview-ui-spec.md` | `3790906bfe1d8040e4c22898a85d6f526eb92e9b02c5bb97a6e4a2057e0ec176` | `no` |
-| `web/greedyq-core.js` | `6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d` | `no` |
-| `web/greedyq-runtime.css` | `8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd` | `no` |
+| `docs/preview-ui-spec.md` | `194b638f80db2a9f6f12487ea10149876d02d256725acc78e95d06b3493e8a70` | `no` |
+| `web/greedyq-core.js` | `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73` | `no` |
+| `web/greedyq-runtime.css` | `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c` | `no` |
 | `templates/browser/respondent.html` | `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df` | `no` |
-| `templates/browser/preview.html` | `372518c983bf943557769b5af63db112a7e65a00f8d1ed395fb07647d90ba11f` | `no` |
-| `templates/browser/studio.html` | `9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644` | `no` |
+| `templates/browser/preview.html` | `824eff7e5d5e8be117ce31601fce7310c7d2b8969e5e20b860bfcb232014e77d` | `no` |
+| `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
 | `examples/complete-study/vercel.json` | `fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34` | `no` |
@@ -251,24 +251,24 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701` | `no` |
+| `schemas/preview-model.schema.json` | `0b7a9c3e6c359cae22d44de8a780b30e4106f444bb1a41303b1fa5fccb87088a` | `no` |
 | `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
 | `greedyq/__main__.py` | `c569eddcf218e0a7ccbb00f67f1efadffb50b351e147aa4a3a1f9eabbe88a272` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
-| `greedyq/parser.py` | `ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73` | `no` |
-| `greedyq/validator.py` | `2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266` | `no` |
-| `greedyq/compiler.py` | `1b341730eded843a431f380e4e1932ad8b0eeebda307f9fc5af0eb2babc5fc09` | `no` |
+| `greedyq/parser.py` | `59b3ef13315837e31588f30af1f86a8d5f3c90c661f978c4422cd8a642db9ba8` | `no` |
+| `greedyq/validator.py` | `adfd5d9414b763df0810e66a3c1fc5243cc06525b9f4c7392dbf37e3d1b30d07` | `no` |
+| `greedyq/compiler.py` | `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3` | `no` |
 | `greedyq/build.py` | `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
 | `greedyq/prolific.py` | `c17995c246f9f1716b41dc1bfd8c8d819a432b594e2f6e96ee6661b2c0a05261` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
-| `greedyq/exporter.py` | `c6f720d79292c2b5820344c362795cbe10dc5cfce006fcf6214b5cfb808f2045` | `no` |
+| `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
 | `greedyq/deployment.py` | `d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
-SHA-256: `3790906bfe1d8040e4c22898a85d6f526eb92e9b02c5bb97a6e4a2057e0ec176`
+SHA-256: `194b638f80db2a9f6f12487ea10149876d02d256725acc78e95d06b3493e8a70`
 
 ```markdown
 # greedyQ Preview UI Specification
@@ -321,7 +321,7 @@ Use one primary action per page. Previous is visually secondary. Disable Previou
 - Single choice uses a `fieldset`, `legend`, and native radios. The whole visible option row is clickable.
 - Each preview option shows its stored value beneath the display label. Production respondent mode hides stored values.
 - Select controls use an unselectable empty prompt and preserve the display/stored distinction.
-- Discrete scales use native radios, display meaningful endpoint labels, and remain keyboard operable. Do not use an unlabeled custom range slider for categorical Likert data.
+- `slider` renders an accessible native range control over ordered labeled choices and stores the selected choice value; `slider_numeric` renders a numeric range control. Both display their current value and endpoints and remain keyboard operable. Horizontal is the portable default; `orientation = "vertical"` is a greedyQ extension and must be reported as such in native export.
 - Matrix questions use real table headers and unique radio-group names per row. On small screens, prefer one row at a time or a labelled horizontal-scrolling table; never shrink text below the base size.
 - Optional text areas say `Optional` in visible help or label text. Do not imply that open text is required.
 - Hidden questions are removed from the focus order. When `clear_on_hide` applies, the preview clears the hidden answer and records that event.
@@ -408,7 +408,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d`
+SHA-256: `d57b0b7cfdaa48b80bc482e29a88c23789710476f4617a6f51ec6715d04dcc73`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -422,134 +422,1819 @@ SHA-256: `6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d`
   const PAGE_RE = /^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$/gm;
   const FENCE_RE = /```\{r\}\s*\n([\s\S]*?)```/g;
   const CALL_RE = /\b(sd_question|sd_nav)\s*\(/;
-  const TYPES = new Set(["text","textarea","numeric","mc","mc_multiple","select","slider","slider_numeric","date","matrix"]);
+  const TYPES = new Set([
+    "text",
+    "textarea",
+    "numeric",
+    "mc",
+    "mc_multiple",
+    "select",
+    "slider",
+    "slider_numeric",
+    "date",
+    "matrix",
+  ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
   class ParseError extends Error {
-    constructor(message, line) { super((line ? `Line ${line}: ` : "") + message); this.name = "ParseError"; this.line = line || null; }
+    constructor(message, line) {
+      super((line ? `Line ${line}: ` : "") + message);
+      this.name = "ParseError";
+      this.line = line || null;
+    }
   }
   function scalar(raw) {
     const value = String(raw).trim();
-    if ((value[0] === '"' && value.at(-1) === '"') || (value[0] === "'" && value.at(-1) === "'")) return value.slice(1,-1).replace(/\\n/g,"\n").replace(/\\"/g,'"').replace(/\\\\/g,"\\");
+    if (
+      (value[0] === '"' && value.at(-1) === '"') ||
+      (value[0] === "'" && value.at(-1) === "'")
+    )
+      return value
+        .slice(1, -1)
+        .replace(/\\n/g, "\n")
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, "\\");
     if (/^(true|TRUE|True)$/.test(value)) return true;
     if (/^(false|FALSE|False)$/.test(value)) return false;
     if (/^(null|NULL|~)$/.test(value)) return null;
-    if (/^-?\d+$/.test(value)) return Number.parseInt(value,10);
-    if (/^-?(?:\d+\.\d*|\d*\.\d+)$/.test(value)) return Number.parseFloat(value);
-    if (value.startsWith("[") && value.endsWith("]")) return splitTop(value.slice(1,-1)).map(scalar);
-    if (value.startsWith("{") && value.endsWith("}")) return Object.fromEntries(splitTop(value.slice(1,-1)).map(x=>{const p=splitKey(x);return[p[0],scalar(p[1])]}));
+    if (/^-?\d+$/.test(value)) return Number.parseInt(value, 10);
+    if (/^-?(?:\d+\.\d*|\d*\.\d+)$/.test(value))
+      return Number.parseFloat(value);
+    if (value.startsWith("[") && value.endsWith("]"))
+      return splitTop(value.slice(1, -1)).map(scalar);
+    if (value.startsWith("{") && value.endsWith("}"))
+      return Object.fromEntries(
+        splitTop(value.slice(1, -1)).map((x) => {
+          const p = splitKey(x);
+          return [p[0], scalar(p[1])];
+        }),
+      );
     return value;
   }
-  function stripComment(line) { let quote=null, escaped=false; for(let i=0;i<line.length;i++){const c=line[i];if(quote){if(escaped)escaped=false;else if(c==="\\"&&quote==='"')escaped=true;else if(c===quote)quote=null}else if(c==='"'||c==="'")quote=c;else if(c==="#"&&(i===0||/\s/.test(line[i-1])))return line.slice(0,i)}return line; }
-  function splitKey(text) { let quote=null,depth=0;for(let i=0;i<text.length;i++){const c=text[i];if(quote){if(c===quote&&text[i-1]!=="\\")quote=null}else if(c==='"'||c==="'")quote=c;else if("[{(".includes(c))depth++;else if("]})".includes(c))depth--;else if(c===":"&&depth===0)return[text.slice(0,i).trim(),text.slice(i+1).trim()]}throw new ParseError(`Expected a key and value in '${text}'.`); }
-  function parseYaml(text) {
-    const lines=String(text).replace(/\r/g,"").split("\n").map((raw,index)=>({index:index+1,indent:(raw.match(/^ */)||[""])[0].length,text:stripComment(raw).trim()})).filter(x=>x.text);
-    function block(start, indent) {
-      if(start>=lines.length||lines[start].indent<indent)return[{},start]; const array=lines[start].text.startsWith("- "), out=array?[]:{}; let i=start;
-      while(i<lines.length&&lines[i].indent===indent&&lines[i].text.startsWith("- ")===array){const row=lines[i], content=array?row.text.slice(2).trim():row.text;
-        if(array){if(!content){const child=block(i+1,lines[i+1]?.indent??indent+2);out.push(child[0]);i=child[1];continue}if(content.includes(":")){const pair=splitKey(content),item={};item[pair[0]]=pair[1]?scalar(pair[1]):{};i++;while(i<lines.length&&lines[i].indent>indent){const childIndent=lines[i].indent;if(lines[i].text.startsWith("- ")){const key=Object.keys(item).at(-1),child=block(i,childIndent);item[key]=child[0];i=child[1];continue}const p=splitKey(lines[i].text);if(p[1]){item[p[0]]=scalar(p[1]);i++}else{const child=block(i+1,lines[i+1]?.indent??childIndent+2);item[p[0]]=child[0];i=child[1]}}out.push(item);continue}out.push(scalar(content));i++;continue}
-        const pair=splitKey(content);if(pair[1]){out[pair[0]]=scalar(pair[1]);i++}else if(i+1<lines.length&&lines[i+1].indent>indent){const child=block(i+1,lines[i+1].indent);out[pair[0]]=child[0];i=child[1]}else{out[pair[0]]={};i++}
-      }return[out,i]
+  function stripComment(line) {
+    let quote = null,
+      escaped = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (quote) {
+        if (escaped) escaped = false;
+        else if (c === "\\" && quote === '"') escaped = true;
+        else if (c === quote) quote = null;
+      } else if (c === '"' || c === "'") quote = c;
+      else if (c === "#" && (i === 0 || /\s/.test(line[i - 1])))
+        return line.slice(0, i);
     }
-    return lines.length?block(0,lines[0].indent)[0]:{};
+    return line;
   }
-  function splitTop(text, separator=",") { const out=[];let start=0,depth=0,quote=null,escaped=false;for(let i=0;i<text.length;i++){const c=text[i];if(quote){if(escaped)escaped=false;else if(c==="\\"&&quote==='"')escaped=true;else if(c===quote)quote=null}else if(c==='"'||c==="'")quote=c;else if("([{ ".includes(c)&&c!==" ")depth++;else if(")]}".includes(c))depth--;else if(c===separator&&depth===0){if(text.slice(start,i).trim())out.push(text.slice(start,i).trim());start=i+1}}if(text.slice(start).trim())out.push(text.slice(start).trim());return out; }
-  function splitEquals(text){let depth=0,quote=null,escaped=false;for(let i=0;i<text.length;i++){const c=text[i];if(quote){if(escaped)escaped=false;else if(c==="\\"&&quote==='"')escaped=true;else if(c===quote)quote=null}else if(c==='"'||c==="'")quote=c;else if("([{ ".includes(c)&&c!==" ")depth++;else if(")]}".includes(c))depth--;else if(c==="="&&depth===0)return[text.slice(0,i).trim(),text.slice(i+1).trim()]}return null;}
-  function vector(raw,line){if(!(raw.startsWith("c(")&&raw.endsWith(")")))throw new ParseError("Options and rows must use c(...).",line);return splitTop(raw.slice(2,-1)).map(item=>{const pair=splitEquals(item);if(!pair){const value=scalar(item);return{label:String(value),value}}const option={label:String(scalar(pair[0])),value:scalar(pair[1])};if(/^[a-z][a-z0-9_]*$/.test(pair[0])&&/^["']/.test(pair[1])&&String(option.value).includes(" "))option._looks_reversed=true;return option});}
-  function callArgs(body,line){const found=CALL_RE.exec(body);if(!found)return[null,{}];let depth=1,quote=null,escaped=false,end=-1;for(let i=found.index+found[0].length;i<body.length;i++){const c=body[i];if(quote){if(escaped)escaped=false;else if(c==="\\"&&quote==='"')escaped=true;else if(c===quote)quote=null}else if(c==='"'||c==="'")quote=c;else if(c==="(")depth++;else if(c===")"&&--depth===0){end=i;break}}if(end<0)throw new ParseError(`The ${found[1]} call is missing a closing parenthesis.`,line);if(body.slice(end+1).trim())throw new ParseError("Only one supported call is allowed in each R block.",line);const args={};for(const item of splitTop(body.slice(found.index+found[0].length,end))){const pair=splitEquals(item);if(!pair)throw new ParseError(`Every ${found[1]} argument must have a name.`,line);if(Object.hasOwn(args,pair[0]))throw new ParseError(`Argument '${pair[0]}' appears more than once.`,line);args[pair[0]]=["option","options","row","rows"].includes(pair[0])?vector(pair[1],line):scalar(pair[1])}return[found[1],args];}
-  function parseSurvey(qmdText, source="survey.qmd") { const text=String(qmdText).replace(/\r/g,"");if(!text.startsWith("---\n"))throw new ParseError("The file must begin with YAML front matter.",1);const close=text.indexOf("\n---",4);if(close<0)throw new ParseError("The YAML front matter is not closed.",1);const front=parseYaml(text.slice(4,close));const body=text.slice(close+4).replace(/^\n+/,"");const matches=[...body.matchAll(PAGE_RE)];if(!matches.length)throw new ParseError("No survey pages were found. Add a line such as '--- welcome'.");const pages=[];for(let index=0;index<matches.length;index++){const match=matches[index],section=body.slice(match.index+match[0].length,index+1<matches.length?matches[index+1].index:body.length);let plain=section.replace(FENCE_RE,"");const heading=/^#\s+(.+?)\s*$/m.exec(plain),title=heading?heading[1].trim():match[1].replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());if(heading)plain=plain.slice(0,heading.index)+plain.slice(heading.index+heading[0].length);plain=plain.replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/\n{3,}/g,"\n\n").trim();const page={id:match[1],title,body:plain,questions:[]};const base=text.slice(0,close+4).split("\n").length+body.slice(0,match.index+match[0].length).split("\n").length-1;for(const fence of section.matchAll(FENCE_RE)){const line=base+section.slice(0,fence.index).split("\n").length;const[name,args0]=callArgs(fence[1].trim(),line),args={...args0};if(name==="sd_question"){const q={id:args.id??null,type:args.type??null,label:args.label??null,_line:line};delete args.id;delete args.type;delete args.label;if(args.option)q.options=args.option;if(args.options)q.options=args.options;if(args.row)q.rows=args.row;if(args.rows)q.rows=args.rows;if(args.label_select)q.placeholder=args.label_select;for(const key of ["option","options","row","rows","label_select"])delete args[key];for(const key of ["placeholder","min","max"]){if(Object.hasOwn(args,key)){q[key]=args[key];delete args[key]}}if(Object.keys(args).length)q.unsupported_arguments=Object.keys(args).sort();page.questions.push(q)}else if(name==="sd_nav"){page.nav=args;page._nav_line=line}else if(fence[1].trim())throw new ParseError("This R block does not contain sd_question() or sd_nav().",line)}pages.push(page)}return{front_matter:front,pages,source}; }
-  const issue=(code,message,file,line)=>Object.assign({code,severity:"error",message,file},line?{line}:{});
-  function validateSurvey(parsed,config,qmd="survey.qmd",yml="greedyq.yml") { const issues=[],pages=parsed.pages||[],pageIds=pages.map(p=>p.id),questions=pages.flatMap(p=>p.questions||[]),qids=questions.map(q=>q.id),knownP=new Set(pageIds),knownQ=new Set(qids);if(parsed.front_matter?.greedyq?.spec_version!=="0.2")issues.push(issue("GQ003","Set the survey specification version to 0.2.",qmd,1));if(config.spec_version!=="0.2")issues.push(issue("GQ003","Set the study settings version to 0.2.",yml,1));for(const id of new Set(pageIds.filter((x,i,a)=>a.indexOf(x)!==i)))issues.push(issue("GQ001",`The page name '${id}' is used more than once.`,qmd));for(const id of new Set(qids.filter((x,i,a)=>x&&a.indexOf(x)!==i)))issues.push(issue("GQ001",`The question name '${id}' is used more than once.`,qmd));for(const p of pages){if(/<\s*\/?\s*[A-Za-z][^>]*>/.test(p.body||""))issues.push(issue("GQ003",`Page '${p.id}' contains raw HTML.`,qmd));const target=p.nav?.page_next;if(target&&!knownP.has(target))issues.push(issue("GQ002",`Page '${p.id}' continues to missing page '${target}'.`,qmd,p._nav_line))}for(const q of questions){if(!q.id){issues.push(issue("GQ001","A question is missing its id.",qmd,q._line));continue}if(!ID_RE.test(String(q.id)))issues.push(issue("GQ001",`The question id '${q.id}' is invalid.`,qmd,q._line));if(!q.type||!TYPES.has(q.type))issues.push(issue("GQ003",`Question '${q.id}' uses a missing or unsupported type.`,qmd,q._line));if(!q.label)issues.push(issue("GQ003",`Question '${q.id}' needs participant-facing wording in label.`,qmd,q._line));if(["mc","mc_multiple","select","slider","matrix"].includes(q.type)&&!q.options?.length)issues.push(issue("GQ003",`Question '${q.id}' needs at least one answer choice.`,qmd,q._line));if(q.type==="matrix"&&!q.rows?.length)issues.push(issue("GQ003",`Matrix question '${q.id}' needs at least one row.`,qmd,q._line));if([...(q.options||[]),...(q.rows||[])].some(x=>x._looks_reversed))issues.push(issue("GQ011",`Question '${q.id}' appears to reverse displayed labels and stored values.`,qmd,q._line));for(const arg of q.unsupported_arguments||[])issues.push(issue("GQ003",`Question '${q.id}' uses unsupported argument '${arg}'.`,qmd,q._line))}const settings=parsed.front_matter?.["survey-settings"]||{},start=settings["start-page"]||pageIds[0];if(!knownP.has(start))issues.push(issue("GQ002",`The starting page '${start}' does not exist.`,qmd));for(const id of settings.required||[])if(!knownQ.has(id))issues.push(issue("GQ002",`The required-question list refers to '${id}', but it does not exist.`,qmd));for(const rule of config.logic?.show||[]){const target=rule.question||rule.page;if(!(rule.question?knownQ:knownP).has(target))issues.push(issue("GQ002",`A display rule refers to '${target}', but it does not exist.`,yml))}for(const rule of config.logic?.skip||[]){if(!knownP.has(rule.from))issues.push(issue("GQ002",`A route starts from missing page '${rule.from}'.`,yml));if(!knownP.has(rule.to))issues.push(issue("GQ002",`A route points to missing page '${rule.to}'.`,yml))}for(const [name,outcome] of Object.entries(config.outcomes||{}))if(!knownP.has(outcome.page))issues.push(issue("GQ002",`The '${name}' ending points to missing page '${outcome.page}'.`,yml));const errors=issues.filter(x=>x.severity==="error");return{schema_version:"0.2",status:errors.length?"failed":"passed",summary:`${errors.length} error(s), ${issues.length-errors.length} warning(s)`,issues}; }
-  function validateSurveyComplete(parsed,config,qmd="survey.qmd",yml="greedyq.yml"){
-    const report=validateSurvey(parsed,config,qmd,yml),issues=report.issues,pages=parsed.pages||[],questions=pages.flatMap(page=>page.questions||[]),pageIds=new Set(pages.map(page=>page.id)),questionIds=new Set(questions.map(question=>question.id));
-    const frontKeys=new Set(["title","greedyq","theme-settings","survey-settings","system-messages"]),namespaceKeys={greedyq:new Set(["spec_version"]),"theme-settings":new Set(["theme","barposition","barcolor","footer","footer-left","footer-center","footer-right"]),"survey-settings":new Set(["show-previous","use-cookies","all-required","start-page","highlight-unanswered","capture-metadata","required"]),"system-messages":new Set(["previous","next","required"])};
-    for(const key of Object.keys(parsed.front_matter||{}))if(!frontKeys.has(key))issues.push(issue("GQ003",`The survey header uses '${key}', which is not a supported setting.`,qmd,1));
-    for(const[name,allowed]of Object.entries(namespaceKeys))for(const key of Object.keys(parsed.front_matter?.[name]||{}))if(!allowed.has(key))issues.push(issue("GQ003",`The '${name}' section uses the unsupported setting '${key}'.`,qmd,1));
-    for(const id of pageIds)if(questionIds.has(id))issues.push(issue("GQ001",`'${id}' is used for both a page and a question. Use a different name for one of them.`,qmd));
-    for(const q of questions)for(const collection of ["options","rows"]){const values=(q[collection]||[]).map(item=>String(item.value));if(new Set(values).size!==values.length)issues.push(issue("GQ011",`Question '${q.id}' repeats a stored value in its ${collection}. Every stored value must be unique.`,qmd,q._line))}
-    for(const randomization of config.randomization||[]){const after=randomization.assignment_point?.after_page;if(!pageIds.has(after))issues.push(issue("GQ002",`Random assignment refers to missing page '${after}'.`,yml));if(Object.keys(randomization.conditions||{}).length<2)issues.push(issue("GQ007",`Random assignment '${randomization.id}' needs at least two conditions.`,yml));if(!randomization.persistence_key||!randomization.store?.condition_as)issues.push(issue("GQ007",`Random assignment '${randomization.id}' must save each participant's condition so it cannot change on resume.`,yml))}
-    const consent=config.consent;if(consent){const q=questions.find(item=>item.id===consent.confirmation_question);if(!q)issues.push(issue("GQ006",`Consent refers to missing question '${consent.confirmation_question}'.`,yml));else if(!(q.options||[]).some(option=>option.value===consent.accept_value))issues.push(issue("GQ006",`The configured consent answer '${consent.accept_value}' is not an option in question '${q.id}'.`,yml))}
-    for(const[name,outcome]of Object.entries(config.outcomes||{}))if(outcome.redirect&&!String(outcome.redirect).startsWith("https://"))issues.push(issue("GQ009",`The '${name}' redirect must use a secure https address.`,yml));
-    const unique=new Map;for(const item of issues)unique.set([item.code,item.file,item.line||0,item.message].join("|"),item);report.issues=[...unique.values()];const errors=report.issues.filter(item=>item.severity==="error");report.status=errors.length?"failed":"passed";report.summary=`${errors.length} error(s), ${report.issues.length-errors.length} warning(s)`;return report;
+  function splitKey(text) {
+    let quote = null,
+      depth = 0;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quote) {
+        if (c === quote && text[i - 1] !== "\\") quote = null;
+      } else if (c === '"' || c === "'") quote = c;
+      else if ("[{(".includes(c)) depth++;
+      else if ("]})".includes(c)) depth--;
+      else if (c === ":" && depth === 0)
+        return [text.slice(0, i).trim(), text.slice(i + 1).trim()];
+    }
+    throw new ParseError(`Expected a key and value in '${text}'.`);
   }
-  const OPS=[["!=","not_equals"],["<=","lte"],[">=","gte"],["==","equals"],["<","lt"],[">","gt"]];
-  function condition(expression){const s=String(expression).trim();for(const[c,key]of [[" and ","all"],[" or ","any"]])if(s.includes(c))return{[key]:s.split(c).map(condition)};for(const[token,key]of OPS)if(s.includes(token)){let[field,value]=s.split(token,2);field=field.trim()==="assignment_condition"?"condition":field.trim();return{field,[key]:scalar(value)}}return{unsupported:s};}
-  function compileSurvey(parsed,config){
-    const front=parsed.front_matter,settings=front["survey-settings"]||{},required=new Set(settings.required||[]),shows=config.logic?.show||[],validations=config.logic?.validate||[],skips=[...(config.logic?.skip||[])].sort((a,b)=>(b.priority||0)-(a.priority||0)),outcomes=config.outcomes||{},term=Object.fromEntries(Object.entries(outcomes).map(([key,v])=>[v.page,v.lifecycle_state||key]));
-    const pages=parsed.pages.map((source,index)=>{const page={id:source.id,title:source.title,body:source.body,questions:source.questions.map(s=>{const q=Object.fromEntries(Object.entries(s).filter(([k])=>!k.startsWith("_")&&k!=="unsupported_arguments"));for(const key of ["options","rows"])if(q[key])q[key]=q[key].map(x=>Object.fromEntries(Object.entries(x).filter(([k])=>!k.startsWith("_"))));q.required=required.has(q.id);const show=shows.find(x=>x.question===q.id);if(show)q.show_if=condition(show.if);for(const rule of validations.filter(x=>x.question===q.id)){const expression=String(rule.if||""),exact=new RegExp(`^\\s*${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)\\s*$`).exec(expression),low=new RegExp(`${q.id}\\s*<\\s*(-?\\d+(?:\\.\\d+)?)`).exec(expression),high=new RegExp(`${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)`).exec(expression);if(exact)q.max=Number(exact[1]);if(low&&high){q.min=Number(low[1]);q.max=Number(high[1])}if(expression.includes(`not answered(${q.id})`))q.required=true}if(q.id==="age"&&q.type==="numeric"&&q.min==null)q.min=0;return q})};const nav=source.nav||{};page.show_previous=Boolean(nav.show_previous??settings["show-previous"]??true);page.next=nav.page_next||(parsed.pages[index+1]?.id??null);if(nav.label_next)page.next_label=nav.label_next;const routes=skips.filter(x=>x.from===page.id).map(x=>({when:condition(x.if),to:x.to}));if(routes.length)page.routes=routes;if(term[page.id]){delete page.next;page.terminal=term[page.id]}return page});
-    const random=config.randomization?.[0],conditions=random?Object.keys(random.conditions||{}):["default"],start=settings["start-page"]||pages[0].id,byId=new Map(pages.map(p=>[p.id,p])),paths={};for(const assigned of conditions.length?conditions:["default"]){const path=[];let current=start;while(byId.has(current)&&!path.includes(current)){path.push(current);const p=byId.get(current);if(p.terminal)break;current=(p.routes||[]).find(r=>r.when.field==="condition"&&r.when.equals===assigned)?.to??p.next}paths[assigned]=path}
-    return{study_id:config.study?.id||"greedyq_preview",title:config.study?.title||front.title||"greedyQ Survey",start_page:start,brand_color:front["theme-settings"]?.barcolor||"#315c8a",messages:{previous:front["system-messages"]?.previous||"Previous",next:front["system-messages"]?.next||"Continue",required:front["system-messages"]?.required||"Please answer the required questions before continuing."},conditions:conditions.length?conditions:["default"],progress_paths:paths,pages,runtime_policy:{mode:config.respondents?.mode||"test",consent:config.consent?{question:config.consent.confirmation_question,accept_value:config.consent.accept_value,refusal_outcome:config.consent.refusal_outcome}:null,respondent_source:config.respondents?.source||"direct_link",duplicate_policy:config.respondents?.duplicate_policy||"resume"},...(random?.assignment_point?.after_page?{assignment_page:random.assignment_point.after_page}:{})};
-  }
-  function detectDevice(win=window){const mobile=win.matchMedia?.("(max-width: 700px), (pointer: coarse)").matches||win.navigator.maxTouchPoints>0&&win.innerWidth<900;return mobile?"mobile":"desktop";}
-  function createMemoryBackend(){const sessions=new Map(),allocations=[];return{kind:"memory",load:id=>sessions.get(id)||null,save:(id,state)=>sessions.set(id,JSON.parse(JSON.stringify(state))),clear:id=>sessions.delete(id),assign:(id,conditions)=>{const existing=allocations.find(x=>x.id===id);if(existing)return existing.condition;const counts=Object.fromEntries(conditions.map(c=>[c,allocations.filter(x=>x.condition===c).length])),min=Math.min(...Object.values(counts)),candidates=conditions.filter(c=>counts[c]===min),condition=candidates[allocations.length%candidates.length];allocations.push({id,condition});return condition},inspect:()=>({sessions:[...sessions.entries()],allocations:[...allocations]})};}
-  function createLocalMockBackend(namespace="greedyq-mock"){const memory=createMemoryBackend(),key=`${namespace}:state`;try{const saved=JSON.parse(localStorage.getItem(key)||"null");for(const[id,state]of saved?.sessions||[])memory.save(id,state);for(const item of saved?.allocations||[])memory.assign(item.id,[item.condition])}catch{}const persist=()=>{try{localStorage.setItem(key,JSON.stringify(memory.inspect()))}catch{}};return{kind:"local-mock",load:memory.load,save:(id,s)=>{memory.save(id,s);persist()},clear:id=>{memory.clear(id);persist()},assign:(id,c)=>{const value=memory.assign(id,c);persist();return value},inspect:memory.inspect};}
-  function createConcurrentLocalMockBackend(namespace="greedyq-mock"){
-    const key=`${namespace}:state`,empty=()=>({sessions:[],allocations:[]}),read=()=>{try{return JSON.parse(localStorage.getItem(key)||"null")||empty()}catch{return empty()}},write=data=>localStorage.setItem(key,JSON.stringify(data)),clone=value=>value==null?null:JSON.parse(JSON.stringify(value));
-    return{kind:"local-mock",load(id){const found=read().sessions.find(item=>item[0]===id);return found?clone(found[1]):null},save(id,state){const data=read(),index=data.sessions.findIndex(item=>item[0]===id),current=index<0?null:data.sessions[index][1],expected=Number(state._revision||0);if(current&&Number(current._revision||0)!==expected)return{status:"conflict",current:clone(current)};const saved=clone(state);saved._revision=expected+1;state._revision=saved._revision;if(index<0)data.sessions.push([id,saved]);else data.sessions[index]=[id,saved];write(data);return{status:"saved",revision:saved._revision}},clear(id){const data=read();data.sessions=data.sessions.filter(item=>item[0]!==id);data.allocations=data.allocations.filter(item=>item.id!==id);write(data);return{status:"deleted"}},assign(id,conditions){const data=read(),existing=data.allocations.find(item=>item.id===id);if(existing)return existing.condition;const counts=Object.fromEntries(conditions.map(condition=>[condition,data.allocations.filter(item=>item.condition===condition).length])),minimum=Math.min(...Object.values(counts)),candidates=conditions.filter(condition=>counts[condition]===minimum),condition=candidates[data.allocations.length%candidates.length];data.allocations.push({id,condition});write(data);return condition},inspect:read};
-  }
-  function createSupabaseBackend({url,anonKey}){if(!/^https:\/\//.test(url||"")||!anonKey)throw new Error("Supabase URL and anonymous key are required.");const rpc=async(name,body)=>{const response=await fetch(`${url.replace(/\/$/,"")}/rest/v1/rpc/${name}`,{method:"POST",headers:{apikey:anonKey,Authorization:`Bearer ${anonKey}`,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!response.ok)throw new Error(`Supabase RPC ${name} failed (${response.status}).`);return response.status===204?null:response.json()};return{kind:"supabase",load:id=>rpc("greedyq_resume_session",{p_session_id:id}),save:(id,state)=>rpc("greedyq_save_session",{p_session_id:id,p_state:state}),clear:id=>rpc("greedyq_withdraw_session",{p_session_id:id}),assign:(id,conditions)=>rpc("greedyq_assign_condition",{p_session_id:id,p_conditions:conditions})};}
-  function createSecureSupabaseBackend({url,anonKey,accessToken,studyId,studyVersion="unknown",specVersion="0.2",isTest=true,consentQuestion=null}){
-    if(!accessToken||accessToken.length<24)throw new Error("A strong session access token is required.");
-    const base=createSupabaseBackend({url,anonKey}),call=async(name,body)=>{const response=await fetch(`${url.replace(/\/$/,"")}/rest/v1/rpc/${name}`,{method:"POST",headers:{apikey:anonKey,Authorization:`Bearer ${anonKey}`,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!response.ok)throw new Error(`Supabase RPC ${name} failed (${response.status}).`);return response.status===204?null:response.json()};
-    return{kind:"supabase-secure",load:id=>call("greedyq_resume_session",{p_session_id:id,p_access_token:accessToken}),save:(id,state)=>call("greedyq_save_session",{p_session_id:id,p_access_token:accessToken,p_state:state,p_consent_question:consentQuestion}),clear:id=>call("greedyq_withdraw_session",{p_session_id:id,p_access_token:accessToken}),assign:(id,conditions)=>call("greedyq_assign_condition",{p_session_id:id,p_access_token:accessToken,p_study_id:studyId,p_study_version:studyVersion,p_spec_version:specVersion,p_conditions:conditions,p_is_test:isTest}),raw:base};
-  }
-  function parseProlificLaunch(search,mode="test"){
-    const params=new URLSearchParams(String(search).replace(/^\?/,"")),identifiers=Object.fromEntries(["PROLIFIC_PID","STUDY_ID","SESSION_ID"].map(key=>[key,params.get(key)])),issues=[];
-    for(const[key,value]of Object.entries(identifiers)){if(!value)issues.push({code:"GQ020",message:`${key} is required for a Prolific launch.`});else if(value.length>200)issues.push({code:"GQ020",message:`${key} is too long.`})}
-    if(!["test","production"].includes(mode))issues.push({code:"GQ020",message:"Respondent mode must be test or production."});return{status:issues.length?"failed":"passed",mode,identifiers,issues};
-  }
-  function stableSessionId(studyId,provided){const key=`greedyq-session:${studyId}`;if(provided){localStorage.setItem(key,provided);return provided}const prior=localStorage.getItem(key);if(prior)return prior;const created=crypto.randomUUID();localStorage.setItem(key,created);return created}
-  const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-  function mountRespondent(root,model,options={}){const mode=options.mode||detectDevice(root.ownerDocument.defaultView),backend=options.backend||createMemoryBackend(),sessionId=options.sessionId||`virtual-${Math.random().toString(36).slice(2)}`,pages=new Map(model.pages.map(p=>[p.id,p])),fresh=()=>({page:model.start_page,history:[],answers:{},condition:backend.assign(sessionId,model.conditions||["default"]),lifecycle:"active",visited:[]}),state=backend.load(sessionId)||fresh();root.className=`gq-app gq-${mode}`;root.innerHTML='<div class="gq-top"><b>greedyQ</b><span class="gq-progress"></span></div><main class="gq-card" aria-live="polite"></main>';const card=root.querySelector(".gq-card"),progress=root.querySelector(".gq-progress");const value=f=>f==="condition"?state.condition:state.answers[f],matches=r=>!r?true:r.all?r.all.every(matches):r.any?r.any.some(matches):"equals"in r?value(r.field)===r.equals:"not_equals"in r?value(r.field)!==r.not_equals:"lt"in r?Number(value(r.field))<r.lt:"lte"in r?Number(value(r.field))<=r.lte:"gt"in r?Number(value(r.field))>r.gt:"gte"in r?Number(value(r.field))>=r.gte:false,visible=p=>(p.questions||[]).filter(q=>matches(q.show_if)),nextFor=p=>(p.routes||[]).find(r=>matches(r.when))?.to??p.next;function input(q){const selected=state.answers[q.id];if(["mc","slider"].includes(q.type))return(q.options||[]).map(o=>`<label class="gq-choice"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${selected===o.value?"checked":""}><span>${esc(o.label)}</span></label>`).join("");if(q.type==="mc_multiple")return(q.options||[]).map(o=>`<label class="gq-choice"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(selected)&&selected.includes(o.value)?"checked":""}><span>${esc(o.label)}</span></label>`).join("");if(q.type==="select")return`<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder||"Choose one")}</option>${q.options.map(o=>`<option value="${esc(o.value)}" ${selected===o.value?"selected":""}>${esc(o.label)}</option>`).join("")}</select>`;if(q.type==="matrix")return`<div class="gq-matrix">${q.rows.map(r=>`<fieldset><legend>${esc(r.label)}</legend>${q.options.map(o=>`<label><input type="radio" name="${esc(q.id+":"+r.value)}" value="${esc(o.value)}">${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;if(q.type==="textarea")return`<textarea data-id="${esc(q.id)}">${esc(selected||"")}</textarea>`;return`<input data-id="${esc(q.id)}" type="${q.type==="numeric"||q.type==="slider_numeric"?"number":q.type==="date"?"date":"text"}" value="${esc(selected??"")}" ${q.min!=null?`min="${q.min}"`:""} ${q.max!=null?`max="${q.max}"`:""}>`}function collect(p){for(const q of visible(p)){if(q.type==="mc_multiple"){const v=[...root.querySelectorAll(`[name="${CSS.escape(q.id)}"]:checked`)].map(x=>scalar(x.value));if(v.length)state.answers[q.id]=v;else delete state.answers[q.id];continue}if(q.type==="matrix"){const v={};for(const row of q.rows){const e=root.querySelector(`[name="${CSS.escape(q.id+":"+row.value)}"]:checked`);if(e)v[row.value]=scalar(e.value)}if(Object.keys(v).length)state.answers[q.id]=v;continue}const e=root.querySelector(`[name="${CSS.escape(q.id)}"]:checked`)||root.querySelector(`[data-id="${CSS.escape(q.id)}"]`);if(e&&e.value!=="")state.answers[q.id]=scalar(e.value);else delete state.answers[q.id]}}function missing(q){const v=state.answers[q.id];return q.required&&(v==null||v===""||Array.isArray(v)&&!v.length||q.type==="matrix"&&q.rows.some(r=>!Object.hasOwn(v||{},r.value)))}function save(){backend.save(sessionId,state);options.onState?.(JSON.parse(JSON.stringify(state)))}function render(message=""){const p=pages.get(state.page);if(!p){card.innerHTML="<h1>Route error</h1>";return}if(p.terminal)state.lifecycle=p.terminal;if(!state.visited.includes(p.id))state.visited.push(p.id);const path=model.progress_paths?.[state.condition]||model.pages.map(x=>x.id),pos=Math.max(0,path.indexOf(p.id))+1;progress.textContent=p.terminal?"Complete":`${pos} / ${path.length}`;card.innerHTML=`<p class="gq-eyebrow">${esc(model.title)}</p><h1>${esc(p.title)}</h1><div class="gq-copy">${esc(p.body||"")}</div>${visible(p).map(q=>`<fieldset class="gq-q" data-q="${esc(q.id)}"><legend>${esc(q.label)}${q.required?' <span aria-label="required">*</span>':""}</legend>${input(q)}</fieldset>`).join("")}${message?`<p class="gq-error" role="alert">${esc(message)}</p>`:""}<div class="gq-actions"><button data-back ${state.history.length&&p.show_previous!==false?"":"disabled"}>${esc(model.messages.previous)}</button>${p.terminal?`<strong>${esc(p.terminal)}</strong>`:`<button data-next>${esc(p.next_label||model.messages.next)}</button>`}</div>`;const back=card.querySelector("[data-back]");back.onclick=()=>{collect(p);state.page=state.history.pop();save();render()};const next=card.querySelector("[data-next]");if(next)next.onclick=()=>{collect(p);for(const q of p.questions||[])if(q.show_if&&!matches(q.show_if))delete state.answers[q.id];const invalid=visible(p).find(missing);if(invalid){render(`${model.messages.required} ${invalid.label}`);card.querySelector(`[data-q="${CSS.escape(invalid.id)}"] input,[data-q="${CSS.escape(invalid.id)}"] select,[data-q="${CSS.escape(invalid.id)}"] textarea`)?.focus();return}const target=nextFor(p);if(!target||!pages.has(target)){render("The next page is unavailable.");return}state.history.push(p.id);state.page=target;save();render()};save()}render();return{mode,sessionId,state,render,reset(){backend.clear(sessionId);Object.assign(state,fresh());render()},withdraw(){backend.clear(sessionId);state.lifecycle="withdrawn";card.innerHTML="<h1>Participation withdrawn</h1>"},backend};}
-  function mountRespondentSafe(root,model,options={}){
-    const source=options.backend||createMemoryBackend();
-    let assignmentAllowed=!model.assignment_page,assignmentRetry=false;
-    const deferred={...source,assign:(id,conditions)=>assignmentAllowed?source.assign(id,conditions):null};
-    const controller=mountRespondent(root,model,{...options,backend:deferred});
-    const reset=controller.reset;controller.reset=()=>{assignmentAllowed=!model.assignment_page;assignmentRetry=false;reset()};
-    root.addEventListener("click",async event=>{
-      if(!event.target.closest("[data-next]"))return;
-      const page=model.pages.find(item=>item.id===controller.state.page);
-      const consent=model.runtime_policy?.consent;
-      if(consent&&page?.questions?.some(question=>question.id===consent.question)){
-        const selected=root.querySelector(`[name="${CSS.escape(consent.question)}"]:checked`);
-        controller.state.consent_accepted=selected?scalar(selected.value)===consent.accept_value:false;
+  function parseYaml(text) {
+    const lines = String(text)
+      .replace(/\r/g, "")
+      .split("\n")
+      .map((raw, index) => ({
+        index: index + 1,
+        indent: (raw.match(/^ */) || [""])[0].length,
+        text: stripComment(raw).trim(),
+      }))
+      .filter((x) => x.text);
+    function block(start, indent) {
+      if (start >= lines.length || lines[start].indent < indent)
+        return [{}, start];
+      const array = lines[start].text.startsWith("- "),
+        out = array ? [] : {};
+      let i = start;
+      while (
+        i < lines.length &&
+        lines[i].indent === indent &&
+        lines[i].text.startsWith("- ") === array
+      ) {
+        const row = lines[i],
+          content = array ? row.text.slice(2).trim() : row.text;
+        if (array) {
+          if (!content) {
+            const child = block(i + 1, lines[i + 1]?.indent ?? indent + 2);
+            out.push(child[0]);
+            i = child[1];
+            continue;
+          }
+          if (content.includes(":")) {
+            const pair = splitKey(content),
+              item = {};
+            item[pair[0]] = pair[1] ? scalar(pair[1]) : {};
+            i++;
+            while (i < lines.length && lines[i].indent > indent) {
+              const childIndent = lines[i].indent;
+              if (lines[i].text.startsWith("- ")) {
+                const key = Object.keys(item).at(-1),
+                  child = block(i, childIndent);
+                item[key] = child[0];
+                i = child[1];
+                continue;
+              }
+              const p = splitKey(lines[i].text);
+              if (p[1]) {
+                item[p[0]] = scalar(p[1]);
+                i++;
+              } else {
+                const child = block(
+                  i + 1,
+                  lines[i + 1]?.indent ?? childIndent + 2,
+                );
+                item[p[0]] = child[0];
+                i = child[1];
+              }
+            }
+            out.push(item);
+            continue;
+          }
+          out.push(scalar(content));
+          i++;
+          continue;
+        }
+        const pair = splitKey(content);
+        if (pair[1]) {
+          out[pair[0]] = scalar(pair[1]);
+          i++;
+        } else if (i + 1 < lines.length && lines[i + 1].indent > indent) {
+          const child = block(i + 1, lines[i + 1].indent);
+          out[pair[0]] = child[0];
+          i = child[1];
+        } else {
+          out[pair[0]] = {};
+          i++;
+        }
       }
-      for(const question of page?.questions||[]){
-        if(!["numeric","slider_numeric"].includes(question.type))continue;
-        const input=root.querySelector(`[data-id="${CSS.escape(question.id)}"]`);
-        if(!input||input.value==="")continue;
-        const value=Number(input.value),tooLow=question.min!=null&&value<question.min,tooHigh=question.max!=null&&value>question.max;
-        if(tooLow||tooHigh){event.preventDefault();event.stopImmediatePropagation();const boundary=tooLow?`at least ${question.min}`:`at most ${question.max}`;controller.render(`${question.label} must be ${boundary}.`);root.querySelector(`[data-id="${CSS.escape(question.id)}"]`)?.focus();return}
+      return [out, i];
+    }
+    return lines.length ? block(0, lines[0].indent)[0] : {};
+  }
+  function splitTop(text, separator = ",") {
+    const out = [];
+    let start = 0,
+      depth = 0,
+      quote = null,
+      escaped = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quote) {
+        if (escaped) escaped = false;
+        else if (c === "\\" && quote === '"') escaped = true;
+        else if (c === quote) quote = null;
+      } else if (c === '"' || c === "'") quote = c;
+      else if ("([{ ".includes(c) && c !== " ") depth++;
+      else if (")]}".includes(c)) depth--;
+      else if (c === separator && depth === 0) {
+        if (text.slice(start, i).trim()) out.push(text.slice(start, i).trim());
+        start = i + 1;
       }
-      if(model.assignment_page===page?.id&&!controller.state.condition&&!assignmentRetry){
-        assignmentAllowed=true;
-        const assigned=source.assign(controller.sessionId,model.conditions||["default"]);
-        if(assigned&&typeof assigned.then==="function"){
-          event.preventDefault();event.stopImmediatePropagation();assignmentRetry=true;
-          assigned.then(condition=>{controller.state.condition=condition;assignmentRetry=false;event.target.closest("[data-next]")?.click()}).catch(error=>{assignmentRetry=false;controller.render("Random assignment could not be completed. Please try again.");options.onError?.(error)});
-        }else controller.state.condition=assigned;
+    }
+    if (text.slice(start).trim()) out.push(text.slice(start).trim());
+    return out;
+  }
+  function splitEquals(text) {
+    let depth = 0,
+      quote = null,
+      escaped = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quote) {
+        if (escaped) escaped = false;
+        else if (c === "\\" && quote === '"') escaped = true;
+        else if (c === quote) quote = null;
+      } else if (c === '"' || c === "'") quote = c;
+      else if ("([{ ".includes(c) && c !== " ") depth++;
+      else if (")]}".includes(c)) depth--;
+      else if (c === "=" && depth === 0)
+        return [text.slice(0, i).trim(), text.slice(i + 1).trim()];
+    }
+    return null;
+  }
+  function vector(raw, line) {
+    if (!(raw.startsWith("c(") && raw.endsWith(")")))
+      throw new ParseError("Options and rows must use c(...).", line);
+    return splitTop(raw.slice(2, -1)).map((item) => {
+      const pair = splitEquals(item);
+      if (!pair) {
+        const value = scalar(item);
+        return { label: String(value), value };
       }
-    },true);
+      const option = { label: String(scalar(pair[0])), value: scalar(pair[1]) };
+      if (
+        /^[a-z][a-z0-9_]*$/.test(pair[0]) &&
+        /^["']/.test(pair[1]) &&
+        String(option.value).includes(" ")
+      )
+        option._looks_reversed = true;
+      return option;
+    });
+  }
+  function callArgs(body, line) {
+    const found = CALL_RE.exec(body);
+    if (!found) return [null, {}];
+    let depth = 1,
+      quote = null,
+      escaped = false,
+      end = -1;
+    for (let i = found.index + found[0].length; i < body.length; i++) {
+      const c = body[i];
+      if (quote) {
+        if (escaped) escaped = false;
+        else if (c === "\\" && quote === '"') escaped = true;
+        else if (c === quote) quote = null;
+      } else if (c === '"' || c === "'") quote = c;
+      else if (c === "(") depth++;
+      else if (c === ")" && --depth === 0) {
+        end = i;
+        break;
+      }
+    }
+    if (end < 0)
+      throw new ParseError(
+        `The ${found[1]} call is missing a closing parenthesis.`,
+        line,
+      );
+    if (body.slice(end + 1).trim())
+      throw new ParseError(
+        "Only one supported call is allowed in each R block.",
+        line,
+      );
+    const args = {};
+    for (const item of splitTop(
+      body.slice(found.index + found[0].length, end),
+    )) {
+      const pair = splitEquals(item);
+      if (!pair)
+        throw new ParseError(
+          `Every ${found[1]} argument must have a name.`,
+          line,
+        );
+      if (Object.hasOwn(args, pair[0]))
+        throw new ParseError(
+          `Argument '${pair[0]}' appears more than once.`,
+          line,
+        );
+      args[pair[0]] = ["option", "options", "row", "rows"].includes(pair[0])
+        ? vector(pair[1], line)
+        : scalar(pair[1]);
+    }
+    return [found[1], args];
+  }
+  function parseSurvey(qmdText, source = "survey.qmd") {
+    const text = String(qmdText).replace(/\r/g, "");
+    if (!text.startsWith("---\n"))
+      throw new ParseError("The file must begin with YAML front matter.", 1);
+    const close = text.indexOf("\n---", 4);
+    if (close < 0)
+      throw new ParseError("The YAML front matter is not closed.", 1);
+    const front = parseYaml(text.slice(4, close));
+    const body = text.slice(close + 4).replace(/^\n+/, "");
+    const matches = [...body.matchAll(PAGE_RE)];
+    if (!matches.length)
+      throw new ParseError(
+        "No survey pages were found. Add a line such as '--- welcome'.",
+      );
+    const pages = [];
+    for (let index = 0; index < matches.length; index++) {
+      const match = matches[index],
+        section = body.slice(
+          match.index + match[0].length,
+          index + 1 < matches.length ? matches[index + 1].index : body.length,
+        );
+      let plain = section.replace(FENCE_RE, "");
+      const heading = /^#\s+(.+?)\s*$/m.exec(plain),
+        title = heading
+          ? heading[1].trim()
+          : match[1]
+              .replaceAll("_", " ")
+              .replace(/\b\w/g, (c) => c.toUpperCase());
+      if (heading)
+        plain =
+          plain.slice(0, heading.index) +
+          plain.slice(heading.index + heading[0].length);
+      plain = plain
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+      const page = { id: match[1], title, body: plain, questions: [] };
+      const base =
+        text.slice(0, close + 4).split("\n").length +
+        body.slice(0, match.index + match[0].length).split("\n").length -
+        1;
+      for (const fence of section.matchAll(FENCE_RE)) {
+        const line = base + section.slice(0, fence.index).split("\n").length;
+        const [name, args0] = callArgs(fence[1].trim(), line),
+          args = { ...args0 };
+        if (name === "sd_question") {
+          const q = {
+            id: args.id ?? null,
+            type: args.type ?? null,
+            label: args.label ?? null,
+            _line: line,
+          };
+          delete args.id;
+          delete args.type;
+          delete args.label;
+          if (args.option) q.options = args.option;
+          if (args.options) q.options = args.options;
+          if (args.row) q.rows = args.row;
+          if (args.rows) q.rows = args.rows;
+          if (args.label_select) q.placeholder = args.label_select;
+          for (const key of [
+            "option",
+            "options",
+            "row",
+            "rows",
+            "label_select",
+          ])
+            delete args[key];
+          for (const key of [
+            "placeholder",
+            "min",
+            "max",
+            "step",
+            "orientation",
+          ]) {
+            if (Object.hasOwn(args, key)) {
+              q[key] = args[key];
+              delete args[key];
+            }
+          }
+          if (Object.keys(args).length)
+            q.unsupported_arguments = Object.keys(args).sort();
+          page.questions.push(q);
+        } else if (name === "sd_nav") {
+          page.nav = args;
+          page._nav_line = line;
+        } else if (fence[1].trim())
+          throw new ParseError(
+            "This R block does not contain sd_question() or sd_nav().",
+            line,
+          );
+      }
+      pages.push(page);
+    }
+    return { front_matter: front, pages, source };
+  }
+  const issue = (code, message, file, line) =>
+    Object.assign(
+      { code, severity: "error", message, file },
+      line ? { line } : {},
+    );
+  function validateSurvey(
+    parsed,
+    config,
+    qmd = "survey.qmd",
+    yml = "greedyq.yml",
+  ) {
+    const issues = [],
+      pages = parsed.pages || [],
+      pageIds = pages.map((p) => p.id),
+      questions = pages.flatMap((p) => p.questions || []),
+      qids = questions.map((q) => q.id),
+      knownP = new Set(pageIds),
+      knownQ = new Set(qids);
+    if (parsed.front_matter?.greedyq?.spec_version !== "0.2")
+      issues.push(
+        issue("GQ003", "Set the survey specification version to 0.2.", qmd, 1),
+      );
+    if (config.spec_version !== "0.2")
+      issues.push(
+        issue("GQ003", "Set the study settings version to 0.2.", yml, 1),
+      );
+    const organization = parsed.front_matter?.greedyq?.organization;
+    if (
+      organization != null &&
+      (typeof organization !== "string" ||
+        !organization.trim() ||
+        organization.length > 120)
+    )
+      issues.push(
+        issue(
+          "GQ003",
+          "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).",
+          qmd,
+          1,
+        ),
+      );
+    for (const id of new Set(pageIds.filter((x, i, a) => a.indexOf(x) !== i)))
+      issues.push(
+        issue("GQ001", `The page name '${id}' is used more than once.`, qmd),
+      );
+    for (const id of new Set(qids.filter((x, i, a) => x && a.indexOf(x) !== i)))
+      issues.push(
+        issue(
+          "GQ001",
+          `The question name '${id}' is used more than once.`,
+          qmd,
+        ),
+      );
+    for (const p of pages) {
+      if (/<\s*\/?\s*[A-Za-z][^>]*>/.test(p.body || ""))
+        issues.push(issue("GQ003", `Page '${p.id}' contains raw HTML.`, qmd));
+      const target = p.nav?.page_next;
+      if (target && !knownP.has(target))
+        issues.push(
+          issue(
+            "GQ002",
+            `Page '${p.id}' continues to missing page '${target}'.`,
+            qmd,
+            p._nav_line,
+          ),
+        );
+    }
+    for (const q of questions) {
+      if (!q.id) {
+        issues.push(
+          issue("GQ001", "A question is missing its id.", qmd, q._line),
+        );
+        continue;
+      }
+      if (!ID_RE.test(String(q.id)))
+        issues.push(
+          issue("GQ001", `The question id '${q.id}' is invalid.`, qmd, q._line),
+        );
+      if (!q.type || !TYPES.has(q.type))
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses a missing or unsupported type.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (!q.label)
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' needs participant-facing wording in label.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        ["mc", "mc_multiple", "select", "slider", "matrix"].includes(q.type) &&
+        !q.options?.length
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' needs at least one answer choice.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (q.type === "matrix" && !q.rows?.length)
+        issues.push(
+          issue(
+            "GQ003",
+            `Matrix question '${q.id}' needs at least one row.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (q.type === "slider" && (q.options || []).length < 2)
+        issues.push(
+          issue(
+            "GQ003",
+            `Slider question '${q.id}' needs at least two ordered choices.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        q.type === "slider_numeric" &&
+        q.min != null &&
+        q.max != null &&
+        q.min >= q.max
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Numeric slider '${q.id}' needs a maximum greater than its minimum.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (![null, undefined, "horizontal", "vertical"].includes(q.orientation))
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses an unsupported slider orientation.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
+        [...(q.options || []), ...(q.rows || [])].some((x) => x._looks_reversed)
+      )
+        issues.push(
+          issue(
+            "GQ011",
+            `Question '${q.id}' appears to reverse displayed labels and stored values.`,
+            qmd,
+            q._line,
+          ),
+        );
+      for (const arg of q.unsupported_arguments || [])
+        issues.push(
+          issue(
+            "GQ003",
+            `Question '${q.id}' uses unsupported argument '${arg}'.`,
+            qmd,
+            q._line,
+          ),
+        );
+    }
+    const settings = parsed.front_matter?.["survey-settings"] || {},
+      start = settings["start-page"] || pageIds[0];
+    if (!knownP.has(start))
+      issues.push(
+        issue("GQ002", `The starting page '${start}' does not exist.`, qmd),
+      );
+    for (const id of settings.required || [])
+      if (!knownQ.has(id))
+        issues.push(
+          issue(
+            "GQ002",
+            `The required-question list refers to '${id}', but it does not exist.`,
+            qmd,
+          ),
+        );
+    for (const rule of config.logic?.show || []) {
+      const target = rule.question || rule.page;
+      if (!(rule.question ? knownQ : knownP).has(target))
+        issues.push(
+          issue(
+            "GQ002",
+            `A display rule refers to '${target}', but it does not exist.`,
+            yml,
+          ),
+        );
+    }
+    for (const rule of config.logic?.skip || []) {
+      if (!knownP.has(rule.from))
+        issues.push(
+          issue(
+            "GQ002",
+            `A route starts from missing page '${rule.from}'.`,
+            yml,
+          ),
+        );
+      if (!knownP.has(rule.to))
+        issues.push(
+          issue("GQ002", `A route points to missing page '${rule.to}'.`, yml),
+        );
+    }
+    for (const [name, outcome] of Object.entries(config.outcomes || {}))
+      if (!knownP.has(outcome.page))
+        issues.push(
+          issue(
+            "GQ002",
+            `The '${name}' ending points to missing page '${outcome.page}'.`,
+            yml,
+          ),
+        );
+    const errors = issues.filter((x) => x.severity === "error");
+    return {
+      schema_version: "0.2",
+      status: errors.length ? "failed" : "passed",
+      summary: `${errors.length} error(s), ${issues.length - errors.length} warning(s)`,
+      issues,
+    };
+  }
+  function validateSurveyComplete(
+    parsed,
+    config,
+    qmd = "survey.qmd",
+    yml = "greedyq.yml",
+  ) {
+    const report = validateSurvey(parsed, config, qmd, yml),
+      issues = report.issues,
+      pages = parsed.pages || [],
+      questions = pages.flatMap((page) => page.questions || []),
+      pageIds = new Set(pages.map((page) => page.id)),
+      questionIds = new Set(questions.map((question) => question.id));
+    const frontKeys = new Set([
+        "title",
+        "greedyq",
+        "theme-settings",
+        "survey-settings",
+        "system-messages",
+      ]),
+      namespaceKeys = {
+        greedyq: new Set(["spec_version", "organization"]),
+        "theme-settings": new Set([
+          "theme",
+          "barposition",
+          "barcolor",
+          "footer",
+          "footer-left",
+          "footer-center",
+          "footer-right",
+        ]),
+        "survey-settings": new Set([
+          "show-previous",
+          "use-cookies",
+          "all-required",
+          "start-page",
+          "highlight-unanswered",
+          "capture-metadata",
+          "required",
+        ]),
+        "system-messages": new Set(["previous", "next", "required"]),
+      };
+    for (const key of Object.keys(parsed.front_matter || {}))
+      if (!frontKeys.has(key))
+        issues.push(
+          issue(
+            "GQ003",
+            `The survey header uses '${key}', which is not a supported setting.`,
+            qmd,
+            1,
+          ),
+        );
+    for (const [name, allowed] of Object.entries(namespaceKeys))
+      for (const key of Object.keys(parsed.front_matter?.[name] || {}))
+        if (!allowed.has(key))
+          issues.push(
+            issue(
+              "GQ003",
+              `The '${name}' section uses the unsupported setting '${key}'.`,
+              qmd,
+              1,
+            ),
+          );
+    for (const id of pageIds)
+      if (questionIds.has(id))
+        issues.push(
+          issue(
+            "GQ001",
+            `'${id}' is used for both a page and a question. Use a different name for one of them.`,
+            qmd,
+          ),
+        );
+    for (const q of questions)
+      for (const collection of ["options", "rows"]) {
+        const values = (q[collection] || []).map((item) => String(item.value));
+        if (new Set(values).size !== values.length)
+          issues.push(
+            issue(
+              "GQ011",
+              `Question '${q.id}' repeats a stored value in its ${collection}. Every stored value must be unique.`,
+              qmd,
+              q._line,
+            ),
+          );
+      }
+    for (const randomization of config.randomization || []) {
+      const after = randomization.assignment_point?.after_page;
+      if (!pageIds.has(after))
+        issues.push(
+          issue(
+            "GQ002",
+            `Random assignment refers to missing page '${after}'.`,
+            yml,
+          ),
+        );
+      if (Object.keys(randomization.conditions || {}).length < 2)
+        issues.push(
+          issue(
+            "GQ007",
+            `Random assignment '${randomization.id}' needs at least two conditions.`,
+            yml,
+          ),
+        );
+      if (!randomization.persistence_key || !randomization.store?.condition_as)
+        issues.push(
+          issue(
+            "GQ007",
+            `Random assignment '${randomization.id}' must save each participant's condition so it cannot change on resume.`,
+            yml,
+          ),
+        );
+    }
+    const consent = config.consent;
+    if (consent) {
+      const q = questions.find(
+        (item) => item.id === consent.confirmation_question,
+      );
+      if (!q)
+        issues.push(
+          issue(
+            "GQ006",
+            `Consent refers to missing question '${consent.confirmation_question}'.`,
+            yml,
+          ),
+        );
+      else if (
+        !(q.options || []).some(
+          (option) => option.value === consent.accept_value,
+        )
+      )
+        issues.push(
+          issue(
+            "GQ006",
+            `The configured consent answer '${consent.accept_value}' is not an option in question '${q.id}'.`,
+            yml,
+          ),
+        );
+    }
+    for (const [name, outcome] of Object.entries(config.outcomes || {}))
+      if (outcome.redirect && !String(outcome.redirect).startsWith("https://"))
+        issues.push(
+          issue(
+            "GQ009",
+            `The '${name}' redirect must use a secure https address.`,
+            yml,
+          ),
+        );
+    const unique = new Map();
+    for (const item of issues)
+      unique.set(
+        [item.code, item.file, item.line || 0, item.message].join("|"),
+        item,
+      );
+    report.issues = [...unique.values()];
+    const errors = report.issues.filter((item) => item.severity === "error");
+    report.status = errors.length ? "failed" : "passed";
+    report.summary = `${errors.length} error(s), ${report.issues.length - errors.length} warning(s)`;
+    return report;
+  }
+  const OPS = [
+    ["!=", "not_equals"],
+    ["<=", "lte"],
+    [">=", "gte"],
+    ["==", "equals"],
+    ["<", "lt"],
+    [">", "gt"],
+  ];
+  function condition(expression) {
+    const s = String(expression).trim();
+    for (const [c, key] of [
+      [" and ", "all"],
+      [" or ", "any"],
+    ])
+      if (s.includes(c)) return { [key]: s.split(c).map(condition) };
+    for (const [token, key] of OPS)
+      if (s.includes(token)) {
+        let [field, value] = s.split(token, 2);
+        field =
+          field.trim() === "assignment_condition" ? "condition" : field.trim();
+        return { field, [key]: scalar(value) };
+      }
+    return { unsupported: s };
+  }
+  function compileSurvey(parsed, config) {
+    const front = parsed.front_matter,
+      settings = front["survey-settings"] || {},
+      required = new Set(settings.required || []),
+      shows = config.logic?.show || [],
+      validations = config.logic?.validate || [],
+      skips = [...(config.logic?.skip || [])].sort(
+        (a, b) => (b.priority || 0) - (a.priority || 0),
+      ),
+      outcomes = config.outcomes || {},
+      term = Object.fromEntries(
+        Object.entries(outcomes).map(([key, v]) => [
+          v.page,
+          v.lifecycle_state || key,
+        ]),
+      );
+    const pages = parsed.pages.map((source, index) => {
+      const page = {
+        id: source.id,
+        title: source.title,
+        body: source.body,
+        questions: source.questions.map((s) => {
+          const q = Object.fromEntries(
+            Object.entries(s).filter(
+              ([k]) => !k.startsWith("_") && k !== "unsupported_arguments",
+            ),
+          );
+          for (const key of ["options", "rows"])
+            if (q[key])
+              q[key] = q[key].map((x) =>
+                Object.fromEntries(
+                  Object.entries(x).filter(([k]) => !k.startsWith("_")),
+                ),
+              );
+          q.required = required.has(q.id);
+          const show = shows.find((x) => x.question === q.id);
+          if (show) q.show_if = condition(show.if);
+          for (const rule of validations.filter((x) => x.question === q.id)) {
+            const expression = String(rule.if || ""),
+              exact = new RegExp(
+                `^\\s*${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)\\s*$`,
+              ).exec(expression),
+              low = new RegExp(`${q.id}\\s*<\\s*(-?\\d+(?:\\.\\d+)?)`).exec(
+                expression,
+              ),
+              high = new RegExp(`${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)`).exec(
+                expression,
+              );
+            if (exact) q.max = Number(exact[1]);
+            if (low && high) {
+              q.min = Number(low[1]);
+              q.max = Number(high[1]);
+            }
+            if (expression.includes(`not answered(${q.id})`)) q.required = true;
+          }
+          if (q.id === "age" && q.type === "numeric" && q.min == null)
+            q.min = 0;
+          return q;
+        }),
+      };
+      const nav = source.nav || {};
+      page.show_previous = Boolean(
+        nav.show_previous ?? settings["show-previous"] ?? true,
+      );
+      page.next = nav.page_next || (parsed.pages[index + 1]?.id ?? null);
+      if (nav.label_next) page.next_label = nav.label_next;
+      const routes = skips
+        .filter((x) => x.from === page.id)
+        .map((x) => ({ when: condition(x.if), to: x.to }));
+      if (routes.length) page.routes = routes;
+      if (term[page.id]) {
+        delete page.next;
+        page.terminal = term[page.id];
+      }
+      return page;
+    });
+    const random = config.randomization?.[0],
+      conditions = random ? Object.keys(random.conditions || {}) : ["default"],
+      start = settings["start-page"] || pages[0].id,
+      byId = new Map(pages.map((p) => [p.id, p])),
+      paths = {};
+    for (const assigned of conditions.length ? conditions : ["default"]) {
+      const path = [];
+      let current = start;
+      while (byId.has(current) && !path.includes(current)) {
+        path.push(current);
+        const p = byId.get(current);
+        if (p.terminal) break;
+        current =
+          (p.routes || []).find(
+            (r) => r.when.field === "condition" && r.when.equals === assigned,
+          )?.to ?? p.next;
+      }
+      paths[assigned] = path;
+    }
+    return {
+      study_id: config.study?.id || "greedyq_preview",
+      title: config.study?.title || front.title || "greedyQ Survey",
+      organization: front.greedyq?.organization || "Research team",
+      start_page: start,
+      brand_color: front["theme-settings"]?.barcolor || "#315c8a",
+      messages: {
+        previous: front["system-messages"]?.previous || "Previous",
+        next: front["system-messages"]?.next || "Continue",
+        required:
+          front["system-messages"]?.required ||
+          "Please answer the required questions before continuing.",
+      },
+      conditions: conditions.length ? conditions : ["default"],
+      progress_paths: paths,
+      pages,
+      runtime_policy: {
+        mode: config.respondents?.mode || "test",
+        consent: config.consent
+          ? {
+              question: config.consent.confirmation_question,
+              accept_value: config.consent.accept_value,
+              refusal_outcome: config.consent.refusal_outcome,
+            }
+          : null,
+        respondent_source: config.respondents?.source || "direct_link",
+        duplicate_policy: config.respondents?.duplicate_policy || "resume",
+      },
+      ...(random?.assignment_point?.after_page
+        ? { assignment_page: random.assignment_point.after_page }
+        : {}),
+    };
+  }
+  function detectDevice(win = window) {
+    const mobile =
+      win.matchMedia?.("(max-width: 700px), (pointer: coarse)").matches ||
+      (win.navigator.maxTouchPoints > 0 && win.innerWidth < 900);
+    return mobile ? "mobile" : "desktop";
+  }
+  function createMemoryBackend() {
+    const sessions = new Map(),
+      allocations = [];
+    return {
+      kind: "memory",
+      load: (id) => sessions.get(id) || null,
+      save: (id, state) => sessions.set(id, JSON.parse(JSON.stringify(state))),
+      clear: (id) => sessions.delete(id),
+      assign: (id, conditions) => {
+        const existing = allocations.find((x) => x.id === id);
+        if (existing) return existing.condition;
+        const counts = Object.fromEntries(
+            conditions.map((c) => [
+              c,
+              allocations.filter((x) => x.condition === c).length,
+            ]),
+          ),
+          min = Math.min(...Object.values(counts)),
+          candidates = conditions.filter((c) => counts[c] === min),
+          condition = candidates[allocations.length % candidates.length];
+        allocations.push({ id, condition });
+        return condition;
+      },
+      inspect: () => ({
+        sessions: [...sessions.entries()],
+        allocations: [...allocations],
+      }),
+    };
+  }
+  function createLocalMockBackend(namespace = "greedyq-mock") {
+    const memory = createMemoryBackend(),
+      key = `${namespace}:state`;
+    try {
+      const saved = JSON.parse(localStorage.getItem(key) || "null");
+      for (const [id, state] of saved?.sessions || []) memory.save(id, state);
+      for (const item of saved?.allocations || [])
+        memory.assign(item.id, [item.condition]);
+    } catch {}
+    const persist = () => {
+      try {
+        localStorage.setItem(key, JSON.stringify(memory.inspect()));
+      } catch {}
+    };
+    return {
+      kind: "local-mock",
+      load: memory.load,
+      save: (id, s) => {
+        memory.save(id, s);
+        persist();
+      },
+      clear: (id) => {
+        memory.clear(id);
+        persist();
+      },
+      assign: (id, c) => {
+        const value = memory.assign(id, c);
+        persist();
+        return value;
+      },
+      inspect: memory.inspect,
+    };
+  }
+  function createConcurrentLocalMockBackend(namespace = "greedyq-mock") {
+    const key = `${namespace}:state`,
+      empty = () => ({ sessions: [], allocations: [] }),
+      read = () => {
+        try {
+          return JSON.parse(localStorage.getItem(key) || "null") || empty();
+        } catch {
+          return empty();
+        }
+      },
+      write = (data) => localStorage.setItem(key, JSON.stringify(data)),
+      clone = (value) =>
+        value == null ? null : JSON.parse(JSON.stringify(value));
+    return {
+      kind: "local-mock",
+      load(id) {
+        const found = read().sessions.find((item) => item[0] === id);
+        return found ? clone(found[1]) : null;
+      },
+      save(id, state) {
+        const data = read(),
+          index = data.sessions.findIndex((item) => item[0] === id),
+          current = index < 0 ? null : data.sessions[index][1],
+          expected = Number(state._revision || 0);
+        if (current && Number(current._revision || 0) !== expected)
+          return { status: "conflict", current: clone(current) };
+        const saved = clone(state);
+        saved._revision = expected + 1;
+        state._revision = saved._revision;
+        if (index < 0) data.sessions.push([id, saved]);
+        else data.sessions[index] = [id, saved];
+        write(data);
+        return { status: "saved", revision: saved._revision };
+      },
+      clear(id) {
+        const data = read();
+        data.sessions = data.sessions.filter((item) => item[0] !== id);
+        data.allocations = data.allocations.filter((item) => item.id !== id);
+        write(data);
+        return { status: "deleted" };
+      },
+      assign(id, conditions) {
+        const data = read(),
+          existing = data.allocations.find((item) => item.id === id);
+        if (existing) return existing.condition;
+        const counts = Object.fromEntries(
+            conditions.map((condition) => [
+              condition,
+              data.allocations.filter((item) => item.condition === condition)
+                .length,
+            ]),
+          ),
+          minimum = Math.min(...Object.values(counts)),
+          candidates = conditions.filter(
+            (condition) => counts[condition] === minimum,
+          ),
+          condition = candidates[data.allocations.length % candidates.length];
+        data.allocations.push({ id, condition });
+        write(data);
+        return condition;
+      },
+      inspect: read,
+    };
+  }
+  function createSupabaseBackend({ url, anonKey }) {
+    if (!/^https:\/\//.test(url || "") || !anonKey)
+      throw new Error("Supabase URL and anonymous key are required.");
+    const rpc = async (name, body) => {
+      const response = await fetch(
+        `${url.replace(/\/$/, "")}/rest/v1/rpc/${name}`,
+        {
+          method: "POST",
+          headers: {
+            apikey: anonKey,
+            Authorization: `Bearer ${anonKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        },
+      );
+      if (!response.ok)
+        throw new Error(`Supabase RPC ${name} failed (${response.status}).`);
+      return response.status === 204 ? null : response.json();
+    };
+    return {
+      kind: "supabase",
+      load: (id) => rpc("greedyq_resume_session", { p_session_id: id }),
+      save: (id, state) =>
+        rpc("greedyq_save_session", { p_session_id: id, p_state: state }),
+      clear: (id) => rpc("greedyq_withdraw_session", { p_session_id: id }),
+      assign: (id, conditions) =>
+        rpc("greedyq_assign_condition", {
+          p_session_id: id,
+          p_conditions: conditions,
+        }),
+    };
+  }
+  function createSecureSupabaseBackend({
+    url,
+    anonKey,
+    accessToken,
+    studyId,
+    studyVersion = "unknown",
+    specVersion = "0.2",
+    isTest = true,
+    consentQuestion = null,
+  }) {
+    if (!accessToken || accessToken.length < 24)
+      throw new Error("A strong session access token is required.");
+    const base = createSupabaseBackend({ url, anonKey }),
+      call = async (name, body) => {
+        const response = await fetch(
+          `${url.replace(/\/$/, "")}/rest/v1/rpc/${name}`,
+          {
+            method: "POST",
+            headers: {
+              apikey: anonKey,
+              Authorization: `Bearer ${anonKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          },
+        );
+        if (!response.ok)
+          throw new Error(`Supabase RPC ${name} failed (${response.status}).`);
+        return response.status === 204 ? null : response.json();
+      };
+    return {
+      kind: "supabase-secure",
+      load: (id) =>
+        call("greedyq_resume_session", {
+          p_session_id: id,
+          p_access_token: accessToken,
+        }),
+      save: (id, state) =>
+        call("greedyq_save_session", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_state: state,
+          p_consent_question: consentQuestion,
+        }),
+      clear: (id) =>
+        call("greedyq_withdraw_session", {
+          p_session_id: id,
+          p_access_token: accessToken,
+        }),
+      assign: (id, conditions) =>
+        call("greedyq_assign_condition", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_study_id: studyId,
+          p_study_version: studyVersion,
+          p_spec_version: specVersion,
+          p_conditions: conditions,
+          p_is_test: isTest,
+        }),
+      raw: base,
+    };
+  }
+  function parseProlificLaunch(search, mode = "test") {
+    const params = new URLSearchParams(String(search).replace(/^\?/, "")),
+      identifiers = Object.fromEntries(
+        ["PROLIFIC_PID", "STUDY_ID", "SESSION_ID"].map((key) => [
+          key,
+          params.get(key),
+        ]),
+      ),
+      issues = [];
+    for (const [key, value] of Object.entries(identifiers)) {
+      if (!value)
+        issues.push({
+          code: "GQ020",
+          message: `${key} is required for a Prolific launch.`,
+        });
+      else if (value.length > 200)
+        issues.push({ code: "GQ020", message: `${key} is too long.` });
+    }
+    if (!["test", "production"].includes(mode))
+      issues.push({
+        code: "GQ020",
+        message: "Respondent mode must be test or production.",
+      });
+    return {
+      status: issues.length ? "failed" : "passed",
+      mode,
+      identifiers,
+      issues,
+    };
+  }
+  function stableSessionId(studyId, provided) {
+    const key = `greedyq-session:${studyId}`;
+    if (provided) {
+      localStorage.setItem(key, provided);
+      return provided;
+    }
+    const prior = localStorage.getItem(key);
+    if (prior) return prior;
+    const created = crypto.randomUUID();
+    localStorage.setItem(key, created);
+    return created;
+  }
+  const esc = (v) =>
+    String(v ?? "").replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    );
+  function mountRespondent(root, model, options = {}) {
+    const mode = options.mode || detectDevice(root.ownerDocument.defaultView),
+      backend = options.backend || createMemoryBackend(),
+      sessionId =
+        options.sessionId || `virtual-${Math.random().toString(36).slice(2)}`,
+      pages = new Map(model.pages.map((p) => [p.id, p])),
+      fresh = () => ({
+        page: model.start_page,
+        history: [],
+        answers: {},
+        condition: backend.assign(sessionId, model.conditions || ["default"]),
+        lifecycle: "active",
+        visited: [],
+      }),
+      state = backend.load(sessionId) || fresh();
+    root.className = `gq-app gq-${mode}`;
+    root.innerHTML = `<div class="gq-top"><b>${esc(model.organization || "Research team")}</b><span class="gq-progress"></span></div><main class="gq-card" aria-live="polite"></main>`;
+    const card = root.querySelector(".gq-card"),
+      progress = root.querySelector(".gq-progress");
+    const value = (f) =>
+        f === "condition" ? state.condition : state.answers[f],
+      matches = (r) =>
+        !r
+          ? true
+          : r.all
+            ? r.all.every(matches)
+            : r.any
+              ? r.any.some(matches)
+              : "equals" in r
+                ? value(r.field) === r.equals
+                : "not_equals" in r
+                  ? value(r.field) !== r.not_equals
+                  : "lt" in r
+                    ? Number(value(r.field)) < r.lt
+                    : "lte" in r
+                      ? Number(value(r.field)) <= r.lte
+                      : "gt" in r
+                        ? Number(value(r.field)) > r.gt
+                        : "gte" in r
+                          ? Number(value(r.field)) >= r.gte
+                          : false,
+      visible = (p) => (p.questions || []).filter((q) => matches(q.show_if)),
+      nextFor = (p) =>
+        (p.routes || []).find((r) => matches(r.when))?.to ?? p.next;
+    function input(q) {
+      const selected = state.answers[q.id];
+      if (q.type === "mc")
+        return (q.options || [])
+          .map(
+            (o) =>
+              `<label class="gq-choice"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${selected === o.value ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+          )
+          .join("");
+      if (q.type === "slider") {
+        const options = q.options || [],
+          found = options.findIndex((option) => option.value === selected),
+          index =
+            found >= 0
+              ? found
+              : Math.floor(Math.max(0, options.length - 1) / 2),
+          orientation = q.orientation || "horizontal",
+          inputId = `${q.id}-slider`,
+          outputId = `${q.id}-slider-output`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(options[index]?.label || "")}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="categorical" type="range" min="0" max="${Math.max(0, options.length - 1)}" step="1" value="${index}"><div class="gq-slider-labels"><span>${esc(options[0]?.label || "")}</span><span>${esc(options.at(-1)?.label || "")}</span></div></div>`;
+      }
+      if (q.type === "slider_numeric") {
+        const values = (q.options || []).map((option) => Number(option.value)),
+          min = q.min ?? (values.length ? Math.min(...values) : 0),
+          max = q.max ?? (values.length ? Math.max(...values) : 100),
+          step =
+            q.step ?? (values.length > 1 ? Math.abs(values[1] - values[0]) : 1),
+          current = selected ?? Math.round((min + max) / 2),
+          orientation = q.orientation || "horizontal",
+          inputId = `${q.id}-slider`,
+          outputId = `${q.id}-slider-output`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+      }
+      if (q.type === "mc_multiple")
+        return (q.options || [])
+          .map(
+            (o) =>
+              `<label class="gq-choice"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(selected) && selected.includes(o.value) ? "checked" : ""}><span>${esc(o.label)}</span></label>`,
+          )
+          .join("");
+      if (q.type === "select")
+        return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
+      if (q.type === "matrix")
+        return `<div class="gq-matrix">${q.rows.map((r) => `<fieldset><legend>${esc(r.label)}</legend>${q.options.map((o) => `<label><input type="radio" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}">${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;
+      if (q.type === "textarea")
+        return `<textarea data-id="${esc(q.id)}">${esc(selected || "")}</textarea>`;
+      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" || q.type === "slider_numeric" ? "number" : q.type === "date" ? "date" : "text"}" value="${esc(selected ?? "")}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
+    }
+    function collect(p) {
+      for (const q of visible(p)) {
+        if (q.type === "slider") {
+          const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
+            option = q.options?.[Number(e?.value)];
+          if (option) state.answers[q.id] = option.value;
+          else delete state.answers[q.id];
+          continue;
+        }
+        if (q.type === "mc_multiple") {
+          const v = [
+            ...root.querySelectorAll(`[name="${CSS.escape(q.id)}"]:checked`),
+          ].map((x) => scalar(x.value));
+          if (v.length) state.answers[q.id] = v;
+          else delete state.answers[q.id];
+          continue;
+        }
+        if (q.type === "matrix") {
+          const v = {};
+          for (const row of q.rows) {
+            const e = root.querySelector(
+              `[name="${CSS.escape(q.id + ":" + row.value)}"]:checked`,
+            );
+            if (e) v[row.value] = scalar(e.value);
+          }
+          if (Object.keys(v).length) state.answers[q.id] = v;
+          continue;
+        }
+        const e =
+          root.querySelector(`[name="${CSS.escape(q.id)}"]:checked`) ||
+          root.querySelector(`[data-id="${CSS.escape(q.id)}"]`);
+        if (e && e.value !== "") state.answers[q.id] = scalar(e.value);
+        else delete state.answers[q.id];
+      }
+    }
+    function missing(q) {
+      const v = state.answers[q.id];
+      return (
+        q.required &&
+        (v == null ||
+          v === "" ||
+          (Array.isArray(v) && !v.length) ||
+          (q.type === "matrix" &&
+            q.rows.some((r) => !Object.hasOwn(v || {}, r.value))))
+      );
+    }
+    function save() {
+      backend.save(sessionId, state);
+      options.onState?.(JSON.parse(JSON.stringify(state)));
+    }
+    let renderedPage = null;
+    function render(message = "") {
+      const p = pages.get(state.page);
+      if (!p) {
+        card.innerHTML = "<h1>Route error</h1>";
+        return;
+      }
+      if (p.terminal) state.lifecycle = p.terminal;
+      if (!state.visited.includes(p.id)) state.visited.push(p.id);
+      const path =
+          model.progress_paths?.[state.condition] ||
+          model.pages.map((x) => x.id),
+        pos = Math.max(0, path.indexOf(p.id)) + 1;
+      progress.textContent = p.terminal
+        ? "Complete"
+        : `${pos} / ${path.length}`;
+      const pageChanged = renderedPage !== p.id;
+      renderedPage = p.id;
+      card.innerHTML = `<p class="gq-eyebrow">${esc(model.title)}</p><h1>${esc(p.title)}</h1><div class="gq-copy">${esc(p.body || "")}</div>${visible(
+        p,
+      )
+        .map(
+          (q) =>
+            `<fieldset class="gq-q" data-q="${esc(q.id)}"><legend>${esc(q.label)}${q.required ? ' <span aria-label="required">*</span>' : ""}</legend>${input(q)}</fieldset>`,
+        )
+        .join(
+          "",
+        )}${message ? `<p class="gq-error" role="alert">${esc(message)}</p>` : ""}<div class="gq-actions">${state.history.length && p.show_previous !== false && !p.terminal ? `<button data-back>${esc(model.messages.previous)}</button>` : ""}${p.terminal ? `<strong>${esc(p.terminal)}</strong>` : `<button data-next>${esc(p.next_label || model.messages.next)}</button>`}</div>`;
+      const back = card.querySelector("[data-back]");
+      if (back)
+        back.onclick = () => {
+          collect(p);
+          state.page = state.history.pop();
+          save();
+          render();
+        };
+      for (const slider of card.querySelectorAll('input[type="range"]'))
+        slider.oninput = () => {
+          const question = (p.questions || []).find(
+              (item) => item.id === slider.dataset.id,
+            ),
+            output = card.querySelector(
+              `[data-slider-output="${CSS.escape(slider.dataset.id)}"]`,
+            );
+          if (output)
+            output.textContent =
+              slider.dataset.sliderKind === "categorical"
+                ? question?.options?.[Number(slider.value)]?.label || ""
+                : slider.value;
+        };
+      const next = card.querySelector("[data-next]");
+      if (next)
+        next.onclick = () => {
+          collect(p);
+          for (const q of p.questions || [])
+            if (q.show_if && !matches(q.show_if)) delete state.answers[q.id];
+          const invalid = visible(p).find(missing);
+          if (invalid) {
+            render(`${model.messages.required} ${invalid.label}`);
+            card
+              .querySelector(
+                `[data-q="${CSS.escape(invalid.id)}"] input,[data-q="${CSS.escape(invalid.id)}"] select,[data-q="${CSS.escape(invalid.id)}"] textarea`,
+              )
+              ?.focus();
+            return;
+          }
+          const target = nextFor(p);
+          if (!target || !pages.has(target)) {
+            render("The next page is unavailable.");
+            return;
+          }
+          state.history.push(p.id);
+          state.page = target;
+          save();
+          render();
+        };
+      save();
+      if (pageChanged)
+        requestAnimationFrame(() => {
+          const scroller = root.closest(".screen,.viewport");
+          if (scroller)
+            scroller.scrollTo({ top: 0, left: 0, behavior: "auto" });
+          else root.scrollIntoView({ block: "start", behavior: "auto" });
+        });
+    }
+    render();
+    return {
+      mode,
+      sessionId,
+      state,
+      render,
+      reset() {
+        backend.clear(sessionId);
+        Object.assign(state, fresh());
+        render();
+      },
+      withdraw() {
+        backend.clear(sessionId);
+        state.lifecycle = "withdrawn";
+        card.innerHTML = "<h1>Participation withdrawn</h1>";
+      },
+      backend,
+    };
+  }
+  function mountRespondentSafe(root, model, options = {}) {
+    const source = options.backend || createMemoryBackend();
+    let assignmentAllowed = !model.assignment_page,
+      assignmentRetry = false;
+    const deferred = {
+      ...source,
+      assign: (id, conditions) =>
+        assignmentAllowed ? source.assign(id, conditions) : null,
+    };
+    const controller = mountRespondent(root, model, {
+      ...options,
+      backend: deferred,
+    });
+    const reset = controller.reset;
+    controller.reset = () => {
+      assignmentAllowed = !model.assignment_page;
+      assignmentRetry = false;
+      reset();
+    };
+    root.addEventListener(
+      "click",
+      async (event) => {
+        if (!event.target.closest("[data-next]")) return;
+        const page = model.pages.find(
+          (item) => item.id === controller.state.page,
+        );
+        const consent = model.runtime_policy?.consent;
+        if (
+          consent &&
+          page?.questions?.some((question) => question.id === consent.question)
+        ) {
+          const selected = root.querySelector(
+            `[name="${CSS.escape(consent.question)}"]:checked`,
+          );
+          controller.state.consent_accepted = selected
+            ? scalar(selected.value) === consent.accept_value
+            : false;
+        }
+        for (const question of page?.questions || []) {
+          if (!["numeric", "slider_numeric"].includes(question.type)) continue;
+          const input = root.querySelector(
+            `[data-id="${CSS.escape(question.id)}"]`,
+          );
+          if (!input || input.value === "") continue;
+          const value = Number(input.value),
+            tooLow = question.min != null && value < question.min,
+            tooHigh = question.max != null && value > question.max;
+          if (tooLow || tooHigh) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            const boundary = tooLow
+              ? `at least ${question.min}`
+              : `at most ${question.max}`;
+            controller.render(`${question.label} must be ${boundary}.`);
+            root
+              .querySelector(`[data-id="${CSS.escape(question.id)}"]`)
+              ?.focus();
+            return;
+          }
+        }
+        if (
+          model.assignment_page === page?.id &&
+          !controller.state.condition &&
+          !assignmentRetry
+        ) {
+          assignmentAllowed = true;
+          const assigned = source.assign(
+            controller.sessionId,
+            model.conditions || ["default"],
+          );
+          if (assigned && typeof assigned.then === "function") {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            assignmentRetry = true;
+            assigned
+              .then((condition) => {
+                controller.state.condition = condition;
+                assignmentRetry = false;
+                event.target.closest("[data-next]")?.click();
+              })
+              .catch((error) => {
+                assignmentRetry = false;
+                controller.render(
+                  "Random assignment could not be completed. Please try again.",
+                );
+                options.onError?.(error);
+              });
+          } else controller.state.condition = assigned;
+        }
+      },
+      true,
+    );
     return controller;
   }
-  async function mountSupabaseRespondent(root,model,{url,anonKey,sessionId,onError}={}){
-    const storageKey=`greedyq-capability:${model.study_id}`,saved=JSON.parse(localStorage.getItem(storageKey)||"null"),id=saved?.id||sessionId||crypto.randomUUID(),accessToken=saved?.accessToken||`${crypto.randomUUID()}${crypto.randomUUID()}`;localStorage.setItem(storageKey,JSON.stringify({id,accessToken}));
-    const remote=createSecureSupabaseBackend({url,anonKey,accessToken,studyId:model.study_id,specVersion:"0.2",isTest:model.runtime_policy?.mode!=="production",consentQuestion:model.runtime_policy?.consent?.question}),loaded=await remote.load(id),memory=createMemoryBackend();
-    if(loaded?.state)memory.save(id,{...loaded.state,condition:loaded.condition??loaded.state.condition??null});else if(loaded?.page)memory.save(id,loaded);
-    const bridge={kind:"supabase-bridge",load:memory.load,assign:(sid,conditions)=>remote.assign(sid,conditions),inspect:memory.inspect,save:(sid,state)=>{memory.save(sid,state);remote.save(sid,state).catch(error=>onError?.(error))},clear:sid=>{memory.clear(sid);remote.clear(sid).catch(error=>onError?.(error))}};
-    return mountRespondentSafe(root,model,{mode:detectDevice(root.ownerDocument.defaultView),backend:bridge,sessionId:id,onState:state=>state});
+  async function mountSupabaseRespondent(
+    root,
+    model,
+    { url, anonKey, sessionId, onError } = {},
+  ) {
+    const storageKey = `greedyq-capability:${model.study_id}`,
+      saved = JSON.parse(localStorage.getItem(storageKey) || "null"),
+      id = saved?.id || sessionId || crypto.randomUUID(),
+      accessToken =
+        saved?.accessToken || `${crypto.randomUUID()}${crypto.randomUUID()}`;
+    localStorage.setItem(storageKey, JSON.stringify({ id, accessToken }));
+    const remote = createSecureSupabaseBackend({
+        url,
+        anonKey,
+        accessToken,
+        studyId: model.study_id,
+        specVersion: "0.2",
+        isTest: model.runtime_policy?.mode !== "production",
+        consentQuestion: model.runtime_policy?.consent?.question,
+      }),
+      loaded = await remote.load(id),
+      memory = createMemoryBackend();
+    if (loaded?.state)
+      memory.save(id, {
+        ...loaded.state,
+        condition: loaded.condition ?? loaded.state.condition ?? null,
+      });
+    else if (loaded?.page) memory.save(id, loaded);
+    const bridge = {
+      kind: "supabase-bridge",
+      load: memory.load,
+      assign: (sid, conditions) => remote.assign(sid, conditions),
+      inspect: memory.inspect,
+      save: (sid, state) => {
+        memory.save(sid, state);
+        remote.save(sid, state).catch((error) => onError?.(error));
+      },
+      clear: (sid) => {
+        memory.clear(sid);
+        remote.clear(sid).catch((error) => onError?.(error));
+      },
+    };
+    return mountRespondentSafe(root, model, {
+      mode: detectDevice(root.ownerDocument.defaultView),
+      backend: bridge,
+      sessionId: id,
+      onState: (state) => state,
+    });
   }
-  return {VERSION,ParseError,parseYaml,parseSurvey,validateSurvey:validateSurveyComplete,compileSurvey,condition,detectDevice,parseProlificLaunch,stableSessionId,createMemoryBackend,createLocalMockBackend:createConcurrentLocalMockBackend,createSupabaseBackend:createSecureSupabaseBackend,mountRespondent:mountRespondentSafe,mountSupabaseRespondent};
+  return {
+    VERSION,
+    ParseError,
+    parseYaml,
+    parseSurvey,
+    validateSurvey: validateSurveyComplete,
+    compileSurvey,
+    condition,
+    detectDevice,
+    parseProlificLaunch,
+    stableSessionId,
+    createMemoryBackend,
+    createLocalMockBackend: createConcurrentLocalMockBackend,
+    createSupabaseBackend: createSecureSupabaseBackend,
+    mountRespondent: mountRespondentSafe,
+    mountSupabaseRespondent,
+  };
 });
 ```
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd`
+SHA-256: `8c7b571b655efb5d21c110a967289e55deea113d8867a88d90fb513f11a1854c`
 
 ```css
-:root{--gq-brand:#315c8a;--gq-ink:#172033;--gq-muted:#667085;--gq-line:#dfe3eb;--gq-soft:#f5f7fb;--gq-danger:#b42318;font-family:Inter,system-ui,sans-serif}.gq-app{color:var(--gq-ink);background:var(--gq-soft);min-height:100%;line-height:1.55}.gq-app *{box-sizing:border-box}.gq-top{background:#fff;border-bottom:1px solid var(--gq-line);padding:14px 22px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:2}.gq-card{background:#fff;border:1px solid var(--gq-line);border-radius:16px;box-shadow:0 8px 24px #1018280f;margin:34px auto;padding:48px;max-width:760px}.gq-eyebrow{color:var(--gq-brand);font-size:13px;font-weight:800;text-transform:uppercase}.gq-card h1{font-size:36px;line-height:1.2}.gq-copy{white-space:pre-line;color:#475467}.gq-q{border:0;margin:32px 0;padding:0}.gq-q legend{font-size:17px;font-weight:720;margin-bottom:12px}.gq-choice{border:1px solid var(--gq-line);border-radius:10px;padding:13px;margin:8px 0;display:flex;gap:10px}.gq-choice:has(input:checked){border-color:var(--gq-brand);background:#f2f7fc}.gq-q input[type=text],.gq-q input[type=number],.gq-q input[type=date],.gq-q select,.gq-q textarea{width:100%;padding:12px;border:1px solid #b9c1ce;border-radius:9px;font:inherit}.gq-q textarea{min-height:120px}.gq-actions{border-top:1px solid var(--gq-line);padding-top:22px;display:flex;justify-content:space-between}.gq-actions button{padding:11px 18px;border:1px solid #b9c1ce;border-radius:9px;background:#fff;font-weight:700}.gq-actions button[data-next]{background:var(--gq-brand);border-color:var(--gq-brand);color:#fff}.gq-actions button:disabled{opacity:.4}.gq-error{color:var(--gq-danger);background:#fff1f0;padding:12px;border-left:4px solid var(--gq-danger)}.gq-matrix{overflow:auto}.gq-mobile .gq-top{padding:11px 14px}.gq-mobile .gq-card{border:0;border-radius:0;box-shadow:none;margin:0;padding:24px 16px;min-height:calc(100vh - 50px)}.gq-mobile .gq-card h1{font-size:27px}.gq-mobile .gq-choice{padding:15px 12px;min-height:52px}.gq-mobile .gq-actions{position:sticky;bottom:0;background:#fff;padding:14px 0}.gq-mobile .gq-actions button{min-height:48px;flex:1;margin:0 4px}@media(max-width:700px),(pointer:coarse){.gq-desktop-auto .gq-card{border:0;border-radius:0;box-shadow:none;margin:0;padding:24px 16px}.gq-desktop-auto .gq-card h1{font-size:27px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+:root {
+  --gq-brand: #315c8a;
+  --gq-ink: #172033;
+  --gq-muted: #667085;
+  --gq-line: #dfe3eb;
+  --gq-soft: #f5f7fb;
+  --gq-danger: #b42318;
+  font-family: Inter, system-ui, sans-serif;
+}
+.gq-app {
+  color: var(--gq-ink);
+  background: var(--gq-soft);
+  min-height: 100%;
+  line-height: 1.55;
+}
+.gq-app * {
+  box-sizing: border-box;
+}
+.gq-top {
+  background: #fff;
+  border-bottom: 1px solid var(--gq-line);
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.gq-card {
+  background: #fff;
+  border: 1px solid var(--gq-line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px #1018280f;
+  margin: 34px auto;
+  padding: 48px;
+  max-width: 760px;
+}
+.gq-eyebrow {
+  color: var(--gq-brand);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.gq-card h1 {
+  font-size: 36px;
+  line-height: 1.2;
+}
+.gq-copy {
+  white-space: pre-line;
+  color: #475467;
+}
+.gq-q {
+  border: 0;
+  margin: 32px 0;
+  padding: 0;
+}
+.gq-q legend {
+  font-size: 17px;
+  font-weight: 720;
+  margin-bottom: 12px;
+}
+.gq-choice {
+  border: 1px solid var(--gq-line);
+  border-radius: 10px;
+  padding: 13px;
+  margin: 8px 0;
+  display: flex;
+  gap: 10px;
+}
+.gq-choice:has(input:checked) {
+  border-color: var(--gq-brand);
+  background: #f2f7fc;
+}
+.gq-q input[type="text"],
+.gq-q input[type="number"],
+.gq-q input[type="date"],
+.gq-q select,
+.gq-q textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9c1ce;
+  border-radius: 9px;
+  font: inherit;
+}
+.gq-q textarea {
+  min-height: 120px;
+}
+.gq-actions {
+  border-top: 1px solid var(--gq-line);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+.gq-actions button {
+  padding: 11px 18px;
+  border: 1px solid #b9c1ce;
+  border-radius: 9px;
+  background: #fff;
+  color: #344054;
+  color-scheme: light;
+  font-weight: 700;
+}
+.gq-actions button[data-next] {
+  background: var(--gq-brand);
+  border-color: var(--gq-brand);
+  color: #fff;
+}
+.gq-actions button:disabled {
+  opacity: 0.4;
+}
+.gq-error {
+  color: var(--gq-danger);
+  background: #fff1f0;
+  padding: 12px;
+  border-left: 4px solid var(--gq-danger);
+}
+.gq-matrix {
+  overflow: auto;
+}
+.gq-slider {
+  display: grid;
+  gap: 10px;
+}
+.gq-slider output {
+  justify-self: center;
+  background: var(--gq-brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+.gq-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--gq-brand);
+  min-height: 44px;
+}
+.gq-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--gq-muted);
+  font-size: 12px;
+}
+.gq-slider-labels span {
+  text-align: center;
+}
+.gq-slider-vertical {
+  grid-template-columns: 56px auto;
+  justify-content: start;
+  min-height: 260px;
+}
+.gq-slider-vertical output {
+  grid-column: 2;
+}
+.gq-slider-vertical input[type="range"] {
+  grid-row: 1 / span 2;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 44px;
+  height: 240px;
+}
+.gq-slider-vertical .gq-slider-labels {
+  grid-column: 2;
+  grid-row: 2;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.gq-mobile .gq-top {
+  padding: 11px 14px;
+}
+.gq-mobile .gq-card {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 24px 16px;
+  min-height: 0;
+}
+.gq-mobile .gq-card h1 {
+  font-size: 27px;
+}
+.gq-mobile .gq-choice {
+  padding: 15px 12px;
+  min-height: 52px;
+}
+.gq-mobile .gq-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 14px 0;
+}
+.gq-mobile .gq-actions button {
+  min-height: 48px;
+  flex: 1;
+  margin: 0 4px;
+}
+@media (max-width: 700px), (pointer: coarse) {
+  .gq-desktop-auto .gq-card {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 24px 16px;
+  }
+  .gq-desktop-auto .gq-card h1 {
+    font-size: 27px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
 ```
 
 ### FILE: `templates/browser/respondent.html`
@@ -583,18 +2268,359 @@ SHA-256: `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `372518c983bf943557769b5af63db112a7e65a00f8d1ed395fb07647d90ba11f`
+SHA-256: `824eff7e5d5e8be117ce31601fce7310c7d2b8969e5e20b860bfcb232014e77d`
 
 ```html
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'"><title>greedyQ dual preview</title><link rel="stylesheet" href="greedyq-runtime.css"><style>body{margin:0;background:#101828;color:#fff;font-family:Inter,system-ui,sans-serif}.preview-head{padding:18px 24px;display:flex;align-items:center;gap:12px}.preview-head span{background:#fdb022;color:#111;padding:4px 9px;border-radius:99px;font-size:12px;font-weight:800}.preview-grid{display:grid;grid-template-columns:minmax(620px,1fr) 390px;gap:20px;padding:0 20px 24px;align-items:start}.viewport{background:white;color:#172033;border-radius:16px;overflow:hidden;height:780px}.viewport>header{padding:8px 12px;background:#e9edf3;font-size:12px;font-weight:800}.screen{height:calc(100% - 34px);overflow:auto}.mobile{max-width:390px}.tools{padding:0 24px 18px;color:#d0d5dd;font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tools button,.tools select{padding:8px 12px}.state{margin:0 20px 20px;background:#1d2939;padding:12px;border-radius:10px;white-space:pre-wrap;font:12px/1.4 monospace}@media(max-width:1050px){.preview-grid{grid-template-columns:1fr}.mobile{max-width:none}.viewport{height:700px}}</style></head><body><div class="preview-head"><b>greedyQ responsive preview</b><span>NO EXTERNAL WRITES</span></div><div class="tools"><button id="reset">Reset both virtual participants</button><label>Desktop condition <select id="condition"></select></label><label>Desktop page <select id="page"></select></label><span>Both panes use independent mock sessions.</span></div><main class="preview-grid"><section class="viewport"><header>Desktop · wide-screen mode</header><div class="screen"><div id="desktop"></div></div></section><section class="viewport mobile"><header>Mobile · 390px mode</header><div class="screen"><div id="mobile"></div></div></section></main><pre id="state" class="state"></pre><script src="greedyq-core.js"></script><script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace me","start_page":"welcome","conditions":["default"],"messages":{"previous":"Previous","next":"Continue","required":"Required"},"progress_paths":{"default":["welcome"]},"pages":[{"id":"welcome","title":"Not built","body":"Build the study first.","questions":[],"terminal":"placeholder"}]}</script><script>const model=JSON.parse(document.getElementById("greedyq-model").textContent),backend=greedyQ.createLocalMockBackend(`greedyq-preview:${model.study_id}`),show=()=>document.getElementById("state").textContent=JSON.stringify(backend.inspect(),null,2);let desktop=greedyQ.mountRespondent(document.getElementById("desktop"),model,{mode:"desktop",backend,sessionId:"preview-desktop",onState:show}),mobile=greedyQ.mountRespondent(document.getElementById("mobile"),model,{mode:"mobile",backend,sessionId:"preview-mobile",onState:show});for(const value of model.conditions)document.getElementById("condition").add(new Option(value,value));for(const p of model.pages)document.getElementById("page").add(new Option(`${p.title} [${p.id}]`,p.id));document.getElementById("reset").onclick=()=>{desktop.reset();mobile.reset();show()};document.getElementById("condition").onchange=e=>{desktop.state.condition=e.target.value;desktop.state.page=model.assignment_page||model.start_page;desktop.state.history=[];desktop.render();show()};document.getElementById("page").onchange=e=>{desktop.state.page=e.target.value;desktop.render();show()};show();</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'"
+    />
+    <title>greedyQ dual preview</title>
+    <link rel="stylesheet" href="greedyq-runtime.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #101828;
+        color: #fff;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .preview-head {
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .preview-head span {
+        background: #fdb022;
+        color: #111;
+        padding: 4px 9px;
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .preview-grid {
+        display: grid;
+        grid-template-columns: minmax(620px, 1fr) 390px;
+        gap: 20px;
+        padding: 0 20px 24px;
+        align-items: start;
+      }
+      .viewport {
+        background: white;
+        color: #172033;
+        border-radius: 16px;
+        overflow: hidden;
+        height: 780px;
+      }
+      .viewport > header {
+        padding: 8px 12px;
+        background: #e9edf3;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .screen {
+        height: calc(100% - 34px);
+        overflow: auto;
+      }
+      .mobile {
+        max-width: 390px;
+        width: min(390px, 100%);
+        justify-self: center;
+      }
+      .tools {
+        padding: 0 24px 18px;
+        color: #d0d5dd;
+        font-size: 13px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .tools button,
+      .tools select {
+        padding: 8px 12px;
+      }
+      .state {
+        margin: 0 20px 20px;
+        background: #1d2939;
+        padding: 12px;
+        border-radius: 10px;
+        white-space: pre-wrap;
+        font: 12px/1.4 monospace;
+      }
+      @media (max-width: 1050px) {
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+        .viewport {
+          height: 700px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-head">
+      <b>greedyQ responsive preview</b><span>NO EXTERNAL WRITES</span>
+    </div>
+    <div class="tools">
+      <button id="reset">Reset both virtual participants</button
+      ><label
+        >Desktop condition
+        <select id="condition"></select></label
+      ><label
+        >Desktop page
+        <select id="page"></select></label
+      ><span>Both panes use independent mock sessions.</span>
+    </div>
+    <main class="preview-grid">
+      <section class="viewport">
+        <header>Desktop · wide-screen mode</header>
+        <div class="screen"><div id="desktop"></div></div>
+      </section>
+      <section class="viewport mobile">
+        <header>Mobile · 390px mode</header>
+        <div class="screen"><div id="mobile"></div></div>
+      </section>
+    </main>
+    <pre id="state" class="state"></pre>
+    <script src="greedyq-core.js"></script>
+    <script id="greedyq-model" type="application/json">
+      {
+        "study_id": "replace_me",
+        "title": "Replace me",
+        "start_page": "welcome",
+        "conditions": ["default"],
+        "messages": {
+          "previous": "Previous",
+          "next": "Continue",
+          "required": "Required"
+        },
+        "progress_paths": { "default": ["welcome"] },
+        "pages": [
+          {
+            "id": "welcome",
+            "title": "Not built",
+            "body": "Build the study first.",
+            "questions": [],
+            "terminal": "placeholder"
+          }
+        ]
+      }
+    </script>
+    <script>
+      const model = JSON.parse(
+          document.getElementById("greedyq-model").textContent,
+        ),
+        backend = greedyQ.createLocalMockBackend(
+          `greedyq-preview:${model.study_id}`,
+        ),
+        show = () =>
+          (document.getElementById("state").textContent = JSON.stringify(
+            backend.inspect(),
+            null,
+            2,
+          ));
+      let desktop = greedyQ.mountRespondent(
+          document.getElementById("desktop"),
+          model,
+          {
+            mode: "desktop",
+            backend,
+            sessionId: "preview-desktop",
+            onState: show,
+          },
+        ),
+        mobile = greedyQ.mountRespondent(
+          document.getElementById("mobile"),
+          model,
+          {
+            mode: "mobile",
+            backend,
+            sessionId: "preview-mobile",
+            onState: show,
+          },
+        );
+      for (const value of model.conditions)
+        document.getElementById("condition").add(new Option(value, value));
+      for (const p of model.pages)
+        document
+          .getElementById("page")
+          .add(new Option(`${p.title} [${p.id}]`, p.id));
+      document.getElementById("reset").onclick = () => {
+        desktop.reset();
+        mobile.reset();
+        show();
+      };
+      document.getElementById("condition").onchange = (e) => {
+        desktop.state.condition = e.target.value;
+        desktop.state.page = model.assignment_page || model.start_page;
+        desktop.state.history = [];
+        desktop.render();
+        show();
+      };
+      document.getElementById("page").onchange = (e) => {
+        desktop.state.page = e.target.value;
+        desktop.render();
+        show();
+      };
+      show();
+    </script>
+  </body>
+</html>
 ```
 
 ### FILE: `templates/browser/studio.html`
 
-SHA-256: `9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644`
+SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 
 ```html
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>greedyQ browser studio</title><link rel="stylesheet" href="greedyq-runtime.css"><style>body{font-family:Inter,system-ui,sans-serif;margin:0;background:#f5f7fb;color:#172033}.studio{max-width:900px;margin:40px auto;background:#fff;padding:32px;border-radius:16px}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px}.drop{border:2px dashed #98a2b3;border-radius:12px;padding:20px}.status{white-space:pre-wrap;background:#101828;color:#d1e9ff;padding:14px;border-radius:10px}.preview{display:none;margin-top:28px}.preview-grid{display:grid;grid-template-columns:minmax(560px,1fr) 390px;gap:18px}.viewport{border:1px solid #d0d5dd;height:700px;overflow:auto}.mobile{max-width:390px}@media(max-width:1050px){.inputs,.preview-grid{grid-template-columns:1fr}.mobile{max-width:none}}</style></head><body><main class="studio"><h1>greedyQ browser studio</h1><p>Select the two study source files. Parsing, validation, compilation, mock storage, and rendering occur only in this browser.</p><div class="inputs"><label class="drop">survey.qmd<input id="qmd" type="file" accept=".qmd,.md,text/plain"></label><label class="drop">greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"></label></div><p><button id="build">Validate and preview</button></p><pre id="status" class="status">Waiting for files.</pre><section id="preview" class="preview"><h2>Responsive preview</h2><div class="preview-grid"><div class="viewport"><div id="desktop"></div></div><div class="viewport mobile"><div id="mobile"></div></div></div></section></main><script src="greedyq-core.js"></script><script>const read=id=>new Promise((resolve,reject)=>{const file=document.getElementById(id).files[0];if(!file)return reject(new Error(`Choose ${id==='qmd'?'survey.qmd':'greedyq.yml'}.`));const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsText(file)});document.getElementById("build").onclick=async()=>{const status=document.getElementById("status");try{const[qmd,yml]=await Promise.all([read("qmd"),read("yml")]),parsed=greedyQ.parseSurvey(qmd),config=greedyQ.parseYaml(yml),report=greedyQ.validateSurvey(parsed,config);status.textContent=JSON.stringify(report,null,2);if(report.status!=="passed"){document.getElementById("preview").style.display="none";return}const model=greedyQ.compileSurvey(parsed,config),backend=greedyQ.createMemoryBackend();for(const id of ["desktop","mobile"])document.getElementById(id).innerHTML="";greedyQ.mountRespondent(document.getElementById("desktop"),model,{mode:"desktop",backend,sessionId:"studio-desktop"});greedyQ.mountRespondent(document.getElementById("mobile"),model,{mode:"mobile",backend,sessionId:"studio-mobile"});document.getElementById("preview").style.display="block"}catch(error){status.textContent=`Could not build preview:\n${error.message}`}};</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>greedyQ browser studio</title>
+    <link rel="stylesheet" href="greedyq-runtime.css" />
+    <style>
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        margin: 0;
+        background: #f5f7fb;
+        color: #172033;
+      }
+      .studio {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 32px;
+        border-radius: 16px;
+      }
+      .inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .drop {
+        border: 2px dashed #98a2b3;
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .status {
+        white-space: pre-wrap;
+        background: #101828;
+        color: #d1e9ff;
+        padding: 14px;
+        border-radius: 10px;
+      }
+      .preview {
+        display: none;
+        margin-top: 28px;
+      }
+      .preview-grid {
+        display: grid;
+        grid-template-columns: minmax(560px, 1fr) 390px;
+        gap: 18px;
+      }
+      .viewport {
+        border: 1px solid #d0d5dd;
+        height: 700px;
+        overflow: auto;
+      }
+      .mobile {
+        max-width: 390px;
+        width: min(390px, 100%);
+        justify-self: center;
+      }
+      @media (max-width: 1050px) {
+        .inputs,
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="studio">
+      <h1>greedyQ browser studio</h1>
+      <p>
+        Select the two study source files. Parsing, validation, compilation,
+        mock storage, and rendering occur only in this browser.
+      </p>
+      <div class="inputs">
+        <label class="drop"
+          >survey.qmd<input
+            id="qmd"
+            type="file"
+            accept=".qmd,.md,text/plain" /></label
+        ><label class="drop"
+          >greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"
+        /></label>
+      </div>
+      <p><button id="build">Validate and preview</button></p>
+      <pre id="status" class="status">Waiting for files.</pre>
+      <section id="preview" class="preview">
+        <h2>Responsive preview</h2>
+        <div class="preview-grid">
+          <div class="viewport"><div id="desktop"></div></div>
+          <div class="viewport mobile"><div id="mobile"></div></div>
+        </div>
+      </section>
+    </main>
+    <script src="greedyq-core.js"></script>
+    <script>
+      const read = (id) =>
+        new Promise((resolve, reject) => {
+          const file = document.getElementById(id).files[0];
+          if (!file)
+            return reject(
+              new Error(
+                `Choose ${id === "qmd" ? "survey.qmd" : "greedyq.yml"}.`,
+              ),
+            );
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsText(file);
+        });
+      document.getElementById("build").onclick = async () => {
+        const status = document.getElementById("status");
+        try {
+          const [qmd, yml] = await Promise.all([read("qmd"), read("yml")]),
+            parsed = greedyQ.parseSurvey(qmd),
+            config = greedyQ.parseYaml(yml),
+            report = greedyQ.validateSurvey(parsed, config);
+          status.textContent = JSON.stringify(report, null, 2);
+          if (report.status !== "passed") {
+            document.getElementById("preview").style.display = "none";
+            return;
+          }
+          const model = greedyQ.compileSurvey(parsed, config),
+            backend = greedyQ.createMemoryBackend();
+          for (const id of ["desktop", "mobile"])
+            document.getElementById(id).innerHTML = "";
+          greedyQ.mountRespondent(document.getElementById("desktop"), model, {
+            mode: "desktop",
+            backend,
+            sessionId: "studio-desktop",
+          });
+          greedyQ.mountRespondent(document.getElementById("mobile"), model, {
+            mode: "mobile",
+            backend,
+            sessionId: "studio-mobile",
+          });
+          document.getElementById("preview").style.display = "block";
+        } catch (error) {
+          status.textContent = `Could not build preview:\n${error.message}`;
+        }
+      };
+    </script>
+  </body>
+</html>
 ```
 
 ### FILE: `templates/supabase/002_browser_rpc.sql`
@@ -1152,7 +3178,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701`
+SHA-256: `0b7a9c3e6c359cae22d44de8a780b30e4106f444bb1a41303b1fa5fccb87088a`
 
 ```json
 {
@@ -1165,6 +3191,7 @@ SHA-256: `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701`
   "properties": {
     "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "title": {"type": "string", "minLength": 1},
+    "organization": {"type": "string", "minLength": 1, "maxLength": 120},
     "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "brand_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
     "messages": {
@@ -1208,7 +3235,8 @@ SHA-256: `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701`
         "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
         "type": {"enum": ["text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"]},
         "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
-        "min": {"type": "number"}, "max": {"type": "number"},
+        "min": {"type": "number"}, "max": {"type": "number"}, "step": {"type": "number", "exclusiveMinimum": 0},
+        "orientation": {"enum": ["horizontal", "vertical"]},
         "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
         "rows": {"type": "array", "items": {"$ref": "#/$defs/option"}},
         "show_if": {"$ref": "#/$defs/rule"}
@@ -1468,7 +3496,7 @@ def loads(text):
 
 ### FILE: `greedyq/parser.py`
 
-SHA-256: `ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73`
+SHA-256: `59b3ef13315837e31588f30af1f86a8d5f3c90c661f978c4422cd8a642db9ba8`
 
 ```python
 """Parse the supported surveydown-style QMD subset into a normalized model."""
@@ -1614,7 +3642,7 @@ def parse_qmd(path):
                 if "row" in args: q["rows"] = args.pop("row")
                 if "rows" in args: q["rows"] = args.pop("rows")
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max"):
+                for key in ("placeholder", "min", "max", "step", "orientation"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)
@@ -1628,7 +3656,7 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266`
+SHA-256: `adfd5d9414b763df0810e66a3c1fc5243cc06525b9f4c7392dbf37e3d1b30d07`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
@@ -1640,7 +3668,7 @@ SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "select",
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
-    "greedyq": {"spec_version"},
+    "greedyq": {"spec_version", "organization"},
     "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
     "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
     "system-messages": {"previous", "next", "required"},
@@ -1676,6 +3704,9 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         issues.append(_item("GQ003", "Set the survey specification version to 0.2.", qmd_path, 1))
     if config.get("spec_version") != "0.2":
         issues.append(_item("GQ003", "Set the study settings version to 0.2.", config_path, 1))
+    organization = front.get("greedyq", {}).get("organization")
+    if organization is not None and (not isinstance(organization, str) or not organization.strip() or len(organization) > 120):
+        issues.append(_item("GQ003", "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).", qmd_path, 1))
     for value in sorted({x for x in page_ids if page_ids.count(x) > 1}):
         issues.append(_item("GQ001", "The page name '%s' is used more than once. Give every page a unique name." % value, qmd_path))
     for value in sorted({x for x in question_ids if x and question_ids.count(x) > 1}):
@@ -1699,6 +3730,12 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
         if q.get("type") == "matrix" and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") == "slider" and len(q.get("options", [])) < 2:
+            issues.append(_item("GQ003", "Slider question '%s' needs at least two ordered choices." % q["id"], qmd_path, line))
+        if q.get("type") == "slider_numeric" and q.get("min") is not None and q.get("max") is not None and q["min"] >= q["max"]:
+            issues.append(_item("GQ003", "Numeric slider '%s' needs a maximum greater than its minimum." % q["id"], qmd_path, line))
+        if q.get("orientation") not in (None, "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported slider orientation." % q["id"], qmd_path, line))
         if any(item.get("_looks_reversed") for item in q.get("options", []) + q.get("rows", [])):
             issues.append(_item("GQ011", "Question '%s' appears to put stored codes on the left. Write each choice as \"Displayed label\" = \"stored_value\"." % q["id"], qmd_path, line))
         for arg in q.get("unsupported_arguments", []):
@@ -1763,7 +3800,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `1b341730eded843a431f380e4e1932ad8b0eeebda307f9fc5af0eb2babc5fc09`
+SHA-256: `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
@@ -1883,6 +3920,7 @@ def compile_preview(parsed, config):
     model = {
         "study_id": config.get("study", {}).get("id", "greedyq_preview"),
         "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
+        "organization": front.get("greedyq", {}).get("organization", "Research team"),
         "start_page": start,
         "brand_color": front.get("theme-settings", {}).get("barcolor", "#315c8a"),
         "messages": {
@@ -2276,7 +4314,7 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `c6f720d79292c2b5820344c362795cbe10dc5cfce006fcf6214b5cfb808f2045`
+SHA-256: `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
@@ -2299,6 +4337,7 @@ def generate(study_dir, parsed, config):
     if config.get("logic"): features.append({"id": "declarative_logic", "classification": "generated", "note": "Review native reactive behavior before fielding."})
     if config.get("randomization"): features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
     if config.get("consent"): features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])): features.append({"id": "vertical_slider", "classification": "greedyq_only", "note": "Vertical slider orientation is a greedyQ extension; native surveydown uses its own slider presentation."})
     mismatches = [item["note"] for item in features if item["classification"] in ("greedyq_only", "unsupported")]
     counts = {key: sum(item["classification"] == key for item in features) for key in ("directly_portable", "generated", "greedyq_only", "unsupported")}
     report = {"report_version": "0.2", "generator_status": "generated_unverified", "study_id": config.get("study", {}).get("id"), "spec_version": config.get("spec_version"), "summary": counts, "features": features, "material_mismatches": mismatches, "equivalence_claimed": not mismatches}

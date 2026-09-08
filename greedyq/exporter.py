@@ -18,6 +18,7 @@ def generate(study_dir, parsed, config):
     if config.get("logic"): features.append({"id": "declarative_logic", "classification": "generated", "note": "Review native reactive behavior before fielding."})
     if config.get("randomization"): features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
     if config.get("consent"): features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])): features.append({"id": "vertical_slider", "classification": "greedyq_only", "note": "Vertical slider orientation is a greedyQ extension; native surveydown uses its own slider presentation."})
     mismatches = [item["note"] for item in features if item["classification"] in ("greedyq_only", "unsupported")]
     counts = {key: sum(item["classification"] == key for item in features) for key in ("directly_portable", "generated", "greedyq_only", "unsupported")}
     report = {"report_version": "0.2", "generator_status": "generated_unverified", "study_id": config.get("study", {}).get("id"), "spec_version": config.get("spec_version"), "summary": counts, "features": features, "material_mismatches": mismatches, "equivalence_claimed": not mismatches}

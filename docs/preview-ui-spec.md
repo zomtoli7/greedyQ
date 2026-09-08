@@ -48,7 +48,7 @@ Use one primary action per page. Previous is visually secondary. Disable Previou
 - Single choice uses a `fieldset`, `legend`, and native radios. The whole visible option row is clickable.
 - Each preview option shows its stored value beneath the display label. Production respondent mode hides stored values.
 - Select controls use an unselectable empty prompt and preserve the display/stored distinction.
-- Discrete scales use native radios, display meaningful endpoint labels, and remain keyboard operable. Do not use an unlabeled custom range slider for categorical Likert data.
+- `slider` renders an accessible native range control over ordered labeled choices and stores the selected choice value; `slider_numeric` renders a numeric range control. Both display their current value and endpoints and remain keyboard operable. Horizontal is the portable default; `orientation = "vertical"` is a greedyQ extension and must be reported as such in native export.
 - Matrix questions use real table headers and unique radio-group names per row. On small screens, prefer one row at a time or a labelled horizontal-scrolling table; never shrink text below the base size.
 - Optional text areas say `Optional` in visible help or label text. Do not imply that open text is required.
 - Hidden questions are removed from the focus order. When `clear_on_hide` applies, the preview clears the hidden answer and records that event.

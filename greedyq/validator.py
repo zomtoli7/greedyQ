@@ -7,7 +7,7 @@ SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "select",
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
-    "greedyq": {"spec_version"},
+    "greedyq": {"spec_version", "organization"},
     "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
     "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
     "system-messages": {"previous", "next", "required"},
@@ -43,6 +43,9 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         issues.append(_item("GQ003", "Set the survey specification version to 0.2.", qmd_path, 1))
     if config.get("spec_version") != "0.2":
         issues.append(_item("GQ003", "Set the study settings version to 0.2.", config_path, 1))
+    organization = front.get("greedyq", {}).get("organization")
+    if organization is not None and (not isinstance(organization, str) or not organization.strip() or len(organization) > 120):
+        issues.append(_item("GQ003", "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).", qmd_path, 1))
     for value in sorted({x for x in page_ids if page_ids.count(x) > 1}):
         issues.append(_item("GQ001", "The page name '%s' is used more than once. Give every page a unique name." % value, qmd_path))
     for value in sorted({x for x in question_ids if x and question_ids.count(x) > 1}):
@@ -66,6 +69,12 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
         if q.get("type") == "matrix" and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") == "slider" and len(q.get("options", [])) < 2:
+            issues.append(_item("GQ003", "Slider question '%s' needs at least two ordered choices." % q["id"], qmd_path, line))
+        if q.get("type") == "slider_numeric" and q.get("min") is not None and q.get("max") is not None and q["min"] >= q["max"]:
+            issues.append(_item("GQ003", "Numeric slider '%s' needs a maximum greater than its minimum." % q["id"], qmd_path, line))
+        if q.get("orientation") not in (None, "horizontal", "vertical"):
+            issues.append(_item("GQ003", "Question '%s' uses an unsupported slider orientation." % q["id"], qmd_path, line))
         if any(item.get("_looks_reversed") for item in q.get("options", []) + q.get("rows", [])):
             issues.append(_item("GQ011", "Question '%s' appears to put stored codes on the left. Write each choice as \"Displayed label\" = \"stored_value\"." % q["id"], qmd_path, line))
         for arg in q.get("unsupported_arguments", []):

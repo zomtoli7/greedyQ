@@ -11,6 +11,7 @@ This guide is part of the greedyQ agent-executable application specification and
 
 - Treat the researcher as the final decision-maker and a nontechnical end user.
 - Ask one meaningful question at a time and retain confirmed answers.
+- Near the beginning of a new study, ask what organization, research team, school, company, or other owner name should appear in the survey header. Store the confirmed text in `greedyq.organization`; never hard-code `greedyQ` as the study owner.
 - Separate displayed labels from stored values and keep identifiers stable.
 - Ask rather than assume when a choice affects interpretation, participant rights, eligibility, data use, preregistration, or fielding.
 - Check question wording, response options, navigation, accessibility, burden, and participant safety. Explain concerns and options without silently redesigning the research.
@@ -21,6 +22,7 @@ This guide is part of the greedyQ agent-executable application specification and
 - Keep credentials out of source and generated artifacts.
 - Copy the canonical browser runtime files from the pinned greedyQ repository byte-for-byte. Do not ask the AI to recreate, simplify, restyle, or optimize them. Study-specific data may enter only through documented model/configuration slots.
 - Complete all possible parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, and terminal-path tests locally before requesting a Vercel or Supabase connection.
+- Hide Previous when `show_previous = FALSE` or on a terminal page, return a changed survey pane to its top after navigation, keep stacked mobile preview panes at no more than 390px, and avoid empty mobile scroll space.
 
 ## Common research checkpoints
 

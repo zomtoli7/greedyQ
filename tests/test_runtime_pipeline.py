@@ -139,10 +139,10 @@ sd_question(id = "multiple", type = "mc_multiple", label = "Choose several", opt
 sd_question(id = "menu", type = "select", label = "Menu", option = c("Alpha" = "a", "Beta" = "b"))
 ```
 ```{r}
-sd_question(id = "scale", type = "slider", label = "Scale", option = c("Low" = 1, "High" = 2))
+sd_question(id = "scale", type = "slider", label = "Scale", option = c("Low" = 1, "High" = 2), orientation = "vertical")
 ```
 ```{r}
-sd_question(id = "amount", type = "slider_numeric", label = "Amount", min = 1, max = 5)
+sd_question(id = "amount", type = "slider_numeric", label = "Amount", min = 1, max = 5, step = 0.5)
 ```
 ```{r}
 sd_question(id = "day", type = "date", label = "Day")
@@ -168,6 +168,9 @@ outcomes:
             self.assertEqual("passed", report["status"], report)
             types = {q["type"] for q in model["pages"][0]["questions"]}
             self.assertEqual(SUPPORTED_TYPES_FOR_TEST, types)
+            questions = {q["id"]: q for q in model["pages"][0]["questions"]}
+            self.assertEqual("vertical", questions["scale"]["orientation"])
+            self.assertEqual(0.5, questions["amount"]["step"])
             schema = json.loads((ROOT / "schemas/preview-model.schema.json").read_text())
             self.assertEqual([], list(Draft202012Validator(schema).iter_errors(model)))
 

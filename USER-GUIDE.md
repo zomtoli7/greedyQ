@@ -74,6 +74,8 @@ Confirm that the AI created a separate copy and did not overwrite the original.
 
 The AI should act like a research assistant, not a software engineer. It will ask about the research purpose, intended participants, design, main outcome, recruitment, questionnaire, survey flow, consent and privacy, analysis, and preregistration.
 
+Near the beginning, it will also ask what participant-visible name should appear at the top of the survey—for example, a company, university, laboratory, or research-team name. This is stored as `greedyq.organization` and can be changed later.
+
 It is fine to answer “not decided yet.” The AI should record an unresolved decision instead of inventing an answer.
 
 After the purpose and broad design are clear, choose whether to complete detailed IRB and consent work now or after the first questionnaire draft. The details may be deferred, but they cannot be skipped before deployment.

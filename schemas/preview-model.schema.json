@@ -8,6 +8,7 @@
   "properties": {
     "study_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "title": {"type": "string", "minLength": 1},
+    "organization": {"type": "string", "minLength": 1, "maxLength": 120},
     "start_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "brand_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
     "messages": {
@@ -51,7 +52,8 @@
         "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
         "type": {"enum": ["text", "textarea", "numeric", "mc", "mc_multiple", "select", "slider", "slider_numeric", "date", "matrix"]},
         "label": {"type": "string", "minLength": 1}, "placeholder": {"type": "string"}, "required": {"type": "boolean"},
-        "min": {"type": "number"}, "max": {"type": "number"},
+        "min": {"type": "number"}, "max": {"type": "number"}, "step": {"type": "number", "exclusiveMinimum": 0},
+        "orientation": {"enum": ["horizontal", "vertical"]},
         "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
         "rows": {"type": "array", "items": {"$ref": "#/$defs/option"}},
         "show_if": {"$ref": "#/$defs/rule"}

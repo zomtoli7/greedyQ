@@ -1,1 +1,142 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>greedyQ browser studio</title><link rel="stylesheet" href="greedyq-runtime.css"><style>body{font-family:Inter,system-ui,sans-serif;margin:0;background:#f5f7fb;color:#172033}.studio{max-width:900px;margin:40px auto;background:#fff;padding:32px;border-radius:16px}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px}.drop{border:2px dashed #98a2b3;border-radius:12px;padding:20px}.status{white-space:pre-wrap;background:#101828;color:#d1e9ff;padding:14px;border-radius:10px}.preview{display:none;margin-top:28px}.preview-grid{display:grid;grid-template-columns:minmax(560px,1fr) 390px;gap:18px}.viewport{border:1px solid #d0d5dd;height:700px;overflow:auto}.mobile{max-width:390px}@media(max-width:1050px){.inputs,.preview-grid{grid-template-columns:1fr}.mobile{max-width:none}}</style></head><body><main class="studio"><h1>greedyQ browser studio</h1><p>Select the two study source files. Parsing, validation, compilation, mock storage, and rendering occur only in this browser.</p><div class="inputs"><label class="drop">survey.qmd<input id="qmd" type="file" accept=".qmd,.md,text/plain"></label><label class="drop">greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"></label></div><p><button id="build">Validate and preview</button></p><pre id="status" class="status">Waiting for files.</pre><section id="preview" class="preview"><h2>Responsive preview</h2><div class="preview-grid"><div class="viewport"><div id="desktop"></div></div><div class="viewport mobile"><div id="mobile"></div></div></div></section></main><script src="greedyq-core.js"></script><script>const read=id=>new Promise((resolve,reject)=>{const file=document.getElementById(id).files[0];if(!file)return reject(new Error(`Choose ${id==='qmd'?'survey.qmd':'greedyq.yml'}.`));const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsText(file)});document.getElementById("build").onclick=async()=>{const status=document.getElementById("status");try{const[qmd,yml]=await Promise.all([read("qmd"),read("yml")]),parsed=greedyQ.parseSurvey(qmd),config=greedyQ.parseYaml(yml),report=greedyQ.validateSurvey(parsed,config);status.textContent=JSON.stringify(report,null,2);if(report.status!=="passed"){document.getElementById("preview").style.display="none";return}const model=greedyQ.compileSurvey(parsed,config),backend=greedyQ.createMemoryBackend();for(const id of ["desktop","mobile"])document.getElementById(id).innerHTML="";greedyQ.mountRespondent(document.getElementById("desktop"),model,{mode:"desktop",backend,sessionId:"studio-desktop"});greedyQ.mountRespondent(document.getElementById("mobile"),model,{mode:"mobile",backend,sessionId:"studio-mobile"});document.getElementById("preview").style.display="block"}catch(error){status.textContent=`Could not build preview:\n${error.message}`}};</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>greedyQ browser studio</title>
+    <link rel="stylesheet" href="greedyq-runtime.css" />
+    <style>
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        margin: 0;
+        background: #f5f7fb;
+        color: #172033;
+      }
+      .studio {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 32px;
+        border-radius: 16px;
+      }
+      .inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .drop {
+        border: 2px dashed #98a2b3;
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .status {
+        white-space: pre-wrap;
+        background: #101828;
+        color: #d1e9ff;
+        padding: 14px;
+        border-radius: 10px;
+      }
+      .preview {
+        display: none;
+        margin-top: 28px;
+      }
+      .preview-grid {
+        display: grid;
+        grid-template-columns: minmax(560px, 1fr) 390px;
+        gap: 18px;
+      }
+      .viewport {
+        border: 1px solid #d0d5dd;
+        height: 700px;
+        overflow: auto;
+      }
+      .mobile {
+        max-width: 390px;
+        width: min(390px, 100%);
+        justify-self: center;
+      }
+      @media (max-width: 1050px) {
+        .inputs,
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="studio">
+      <h1>greedyQ browser studio</h1>
+      <p>
+        Select the two study source files. Parsing, validation, compilation,
+        mock storage, and rendering occur only in this browser.
+      </p>
+      <div class="inputs">
+        <label class="drop"
+          >survey.qmd<input
+            id="qmd"
+            type="file"
+            accept=".qmd,.md,text/plain" /></label
+        ><label class="drop"
+          >greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"
+        /></label>
+      </div>
+      <p><button id="build">Validate and preview</button></p>
+      <pre id="status" class="status">Waiting for files.</pre>
+      <section id="preview" class="preview">
+        <h2>Responsive preview</h2>
+        <div class="preview-grid">
+          <div class="viewport"><div id="desktop"></div></div>
+          <div class="viewport mobile"><div id="mobile"></div></div>
+        </div>
+      </section>
+    </main>
+    <script src="greedyq-core.js"></script>
+    <script>
+      const read = (id) =>
+        new Promise((resolve, reject) => {
+          const file = document.getElementById(id).files[0];
+          if (!file)
+            return reject(
+              new Error(
+                `Choose ${id === "qmd" ? "survey.qmd" : "greedyq.yml"}.`,
+              ),
+            );
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsText(file);
+        });
+      document.getElementById("build").onclick = async () => {
+        const status = document.getElementById("status");
+        try {
+          const [qmd, yml] = await Promise.all([read("qmd"), read("yml")]),
+            parsed = greedyQ.parseSurvey(qmd),
+            config = greedyQ.parseYaml(yml),
+            report = greedyQ.validateSurvey(parsed, config);
+          status.textContent = JSON.stringify(report, null, 2);
+          if (report.status !== "passed") {
+            document.getElementById("preview").style.display = "none";
+            return;
+          }
+          const model = greedyQ.compileSurvey(parsed, config),
+            backend = greedyQ.createMemoryBackend();
+          for (const id of ["desktop", "mobile"])
+            document.getElementById(id).innerHTML = "";
+          greedyQ.mountRespondent(document.getElementById("desktop"), model, {
+            mode: "desktop",
+            backend,
+            sessionId: "studio-desktop",
+          });
+          greedyQ.mountRespondent(document.getElementById("mobile"), model, {
+            mode: "mobile",
+            backend,
+            sessionId: "studio-mobile",
+          });
+          document.getElementById("preview").style.display = "block";
+        } catch (error) {
+          status.textContent = `Could not build preview:\n${error.message}`;
+        }
+      };
+    </script>
+  </body>
+</html>

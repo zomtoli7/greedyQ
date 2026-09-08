@@ -1,1 +1,201 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'"><title>greedyQ dual preview</title><link rel="stylesheet" href="greedyq-runtime.css"><style>body{margin:0;background:#101828;color:#fff;font-family:Inter,system-ui,sans-serif}.preview-head{padding:18px 24px;display:flex;align-items:center;gap:12px}.preview-head span{background:#fdb022;color:#111;padding:4px 9px;border-radius:99px;font-size:12px;font-weight:800}.preview-grid{display:grid;grid-template-columns:minmax(620px,1fr) 390px;gap:20px;padding:0 20px 24px;align-items:start}.viewport{background:white;color:#172033;border-radius:16px;overflow:hidden;height:780px}.viewport>header{padding:8px 12px;background:#e9edf3;font-size:12px;font-weight:800}.screen{height:calc(100% - 34px);overflow:auto}.mobile{max-width:390px}.tools{padding:0 24px 18px;color:#d0d5dd;font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tools button,.tools select{padding:8px 12px}.state{margin:0 20px 20px;background:#1d2939;padding:12px;border-radius:10px;white-space:pre-wrap;font:12px/1.4 monospace}@media(max-width:1050px){.preview-grid{grid-template-columns:1fr}.mobile{max-width:none}.viewport{height:700px}}</style></head><body><div class="preview-head"><b>greedyQ responsive preview</b><span>NO EXTERNAL WRITES</span></div><div class="tools"><button id="reset">Reset both virtual participants</button><label>Desktop condition <select id="condition"></select></label><label>Desktop page <select id="page"></select></label><span>Both panes use independent mock sessions.</span></div><main class="preview-grid"><section class="viewport"><header>Desktop · wide-screen mode</header><div class="screen"><div id="desktop"></div></div></section><section class="viewport mobile"><header>Mobile · 390px mode</header><div class="screen"><div id="mobile"></div></div></section></main><pre id="state" class="state"></pre><script src="greedyq-core.js"></script><script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace me","start_page":"welcome","conditions":["default"],"messages":{"previous":"Previous","next":"Continue","required":"Required"},"progress_paths":{"default":["welcome"]},"pages":[{"id":"welcome","title":"Not built","body":"Build the study first.","questions":[],"terminal":"placeholder"}]}</script><script>const model=JSON.parse(document.getElementById("greedyq-model").textContent),backend=greedyQ.createLocalMockBackend(`greedyq-preview:${model.study_id}`),show=()=>document.getElementById("state").textContent=JSON.stringify(backend.inspect(),null,2);let desktop=greedyQ.mountRespondent(document.getElementById("desktop"),model,{mode:"desktop",backend,sessionId:"preview-desktop",onState:show}),mobile=greedyQ.mountRespondent(document.getElementById("mobile"),model,{mode:"mobile",backend,sessionId:"preview-mobile",onState:show});for(const value of model.conditions)document.getElementById("condition").add(new Option(value,value));for(const p of model.pages)document.getElementById("page").add(new Option(`${p.title} [${p.id}]`,p.id));document.getElementById("reset").onclick=()=>{desktop.reset();mobile.reset();show()};document.getElementById("condition").onchange=e=>{desktop.state.condition=e.target.value;desktop.state.page=model.assignment_page||model.start_page;desktop.state.history=[];desktop.render();show()};document.getElementById("page").onchange=e=>{desktop.state.page=e.target.value;desktop.render();show()};show();</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'"
+    />
+    <title>greedyQ dual preview</title>
+    <link rel="stylesheet" href="greedyq-runtime.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #101828;
+        color: #fff;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .preview-head {
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .preview-head span {
+        background: #fdb022;
+        color: #111;
+        padding: 4px 9px;
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .preview-grid {
+        display: grid;
+        grid-template-columns: minmax(620px, 1fr) 390px;
+        gap: 20px;
+        padding: 0 20px 24px;
+        align-items: start;
+      }
+      .viewport {
+        background: white;
+        color: #172033;
+        border-radius: 16px;
+        overflow: hidden;
+        height: 780px;
+      }
+      .viewport > header {
+        padding: 8px 12px;
+        background: #e9edf3;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .screen {
+        height: calc(100% - 34px);
+        overflow: auto;
+      }
+      .mobile {
+        max-width: 390px;
+        width: min(390px, 100%);
+        justify-self: center;
+      }
+      .tools {
+        padding: 0 24px 18px;
+        color: #d0d5dd;
+        font-size: 13px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .tools button,
+      .tools select {
+        padding: 8px 12px;
+      }
+      .state {
+        margin: 0 20px 20px;
+        background: #1d2939;
+        padding: 12px;
+        border-radius: 10px;
+        white-space: pre-wrap;
+        font: 12px/1.4 monospace;
+      }
+      @media (max-width: 1050px) {
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+        .viewport {
+          height: 700px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-head">
+      <b>greedyQ responsive preview</b><span>NO EXTERNAL WRITES</span>
+    </div>
+    <div class="tools">
+      <button id="reset">Reset both virtual participants</button
+      ><label
+        >Desktop condition
+        <select id="condition"></select></label
+      ><label
+        >Desktop page
+        <select id="page"></select></label
+      ><span>Both panes use independent mock sessions.</span>
+    </div>
+    <main class="preview-grid">
+      <section class="viewport">
+        <header>Desktop · wide-screen mode</header>
+        <div class="screen"><div id="desktop"></div></div>
+      </section>
+      <section class="viewport mobile">
+        <header>Mobile · 390px mode</header>
+        <div class="screen"><div id="mobile"></div></div>
+      </section>
+    </main>
+    <pre id="state" class="state"></pre>
+    <script src="greedyq-core.js"></script>
+    <script id="greedyq-model" type="application/json">
+      {
+        "study_id": "replace_me",
+        "title": "Replace me",
+        "start_page": "welcome",
+        "conditions": ["default"],
+        "messages": {
+          "previous": "Previous",
+          "next": "Continue",
+          "required": "Required"
+        },
+        "progress_paths": { "default": ["welcome"] },
+        "pages": [
+          {
+            "id": "welcome",
+            "title": "Not built",
+            "body": "Build the study first.",
+            "questions": [],
+            "terminal": "placeholder"
+          }
+        ]
+      }
+    </script>
+    <script>
+      const model = JSON.parse(
+          document.getElementById("greedyq-model").textContent,
+        ),
+        backend = greedyQ.createLocalMockBackend(
+          `greedyq-preview:${model.study_id}`,
+        ),
+        show = () =>
+          (document.getElementById("state").textContent = JSON.stringify(
+            backend.inspect(),
+            null,
+            2,
+          ));
+      let desktop = greedyQ.mountRespondent(
+          document.getElementById("desktop"),
+          model,
+          {
+            mode: "desktop",
+            backend,
+            sessionId: "preview-desktop",
+            onState: show,
+          },
+        ),
+        mobile = greedyQ.mountRespondent(
+          document.getElementById("mobile"),
+          model,
+          {
+            mode: "mobile",
+            backend,
+            sessionId: "preview-mobile",
+            onState: show,
+          },
+        );
+      for (const value of model.conditions)
+        document.getElementById("condition").add(new Option(value, value));
+      for (const p of model.pages)
+        document
+          .getElementById("page")
+          .add(new Option(`${p.title} [${p.id}]`, p.id));
+      document.getElementById("reset").onclick = () => {
+        desktop.reset();
+        mobile.reset();
+        show();
+      };
+      document.getElementById("condition").onchange = (e) => {
+        desktop.state.condition = e.target.value;
+        desktop.state.page = model.assignment_page || model.start_page;
+        desktop.state.history = [];
+        desktop.render();
+        show();
+      };
+      document.getElementById("page").onchange = (e) => {
+        desktop.state.page = e.target.value;
+        desktop.render();
+        show();
+      };
+      show();
+    </script>
+  </body>
+</html>

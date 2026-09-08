@@ -56,12 +56,13 @@ session_id time_start time_end exit_survey_rating current_page browser ip_addres
 
 ### 4.1 Front matter
 
-파일은 `greedyq.spec_version`을 포함하는 YAML front matter로 시작해야 합니다. v0.2은 문서화된 `theme-settings`, `survey-settings`, `system-messages` namespace를 허용합니다. 지원되지 않는 Quarto 실행 option은 거부해야 합니다.
+파일은 `greedyq.spec_version`을 포함하는 YAML front matter로 시작해야 합니다. 새 연구는 participant에게 보이는 연구 주체 또는 연구팀 label인 `greedyq.organization`을 포함해야 하며 1–120자여야 합니다. 이 값이 없는 기존 파일은 중립적인 “Research team” fallback을 표시합니다. v0.2은 문서화된 `theme-settings`, `survey-settings`, `system-messages` namespace를 허용합니다. 지원되지 않는 Quarto 실행 option은 거부해야 합니다.
 
 ```yaml
 ---
 greedyq:
   spec_version: "0.2"
+  organization: "Example University Research Team"
 survey-settings:
   show-previous: true
   required: [support_post]
@@ -83,6 +84,8 @@ v0.2은 heading, paragraph, emphasis, strong text, link, ordered/unordered list,
 Question은 allowlist된 `sd_question()` call 하나를 포함하는 실행되지 않는 R-style fenced chunk로 선언합니다. Parser는 제한된 expression을 parse해야 하며 R을 실행해서는 안 됩니다.
 
 필수 argument는 `id`, `type`, `label`입니다. v0.2 question type은 `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `select`, `slider`, `slider_numeric`, `date`, `matrix`입니다.
+
+`slider`는 named option vector를 순서가 있는 labeled scale로 사용하고 선택한 option value를 저장합니다. `slider_numeric`은 숫자 `min`, `max`, 선택적인 양수 `step` argument를 사용합니다. 둘 다 drag와 keyboard 조작이 가능한 native range control로 표시됩니다. `orientation`은 `horizontal`(portable default) 또는 `vertical`일 수 있습니다. Vertical orientation은 greedyQ extension이므로 native surveydown export diagnostic에서 반드시 알려야 합니다.
 
 허용되는 value form은 string, number, boolean, null, `c(...)`, named `c(label = value, ...)`입니다. 임의의 function call, variable lookup, assignment, interpolation, side effect는 error입니다.
 

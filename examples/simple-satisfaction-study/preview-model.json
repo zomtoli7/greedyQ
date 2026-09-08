@@ -1,6 +1,7 @@
 {
   "study_id": "greedyq_user_satisfaction_001",
   "title": "greedyQ User Experience Survey",
+  "organization": "greedyQ Research Team",
   "start_page": "welcome",
   "brand_color": "#315c8a",
   "messages": {

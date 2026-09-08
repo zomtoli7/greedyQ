@@ -11,6 +11,7 @@
 
 - 연구자를 최종 의사결정자이자 비기술 최종 사용자로 대합니다.
 - 한 번에 하나의 중요한 질문만 하고 확정된 답을 유지합니다.
+- 새 연구 초반에 설문 header에 표시할 기관, 연구팀, 학교, 회사 또는 기타 연구 주체명을 묻습니다. 확인된 text를 `greedyq.organization`에 저장하며 `greedyQ`를 연구 주체로 hard-code하지 않습니다.
 - 화면 표시 라벨과 저장값을 분리하고 ID를 안정적으로 유지합니다.
 - 해석, 참여자 권리, 참여 자격, 데이터 사용, 사전등록, 실제 조사에 영향을 주는 선택을 추측하지 말고 질문합니다.
 - 문항 표현, 응답 선택지, 이동, 접근성, 응답 부담, 참여자 안전을 점검합니다. 연구를 몰래 다시 설계하지 않고 문제와 선택지를 설명합니다.
@@ -21,6 +22,7 @@
 - 인증정보를 소스와 생성 산출물에 넣지 않습니다.
 - Pin된 greedyQ repository의 canonical browser runtime file을 byte-for-byte로 복사합니다. AI에게 이를 다시 작성, 단순화, restyle 또는 optimize하도록 요청하면 안 됩니다. Study-specific data는 문서화된 model/configuration slot을 통해서만 입력합니다.
 - Vercel 또는 Supabase 연결을 요청하기 전에 가능한 parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, terminal-path test를 모두 로컬에서 완료합니다.
+- `show_previous = FALSE`이거나 terminal page이면 Previous를 숨기고, navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
 
 ## 공통 연구 checkpoint
 

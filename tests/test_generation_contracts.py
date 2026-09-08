@@ -175,14 +175,14 @@ class GenerationContractTests(unittest.TestCase):
     def test_condition_switch_clears_post_assignment_answers(self):
         preview = (ROOT / "templates/browser/preview.html").read_text()
         self.assertIn("desktop.state.condition", preview)
-        self.assertIn("desktop.state.history=[]", preview)
+        self.assertRegex(preview, r"desktop\.state\.history\s*=\s*\[\]")
 
     def test_preview_styles_cover_required_responsive_breakpoints(self):
         preview = (ROOT / "templates/browser/preview.html").read_text()
         styles = (ROOT / "web/greedyq-runtime.css").read_text()
-        self.assertIn("@media(max-width:1050px)", preview)
+        self.assertRegex(preview, r"@media\s*\(max-width:\s*1050px\)")
         self.assertIn("390px", preview)
-        self.assertIn("max-width:760px", styles)
+        self.assertRegex(styles, r"max-width:\s*760px")
 
     def test_preview_runtime_javascript_parses(self):
         node = shutil.which("node")

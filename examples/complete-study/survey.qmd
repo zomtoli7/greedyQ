@@ -2,6 +2,7 @@
 title: "Digital Service Information Study"
 greedyq:
   spec_version: "0.2"
+  organization: "Example University Research Team"
 theme-settings:
   theme: default
   barposition: top

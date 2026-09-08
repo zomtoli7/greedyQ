@@ -96,8 +96,9 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         self.assertIn('id="desktop"', html)
         self.assertIn('id="mobile"', html)
         self.assertIn("connect-src 'none'", html)
-        self.assertIn('mode:"desktop"', html)
-        self.assertIn('mode:"mobile"', html)
+        compact = "".join(html.split())
+        self.assertIn('mode:"desktop"', compact)
+        self.assertIn('mode:"mobile"', compact)
 
     def test_browser_renderer_enforces_numeric_bounds_before_navigation(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
@@ -108,13 +109,15 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
 
     def test_browser_renderer_defers_assignment_until_declared_boundary(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
-        self.assertIn("assignmentAllowed=!model.assignment_page", core)
-        self.assertIn("model.assignment_page===page?.id", core)
-        self.assertIn("remote.assign(sid,conditions)", core)
+        compact = "".join(core.split())
+        self.assertIn("assignmentAllowed=!model.assignment_page", compact)
+        self.assertIn("model.assignment_page===page?.id", compact)
+        self.assertIn("remote.assign(sid,conditions)", compact)
         self.assertNotIn("assigned=loaded?.condition||await remote.assign", core)
 
     def test_studio_parses_source_text_in_browser(self):
         html = (ROOT / "templates/browser/studio.html").read_text()
+        html = "".join(html.split())
         for token in ("parseSurvey(qmd)", "parseYaml(yml)", "validateSurvey(parsed,config)", "compileSurvey(parsed,config)", "FileReader"):
             self.assertIn(token, html)
 
@@ -140,8 +143,23 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
             self.assertIn(token, html)
         for token in ("<fieldset", "<legend", 'role="alert"', "aria-live"):
             self.assertIn(token, core)
-        self.assertIn("min-height:48px", css)
+        self.assertIn("min-height: 48px", css)
         self.assertIn("prefers-reduced-motion", css)
+
+    def test_canonical_ui_fixes_and_slider_controls_are_present(self):
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        css = (ROOT / "web/greedyq-runtime.css").read_text()
+        preview = (ROOT / "templates/browser/preview.html").read_text()
+        studio = (ROOT / "templates/browser/studio.html").read_text()
+        for token in ("model.organization", 'type=\"range\"', "data-slider-kind", "requestAnimationFrame", "scrollTo({", "!p.terminal"):
+            self.assertIn(token, core)
+        self.assertIn("color: #344054", css)
+        self.assertIn("min-height: 0", css)
+        self.assertIn("writing-mode:vertical-lr", "".join(css.split()))
+        for html in (preview, studio):
+            compact = "".join(html.split())
+            self.assertIn("width:min(390px,100%)", compact)
+            self.assertNotIn(".mobile{max-width:none", compact)
 
 
 if __name__ == "__main__":

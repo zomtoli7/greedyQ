@@ -1,6 +1,7 @@
 {
   "study_id": "digital_service_info_001",
   "title": "Digital Service Information Study",
+  "organization": "Example University Research Team",
   "start_page": "welcome",
   "brand_color": "#315c8a",
   "messages": {

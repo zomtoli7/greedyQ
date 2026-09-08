@@ -48,7 +48,7 @@ Page마다 primary action은 하나입니다. Previous는 secondary입니다. Hi
 - Single choice는 `fieldset`, `legend`, native radio를 사용하고 option row 전체를 클릭할 수 있게 합니다.
 - Preview option은 display label 아래 stored value를 표시합니다. Production respondent mode에서는 stored value를 숨깁니다.
 - Select는 선택되지 않은 empty prompt를 사용하고 display/stored 구분을 보존합니다.
-- Discrete scale은 native radio와 의미 있는 endpoint label을 사용하며 keyboard로 조작할 수 있어야 합니다. Categorical Likert data에 label 없는 custom range slider를 사용하지 않습니다.
+- `slider`는 순서 있는 labeled choice 위에 accessible native range control을 표시하고 선택한 choice value를 저장합니다. `slider_numeric`은 numeric range control을 표시합니다. 둘 다 현재 value와 endpoint를 보여주고 keyboard로 조작할 수 있어야 합니다. Horizontal은 portable default이며 `orientation = "vertical"`은 greedyQ extension이므로 native export에서 이를 보고해야 합니다.
 - Matrix는 실제 table header와 row마다 고유한 radio-group name을 사용합니다. 작은 화면에서는 row 단위 표시 또는 labelled horizontal scroll table을 사용하며 base size 아래로 text를 축소하지 않습니다.
 - Optional textarea는 visible help 또는 label에 `Optional`을 표시합니다.
 - Hidden question은 focus order에서 제거합니다. `clear_on_hide`이면 answer를 지우고 event를 기록합니다.
