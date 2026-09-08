@@ -73,7 +73,7 @@
     {
       "path": "preview-model.json",
       "kind": "derived",
-      "sha256": "130d3259899519a0088a8f0343b576474c731f67dee98bfb855ca5c03d6cf5a8",
+      "sha256": "20531e9d079f1b7deee2bfbcea3a4009ee1ef3bfe63d4aaa809e9c2680fea10e",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "da17fca12184d7112624aaa09716c02389201a3ee96dea3bb839b708ca9f1856",
+      "sha256": "484e8fa9695d0811e0d6600017ee01471b75454df550e98bd4f52d308b1f66e5",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "fbabaaf1095aa018749ad596e1911b11ef098f3783512e69ea0e67cd67a19d6b",
+      "sha256": "56c0bd5cb78c15d559fc6277b5bcfc19d094b4d398ab39aed29e3d41df4e4105",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -148,14 +148,14 @@
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "3ec2e59204aef3319706030a7b7c226e8d71448344954509e27918835a2e1eb1",
+      "sha256": "356cee561bae06b8be363164c135df4e2350dbfcf2a1120a7e997cd340bd86ab",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a",
+      "sha256": "6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -191,6 +191,13 @@
       "path": "studio.html",
       "kind": "derived",
       "sha256": "9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644",
+      "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "supabase/migrations/002_browser_rpc.sql",
+      "kind": "derived",
+      "sha256": "e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827",
       "status": "validated",
       "based_on_decision_ids": []
     }

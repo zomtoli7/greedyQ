@@ -1,4 +1,4 @@
-"""Command-line interface for greedyQ's zero-install reference implementation."""
+"""CLI for greedyQ's dependency-light Python reference implementation."""
 
 import argparse
 import functools
@@ -12,6 +12,9 @@ from .build import build, load_study
 from .server import serve
 from .runtime import Store
 from .validator import validate
+from .deployment import preflight
+from .exporter import generate as generate_export
+from .preregistration import generate as generate_preregistration
 
 
 def show_report(report):
@@ -27,7 +30,7 @@ def show_report(report):
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("validate", "build"):
+    for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
     preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
     run = sub.add_parser("run"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
@@ -37,6 +40,18 @@ def main(argv=None):
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
+        if args.command == "preflight":
+            report = preflight(args.study_dir); show_report(report); return 0 if report["status"] == "passed" else 1
+        if args.command in ("preregister", "export-surveydown"):
+            study, parsed, config = load_study(args.study_dir)
+            report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
+            show_report(report)
+            if report["status"] != "passed": return 1
+            if args.command == "preregister":
+                result = generate_preregistration(study, config); print("Preregistration draft created: %s" % result["markdown"])
+            else:
+                output, _ = generate_export(study, parsed, config); print("Native surveydown export created: %s" % output)
+            return 0
         report, model = build(args.study_dir)
         show_report(report)
         if report["status"] != "passed": return 1

@@ -116,7 +116,7 @@ greedyQ는 문서화된 surveydown-style `survey.qmd` 문법의 일부를 지원
 
 ## 프로젝트 상태
 
-greedyQ는 현재 browser-native working-preview 단계입니다. 고정 JavaScript core가 QMD/YAML을 parse하고 지원되는 v0.2 subset을 validate·compile하며 adaptive desktop/mobile respondent view와 mock persistence/assignment를 사용하는 동시 preview를 render합니다. Normalized output은 두 golden study에서 Python reference와 conform합니다. Vercel용 static production-shaped file도 생성합니다. Authoritative production Supabase adapter와 live deployment verification은 아직 완료되지 않았습니다.
+greedyQ에는 이제 계정 없이 검증할 수 있는 connection-ready v0.2 runtime candidate가 있습니다. 고정 JavaScript core가 지원 QMD/YAML subset을 parse·validate·compile하고 adaptive desktop/mobile respondent view와 mock persistence/assignment를 사용하는 동시 preview를 render합니다. 두 golden study 및 잘못된 validator fixture에서 normalized output이 Python reference와 conform합니다. Static Vercel file, canonical Supabase RPC migration, Prolific launch validation, preregistration draft, native surveydown export, offline preflight가 구현되었습니다. Live service 연결 및 검증은 의도적으로 수행하지 않았습니다. 자세한 내용은 [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)를 참고하십시오.
 
 ## Responsive preview 사용하기
 

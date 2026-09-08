@@ -15,6 +15,7 @@ FILES = (
     ("templates/browser/respondent.html", "html", False),
     ("templates/browser/preview.html", "html", False),
     ("templates/browser/studio.html", "html", False),
+    ("templates/supabase/002_browser_rpc.sql", "sql", False),
     ("examples/complete-study/supabase/migrations/001_initial.sql", "sql", False),
     ("examples/complete-study/vercel.json", "json", False),
     ("schemas/ai/study-state.schema.json", "json", False),
@@ -31,6 +32,10 @@ FILES = (
     ("greedyq/build.py", "python", False),
     ("greedyq/runtime.py", "python", False),
     ("greedyq/server.py", "python", False),
+    ("greedyq/prolific.py", "python", False),
+    ("greedyq/preregistration.py", "python", False),
+    ("greedyq/exporter.py", "python", False),
+    ("greedyq/deployment.py", "python", False),
 )
 
 

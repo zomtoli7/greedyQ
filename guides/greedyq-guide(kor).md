@@ -239,27 +239,32 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `3790906bfe1d8040e4c22898a85d6f526eb92e9b02c5bb97a6e4a2057e0ec176` | `no` |
-| `web/greedyq-core.js` | `00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a` | `no` |
+| `web/greedyq-core.js` | `6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d` | `no` |
 | `web/greedyq-runtime.css` | `8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd` | `no` |
-| `templates/browser/respondent.html` | `3ddf0629a84dd31b3cce1388257906675349b8034b70061e9f44a6d30e46939a` | `no` |
+| `templates/browser/respondent.html` | `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df` | `no` |
 | `templates/browser/preview.html` | `372518c983bf943557769b5af63db112a7e65a00f8d1ed395fb07647d90ba11f` | `no` |
 | `templates/browser/studio.html` | `9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644` | `no` |
+| `templates/supabase/002_browser_rpc.sql` | `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
 | `examples/complete-study/vercel.json` | `fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66` | `no` |
+| `schemas/preview-model.schema.json` | `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701` | `no` |
 | `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
-| `greedyq/__main__.py` | `12ac1d26cc21808cdc3fd9c48027123a4cbf0b91b5debcba9f1084e85416c8a8` | `no` |
+| `greedyq/__main__.py` | `c569eddcf218e0a7ccbb00f67f1efadffb50b351e147aa4a3a1f9eabbe88a272` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `ecd063d2009070be0555d3483f49c834469ee53598cd7342da5020b3c0ecec73` | `no` |
 | `greedyq/validator.py` | `2f25b549d5aee84a98d0a00ec4052045ddc214ba1e963ce0d1b230fde8bf6266` | `no` |
-| `greedyq/compiler.py` | `48330158ae7f48908805bc9ad045daa6a40e86847dd135ecee8d21d45a032a2a` | `no` |
-| `greedyq/build.py` | `68290bcebc4f26f5be8c9c8c06c81045b4185ff665e7d0329209388b4f6a4f98` | `no` |
+| `greedyq/compiler.py` | `1b341730eded843a431f380e4e1932ad8b0eeebda307f9fc5af0eb2babc5fc09` | `no` |
+| `greedyq/build.py` | `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
+| `greedyq/prolific.py` | `c17995c246f9f1716b41dc1bfd8c8d819a432b594e2f6e96ee6661b2c0a05261` | `no` |
+| `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
+| `greedyq/exporter.py` | `c6f720d79292c2b5820344c362795cbe10dc5cfce006fcf6214b5cfb808f2045` | `no` |
+| `greedyq/deployment.py` | `d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -403,7 +408,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a`
+SHA-256: `6961051e458e5c91eed24281d2f2e395d13ce66e793e8c3ea9c98b029c44910d`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -455,25 +460,61 @@ SHA-256: `00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a`
   function parseSurvey(qmdText, source="survey.qmd") { const text=String(qmdText).replace(/\r/g,"");if(!text.startsWith("---\n"))throw new ParseError("The file must begin with YAML front matter.",1);const close=text.indexOf("\n---",4);if(close<0)throw new ParseError("The YAML front matter is not closed.",1);const front=parseYaml(text.slice(4,close));const body=text.slice(close+4).replace(/^\n+/,"");const matches=[...body.matchAll(PAGE_RE)];if(!matches.length)throw new ParseError("No survey pages were found. Add a line such as '--- welcome'.");const pages=[];for(let index=0;index<matches.length;index++){const match=matches[index],section=body.slice(match.index+match[0].length,index+1<matches.length?matches[index+1].index:body.length);let plain=section.replace(FENCE_RE,"");const heading=/^#\s+(.+?)\s*$/m.exec(plain),title=heading?heading[1].trim():match[1].replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());if(heading)plain=plain.slice(0,heading.index)+plain.slice(heading.index+heading[0].length);plain=plain.replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/\n{3,}/g,"\n\n").trim();const page={id:match[1],title,body:plain,questions:[]};const base=text.slice(0,close+4).split("\n").length+body.slice(0,match.index+match[0].length).split("\n").length-1;for(const fence of section.matchAll(FENCE_RE)){const line=base+section.slice(0,fence.index).split("\n").length;const[name,args0]=callArgs(fence[1].trim(),line),args={...args0};if(name==="sd_question"){const q={id:args.id??null,type:args.type??null,label:args.label??null,_line:line};delete args.id;delete args.type;delete args.label;if(args.option)q.options=args.option;if(args.options)q.options=args.options;if(args.row)q.rows=args.row;if(args.rows)q.rows=args.rows;if(args.label_select)q.placeholder=args.label_select;for(const key of ["option","options","row","rows","label_select"])delete args[key];for(const key of ["placeholder","min","max"]){if(Object.hasOwn(args,key)){q[key]=args[key];delete args[key]}}if(Object.keys(args).length)q.unsupported_arguments=Object.keys(args).sort();page.questions.push(q)}else if(name==="sd_nav"){page.nav=args;page._nav_line=line}else if(fence[1].trim())throw new ParseError("This R block does not contain sd_question() or sd_nav().",line)}pages.push(page)}return{front_matter:front,pages,source}; }
   const issue=(code,message,file,line)=>Object.assign({code,severity:"error",message,file},line?{line}:{});
   function validateSurvey(parsed,config,qmd="survey.qmd",yml="greedyq.yml") { const issues=[],pages=parsed.pages||[],pageIds=pages.map(p=>p.id),questions=pages.flatMap(p=>p.questions||[]),qids=questions.map(q=>q.id),knownP=new Set(pageIds),knownQ=new Set(qids);if(parsed.front_matter?.greedyq?.spec_version!=="0.2")issues.push(issue("GQ003","Set the survey specification version to 0.2.",qmd,1));if(config.spec_version!=="0.2")issues.push(issue("GQ003","Set the study settings version to 0.2.",yml,1));for(const id of new Set(pageIds.filter((x,i,a)=>a.indexOf(x)!==i)))issues.push(issue("GQ001",`The page name '${id}' is used more than once.`,qmd));for(const id of new Set(qids.filter((x,i,a)=>x&&a.indexOf(x)!==i)))issues.push(issue("GQ001",`The question name '${id}' is used more than once.`,qmd));for(const p of pages){if(/<\s*\/?\s*[A-Za-z][^>]*>/.test(p.body||""))issues.push(issue("GQ003",`Page '${p.id}' contains raw HTML.`,qmd));const target=p.nav?.page_next;if(target&&!knownP.has(target))issues.push(issue("GQ002",`Page '${p.id}' continues to missing page '${target}'.`,qmd,p._nav_line))}for(const q of questions){if(!q.id){issues.push(issue("GQ001","A question is missing its id.",qmd,q._line));continue}if(!ID_RE.test(String(q.id)))issues.push(issue("GQ001",`The question id '${q.id}' is invalid.`,qmd,q._line));if(!q.type||!TYPES.has(q.type))issues.push(issue("GQ003",`Question '${q.id}' uses a missing or unsupported type.`,qmd,q._line));if(!q.label)issues.push(issue("GQ003",`Question '${q.id}' needs participant-facing wording in label.`,qmd,q._line));if(["mc","mc_multiple","select","slider","matrix"].includes(q.type)&&!q.options?.length)issues.push(issue("GQ003",`Question '${q.id}' needs at least one answer choice.`,qmd,q._line));if(q.type==="matrix"&&!q.rows?.length)issues.push(issue("GQ003",`Matrix question '${q.id}' needs at least one row.`,qmd,q._line));if([...(q.options||[]),...(q.rows||[])].some(x=>x._looks_reversed))issues.push(issue("GQ011",`Question '${q.id}' appears to reverse displayed labels and stored values.`,qmd,q._line));for(const arg of q.unsupported_arguments||[])issues.push(issue("GQ003",`Question '${q.id}' uses unsupported argument '${arg}'.`,qmd,q._line))}const settings=parsed.front_matter?.["survey-settings"]||{},start=settings["start-page"]||pageIds[0];if(!knownP.has(start))issues.push(issue("GQ002",`The starting page '${start}' does not exist.`,qmd));for(const id of settings.required||[])if(!knownQ.has(id))issues.push(issue("GQ002",`The required-question list refers to '${id}', but it does not exist.`,qmd));for(const rule of config.logic?.show||[]){const target=rule.question||rule.page;if(!(rule.question?knownQ:knownP).has(target))issues.push(issue("GQ002",`A display rule refers to '${target}', but it does not exist.`,yml))}for(const rule of config.logic?.skip||[]){if(!knownP.has(rule.from))issues.push(issue("GQ002",`A route starts from missing page '${rule.from}'.`,yml));if(!knownP.has(rule.to))issues.push(issue("GQ002",`A route points to missing page '${rule.to}'.`,yml))}for(const [name,outcome] of Object.entries(config.outcomes||{}))if(!knownP.has(outcome.page))issues.push(issue("GQ002",`The '${name}' ending points to missing page '${outcome.page}'.`,yml));const errors=issues.filter(x=>x.severity==="error");return{schema_version:"0.2",status:errors.length?"failed":"passed",summary:`${errors.length} error(s), ${issues.length-errors.length} warning(s)`,issues}; }
+  function validateSurveyComplete(parsed,config,qmd="survey.qmd",yml="greedyq.yml"){
+    const report=validateSurvey(parsed,config,qmd,yml),issues=report.issues,pages=parsed.pages||[],questions=pages.flatMap(page=>page.questions||[]),pageIds=new Set(pages.map(page=>page.id)),questionIds=new Set(questions.map(question=>question.id));
+    const frontKeys=new Set(["title","greedyq","theme-settings","survey-settings","system-messages"]),namespaceKeys={greedyq:new Set(["spec_version"]),"theme-settings":new Set(["theme","barposition","barcolor","footer","footer-left","footer-center","footer-right"]),"survey-settings":new Set(["show-previous","use-cookies","all-required","start-page","highlight-unanswered","capture-metadata","required"]),"system-messages":new Set(["previous","next","required"])};
+    for(const key of Object.keys(parsed.front_matter||{}))if(!frontKeys.has(key))issues.push(issue("GQ003",`The survey header uses '${key}', which is not a supported setting.`,qmd,1));
+    for(const[name,allowed]of Object.entries(namespaceKeys))for(const key of Object.keys(parsed.front_matter?.[name]||{}))if(!allowed.has(key))issues.push(issue("GQ003",`The '${name}' section uses the unsupported setting '${key}'.`,qmd,1));
+    for(const id of pageIds)if(questionIds.has(id))issues.push(issue("GQ001",`'${id}' is used for both a page and a question. Use a different name for one of them.`,qmd));
+    for(const q of questions)for(const collection of ["options","rows"]){const values=(q[collection]||[]).map(item=>String(item.value));if(new Set(values).size!==values.length)issues.push(issue("GQ011",`Question '${q.id}' repeats a stored value in its ${collection}. Every stored value must be unique.`,qmd,q._line))}
+    for(const randomization of config.randomization||[]){const after=randomization.assignment_point?.after_page;if(!pageIds.has(after))issues.push(issue("GQ002",`Random assignment refers to missing page '${after}'.`,yml));if(Object.keys(randomization.conditions||{}).length<2)issues.push(issue("GQ007",`Random assignment '${randomization.id}' needs at least two conditions.`,yml));if(!randomization.persistence_key||!randomization.store?.condition_as)issues.push(issue("GQ007",`Random assignment '${randomization.id}' must save each participant's condition so it cannot change on resume.`,yml))}
+    const consent=config.consent;if(consent){const q=questions.find(item=>item.id===consent.confirmation_question);if(!q)issues.push(issue("GQ006",`Consent refers to missing question '${consent.confirmation_question}'.`,yml));else if(!(q.options||[]).some(option=>option.value===consent.accept_value))issues.push(issue("GQ006",`The configured consent answer '${consent.accept_value}' is not an option in question '${q.id}'.`,yml))}
+    for(const[name,outcome]of Object.entries(config.outcomes||{}))if(outcome.redirect&&!String(outcome.redirect).startsWith("https://"))issues.push(issue("GQ009",`The '${name}' redirect must use a secure https address.`,yml));
+    const unique=new Map;for(const item of issues)unique.set([item.code,item.file,item.line||0,item.message].join("|"),item);report.issues=[...unique.values()];const errors=report.issues.filter(item=>item.severity==="error");report.status=errors.length?"failed":"passed";report.summary=`${errors.length} error(s), ${report.issues.length-errors.length} warning(s)`;return report;
+  }
   const OPS=[["!=","not_equals"],["<=","lte"],[">=","gte"],["==","equals"],["<","lt"],[">","gt"]];
   function condition(expression){const s=String(expression).trim();for(const[c,key]of [[" and ","all"],[" or ","any"]])if(s.includes(c))return{[key]:s.split(c).map(condition)};for(const[token,key]of OPS)if(s.includes(token)){let[field,value]=s.split(token,2);field=field.trim()==="assignment_condition"?"condition":field.trim();return{field,[key]:scalar(value)}}return{unsupported:s};}
   function compileSurvey(parsed,config){
     const front=parsed.front_matter,settings=front["survey-settings"]||{},required=new Set(settings.required||[]),shows=config.logic?.show||[],validations=config.logic?.validate||[],skips=[...(config.logic?.skip||[])].sort((a,b)=>(b.priority||0)-(a.priority||0)),outcomes=config.outcomes||{},term=Object.fromEntries(Object.entries(outcomes).map(([key,v])=>[v.page,v.lifecycle_state||key]));
     const pages=parsed.pages.map((source,index)=>{const page={id:source.id,title:source.title,body:source.body,questions:source.questions.map(s=>{const q=Object.fromEntries(Object.entries(s).filter(([k])=>!k.startsWith("_")&&k!=="unsupported_arguments"));for(const key of ["options","rows"])if(q[key])q[key]=q[key].map(x=>Object.fromEntries(Object.entries(x).filter(([k])=>!k.startsWith("_"))));q.required=required.has(q.id);const show=shows.find(x=>x.question===q.id);if(show)q.show_if=condition(show.if);for(const rule of validations.filter(x=>x.question===q.id)){const expression=String(rule.if||""),exact=new RegExp(`^\\s*${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)\\s*$`).exec(expression),low=new RegExp(`${q.id}\\s*<\\s*(-?\\d+(?:\\.\\d+)?)`).exec(expression),high=new RegExp(`${q.id}\\s*>\\s*(-?\\d+(?:\\.\\d+)?)`).exec(expression);if(exact)q.max=Number(exact[1]);if(low&&high){q.min=Number(low[1]);q.max=Number(high[1])}if(expression.includes(`not answered(${q.id})`))q.required=true}if(q.id==="age"&&q.type==="numeric"&&q.min==null)q.min=0;return q})};const nav=source.nav||{};page.show_previous=Boolean(nav.show_previous??settings["show-previous"]??true);page.next=nav.page_next||(parsed.pages[index+1]?.id??null);if(nav.label_next)page.next_label=nav.label_next;const routes=skips.filter(x=>x.from===page.id).map(x=>({when:condition(x.if),to:x.to}));if(routes.length)page.routes=routes;if(term[page.id]){delete page.next;page.terminal=term[page.id]}return page});
     const random=config.randomization?.[0],conditions=random?Object.keys(random.conditions||{}):["default"],start=settings["start-page"]||pages[0].id,byId=new Map(pages.map(p=>[p.id,p])),paths={};for(const assigned of conditions.length?conditions:["default"]){const path=[];let current=start;while(byId.has(current)&&!path.includes(current)){path.push(current);const p=byId.get(current);if(p.terminal)break;current=(p.routes||[]).find(r=>r.when.field==="condition"&&r.when.equals===assigned)?.to??p.next}paths[assigned]=path}
-    return{study_id:config.study?.id||"greedyq_preview",title:config.study?.title||front.title||"greedyQ Survey",start_page:start,brand_color:front["theme-settings"]?.barcolor||"#315c8a",messages:{previous:front["system-messages"]?.previous||"Previous",next:front["system-messages"]?.next||"Continue",required:front["system-messages"]?.required||"Please answer the required questions before continuing."},conditions:conditions.length?conditions:["default"],progress_paths:paths,pages,...(random?.assignment_point?.after_page?{assignment_page:random.assignment_point.after_page}:{})};
+    return{study_id:config.study?.id||"greedyq_preview",title:config.study?.title||front.title||"greedyQ Survey",start_page:start,brand_color:front["theme-settings"]?.barcolor||"#315c8a",messages:{previous:front["system-messages"]?.previous||"Previous",next:front["system-messages"]?.next||"Continue",required:front["system-messages"]?.required||"Please answer the required questions before continuing."},conditions:conditions.length?conditions:["default"],progress_paths:paths,pages,runtime_policy:{mode:config.respondents?.mode||"test",consent:config.consent?{question:config.consent.confirmation_question,accept_value:config.consent.accept_value,refusal_outcome:config.consent.refusal_outcome}:null,respondent_source:config.respondents?.source||"direct_link",duplicate_policy:config.respondents?.duplicate_policy||"resume"},...(random?.assignment_point?.after_page?{assignment_page:random.assignment_point.after_page}:{})};
   }
   function detectDevice(win=window){const mobile=win.matchMedia?.("(max-width: 700px), (pointer: coarse)").matches||win.navigator.maxTouchPoints>0&&win.innerWidth<900;return mobile?"mobile":"desktop";}
   function createMemoryBackend(){const sessions=new Map(),allocations=[];return{kind:"memory",load:id=>sessions.get(id)||null,save:(id,state)=>sessions.set(id,JSON.parse(JSON.stringify(state))),clear:id=>sessions.delete(id),assign:(id,conditions)=>{const existing=allocations.find(x=>x.id===id);if(existing)return existing.condition;const counts=Object.fromEntries(conditions.map(c=>[c,allocations.filter(x=>x.condition===c).length])),min=Math.min(...Object.values(counts)),candidates=conditions.filter(c=>counts[c]===min),condition=candidates[allocations.length%candidates.length];allocations.push({id,condition});return condition},inspect:()=>({sessions:[...sessions.entries()],allocations:[...allocations]})};}
   function createLocalMockBackend(namespace="greedyq-mock"){const memory=createMemoryBackend(),key=`${namespace}:state`;try{const saved=JSON.parse(localStorage.getItem(key)||"null");for(const[id,state]of saved?.sessions||[])memory.save(id,state);for(const item of saved?.allocations||[])memory.assign(item.id,[item.condition])}catch{}const persist=()=>{try{localStorage.setItem(key,JSON.stringify(memory.inspect()))}catch{}};return{kind:"local-mock",load:memory.load,save:(id,s)=>{memory.save(id,s);persist()},clear:id=>{memory.clear(id);persist()},assign:(id,c)=>{const value=memory.assign(id,c);persist();return value},inspect:memory.inspect};}
+  function createConcurrentLocalMockBackend(namespace="greedyq-mock"){
+    const key=`${namespace}:state`,empty=()=>({sessions:[],allocations:[]}),read=()=>{try{return JSON.parse(localStorage.getItem(key)||"null")||empty()}catch{return empty()}},write=data=>localStorage.setItem(key,JSON.stringify(data)),clone=value=>value==null?null:JSON.parse(JSON.stringify(value));
+    return{kind:"local-mock",load(id){const found=read().sessions.find(item=>item[0]===id);return found?clone(found[1]):null},save(id,state){const data=read(),index=data.sessions.findIndex(item=>item[0]===id),current=index<0?null:data.sessions[index][1],expected=Number(state._revision||0);if(current&&Number(current._revision||0)!==expected)return{status:"conflict",current:clone(current)};const saved=clone(state);saved._revision=expected+1;state._revision=saved._revision;if(index<0)data.sessions.push([id,saved]);else data.sessions[index]=[id,saved];write(data);return{status:"saved",revision:saved._revision}},clear(id){const data=read();data.sessions=data.sessions.filter(item=>item[0]!==id);data.allocations=data.allocations.filter(item=>item.id!==id);write(data);return{status:"deleted"}},assign(id,conditions){const data=read(),existing=data.allocations.find(item=>item.id===id);if(existing)return existing.condition;const counts=Object.fromEntries(conditions.map(condition=>[condition,data.allocations.filter(item=>item.condition===condition).length])),minimum=Math.min(...Object.values(counts)),candidates=conditions.filter(condition=>counts[condition]===minimum),condition=candidates[data.allocations.length%candidates.length];data.allocations.push({id,condition});write(data);return condition},inspect:read};
+  }
   function createSupabaseBackend({url,anonKey}){if(!/^https:\/\//.test(url||"")||!anonKey)throw new Error("Supabase URL and anonymous key are required.");const rpc=async(name,body)=>{const response=await fetch(`${url.replace(/\/$/,"")}/rest/v1/rpc/${name}`,{method:"POST",headers:{apikey:anonKey,Authorization:`Bearer ${anonKey}`,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!response.ok)throw new Error(`Supabase RPC ${name} failed (${response.status}).`);return response.status===204?null:response.json()};return{kind:"supabase",load:id=>rpc("greedyq_resume_session",{p_session_id:id}),save:(id,state)=>rpc("greedyq_save_session",{p_session_id:id,p_state:state}),clear:id=>rpc("greedyq_withdraw_session",{p_session_id:id}),assign:(id,conditions)=>rpc("greedyq_assign_condition",{p_session_id:id,p_conditions:conditions})};}
+  function createSecureSupabaseBackend({url,anonKey,accessToken,studyId,studyVersion="unknown",specVersion="0.2",isTest=true,consentQuestion=null}){
+    if(!accessToken||accessToken.length<24)throw new Error("A strong session access token is required.");
+    const base=createSupabaseBackend({url,anonKey}),call=async(name,body)=>{const response=await fetch(`${url.replace(/\/$/,"")}/rest/v1/rpc/${name}`,{method:"POST",headers:{apikey:anonKey,Authorization:`Bearer ${anonKey}`,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!response.ok)throw new Error(`Supabase RPC ${name} failed (${response.status}).`);return response.status===204?null:response.json()};
+    return{kind:"supabase-secure",load:id=>call("greedyq_resume_session",{p_session_id:id,p_access_token:accessToken}),save:(id,state)=>call("greedyq_save_session",{p_session_id:id,p_access_token:accessToken,p_state:state,p_consent_question:consentQuestion}),clear:id=>call("greedyq_withdraw_session",{p_session_id:id,p_access_token:accessToken}),assign:(id,conditions)=>call("greedyq_assign_condition",{p_session_id:id,p_access_token:accessToken,p_study_id:studyId,p_study_version:studyVersion,p_spec_version:specVersion,p_conditions:conditions,p_is_test:isTest}),raw:base};
+  }
+  function parseProlificLaunch(search,mode="test"){
+    const params=new URLSearchParams(String(search).replace(/^\?/,"")),identifiers=Object.fromEntries(["PROLIFIC_PID","STUDY_ID","SESSION_ID"].map(key=>[key,params.get(key)])),issues=[];
+    for(const[key,value]of Object.entries(identifiers)){if(!value)issues.push({code:"GQ020",message:`${key} is required for a Prolific launch.`});else if(value.length>200)issues.push({code:"GQ020",message:`${key} is too long.`})}
+    if(!["test","production"].includes(mode))issues.push({code:"GQ020",message:"Respondent mode must be test or production."});return{status:issues.length?"failed":"passed",mode,identifiers,issues};
+  }
+  function stableSessionId(studyId,provided){const key=`greedyq-session:${studyId}`;if(provided){localStorage.setItem(key,provided);return provided}const prior=localStorage.getItem(key);if(prior)return prior;const created=crypto.randomUUID();localStorage.setItem(key,created);return created}
   const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   function mountRespondent(root,model,options={}){const mode=options.mode||detectDevice(root.ownerDocument.defaultView),backend=options.backend||createMemoryBackend(),sessionId=options.sessionId||`virtual-${Math.random().toString(36).slice(2)}`,pages=new Map(model.pages.map(p=>[p.id,p])),fresh=()=>({page:model.start_page,history:[],answers:{},condition:backend.assign(sessionId,model.conditions||["default"]),lifecycle:"active",visited:[]}),state=backend.load(sessionId)||fresh();root.className=`gq-app gq-${mode}`;root.innerHTML='<div class="gq-top"><b>greedyQ</b><span class="gq-progress"></span></div><main class="gq-card" aria-live="polite"></main>';const card=root.querySelector(".gq-card"),progress=root.querySelector(".gq-progress");const value=f=>f==="condition"?state.condition:state.answers[f],matches=r=>!r?true:r.all?r.all.every(matches):r.any?r.any.some(matches):"equals"in r?value(r.field)===r.equals:"not_equals"in r?value(r.field)!==r.not_equals:"lt"in r?Number(value(r.field))<r.lt:"lte"in r?Number(value(r.field))<=r.lte:"gt"in r?Number(value(r.field))>r.gt:"gte"in r?Number(value(r.field))>=r.gte:false,visible=p=>(p.questions||[]).filter(q=>matches(q.show_if)),nextFor=p=>(p.routes||[]).find(r=>matches(r.when))?.to??p.next;function input(q){const selected=state.answers[q.id];if(["mc","slider"].includes(q.type))return(q.options||[]).map(o=>`<label class="gq-choice"><input type="radio" name="${esc(q.id)}" value="${esc(o.value)}" ${selected===o.value?"checked":""}><span>${esc(o.label)}</span></label>`).join("");if(q.type==="mc_multiple")return(q.options||[]).map(o=>`<label class="gq-choice"><input type="checkbox" name="${esc(q.id)}" value="${esc(o.value)}" ${Array.isArray(selected)&&selected.includes(o.value)?"checked":""}><span>${esc(o.label)}</span></label>`).join("");if(q.type==="select")return`<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder||"Choose one")}</option>${q.options.map(o=>`<option value="${esc(o.value)}" ${selected===o.value?"selected":""}>${esc(o.label)}</option>`).join("")}</select>`;if(q.type==="matrix")return`<div class="gq-matrix">${q.rows.map(r=>`<fieldset><legend>${esc(r.label)}</legend>${q.options.map(o=>`<label><input type="radio" name="${esc(q.id+":"+r.value)}" value="${esc(o.value)}">${esc(o.label)}</label>`).join("")}</fieldset>`).join("")}</div>`;if(q.type==="textarea")return`<textarea data-id="${esc(q.id)}">${esc(selected||"")}</textarea>`;return`<input data-id="${esc(q.id)}" type="${q.type==="numeric"||q.type==="slider_numeric"?"number":q.type==="date"?"date":"text"}" value="${esc(selected??"")}" ${q.min!=null?`min="${q.min}"`:""} ${q.max!=null?`max="${q.max}"`:""}>`}function collect(p){for(const q of visible(p)){if(q.type==="mc_multiple"){const v=[...root.querySelectorAll(`[name="${CSS.escape(q.id)}"]:checked`)].map(x=>scalar(x.value));if(v.length)state.answers[q.id]=v;else delete state.answers[q.id];continue}if(q.type==="matrix"){const v={};for(const row of q.rows){const e=root.querySelector(`[name="${CSS.escape(q.id+":"+row.value)}"]:checked`);if(e)v[row.value]=scalar(e.value)}if(Object.keys(v).length)state.answers[q.id]=v;continue}const e=root.querySelector(`[name="${CSS.escape(q.id)}"]:checked`)||root.querySelector(`[data-id="${CSS.escape(q.id)}"]`);if(e&&e.value!=="")state.answers[q.id]=scalar(e.value);else delete state.answers[q.id]}}function missing(q){const v=state.answers[q.id];return q.required&&(v==null||v===""||Array.isArray(v)&&!v.length||q.type==="matrix"&&q.rows.some(r=>!Object.hasOwn(v||{},r.value)))}function save(){backend.save(sessionId,state);options.onState?.(JSON.parse(JSON.stringify(state)))}function render(message=""){const p=pages.get(state.page);if(!p){card.innerHTML="<h1>Route error</h1>";return}if(p.terminal)state.lifecycle=p.terminal;if(!state.visited.includes(p.id))state.visited.push(p.id);const path=model.progress_paths?.[state.condition]||model.pages.map(x=>x.id),pos=Math.max(0,path.indexOf(p.id))+1;progress.textContent=p.terminal?"Complete":`${pos} / ${path.length}`;card.innerHTML=`<p class="gq-eyebrow">${esc(model.title)}</p><h1>${esc(p.title)}</h1><div class="gq-copy">${esc(p.body||"")}</div>${visible(p).map(q=>`<fieldset class="gq-q" data-q="${esc(q.id)}"><legend>${esc(q.label)}${q.required?' <span aria-label="required">*</span>':""}</legend>${input(q)}</fieldset>`).join("")}${message?`<p class="gq-error" role="alert">${esc(message)}</p>`:""}<div class="gq-actions"><button data-back ${state.history.length&&p.show_previous!==false?"":"disabled"}>${esc(model.messages.previous)}</button>${p.terminal?`<strong>${esc(p.terminal)}</strong>`:`<button data-next>${esc(p.next_label||model.messages.next)}</button>`}</div>`;const back=card.querySelector("[data-back]");back.onclick=()=>{collect(p);state.page=state.history.pop();save();render()};const next=card.querySelector("[data-next]");if(next)next.onclick=()=>{collect(p);for(const q of p.questions||[])if(q.show_if&&!matches(q.show_if))delete state.answers[q.id];const invalid=visible(p).find(missing);if(invalid){render(`${model.messages.required} ${invalid.label}`);card.querySelector(`[data-q="${CSS.escape(invalid.id)}"] input,[data-q="${CSS.escape(invalid.id)}"] select,[data-q="${CSS.escape(invalid.id)}"] textarea`)?.focus();return}const target=nextFor(p);if(!target||!pages.has(target)){render("The next page is unavailable.");return}state.history.push(p.id);state.page=target;save();render()};save()}render();return{mode,sessionId,state,render,reset(){backend.clear(sessionId);Object.assign(state,fresh());render()},withdraw(){backend.clear(sessionId);state.lifecycle="withdrawn";card.innerHTML="<h1>Participation withdrawn</h1>"},backend};}
   function mountRespondentSafe(root,model,options={}){
-    const controller=mountRespondent(root,model,options);
-    root.addEventListener("click",event=>{
+    const source=options.backend||createMemoryBackend();
+    let assignmentAllowed=!model.assignment_page,assignmentRetry=false;
+    const deferred={...source,assign:(id,conditions)=>assignmentAllowed?source.assign(id,conditions):null};
+    const controller=mountRespondent(root,model,{...options,backend:deferred});
+    const reset=controller.reset;controller.reset=()=>{assignmentAllowed=!model.assignment_page;assignmentRetry=false;reset()};
+    root.addEventListener("click",async event=>{
       if(!event.target.closest("[data-next]"))return;
       const page=model.pages.find(item=>item.id===controller.state.page);
+      const consent=model.runtime_policy?.consent;
+      if(consent&&page?.questions?.some(question=>question.id===consent.question)){
+        const selected=root.querySelector(`[name="${CSS.escape(consent.question)}"]:checked`);
+        controller.state.consent_accepted=selected?scalar(selected.value)===consent.accept_value:false;
+      }
       for(const question of page?.questions||[]){
         if(!["numeric","slider_numeric"].includes(question.type))continue;
         const input=root.querySelector(`[data-id="${CSS.escape(question.id)}"]`);
@@ -481,16 +522,25 @@ SHA-256: `00cf563114483f92a127fe4d31755621d60385bc95d2b212e74dde4d5061588a`
         const value=Number(input.value),tooLow=question.min!=null&&value<question.min,tooHigh=question.max!=null&&value>question.max;
         if(tooLow||tooHigh){event.preventDefault();event.stopImmediatePropagation();const boundary=tooLow?`at least ${question.min}`:`at most ${question.max}`;controller.render(`${question.label} must be ${boundary}.`);root.querySelector(`[data-id="${CSS.escape(question.id)}"]`)?.focus();return}
       }
+      if(model.assignment_page===page?.id&&!controller.state.condition&&!assignmentRetry){
+        assignmentAllowed=true;
+        const assigned=source.assign(controller.sessionId,model.conditions||["default"]);
+        if(assigned&&typeof assigned.then==="function"){
+          event.preventDefault();event.stopImmediatePropagation();assignmentRetry=true;
+          assigned.then(condition=>{controller.state.condition=condition;assignmentRetry=false;event.target.closest("[data-next]")?.click()}).catch(error=>{assignmentRetry=false;controller.render("Random assignment could not be completed. Please try again.");options.onError?.(error)});
+        }else controller.state.condition=assigned;
+      }
     },true);
     return controller;
   }
   async function mountSupabaseRespondent(root,model,{url,anonKey,sessionId,onError}={}){
-    const remote=createSupabaseBackend({url,anonKey}),id=sessionId||crypto.randomUUID(),loaded=await remote.load(id),assigned=loaded?.condition||await remote.assign(id,model.conditions||["default"]),memory=createMemoryBackend();
-    if(loaded?.state)memory.save(id,loaded.state);else if(loaded?.page)memory.save(id,loaded);
-    const bridge={kind:"supabase-bridge",load:memory.load,assign:()=>assigned,inspect:memory.inspect,save:(sid,state)=>{memory.save(sid,state);remote.save(sid,state).catch(error=>onError?.(error))},clear:sid=>{memory.clear(sid);remote.clear(sid).catch(error=>onError?.(error))}};
+    const storageKey=`greedyq-capability:${model.study_id}`,saved=JSON.parse(localStorage.getItem(storageKey)||"null"),id=saved?.id||sessionId||crypto.randomUUID(),accessToken=saved?.accessToken||`${crypto.randomUUID()}${crypto.randomUUID()}`;localStorage.setItem(storageKey,JSON.stringify({id,accessToken}));
+    const remote=createSecureSupabaseBackend({url,anonKey,accessToken,studyId:model.study_id,specVersion:"0.2",isTest:model.runtime_policy?.mode!=="production",consentQuestion:model.runtime_policy?.consent?.question}),loaded=await remote.load(id),memory=createMemoryBackend();
+    if(loaded?.state)memory.save(id,{...loaded.state,condition:loaded.condition??loaded.state.condition??null});else if(loaded?.page)memory.save(id,loaded);
+    const bridge={kind:"supabase-bridge",load:memory.load,assign:(sid,conditions)=>remote.assign(sid,conditions),inspect:memory.inspect,save:(sid,state)=>{memory.save(sid,state);remote.save(sid,state).catch(error=>onError?.(error))},clear:sid=>{memory.clear(sid);remote.clear(sid).catch(error=>onError?.(error))}};
     return mountRespondentSafe(root,model,{mode:detectDevice(root.ownerDocument.defaultView),backend:bridge,sessionId:id,onState:state=>state});
   }
-  return {VERSION,ParseError,parseYaml,parseSurvey,validateSurvey,compileSurvey,condition,detectDevice,createMemoryBackend,createLocalMockBackend,createSupabaseBackend,mountRespondent:mountRespondentSafe,mountSupabaseRespondent};
+  return {VERSION,ParseError,parseYaml,parseSurvey,validateSurvey:validateSurveyComplete,compileSurvey,condition,detectDevice,parseProlificLaunch,stableSessionId,createMemoryBackend,createLocalMockBackend:createConcurrentLocalMockBackend,createSupabaseBackend:createSecureSupabaseBackend,mountRespondent:mountRespondentSafe,mountSupabaseRespondent};
 });
 ```
 
@@ -504,10 +554,31 @@ SHA-256: `8c1252d353ee7616d2959ded697e2f0d055a3c963e9abfd2611332ac8a572fdd`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `3ddf0629a84dd31b3cce1388257906675349b8034b70061e9f44a6d30e46939a`
+SHA-256: `74e9f13a00b9d6e4532e458724164a99dde416e2581c1d735da9878c696722df`
 
 ```html
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'"><title>greedyQ survey</title><link rel="stylesheet" href="greedyq-runtime.css"></head><body style="margin:0"><div id="survey"></div><script src="greedyq-core.js"></script><script id="greedyq-deployment" type="application/json">{"mode":"mock","supabase_url":null,"supabase_anon_key":null}</script><script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace me","start_page":"welcome","conditions":["default"],"messages":{"previous":"Previous","next":"Continue","required":"Please answer the required questions before continuing."},"progress_paths":{"default":["welcome"]},"pages":[{"id":"welcome","title":"Not built","body":"Build the study first.","questions":[],"terminal":"placeholder"}]}</script><script>(async()=>{const model=JSON.parse(document.getElementById("greedyq-model").textContent),deployment=JSON.parse(document.getElementById("greedyq-deployment").textContent),root=document.getElementById("survey"),sessionId=new URLSearchParams(location.search).get("session")||crypto.randomUUID();document.documentElement.style.setProperty("--gq-brand",model.brand_color||"#315c8a");if(deployment.mode==="supabase")await greedyQ.mountSupabaseRespondent(root,model,{url:deployment.supabase_url,anonKey:deployment.supabase_anon_key,sessionId,onError:error=>{root.insertAdjacentHTML("afterbegin",`<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>`);console.error(error)}});else greedyQ.mountRespondent(root,model,{mode:greedyQ.detectDevice(),backend:greedyQ.createLocalMockBackend(`greedyq:${model.study_id}`),sessionId});})().catch(error=>{document.getElementById("survey").innerHTML='<main class="gq-card"><h1>Survey unavailable</h1><p>The secure data connection could not be started.</p></main>';console.error(error)});</script></body></html>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
+<title>greedyQ survey</title><link rel="stylesheet" href="greedyq-runtime.css">
+</head><body style="margin:0"><div id="survey"></div>
+<script src="greedyq-core.js"></script>
+<script id="greedyq-deployment" type="application/json">{"mode":"mock","supabase_url":null,"supabase_anon_key":null}</script>
+<script id="greedyq-model" type="application/json">{"study_id":"replace_me","title":"Replace me","start_page":"welcome","conditions":["default"],"messages":{"previous":"Previous","next":"Continue","required":"Please answer the required questions before continuing."},"progress_paths":{"default":["welcome"]},"pages":[{"id":"welcome","title":"Not built","body":"Build the study first.","questions":[],"terminal":"placeholder"}]}</script>
+<script>
+(async()=>{
+  const model=JSON.parse(document.getElementById("greedyq-model").textContent),deployment=JSON.parse(document.getElementById("greedyq-deployment").textContent),root=document.getElementById("survey"),params=new URLSearchParams(location.search);
+  document.documentElement.style.setProperty("--gq-brand",model.brand_color||"#315c8a");
+  if(model.runtime_policy?.respondent_source?.startsWith("prolific")){
+    const launch=greedyQ.parseProlificLaunch(location.search,model.runtime_policy.mode);
+    if(launch.status!=="passed"){root.innerHTML='<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';return}
+  }
+  const sessionId=greedyQ.stableSessionId(model.study_id,params.get("session")||params.get("SESSION_ID"));
+  if(deployment.mode==="supabase")await greedyQ.mountSupabaseRespondent(root,model,{url:deployment.supabase_url,anonKey:deployment.supabase_anon_key,sessionId,onError:error=>{root.insertAdjacentHTML("afterbegin",'<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>');console.error(error)}});
+  else greedyQ.mountRespondent(root,model,{mode:greedyQ.detectDevice(),backend:greedyQ.createLocalMockBackend(`greedyq:${model.study_id}`),sessionId});
+})().catch(error=>{document.getElementById("survey").innerHTML='<main class="gq-card"><h1>Survey unavailable</h1><p>The secure data connection could not be started.</p></main>';console.error(error)});
+</script></body></html>
 ```
 
 ### FILE: `templates/browser/preview.html`
@@ -524,6 +595,84 @@ SHA-256: `9d98069b6f447fe61c0f0ac5efab4ba9d4941efc062f82d045ca816954793644`
 
 ```html
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>greedyQ browser studio</title><link rel="stylesheet" href="greedyq-runtime.css"><style>body{font-family:Inter,system-ui,sans-serif;margin:0;background:#f5f7fb;color:#172033}.studio{max-width:900px;margin:40px auto;background:#fff;padding:32px;border-radius:16px}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px}.drop{border:2px dashed #98a2b3;border-radius:12px;padding:20px}.status{white-space:pre-wrap;background:#101828;color:#d1e9ff;padding:14px;border-radius:10px}.preview{display:none;margin-top:28px}.preview-grid{display:grid;grid-template-columns:minmax(560px,1fr) 390px;gap:18px}.viewport{border:1px solid #d0d5dd;height:700px;overflow:auto}.mobile{max-width:390px}@media(max-width:1050px){.inputs,.preview-grid{grid-template-columns:1fr}.mobile{max-width:none}}</style></head><body><main class="studio"><h1>greedyQ browser studio</h1><p>Select the two study source files. Parsing, validation, compilation, mock storage, and rendering occur only in this browser.</p><div class="inputs"><label class="drop">survey.qmd<input id="qmd" type="file" accept=".qmd,.md,text/plain"></label><label class="drop">greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"></label></div><p><button id="build">Validate and preview</button></p><pre id="status" class="status">Waiting for files.</pre><section id="preview" class="preview"><h2>Responsive preview</h2><div class="preview-grid"><div class="viewport"><div id="desktop"></div></div><div class="viewport mobile"><div id="mobile"></div></div></div></section></main><script src="greedyq-core.js"></script><script>const read=id=>new Promise((resolve,reject)=>{const file=document.getElementById(id).files[0];if(!file)return reject(new Error(`Choose ${id==='qmd'?'survey.qmd':'greedyq.yml'}.`));const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsText(file)});document.getElementById("build").onclick=async()=>{const status=document.getElementById("status");try{const[qmd,yml]=await Promise.all([read("qmd"),read("yml")]),parsed=greedyQ.parseSurvey(qmd),config=greedyQ.parseYaml(yml),report=greedyQ.validateSurvey(parsed,config);status.textContent=JSON.stringify(report,null,2);if(report.status!=="passed"){document.getElementById("preview").style.display="none";return}const model=greedyQ.compileSurvey(parsed,config),backend=greedyQ.createMemoryBackend();for(const id of ["desktop","mobile"])document.getElementById(id).innerHTML="";greedyQ.mountRespondent(document.getElementById("desktop"),model,{mode:"desktop",backend,sessionId:"studio-desktop"});greedyQ.mountRespondent(document.getElementById("mobile"),model,{mode:"mobile",backend,sessionId:"studio-mobile"});document.getElementById("preview").style.display="block"}catch(error){status.textContent=`Could not build preview:\n${error.message}`}};</script></body></html>
+```
+
+### FILE: `templates/supabase/002_browser_rpc.sql`
+
+SHA-256: `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827`
+
+```sql
+-- greedyQ v0.2 browser RPC boundary. Apply after 001_initial.sql.
+alter table public.gq_sessions add column if not exists access_token_hash text;
+alter table public.gq_sessions add column if not exists browser_state jsonb not null default '{}'::jsonb;
+
+create or replace function public.greedyq_token_ok(p_session_id uuid, p_access_token text)
+returns boolean language sql stable security definer set search_path=public,pg_temp as $$
+  select exists(select 1 from public.gq_sessions where id=p_session_id and access_token_hash=encode(digest(p_access_token,'sha256'),'hex'));
+$$;
+
+create or replace function public.greedyq_resume_session(p_session_id uuid, p_access_token text)
+returns jsonb language sql stable security definer set search_path=public,pg_temp as $$
+  select case when public.greedyq_token_ok(p_session_id,p_access_token)
+    then jsonb_build_object('state',browser_state,'condition',(select condition from public.gq_assignments where session_id=p_session_id order by assigned_at limit 1))
+    else null end from public.gq_sessions where id=p_session_id;
+$$;
+
+create or replace function public.greedyq_assign_condition(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_conditions text[],p_is_test boolean)
+returns text language plpgsql security definer set search_path=public,pg_temp as $$
+declare v_condition text; v_min bigint;
+begin
+  if coalesce(array_length(p_conditions,1),0)<1 then raise exception 'conditions required'; end if;
+  perform pg_advisory_xact_lock(hashtext(p_study_id));
+  insert into public.gq_sessions(id,study_id,study_version,spec_version,is_test,access_token_hash)
+  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex')) on conflict(id) do nothing;
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+  select condition into v_condition from public.gq_assignments where session_id=p_session_id order by assigned_at limit 1;
+  if v_condition is not null then return v_condition; end if;
+  select min(n) into v_min from (select c,count(a.condition) filter(where s.id is not null) n from unnest(p_conditions)c left join public.gq_assignments a on a.condition=c left join public.gq_sessions s on s.id=a.session_id and s.study_id=p_study_id group by c)q;
+  select c into v_condition from unnest(p_conditions)c left join public.gq_assignments a on a.condition=c left join public.gq_sessions s on s.id=a.session_id and s.study_id=p_study_id group by c having count(a.condition) filter(where s.id is not null)=v_min order by c limit 1;
+  insert into public.gq_assignments(session_id,randomization_id,condition,method,draw_id,spec_version) values(p_session_id,'primary',v_condition,'least_count_locked',gen_random_uuid()::text,p_spec_version);
+  return v_condition;
+end;$$;
+
+create or replace function public.greedyq_save_session(p_session_id uuid,p_access_token text,p_state jsonb,p_consent_question text)
+returns void language plpgsql security definer set search_path=public,pg_temp as $$
+declare v_answers jsonb:=coalesce(p_state->'answers','{}'::jsonb); v_key text; v_value jsonb;
+begin
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+  if coalesce((p_state->>'consent_accepted')::boolean,false)=false and (select count(*) from jsonb_object_keys(v_answers) k where k<>p_consent_question)>0 then raise exception 'research data cannot be saved before consent'; end if;
+  update public.gq_sessions set browser_state=p_state,current_page=coalesce(p_state->>'page',current_page),lifecycle_state=coalesce(p_state->>'lifecycle',lifecycle_state),updated_at=now() where id=p_session_id;
+  for v_key,v_value in select * from jsonb_each(v_answers) loop
+    if v_key=p_consent_question or coalesce((p_state->>'consent_accepted')::boolean,false) then insert into public.gq_answers(session_id,question_id,value) values(p_session_id,v_key,v_value) on conflict(session_id,question_id) do update set value=excluded.value,answered_at=now(); end if;
+  end loop;
+end;$$;
+
+create or replace function public.greedyq_register_external(p_session_id uuid,p_access_token text,p_provider text,p_participant_id text,p_external_study_id text,p_external_session_id text)
+returns void language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+  if p_provider<>'prolific' or coalesce(length(p_participant_id),0)<1 or length(p_participant_id)>200 then raise exception 'invalid external participant identifier'; end if;
+  insert into public.gq_external_identifiers(session_id,provider,participant_id,external_study_id,external_session_id)
+  values(p_session_id,p_provider,p_participant_id,p_external_study_id,p_external_session_id)
+  on conflict(provider,participant_id,external_study_id) do update set external_session_id=excluded.external_session_id
+  where public.gq_external_identifiers.session_id=excluded.session_id;
+  if not found then raise exception 'duplicate participant'; end if;
+end;$$;
+
+create or replace function public.greedyq_withdraw_session(p_session_id uuid,p_access_token text)
+returns void language plpgsql security definer set search_path=public,pg_temp as $$
+declare v_state text;
+begin
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+  select lifecycle_state into v_state from public.gq_sessions where id=p_session_id for update;
+  if v_state='withdrawn' then return; end if;
+  delete from public.gq_answers where session_id=p_session_id; delete from public.gq_assignments where session_id=p_session_id; delete from public.gq_external_identifiers where session_id=p_session_id; delete from public.gq_consent_events where session_id=p_session_id;
+  update public.gq_sessions set lifecycle_state='withdrawn',current_page='withdrawn',browser_state='{"lifecycle":"withdrawn"}'::jsonb,updated_at=now(),terminal_at=coalesce(terminal_at,now()) where id=p_session_id;
+  insert into public.gq_lifecycle_events(session_id,from_state,to_state,page_id,metadata) values(p_session_id,v_state,'withdrawn','withdrawn',jsonb_build_object('research_data_deleted',true));
+end;$$;
+
+revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
+grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;
 ```
 
 ### FILE: `examples/complete-study/supabase/migrations/001_initial.sql`
@@ -1003,7 +1152,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66`
+SHA-256: `2cd90a30773c253e70d811350158434978053401df1eb3bf35b4ece6018ef701`
 
 ```json
 {
@@ -1025,7 +1174,17 @@ SHA-256: `d9d2d8b3ca1640baf1647d2f7bd90d1e0641eb9e7124de0fb94892ca0e4e1a66`
     "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
     "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
-    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}}
+    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}},
+    "runtime_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mode", "consent", "respondent_source", "duplicate_policy"],
+      "properties": {
+        "mode": {"enum": ["test", "production"]},
+        "consent": {"type": ["object", "null"], "properties": {"question": {"type": ["string", "null"]}, "accept_value": {"$ref": "#/$defs/scalar"}, "refusal_outcome": {"type": ["string", "null"]}}, "additionalProperties": false},
+        "respondent_source": {"type": "string"},
+        "duplicate_policy": {"enum": ["resume", "reject", "allow"]}
+      }
+    }
   },
   "$defs": {
     "scalar": {"type": ["string", "number", "boolean", "null"]},
@@ -1088,10 +1247,10 @@ __version__ = "0.2.0-draft.1"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `12ac1d26cc21808cdc3fd9c48027123a4cbf0b91b5debcba9f1084e85416c8a8`
+SHA-256: `c569eddcf218e0a7ccbb00f67f1efadffb50b351e147aa4a3a1f9eabbe88a272`
 
 ```python
-"""Command-line interface for greedyQ's zero-install reference implementation."""
+"""CLI for greedyQ's dependency-light Python reference implementation."""
 
 import argparse
 import functools
@@ -1105,6 +1264,9 @@ from .build import build, load_study
 from .server import serve
 from .runtime import Store
 from .validator import validate
+from .deployment import preflight
+from .exporter import generate as generate_export
+from .preregistration import generate as generate_preregistration
 
 
 def show_report(report):
@@ -1120,7 +1282,7 @@ def show_report(report):
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("validate", "build"):
+    for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
     preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
     run = sub.add_parser("run"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
@@ -1130,6 +1292,18 @@ def main(argv=None):
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
+        if args.command == "preflight":
+            report = preflight(args.study_dir); show_report(report); return 0 if report["status"] == "passed" else 1
+        if args.command in ("preregister", "export-surveydown"):
+            study, parsed, config = load_study(args.study_dir)
+            report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
+            show_report(report)
+            if report["status"] != "passed": return 1
+            if args.command == "preregister":
+                result = generate_preregistration(study, config); print("Preregistration draft created: %s" % result["markdown"])
+            else:
+                output, _ = generate_export(study, parsed, config); print("Native surveydown export created: %s" % output)
+            return 0
         report, model = build(args.study_dir)
         show_report(report)
         if report["status"] != "passed": return 1
@@ -1589,7 +1763,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `48330158ae7f48908805bc9ad045daa6a40e86847dd135ecee8d21d45a032a2a`
+SHA-256: `1b341730eded843a431f380e4e1932ad8b0eeebda307f9fc5af0eb2babc5fc09`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
@@ -1719,6 +1893,16 @@ def compile_preview(parsed, config):
         "conditions": conditions,
         "progress_paths": paths,
         "pages": pages,
+        "runtime_policy": {
+            "mode": config.get("respondents", {}).get("mode", "test"),
+            "consent": ({
+                "question": config.get("consent", {}).get("confirmation_question"),
+                "accept_value": config.get("consent", {}).get("accept_value"),
+                "refusal_outcome": config.get("consent", {}).get("refusal_outcome"),
+            } if config.get("consent") else None),
+            "respondent_source": config.get("respondents", {}).get("source", "direct_link"),
+            "duplicate_policy": config.get("respondents", {}).get("duplicate_policy", "resume"),
+        },
     }
     if assignment_page: model["assignment_page"] = assignment_page
     return model
@@ -1726,7 +1910,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `68290bcebc4f26f5be8c9c8c06c81045b4185ff665e7d0329209388b4f6a4f98`
+SHA-256: `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -1777,6 +1961,8 @@ def build(study_dir, write=True):
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
+        migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
+        (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
     return report, model
 ```
 
@@ -2010,6 +2196,147 @@ def make_handler(model, config, store):
 
 def serve(model,config,store,port=4180):
     server=ThreadingHTTPServer(("localhost",port),make_handler(model,config,store));return server
+```
+
+### FILE: `greedyq/prolific.py`
+
+SHA-256: `c17995c246f9f1716b41dc1bfd8c8d819a432b594e2f6e96ee6661b2c0a05261`
+
+```python
+"""Pure validation and normalization for Prolific-compatible launch parameters."""
+
+from urllib.parse import parse_qs, urlencode, urlparse
+
+REQUIRED = ("PROLIFIC_PID", "STUDY_ID", "SESSION_ID")
+
+
+def parse_launch(url_or_query, mode="test"):
+    parsed = urlparse(url_or_query)
+    query = parsed.query if parsed.query else url_or_query.lstrip("?")
+    values = {key: items[-1] for key, items in parse_qs(query, keep_blank_values=True).items()}
+    issues = []
+    for key in REQUIRED:
+        value = values.get(key, "")
+        if not value: issues.append({"code": "GQ020", "message": "%s is required for a Prolific launch." % key})
+        elif len(value) > 200: issues.append({"code": "GQ020", "message": "%s is too long." % key})
+    if mode not in ("test", "production"):
+        issues.append({"code": "GQ020", "message": "Respondent mode must be test or production."})
+    return {"status": "passed" if not issues else "failed", "mode": mode, "identifiers": {key: values.get(key) for key in REQUIRED}, "issues": issues}
+
+
+def completion_url(base_url, completion_code):
+    if not base_url.startswith("https://"):
+        raise ValueError("Prolific completion URLs must use HTTPS.")
+    if not completion_code or len(completion_code) > 100:
+        raise ValueError("A valid Prolific completion code is required.")
+    separator = "&" if "?" in base_url else "?"
+    return base_url + separator + urlencode({"cc": completion_code})
+```
+
+### FILE: `greedyq/preregistration.py`
+
+SHA-256: `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae`
+
+```python
+"""Generate deterministic preregistration drafts without external submission."""
+
+import hashlib
+import json
+from pathlib import Path
+
+
+def _hash(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def generate(study_dir, config):
+    study_dir = Path(study_dir); output = study_dir / "preregistration"; output.mkdir(exist_ok=True)
+    prereg = config.get("preregistration", {})
+    decisions = prereg.get("decisions", {})
+    unresolved = prereg.get("unresolved_decisions", []) or []
+    data = {
+        "schema_version": "0.2", "adapter": prereg.get("adapter", "generic_markdown"),
+        "status": "draft_unapproved", "study_id": config.get("study", {}).get("id"),
+        "study_version": config.get("study", {}).get("version"), "title": config.get("study", {}).get("title"),
+        "hypotheses": decisions.get("hypotheses", []), "design": decisions.get("design", {}),
+        "sampling": decisions.get("sampling", {}), "exclusions": decisions.get("exclusions", {}),
+        "analysis": decisions.get("analysis", {}), "registry": {"submitted": False, "verified": False, "registration_id": None, "url": None},
+        "unresolved_decisions": unresolved, "researcher_approved": False, "fielding_allowed": False,
+    }
+    json_path = output / "preregistration.json"; json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    def section(name, value): return "## %s\n\n```json\n%s\n```\n" % (name, json.dumps(value, ensure_ascii=False, indent=2))
+    md = "# %s\n\n**Status: DRAFT — NOT SUBMITTED OR APPROVED**\n\n" % (data["title"] or "Study preregistration")
+    for name in ("hypotheses", "design", "sampling", "exclusions", "analysis", "unresolved_decisions"):
+        md += section(name.replace("_", " ").title(), data[name]) + "\n"
+    md_path = output / ("osf-preregistration.md" if data["adapter"] == "osf_preregistration" else "preregistration.md"); md_path.write_text(md)
+    covered = [name for name in ("survey.qmd", "greedyq.yml", "consent.md") if (study_dir / name).is_file()]
+    manifest = {"schema_version": "0.2", "status": "draft_unapproved", "artifacts": [{"path": name, "sha256": _hash(study_dir / name)} for name in covered] + [{"path": str(json_path.relative_to(study_dir)), "sha256": _hash(json_path)}, {"path": str(md_path.relative_to(study_dir)), "sha256": _hash(md_path)}]}
+    manifest_path = output / "artifact-manifest.json"; manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    return {"json": json_path, "markdown": md_path, "manifest": manifest_path, "ready_for_submission": not unresolved}
+```
+
+### FILE: `greedyq/exporter.py`
+
+SHA-256: `c6f720d79292c2b5820344c362795cbe10dc5cfce006fcf6214b5cfb808f2045`
+
+```python
+"""Generate an independent native surveydown project and compatibility report."""
+
+import json
+import shutil
+from pathlib import Path
+
+
+APP_R = '''# Generated independently by greedyQ {version}.\n# Review and test this native surveydown export before use.\nlibrary(surveydown)\n\ndb <- sd_db_connect()\nui <- sd_ui()\nserver <- function(input, output, session) {{\n  sd_server(db = db)\n}}\nshiny::shinyApp(ui = ui, server = server)\n'''
+
+
+def generate(study_dir, parsed, config):
+    study_dir = Path(study_dir); output = study_dir / "export/surveydown"; output.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(study_dir / "survey.qmd", output / "survey.qmd")
+    for name in ("consent.md", "consent(kor).md"):
+        if (study_dir / name).is_file(): shutil.copyfile(study_dir / name, output / name)
+    (output / "app.R").write_text(APP_R.format(version=config.get("spec_version", "0.2")))
+    features = [{"id": "qmd_pages_and_questions", "classification": "directly_portable", "note": "Supported question and page syntax is preserved."}]
+    if config.get("logic"): features.append({"id": "declarative_logic", "classification": "generated", "note": "Review native reactive behavior before fielding."})
+    if config.get("randomization"): features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
+    if config.get("consent"): features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    mismatches = [item["note"] for item in features if item["classification"] in ("greedyq_only", "unsupported")]
+    counts = {key: sum(item["classification"] == key for item in features) for key in ("directly_portable", "generated", "greedyq_only", "unsupported")}
+    report = {"report_version": "0.2", "generator_status": "generated_unverified", "study_id": config.get("study", {}).get("id"), "spec_version": config.get("spec_version"), "summary": counts, "features": features, "material_mismatches": mismatches, "equivalence_claimed": not mismatches}
+    (output / "compatibility-report.json").write_text(json.dumps(report, indent=2) + "\n")
+    return output, report
+```
+
+### FILE: `greedyq/deployment.py`
+
+SHA-256: `d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f`
+
+```python
+"""Offline preflight for the static Vercel and Supabase handoff bundle."""
+
+import json
+from pathlib import Path
+
+
+REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "vercel.json", ".env.example")
+REQUIRED_RPC = ("greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
+
+
+def preflight(study_dir):
+    root = Path(study_dir); issues = []
+    for name in REQUIRED_STATIC:
+        if not (root / name).is_file(): issues.append({"code": "GQ030", "message": "Missing deployment file: %s" % name})
+    try:
+        vercel = json.loads((root / "vercel.json").read_text())
+        if vercel.get("framework") not in (None, "static"): issues.append({"code": "GQ030", "message": "Vercel must serve the static bundle without a framework runtime."})
+    except (OSError, ValueError): issues.append({"code": "GQ030", "message": "vercel.json is missing or invalid."})
+    migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
+    for rpc in REQUIRED_RPC:
+        if rpc not in migrations: issues.append({"code": "GQ031", "message": "Supabase migration does not define %s." % rpc})
+    for path in root.glob("**/*"):
+        if path.is_file() and path.stat().st_size < 2_000_000:
+            text = path.read_text(errors="ignore")
+            if "service_role" in text.lower() and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
+    return {"status": "passed" if not issues else "failed", "issues": issues}
 ```
 
 <!-- GREEDYQ_BUNDLE_END -->

@@ -679,5 +679,15 @@
       "show_previous": true,
       "terminal": "technical_error"
     }
-  ]
+  ],
+  "runtime_policy": {
+    "mode": "test",
+    "consent": {
+      "question": "consent_choice",
+      "accept_value": "yes",
+      "refusal_outcome": "consent_refused"
+    },
+    "respondent_source": "direct_link",
+    "duplicate_policy": "resume"
+  }
 }

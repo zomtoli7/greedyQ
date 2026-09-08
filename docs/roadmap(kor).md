@@ -48,11 +48,11 @@ docs/surveydown-compatibility(kor).md
 - [ ] Navigation, validation, lifecycle semantics 정의
 - [ ] Randomization semantics와 저장 metadata 정의
 - [ ] Persistence 및 session 동작 정의
-- [ ] Supabase schema 정의
+- [x] Supabase schema 및 browser RPC boundary 정의
 - [ ] Compliance를 주장하지 않는 ethics/IRB metadata 정의
 - [ ] Versioned consent, refusal, amendment, withdrawal semantics 정의
-- [ ] Generic external-respondent contract 및 Prolific preset 정의
-- [ ] 구조화된 preregistration contract, template adapter, artifact manifest 정의
+- [x] Generic external-respondent contract 및 초기 Prolific preset 정의
+- [x] 구조화된 preregistration contract, 초기 template adapter, artifact manifest 정의
 - [ ] 안정적인 validator diagnostic code 정의
 - [x] 표시 label/저장 value 방향과 필수 cross-artifact 검사 정의
 - [x] 모든 AI state artifact에 published-schema validation 요구
@@ -130,12 +130,12 @@ examples/complete-study/
 - [ ] `GQ011` stored-value symbol-table 및 cross-artifact validation 구현
 - [ ] 생성된 모든 `.greedyq/*.json`의 `GQ012` validation 구현
 - [ ] Withdrawal, RLS, export에 대한 `GQ013` migration-contract validation 구현
-- [ ] Generation/strict mode에서 unknown QMD front-matter key 거부
-- [ ] Native surveydown exporter 및 결정론적 `app.R` generator 생성
+- [x] Generation/strict mode에서 unknown QMD front-matter key 거부
+- [x] 초기 native surveydown exporter 및 결정론적 `app.R` generator 생성
 - [x] 초기 framework-independent browser renderer 생성; core conformance 통과 후에만 optional framework adapter 평가
 - [x] 초기 안전한 self-contained preview runtime과 researcher debug panel 생성
-- [ ] Supabase migration 및 access policy 생성
-- [ ] Vercel 배포 template 생성
+- [x] 계정 없는 handoff test를 위한 canonical Supabase migration, RPC 및 access policy 생성
+- [x] Static Vercel 배포 template 및 offline preflight 생성
 - [x] 초기 로컬 validation 및 preview 명령 구현
 - [ ] 독립 작성한 conformance fixture 및 native export snapshot 자동 테스트 추가
 

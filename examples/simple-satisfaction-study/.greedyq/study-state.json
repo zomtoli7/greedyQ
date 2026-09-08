@@ -42,7 +42,8 @@
     ".greedyq/validation-report.json",
     ".greedyq/normalized-survey.json",
     ".greedyq/validation-report.runtime.json",
-    "studio.html"
+    "studio.html",
+    "supabase/migrations/002_browser_rpc.sql"
   ],
   "gates": {
     "design": {

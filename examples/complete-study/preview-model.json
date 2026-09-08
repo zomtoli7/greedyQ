@@ -603,5 +603,15 @@
       "terminal": "technical_error"
     }
   ],
+  "runtime_policy": {
+    "mode": "test",
+    "consent": {
+      "question": "consent_choice",
+      "accept_value": "yes",
+      "refusal_outcome": "consent_refused"
+    },
+    "respondent_source": "prolific",
+    "duplicate_policy": "resume"
+  },
   "assignment_page": "baseline"
 }

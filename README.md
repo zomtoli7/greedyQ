@@ -116,7 +116,7 @@ greedyQ is an independent implementation that supports a documented subset of su
 
 ## Project status
 
-greedyQ is in the browser-native working-preview phase. The fixed JavaScript core parses QMD/YAML, validates and compiles the supported v0.2 subset, renders adaptive desktop/mobile respondent views, and renders both views together with mock persistence and assignment for local review. Its normalized output conforms to the Python reference on both golden studies. Static production-shaped files are generated for Vercel; the authoritative production Supabase adapter and live deployment verification remain incomplete.
+greedyQ now has an account-free, connection-ready v0.2 runtime candidate. The fixed JavaScript core parses QMD/YAML, validates and compiles the supported subset, renders adaptive desktop/mobile respondent views, and renders both views together with mock persistence and assignment for local review. Its normalized output conforms to the Python reference on both golden studies and on negative validator fixtures. Static Vercel files, canonical Supabase RPC migrations, Prolific launch validation, preregistration drafts, native surveydown export, and offline preflight are implemented. Live service connection and verification remain deliberately unperformed; see [external connection readiness](./docs/external-connection-readiness.md).
 
 ## Try the responsive preview
 

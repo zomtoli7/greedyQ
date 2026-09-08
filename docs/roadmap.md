@@ -48,11 +48,11 @@ docs/surveydown-compatibility(kor).md
 - [ ] Define navigation, validation, and lifecycle semantics.
 - [ ] Define randomization semantics and stored metadata.
 - [ ] Define persistence and session behavior.
-- [ ] Define the Supabase schema.
+- [x] Define the Supabase schema and browser RPC boundary.
 - [ ] Define ethics/IRB metadata without making compliance claims.
 - [ ] Define versioned consent, refusal, amendment, and withdrawal semantics.
-- [ ] Define the generic external-respondent contract and Prolific preset.
-- [ ] Define the structured preregistration contract, template adapters, and artifact manifest.
+- [x] Define the generic external-respondent contract and initial Prolific preset.
+- [x] Define the structured preregistration contract, initial template adapter, and artifact manifest.
 - [ ] Define stable validator diagnostic codes.
 - [x] Define the display-label/stored-value direction and mandatory cross-artifact checks.
 - [x] Require published-schema validation for every AI state artifact.
@@ -130,12 +130,12 @@ examples/complete-study/
 - [ ] Implement `GQ011` stored-value symbol-table and cross-artifact validation.
 - [ ] Implement `GQ012` validation of all generated `.greedyq/*.json` files.
 - [ ] Implement `GQ013` migration-contract validation for withdrawal, RLS, and export.
-- [ ] Reject unknown QMD front-matter keys in generation/strict mode.
-- [ ] Create the native surveydown exporter and deterministic `app.R` generator.
+- [x] Reject unknown QMD front-matter keys in generation/strict mode.
+- [x] Create the initial native surveydown exporter and deterministic `app.R` generator.
 - [x] Create the initial framework-independent browser renderer; evaluate optional framework adapters only after the core contract passes conformance.
 - [x] Create the initial safe self-contained preview runtime and researcher debug panel.
-- [ ] Create Supabase migrations and access policies.
-- [ ] Create a Vercel deployment template.
+- [x] Create canonical Supabase migrations, RPCs, and access policies for account-free handoff testing.
+- [x] Create a static Vercel deployment template and offline preflight.
 - [x] Implement initial local validation and preview commands.
 - [ ] Add automated tests for independently authored conformance fixtures and native export snapshots.
 

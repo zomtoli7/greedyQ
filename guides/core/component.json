@@ -22,6 +22,7 @@
     "templates/browser/respondent.html",
     "templates/browser/preview.html",
     "templates/browser/studio.html",
+    "templates/supabase/002_browser_rpc.sql",
     "greedyq/__init__.py",
     "greedyq/__main__.py",
     "greedyq/yaml_min.py",
@@ -30,6 +31,10 @@
     "greedyq/compiler.py",
     "greedyq/build.py",
     "greedyq/runtime.py",
-    "greedyq/server.py"
+    "greedyq/server.py",
+    "greedyq/prolific.py",
+    "greedyq/preregistration.py",
+    "greedyq/exporter.py",
+    "greedyq/deployment.py"
   ]
 }

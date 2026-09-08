@@ -17,7 +17,17 @@
     "assignment_page": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
     "conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
     "progress_paths": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
-    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}}
+    "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/page"}},
+    "runtime_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mode", "consent", "respondent_source", "duplicate_policy"],
+      "properties": {
+        "mode": {"enum": ["test", "production"]},
+        "consent": {"type": ["object", "null"], "properties": {"question": {"type": ["string", "null"]}, "accept_value": {"$ref": "#/$defs/scalar"}, "refusal_outcome": {"type": ["string", "null"]}}, "additionalProperties": false},
+        "respondent_source": {"type": "string"},
+        "duplicate_policy": {"enum": ["resume", "reject", "allow"]}
+      }
+    }
   },
   "$defs": {
     "scalar": {"type": ["string", "number", "boolean", "null"]},

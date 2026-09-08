@@ -125,6 +125,16 @@ def compile_preview(parsed, config):
         "conditions": conditions,
         "progress_paths": paths,
         "pages": pages,
+        "runtime_policy": {
+            "mode": config.get("respondents", {}).get("mode", "test"),
+            "consent": ({
+                "question": config.get("consent", {}).get("confirmation_question"),
+                "accept_value": config.get("consent", {}).get("accept_value"),
+                "refusal_outcome": config.get("consent", {}).get("refusal_outcome"),
+            } if config.get("consent") else None),
+            "respondent_source": config.get("respondents", {}).get("source", "direct_link"),
+            "duplicate_policy": config.get("respondents", {}).get("duplicate_policy", "resume"),
+        },
     }
     if assignment_page: model["assignment_page"] = assignment_page
     return model
