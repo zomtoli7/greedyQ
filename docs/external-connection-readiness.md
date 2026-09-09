@@ -30,14 +30,15 @@ No live Vercel deployment, Supabase migration, Prolific study configuration, OSF
 1. Complete researcher review of the local desktop and mobile preview.
 2. Resolve every validation error and material research decision.
 3. Generate and review the preregistration draft; submit only after separate explicit approval.
-4. Create a Supabase project in the approved region and apply `001_initial.sql`, then `002_browser_rpc.sql`.
-   Follow the nontechnical [Supabase setup guide](../SUPABASE-SETUP.md); do not provide a service-role key or database password.
-5. Put only the Supabase project URL and anonymous key into the deployment configuration. Never expose a service-role key or database password.
+4. Sign in to Vercel and approve a Supabase Marketplace resource in the approved region. The connected agent applies all migrations, including `003_results_dashboard.sql`; manual SQL is a recovery path only.
+5. Let Vercel synchronize the Supabase environment variables. The survey receives only public configuration; the protected results function receives its server secret without placing it in browser files.
 6. Run `python3 -m greedyq preflight STUDY_DIR` or the equivalent agent check.
-7. Deploy the already-tested static bundle to Vercel.
+7. Deploy the public survey and a separately Vercel-authenticated results application.
 8. Configure Prolific test parameters and non-production completion routes, then run a full test submission.
 9. Verify resume, duplicate handling, consent refusal, both experiment conditions, completion, withdrawal, and analysis export against the connected test services.
 10. Require a separate researcher decision before switching to production and recruiting participants.
+
+Completion requires two verified URLs: the survey link and the results link. A direct test response must appear under Test/Direct while the Real responses count remains unchanged.
 
 ## Evidence and limits
 

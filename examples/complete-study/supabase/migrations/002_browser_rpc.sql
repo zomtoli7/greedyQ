@@ -4,6 +4,7 @@ create extension if not exists pgcrypto with schema extensions;
 alter table public.gq_sessions add column if not exists access_token_hash text;
 alter table public.gq_sessions add column if not exists browser_state jsonb not null default '{}'::jsonb;
 alter table public.gq_sessions add column if not exists greedyq_version text not null default 'unknown';
+alter table public.gq_sessions add column if not exists respondent_source text not null default 'direct';
 
 create or replace function public.greedyq_token_ok(p_session_id uuid, p_access_token text)
 returns boolean language sql stable security definer set search_path=public,pg_temp as $$
@@ -67,6 +68,7 @@ begin
   on conflict(provider,participant_id,external_study_id) do update set external_session_id=excluded.external_session_id
   where public.gq_external_identifiers.session_id=excluded.session_id;
   if not found then raise exception 'duplicate participant'; end if;
+  update public.gq_sessions set respondent_source='prolific',updated_at=now() where id=p_session_id;
 end;$$;
 
 create or replace function public.greedyq_withdraw_session(p_session_id uuid,p_access_token text)

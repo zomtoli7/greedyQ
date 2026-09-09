@@ -75,6 +75,18 @@ class ReleasePipelineTests(unittest.TestCase):
         for token in ("greedyq_create_session", "p_access_token", "p_greedyq_version", "extensions.digest(p_access_token", "pg_advisory_xact_lock", "security definer", "research data cannot be saved before consent", "greedyq_register_external", "duplicate participant", "for update", "research_data_deleted", "grant execute"):
             self.assertIn(token, sql)
         self.assertNotIn("grant select on public.gq_answers to anon", sql)
+        self.assertIn("respondent_source='prolific'", sql)
+
+    def test_results_dashboard_is_built_with_server_only_database_access(self):
+        dashboard = (ROOT / "templates/browser/results.html").read_text()
+        api = (ROOT / "templates/vercel/api/results.js").read_text()
+        migration = (ROOT / "templates/supabase/003_results_dashboard.sql").read_text()
+        for token in ("Real responses", "Test responses", "Direct", "Prolific", "Download CSV", "Where participants stopped", "Conditions", "Answer summary"):
+            self.assertIn(token, dashboard)
+        self.assertIn("SUPABASE_SECRET_KEY", api)
+        self.assertNotIn("SUPABASE_SECRET_KEY", dashboard)
+        self.assertIn("respondent_source", migration)
+        self.assertIn("is_test", api)
 
     def test_browser_connection_tester_uses_only_synthetic_public_configuration(self):
         tester = (ROOT / "templates/supabase/connection-test.html").read_text().lower()

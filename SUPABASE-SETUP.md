@@ -1,5 +1,7 @@
 # Connect a Supabase Project
 
+> **Recovery guide:** The normal greedyQ flow provisions Supabase through Vercel and does not ask the researcher to use this page. Follow these manual steps only when automatic provisioning is unavailable or being diagnosed. See the [Results Dashboard guide](./RESULTS-DASHBOARD.md).
+
 [한국어](./SUPABASE-SETUP(kor).md)
 
 **greedyQ release:** `0.2_2026-09-09_3aefdd0`

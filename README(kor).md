@@ -6,7 +6,7 @@
 - **현재 release:** `0.2_2026-09-09_3aefdd0`
 - **Release source commit:** [`3aefdd0`](https://github.com/zomtoli7/greedyQ/commit/3aefdd0) · [업데이트 히스토리](./updates/README(kor).md)
 
-[설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [Supabase 연결](./SUPABASE-SETUP(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 

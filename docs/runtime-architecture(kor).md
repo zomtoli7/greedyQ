@@ -55,6 +55,10 @@ Preview와 production은 동일한 JavaScript parser, validator, AST, renderer�
 
 Static HTML/CSS/JavaScript는 server-side application framework 없이 Vercel에 배포할 수 있습니다. Duplicate-participation check, durable assignment, response persistence, withdrawal/deletion, lifecycle transition, protected export 같은 보안 작업은 row-level security로 보호되는 PostgreSQL transaction 또는 Supabase RPC에서 수행합니다. 적절한 보안 정책 아래 browser에 Supabase project URL과 anonymous key를 포함할 수 있지만 service-role key, database password, randomization secret, administrator credential은 절대 포함하면 안 됩니다.
 
+## 결과 접근 경계
+
+공개 설문과 연구자 결과 application은 함께 생성하지만 별도로 배포합니다. 설문은 공개합니다. 결과 배포는 Vercel Authentication으로 보호하고, Vercel 연동이 제공하는 Supabase secret은 서버 전용 API만 사용합니다. 두 배포는 하나의 Supabase 프로젝트를 공유하며 브라우저 파일에는 관리자 credential이 들어가지 않습니다. 테스트 여부와 참가자 유입 경로는 서로 독립된 필드입니다. [결과 대시보드](../RESULTS-DASHBOARD(kor).md)를 참고하십시오.
+
 ## 개발 순서
 
 1. Python reference implementation에서 동작을 명시하고 테스트합니다.

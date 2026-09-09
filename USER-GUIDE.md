@@ -155,6 +155,27 @@ After preview approval, greedyQ can prepare a preregistration draft, a Vercel-re
 
 When you are ready to create the first test database, follow [Connect a Supabase Project](./SUPABASE-SETUP.md). It stops before Vercel deployment and real recruitment.
 
+## 7. Connect once and receive two links
+
+The normal deployment flow does not ask you to operate Supabase. Sign in to Vercel, approve the Supabase resource presented inside Vercel, and allow the connected AI agent to finish setup. It must install the database migrations, connect environment variables, deploy the public survey, deploy a Vercel-authenticated results application, and verify both links.
+
+The completion message must contain a **survey link** to share with participants and a **results link** for researchers authorized through the Vercel team. Instructions to copy database keys, paste SQL, find Supabase tables, or manually connect environment variables are recovery instructions, not the normal greedyQ experience.
+
+## 8. Check test responses in the dashboard
+
+The results link opens on **Real responses**, which excludes every test submission. Select **Test responses**, leave **Source** set to **Direct**, and submit the ordinary test survey once. Select **Refresh** and confirm that the counts, current-page distribution, answer summaries, and response table update.
+
+For a Prolific test, keep **Test responses** selected and change **Source** to **Prolific**. A valid panel identifier never turns a test into an analysis response.
+
+| Mode | Source | Expected use |
+| --- | --- | --- |
+| Test | Direct | Ordinary connected-database test |
+| Test | Prolific | Panel-link and identifier test |
+| Real | Direct | Public recruitment without a panel |
+| Real | Prolific | Live Prolific recruitment |
+
+**Download CSV** follows the visible filters. See the [detailed Results Dashboard guide](./RESULTS-DASHBOARD.md).
+
 ## Common problems
 
 - **The AI cannot read GitHub:** Download and attach the single [full fallback guide](./guides/greedyq-guide.md), then repeat your starting message.

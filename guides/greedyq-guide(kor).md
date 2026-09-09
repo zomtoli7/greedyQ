@@ -244,9 +244,12 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `templates/browser/respondent.html` | `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d` | `no` |
 | `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
-| `templates/supabase/002_browser_rpc.sql` | `d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323` | `no` |
+| `templates/browser/results.html` | `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161` | `no` |
+| `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
+| `templates/supabase/003_results_dashboard.sql` | `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51` | `no` |
+| `templates/vercel/api/results.js` | `b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
-| `examples/complete-study/vercel.json` | `d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17` | `no` |
+| `examples/complete-study/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
@@ -258,13 +261,13 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
 | `greedyq/validator.py` | `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f` | `no` |
 | `greedyq/compiler.py` | `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6` | `no` |
-| `greedyq/build.py` | `56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031` | `no` |
+| `greedyq/build.py` | `113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
 | `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
-| `greedyq/deployment.py` | `0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b` | `no` |
+| `greedyq/deployment.py` | `7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -3327,9 +3330,35 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 </html>
 ```
 
+### FILE: `templates/browser/results.html`
+
+SHA-256: `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161`
+
+```html
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>greedyQ results</title><style>
+:root{color-scheme:light;--ink:#172033;--muted:#667085;--line:#e4e7ec;--blue:#245f94;--bg:#f5f7fb;--green:#16794b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,sans-serif}header{background:#fff;border-bottom:1px solid var(--line);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}header b{font-size:19px}.wrap{max-width:1280px;margin:auto;padding:28px}.intro,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:14px}.intro{padding:24px;margin-bottom:18px;display:flex;gap:20px;justify-content:space-between;align-items:end}.intro h1{margin:0 0 6px;font-size:28px}.muted{color:var(--muted)}.filters{display:flex;gap:10px;flex-wrap:wrap}label{font-weight:650}select,button{font:inherit;border:1px solid #98a2b3;border-radius:8px;background:#fff;padding:9px 12px}button{cursor:pointer}button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card{padding:18px}.metric{font-size:30px;font-weight:750;margin-top:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{padding:20px;margin-bottom:18px}.panel h2{font-size:18px;margin:0 0 14px}.bar-row{display:grid;grid-template-columns:minmax(110px,1fr) 3fr 42px;gap:10px;align-items:center;margin:9px 0}.bar{height:11px;background:#edf2f7;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{font-size:12px;text-transform:uppercase;color:var(--muted)}.status{color:var(--green);font-weight:650}.empty{padding:30px;text-align:center;color:var(--muted)}@media(max-width:850px){.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.intro{display:block}.filters{margin-top:16px}}@media(max-width:480px){.wrap{padding:14px}.cards{grid-template-columns:1fr 1fr}header{padding:14px}}
+</style></head><body><header><b>greedyQ results</b><span class="status" id="status">Connecting…</span></header><main class="wrap">
+<section class="intro"><div><h1>Survey responses</h1><div class="muted">Review progress, response sources, experiment balance, and collected answers.</div></div><div class="filters"><label>Responses <select id="scope"><option value="production">Real responses</option><option value="test">Test responses</option><option value="all">All responses</option></select></label><label>Source <select id="source"><option value="all">All sources</option><option value="direct">Direct</option><option value="prolific">Prolific</option></select></label><button id="refresh">Refresh</button><button class="primary" id="download">Download CSV</button></div></section>
+<section class="cards"><div class="card"><div class="muted">Started</div><div class="metric" id="started">–</div></div><div class="card"><div class="muted">Completed</div><div class="metric" id="completed">–</div></div><div class="card"><div class="muted">Completion rate</div><div class="metric" id="rate">–</div></div><div class="card"><div class="muted">In progress</div><div class="metric" id="active">–</div></div></section>
+<div class="grid"><section class="panel"><h2>Where participants stopped</h2><div id="dropoff"></div></section><section class="panel"><h2>Conditions</h2><div id="conditions"></div></section></div>
+<section class="panel"><h2>Answer summary</h2><div id="answers"></div></section>
+<section class="panel"><h2>Response records</h2><div class="table-wrap"><table><thead><tr><th>Started</th><th>Status</th><th>Source</th><th>Mode</th><th>Current page</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+</main><script>
+let current=null;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function bars(target,items){const max=Math.max(1,...items.map(x=>x[1]));$(target).innerHTML=items.length?items.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><span class="bar"><i style="width:${100*v/max}%"></i></span><b>${v}</b></div>`).join(""):'<div class="empty">No data in this view.</div>'}
+function counts(values){const m=new Map;values.forEach(v=>m.set(v,(m.get(v)||0)+1));return [...m].sort((a,b)=>b[1]-a[1])}
+function render(data){current=data;const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>Array.isArray(x.value)?x.value.join(" | "):typeof x.value==="object"?JSON.stringify(x.value):String(x.value));summary.push(`<h3>${esc(q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(x.current_page)}</td><td>${byId[x.id]||0}</td></tr>`).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
+async function load(){$("status").textContent="Updating…";try{const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}`,{cache:"no-store"}),d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load results");render(d)}catch(e){$("status").textContent=e.message}}
+function csv(){if(!current)return;const by=new Map;current.answers.forEach(x=>{if(!by.has(x.session_id))by.set(x.session_id,{});by.get(x.session_id)[x.question_id]=x.value});const qs=[...new Set(current.answers.map(x=>x.question_id))],head=["session_id","started_at","status","source","is_test","current_page",...qs],rows=current.sessions.map(s=>[s.id,s.created_at,s.lifecycle_state,s.respondent_source,s.is_test,s.current_page,...qs.map(q=>JSON.stringify(by.get(s.id)?.[q]??""))]);const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)}
+$("refresh").onclick=load;$("scope").onchange=load;$("source").onchange=load;$("download").onclick=csv;load();
+</script></body></html>
+```
+
 ### FILE: `templates/supabase/002_browser_rpc.sql`
 
-SHA-256: `d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323`
+SHA-256: `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514`
 
 ```sql
 -- greedyQ v0.2 browser RPC boundary. Apply after 001_initial.sql.
@@ -3338,6 +3367,7 @@ create extension if not exists pgcrypto with schema extensions;
 alter table public.gq_sessions add column if not exists access_token_hash text;
 alter table public.gq_sessions add column if not exists browser_state jsonb not null default '{}'::jsonb;
 alter table public.gq_sessions add column if not exists greedyq_version text not null default 'unknown';
+alter table public.gq_sessions add column if not exists respondent_source text not null default 'direct';
 
 create or replace function public.greedyq_token_ok(p_session_id uuid, p_access_token text)
 returns boolean language sql stable security definer set search_path=public,pg_temp as $$
@@ -3401,6 +3431,7 @@ begin
   on conflict(provider,participant_id,external_study_id) do update set external_session_id=excluded.external_session_id
   where public.gq_external_identifiers.session_id=excluded.session_id;
   if not found then raise exception 'duplicate participant'; end if;
+  update public.gq_sessions set respondent_source='prolific',updated_at=now() where id=p_session_id;
 end;$$;
 
 create or replace function public.greedyq_withdraw_session(p_session_id uuid,p_access_token text)
@@ -3417,6 +3448,81 @@ end;$$;
 
 revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
 grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;
+```
+
+### FILE: `templates/supabase/003_results_dashboard.sql`
+
+SHA-256: `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51`
+
+```sql
+-- greedyQ v0.2 results metadata migration. Apply after 002_browser_rpc.sql.
+alter table public.gq_sessions add column if not exists respondent_source text not null default 'direct';
+
+update public.gq_sessions s
+set respondent_source = 'prolific'
+where exists (
+  select 1 from public.gq_external_identifiers e
+  where e.session_id = s.id and e.provider = 'prolific'
+);
+
+do $$ begin
+  if not exists (
+    select 1 from pg_constraint where conname = 'gq_sessions_respondent_source_check'
+  ) then
+    alter table public.gq_sessions add constraint gq_sessions_respondent_source_check
+      check (respondent_source in ('direct','prolific'));
+  end if;
+end $$;
+```
+
+### FILE: `templates/vercel/api/results.js`
+
+SHA-256: `b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4`
+
+```javascript
+/* Server-only greedyQ results API. Deploy behind Vercel Authentication. */
+const send = (res, status, body, type = "application/json; charset=utf-8") => {
+  res.statusCode = status;
+  res.setHeader("content-type", type);
+  res.setHeader("cache-control", "no-store");
+  res.end(type.startsWith("application/json") ? JSON.stringify(body) : body);
+};
+
+const allowed = (value, values, fallback) => values.includes(value) ? value : fallback;
+const query = async (path, secret) => {
+  const response = await fetch(`${process.env.SUPABASE_URL}/rest/v1/${path}`, {
+    headers: { apikey: secret, authorization: `Bearer ${secret}` },
+  });
+  if (!response.ok) throw new Error(`Database request failed (${response.status}).`);
+  return response.json();
+};
+
+module.exports = async (req, res) => {
+  if (req.method !== "GET") return send(res, 405, { error: "Method not allowed" });
+  const secret = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!process.env.SUPABASE_URL || !secret)
+    return send(res, 503, { error: "The results connection has not been provisioned." });
+  const scope = allowed(req.query?.scope, ["production", "test", "all"], "production");
+  const source = allowed(req.query?.source, ["direct", "prolific", "all"], "all");
+  const study = String(req.query?.study || "").slice(0, 120);
+  const filters = [];
+  if (scope !== "all") filters.push(`is_test=eq.${scope === "test"}`);
+  if (source !== "all") filters.push(`respondent_source=eq.${source}`);
+  if (study) filters.push(`study_id=eq.${encodeURIComponent(study)}`);
+  try {
+    const suffix = filters.length ? `&${filters.join("&")}` : "";
+    const sessions = await query(`gq_sessions?select=id,study_id,study_version,current_page,is_test,respondent_source,lifecycle_state,created_at,updated_at,terminal_at&order=created_at.desc${suffix}`, secret);
+    const ids = sessions.map(x => x.id);
+    const idFilter = ids.length ? `in.(${ids.join(",")})` : "eq.00000000-0000-0000-0000-000000000000";
+    const [answers, assignments] = await Promise.all([
+      query(`gq_answers?select=session_id,question_id,value,answered_at&session_id=${idFilter}&order=answered_at.asc`, secret),
+      query(`gq_assignments?select=session_id,randomization_id,condition,assigned_at&session_id=${idFilter}`, secret),
+    ]);
+    return send(res, 200, { generated_at: new Date().toISOString(), scope, source, sessions, answers, assignments });
+  } catch (error) {
+    return send(res, 502, { error: error.message });
+  }
+};
 ```
 
 ### FILE: `examples/complete-study/supabase/migrations/001_initial.sql`
@@ -3625,13 +3731,14 @@ grant select on public.gq_analysis_export to gq_analyst;
 
 ### FILE: `examples/complete-study/vercel.json`
 
-SHA-256: `d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17`
+SHA-256: `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f`
 
 ```json
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [{ "source": "/results", "destination": "/results.html" }]
 }
 ```
 
@@ -4896,7 +5003,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031`
+SHA-256: `113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -4945,11 +5052,15 @@ def build(study_dir, write=True):
             if count != 1: raise RuntimeError("Browser template model marker is missing or duplicated in %s." % source)
             (study_dir / destination).write_text(html)
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
+        (study_dir / "results.html").write_bytes((browser / "results.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
+        (migrations / "003_results_dashboard.sql").write_bytes((ROOT / "templates/supabase/003_results_dashboard.sql").read_bytes())
+        api = study_dir / "api"; api.mkdir(exist_ok=True)
+        (api / "results.js").write_bytes((ROOT / "templates/vercel/api/results.js").read_bytes())
     return report, model
 ```
 
@@ -5305,7 +5416,7 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b`
+SHA-256: `7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -5314,8 +5425,8 @@ import json
 from pathlib import Path
 
 
-REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
-REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
+REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "results.html", "api/results.js", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
+REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session", "respondent_source")
 
 
 def preflight(study_dir):
@@ -5332,7 +5443,7 @@ def preflight(study_dir):
     for path in root.glob("**/*"):
         if path.is_file() and path.stat().st_size < 2_000_000:
             text = path.read_text(errors="ignore")
-            if "service_role" in text.lower() and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
+            if "service_role" in text.lower() and "api" not in path.relative_to(root).parts and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
     return {"status": "passed" if not issues else "failed", "issues": issues}
 ```
 

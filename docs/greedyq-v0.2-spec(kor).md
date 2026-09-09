@@ -214,6 +214,10 @@ Preview는 validated AST 위에서 fixed trusted runtime을 사용하고 survey-
 
 Preview mode는 production이 아닌 outcome handling을 사용하고 preview임을 눈에 띄게 표시해야 합니다. 필수 environment variable, migration, redirect configuration이 없으면 production deployment는 fail closed해야 합니다. Tool 또는 AI는 live endpoint와 persistence health를 검증하지 않고 성공적인 deployment를 보고해서는 안 됩니다.
 
+### 연구자 결과 application
+
+연결된 모든 study는 공개 참가자 application과 별도로 보호되는 연구자 결과 application을 생성합니다. Session은 테스트 여부와 참가자 유입 경로를 독립적으로 저장합니다. 결과 application은 기본적으로 production record만 보여주고 연구자가 테스트 record로 전환할 수 있으며, 이탈·배정·응답을 요약하고 현재 필터만 export합니다. Database secret은 서버에서만 사용하며 결과 배포에는 Vercel Authentication이 필요합니다. [RESULTS-DASHBOARD(kor).md](../RESULTS-DASHBOARD(kor).md)를 참고하십시오.
+
 ## 15. Native surveydown export
 
 Exporter는 동일한 검증된 AST를 사용하고 최소한 `survey.qmd`, `app.R`, 필요한 question/design file, asset, `compatibility-report.json`을 포함하는 self-contained export directory를 생성합니다.

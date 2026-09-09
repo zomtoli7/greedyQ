@@ -32,6 +32,8 @@ greedyQ is an independent MIT-licensed implementation. Its primary product is it
 
 > Your survey. Your database. Your data.
 
+The finished connected experience gives the researcher two links after one Vercel sign-in and one Vercel-native Supabase resource approval: a public survey and a protected results dashboard. Supabase is infrastructure, not a routine researcher interface. The dashboard separates test from real responses and Direct from Prolific recruitment.
+
 ## 2. Problem
 
 Academic researchers need powerful survey and experimental capabilities, but existing approaches impose avoidable costs:

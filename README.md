@@ -6,7 +6,7 @@
 - **Current release:** `0.2_2026-09-09_3aefdd0`
 - **Release source commit:** [`3aefdd0`](https://github.com/zomtoli7/greedyQ/commit/3aefdd0) · [Update history](./updates/README.md)
 
-[Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Connect Supabase](./SUPABASE-SETUP.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -95,7 +95,7 @@ Versioned greedyQ repository + researcher's study idea
       preview and approval    native export
               |              survey.qmd + app.R
               v
-     GitHub -> Vercel -> Supabase
+     GitHub -> Vercel public survey + protected results -> Supabase
 ```
 
 The target onboarding experience is:

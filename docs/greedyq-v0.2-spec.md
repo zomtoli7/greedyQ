@@ -223,6 +223,10 @@ The preview MUST use a fixed trusted runtime over the validated AST, MUST NOT ex
 
 Preview mode MUST use non-production outcome handling and visibly identify itself. Production deployment MUST fail closed when required environment variables, migrations, or redirect configuration are missing. A tool or AI MUST NOT report successful deployment without verifying the live endpoint and persistence health.
 
+### Researcher results application
+
+Every connected study produces a public respondent application and a separately protected researcher results application. Sessions store test status independently from respondent source. The results application defaults to production records, can deliberately switch to test records, summarizes drop-off, assignments, and answers, and exports only the current filter. Its database secret is server-only and the results deployment requires Vercel Authentication. See [RESULTS-DASHBOARD.md](../RESULTS-DASHBOARD.md).
+
 ## 15. Native surveydown export
 
 The exporter consumes the same validated AST and produces a self-contained export directory containing at least `survey.qmd`, `app.R`, required question/design files, assets, and `compatibility-report.json`.

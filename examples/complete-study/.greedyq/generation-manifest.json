@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "bd5791b7f1753e70ef29d3b93e0602f2649145d156357e3a6d42c6b4f3c63390",
+      "sha256": "2f535ac931eb672b752296496a2ee6adf672cf353faca40f1ec6ef3421592d0b",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -197,9 +197,36 @@
     {
       "path": "supabase/migrations/002_browser_rpc.sql",
       "kind": "derived",
-      "sha256": "d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323",
+      "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514",
       "status": "validated",
       "based_on_decision_ids": []
+    },
+    {
+      "path": "results.html",
+      "kind": "derived",
+      "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "api/results.js",
+      "kind": "source",
+      "sha256": "b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "supabase/migrations/003_results_dashboard.sql",
+      "kind": "source",
+      "sha256": "db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
     }
   ],
   "external_operations": [

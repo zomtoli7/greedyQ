@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 
 
-REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
-REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
+REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "results.html", "api/results.js", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
+REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session", "respondent_source")
 
 
 def preflight(study_dir):
@@ -22,5 +22,5 @@ def preflight(study_dir):
     for path in root.glob("**/*"):
         if path.is_file() and path.stat().st_size < 2_000_000:
             text = path.read_text(errors="ignore")
-            if "service_role" in text.lower() and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
+            if "service_role" in text.lower() and "api" not in path.relative_to(root).parts and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
     return {"status": "passed" if not issues else "failed", "issues": issues}

@@ -55,6 +55,10 @@ Preview and production use the same JavaScript parser, validator, AST, and rende
 
 Static HTML/CSS/JavaScript may be deployed to Vercel without a server-side application framework. Secure operations—including duplicate-participation checks, durable assignment, response persistence, withdrawal/deletion, lifecycle transitions, and protected export—belong in PostgreSQL transactions or Supabase RPCs protected by row-level security. The browser may contain a Supabase project URL and anonymous key under an appropriate security policy, but it must never contain service-role keys, database passwords, randomization secrets, or administrator credentials.
 
+## Results boundary
+
+The public survey and researcher results application are generated together but deployed separately. The survey is public. The results deployment is protected by Vercel Authentication and uses a server-only API whose Supabase secret is supplied by the Vercel integration. Both share one Supabase project; no administrator credential appears in browser files. Test status and respondent source are independent fields. See the [Results Dashboard](../RESULTS-DASHBOARD.md).
+
 ## Development sequence
 
 1. Specify and test behavior in the Python reference implementation.

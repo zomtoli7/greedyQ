@@ -1,5 +1,7 @@
 # Supabase 프로젝트 연결하기
 
+> **복구 안내서:** 정상 greedyQ 흐름은 Vercel을 통해 Supabase를 구성하며 연구자에게 이 페이지의 작업을 요구하지 않습니다. 자동 구성이 불가능하거나 문제를 진단할 때만 이 수동 절차를 사용하십시오. [결과 대시보드 설명서](./RESULTS-DASHBOARD(kor).md)를 참고하십시오.
+
 [English](./SUPABASE-SETUP.md)
 
 **greedyQ release:** `0.2_2026-09-09_3aefdd0`

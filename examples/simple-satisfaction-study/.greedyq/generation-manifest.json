@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "603585cb93e036586f33998ac84f3ea8c9cf10bbab6839fd7dc4547d38230af2",
+      "sha256": "49b7c8aa34e2731fa0896de39102a1dc59795202ee513a5f7f6933d1de885660",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -137,7 +137,7 @@
     {
       "path": "vercel.json",
       "kind": "source",
-      "sha256": "d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17",
+      "sha256": "78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -197,9 +197,36 @@
     {
       "path": "supabase/migrations/002_browser_rpc.sql",
       "kind": "derived",
-      "sha256": "d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323",
+      "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514",
       "status": "validated",
       "based_on_decision_ids": []
+    },
+    {
+      "path": "results.html",
+      "kind": "derived",
+      "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "api/results.js",
+      "kind": "source",
+      "sha256": "b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "supabase/migrations/003_results_dashboard.sql",
+      "kind": "source",
+      "sha256": "db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51",
+      "status": "validated",
+      "based_on_decision_ids": [
+        "dec_deployment_fixture"
+      ]
     }
   ],
   "external_operations": [

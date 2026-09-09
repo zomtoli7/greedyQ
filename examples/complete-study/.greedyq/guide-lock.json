@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "fa15960d129c734b2f7519aea0d47ae7fe893b3a4e07a31f21e310de67c9bd29",
+  "registry_sha256": "f12fc2416dc652829edd4187dbc087ae3e4734d5bd97d9c6363bd8db9f0889e2",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -46,7 +46,7 @@
       "kind": "module",
       "version": "0.2.0-draft.1",
       "manifest": "guides/modules/deployment-vercel-supabase/component.json",
-      "manifest_sha256": "a51ae5ab5f299943d4e91b6f5c8dc61074e0478372164c362f91ed88386d6bfc"
+      "manifest_sha256": "fdea5928a35a96a8880b3a46cd8b1c4edbf96552bcef98842342696f60a80b56"
     },
     {
       "id": "export-surveydown",
@@ -89,7 +89,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "b27660b6bd9592375f667e4c800782951402874e4712ee57699066600874fd20"
+      "sha256": "800455b5ee69567c838fb6c5c47ab4a52e055374178fcdb0ffbb1972d1e27f98"
     },
     {
       "component": "core",
@@ -154,7 +154,7 @@
     {
       "component": "core",
       "path": "templates/supabase/002_browser_rpc.sql",
-      "sha256": "d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323"
+      "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514"
     },
     {
       "component": "core",
@@ -194,7 +194,7 @@
     {
       "component": "core",
       "path": "greedyq/build.py",
-      "sha256": "56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031"
+      "sha256": "113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28"
     },
     {
       "component": "core",
@@ -224,7 +224,7 @@
     {
       "component": "core",
       "path": "greedyq/deployment.py",
-      "sha256": "0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b"
+      "sha256": "7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef"
     },
     {
       "component": "experiment",
@@ -259,7 +259,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "guides/modules/deployment-vercel-supabase/guide.md",
-      "sha256": "63c8e9dc584178f296460fc3a4aa350b09c5da36eefbfcccbbce826f1db97276"
+      "sha256": "e0b27d630662f3060edc9ea196aa7462fed765fe3644de7303f821cf80223328"
     },
     {
       "component": "deployment-vercel-supabase",
@@ -273,8 +273,28 @@
     },
     {
       "component": "deployment-vercel-supabase",
+      "path": "templates/supabase/002_browser_rpc.sql",
+      "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514"
+    },
+    {
+      "component": "deployment-vercel-supabase",
+      "path": "templates/supabase/003_results_dashboard.sql",
+      "sha256": "db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51"
+    },
+    {
+      "component": "deployment-vercel-supabase",
+      "path": "templates/browser/results.html",
+      "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161"
+    },
+    {
+      "component": "deployment-vercel-supabase",
+      "path": "templates/vercel/api/results.js",
+      "sha256": "b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4"
+    },
+    {
+      "component": "deployment-vercel-supabase",
       "path": "examples/complete-study/vercel.json",
-      "sha256": "d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17"
+      "sha256": "78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f"
     },
     {
       "component": "export-surveydown",

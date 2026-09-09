@@ -30,14 +30,15 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 1. 로컬 desktop/mobile preview를 연구자가 직접 검토합니다.
 2. 모든 validation error와 중요한 연구 결정을 해결합니다.
 3. Preregistration draft를 생성·검토하고 별도의 명시적 승인 후에만 제출합니다.
-4. 승인된 region에 Supabase project를 만들고 `001_initial.sql`, `002_browser_rpc.sql` 순서로 적용합니다.
-   비기술 연구자용 [Supabase 설정 안내](../SUPABASE-SETUP(kor).md)를 따르며 service-role key나 database password를 제공하지 않습니다.
-5. Deployment 설정에는 Supabase project URL과 anonymous key만 넣습니다. Service-role key와 database password는 절대 노출하지 않습니다.
+4. Vercel에 로그인하고 승인된 region의 Supabase Marketplace 리소스를 승인합니다. 연결된 agent가 `003_results_dashboard.sql`을 포함한 모든 migration을 적용하며 수동 SQL은 복구 경로에서만 사용합니다.
+5. Vercel이 Supabase 환경변수를 동기화하도록 합니다. 설문에는 공개 설정만 전달하고 보호된 결과 함수의 서버 secret은 브라우저 파일에 넣지 않습니다.
 6. `python3 -m greedyq preflight STUDY_DIR` 또는 동등한 agent check를 실행합니다.
-7. 이미 테스트한 static bundle을 Vercel에 deploy합니다.
+7. 공개 설문과 Vercel Authentication으로 별도 보호된 결과 application을 배포합니다.
 8. Prolific test parameter와 비production completion route를 설정하고 전체 test submission을 수행합니다.
 9. 연결된 test service에서 resume, duplicate handling, consent refusal, 두 experiment condition, completion, withdrawal, analysis export를 검증합니다.
 10. Production 전환 및 participant 모집 전 별도의 연구자 결정을 요구합니다.
+
+완료하려면 설문 링크와 결과 링크 두 개가 모두 검증되어야 합니다. 일반 테스트 응답은 테스트/Direct에 나타나야 하고 실제 응답 수는 변하지 않아야 합니다.
 
 ## 증거와 한계
 
