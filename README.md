@@ -3,7 +3,7 @@
 [한국어](./README(kor).md)
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-09-10_da78aae`
+- **Current release:** `0.2_2026-09-10_c4a8405`
 - **Release source commit:** [`fcb3c86`](https://github.com/zomtoli7/greedyQ/commit/fcb3c86) · [Update history](./updates/README.md)
 
 [Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)

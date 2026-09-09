@@ -3,7 +3,7 @@ format: html
 title: "greedyQ Control Gallery"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-09-10_da78aae"
+  version: "0.2_2026-09-10_c4a8405"
   organization: "greedyQ"
 survey-settings:
   mode: preview

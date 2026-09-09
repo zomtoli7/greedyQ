@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "43b432babfb14320baf3afa706df67e6dfbb1762814cc28ea363963b69a4f106",
+  "registry_sha256": "bd0d15b4742f8da1007790e7320b6559455f98efe618ca6c73128e3d5e654334",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -50,7 +50,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "08f3b3803cc0ce0d32074bf18a572089777f9e8bc542a3c01a10dbbe7b9e451b"
+      "sha256": "8a1eb1ad4556b2b648c9ca8231eab4468eccbb31873de2c82ea7e4239ab372c3"
     },
     {
       "component": "core",
@@ -65,7 +65,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "639a437860104b00f4d43df80a33ed11a5059a6e76cfeb6b2eda0b11705ea680"
+      "sha256": "6ee07a69fc32a0c87239100ac8d8daad99c3f1c3acb48e7b4a68eb3cb271bdaa"
     },
     {
       "component": "core",
@@ -115,12 +115,12 @@
     {
       "component": "core",
       "path": "templates/browser/respondent.html",
-      "sha256": "938cb4020d4cb4d7ec42af3c982be0d0efc1c969815dff9be81e60c3c8c0f911"
+      "sha256": "e8b74ab98fc1910c7c41e339366bc7cb45ce84f97470e25c6df77c661fc26a9a"
     },
     {
       "component": "core",
       "path": "templates/browser/preview.html",
-      "sha256": "da851b7590111cb956735794031bcf86fa475b088fba46e72aa3ff3f56b418cb"
+      "sha256": "57125b4f9c891b9085c7cec551aef0bc87b07bfb924180b256cdec5242cbf006"
     },
     {
       "component": "core",
@@ -135,7 +135,7 @@
     {
       "component": "core",
       "path": "templates/supabase/connection-test.html",
-      "sha256": "b2460a1b5690b603a4369e943b5720d116894f0c98e61794071915aa307aa3a8"
+      "sha256": "daecc5c383fc340f272daa63a31323f62a38a37868874819de524e34cc930993"
     },
     {
       "component": "core",
