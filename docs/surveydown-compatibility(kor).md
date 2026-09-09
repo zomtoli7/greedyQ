@@ -32,6 +32,8 @@ greedyQ는 독립 구현이며 surveydown 소스 코드를 포함하지 않습�
 
 호환성은 가능한 범위에서 문서화된 authoring contract와 호환됨을 의미합니다. surveydown의 R object, Shiny internals, 생성 HTML, CSS, 데이터베이스 구현 또는 소스 코드를 재현한다는 뜻은 아닙니다. 각 규범 기능은 greedyQ runtime 지원과 native surveydown export 동작을 별도로 선언해야 합니다.
 
+greedyQ 전용 control은 v0.2에서 공개 `sd_question_custom()` interface와 독립적으로 생성한 Shiny output/reactive-value binding으로 export합니다. 이 변환은 `generated_custom`으로 보고하고 native Surveydown application에서 직접 실행하기 전까지 `generated_unverified` 상태를 유지합니다. Exporter는 native QMD에 greedyQ 전용 `type`을 남기지 않으며, 코드 생성 성공을 동작 동일성의 증거로 취급하지 않습니다.
+
 ## 2. 핵심 조사 결과
 
 1. surveydown 프로젝트의 중심은 `survey.qmd`와 `app.R`입니다. 전자는 정적 페이지, 문항, 콘텐츠, navigation을 포함하고 후자는 Shiny 앱, 데이터베이스 연결, reactive question, conditional logic, randomization을 생성합니다.

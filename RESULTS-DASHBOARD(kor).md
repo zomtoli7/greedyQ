@@ -23,6 +23,7 @@
 - 테스트와 실제 조사 구분
 - 실험 조건별 무작위 배정 건수
 - 문항별 응답 요약
+- 내보내는 모든 열의 의미를 설명하는 변수 안내
 - 응답 레코드 표
 - 현재 필터가 적용된 CSV 내보내기
 
@@ -67,6 +68,22 @@ Vercel Supabase Marketplace 연동은 Supabase 프로젝트를 만들고 환경�
 7. 실험이라면 **조건**의 배정이 적절히 균형을 이루는지 확인하고 큰 차이가 있으면 모집을 계속하기 전에 조사합니다.
 8. 응답 요약에서 잘못된 선택지나 예상 밖 값을 확인합니다.
 9. **CSV 다운로드**를 누릅니다. 현재 선택한 응답 모드와 유입 경로만 파일에 포함되지만, 열에는 세션 정보와 실험 조건 및 설문에 정의된 모든 문항이 항상 포함됩니다. 참가자가 답하지 않은 문항은 빈 칸으로 남고 열 자체가 사라지지 않습니다.
+
+## 분석 가능한 열 구조
+
+단순 응답은 문항 ID를 열 이름으로 사용합니다. 복합 컨트롤은 읽기 어려운 JSON 한 칸으로 저장하지 않고 정해진 규칙에 따라 펼칩니다.
+
+| 컨트롤 | 열 이름 예시 |
+| --- | --- |
+| Matrix | `attitudes.clarity`, `attitudes.trust` |
+| Side-by-side | `comparison.current.clarity`, `comparison.proposed.clarity` |
+| Rank order / constant sum | `priorities.speed`, `priorities.ease` |
+| Pick, group, and rank | `items.speed.group`, `items.speed.rank` |
+| Drill down | `location.level_1`, `location.level_2`, `location.path` |
+| Date range | `fieldwork.start`, `fieldwork.end` |
+| Timing | `reading_time.seconds_on_page` |
+
+**변수 안내**는 각 열과 참가자에게 보인 질문, 저장 의미를 함께 보여줍니다. 응답을 받지 않는 media 전용 control은 열을 만들지 않습니다. 열 목록은 versioned survey definition에서 만들기 때문에 현재 선택한 레코드에 응답이 없어도 사라지지 않습니다.
 
 ## 필수 인수 테스트
 

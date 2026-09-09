@@ -6,6 +6,7 @@ from pathlib import Path
 
 REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "results.html", "api/results.js", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
 REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session", "respondent_source")
+REQUIRED_DATA_SAFETY = ("enable row level security", "research_data_deleted", "gq_answers", "gq_consent_events", "gq_lifecycle_events")
 
 
 def preflight(study_dir):
@@ -18,7 +19,9 @@ def preflight(study_dir):
     except (OSError, ValueError): issues.append({"code": "GQ030", "message": "vercel.json is missing or invalid."})
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
     for rpc in REQUIRED_RPC:
-        if rpc not in migrations: issues.append({"code": "GQ031", "message": "Supabase migration does not define %s." % rpc})
+        if rpc not in migrations: issues.append({"code": "GQ013", "message": "Supabase migration does not define %s." % rpc})
+    for token in REQUIRED_DATA_SAFETY:
+        if token not in migrations.lower(): issues.append({"code": "GQ013", "message": "Supabase migrations are missing the required data-safety contract: %s." % token})
     for path in root.glob("**/*"):
         if path.is_file() and path.stat().st_size < 2_000_000:
             text = path.read_text(errors="ignore")

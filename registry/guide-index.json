@@ -52,7 +52,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "46d1fd6d0705c95e91db231dd9e5631f99c253b0f9d835f343e9a878c3cf73d3"
+          "sha256": "be18de8873920f5b94d1f4a6ab3c7465a7823cc5dd2369c84d6276d9146e2fdb"
         },
         {
           "path": "docs/preview-ui-spec.md",
@@ -84,7 +84,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0"
+          "sha256": "0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -128,7 +128,7 @@
         },
         {
           "path": "greedyq/validator.py",
-          "sha256": "5d7c831dc56b805d0611acc4d2909088c8c5216492f91f1c2c0dc1e5e75f53da"
+          "sha256": "f7927ea8bf2a477daa882af9268148e26eb6e156c93f4fea24ab32b2c3bf3b2a"
         },
         {
           "path": "greedyq/compiler.py",
@@ -156,11 +156,11 @@
         },
         {
           "path": "greedyq/exporter.py",
-          "sha256": "dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070"
+          "sha256": "26569ff5176890fc9a22da752b46842d8ab88e81aee17e672225c5246cbfe01a"
         },
         {
           "path": "greedyq/deployment.py",
-          "sha256": "7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef"
+          "sha256": "35fd87aef7b1ed8ab6f355ac3c30977d8f3f44d68c9c812a273ffc6b9bd930a5"
         }
       ]
     },
@@ -197,7 +197,7 @@
         },
         {
           "path": "templates/browser/results.html",
-          "sha256": "b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d"
+          "sha256": "9a571e2026c838adb419bd620d188305a000ea6731224a223e210ba3f2c2d2f0"
         },
         {
           "path": "templates/vercel/api/results.js",
@@ -247,7 +247,7 @@
       "files": [
         {
           "path": "guides/modules/export-surveydown/guide.md",
-          "sha256": "cdb9d88eeef29c0302618eba6b7689e4cc4f83f2279fe17b2ee51a53adb42b5a"
+          "sha256": "053522341ad3cd4ef52a5475e48c225cbad330cafe43b88c9330a2cf975d461f"
         },
         {
           "path": "guides/modules/export-surveydown/checkpoints.json",
@@ -255,7 +255,7 @@
         },
         {
           "path": "docs/surveydown-compatibility.md",
-          "sha256": "0d3a08964e37e073962d38e981499e5af804cfa6cff7c85859b5bc69e7da2c0e"
+          "sha256": "40c9f7bccd02e37abaf402fe066f7f690ead9bccbb382728df83e9e692c5b477"
         }
       ]
     },

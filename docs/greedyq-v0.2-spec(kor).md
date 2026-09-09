@@ -224,7 +224,7 @@ Preview mode는 production이 아닌 outcome handling을 사용하고 preview임
 
 ### 연구자 결과 application
 
-연결된 모든 study는 공개 참가자 application과 별도로 보호되는 연구자 결과 application을 생성합니다. Session은 테스트 여부와 참가자 유입 경로를 독립적으로 저장합니다. 결과 application은 기본적으로 production record만 보여주고 연구자가 테스트 record로 전환할 수 있으며, 이탈·배정·응답을 요약하고 현재 필터만 export합니다. Database secret은 서버에서만 사용하며 결과 배포에는 Vercel Authentication이 필요합니다. [RESULTS-DASHBOARD(kor).md](../RESULTS-DASHBOARD(kor).md)를 참고하십시오.
+연결된 모든 study는 공개 참가자 application과 별도로 보호되는 연구자 결과 application을 생성합니다. Session은 테스트 여부와 참가자 유입 경로를 독립적으로 저장합니다. 결과 application은 기본적으로 production record만 보여주고 연구자가 테스트 record로 전환할 수 있으며, 이탈·배정·응답을 요약하고 현재 필터만 export합니다. 구조화 control은 결정론적인 scalar column으로 export해야 하고 dashboard는 versioned study model에서 만든 변수 안내를 제공해야 합니다. Database secret은 서버에서만 사용하며 결과 배포에는 Vercel Authentication이 필요합니다. [RESULTS-DASHBOARD(kor).md](../RESULTS-DASHBOARD(kor).md)를 참고하십시오.
 
 ## 15. Native surveydown export
 
@@ -233,11 +233,12 @@ Exporter는 동일한 검증된 AST를 사용하고 최소한 `survey.qmd`, `app
 모든 기능은 다음과 같이 분류합니다.
 
 - `directly_portable`: semantic change 없이 compatible QMD로 생성
-- `generated`: 결정론적 `app.R` 또는 보조 파일로 변환
+- `generated_custom`: 공개 `sd_question_custom()` QMD와 결정론적 Shiny output/reactive-value binding으로 변환
+- `generated_unverified`: native Surveydown runtime에서 아직 검토해야 하는 생성 코드
 - `greedyq_only`: 명시적 warning이 있을 때만 생략 또는 근사
 - `unsupported`: export 실패
 
-생성된 `app.R`은 surveydown R package에 의존할 수 있지만 surveydown 소스를 복사하지 않고 greedyQ template과 AST transform으로 작성해야 합니다. Compatibility report에 중요한 mismatch가 있으면 export가 behavior equivalence를 주장해서는 안 됩니다.
+모든 greedyQ 전용 question control은 export QMD에서 `sd_question_custom()`으로 바꿔야 하며, Surveydown이 해석할 수 없는 greedyQ `type`을 남기면 안 됩니다. 생성된 `app.R`은 surveydown R package에 의존할 수 있지만 surveydown 소스를 복사하지 않고 greedyQ template과 AST transform으로 작성해야 합니다. Compatibility report에 중요한 mismatch 또는 아직 검토하지 않은 generated custom control이 있으면 export가 behavior equivalence를 주장해서는 안 됩니다.
 
 ## 16. Reference study acceptance criteria
 

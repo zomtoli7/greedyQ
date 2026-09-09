@@ -1,6 +1,9 @@
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
 
+import hashlib
+import json
 import re
+from pathlib import Path
 
 
 SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video", "rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"}
@@ -116,7 +119,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ011", "Question '%s' appears to put stored codes on the left. Write each choice as \"Displayed label\" = \"stored_value\"." % q["id"], qmd_path, line))
         for arg in q.get("unsupported_arguments", []):
             issues.append(_item("GQ003", "Question '%s' uses '%s', which this preview does not support yet." % (q["id"], arg), qmd_path, line))
-        for collection in ("options", "rows"):
+        for collection in ("options", "rows", "columns", "groups"):
             values = [item.get("value") for item in q.get(collection, [])]
             if len(values) != len(set(map(str, values))):
                 issues.append(_item("GQ011", "Question '%s' repeats a stored value in its %s. Every stored value must be unique." % (q["id"], collection), qmd_path, line))
@@ -139,16 +142,27 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         if required not in known_questions:
             issues.append(_item("GQ002", "The required-question list refers to '%s', but that question does not exist." % required, qmd_path))
     logic = config.get("logic", {})
+    choices = {q["id"]: {str(item.get("value")) for item in q.get("options", [])} for q in questions if q.get("id")}
+    derived_fields = {item.get("store", {}).get("condition_as") for item in config.get("randomization", []) or []}
+    derived_fields.discard(None)
+    def check_condition(condition):
+        for field, literal in re.findall(r"\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['\"]([^'\"]+)['\"]", str(condition or "")):
+            if field not in known_questions and field not in derived_fields:
+                issues.append(_item("GQ011", "A condition refers to '%s', but that question does not exist." % field, config_path))
+            elif choices.get(field) and literal not in choices[field]:
+                issues.append(_item("GQ011", "A condition compares '%s' with '%s', which is not one of its stored answer values." % (field, literal), config_path))
     for rule in logic.get("show", []) or []:
         target = rule.get("question") or rule.get("page")
         known = known_questions if rule.get("question") else known_pages
         if target not in known:
             issues.append(_item("GQ002", "A display rule refers to '%s', but it does not exist." % target, config_path))
+        check_condition(rule.get("if"))
     for rule in logic.get("skip", []) or []:
         if rule.get("from") not in known_pages:
             issues.append(_item("GQ002", "A route starts from missing page '%s'." % rule.get("from"), config_path))
         if rule.get("to") not in known_pages:
             issues.append(_item("GQ002", "A route points to missing page '%s'." % rule.get("to"), config_path))
+        check_condition(rule.get("if"))
     for page in pages:
         target = (page.get("nav") or {}).get("page_next")
         if target and target not in known_pages:
@@ -180,3 +194,43 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ009", "The '%s' redirect must use a secure https address." % name, config_path))
     errors = [item for item in issues if item["severity"] == "error"]
     return {"schema_version": "0.2", "status": "passed" if not errors else "failed", "summary": "%d error(s), %d warning(s)" % (len(errors), len(issues)-len(errors)), "issues": issues}
+
+
+STATE_CONTRACTS = {
+    "study-state.json": {"schema_version", "study_id", "study_version", "guide_version", "spec_version", "mode", "phase", "status", "checkpoint", "gates", "confirmed_decision_ids", "unresolved_decision_ids", "assumptions", "artifact_paths"},
+    "decision-log.json": {"schema_version", "study_id", "append_only", "decisions"},
+    "unresolved-decisions.json": {"schema_version", "study_id", "items"},
+    "generation-manifest.json": {"schema_version", "study_id", "study_version", "guide_version", "spec_version", "artifacts", "external_operations"},
+    "validation-report.json": {"schema_version", "study_id", "study_version", "overall_status", "checks", "manual_gates"},
+}
+
+
+def validate_state_artifacts(study_dir):
+    """Check durable AI-state contracts and generation-manifest hashes."""
+    root = Path(study_dir)
+    state = root / ".greedyq"
+    issues = []
+    for name, required in STATE_CONTRACTS.items():
+        path = state / name
+        if not path.is_file():
+            issues.append(_item("GQ012", "The study is missing its %s record." % name, path))
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except (OSError, ValueError):
+            issues.append(_item("GQ012", "%s is not valid JSON." % name, path))
+            continue
+        missing = sorted(required - set(data)) if isinstance(data, dict) else sorted(required)
+        if missing:
+            issues.append(_item("GQ012", "%s is missing: %s." % (name, ", ".join(missing)), path))
+        if isinstance(data, dict) and data.get("schema_version") != "0.2":
+            issues.append(_item("GQ012", "%s must use schema_version 0.2." % name, path))
+        if name == "generation-manifest.json" and isinstance(data, dict):
+            for artifact in data.get("artifacts", []):
+                relative, expected = artifact.get("path"), artifact.get("sha256")
+                target = root / str(relative or "")
+                if not relative or not target.is_file():
+                    issues.append(_item("GQ012", "The generation manifest refers to a missing artifact: %s." % relative, path))
+                elif expected and hashlib.sha256(target.read_bytes()).hexdigest() != expected:
+                    issues.append(_item("GQ012", "The generated artifact '%s' changed after its manifest was recorded." % relative, path))
+    return {"status": "passed" if not issues else "failed", "issues": issues}

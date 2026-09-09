@@ -45,6 +45,8 @@ console.log(JSON.stringify({report:gq.validateSurvey(parsed,config),model:gq.com
         parsed, config = copy.deepcopy(parsed0), copy.deepcopy(config0); config["randomization"][0]["persistence_key"] = None; cases.append((parsed, config))
         parsed, config = copy.deepcopy(parsed0), copy.deepcopy(config0); config["consent"]["accept_value"] = "missing"; cases.append((parsed, config))
         parsed, config = copy.deepcopy(parsed0), copy.deepcopy(config0); config["outcomes"]["complete"]["redirect"] = "http://unsafe.test"; cases.append((parsed, config))
+        parsed, config = copy.deepcopy(parsed0), copy.deepcopy(config0); config["logic"]["show"][0]["if"] = 'consent_choice == "not_an_option"'; cases.append((parsed, config))
+        parsed, config = copy.deepcopy(parsed0), copy.deepcopy(config0); parsed["pages"][2]["questions"][0]["columns"] = [{"label":"A","value":"same"},{"label":"B","value":"same"}]; cases.append((parsed, config))
         script = 'const gq=require("./web/greedyq-core.js"),x=JSON.parse(require("fs").readFileSync(0,"utf8"));console.log(JSON.stringify(gq.validateSurvey(x.parsed,x.config)));'
         for parsed, config in cases:
             expected = validate(parsed, config)

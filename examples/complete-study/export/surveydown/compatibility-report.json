@@ -1,82 +1,41 @@
 {
   "report_version": "0.2",
-  "generator_status": "pre_implementation_expected_fixture",
+  "generator_status": "generated_unverified",
   "study_id": "digital_service_info_001",
-  "spec_version": "0.2.0-draft.1",
-  "source_files": [
-    "survey.qmd",
-    "greedyq.yml",
-    "design/stimuli.csv"
-  ],
-  "expected_output_files": [
-    "survey.qmd",
-    "app.R",
-    "consent.md",
-    "consent(kor).md",
-    "compatibility-report.json"
-  ],
+  "spec_version": "0.2",
   "summary": {
     "directly_portable": 1,
-    "generated": 5,
-    "greedyq_only": 4,
+    "generated_custom": 0,
+    "generated_unverified": 0,
+    "greedyq_only": 3,
     "unsupported": 0
   },
   "features": [
     {
-      "id": "qmd_pages_and_questions",
+      "id": "qmd_pages_and_native_questions",
       "classification": "directly_portable",
-      "note": "Supported page, question, and navigation syntax is expected to remain QMD."
+      "note": "Native surveydown question and page syntax is preserved."
     },
     {
-      "id": "conditional_logic",
-      "classification": "generated",
-      "note": "Expected to be translated into deterministic surveydown server logic."
+      "id": "declarative_logic",
+      "classification": "greedyq_only",
+      "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."
     },
     {
       "id": "random_assignment",
-      "classification": "generated",
-      "note": "Expected to use generated R logic and stored assignment values."
-    },
-    {
-      "id": "outcome_redirects",
-      "classification": "generated",
-      "note": "Expected to be translated into allowlisted redirect calls."
-    },
-    {
-      "id": "conditional_demographic_followup",
-      "classification": "generated",
-      "note": "Expected to be translated into conditional display logic."
-    },
-    {
-      "id": "attention_check",
-      "classification": "generated",
-      "note": "Question is portable; validation and quality metadata require generated logic."
-    },
-    {
-      "id": "normalized_event_schema",
       "classification": "greedyq_only",
-      "note": "Native surveydown storage uses a different representation; a wide analysis export is required."
+      "note": "The base app.R does not claim equivalent persisted assignment."
     },
     {
-      "id": "versioned_consent_ledger",
+      "id": "consent_ledger",
       "classification": "greedyq_only",
-      "note": "Displayed consent is portable, but the normalized consent-event model is not preserved automatically."
-    },
-    {
-      "id": "verified_deletion_request_workflow",
-      "classification": "greedyq_only",
-      "note": "The export can record a request but cannot verify completion by the research team."
-    },
-    {
-      "id": "vercel_runtime",
-      "classification": "greedyq_only",
-      "note": "Native surveydown requires an R/Shiny-compatible host rather than Vercel."
+      "note": "Displayed consent is preserved; the event ledger is not."
     }
   ],
   "material_mismatches": [
-    "The expected app.R is a placeholder until the exporter exists and is not runnable.",
-    "Consent-event, lifecycle-event, and deletion-request semantics require manual native-surveydown implementation review.",
-    "Vercel deployment does not apply to the native surveydown export."
+    "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior.",
+    "The base app.R does not claim equivalent persisted assignment.",
+    "Displayed consent is preserved; the event ledger is not."
   ],
   "equivalence_claimed": false
 }

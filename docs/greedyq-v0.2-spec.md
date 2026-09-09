@@ -233,7 +233,7 @@ Preview mode MUST use non-production outcome handling and visibly identify itsel
 
 ### Researcher results application
 
-Every connected study produces a public respondent application and a separately protected researcher results application. Sessions store test status independently from respondent source. The results application defaults to production records, can deliberately switch to test records, summarizes drop-off, assignments, and answers, and exports only the current filter. Its database secret is server-only and the results deployment requires Vercel Authentication. See [RESULTS-DASHBOARD.md](../RESULTS-DASHBOARD.md).
+Every connected study produces a public respondent application and a separately protected researcher results application. Sessions store test status independently from respondent source. The results application defaults to production records, can deliberately switch to test records, summarizes drop-off, assignments, and answers, and exports only the current filter. Structured controls MUST export to deterministic scalar columns and the dashboard MUST expose a variable guide derived from the versioned study model. Its database secret is server-only and the results deployment requires Vercel Authentication. See [RESULTS-DASHBOARD.md](../RESULTS-DASHBOARD.md).
 
 ## 15. Native surveydown export
 
@@ -242,11 +242,12 @@ The exporter consumes the same validated AST and produces a self-contained expor
 Every feature is classified as:
 
 - `directly_portable`: emitted as compatible QMD without semantic change
-- `generated`: translated into deterministic `app.R` or supporting files
+- `generated_custom`: translated through public `sd_question_custom()` QMD plus deterministic Shiny output and reactive-value bindings
+- `generated_unverified`: generated code that still requires review in a native Surveydown runtime
 - `greedyq_only`: omitted or approximated only with an explicit warning
 - `unsupported`: export fails
 
-Generated `app.R` MAY depend on the surveydown R package but MUST be authored from greedyQ templates and AST transforms, not copied from surveydown source. Export MUST never claim behavioral equivalence when the compatibility report contains a material mismatch.
+Every greedyQ-only question control MUST be replaced by `sd_question_custom()` in exported QMD; an unknown greedyQ `type` MUST NOT be left for Surveydown to interpret. Generated `app.R` MAY depend on the surveydown R package but MUST be authored from greedyQ templates and AST transforms, not copied from surveydown source. Export MUST never claim behavioral equivalence when the compatibility report contains a material mismatch or an unreviewed generated custom control.
 
 ## 16. Reference-study acceptance criteria
 

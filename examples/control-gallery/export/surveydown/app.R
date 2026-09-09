@@ -1,0 +1,31 @@
+# Generated independently by greedyQ 0.2.
+# Review and test this native surveydown export before fielding.
+library(shiny)
+library(surveydown)
+
+db <- sd_db_connect()
+ui <- sd_ui()
+server <- function(input, output, session) {
+  sd_server(db = db)
+  output$gq_audio_example_output <- renderUI({ tags$audio(src = "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3", controls = NA, style = 'max-width:100%;') })
+  gq_audio_example_value <- reactive(NULL)
+  output$gq_video_example_output <- renderUI({ tags$video(src = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", controls = NA, style = 'max-width:100%;') })
+  gq_video_example_value <- reactive(NULL)
+  output$gq_rank_example_output <- renderUI({ tagList(selectInput("rank_example_ease", "Ease of use", choices = 1:3), selectInput("rank_example_speed", "Speed", choices = 1:3), selectInput("rank_example_flexibility", "Flexibility", choices = 1:3)) })
+  gq_rank_example_value <- reactive(list("ease" = input$rank_example_ease, "speed" = input$rank_example_speed, "flexibility" = input$rank_example_flexibility))
+  output$gq_sbs_example_output <- renderUI({ tagList(selectInput("sbs_example_current_clear", "Current — Clear", choices = c("Low" = 1, "Medium" = 2, "High" = 3)), selectInput("sbs_example_current_useful", "Current — Useful", choices = c("Low" = 1, "Medium" = 2, "High" = 3)), selectInput("sbs_example_proposed_clear", "Proposed — Clear", choices = c("Low" = 1, "Medium" = 2, "High" = 3)), selectInput("sbs_example_proposed_useful", "Proposed — Useful", choices = c("Low" = 1, "Medium" = 2, "High" = 3))) })
+  gq_sbs_example_value <- reactive(list("current.clear" = input$sbs_example_current_clear, "current.useful" = input$sbs_example_current_useful, "proposed.clear" = input$sbs_example_proposed_clear, "proposed.useful" = input$sbs_example_proposed_useful))
+  output$gq_nps_example_output <- renderUI({ radioButtons("nps_example", NULL, choices = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), inline = TRUE) })
+  gq_nps_example_value <- reactive(input$nps_example)
+  output$gq_timing_example_output <- renderUI({ tags$span('Timing is recorded by the generated server binding.') })
+  gq_timing_example_value <- local({ started <- Sys.time(); reactive({ invalidateLater(1000); as.numeric(difftime(Sys.time(), started, units = 'secs')) }) })
+  output$gq_sum_example_output <- renderUI({ tagList(numericInput("sum_example_design", "Design", value = 0, min = 0), numericInput("sum_example_testing", "Testing", value = 0, min = 0), numericInput("sum_example_documentation", "Documentation", value = 0, min = 0)) })
+  gq_sum_example_value <- reactive(list("design" = input$sum_example_design, "testing" = input$sum_example_testing, "documentation" = input$sum_example_documentation))
+  output$gq_group_rank_example_output <- renderUI({ tagList(selectInput("group_rank_example_speed_group", "Speed — group", choices = c("Essential" = "essential", "Optional" = "optional")), numericInput("group_rank_example_speed_rank", "Speed — rank", value = 1, min = 1), selectInput("group_rank_example_trust_group", "Trust — group", choices = c("Essential" = "essential", "Optional" = "optional")), numericInput("group_rank_example_trust_rank", "Trust — rank", value = 1, min = 1), selectInput("group_rank_example_ease_group", "Ease — group", choices = c("Essential" = "essential", "Optional" = "optional")), numericInput("group_rank_example_ease_rank", "Ease — rank", value = 1, min = 1)) })
+  gq_group_rank_example_value <- reactive(list("speed" = reactiveValuesToList(input)[c("group_rank_example_speed_group", "group_rank_example_speed_rank")], "trust" = reactiveValuesToList(input)[c("group_rank_example_trust_group", "group_rank_example_trust_rank")], "ease" = reactiveValuesToList(input)[c("group_rank_example_ease_group", "group_rank_example_ease_rank")]))
+  output$gq_drill_example_output <- renderUI({ selectInput("drill_example", NULL, choices = c("Asia > Korea > Seoul" = "kr_seoul", "Asia > Korea > Busan" = "kr_busan", "Europe > France > Paris" = "fr_paris")) })
+  gq_drill_example_value <- reactive(input$drill_example)
+  output$gq_custom_example_output <- renderUI({ selectInput("custom_example", NULL, choices = c("First" = "first", "Second" = "second")) })
+  gq_custom_example_value <- reactive(input$custom_example)
+}
+shiny::shinyApp(ui = ui, server = server)

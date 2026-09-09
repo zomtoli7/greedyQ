@@ -1,0 +1,47 @@
+{
+  "report_version": "0.2",
+  "generator_status": "generated_unverified",
+  "study_id": "control_gallery",
+  "spec_version": "0.2",
+  "summary": {
+    "directly_portable": 1,
+    "generated_custom": 1,
+    "generated_unverified": 0,
+    "greedyq_only": 1,
+    "unsupported": 0
+  },
+  "features": [
+    {
+      "id": "qmd_pages_and_native_questions",
+      "classification": "directly_portable",
+      "note": "Native surveydown question and page syntax is preserved."
+    },
+    {
+      "id": "greedyq_custom_controls",
+      "classification": "generated_custom",
+      "questions": [
+        "audio_example",
+        "video_example",
+        "rank_example",
+        "sbs_example",
+        "nps_example",
+        "timing_example",
+        "sum_example",
+        "group_rank_example",
+        "drill_example",
+        "custom_example"
+      ],
+      "note": "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding."
+    },
+    {
+      "id": "declarative_logic",
+      "classification": "greedyq_only",
+      "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."
+    }
+  ],
+  "material_mismatches": [
+    "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
+    "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."
+  ],
+  "equivalence_claimed": false
+}

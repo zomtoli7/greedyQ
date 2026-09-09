@@ -23,6 +23,7 @@ The initial dashboard follows the useful parts of the sdstudio Responses view: h
 - test versus real fielding mode;
 - random-assignment counts by condition;
 - per-question answer summaries;
+- a variable guide that explains every exported column;
 - a response-record table; and
 - a CSV export of the currently filtered records.
 
@@ -67,6 +68,22 @@ The results deployment must have Vercel Authentication enabled. Do not publish `
 7. For an experiment, verify that **Conditions** is reasonably balanced and investigate large discrepancies before continuing recruitment.
 8. Review answer summaries for broken choices or unexpected values.
 9. Select **Download CSV**. The file contains only the currently selected response mode and source, but its columns always include every question defined in the survey plus session metadata and experimental condition. Questions not answered by a participant remain blank; columns do not disappear.
+
+## Analysis-ready columns
+
+Simple answers use the question ID as the column name. Structured controls are expanded deterministically instead of being stored as an unreadable JSON cell:
+
+| Control | Example columns |
+| --- | --- |
+| Matrix | `attitudes.clarity`, `attitudes.trust` |
+| Side-by-side | `comparison.current.clarity`, `comparison.proposed.clarity` |
+| Rank order / constant sum | `priorities.speed`, `priorities.ease` |
+| Pick, group, and rank | `items.speed.group`, `items.speed.rank` |
+| Drill down | `location.level_1`, `location.level_2`, `location.path` |
+| Date range | `fieldwork.start`, `fieldwork.end` |
+| Timing | `reading_time.seconds_on_page` |
+
+The **Variable guide** shows each column beside its participant-facing question and stored meaning. Media-only controls create no answer column. The column set comes from the versioned survey definition and therefore remains stable even when the selected records contain no answer for a question.
 
 ## Required acceptance test
 

@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "9da5b1b0b911bea1fdebc4aeb9061dca03304004598b4c32f232b5d042f184d2",
+      "sha256": "0f45f0fe4d6e37251e0058a0fa49282a30463c687d42d502cf1ed563a807db6c",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -184,7 +184,7 @@
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0",
+      "sha256": "0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -220,7 +220,7 @@
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "c9a488ed50def439b16a889c6212d99e53e8337b5595de39ca697f9a529bdf58",
+      "sha256": "23390a41f7bddc7f5157745d3b3225ebbee7ea170f3f1c05c34fcb76a46c0ba2",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"

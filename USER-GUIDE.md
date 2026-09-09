@@ -181,7 +181,7 @@ For a Prolific test, keep **Test responses** selected and change **Source** to *
 | Real | Direct | Public recruitment without a panel |
 | Real | Prolific | Live Prolific recruitment |
 
-**Download CSV** follows the visible filters. Every survey variable remains a column even when the current records did not answer it; missing answers are blank. See the [detailed Results Dashboard guide](./RESULTS-DASHBOARD.md).
+**Download CSV** follows the visible filters. Every survey variable remains a column even when the current records did not answer it; missing answers are blank. Matrix rows and advanced structured controls are expanded into stable analysis columns, and **Variable guide** explains those names. See the [detailed Results Dashboard guide](./RESULTS-DASHBOARD.md).
 
 ## Common problems
 

@@ -32,6 +32,8 @@ The proposed greedyQ classifications are:
 
 Compatibility means compatibility with the documented authoring contract where practical. It does not mean reproducing surveydown's R objects, Shiny internals, generated HTML, CSS, database implementation, or source code. Each normative feature must separately declare greedyQ runtime support and native surveydown export behavior.
 
+For greedyQ-only controls, v0.2 exports the public `sd_question_custom()` interface and independently generated Shiny output/reactive-value bindings. These conversions are reported as `generated_custom` and remain `generated_unverified` until exercised in a native Surveydown application. The exporter never leaves a greedyQ-only `type` in native QMD and never treats successful code generation as proof of behavioral equivalence.
+
 ## 2. Executive findings
 
 1. A surveydown project is centered on `survey.qmd` and `app.R`. The former contains static pages, questions, content, and navigation; the latter creates the Shiny application, database connection, reactive questions, conditional logic, and randomization.

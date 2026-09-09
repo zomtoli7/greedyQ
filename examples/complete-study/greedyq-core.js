@@ -977,7 +977,7 @@
           ),
         );
     for (const q of questions)
-      for (const collection of ["options", "rows"]) {
+      for (const collection of ["options", "rows", "columns", "groups"]) {
         const values = (q[collection] || []).map((item) => String(item.value));
         if (new Set(values).size !== values.length)
           issues.push(
@@ -989,6 +989,24 @@
             ),
           );
       }
+    const storedValues = new Map(
+        questions.map((q) => [q.id, new Set((q.options || []).map((item) => String(item.value)))]),
+      ),
+      derivedFields = new Set(
+        (config.randomization || []).map((item) => item.store?.condition_as).filter(Boolean),
+      ),
+      checkCondition = (expression) => {
+        const pattern = /\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['"]([^'"]+)['"]/g;
+        for (const match of String(expression || "").matchAll(pattern)) {
+          const [, field, literal] = match;
+          if (!questionIds.has(field) && !derivedFields.has(field))
+            issues.push(issue("GQ011", `A condition refers to '${field}', but that question does not exist.`, yml));
+          else if (storedValues.get(field)?.size && !storedValues.get(field).has(literal))
+            issues.push(issue("GQ011", `A condition compares '${field}' with '${literal}', which is not one of its stored answer values.`, yml));
+        }
+      };
+    for (const rule of config.logic?.show || []) checkCondition(rule.if);
+    for (const rule of config.logic?.skip || []) checkCondition(rule.if);
     for (const randomization of config.randomization || []) {
       const after = randomization.assignment_point?.after_page;
       if (!pageIds.has(after))

@@ -239,12 +239,12 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0` | `no` |
+| `web/greedyq-core.js` | `0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627` | `no` |
 | `web/greedyq-runtime.css` | `fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8` | `no` |
 | `templates/browser/respondent.html` | `3b697733c759c065c8d24d869bdfb8e97cccc4e7b0cdb2c18e4d9c5c3c4ab9ef` | `no` |
 | `templates/browser/preview.html` | `291c06de10cbd19642c5265ee1480fbe1fc55431fdfc7bb8ac35bbcc6355a18b` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
-| `templates/browser/results.html` | `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d` | `no` |
+| `templates/browser/results.html` | `9a571e2026c838adb419bd620d188305a000ea6731224a223e210ba3f2c2d2f0` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
 | `templates/supabase/003_results_dashboard.sql` | `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51` | `no` |
 | `templates/vercel/api/results.js` | `b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4` | `no` |
@@ -259,15 +259,15 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `0fa67b62667f99d8bab44b0cd8a3e03dd0c8160bf3b8a58f139ff6fc4fa26777` | `no` |
-| `greedyq/validator.py` | `5d7c831dc56b805d0611acc4d2909088c8c5216492f91f1c2c0dc1e5e75f53da` | `no` |
+| `greedyq/validator.py` | `f7927ea8bf2a477daa882af9268148e26eb6e156c93f4fea24ab32b2c3bf3b2a` | `no` |
 | `greedyq/compiler.py` | `ad280733d6e5d82dca7a76dd7248aa96cf732743cae6ca1273a5e72019dc373f` | `no` |
 | `greedyq/build.py` | `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e` | `no` |
 | `greedyq/runtime.py` | `55737e7399e401374bde367a2829b7a9b68f93ae9c1217ea380c6c9287b63474` | `no` |
 | `greedyq/server.py` | `9942f06cb2b9faa359608b36c71d7373138cc9baa7c5df7f906a776dd9b09746` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
-| `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
-| `greedyq/deployment.py` | `7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef` | `no` |
+| `greedyq/exporter.py` | `26569ff5176890fc9a22da752b46842d8ab88e81aee17e672225c5246cbfe01a` | `no` |
+| `greedyq/deployment.py` | `35fd87aef7b1ed8ab6f355ac3c30977d8f3f44d68c9c812a273ffc6b9bd930a5` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -424,7 +424,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0`
+SHA-256: `0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1406,7 +1406,7 @@ SHA-256: `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0`
           ),
         );
     for (const q of questions)
-      for (const collection of ["options", "rows"]) {
+      for (const collection of ["options", "rows", "columns", "groups"]) {
         const values = (q[collection] || []).map((item) => String(item.value));
         if (new Set(values).size !== values.length)
           issues.push(
@@ -1418,6 +1418,24 @@ SHA-256: `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0`
             ),
           );
       }
+    const storedValues = new Map(
+        questions.map((q) => [q.id, new Set((q.options || []).map((item) => String(item.value)))]),
+      ),
+      derivedFields = new Set(
+        (config.randomization || []).map((item) => item.store?.condition_as).filter(Boolean),
+      ),
+      checkCondition = (expression) => {
+        const pattern = /\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['"]([^'"]+)['"]/g;
+        for (const match of String(expression || "").matchAll(pattern)) {
+          const [, field, literal] = match;
+          if (!questionIds.has(field) && !derivedFields.has(field))
+            issues.push(issue("GQ011", `A condition refers to '${field}', but that question does not exist.`, yml));
+          else if (storedValues.get(field)?.size && !storedValues.get(field).has(literal))
+            issues.push(issue("GQ011", `A condition compares '${field}' with '${literal}', which is not one of its stored answer values.`, yml));
+        }
+      };
+    for (const rule of config.logic?.show || []) checkCondition(rule.if);
+    for (const rule of config.logic?.skip || []) checkCondition(rule.if);
     for (const randomization of config.randomization || []) {
       const after = randomization.assignment_point?.after_page;
       if (!pageIds.has(after))
@@ -3734,7 +3752,7 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 
 ### FILE: `templates/browser/results.html`
 
-SHA-256: `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d`
+SHA-256: `9a571e2026c838adb419bd620d188305a000ea6731224a223e210ba3f2c2d2f0`
 
 ```html
 <!doctype html>
@@ -3746,14 +3764,19 @@ SHA-256: `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d`
 <section class="cards"><div class="card"><div class="muted">Started</div><div class="metric" id="started">–</div></div><div class="card"><div class="muted">Completed</div><div class="metric" id="completed">–</div></div><div class="card"><div class="muted">Completion rate</div><div class="metric" id="rate">–</div></div><div class="card"><div class="muted">In progress</div><div class="metric" id="active">–</div></div></section>
 <div class="grid"><section class="panel"><h2>Where participants stopped</h2><div id="dropoff"></div></section><section class="panel"><h2>Conditions</h2><div id="conditions"></div></section></div>
 <section class="panel"><h2>Answer summary</h2><div id="answers"></div></section>
+<section class="panel"><h2>Variable guide</h2><div class="muted">The CSV uses one analysis-ready column for each scalar answer or structured sub-answer.</div><div class="table-wrap"><table><thead><tr><th>Column</th><th>Question</th><th>Stored meaning</th></tr></thead><tbody id="dictionary"></tbody></table></div></section>
 <section class="panel"><h2>Response records</h2><div class="table-wrap"><table><thead><tr><th>Started</th><th>Status</th><th>Source</th><th>Mode</th><th>Current page</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div></section>
 </main><script id="greedyq-model" type="application/json">{}</script><script>
 const studyModel=JSON.parse(document.getElementById("greedyq-model").textContent);let current=null;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function bars(target,items){const max=Math.max(1,...items.map(x=>x[1]));$(target).innerHTML=items.length?items.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><span class="bar"><i style="width:${100*v/max}%"></i></span><b>${v}</b></div>`).join(""):'<div class="empty">No data in this view.</div>'}
 function counts(values){const m=new Map;values.forEach(v=>m.set(v,(m.get(v)||0)+1));return [...m].sort((a,b)=>b[1]-a[1])}
-function render(data){current=data;const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>Array.isArray(x.value)?x.value.join(" | "):typeof x.value==="object"?JSON.stringify(x.value):String(x.value));summary.push(`<h3>${esc(q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(x.current_page)}</td><td>${byId[x.id]||0}</td></tr>`).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
+const questions=studyModel.pages.flatMap(p=>p.questions||[]);
+function questionColumns(q){const scalar=[{name:q.id,meaning:"Answer"}],items=(q.options||[]),rows=(q.rows||[]),columns=(q.columns||[]);if(["audio","video"].includes(q.type))return[];if(["matrix","matrix_multiple"].includes(q.type))return rows.map(r=>({name:`${q.id}.${r.value}`,meaning:r.label}));if(q.type==="daterange")return[{name:`${q.id}.start`,meaning:"Start date"},{name:`${q.id}.end`,meaning:"End date"}];if(["rank_order","constant_sum"].includes(q.type))return items.map(o=>({name:`${q.id}.${o.value}`,meaning:`${o.label} — ${q.type==="rank_order"?"rank":"allocated amount"}`}));if(q.type==="side_by_side")return columns.flatMap(c=>rows.map(r=>({name:`${q.id}.${c.value}.${r.value}`,meaning:`${c.label} — ${r.label}`})));if(q.type==="pick_group_rank")return items.flatMap(o=>[{name:`${q.id}.${o.value}.group`,meaning:`${o.label} — group`},{name:`${q.id}.${o.value}.rank`,meaning:`${o.label} — rank`}]);if(q.type==="drill_down"){const sep=q.path_separator||" > ",levels=Math.max(0,...items.map(o=>String(o.label).split(sep).length));return[...Array.from({length:levels},(_,i)=>({name:`${q.id}.level_${i+1}`,meaning:`Selected level ${i+1}`})),{name:`${q.id}.path`,meaning:"Complete selected path"}]};if(q.type==="timing")return[{name:`${q.id}.seconds_on_page`,meaning:"Seconds spent on page"}];return scalar}
+function flattenQuestion(q,value){const out={};if(value==null)return out;if(["matrix","matrix_multiple","rank_order","constant_sum"].includes(q.type)){for(const item of questionColumns(q))out[item.name]=value[item.name.split(".").at(-1)]??""}else if(q.type==="side_by_side"){for(const item of questionColumns(q)){const[,column,row]=item.name.split(".");out[item.name]=value?.[column]?.[row]??""}}else if(q.type==="pick_group_rank"){for(const item of questionColumns(q)){const parts=item.name.split("."),field=parts.pop(),option=parts.pop();out[item.name]=value?.[option]?.[field]??""}}else if(q.type==="drill_down"){const path=Array.isArray(value)?value:[];path.forEach((part,i)=>out[`${q.id}.level_${i+1}`]=part);out[`${q.id}.path`]=path.join(q.path_separator||" > ")}else if(q.type==="daterange"){out[`${q.id}.start`]=value?.[0]??"";out[`${q.id}.end`]=value?.[1]??""}else if(q.type==="timing")out[`${q.id}.seconds_on_page`]=value?.seconds_on_page??value??"";else out[q.id]=Array.isArray(value)?value.join(" | "):value;return out}
+function readable(value){if(Array.isArray(value))return value.join(" › ");if(value&&typeof value==="object")return Object.entries(value).map(([k,v])=>`${k}: ${typeof v==="object"?JSON.stringify(v):v}`).join("; ");return String(value)}
+function render(data){current=data;const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>readable(x.value));summary.push(`<h3>${esc(q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(x.current_page)}</td><td>${byId[x.id]||0}</td></tr>`).join("");$("dictionary").innerHTML=questions.flatMap(q=>questionColumns(q).map(c=>`<tr><td><code>${esc(c.name)}</code></td><td>${esc(q.label||q.id)}</td><td>${esc(c.meaning)}</td></tr>`)).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
 async function load(){$("status").textContent="Updating…";try{const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}`,{cache:"no-store"}),d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load results");render(d)}catch(e){$("status").textContent=e.message}}
-function csv(){if(!current)return;const by=new Map;current.answers.forEach(x=>{if(!by.has(x.session_id))by.set(x.session_id,{});by.get(x.session_id)[x.question_id]=x.value});const qs=studyModel.pages.flatMap(p=>p.questions||[]).map(q=>q.id),conditions=Object.fromEntries(current.assignments.map(x=>[x.session_id,x.condition])),head=["session_id","started_at","completed_at","status","source","is_test","condition","current_page",...qs],rows=current.sessions.map(s=>[s.id,s.created_at,s.terminal_at||"",s.lifecycle_state,s.respondent_source,s.is_test,conditions[s.id]||"",s.current_page,...qs.map(q=>JSON.stringify(by.get(s.id)?.[q]??""))]);const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)}
+function csv(){if(!current)return;const by=new Map;current.answers.forEach(x=>{if(!by.has(x.session_id))by.set(x.session_id,{});Object.assign(by.get(x.session_id),flattenQuestion(questions.find(q=>q.id===x.question_id)||{id:x.question_id},x.value))});const fields=questions.flatMap(questionColumns).map(x=>x.name),conditions=Object.fromEntries(current.assignments.map(x=>[x.session_id,x.condition])),head=["session_id","started_at","completed_at","status","source","is_test","condition","current_page",...fields],rows=current.sessions.map(s=>[s.id,s.created_at,s.terminal_at||"",s.lifecycle_state,s.respondent_source,s.is_test,conditions[s.id]||"",s.current_page,...fields.map(field=>by.get(s.id)?.[field]??"")]);const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)}
 $("refresh").onclick=load;$("scope").onchange=load;$("source").onchange=load;$("download").onclick=csv;load();
 </script></body></html>
 ```
@@ -5136,12 +5159,15 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `5d7c831dc56b805d0611acc4d2909088c8c5216492f91f1c2c0dc1e5e75f53da`
+SHA-256: `f7927ea8bf2a477daa882af9268148e26eb6e156c93f4fea24ab32b2c3bf3b2a`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
 
+import hashlib
+import json
 import re
+from pathlib import Path
 
 
 SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video", "rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"}
@@ -5257,7 +5283,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ011", "Question '%s' appears to put stored codes on the left. Write each choice as \"Displayed label\" = \"stored_value\"." % q["id"], qmd_path, line))
         for arg in q.get("unsupported_arguments", []):
             issues.append(_item("GQ003", "Question '%s' uses '%s', which this preview does not support yet." % (q["id"], arg), qmd_path, line))
-        for collection in ("options", "rows"):
+        for collection in ("options", "rows", "columns", "groups"):
             values = [item.get("value") for item in q.get(collection, [])]
             if len(values) != len(set(map(str, values))):
                 issues.append(_item("GQ011", "Question '%s' repeats a stored value in its %s. Every stored value must be unique." % (q["id"], collection), qmd_path, line))
@@ -5280,16 +5306,27 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         if required not in known_questions:
             issues.append(_item("GQ002", "The required-question list refers to '%s', but that question does not exist." % required, qmd_path))
     logic = config.get("logic", {})
+    choices = {q["id"]: {str(item.get("value")) for item in q.get("options", [])} for q in questions if q.get("id")}
+    derived_fields = {item.get("store", {}).get("condition_as") for item in config.get("randomization", []) or []}
+    derived_fields.discard(None)
+    def check_condition(condition):
+        for field, literal in re.findall(r"\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['\"]([^'\"]+)['\"]", str(condition or "")):
+            if field not in known_questions and field not in derived_fields:
+                issues.append(_item("GQ011", "A condition refers to '%s', but that question does not exist." % field, config_path))
+            elif choices.get(field) and literal not in choices[field]:
+                issues.append(_item("GQ011", "A condition compares '%s' with '%s', which is not one of its stored answer values." % (field, literal), config_path))
     for rule in logic.get("show", []) or []:
         target = rule.get("question") or rule.get("page")
         known = known_questions if rule.get("question") else known_pages
         if target not in known:
             issues.append(_item("GQ002", "A display rule refers to '%s', but it does not exist." % target, config_path))
+        check_condition(rule.get("if"))
     for rule in logic.get("skip", []) or []:
         if rule.get("from") not in known_pages:
             issues.append(_item("GQ002", "A route starts from missing page '%s'." % rule.get("from"), config_path))
         if rule.get("to") not in known_pages:
             issues.append(_item("GQ002", "A route points to missing page '%s'." % rule.get("to"), config_path))
+        check_condition(rule.get("if"))
     for page in pages:
         target = (page.get("nav") or {}).get("page_next")
         if target and target not in known_pages:
@@ -5321,6 +5358,46 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ009", "The '%s' redirect must use a secure https address." % name, config_path))
     errors = [item for item in issues if item["severity"] == "error"]
     return {"schema_version": "0.2", "status": "passed" if not errors else "failed", "summary": "%d error(s), %d warning(s)" % (len(errors), len(issues)-len(errors)), "issues": issues}
+
+
+STATE_CONTRACTS = {
+    "study-state.json": {"schema_version", "study_id", "study_version", "guide_version", "spec_version", "mode", "phase", "status", "checkpoint", "gates", "confirmed_decision_ids", "unresolved_decision_ids", "assumptions", "artifact_paths"},
+    "decision-log.json": {"schema_version", "study_id", "append_only", "decisions"},
+    "unresolved-decisions.json": {"schema_version", "study_id", "items"},
+    "generation-manifest.json": {"schema_version", "study_id", "study_version", "guide_version", "spec_version", "artifacts", "external_operations"},
+    "validation-report.json": {"schema_version", "study_id", "study_version", "overall_status", "checks", "manual_gates"},
+}
+
+
+def validate_state_artifacts(study_dir):
+    """Check durable AI-state contracts and generation-manifest hashes."""
+    root = Path(study_dir)
+    state = root / ".greedyq"
+    issues = []
+    for name, required in STATE_CONTRACTS.items():
+        path = state / name
+        if not path.is_file():
+            issues.append(_item("GQ012", "The study is missing its %s record." % name, path))
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except (OSError, ValueError):
+            issues.append(_item("GQ012", "%s is not valid JSON." % name, path))
+            continue
+        missing = sorted(required - set(data)) if isinstance(data, dict) else sorted(required)
+        if missing:
+            issues.append(_item("GQ012", "%s is missing: %s." % (name, ", ".join(missing)), path))
+        if isinstance(data, dict) and data.get("schema_version") != "0.2":
+            issues.append(_item("GQ012", "%s must use schema_version 0.2." % name, path))
+        if name == "generation-manifest.json" and isinstance(data, dict):
+            for artifact in data.get("artifacts", []):
+                relative, expected = artifact.get("path"), artifact.get("sha256")
+                target = root / str(relative or "")
+                if not relative or not target.is_file():
+                    issues.append(_item("GQ012", "The generation manifest refers to a missing artifact: %s." % relative, path))
+                elif expected and hashlib.sha256(target.read_bytes()).hexdigest() != expected:
+                    issues.append(_item("GQ012", "The generated artifact '%s' changed after its manifest was recorded." % relative, path))
+    return {"status": "passed" if not issues else "failed", "issues": issues}
 ```
 
 ### FILE: `greedyq/compiler.py`
@@ -5890,40 +5967,213 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070`
+SHA-256: `26569ff5176890fc9a22da752b46842d8ab88e81aee17e672225c5246cbfe01a`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
 
 import json
+import re
 import shutil
 from pathlib import Path
 
 
-APP_R = '''# Generated independently by greedyQ {version}.\n# Review and test this native surveydown export before use.\nlibrary(surveydown)\n\ndb <- sd_db_connect()\nui <- sd_ui()\nserver <- function(input, output, session) {{\n  sd_server(db = db)\n}}\nshiny::shinyApp(ui = ui, server = server)\n'''
+CUSTOM_TYPES = {
+    "audio", "video", "rank_order", "side_by_side", "nps", "timing",
+    "constant_sum", "pick_group_rank", "drill_down", "custom",
+}
+
+APP_HEADER = '''# Generated independently by greedyQ {version}.
+# Review and test this native surveydown export before fielding.
+library(shiny)
+library(surveydown)
+
+db <- sd_db_connect()
+ui <- sd_ui()
+server <- function(input, output, session) {{
+  sd_server(db = db)
+{bindings}
+}}
+shiny::shinyApp(ui = ui, server = server)
+'''
+
+
+def _r(value):
+    """Encode the small scalar/vector subset used by generated R code."""
+    if value is None:
+        return "NULL"
+    if value is True:
+        return "TRUE"
+    if value is False:
+        return "FALSE"
+    if isinstance(value, (int, float)):
+        return str(value)
+    if isinstance(value, list):
+        return "c(" + ", ".join(_r(item) for item in value) + ")"
+    return json.dumps(str(value), ensure_ascii=False)
+
+
+def _named_values(items):
+    return "c(" + ", ".join(f"{_r(item['label'])} = {_r(item['value'])}" for item in items) + ")"
+
+
+def _safe_id(value):
+    return re.sub(r"[^A-Za-z0-9_]", "_", value)
+
+
+def _custom_call(question):
+    qid = question["id"]
+    return (
+        "sd_question_custom(\n"
+        f"  id = {_r(qid)},\n"
+        f"  label = {_r(question.get('label') or qid)},\n"
+        f"  output = {_r('gq_' + _safe_id(qid) + '_output')},\n"
+        f"  value = {_r('gq_' + _safe_id(qid) + '_value')}\n"
+        ")"
+    )
+
+
+def _replace_question_block(text, question):
+    qid = re.escape(str(question["id"]))
+    pattern = re.compile(
+        r"```\{r\}\s*\n(?P<body>\s*sd_question\s*\((?:(?!```)[\s\S])*?\bid\s*=\s*['\"]"
+        + qid + r"['\"](?:(?!```)[\s\S])*?\)\s*)```"
+    )
+    replacement = "```{r}\n" + _custom_call(question) + "\n```"
+    updated, count = pattern.subn(replacement, text, count=1)
+    if count != 1:
+        raise ValueError(f"Could not locate custom-control question block: {question['id']}")
+    return updated
+
+
+def _output_binding(question):
+    qid = _safe_id(question["id"])
+    qtype = question["type"]
+    output_id = f"gq_{qid}_output"
+    value_id = f"gq_{qid}_value"
+    options = question.get("options", [])
+    rows = question.get("rows", [])
+    columns = question.get("columns", [])
+    groups = question.get("groups", [])
+
+    if qtype in ("audio", "video"):
+        tag = "audio" if qtype == "audio" else "video"
+        attrs = [f"src = {_r(question.get('src', ''))}", "controls = NA"]
+        if qtype == "video" and question.get("poster"):
+            attrs.append(f"poster = {_r(question['poster'])}")
+        ui = f"tags${tag}({', '.join(attrs)}, style = 'max-width:100%;')"
+        value = "reactive(NULL)"
+    elif qtype == "nps":
+        lo, hi = int(question.get("min", 0)), int(question.get("max", 10))
+        ui = f"radioButtons({_r(qid)}, NULL, choices = c({', '.join(map(str, range(lo, hi + 1)))}), inline = TRUE)"
+        value = f"reactive(input${qid})"
+    elif qtype == "rank_order":
+        controls = []
+        for item in options:
+            iid = f"{qid}_{_safe_id(str(item['value']))}"
+            controls.append(f"selectInput({_r(iid)}, {_r(item['label'])}, choices = 1:{len(options)})")
+        ui = "tagList(" + ", ".join(controls) + ")"
+        pairs = ", ".join(f"{_r(str(i['value']))} = input${qid}_{_safe_id(str(i['value']))}" for i in options)
+        value = f"reactive(list({pairs}))"
+    elif qtype == "constant_sum":
+        controls = []
+        for item in options:
+            iid = f"{qid}_{_safe_id(str(item['value']))}"
+            controls.append(f"numericInput({_r(iid)}, {_r(item['label'])}, value = 0, min = 0)")
+        ui = "tagList(" + ", ".join(controls) + ")"
+        pairs = ", ".join(f"{_r(str(i['value']))} = input${qid}_{_safe_id(str(i['value']))}" for i in options)
+        value = f"reactive(list({pairs}))"
+    elif qtype == "side_by_side":
+        controls, pairs = [], []
+        for column in columns:
+            for row in rows:
+                iid = f"{qid}_{_safe_id(str(column['value']))}_{_safe_id(str(row['value']))}"
+                controls.append(f"selectInput({_r(iid)}, {_r(column['label'] + ' — ' + row['label'])}, choices = {_named_values(options)})")
+                pairs.append(f"{_r(str(column['value']) + '.' + str(row['value']))} = input${iid}")
+        ui = "tagList(" + ", ".join(controls) + ")"
+        value = "reactive(list(" + ", ".join(pairs) + "))"
+    elif qtype == "pick_group_rank":
+        controls, pairs = [], []
+        for item in options:
+            base = f"{qid}_{_safe_id(str(item['value']))}"
+            controls.extend([
+                f"selectInput({_r(base + '_group')}, {_r(item['label'] + ' — group')}, choices = {_named_values(groups)})",
+                f"numericInput({_r(base + '_rank')}, {_r(item['label'] + ' — rank')}, value = 1, min = 1)",
+            ])
+            pairs.append(f"{_r(str(item['value']))} = reactiveValuesToList(input)[c({_r(base + '_group')}, {_r(base + '_rank')})]")
+        ui = "tagList(" + ", ".join(controls) + ")"
+        value = "reactive(list(" + ", ".join(pairs) + "))"
+    elif qtype == "drill_down":
+        ui = f"selectInput({_r(qid)}, NULL, choices = {_named_values(options)})"
+        value = f"reactive(input${qid})"
+    elif qtype == "timing":
+        ui = "tags$span('Timing is recorded by the generated server binding.')"
+        value = "local({ started <- Sys.time(); reactive({ invalidateLater(1000); as.numeric(difftime(Sys.time(), started, units = 'secs')) }) })"
+    else:  # custom: portable fallback based on its confirmed options
+        ui = f"selectInput({_r(qid)}, NULL, choices = {_named_values(options)})" if options else f"textInput({_r(qid)}, NULL)"
+        value = f"reactive(input${qid})"
+
+    return (
+        f"  output${output_id} <- renderUI({{ {ui} }})\n"
+        f"  {value_id} <- {value}"
+    )
 
 
 def generate(study_dir, parsed, config):
-    study_dir = Path(study_dir); output = study_dir / "export/surveydown"; output.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(study_dir / "survey.qmd", output / "survey.qmd")
+    study_dir = Path(study_dir)
+    output = study_dir / "export/surveydown"
+    output.mkdir(parents=True, exist_ok=True)
+    source = (study_dir / "survey.qmd").read_text()
+    custom_questions = []
+    for page in parsed.get("pages", []):
+        for question in page.get("questions", []):
+            if question.get("type") in CUSTOM_TYPES:
+                custom_questions.append(question)
+                source = _replace_question_block(source, question)
+    (output / "survey.qmd").write_text(source)
     for name in ("consent.md", "consent(kor).md"):
-        if (study_dir / name).is_file(): shutil.copyfile(study_dir / name, output / name)
-    (output / "app.R").write_text(APP_R.format(version=config.get("spec_version", "0.2")))
-    features = [{"id": "qmd_pages_and_questions", "classification": "directly_portable", "note": "Supported question and page syntax is preserved."}]
-    if config.get("logic"): features.append({"id": "declarative_logic", "classification": "generated", "note": "Review native reactive behavior before fielding."})
-    if config.get("randomization"): features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
-    if config.get("consent"): features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
-    if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])): features.append({"id": "vertical_slider", "classification": "greedyq_only", "note": "Vertical slider orientation is a greedyQ extension; native surveydown uses its own slider presentation."})
-    mismatches = [item["note"] for item in features if item["classification"] in ("greedyq_only", "unsupported")]
-    counts = {key: sum(item["classification"] == key for item in features) for key in ("directly_portable", "generated", "greedyq_only", "unsupported")}
-    report = {"report_version": "0.2", "generator_status": "generated_unverified", "study_id": config.get("study", {}).get("id"), "spec_version": config.get("spec_version"), "summary": counts, "features": features, "material_mismatches": mismatches, "equivalence_claimed": not mismatches}
+        if (study_dir / name).is_file():
+            shutil.copyfile(study_dir / name, output / name)
+    for directory in ("images", "assets", "design"):
+        source_directory = study_dir / directory
+        if source_directory.is_dir():
+            shutil.copytree(source_directory, output / directory, dirs_exist_ok=True)
+
+    bindings = "\n".join(_output_binding(question) for question in custom_questions)
+    (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
+
+    features = [{"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."}]
+    if custom_questions:
+        features.append({
+            "id": "greedyq_custom_controls", "classification": "generated_custom",
+            "questions": [q["id"] for q in custom_questions],
+            "note": "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
+        })
+    if config.get("logic"):
+        features.append({"id": "declarative_logic", "classification": "greedyq_only", "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."})
+    if config.get("randomization"):
+        features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
+    if config.get("consent"):
+        features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])):
+        features.append({"id": "vertical_slider", "classification": "generated_unverified", "note": "Review the exported slider presentation before fielding."})
+    mismatch_classes = {"generated_custom", "generated_unverified", "greedyq_only", "unsupported"}
+    mismatches = [item["note"] for item in features if item["classification"] in mismatch_classes]
+    classes = ("directly_portable", "generated_custom", "generated_unverified", "greedyq_only", "unsupported")
+    counts = {key: sum(item["classification"] == key for item in features) for key in classes}
+    report = {
+        "report_version": "0.2", "generator_status": "generated_unverified",
+        "study_id": config.get("study", {}).get("id"), "spec_version": config.get("spec_version"),
+        "summary": counts, "features": features, "material_mismatches": mismatches,
+        "equivalence_claimed": not mismatches,
+    }
     (output / "compatibility-report.json").write_text(json.dumps(report, indent=2) + "\n")
     return output, report
 ```
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `7c509478b985682303952f995798766b178a93cf9e9e414ff24dae2ad20d12ef`
+SHA-256: `35fd87aef7b1ed8ab6f355ac3c30977d8f3f44d68c9c812a273ffc6b9bd930a5`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -5934,6 +6184,7 @@ from pathlib import Path
 
 REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "results.html", "api/results.js", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
 REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session", "respondent_source")
+REQUIRED_DATA_SAFETY = ("enable row level security", "research_data_deleted", "gq_answers", "gq_consent_events", "gq_lifecycle_events")
 
 
 def preflight(study_dir):
@@ -5946,7 +6197,9 @@ def preflight(study_dir):
     except (OSError, ValueError): issues.append({"code": "GQ030", "message": "vercel.json is missing or invalid."})
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
     for rpc in REQUIRED_RPC:
-        if rpc not in migrations: issues.append({"code": "GQ031", "message": "Supabase migration does not define %s." % rpc})
+        if rpc not in migrations: issues.append({"code": "GQ013", "message": "Supabase migration does not define %s." % rpc})
+    for token in REQUIRED_DATA_SAFETY:
+        if token not in migrations.lower(): issues.append({"code": "GQ013", "message": "Supabase migrations are missing the required data-safety contract: %s." % token})
     for path in root.glob("**/*"):
         if path.is_file() and path.stat().st_size < 2_000_000:
             text = path.read_text(errors="ignore")

@@ -2,6 +2,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,6 +10,7 @@ from pathlib import Path
 from greedyq.build import build, load_study
 from greedyq.deployment import preflight
 from greedyq.exporter import generate as generate_export
+from greedyq.validator import validate_state_artifacts
 from greedyq.preregistration import generate as generate_preregistration
 from greedyq.prolific import completion_url, parse_launch, resolve_launch
 
@@ -61,7 +63,30 @@ class ReleasePipelineTests(unittest.TestCase):
             self.assertIn("shiny::shinyApp", (output / "app.R").read_text())
             self.assertEqual((study / "survey.qmd").read_bytes(), (output / "survey.qmd").read_bytes())
             self.assertFalse(report["equivalence_claimed"])
+            if shutil.which("Rscript"):
+                subprocess.run(["Rscript", "-e", f"parse(file={json.dumps(str(output / 'app.R'))})"], check=True, capture_output=True, text=True)
             self.assertEqual("generated_unverified", report["generator_status"])
+
+    def test_exporter_translates_greedyq_controls_to_surveydown_custom_controls(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            study = self.copy_study(tmp, "control-gallery")
+            _, parsed, config = load_study(study)
+            output, report = generate_export(study, parsed, config)
+            qmd = (output / "survey.qmd").read_text()
+            app = (output / "app.R").read_text()
+            for qid in ("rank_example", "sbs_example", "nps_example", "timing_example", "sum_example", "group_rank_example", "drill_example", "audio_example", "video_example", "custom_example"):
+                self.assertIn(f'id = "{qid}"', qmd)
+                self.assertIn(f'output = "gq_{qid}_output"', qmd)
+                self.assertIn(f'value = "gq_{qid}_value"', qmd)
+                self.assertIn(f"output$gq_{qid}_output", app)
+                self.assertIn(f"gq_{qid}_value", app)
+            self.assertNotIn('type = "rank_order"', qmd)
+            self.assertNotIn('type = "constant_sum"', qmd)
+            self.assertGreaterEqual(qmd.count("sd_question_custom("), 10)
+            self.assertTrue((output / "images/blue.svg").is_file())
+            custom = next(x for x in report["features"] if x["id"] == "greedyq_custom_controls")
+            self.assertEqual("generated_custom", custom["classification"])
+            self.assertFalse(report["equivalence_claimed"])
 
     def test_static_build_passes_offline_deployment_preflight(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -82,7 +107,7 @@ class ReleasePipelineTests(unittest.TestCase):
         dashboard = (ROOT / "templates/browser/results.html").read_text()
         api = (ROOT / "templates/vercel/api/results.js").read_text()
         migration = (ROOT / "templates/supabase/003_results_dashboard.sql").read_text()
-        for token in ("Real responses", "Test responses", "Direct", "Prolific", "Download CSV", "Where participants stopped", "Conditions", "Answer summary"):
+        for token in ("Real responses", "Test responses", "Direct", "Prolific", "Download CSV", "Where participants stopped", "Conditions", "Answer summary", "Variable guide", "questionColumns", "flattenQuestion", "seconds_on_page", ".group", ".rank"):
             self.assertIn(token, dashboard)
         self.assertIn("SUPABASE_SECRET_KEY", api)
         self.assertNotIn("SUPABASE_SECRET_KEY", dashboard)
@@ -101,6 +126,27 @@ class ReleasePipelineTests(unittest.TestCase):
             expected = {q["id"] for page in model["pages"] for q in page["questions"]}
             self.assertIn("support_post", expected)
             self.assertIn("gender_self_description", expected)
+
+    def test_state_artifacts_match_their_contracts_and_hashes(self):
+        report = validate_state_artifacts(ROOT / "examples" / "complete-study")
+        self.assertEqual("passed", report["status"], report)
+        with tempfile.TemporaryDirectory() as tmp:
+            study = self.copy_study(tmp)
+            (study / ".greedyq").mkdir()
+            (study / ".greedyq" / "study-state.json").write_text("{}")
+            broken = validate_state_artifacts(study)
+            self.assertEqual("failed", broken["status"])
+            self.assertTrue(all(issue["code"] == "GQ012" for issue in broken["issues"]))
+
+    def test_preflight_reports_broken_data_contract_as_gq013(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            study = self.copy_study(tmp)
+            build(study)
+            migration = study / "supabase/migrations/002_browser_rpc.sql"
+            migration.write_text(migration.read_text().replace("greedyq_withdraw_session", "removed_withdrawal"))
+            report = preflight(study)
+            self.assertEqual("failed", report["status"])
+            self.assertTrue(any(issue["code"] == "GQ013" for issue in report["issues"]))
 
     def test_browser_connection_tester_uses_only_synthetic_public_configuration(self):
         tester = (ROOT / "templates/supabase/connection-test.html").read_text().lower()
