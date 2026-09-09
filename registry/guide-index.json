@@ -84,7 +84,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "5815c88f2c6b455ef593a2d489ab4d1fed555bf18a038813365e236a9394888f"
+          "sha256": "aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132"
         },
         {
           "path": "web/greedyq-runtime.css",

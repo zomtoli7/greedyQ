@@ -1866,12 +1866,12 @@
       await remote.registerExternal(id, externalIdentifiers);
     const loaded = await remote.load(id),
       memory = createMemoryBackend();
-    if (loaded?.state)
+    if (loaded?.state && typeof loaded.state.page === "string")
       memory.save(id, {
         ...loaded.state,
         condition: loaded.condition ?? loaded.state.condition ?? null,
       });
-    else if (loaded?.page) memory.save(id, loaded);
+    else if (typeof loaded?.page === "string") memory.save(id, loaded);
     let initialCondition =
       loaded?.condition ?? loaded?.state?.condition ?? null;
     if (!model.assignment_page && !initialCondition)

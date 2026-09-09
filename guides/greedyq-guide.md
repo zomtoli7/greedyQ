@@ -239,7 +239,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `5815c88f2c6b455ef593a2d489ab4d1fed555bf18a038813365e236a9394888f` | `no` |
+| `web/greedyq-core.js` | `aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
 | `templates/browser/respondent.html` | `2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac` | `no` |
 | `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
@@ -415,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `5815c88f2c6b455ef593a2d489ab4d1fed555bf18a038813365e236a9394888f`
+SHA-256: `aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -2286,12 +2286,12 @@ SHA-256: `5815c88f2c6b455ef593a2d489ab4d1fed555bf18a038813365e236a9394888f`
       await remote.registerExternal(id, externalIdentifiers);
     const loaded = await remote.load(id),
       memory = createMemoryBackend();
-    if (loaded?.state)
+    if (loaded?.state && typeof loaded.state.page === "string")
       memory.save(id, {
         ...loaded.state,
         condition: loaded.condition ?? loaded.state.condition ?? null,
       });
-    else if (loaded?.page) memory.save(id, loaded);
+    else if (typeof loaded?.page === "string") memory.save(id, loaded);
     let initialCondition =
       loaded?.condition ?? loaded?.state?.condition ?? null;
     if (!model.assignment_page && !initialCondition)
