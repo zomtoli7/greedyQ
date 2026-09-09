@@ -241,8 +241,8 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
 | `web/greedyq-core.js` | `0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627` | `no` |
 | `web/greedyq-runtime.css` | `fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8` | `no` |
-| `templates/browser/respondent.html` | `00d8804b7464fd66492fcf0ba3e5fafcc797759ecf343a617c508e7fccdb4c3f` | `no` |
-| `templates/browser/preview.html` | `b34f568980e405a5ab09ac44bd5e668c512b544562cd72231e50ef5e2e17c9c3` | `no` |
+| `templates/browser/respondent.html` | `938cb4020d4cb4d7ec42af3c982be0d0efc1c969815dff9be81e60c3c8c0f911` | `no` |
+| `templates/browser/preview.html` | `da851b7590111cb956735794031bcf86fa475b088fba46e72aa3ff3f56b418cb` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `9a571e2026c838adb419bd620d188305a000ea6731224a223e210ba3f2c2d2f0` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -266,7 +266,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/server.py` | `9942f06cb2b9faa359608b36c71d7373138cc9baa7c5df7f906a776dd9b09746` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
-| `greedyq/exporter.py` | `ad80cfe3406608ed9b9ef61a4a355715069c66b9a1aca948ac1629d8cd5c885e` | `no` |
+| `greedyq/exporter.py` | `96e67827978ae6d049d8b72cdc07ea0d257f2cce4089a13a2b3c36e8eecff872` | `no` |
 | `greedyq/deployment.py` | `0f563b07702268cdec6d6ee260f0c3fbdd664e57f904f362946cfb22617829d8` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
@@ -3112,7 +3112,7 @@ SHA-256: `fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `00d8804b7464fd66492fcf0ba3e5fafcc797759ecf343a617c508e7fccdb4c3f`
+SHA-256: `938cb4020d4cb4d7ec42af3c982be0d0efc1c969815dff9be81e60c3c8c0f911`
 
 ```html
 <!doctype html>
@@ -3140,7 +3140,7 @@ SHA-256: `00d8804b7464fd66492fcf0ba3e5fafcc797759ecf343a617c508e7fccdb4c3f`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_fcb3c86",
+        "greedyq_version": "0.2_2026-09-10_da78aae",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -3227,7 +3227,7 @@ SHA-256: `00d8804b7464fd66492fcf0ba3e5fafcc797759ecf343a617c508e7fccdb4c3f`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `b34f568980e405a5ab09ac44bd5e668c512b544562cd72231e50ef5e2e17c9c3`
+SHA-256: `da851b7590111cb956735794031bcf86fa475b088fba46e72aa3ff3f56b418cb`
 
 ```html
 <!doctype html>
@@ -3468,7 +3468,7 @@ SHA-256: `b34f568980e405a5ab09ac44bd5e668c512b544562cd72231e50ef5e2e17c9c3`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_fcb3c86",
+        "greedyq_version": "0.2_2026-09-10_da78aae",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -6019,7 +6019,7 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `ad80cfe3406608ed9b9ef61a4a355715069c66b9a1aca948ac1629d8cd5c885e`
+SHA-256: `96e67827978ae6d049d8b72cdc07ea0d257f2cce4089a13a2b3c36e8eecff872`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
@@ -6157,6 +6157,20 @@ def _replace_question_block(text, question):
     return updated
 
 
+def _force_preview_mode(text):
+    """Keep generated native projects safe for local review by default."""
+    pattern = re.compile(r"(?m)^(survey-settings:\s*\n)((?:[ \t]+.*(?:\n|$))*)")
+    match = pattern.search(text)
+    if not match:
+        raise ValueError("Native Surveydown export requires a survey-settings YAML section.")
+    body = match.group(2)
+    if re.search(r"(?m)^\s+mode:\s*", body):
+        body = re.sub(r"(?m)^(\s+)mode:\s*.*$", r"\1mode: preview", body, count=1)
+    else:
+        body = "  mode: preview\n" + body
+    return text[:match.start()] + match.group(1) + body + text[match.end():]
+
+
 def _output_binding(question):
     qid = _safe_id(question["id"])
     qtype = question["type"]
@@ -6234,7 +6248,7 @@ def generate(study_dir, parsed, config):
     study_dir = Path(study_dir)
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)
-    source = (study_dir / "survey.qmd").read_text()
+    source = _force_preview_mode((study_dir / "survey.qmd").read_text())
     custom_questions = []
     for page in parsed.get("pages", []):
         for question in page.get("questions", []):
@@ -6253,7 +6267,10 @@ def generate(study_dir, parsed, config):
     bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
-    features = [{"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."}]
+    features = [
+        {"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."},
+        {"id": "safe_preview_mode", "classification": "directly_portable", "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."},
+    ]
     if custom_questions:
         features.append({
             "id": "greedyq_custom_controls", "classification": "generated_custom",

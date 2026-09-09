@@ -4,7 +4,7 @@
   "study_id": "digital_service_info_001",
   "spec_version": "0.2",
   "summary": {
-    "directly_portable": 1,
+    "directly_portable": 2,
     "generated_custom": 0,
     "generated_unverified": 2,
     "greedyq_only": 1,
@@ -15,6 +15,11 @@
       "id": "qmd_pages_and_native_questions",
       "classification": "directly_portable",
       "note": "Native surveydown question and page syntax is preserved."
+    },
+    {
+      "id": "safe_preview_mode",
+      "classification": "directly_portable",
+      "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."
     },
     {
       "id": "declarative_logic",

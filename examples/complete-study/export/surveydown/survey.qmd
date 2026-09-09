@@ -2,7 +2,7 @@
 title: "Digital Service Information Study"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-09-09_fcb3c86"
+  version: "0.2_2026-09-10_da78aae"
   organization: "Example University Research Team"
 theme-settings:
   theme: default
@@ -10,6 +10,7 @@ theme-settings:
   barcolor: "#315c8a"
   footer-center: "Fictional greedyQ reference study"
 survey-settings:
+  mode: preview
   show-previous: true
   use-cookies: true
   all-required: false

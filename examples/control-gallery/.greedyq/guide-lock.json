@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "383563c1351a7aa253b38a9a9e2d2ac3671ac2a25eef08085aa848861e57e5b1",
+  "registry_sha256": "4f4e0882d1c61befea9d236acc7486ca8c7ea65fd828bb9cd5c447451a97735f",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -25,7 +25,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "1cd33d0ee81c9fc2839fc0310133952d8012ebda6c526f96966a3c9b7b59a692"
+      "sha256": "08f3b3803cc0ce0d32074bf18a572089777f9e8bc542a3c01a10dbbe7b9e451b"
     },
     {
       "component": "core",
@@ -40,7 +40,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "d53450bc07711624f19b7c4ed6a8ab202bace736ee37d3f948df0f629d0e55fd"
+      "sha256": "639a437860104b00f4d43df80a33ed11a5059a6e76cfeb6b2eda0b11705ea680"
     },
     {
       "component": "core",
@@ -90,12 +90,12 @@
     {
       "component": "core",
       "path": "templates/browser/respondent.html",
-      "sha256": "00d8804b7464fd66492fcf0ba3e5fafcc797759ecf343a617c508e7fccdb4c3f"
+      "sha256": "938cb4020d4cb4d7ec42af3c982be0d0efc1c969815dff9be81e60c3c8c0f911"
     },
     {
       "component": "core",
       "path": "templates/browser/preview.html",
-      "sha256": "b34f568980e405a5ab09ac44bd5e668c512b544562cd72231e50ef5e2e17c9c3"
+      "sha256": "da851b7590111cb956735794031bcf86fa475b088fba46e72aa3ff3f56b418cb"
     },
     {
       "component": "core",
@@ -110,7 +110,7 @@
     {
       "component": "core",
       "path": "templates/supabase/connection-test.html",
-      "sha256": "c696ce0e367712ed2a7148d2f333278018fae373f4a865416db5f5c026b83ed1"
+      "sha256": "b2460a1b5690b603a4369e943b5720d116894f0c98e61794071915aa307aa3a8"
     },
     {
       "component": "core",
@@ -170,7 +170,7 @@
     {
       "component": "core",
       "path": "greedyq/exporter.py",
-      "sha256": "ad80cfe3406608ed9b9ef61a4a355715069c66b9a1aca948ac1629d8cd5c885e"
+      "sha256": "96e67827978ae6d049d8b72cdc07ea0d257f2cce4089a13a2b3c36e8eecff872"
     },
     {
       "component": "core",

@@ -2,7 +2,7 @@
 
 [English](./external-connection-readiness.md)
 
-**Release:** `0.2_2026-09-09_fcb3c86`
+**Release:** `0.2_2026-09-10_da78aae`
 **상태:** 로컬 검증 완료, 외부 계정 미연결
 
 greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애플리케이션을 준비하고 테스트합니다. 이 경계 덕분에 일반적인 설문 검토는 로컬에서 이루어지고, 마지막 외부 단계는 새로운 구현이 아니라 설정 및 검증 작업이 됩니다.
