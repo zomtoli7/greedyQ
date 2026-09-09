@@ -209,6 +209,9 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
             self.assertIn(token, core)
         for token in ("gq-rank-order", "gq-side-by-side", "gq-nps-scale", "gq-constant-sum", "gq-pick-group-rank", "gq-drill-down"):
             self.assertIn(token, css)
+        compact = "".join(css.split())
+        self.assertIn("grid-template-columns:repeat(11,minmax(0,1fr))", compact)
+        self.assertIn("box-sizing:border-box", compact)
 
 
 if __name__ == "__main__":
