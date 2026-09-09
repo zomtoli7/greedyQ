@@ -156,7 +156,7 @@
         },
         {
           "path": "greedyq/exporter.py",
-          "sha256": "96e67827978ae6d049d8b72cdc07ea0d257f2cce4089a13a2b3c36e8eecff872"
+          "sha256": "5e0cdea5bec8dca37e7bb151c5031144421d00f8705761a396ee8a24630e90cc"
         },
         {
           "path": "greedyq/deployment.py",
@@ -255,7 +255,7 @@
         },
         {
           "path": "docs/surveydown-compatibility.md",
-          "sha256": "40c9f7bccd02e37abaf402fe066f7f690ead9bccbb382728df83e9e692c5b477"
+          "sha256": "5a149e1dac9a43cb28abe885eea0494e4a3a1609ac5ed7b928ea149262501c5b"
         }
       ]
     },

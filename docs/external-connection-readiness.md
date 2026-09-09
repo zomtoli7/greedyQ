@@ -19,7 +19,7 @@ greedyQ prepares and tests the survey application before any Vercel, Supabase, o
 - A browser-native `supabase-connection-test.html` verifies the connected project with synthetic `is_test` sessions and withdraws them afterward.
 - Prolific launch parameters and HTTPS completion URLs are validated in test code.
 - Preregistration Markdown, JSON, and a SHA-256 manifest can be generated as an explicitly unapproved local draft.
-- A native surveydown project and an honest compatibility report can be generated without claiming behavioral equivalence. Generated logic uses documented `sd_show_if()`, `sd_skip_if()`, and `sd_stop_if()` helpers; generated custom controls use `sd_question_custom()`. The output has been checked against the public Surveydown 1.3.0 API and R parser.
+- A native surveydown project and an honest compatibility report can be generated without claiming behavioral equivalence. Generated logic uses documented `sd_show_if()`, `sd_skip_if()`, and `sd_stop_if()` helpers; generated custom controls use `sd_output()` placeholders and server-side `sd_question_custom()`. The full control gallery renders and starts under Surveydown 1.3.0, R, Quarto, and Shiny in safe preview mode without a database account.
 
 ## What still requires an external account
 

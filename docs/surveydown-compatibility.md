@@ -32,7 +32,7 @@ The proposed greedyQ classifications are:
 
 Compatibility means compatibility with the documented authoring contract where practical. It does not mean reproducing surveydown's R objects, Shiny internals, generated HTML, CSS, database implementation, or source code. Each normative feature must separately declare greedyQ runtime support and native surveydown export behavior.
 
-For greedyQ-only controls, v0.2 exports the public `sd_question_custom()` interface and independently generated Shiny output/reactive-value bindings. These conversions are reported as `generated_custom` and remain `generated_unverified` until exercised in a native Surveydown application. The exporter never leaves a greedyQ-only `type` in native QMD and never treats successful code generation as proof of behavioral equivalence.
+For greedyQ-only controls, v0.2 places documented `sd_output(..., type = "question")` placeholders in QMD and generates the public server-side `sd_question_custom()` interface with independent Shiny output/reactive-value bindings. The full gallery renders and starts in a native Surveydown 1.3.0 preview application, but these conversions remain `generated_unverified` until each interaction and stored value is behaviorally reviewed. The exporter never leaves a greedyQ-only `type` in native QMD and never treats successful rendering as proof of behavioral equivalence.
 
 ## 2. Executive findings
 

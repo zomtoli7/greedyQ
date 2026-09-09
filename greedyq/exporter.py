@@ -19,8 +19,8 @@ library(surveydown)
 db <- sd_db_connect()
 ui <- sd_ui()
 server <- function(input, output, session) {{
-  sd_server(db = db)
 {bindings}
+  sd_server(db = db)
 }}
 shiny::shinyApp(ui = ui, server = server)
 '''
@@ -51,14 +51,7 @@ def _safe_id(value):
 
 def _custom_call(question):
     qid = question["id"]
-    return (
-        "sd_question_custom(\n"
-        f"  id = {_r(qid)},\n"
-        f"  label = {_r(question.get('label') or qid)},\n"
-        f"  output = {_r('gq_' + _safe_id(qid) + '_output')},\n"
-        f"  value = {_r('gq_' + _safe_id(qid) + '_value')}\n"
-        ")"
-    )
+    return f"sd_output({_r(qid)}, type = \"question\")"
 
 
 def _condition_r(expression, derived_fields=frozenset()):
@@ -133,8 +126,54 @@ def _replace_question_block(text, question):
     return updated
 
 
+def _remove_scalar_arguments(text, question_id, names):
+    """Remove greedyQ-only scalar arguments from one preserved native call."""
+    qid = re.escape(str(question_id))
+    pattern = re.compile(
+        r"```\{r\}\s*\n(?P<body>\s*sd_question\s*\((?:(?!```)[\s\S])*?\bid\s*=\s*['\"]"
+        + qid + r"['\"](?:(?!```)[\s\S])*?\)\s*)```",
+        re.S,
+    )
+    match = pattern.search(text)
+    if not match:
+        return text
+    body = match.group("body")
+    for name in names:
+        body = re.sub(r",\s*" + re.escape(name) + r"\s*=\s*[^,)\n]+", "", body)
+    return text[:match.start("body")] + body + text[match.end("body"):]
+
+
+def _rewrite_nav_extensions(text):
+    """Translate safe navigation subsets and remove greedyQ-only arguments."""
+    pattern = re.compile(r"(```\{r\}\s*\n)(?P<body>\s*sd_nav\s*\((?:(?!```)[\s\S])*?\)\s*)(```)")
+    def replace(match):
+        body = match.group("body")
+        previous = re.search(r"previous_mode\s*=\s*['\"](show|hide|disable)['\"]", body)
+        next_mode = re.search(r"next_mode\s*=\s*['\"](show|hide|disable)['\"]", body)
+        body = re.sub(r",?\s*previous_mode\s*=\s*['\"](?:show|hide|disable)['\"]", "", body)
+        body = re.sub(r",?\s*next_mode\s*=\s*['\"](?:show|hide|disable)['\"]", "", body)
+        body = re.sub(r",?\s*next_delay_seconds\s*=\s*[^,)\n]+", "", body)
+        additions = []
+        if previous and previous.group(1) != "show" and "show_previous" not in body:
+            additions.append("show_previous = FALSE")
+        if next_mode and next_mode.group(1) != "show" and "show_next" not in body:
+            additions.append("show_next = FALSE")
+        if additions:
+            separator = "" if re.search(r"\(\s*\)\s*$", body) else ", "
+            body = re.sub(r"\)\s*$", separator + ", ".join(additions) + ")", body)
+        return match.group(1) + body.rstrip() + "\n" + match.group(3)
+    return pattern.sub(replace, text)
+
+
 def _force_preview_mode(text):
     """Keep generated native projects safe for local review by default."""
+    close = text.find("\n---", 4)
+    if close < 0:
+        raise ValueError("Native Surveydown export requires YAML front matter.")
+    header, remainder = text[:close], text[close:]
+    if not re.search(r"(?m)^format:\s*", header):
+        header = header.replace("---\n", "---\nformat: html\n", 1)
+    text = header + remainder
     pattern = re.compile(r"(?m)^(survey-settings:\s*\n)((?:[ \t]+.*(?:\n|$))*)")
     match = pattern.search(text)
     if not match:
@@ -144,7 +183,15 @@ def _force_preview_mode(text):
         body = re.sub(r"(?m)^(\s+)mode:\s*.*$", r"\1mode: preview", body, count=1)
     else:
         body = "  mode: preview\n" + body
-    return text[:match.start()] + match.group(1) + body + text[match.end():]
+    text = text[:match.start()] + match.group(1) + body + text[match.end():]
+    close = text.find("\n---", 4)
+    first_page = re.search(r"(?m)^---\s+[A-Za-z][A-Za-z0-9_-]*\s*$", text[close + 4:])
+    prefix_end = close + 4 + (first_page.start() if first_page else 0)
+    prefix = text[:prefix_end]
+    if not re.search(r"library\(\s*surveydown\s*\)", prefix):
+        setup = "\n\n```{r}\nlibrary(surveydown)\n```\n\n"
+        text = text[:close + 4] + setup + text[close + 4:].lstrip("\n")
+    return text
 
 
 def _output_binding(question):
@@ -214,9 +261,16 @@ def _output_binding(question):
         ui = f"selectInput({_r(qid)}, NULL, choices = {_named_values(options)})" if options else f"textInput({_r(qid)}, NULL)"
         value = f"reactive(input${qid})"
 
+    label = question.get("label") or question["id"]
     return (
         f"  output${output_id} <- renderUI({{ {ui} }})\n"
-        f"  {value_id} <- {value}"
+        f"  {value_id} <- {value}\n"
+        "  sd_question_custom(\n"
+        f"    id = {_r(question['id'])},\n"
+        f"    label = {_r(label)},\n"
+        f"    output = uiOutput({_r(output_id)}),\n"
+        f"    value = {value_id}\n"
+        "  )"
     )
 
 
@@ -224,13 +278,17 @@ def generate(study_dir, parsed, config):
     study_dir = Path(study_dir)
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)
-    source = _force_preview_mode((study_dir / "survey.qmd").read_text())
+    source = _rewrite_nav_extensions(_force_preview_mode((study_dir / "survey.qmd").read_text()))
     custom_questions = []
     for page in parsed.get("pages", []):
         for question in page.get("questions", []):
             if question.get("type") in CUSTOM_TYPES:
                 custom_questions.append(question)
                 source = _replace_question_block(source, question)
+            elif question.get("type") == "numeric":
+                source = _remove_scalar_arguments(source, question["id"], ("min", "max", "step"))
+            elif question.get("type") in ("matrix", "matrix_multiple"):
+                source = _remove_scalar_arguments(source, question["id"], ("mobile_columns",))
     (output / "survey.qmd").write_text(source)
     for name in ("consent.md", "consent(kor).md"):
         if (study_dir / name).is_file():
@@ -259,6 +317,12 @@ def generate(study_dir, parsed, config):
         features.append({"id": "random_assignment", "classification": "generated_unverified", "note": "Assignment was translated to a stored native random draw; fixed-block balance and greedyQ persistence equivalence are not claimed."})
     if config.get("consent"):
         features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    bounded_numeric = [q["id"] for page in parsed.get("pages", []) for q in page.get("questions", []) if q.get("type") == "numeric" and (q.get("min") is not None or q.get("max") is not None or q.get("step") is not None)]
+    if bounded_numeric:
+        features.append({"id": "numeric_input_bounds", "classification": "generated_unverified", "questions": bounded_numeric, "note": "Native Surveydown 1.3.0 does not accept greedyQ numeric min/max/step widget arguments; equivalent stop rules must be reviewed."})
+    extended_nav = [page["id"] for page in parsed.get("pages", []) if any(key in page.get("nav", {}) for key in ("previous_mode", "next_mode", "next_delay_seconds"))]
+    if extended_nav:
+        features.append({"id": "extended_navigation", "classification": "generated_unverified", "pages": extended_nav, "note": "Hidden navigation is translated; disabled-button and timed-delay states have no native Surveydown 1.3.0 equivalent and require review."})
     if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])):
         features.append({"id": "vertical_slider", "classification": "generated_unverified", "note": "Review the exported slider presentation before fielding."})
     mismatch_classes = {"generated_custom", "generated_unverified", "greedyq_only", "unsupported"}

@@ -19,7 +19,7 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 - Browser-native `supabase-connection-test.html`은 synthetic `is_test` session으로 연결된 project를 검증하고 끝난 뒤 철회합니다.
 - Test code에서 Prolific launch parameter와 HTTPS completion URL을 검증합니다.
 - 명시적으로 승인되지 않은 local draft 상태의 preregistration Markdown, JSON, SHA-256 manifest를 생성할 수 있습니다.
-- 동작 동등성을 허위로 주장하지 않는 native surveydown project와 compatibility report를 생성할 수 있습니다. 생성된 logic은 문서화된 `sd_show_if()`, `sd_skip_if()`, `sd_stop_if()`를 사용하고 custom control은 `sd_question_custom()`을 사용합니다. 공개 Surveydown 1.3.0 API 및 R parser와 대조했습니다.
+- 동작 동등성을 허위로 주장하지 않는 native surveydown project와 compatibility report를 생성할 수 있습니다. 생성된 logic은 문서화된 `sd_show_if()`, `sd_skip_if()`, `sd_stop_if()`를 사용하고 custom control은 QMD의 `sd_output()` placeholder와 server-side `sd_question_custom()`을 사용합니다. 전체 control gallery가 database 계정 없이 Surveydown 1.3.0, R, Quarto, Shiny의 안전한 preview mode에서 rendering 및 기동되는 것을 확인했습니다.
 
 ## 외부 계정이 필요한 항목
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "4f4e0882d1c61befea9d236acc7486ca8c7ea65fd828bb9cd5c447451a97735f",
+  "registry_sha256": "43b432babfb14320baf3afa706df67e6dfbb1762814cc28ea363963b69a4f106",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -170,7 +170,7 @@
     {
       "component": "core",
       "path": "greedyq/exporter.py",
-      "sha256": "96e67827978ae6d049d8b72cdc07ea0d257f2cce4089a13a2b3c36e8eecff872"
+      "sha256": "5e0cdea5bec8dca37e7bb151c5031144421d00f8705761a396ee8a24630e90cc"
     },
     {
       "component": "core",

@@ -6,7 +6,7 @@
   "summary": {
     "directly_portable": 2,
     "generated_custom": 1,
-    "generated_unverified": 1,
+    "generated_unverified": 3,
     "greedyq_only": 0,
     "unsupported": 0
   },
@@ -42,11 +42,30 @@
       "id": "declarative_logic",
       "classification": "generated_unverified",
       "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
+    },
+    {
+      "id": "numeric_input_bounds",
+      "classification": "generated_unverified",
+      "questions": [
+        "number"
+      ],
+      "note": "Native Surveydown 1.3.0 does not accept greedyQ numeric min/max/step widget arguments; equivalent stop rules must be reviewed."
+    },
+    {
+      "id": "extended_navigation",
+      "classification": "generated_unverified",
+      "pages": [
+        "controls",
+        "navigation_controls"
+      ],
+      "note": "Hidden navigation is translated; disabled-button and timed-delay states have no native Surveydown 1.3.0 equivalent and require review."
     }
   ],
   "material_mismatches": [
     "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
-    "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
+    "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review.",
+    "Native Surveydown 1.3.0 does not accept greedyQ numeric min/max/step widget arguments; equivalent stop rules must be reviewed.",
+    "Hidden navigation is translated; disabled-button and timed-delay states have no native Surveydown 1.3.0 equivalent and require review."
   ],
   "equivalence_claimed": false
 }

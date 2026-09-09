@@ -29,6 +29,7 @@
 - [x] 순서가 기록된 Supabase migration manifest, checksum 검증, 변조 탐지 및 복구 안내.
 - [x] 연구자 직접 작성·AI-assisted 신규 연구, 수정, fork, custom control, preview 승인, 외부 작업의 정직한 보고를 다루는 AI workflow conformance scenario.
 - [x] 공개 Surveydown 1.3.0 API에 대한 생성 project 대조 및 생성된 app·QMD R block의 R 문법 검사.
+- [x] 전체 native Surveydown control gallery가 database 계정 없이 Surveydown 1.3.0, R, Quarto, Shiny의 안전한 preview mode에서 rendering 및 기동됩니다.
 - [ ] 실행 중인 Shiny app에서 생성된 모든 custom control의 native Surveydown 동작 검토.
 - [ ] 새 계정 기준 Vercel/Supabase one-click provisioning test. 사용자 승인 OAuth 연결이 필요합니다.
 - [ ] GPT, Claude, Gemini 및 다른 capable host에서 생성·수정·fork 평가.

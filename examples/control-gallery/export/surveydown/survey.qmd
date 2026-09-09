@@ -1,4 +1,5 @@
 ---
+format: html
 title: "greedyQ Control Gallery"
 greedyq:
   spec_version: "0.2"
@@ -8,6 +9,10 @@ survey-settings:
   mode: preview
   start-page: controls
 ---
+
+```{r}
+library(surveydown)
+```
 
 --- controls
 
@@ -24,7 +29,7 @@ sd_question(id = "long_text", type = "textarea", label = "Textarea", placeholder
 ```
 
 ```{r}
-sd_question(id = "number", type = "numeric", label = "Numeric", min = 0, max = 100)
+sd_question(id = "number", type = "numeric", label = "Numeric")
 ```
 
 ```{r}
@@ -76,7 +81,7 @@ sd_question(id = "date_range", type = "daterange", label = "Date range")
 ```
 
 ```{r}
-sd_question(id = "one_matrix", type = "matrix", label = "Single-choice matrix (seven columns demonstrate mobile chunking)", row = c("First row" = "first", "Second row" = "second"), option = c("Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Neutral" = 4, "Somewhat agree" = 5, "Agree" = 6, "Strongly agree" = 7), mobile_columns = 3)
+sd_question(id = "one_matrix", type = "matrix", label = "Single-choice matrix (seven columns demonstrate mobile chunking)", row = c("First row" = "first", "Second row" = "second"), option = c("Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Neutral" = 4, "Somewhat agree" = 5, "Agree" = 6, "Strongly agree" = 7))
 ```
 
 ```{r}
@@ -84,21 +89,11 @@ sd_question(id = "multi_matrix", type = "matrix_multiple", label = "Multiple-cho
 ```
 
 ```{r}
-sd_question_custom(
-  id = "audio_example",
-  label = "Audio stimulus (greedyQ extension)",
-  output = "gq_audio_example_output",
-  value = "gq_audio_example_value"
-)
+sd_output("audio_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "video_example",
-  label = "Video stimulus (greedyQ extension)",
-  output = "gq_video_example_output",
-  value = "gq_video_example_value"
-)
+sd_output("video_example", type = "question")
 ```
 
 ```{r}
@@ -110,7 +105,7 @@ sd_question(id = "conditional_text", type = "text", label = "This field appeared
 ```
 
 ```{r}
-sd_nav(page_next = "advanced_controls", previous_mode = "hide", label_next = "Try advanced controls")
+sd_nav(page_next = "advanced_controls", label_next = "Try advanced controls", show_previous = FALSE)
 ```
 
 --- advanced_controls
@@ -120,75 +115,35 @@ sd_nav(page_next = "advanced_controls", previous_mode = "hide", label_next = "Tr
 These deterministic extensions cover common advanced research interactions.
 
 ```{r}
-sd_question_custom(
-  id = "rank_example",
-  label = "Rank these priorities",
-  output = "gq_rank_example_output",
-  value = "gq_rank_example_value"
-)
+sd_output("rank_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "sbs_example",
-  label = "Rate both versions",
-  output = "gq_sbs_example_output",
-  value = "gq_sbs_example_value"
-)
+sd_output("sbs_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "nps_example",
-  label = "How likely are you to recommend greedyQ?",
-  output = "gq_nps_example_output",
-  value = "gq_nps_example_value"
-)
+sd_output("nps_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "timing_example",
-  label = "Time on this page",
-  output = "gq_timing_example_output",
-  value = "gq_timing_example_value"
-)
+sd_output("timing_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "sum_example",
-  label = "Allocate 100 points",
-  output = "gq_sum_example_output",
-  value = "gq_sum_example_value"
-)
+sd_output("sum_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "group_rank_example",
-  label = "Group and rank these items",
-  output = "gq_group_rank_example_output",
-  value = "gq_group_rank_example_value"
-)
+sd_output("group_rank_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "drill_example",
-  label = "Choose a location",
-  output = "gq_drill_example_output",
-  value = "gq_drill_example_value"
-)
+sd_output("drill_example", type = "question")
 ```
 
 ```{r}
-sd_question_custom(
-  id = "custom_example",
-  label = "Custom control based on a built-in template",
-  output = "gq_custom_example_output",
-  value = "gq_custom_example_value"
-)
+sd_output("custom_example", type = "question")
 ```
 
 ```{r}
@@ -202,7 +157,7 @@ sd_nav(page_next = "navigation_controls", label_next = "Try navigation controls"
 This page keeps Previous visible but disabled. Continue becomes available after three seconds.
 
 ```{r}
-sd_nav(page_next = "complete", previous_mode = "disable", next_mode = "show", next_delay_seconds = 3, label_next = "Continue after the delay")
+sd_nav(page_next = "complete", label_next = "Continue after the delay", show_previous = FALSE)
 ```
 
 --- complete

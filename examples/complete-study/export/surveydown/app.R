@@ -6,7 +6,6 @@ library(surveydown)
 db <- sd_db_connect()
 ui <- sd_ui()
 server <- function(input, output, session) {
-  sd_server(db = db)
   assignment_condition <- sample(c("control", "treatment"), 1)
   sd_store_value(assignment_condition)
   sd_show_if(
@@ -27,5 +26,6 @@ server <- function(input, output, session) {
     !sd_is_answered("attention_check") ~ "Select one response. The requested answer is Somewhat agree.",
     ((sd_value("withdraw_now") == "withdraw") & !sd_is_answered("deletion_request")) ~ "Choose whether to record a deletion request before withdrawing."
   )
+  sd_server(db = db)
 }
 shiny::shinyApp(ui = ui, server = server)

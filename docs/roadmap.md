@@ -29,6 +29,7 @@
 - [x] Ordered Supabase migration manifest with checksum verification, tamper detection, and recovery guidance.
 - [x] Scripted AI-workflow conformance scenarios for new researcher-written and AI-assisted studies, modification, fork, custom controls, preview approval, and external-action truthfulness.
 - [x] Generated Surveydown projects checked against the public Surveydown 1.3.0 API; generated app and QMD R blocks pass R syntax validation.
+- [x] The complete native Surveydown control gallery renders and starts in safe preview mode with Surveydown 1.3.0, R, Quarto, and Shiny without a database account.
 - [ ] Native Surveydown behavioral review of every generated custom control in a running Shiny application.
 - [ ] Fresh-account, one-click Vercel/Supabase provisioning test; this requires user-approved OAuth connections.
 - [ ] Cross-model creation/modification/fork evaluations with GPT, Claude, Gemini, and other capable hosts.
