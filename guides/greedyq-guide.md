@@ -244,7 +244,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/browser/respondent.html` | `d78eeff7b868f3cef1106a7b329c2d62844f52741e632c88aae3a0aebfbe120a` | `no` |
 | `templates/browser/preview.html` | `2dbbfffb9ff8837b5688d7490284bdf9c3c17c55238573957a29669975702940` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
-| `templates/browser/results.html` | `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161` | `no` |
+| `templates/browser/results.html` | `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
 | `templates/supabase/003_results_dashboard.sql` | `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51` | `no` |
 | `templates/vercel/api/results.js` | `b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4` | `no` |
@@ -261,7 +261,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
 | `greedyq/validator.py` | `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f` | `no` |
 | `greedyq/compiler.py` | `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6` | `no` |
-| `greedyq/build.py` | `113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28` | `no` |
+| `greedyq/build.py` | `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
@@ -3332,7 +3332,7 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 
 ### FILE: `templates/browser/results.html`
 
-SHA-256: `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161`
+SHA-256: `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d`
 
 ```html
 <!doctype html>
@@ -3345,13 +3345,13 @@ SHA-256: `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161`
 <div class="grid"><section class="panel"><h2>Where participants stopped</h2><div id="dropoff"></div></section><section class="panel"><h2>Conditions</h2><div id="conditions"></div></section></div>
 <section class="panel"><h2>Answer summary</h2><div id="answers"></div></section>
 <section class="panel"><h2>Response records</h2><div class="table-wrap"><table><thead><tr><th>Started</th><th>Status</th><th>Source</th><th>Mode</th><th>Current page</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div></section>
-</main><script>
-let current=null;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+</main><script id="greedyq-model" type="application/json">{}</script><script>
+const studyModel=JSON.parse(document.getElementById("greedyq-model").textContent);let current=null;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function bars(target,items){const max=Math.max(1,...items.map(x=>x[1]));$(target).innerHTML=items.length?items.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><span class="bar"><i style="width:${100*v/max}%"></i></span><b>${v}</b></div>`).join(""):'<div class="empty">No data in this view.</div>'}
 function counts(values){const m=new Map;values.forEach(v=>m.set(v,(m.get(v)||0)+1));return [...m].sort((a,b)=>b[1]-a[1])}
 function render(data){current=data;const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>Array.isArray(x.value)?x.value.join(" | "):typeof x.value==="object"?JSON.stringify(x.value):String(x.value));summary.push(`<h3>${esc(q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(x.current_page)}</td><td>${byId[x.id]||0}</td></tr>`).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
 async function load(){$("status").textContent="Updating…";try{const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}`,{cache:"no-store"}),d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load results");render(d)}catch(e){$("status").textContent=e.message}}
-function csv(){if(!current)return;const by=new Map;current.answers.forEach(x=>{if(!by.has(x.session_id))by.set(x.session_id,{});by.get(x.session_id)[x.question_id]=x.value});const qs=[...new Set(current.answers.map(x=>x.question_id))],head=["session_id","started_at","status","source","is_test","current_page",...qs],rows=current.sessions.map(s=>[s.id,s.created_at,s.lifecycle_state,s.respondent_source,s.is_test,s.current_page,...qs.map(q=>JSON.stringify(by.get(s.id)?.[q]??""))]);const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)}
+function csv(){if(!current)return;const by=new Map;current.answers.forEach(x=>{if(!by.has(x.session_id))by.set(x.session_id,{});by.get(x.session_id)[x.question_id]=x.value});const qs=studyModel.pages.flatMap(p=>p.questions||[]).map(q=>q.id),conditions=Object.fromEntries(current.assignments.map(x=>[x.session_id,x.condition])),head=["session_id","started_at","completed_at","status","source","is_test","condition","current_page",...qs],rows=current.sessions.map(s=>[s.id,s.created_at,s.terminal_at||"",s.lifecycle_state,s.respondent_source,s.is_test,conditions[s.id]||"",s.current_page,...qs.map(q=>JSON.stringify(by.get(s.id)?.[q]??""))]);const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)}
 $("refresh").onclick=load;$("scope").onchange=load;$("source").onchange=load;$("download").onclick=csv;load();
 </script></body></html>
 ```
@@ -5003,7 +5003,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28`
+SHA-256: `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -5046,13 +5046,12 @@ def build(study_dir, write=True):
         payload = json.dumps(model, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         pattern = r'(<script id="greedyq-model" type="application/json">).*?(</script>)'
         browser = ROOT / "templates/browser"
-        for source, destination in (("preview.html", "preview.html"), ("respondent.html", "index.html")):
+        for source, destination in (("preview.html", "preview.html"), ("respondent.html", "index.html"), ("results.html", "results.html")):
             template = (browser / source).read_text()
             html, count = re.subn(pattern, lambda match: match.group(1) + payload + match.group(2), template, count=1, flags=re.S)
             if count != 1: raise RuntimeError("Browser template model marker is missing or duplicated in %s." % source)
             (study_dir / destination).write_text(html)
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
-        (study_dir / "results.html").write_bytes((browser / "results.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())

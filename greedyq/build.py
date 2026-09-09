@@ -38,13 +38,12 @@ def build(study_dir, write=True):
         payload = json.dumps(model, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         pattern = r'(<script id="greedyq-model" type="application/json">).*?(</script>)'
         browser = ROOT / "templates/browser"
-        for source, destination in (("preview.html", "preview.html"), ("respondent.html", "index.html")):
+        for source, destination in (("preview.html", "preview.html"), ("respondent.html", "index.html"), ("results.html", "results.html")):
             template = (browser / source).read_text()
             html, count = re.subn(pattern, lambda match: match.group(1) + payload + match.group(2), template, count=1, flags=re.S)
             if count != 1: raise RuntimeError("Browser template model marker is missing or duplicated in %s." % source)
             (study_dir / destination).write_text(html)
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
-        (study_dir / "results.html").write_bytes((browser / "results.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())

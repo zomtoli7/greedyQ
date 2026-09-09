@@ -136,7 +136,7 @@
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28"
+          "sha256": "f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e"
         },
         {
           "path": "greedyq/runtime.py",
@@ -197,7 +197,7 @@
         },
         {
           "path": "templates/browser/results.html",
-          "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161"
+          "sha256": "b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d"
         },
         {
           "path": "templates/vercel/api/results.js",

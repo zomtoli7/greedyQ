@@ -66,7 +66,7 @@ The results deployment must have Vercel Authentication enabled. Do not publish `
 6. Check **Where participants stopped** for unexpected drop-off.
 7. For an experiment, verify that **Conditions** is reasonably balanced and investigate large discrepancies before continuing recruitment.
 8. Review answer summaries for broken choices or unexpected values.
-9. Select **Download CSV**. The file contains only the currently selected response mode and source.
+9. Select **Download CSV**. The file contains only the currently selected response mode and source, but its columns always include every question defined in the survey plus session metadata and experimental condition. Questions not answered by a participant remain blank; columns do not disappear.
 
 ## Required acceptance test
 

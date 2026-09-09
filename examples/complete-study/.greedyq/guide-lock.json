@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "0003d2421f0ceb6d543d35b582efe5f2a20884c55a40f81446d34e585f3fe465",
+  "registry_sha256": "8b67f24a6e43769edb1cb37847d30ad970b06b9668a9b449bdf053d160dd77e8",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -194,7 +194,7 @@
     {
       "component": "core",
       "path": "greedyq/build.py",
-      "sha256": "113c919ed863e8c4638e5400d9bf350ca2f7b3de265a80ba2197a7b22e9ddf28"
+      "sha256": "f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e"
     },
     {
       "component": "core",
@@ -284,7 +284,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "templates/browser/results.html",
-      "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161"
+      "sha256": "b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d"
     },
     {
       "component": "deployment-vercel-supabase",

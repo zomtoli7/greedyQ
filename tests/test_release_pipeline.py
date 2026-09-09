@@ -1,5 +1,6 @@
 import hashlib
 import json
+import re
 import shutil
 import tempfile
 import unittest
@@ -87,6 +88,19 @@ class ReleasePipelineTests(unittest.TestCase):
         self.assertNotIn("SUPABASE_SECRET_KEY", dashboard)
         self.assertIn("respondent_source", migration)
         self.assertIn("is_test", api)
+        self.assertIn("studyModel.pages", dashboard)
+        self.assertIn('"completed_at"', dashboard)
+        self.assertIn('"condition"', dashboard)
+        with tempfile.TemporaryDirectory() as tmp:
+            study = self.copy_study(tmp)
+            build(study)
+            rendered = (study / "results.html").read_text()
+            embedded = re.search(r'<script id="greedyq-model" type="application/json">(.*?)</script>', rendered, re.S)
+            self.assertIsNotNone(embedded)
+            model = json.loads(embedded.group(1))
+            expected = {q["id"] for page in model["pages"] for q in page["questions"]}
+            self.assertIn("support_post", expected)
+            self.assertIn("gender_self_description", expected)
 
     def test_browser_connection_tester_uses_only_synthetic_public_configuration(self):
         tester = (ROOT / "templates/supabase/connection-test.html").read_text().lower()

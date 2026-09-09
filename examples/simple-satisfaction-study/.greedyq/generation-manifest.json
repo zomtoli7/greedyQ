@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "28770875df6c8d8df58bc6da3ca1af86a83a9aeeb8bc28c3a3825887c002e66a",
+      "sha256": "9fc0f35aa93daca750c0da0d0943f75d237fa712db0f4fa051c663877be44895",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -204,7 +204,7 @@
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161",
+      "sha256": "066f682023f4054bbfea381ddaa3ec402280302438dac1707ac67dc5a1e0fc46",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
