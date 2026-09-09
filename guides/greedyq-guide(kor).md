@@ -238,11 +238,11 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba` | `no` |
-| `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `10d1397cc39fad3534beb71a6479b45f1363cb0deabff600993e814d968cb9a8` | `no` |
-| `templates/browser/preview.html` | `fad1e3fc9ca7814f776278d7183b4e4028401c7dfb9e2d25cd8f4777ba42f2d9` | `no` |
+| `docs/preview-ui-spec.md` | `798294c0b10ddf35fc7b90ab298704b0e0b6a7b3b5db72edc8fff18c8d24cde5` | `no` |
+| `web/greedyq-core.js` | `f996b886128d57add170f7f7afb21517dec6944824ebb7f6a1a0dd5c65301950` | `no` |
+| `web/greedyq-runtime.css` | `8beb5fdde4f986e2fc234e6c0dfd82e7267c077ae037b958a25399e62c3346af` | `no` |
+| `templates/browser/respondent.html` | `0c10f37dfe62a316676ef92ea522d520194f71b07fbd453a5c4a9cb79ce39fd1` | `no` |
+| `templates/browser/preview.html` | `0b98ebe790eb8e9dc950bf7eaca64cf478ff8a69f66c6778a186f1b4a873ce5f` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -254,16 +254,16 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713` | `no` |
+| `schemas/preview-model.schema.json` | `0801d0181fbf41dd9ff5cce13397f3b20a8af998519ee1047b13ca4764330ddd` | `no` |
 | `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
 | `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
-| `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
-| `greedyq/validator.py` | `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f` | `no` |
-| `greedyq/compiler.py` | `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6` | `no` |
+| `greedyq/parser.py` | `81a940c6bd202ca7e54eb0a40eeca56165bd7cf2850b9049bfa776cd3e3fa8d3` | `no` |
+| `greedyq/validator.py` | `12cac7f58c63afd2d729053fe1ac32752f6b27e4c939f8d06aea725073299dbb` | `no` |
+| `greedyq/compiler.py` | `a8dede049d665810421c54804c792f9fdebe4b89918f7074447b489403ee316f` | `no` |
 | `greedyq/build.py` | `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e` | `no` |
-| `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
-| `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
+| `greedyq/runtime.py` | `f703ad0f0241325dd1ef18c8ff6875ddf7391252f6019164c698447619de560b` | `no` |
+| `greedyq/server.py` | `9a07fbb62feeac2e847b46cef14e6e6fc1d9ea1e085a600e73424b75206602de` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
 | `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
@@ -271,7 +271,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 ### FILE: `docs/preview-ui-spec.md`
 
-SHA-256: `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa`
+SHA-256: `798294c0b10ddf35fc7b90ab298704b0e0b6a7b3b5db72edc8fff18c8d24cde5`
 
 ```markdown
 # greedyQ Preview UI Specification
@@ -300,7 +300,7 @@ Preview uses two labelled viewport frames: a flexible desktop frame and a 390 CS
 
 The persistent top bar contains the greedyQ wordmark, a conspicuous `RESEARCHER PREVIEW` badge, page progress, and an accessible progress value. Avoid application chrome, decorative dashboards, nested cards, or controls unrelated to completing the questionnaire.
 
-Use a calm neutral canvas, a white questionnaire surface, one restrained primary color, clear 1-pixel boundaries, and modest elevation. The minimum content width is 320 CSS pixels. At 200% zoom, content must reflow without horizontal scrolling except wide matrices, which receive their own labelled scroll region.
+Use a calm neutral canvas, a white questionnaire surface, one restrained primary color, clear 1-pixel boundaries, and modest elevation. The minimum content width is 320 CSS pixels. At 200% zoom, content must reflow without page-level horizontal scrolling. Desktop matrices may use a labelled local scroll region when unavoidable; mobile matrices must use response cards and option chunks instead.
 
 ## 3. Respondent page anatomy
 
@@ -314,11 +314,15 @@ Render, in order:
 6. Previous and primary Continue/Submit actions; or
 7. a clearly identified terminal outcome with no outgoing production action.
 
-Use one primary action per page. Previous is visually secondary. Disable Previous only when history is empty or policy forbids it. Do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
+Use one primary action per page. Previous is visually secondary. A declared page policy may show, hide, or disable either navigation action. Next may remain disabled for a declared exposure period and must display a seconds countdown until activation. Outside an explicit timing policy, do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
 
 ## 4. Question presentation
 
 The respondent renderer MUST implement every documented surveydown control: text, textarea, numeric, single and multiple choice, button-style single and multiple choice, image-card single and multiple choice, select, labeled and numeric sliders (including a two-handle numeric range), date, date range, single-choice matrix, and multiple-choice matrix. All controls MUST remain keyboard operable, expose an accessible name, preserve stored values rather than display labels, and rehydrate saved answers.
+
+The renderer also implements fixed `audio` and `video` stimulus controls as greedyQ extensions. They use native browser playback controls by default, accept only validated relative or HTTPS media sources, and may include a visible caption and expandable transcript. Autoplay requires muted playback. Media controls never create an answer merely by being displayed.
+
+Conditional questions MUST appear or disappear immediately after the controlling answer changes. A newly visible control must retain a previously saved answer; a newly hidden answer follows the study's declared hidden-answer policy.
 
 - Use native semantic controls whenever possible.
 - Every control has a persistent visible label. Placeholder text is never the only label.
@@ -327,7 +331,7 @@ The respondent renderer MUST implement every documented surveydown control: text
 - Each preview option shows its stored value beneath the display label. Production respondent mode hides stored values.
 - Select controls use an unselectable empty prompt and preserve the display/stored distinction.
 - `slider` renders an accessible native range control over ordered labeled choices and stores the selected choice value; `slider_numeric` renders a numeric range control. Both display their current value and endpoints and remain keyboard operable. Horizontal is the portable default; `orientation = "vertical"` is a greedyQ extension and must be reported as such in native export.
-- Matrix questions use real table headers and unique radio-group names per row. On small screens, prefer one row at a time or a labelled horizontal-scrolling table; never shrink text below the base size.
+- Matrix questions use real table headers and unique radio-group names per row on desktop. On mobile, each original row becomes a labelled response card and ordered options are split into groups of two or three columns without horizontal page scrolling. Never shrink text below the base size or change stored values during this reflow.
 - Optional text areas say `Optional` in visible help or label text. Do not imply that open text is required.
 - Hidden questions are removed from the focus order. When `clear_on_hide` applies, the preview clears the hidden answer and records that event.
 
@@ -418,7 +422,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
+SHA-256: `f996b886128d57add170f7f7afb21517dec6944824ebb7f6a1a0dd5c65301950`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -449,6 +453,8 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
     "daterange",
     "matrix",
     "matrix_multiple",
+    "audio",
+    "video",
   ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
@@ -845,9 +851,19 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
             "resize",
             "cols",
             "matrix_question_width",
+            "mobile_columns",
             "pre",
             "sep",
             "animate",
+            "src",
+            "poster",
+            "caption",
+            "transcript",
+            "controls",
+            "autoplay",
+            "muted",
+            "loop",
+            "preload",
           ]) {
             if (Object.hasOwn(args, key)) {
               q[key] =
@@ -1016,6 +1032,27 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
           ),
         );
       if (
+        ["matrix", "matrix_multiple"].includes(q.type) &&
+        ![2, 3].includes(q.mobile_columns ?? 3)
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Matrix question '${q.id}' mobile_columns must be 2 or 3.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (["audio", "video"].includes(q.type) && !q.src)
+        issues.push(
+          issue(
+            "GQ003",
+            `Media control '${q.id}' needs a safe source in src.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
         ["mc_image", "mc_multiple_image"].includes(q.type) &&
         (q.images || []).length !== (q.options || []).length
       )
@@ -1077,6 +1114,33 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
               q._line,
             ),
           );
+      for (const mediaKey of ["src", "poster"]) {
+        const media = q[mediaKey];
+        if (
+          media != null &&
+          !(
+            String(media).startsWith("https://") ||
+            /^(?!\/)(?!.*\.\.)[A-Za-z0-9_./-]+$/.test(String(media))
+          )
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Media control '${q.id}' contains an unsafe ${mediaKey} path.`,
+              qmd,
+              q._line,
+            ),
+          );
+      }
+      if (["audio", "video"].includes(q.type) && q.autoplay && !q.muted)
+        issues.push(
+          issue(
+            "GQ003",
+            `Media control '${q.id}' may autoplay only when muted.`,
+            qmd,
+            q._line,
+          ),
+        );
       if (
         q.type === "slider_numeric" &&
         Array.isArray(q.default) &&
@@ -1140,6 +1204,28 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
             `Question '${q.id}' uses unsupported argument '${arg}'.`,
             qmd,
             q._line,
+          ),
+        );
+    }
+    for (const p of pages) {
+      for (const key of ["previous_mode", "next_mode"])
+        if (![undefined, null, "show", "hide", "disable"].includes(p.nav?.[key]))
+          issues.push(
+            issue(
+              "GQ003",
+              `Page '${p.id}' uses an unsupported ${key}. Choose show, hide, or disable.`,
+              qmd,
+              p._nav_line,
+            ),
+          );
+      const delay = p.nav?.next_delay_seconds ?? 0;
+      if (typeof delay !== "number" || delay < 0 || delay > 86400)
+        issues.push(
+          issue(
+            "GQ003",
+            `Page '${p.id}' needs next_delay_seconds between 0 and 86400.`,
+            qmd,
+            p._nav_line,
           ),
         );
     }
@@ -1446,6 +1532,11 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
       page.show_previous = Boolean(
         nav.show_previous ?? settings["show-previous"] ?? true,
       );
+      page.previous_mode =
+        nav.previous_mode ?? (page.show_previous ? "show" : "hide");
+      page.next_mode =
+        nav.next_mode ?? (nav.show_next === false ? "hide" : "show");
+      page.next_delay_seconds = nav.next_delay_seconds ?? 0;
       page.next = nav.page_next || (parsed.pages[index + 1]?.id ?? null);
       if (nav.label_next) page.next_label = nav.label_next;
       const routes = skips
@@ -1930,6 +2021,23 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
+      if (["audio", "video"].includes(q.type)) {
+        const attributes = [
+          q.controls !== false ? "controls" : "",
+          q.autoplay ? "autoplay" : "",
+          q.muted ? "muted" : "",
+          q.loop ? "loop" : "",
+          `preload="${esc(q.preload || "metadata")}"`,
+        ]
+          .filter(Boolean)
+          .join(" ");
+        const transcript = q.transcript
+          ? `<details class="gq-transcript"><summary>Transcript</summary><p>${esc(q.transcript)}</p></details>`
+          : "";
+        if (q.type === "audio")
+          return `<figure class="gq-media"><audio aria-label="${esc(q.label)}" src="${esc(q.src)}" ${attributes}></audio>${q.caption ? `<figcaption>${esc(q.caption)}</figcaption>` : ""}${transcript}</figure>`;
+        return `<figure class="gq-media"><video aria-label="${esc(q.label)}" src="${esc(q.src)}" ${q.poster ? `poster="${esc(q.poster)}"` : ""} ${attributes}></video>${q.caption ? `<figcaption>${esc(q.caption)}</figcaption>` : ""}${transcript}</figure>`;
+      }
       if (["matrix", "matrix_multiple"].includes(q.type)) {
         const rawWidth = String(q.matrix_question_width ?? "40").replace(
             "%",
@@ -1943,6 +2051,32 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
               ? numericWidth
               : 40,
           cellType = q.type === "matrix_multiple" ? "checkbox" : "radio";
+        if (mode === "mobile") {
+          const chunkSize = q.mobile_columns ?? 3,
+            chunks = [];
+          for (let index = 0; index < q.options.length; index += chunkSize)
+            chunks.push(q.options.slice(index, index + chunkSize));
+          return `<div class="gq-matrix-mobile" role="group" aria-label="${esc(q.label)}">${q.rows
+            .map(
+              (r) =>
+                `<section class="gq-matrix-mobile-row"><h3>${esc(r.label)}</h3>${chunks
+                  .map(
+                    (chunk) =>
+                      `<div class="gq-matrix-mobile-chunk" style="--gq-mobile-columns:${chunk.length}">${chunk
+                        .map((o) => {
+                          const checked =
+                            q.type === "matrix_multiple"
+                              ? Array.isArray(selected?.[r.value]) &&
+                                selected[r.value].includes(o.value)
+                              : selected?.[r.value] === o.value;
+                          return `<label class="gq-matrix-mobile-cell"><span>${esc(o.label)}</span><input type="${cellType}" aria-label="${esc(`${r.label} — ${o.label}`)}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${checked ? "checked" : ""}></label>`;
+                        })
+                        .join("")}</div>`,
+                  )
+                  .join("")}</section>`,
+            )
+            .join("")}</div>`;
+        }
         return `<div class="gq-matrix" role="region" aria-label="${esc(q.label)}" tabindex="0"><table><colgroup><col style="width:${promptWidth}%">${q.options.map(() => `<col style="width:${(100 - promptWidth) / q.options.length}%">`).join("")}</colgroup><thead><tr><th class="gq-matrix-corner" scope="col"></th>${q.options.map((o) => `<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows
           .map(
             (r) =>
@@ -1969,6 +2103,7 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
     }
     function collect(p) {
       for (const q of visible(p)) {
+        if (["audio", "video"].includes(q.type)) continue;
         if (q.type === "slider") {
           const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
             option = q.options?.[Number(e?.value)];
@@ -2048,6 +2183,7 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
       options.onState?.(JSON.parse(JSON.stringify(state)));
     }
     let renderedPage = null;
+    let delayTimer = null;
     function render(message = "") {
       const p = pages.get(state.page);
       if (!p) {
@@ -2065,6 +2201,24 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
         : `${pos} / ${path.length}`;
       const pageChanged = renderedPage !== p.id;
       renderedPage = p.id;
+      if (pageChanged && p.next_delay_seconds > 0) {
+        state.next_ready_page = p.id;
+        state.next_ready_at = Date.now() + p.next_delay_seconds * 1000;
+      }
+      if (delayTimer) clearTimeout(delayTimer);
+      const delayRemaining =
+          state.next_ready_page === p.id
+            ? Math.max(0, (state.next_ready_at || 0) - Date.now())
+            : 0,
+        previousMode = p.previous_mode ?? (p.show_previous === false ? "hide" : "show"),
+        nextMode = p.next_mode ?? "show",
+        showBack =
+          !p.terminal &&
+          previousMode !== "hide" &&
+          (state.history.length > 0 || previousMode === "disable"),
+        backDisabled = previousMode === "disable" || !state.history.length,
+        showNext = !p.terminal && nextMode !== "hide",
+        nextDisabled = nextMode === "disable" || delayRemaining > 0;
       card.innerHTML = `<p class="gq-eyebrow">${esc(model.title)}</p><h1>${esc(p.title)}</h1><div class="gq-copy">${esc(p.body || "")}</div>${visible(
         p,
       )
@@ -2074,7 +2228,9 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
         )
         .join(
           "",
-        )}${message ? `<p class="gq-error" role="alert">${esc(message)}</p>` : ""}<div class="gq-actions">${state.history.length && p.show_previous !== false && !p.terminal ? `<button data-back>${esc(model.messages.previous)}</button>` : ""}${p.terminal ? `<strong>${esc(p.terminal)}</strong>` : `<button data-next>${esc(p.next_label || model.messages.next)}</button>`}</div>`;
+        )}${message ? `<p class="gq-error" role="alert">${esc(message)}</p>` : ""}<div class="gq-actions">${showBack ? `<button data-back ${backDisabled ? "disabled" : ""}>${esc(model.messages.previous)}</button>` : ""}${p.terminal ? `<strong>${esc(p.terminal)}</strong>` : showNext ? `<button data-next ${nextDisabled ? "disabled" : ""}>${esc(p.next_label || model.messages.next)}${delayRemaining > 0 ? ` (${Math.ceil(delayRemaining / 1000)}s)` : ""}</button>` : ""}</div>`;
+      if (delayRemaining > 0 && nextMode !== "disable")
+        delayTimer = setTimeout(() => render(message), Math.min(1000, delayRemaining));
       const back = card.querySelector("[data-back]");
       if (back)
         back.onclick = () => {
@@ -2113,6 +2269,19 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
             } else output.textContent = `${question?.pre || ""}${slider.value}`;
           }
         };
+      const visibilitySources = new Set(
+        (p.questions || [])
+          .map((question) => question.show_if?.field)
+          .filter(Boolean),
+      );
+      for (const control of card.querySelectorAll("input,select,textarea"))
+        control.addEventListener("change", () => {
+          const source = control.name?.split(":")[0] || control.dataset.id;
+          if (!visibilitySources.has(source)) return;
+          collect(p);
+          save();
+          render();
+        });
       const next = card.querySelector("[data-next]");
       if (next)
         next.onclick = () => {
@@ -2355,7 +2524,7 @@ SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
+SHA-256: `8beb5fdde4f986e2fc234e6c0dfd82e7267c077ae037b958a25399e62c3346af`
 
 ```css
 :root {
@@ -2588,18 +2757,74 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
   margin: 0;
   accent-color: var(--gq-brand);
 }
-.gq-mobile .gq-matrix table {
-  min-width: 620px;
+.gq-matrix-mobile {
+  display: grid;
+  gap: 14px;
 }
-.gq-mobile .gq-matrix thead th:first-child,
-.gq-mobile .gq-matrix tbody th {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  box-shadow: 1px 0 0 var(--gq-line);
+.gq-matrix-mobile-row {
+  border: 1px solid var(--gq-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
 }
-.gq-mobile .gq-matrix thead th:first-child {
-  z-index: 2;
+.gq-matrix-mobile-row h3 {
+  margin: 0;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--gq-line);
+  font-size: 15px;
+}
+.gq-matrix-mobile-chunk {
+  display: grid;
+  grid-template-columns: repeat(var(--gq-mobile-columns), minmax(0, 1fr));
+  border-bottom: 1px solid var(--gq-line);
+}
+.gq-matrix-mobile-chunk:last-child {
+  border-bottom: 0;
+}
+.gq-matrix-mobile-cell {
+  min-width: 0;
+  padding: 10px 5px;
+  display: grid;
+  grid-template-rows: minmax(2.6em, auto) 28px;
+  justify-items: center;
+  align-items: center;
+  gap: 6px;
+  border-right: 1px solid var(--gq-line);
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.gq-matrix-mobile-cell:last-child {
+  border-right: 0;
+}
+.gq-matrix-mobile-cell input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--gq-brand);
+}
+.gq-media {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.gq-media audio,
+.gq-media video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.gq-media video {
+  background: #111827;
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+}
+.gq-media figcaption,
+.gq-transcript {
+  color: var(--gq-muted);
+  font-size: 14px;
 }
 .gq-slider {
   display: grid;
@@ -2706,7 +2931,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `10d1397cc39fad3534beb71a6479b45f1363cb0deabff600993e814d968cb9a8`
+SHA-256: `0c10f37dfe62a316676ef92ea522d520194f71b07fbd453a5c4a9cb79ce39fd1`
 
 ```html
 <!doctype html>
@@ -2719,7 +2944,7 @@ SHA-256: `10d1397cc39fad3534beb71a6479b45f1363cb0deabff600993e814d968cb9a8`
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data: https:; base-uri 'none'; frame-ancestors 'none'"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src https:; img-src 'self' data: https:; media-src 'self' https:; base-uri 'none'; frame-ancestors 'none'"
     />
     <title>greedyQ survey</title>
     <link rel="stylesheet" href="greedyq-runtime.css" />
@@ -2821,7 +3046,7 @@ SHA-256: `10d1397cc39fad3534beb71a6479b45f1363cb0deabff600993e814d968cb9a8`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `fad1e3fc9ca7814f776278d7183b4e4028401c7dfb9e2d25cd8f4777ba42f2d9`
+SHA-256: `0b98ebe790eb8e9dc950bf7eaca64cf478ff8a69f66c6778a186f1b4a873ce5f`
 
 ```html
 <!doctype html>
@@ -2831,7 +3056,7 @@ SHA-256: `fad1e3fc9ca7814f776278d7183b4e4028401c7dfb9e2d25cd8f4777ba42f2d9`
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data: https:; base-uri 'none'"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data: https:; media-src 'self' https:; base-uri 'none'"
     />
     <title>greedyQ dual preview</title>
     <link rel="stylesheet" href="greedyq-runtime.css" />
@@ -4019,7 +4244,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
+SHA-256: `0801d0181fbf41dd9ff5cce13397f3b20a8af998519ee1047b13ca4764330ddd`
 
 ```json
 {
@@ -4180,7 +4405,9 @@ SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
             "date",
             "daterange",
             "matrix",
-            "matrix_multiple"
+            "matrix_multiple",
+            "audio",
+            "video"
           ]
         },
         "label": { "type": "string", "minLength": 1 },
@@ -4210,6 +4437,16 @@ SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
         "force_edges": { "type": "boolean" },
         "status": { "type": "string" },
         "matrix_question_width": { "type": ["string", "number"] },
+        "mobile_columns": { "enum": [2, 3] },
+        "src": { "type": "string", "minLength": 1 },
+        "poster": { "type": "string", "minLength": 1 },
+        "caption": { "type": "string" },
+        "transcript": { "type": "string" },
+        "controls": { "type": "boolean" },
+        "autoplay": { "type": "boolean" },
+        "muted": { "type": "boolean" },
+        "loop": { "type": "boolean" },
+        "preload": { "enum": ["none", "metadata", "auto"] },
         "pre": { "type": "string" },
         "sep": { "type": "string" },
         "animate": {},
@@ -4252,6 +4489,12 @@ SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
             }
           },
           "then": { "required": ["images"] }
+        },
+        {
+          "if": {
+            "properties": { "type": { "enum": ["audio", "video"] } }
+          },
+          "then": { "required": ["src"] }
         }
       ]
     },
@@ -4279,6 +4522,9 @@ SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
         "next": { "type": ["string", "null"] },
         "next_label": { "type": "string" },
         "show_previous": { "type": "boolean" },
+        "previous_mode": { "enum": ["show", "hide", "disable"] },
+        "next_mode": { "enum": ["show", "hide", "disable"] },
+        "next_delay_seconds": { "type": "number", "minimum": 0, "maximum": 86400 },
         "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
         "terminal": { "type": "string" }
       }
@@ -4520,7 +4766,7 @@ def loads(text):
 
 ### FILE: `greedyq/parser.py`
 
-SHA-256: `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa`
+SHA-256: `81a940c6bd202ca7e54eb0a40eeca56165bd7cf2850b9049bfa776cd3e3fa8d3`
 
 ```python
 """Parse the supported surveydown-style QMD subset into a normalized model."""
@@ -4692,7 +4938,7 @@ def parse_qmd(path):
                 if isinstance(args.get("default"), list): args["default"] = [item["value"] for item in args["default"]]
                 if isinstance(args.get("selected"), list): args["selected"] = [item["value"] for item in args["selected"]]
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "pre", "sep", "animate"):
+                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "mobile_columns", "pre", "sep", "animate", "src", "poster", "caption", "transcript", "controls", "autoplay", "muted", "loop", "preload"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)
@@ -4706,7 +4952,7 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f`
+SHA-256: `12cac7f58c63afd2d729053fe1ac32752f6b27e4c939f8d06aea725073299dbb`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
@@ -4714,7 +4960,7 @@ SHA-256: `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f`
 import re
 
 
-SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
@@ -4783,6 +5029,10 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
         if q.get("type") in {"matrix", "matrix_multiple"} and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") in {"matrix", "matrix_multiple"} and q.get("mobile_columns", 3) not in (2, 3):
+            issues.append(_item("GQ003", "Matrix question '%s' mobile_columns must be 2 or 3." % q["id"], qmd_path, line))
+        if q.get("type") in {"audio", "video"} and not q.get("src"):
+            issues.append(_item("GQ003", "Media control '%s' needs a safe source in src." % q["id"], qmd_path, line))
         if q.get("type") in {"mc_image", "mc_multiple_image"} and len(q.get("images", [])) != len(q.get("options", [])):
             issues.append(_item("GQ003", "Image question '%s' needs exactly one image for each answer choice." % q["id"], qmd_path, line))
         if q.get("direction") not in (None, "horizontal", "vertical"):
@@ -4795,6 +5045,12 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         for image in q.get("images", []):
             if not (str(image).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(image))):
                 issues.append(_item("GQ003", "Image question '%s' contains an unsafe image path." % q["id"], qmd_path, line))
+        for media_key in ("src", "poster"):
+            media = q.get(media_key)
+            if media is not None and not (str(media).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(media))):
+                issues.append(_item("GQ003", "Media control '%s' contains an unsafe %s path." % (q["id"], media_key), qmd_path, line))
+        if q.get("type") in {"audio", "video"} and q.get("autoplay") and not q.get("muted"):
+            issues.append(_item("GQ003", "Media control '%s' may autoplay only when muted." % q["id"], qmd_path, line))
         if q.get("type") == "slider_numeric" and isinstance(q.get("default"), list) and len(q["default"]) not in (1, 2):
             issues.append(_item("GQ003", "Numeric slider '%s' default must contain one value or two range endpoints." % q["id"], qmd_path, line))
         if q.get("type") == "slider" and len(q.get("options", [])) < 2:
@@ -4811,6 +5067,14 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             values = [item.get("value") for item in q.get(collection, [])]
             if len(values) != len(set(map(str, values))):
                 issues.append(_item("GQ011", "Question '%s' repeats a stored value in its %s. Every stored value must be unique." % (q["id"], collection), qmd_path, line))
+    for page in pages:
+        nav = page.get("nav", {})
+        for key in ("previous_mode", "next_mode"):
+            if nav.get(key) not in (None, "show", "hide", "disable"):
+                issues.append(_item("GQ003", "Page '%s' uses an unsupported %s. Choose show, hide, or disable." % (page["id"], key), qmd_path, page.get("_nav_line")))
+        delay = nav.get("next_delay_seconds", 0)
+        if not isinstance(delay, (int, float)) or delay < 0 or delay > 86400:
+            issues.append(_item("GQ003", "Page '%s' needs next_delay_seconds between 0 and 86400." % page["id"], qmd_path, page.get("_nav_line")))
     overlap = sorted(known_pages & known_questions)
     for value in overlap:
         issues.append(_item("GQ001", "'%s' is used for both a page and a question. Use a different name for one of them." % value, qmd_path))
@@ -4867,7 +5131,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6`
+SHA-256: `a8dede049d665810421c54804c792f9fdebe4b89918f7074447b489403ee316f`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
@@ -4948,6 +5212,9 @@ def compile_preview(parsed, config):
             page["questions"].append(q)
         nav = source.get("nav", {})
         page["show_previous"] = bool(nav.get("show_previous", survey_settings.get("show-previous", True)))
+        page["previous_mode"] = nav.get("previous_mode", "show" if page["show_previous"] else "hide")
+        page["next_mode"] = nav.get("next_mode", "show")
+        page["next_delay_seconds"] = nav.get("next_delay_seconds", 0)
         if nav.get("page_next"): page["next"] = nav["page_next"]
         elif index + 1 < len(source_pages): page["next"] = source_pages[index + 1]["id"]
         else: page["next"] = None
@@ -5079,7 +5346,7 @@ def build(study_dir, write=True):
 
 ### FILE: `greedyq/runtime.py`
 
-SHA-256: `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda`
+SHA-256: `f703ad0f0241325dd1ef18c8ff6875ddf7391252f6019164c698447619de560b`
 
 ```python
 """Local respondent runtime with durable SQLite sessions."""
@@ -5143,7 +5410,7 @@ class Store:
             visible=[q for q in current.get("questions",[]) if matches(q.get("show_if"),combined,condition)]
             for q in visible:
                 value=answers.get(q["id"], existing.get(q["id"]))
-                missing=value is None or value=="" or value==[] or (q.get("type")=="matrix" and any(row["value"] not in (value or {}) for row in q.get("rows",[])))
+                missing=value is None or value=="" or value==[] or (q.get("type") in ("matrix", "matrix_multiple") and any(row["value"] not in (value or {}) for row in q.get("rows",[])))
                 if q.get("required") and missing:
                     db.rollback(); raise ValueError("Please answer: %s" % q["label"])
                 if value is not None and q.get("min") is not None and float(value)<q["min"]: db.rollback(); raise ValueError("%s must be at least %s."%(q["label"],q["min"]))
@@ -5199,8 +5466,9 @@ def next_for(page, answers, condition):
 def parse_form(page, form):
     result={}
     for q in page.get("questions",[]):
-        if q["type"]=="matrix":
-            rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
+        if q["type"] in ("matrix", "matrix_multiple"):
+            if q["type"] == "matrix_multiple": rows={r["value"]:[scalar(v) for v in form.get("%s:%s"%(q["id"],r["value"]),[])] for r in q.get("rows",[])}; rows={k:v for k,v in rows.items() if v}
+            else: rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
             if rows:result[q["id"]]=rows
         elif q["type"]=="mc_multiple":
             if q["id"] in form:result[q["id"]]=[scalar(v) for v in form[q["id"]]]
@@ -5221,7 +5489,7 @@ def logic_clear(config):
 
 ### FILE: `greedyq/server.py`
 
-SHA-256: `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406`
+SHA-256: `9a07fbb62feeac2e847b46cef14e6e6fc1d9ea1e085a600e73424b75206602de`
 
 ```python
 """Server-rendered local browser application for respondent testing."""
@@ -5256,10 +5524,18 @@ def question_html(q, saved):
         out.append('<select name="%s"><option value="">%s</option>'%(esc(q["id"]),esc(q.get("placeholder","Choose one"))))
         for option in q.get("options",[]):out.append('<option value="%s" %s>%s</option>'%(esc(option["value"]),"selected" if option["value"]==value else "",esc(option["label"])))
         out.append('</select>')
-    elif q["type"]=="matrix":
+    elif q["type"] in ("matrix", "matrix_multiple"):
         out.append('<div class="matrix"><table><tr><th>Statement</th>'+''.join('<th>%s</th>'%esc(o["label"]) for o in q["options"])+"</tr>")
-        for row in q["rows"]:out.append('<tr><th>%s</th>%s</tr>'%(esc(row["label"]),''.join('<td><input aria-label="%s: %s" type="radio" name="%s:%s" value="%s" %s></td>'%(esc(row["label"]),esc(o["label"]),esc(q["id"]),esc(row["value"]),esc(o["value"]),"checked" if (value or {}).get(row["value"])==o["value"] else "") for o in q["options"])))
+        kind="checkbox" if q["type"]=="matrix_multiple" else "radio"
+        for row in q["rows"]:out.append('<tr><th>%s</th>%s</tr>'%(esc(row["label"]),''.join('<td><input aria-label="%s: %s" type="%s" name="%s:%s" value="%s" %s></td>'%(esc(row["label"]),esc(o["label"]),kind,esc(q["id"]),esc(row["value"]),esc(o["value"]),"checked" if (o["value"] in (value or {}).get(row["value"],[]) if q["type"]=="matrix_multiple" else (value or {}).get(row["value"])==o["value"]) else "") for o in q["options"])))
         out.append('</table></div>')
+    elif q["type"] in ("audio", "video"):
+        attrs=' controls' if q.get("controls",True) else ''
+        attrs+=' muted' if q.get("muted") else ''
+        attrs+=' loop' if q.get("loop") else ''
+        if q["type"]=="audio":out.append('<audio aria-label="%s" src="%s"%s></audio>'%(esc(q["label"]),esc(q.get("src","")),attrs))
+        else:out.append('<video aria-label="%s" src="%s" poster="%s"%s style="width:100%%"></video>'%(esc(q["label"]),esc(q.get("src","")),esc(q.get("poster","")),attrs))
+        if q.get("caption"):out.append('<p class="meta">%s</p>'%esc(q["caption"]))
     elif q["type"]=="textarea":out.append('<textarea name="%s" placeholder="%s">%s</textarea>'%(esc(q["id"]),esc(q.get("placeholder","")),esc(value)))
     else:
         kind="number" if q["type"] in ("numeric","slider_numeric") else "date" if q["type"]=="date" else "text"

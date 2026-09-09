@@ -59,7 +59,7 @@ class Store:
             visible=[q for q in current.get("questions",[]) if matches(q.get("show_if"),combined,condition)]
             for q in visible:
                 value=answers.get(q["id"], existing.get(q["id"]))
-                missing=value is None or value=="" or value==[] or (q.get("type")=="matrix" and any(row["value"] not in (value or {}) for row in q.get("rows",[])))
+                missing=value is None or value=="" or value==[] or (q.get("type") in ("matrix", "matrix_multiple") and any(row["value"] not in (value or {}) for row in q.get("rows",[])))
                 if q.get("required") and missing:
                     db.rollback(); raise ValueError("Please answer: %s" % q["label"])
                 if value is not None and q.get("min") is not None and float(value)<q["min"]: db.rollback(); raise ValueError("%s must be at least %s."%(q["label"],q["min"]))
@@ -115,8 +115,9 @@ def next_for(page, answers, condition):
 def parse_form(page, form):
     result={}
     for q in page.get("questions",[]):
-        if q["type"]=="matrix":
-            rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
+        if q["type"] in ("matrix", "matrix_multiple"):
+            if q["type"] == "matrix_multiple": rows={r["value"]:[scalar(v) for v in form.get("%s:%s"%(q["id"],r["value"]),[])] for r in q.get("rows",[])}; rows={k:v for k,v in rows.items() if v}
+            else: rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
             if rows:result[q["id"]]=rows
         elif q["type"]=="mc_multiple":
             if q["id"] in form:result[q["id"]]=[scalar(v) for v in form[q["id"]]]

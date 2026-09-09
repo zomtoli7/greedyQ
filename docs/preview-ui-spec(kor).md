@@ -24,7 +24,7 @@ Preview는 flexible desktop frame과 390 CSS-pixel mobile frame이라는 두 lab
 
 Persistent top bar에는 greedyQ wordmark, 눈에 띄는 `RESEARCHER PREVIEW` badge, page progress, accessible progress value를 둡니다. Questionnaire 완료와 관계없는 application chrome, decorative dashboard, nested card, control은 피합니다.
 
-차분한 neutral canvas, white questionnaire surface, 절제된 primary color 하나, 명확한 1-pixel boundary, 적당한 elevation을 사용합니다. 최소 content width는 320 CSS pixel입니다. 200% zoom에서는 wide matrix의 labelled scroll region을 제외하고 horizontal scroll 없이 reflow해야 합니다.
+차분한 neutral canvas, white questionnaire surface, 절제된 primary color 하나, 명확한 1-pixel boundary, 적당한 elevation을 사용합니다. 최소 content width는 320 CSS pixel입니다. 200% zoom에서도 page-level horizontal scroll 없이 reflow해야 합니다. Desktop matrix는 불가피할 때 labelled local scroll region을 사용할 수 있지만 mobile matrix는 response card와 option chunk로 바꿔 표시해야 합니다.
 
 ## 3. Respondent page anatomy
 
@@ -38,11 +38,15 @@ Persistent top bar에는 greedyQ wordmark, 눈에 띄는 `RESEARCHER PREVIEW` ba
 6. Previous 및 primary Continue/Submit action
 7. 또는 outgoing production action이 없는 명확한 terminal outcome
 
-Page마다 primary action은 하나입니다. Previous는 secondary입니다. History가 비었거나 policy가 금지할 때만 Previous를 disable합니다. Required answer가 비었다고 Continue를 미리 disable하지 않습니다. 활성화하면 actionable error를 보여주고 첫 invalid question으로 focus를 이동합니다.
+Page마다 primary action은 하나입니다. Previous는 secondary입니다. 선언된 page policy는 navigation action을 표시, 숨김 또는 비활성화할 수 있습니다. Next는 선언된 exposure 시간 동안 비활성화할 수 있으며 활성화 전까지 초 단위 countdown을 보여야 합니다. 명시적인 timing policy가 없다면 required answer가 비었다는 이유만으로 Continue를 미리 disable하지 않습니다. 활성화하면 actionable error를 보여주고 첫 invalid question으로 focus를 이동합니다.
 
 ## 4. Question presentation
 
 Respondent renderer는 문서화된 surveydown control을 모두 구현해야 합니다. Text, textarea, numeric, single/multiple choice, button-style single/multiple choice, image-card single/multiple choice, select, labeled/numeric slider(두 손잡이 numeric range 포함), date, date range, single-choice matrix, multiple-choice matrix입니다. 모든 control은 keyboard로 조작 가능하고 accessible name을 제공하며 표시 label이 아닌 저장 value를 보존하고 저장된 answer를 다시 표시해야 합니다.
+
+Renderer는 고정된 `audio`와 `video` stimulus control도 greedyQ extension으로 구현합니다. 기본적으로 browser native playback control을 사용하고 검증된 relative 또는 HTTPS media source만 허용하며 visible caption과 펼칠 수 있는 transcript를 포함할 수 있습니다. Autoplay에는 muted playback이 필요합니다. Media control은 표시되었다는 이유만으로 answer를 만들지 않습니다.
+
+Conditional question은 controlling answer가 바뀐 즉시 나타나거나 사라져야 합니다. 새로 보이는 control은 이전에 저장된 answer를 유지하고 새로 숨겨진 answer는 study의 hidden-answer policy를 따릅니다.
 
 - 가능하면 native semantic control을 사용합니다.
 - 모든 control에는 persistent visible label이 있습니다. Placeholder만 label로 사용하지 않습니다.
@@ -51,7 +55,7 @@ Respondent renderer는 문서화된 surveydown control을 모두 구현해야 �
 - Preview option은 display label 아래 stored value를 표시합니다. Production respondent mode에서는 stored value를 숨깁니다.
 - Select는 선택되지 않은 empty prompt를 사용하고 display/stored 구분을 보존합니다.
 - `slider`는 순서 있는 labeled choice 위에 accessible native range control을 표시하고 선택한 choice value를 저장합니다. `slider_numeric`은 numeric range control을 표시합니다. 둘 다 현재 value와 endpoint를 보여주고 keyboard로 조작할 수 있어야 합니다. Horizontal은 portable default이며 `orientation = "vertical"`은 greedyQ extension이므로 native export에서 이를 보고해야 합니다.
-- Matrix는 실제 table header와 row마다 고유한 radio-group name을 사용합니다. 작은 화면에서는 row 단위 표시 또는 labelled horizontal scroll table을 사용하며 base size 아래로 text를 축소하지 않습니다.
+- Matrix는 desktop에서 실제 table header와 row마다 고유한 radio-group name을 사용합니다. Mobile에서는 원래 row마다 label이 있는 response card를 만들고 순서가 있는 option을 2개 또는 3개 column group으로 나눠 horizontal page scroll을 없앱니다. Text를 base size 아래로 줄이거나 reflow 중 저장 value를 바꾸면 안 됩니다.
 - Optional textarea는 visible help 또는 label에 `Optional`을 표시합니다.
 - Hidden question은 focus order에서 제거합니다. `clear_on_hide`이면 answer를 지우고 event를 기록합니다.
 

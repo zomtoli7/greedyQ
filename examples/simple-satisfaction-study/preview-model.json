@@ -34,6 +34,9 @@
       "body": "This survey is for people who have used greedyQ to create or revise a questionnaire. It takes about four minutes.",
       "questions": [],
       "show_previous": false,
+      "previous_mode": "hide",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "consent",
       "next_label": "Read participant information"
     },
@@ -60,6 +63,9 @@
         }
       ],
       "show_previous": false,
+      "previous_mode": "hide",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "eligibility",
       "next_label": "Continue",
       "routes": [
@@ -104,6 +110,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "usage",
       "routes": [
         {
@@ -279,6 +288,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "evaluation"
     },
     {
@@ -442,6 +454,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "problems"
     },
     {
@@ -519,6 +534,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "future_use"
     },
     {
@@ -579,6 +597,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "participant_control"
     },
     {
@@ -624,6 +645,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "complete",
       "routes": [
         {
@@ -648,6 +672,9 @@
       "body": "Your feedback has been submitted. It will be used to improve greedyQ.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "completed"
     },
     {
@@ -656,6 +683,9 @@
       "body": "This feedback survey is for adults who have already used greedyQ. No product-feedback questions were collected.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "screened_out"
     },
     {
@@ -664,6 +694,9 @@
       "body": "No product-feedback responses were collected. You may close this page.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "consent_refused"
     },
     {
@@ -672,6 +705,9 @@
       "body": "Your session is marked as withdrawn. If you requested deletion, the request has been recorded; this message does not claim deletion is already complete.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "withdrawn"
     },
     {
@@ -680,6 +716,9 @@
       "body": "The survey encountered a technical problem. Please close this page and try again later.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "technical_error"
     }
   ],

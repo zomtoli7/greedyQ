@@ -156,7 +156,9 @@
             "date",
             "daterange",
             "matrix",
-            "matrix_multiple"
+            "matrix_multiple",
+            "audio",
+            "video"
           ]
         },
         "label": { "type": "string", "minLength": 1 },
@@ -186,6 +188,16 @@
         "force_edges": { "type": "boolean" },
         "status": { "type": "string" },
         "matrix_question_width": { "type": ["string", "number"] },
+        "mobile_columns": { "enum": [2, 3] },
+        "src": { "type": "string", "minLength": 1 },
+        "poster": { "type": "string", "minLength": 1 },
+        "caption": { "type": "string" },
+        "transcript": { "type": "string" },
+        "controls": { "type": "boolean" },
+        "autoplay": { "type": "boolean" },
+        "muted": { "type": "boolean" },
+        "loop": { "type": "boolean" },
+        "preload": { "enum": ["none", "metadata", "auto"] },
         "pre": { "type": "string" },
         "sep": { "type": "string" },
         "animate": {},
@@ -228,6 +240,12 @@
             }
           },
           "then": { "required": ["images"] }
+        },
+        {
+          "if": {
+            "properties": { "type": { "enum": ["audio", "video"] } }
+          },
+          "then": { "required": ["src"] }
         }
       ]
     },
@@ -255,6 +273,9 @@
         "next": { "type": ["string", "null"] },
         "next_label": { "type": "string" },
         "show_previous": { "type": "boolean" },
+        "previous_mode": { "enum": ["show", "hide", "disable"] },
+        "next_mode": { "enum": ["show", "hide", "disable"] },
+        "next_delay_seconds": { "type": "number", "minimum": 0, "maximum": 86400 },
         "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
         "terminal": { "type": "string" }
       }

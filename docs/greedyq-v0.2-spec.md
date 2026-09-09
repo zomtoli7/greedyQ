@@ -86,9 +86,13 @@ Questions are declared in non-executed R-style fenced chunks containing one allo
 
 Required arguments are `id`, `type`, and `label`. v0.2 implements all 16 question controls documented by surveydown: `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, and `matrix_multiple`.
 
+greedyQ additionally defines `audio` and `video` media controls as greedyQ-only extensions because they are not standalone built-in types in the current surveydown question-type documentation. They require a safe relative or HTTPS `src`; video may have a safe `poster`; both may declare `controls`, `autoplay`, `muted`, `loop`, `preload`, `caption`, and `transcript`. Autoplay is allowed only when muted. Media controls display stimuli and do not create response variables.
+
 Button controls support `direction`, `selected`, and `justified`. Image controls require one safe relative or HTTPS `image` source per option. `daterange` stores an ordered two-date array. `matrix_multiple` stores an array of selected values for each row. Native greedyQ persistence uses arrays and row objects; surveydown export converts these to its pipe-separated and wide-column representation where required.
 
 `slider` uses a named option vector as an ordered labeled scale and stores the selected option value. `slider_numeric` uses numeric `min`, `max`, and optional positive `step` arguments. Both render as draggable, keyboard-operable native range controls. `orientation` may be `horizontal` (the portable default) or `vertical`; vertical orientation is a greedyQ extension and MUST be identified in native surveydown export diagnostics.
+
+Desktop `matrix` and `matrix_multiple` use a conventional row-by-column table. Mobile rendering MUST avoid horizontal page scrolling: each original matrix row becomes a labelled response card, and ordered response options are presented in sequential groups of two or three columns. `mobile_columns` may be `2` or `3` and defaults to `3`. Display transformation MUST NOT change stored row or option values.
 
 Allowed value forms are strings, numbers, booleans, null, `c(...)`, and named `c(label = value, ...)`. Arbitrary function calls, variable lookup, assignment, interpolation, and side effects are errors.
 
@@ -105,7 +109,7 @@ The same rule applies to `option`, `options`, and matrix `row` vectors. Stored v
 
 ### 4.5 Navigation
 
-Pages receive an automatic Next action unless an `sd_nav()` call or terminal outcome is declared. v0.2 supports `show_previous`, `show_next`, `page_next`, `label_previous`, and `label_next`. Back navigation MUST preserve valid answers and MUST NOT change a persisted random assignment.
+Pages receive an automatic Next action unless an `sd_nav()` call or terminal outcome is declared. v0.2 supports `show_previous`, `show_next`, `page_next`, `label_previous`, and `label_next`. greedyQ additionally supports `previous_mode` and `next_mode` values `show`, `hide`, or `disable`, plus `next_delay_seconds` from 0 through 86400. A delayed Next action MUST expose its remaining wait and become enabled without a reload. Back navigation MUST preserve valid answers and MUST NOT change a persisted random assignment.
 
 ## 5. `greedyq.yml`
 
@@ -264,7 +268,7 @@ The browser implementation MUST be tested against the same independently authore
 
 ## 17. Deferred from v0.2
 
-Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, image questions, date ranges, multiple-response matrices, arbitrary widgets, weighted or stratified allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
+Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, arbitrary widgets beyond the fixed safe media extensions, weighted or stratified allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
 
 ## 18. Versioning
 

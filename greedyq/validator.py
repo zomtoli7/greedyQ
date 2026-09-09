@@ -3,7 +3,7 @@
 import re
 
 
-SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
@@ -72,6 +72,10 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ003", "Question '%s' needs at least one answer choice." % q["id"], qmd_path, line))
         if q.get("type") in {"matrix", "matrix_multiple"} and not q.get("rows"):
             issues.append(_item("GQ003", "Matrix question '%s' needs at least one row." % q["id"], qmd_path, line))
+        if q.get("type") in {"matrix", "matrix_multiple"} and q.get("mobile_columns", 3) not in (2, 3):
+            issues.append(_item("GQ003", "Matrix question '%s' mobile_columns must be 2 or 3." % q["id"], qmd_path, line))
+        if q.get("type") in {"audio", "video"} and not q.get("src"):
+            issues.append(_item("GQ003", "Media control '%s' needs a safe source in src." % q["id"], qmd_path, line))
         if q.get("type") in {"mc_image", "mc_multiple_image"} and len(q.get("images", [])) != len(q.get("options", [])):
             issues.append(_item("GQ003", "Image question '%s' needs exactly one image for each answer choice." % q["id"], qmd_path, line))
         if q.get("direction") not in (None, "horizontal", "vertical"):
@@ -84,6 +88,12 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         for image in q.get("images", []):
             if not (str(image).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(image))):
                 issues.append(_item("GQ003", "Image question '%s' contains an unsafe image path." % q["id"], qmd_path, line))
+        for media_key in ("src", "poster"):
+            media = q.get(media_key)
+            if media is not None and not (str(media).startswith("https://") or re.fullmatch(r"(?!/)(?!.*\.\.)[A-Za-z0-9_./-]+", str(media))):
+                issues.append(_item("GQ003", "Media control '%s' contains an unsafe %s path." % (q["id"], media_key), qmd_path, line))
+        if q.get("type") in {"audio", "video"} and q.get("autoplay") and not q.get("muted"):
+            issues.append(_item("GQ003", "Media control '%s' may autoplay only when muted." % q["id"], qmd_path, line))
         if q.get("type") == "slider_numeric" and isinstance(q.get("default"), list) and len(q["default"]) not in (1, 2):
             issues.append(_item("GQ003", "Numeric slider '%s' default must contain one value or two range endpoints." % q["id"], qmd_path, line))
         if q.get("type") == "slider" and len(q.get("options", [])) < 2:
@@ -100,6 +110,14 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             values = [item.get("value") for item in q.get(collection, [])]
             if len(values) != len(set(map(str, values))):
                 issues.append(_item("GQ011", "Question '%s' repeats a stored value in its %s. Every stored value must be unique." % (q["id"], collection), qmd_path, line))
+    for page in pages:
+        nav = page.get("nav", {})
+        for key in ("previous_mode", "next_mode"):
+            if nav.get(key) not in (None, "show", "hide", "disable"):
+                issues.append(_item("GQ003", "Page '%s' uses an unsupported %s. Choose show, hide, or disable." % (page["id"], key), qmd_path, page.get("_nav_line")))
+        delay = nav.get("next_delay_seconds", 0)
+        if not isinstance(delay, (int, float)) or delay < 0 or delay > 86400:
+            issues.append(_item("GQ003", "Page '%s' needs next_delay_seconds between 0 and 86400." % page["id"], qmd_path, page.get("_nav_line")))
     overlap = sorted(known_pages & known_questions)
     for value in overlap:
         issues.append(_item("GQ001", "'%s' is used for both a page and a question. Use a different name for one of them." % value, qmd_path))

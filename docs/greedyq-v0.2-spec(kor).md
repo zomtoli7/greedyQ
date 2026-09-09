@@ -86,9 +86,13 @@ Question은 allowlist된 `sd_question()` call 하나를 포함하는 실행되�
 
 필수 argument는 `id`, `type`, `label`입니다. v0.2은 surveydown이 문서화한 16개 question control을 모두 구현합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다.
 
+현재 surveydown question-type 문서에는 독립적인 built-in type이 없으므로 greedyQ는 `audio`와 `video` media control을 greedyQ-only extension으로 추가합니다. 안전한 relative 또는 HTTPS `src`가 필요하고 video에는 안전한 `poster`를 지정할 수 있습니다. 둘 다 `controls`, `autoplay`, `muted`, `loop`, `preload`, `caption`, `transcript`를 선언할 수 있습니다. Autoplay는 muted인 경우에만 허용합니다. Media control은 stimulus를 표시하며 response variable을 만들지 않습니다.
+
 Button control은 `direction`, `selected`, `justified`를 지원합니다. Image control은 option마다 하나의 안전한 relative 또는 HTTPS `image` source가 필요합니다. `daterange`는 순서가 있는 두 날짜 array를 저장합니다. `matrix_multiple`은 row별 선택 value array를 저장합니다. greedyQ native persistence는 array와 row object를 사용하고, surveydown export 시 필요한 pipe-separated 및 wide-column 표현으로 변환합니다.
 
 `slider`는 named option vector를 순서가 있는 labeled scale로 사용하고 선택한 option value를 저장합니다. `slider_numeric`은 숫자 `min`, `max`, 선택적인 양수 `step` argument를 사용합니다. 둘 다 drag와 keyboard 조작이 가능한 native range control로 표시됩니다. `orientation`은 `horizontal`(portable default) 또는 `vertical`일 수 있습니다. Vertical orientation은 greedyQ extension이므로 native surveydown export diagnostic에서 반드시 알려야 합니다.
+
+Desktop의 `matrix`와 `matrix_multiple`은 일반적인 row-by-column table을 사용합니다. Mobile rendering은 horizontal page scroll을 피해야 합니다. 원래 matrix의 각 row를 label이 있는 response card로 만들고 순서가 있는 response option을 2개 또는 3개 column씩 연속된 group으로 표시합니다. `mobile_columns`는 `2` 또는 `3`이며 기본값은 `3`입니다. 이 표시 변환은 저장되는 row와 option value를 바꾸면 안 됩니다.
 
 허용되는 value form은 string, number, boolean, null, `c(...)`, named `c(label = value, ...)`입니다. 임의의 function call, variable lookup, assignment, interpolation, side effect는 error입니다.
 
@@ -96,7 +100,7 @@ Button control은 `direction`, `selected`, `justified`를 지원합니다. Image
 
 ### 4.5 Navigation
 
-`sd_nav()` call 또는 terminal outcome을 선언하지 않으면 page에 자동 Next action을 추가합니다. v0.2은 `show_previous`, `show_next`, `page_next`, `label_previous`, `label_next`를 지원합니다. Back navigation은 유효한 answer를 보존해야 하며 저장된 random assignment를 변경해서는 안 됩니다.
+`sd_nav()` call 또는 terminal outcome을 선언하지 않으면 page에 자동 Next action을 추가합니다. v0.2은 `show_previous`, `show_next`, `page_next`, `label_previous`, `label_next`를 지원합니다. greedyQ는 추가로 `previous_mode`와 `next_mode`의 `show`, `hide`, `disable` 값 및 0부터 86400까지의 `next_delay_seconds`를 지원합니다. 지연된 Next action은 남은 시간을 보여주고 reload 없이 활성화되어야 합니다. Back navigation은 유효한 answer를 보존해야 하며 저장된 random assignment를 변경해서는 안 됩니다.
 
 ## 5. `greedyq.yml`
 
@@ -255,7 +259,7 @@ Browser implementation은 Python reference와 동일하게 독립 작성된 conf
 
 ## 17. v0.2에서 deferred된 기능
 
-임의의 R/Shiny 또는 JavaScript, raw HTML, custom Quarto extension, image question, date range, multiple-response matrix, arbitrary widget, weighted/stratified allocation, factorial/conjoint 실행, electronic signature, 관할별 compliance automation은 deferred입니다.
+임의의 R/Shiny 또는 JavaScript, raw HTML, custom Quarto extension, 고정된 안전한 media extension 이외의 arbitrary widget, weighted/stratified allocation, factorial/conjoint 실행, electronic signature, 관할별 compliance automation은 deferred입니다.
 
 ## 18. Versioning
 

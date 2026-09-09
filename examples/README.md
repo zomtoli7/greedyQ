@@ -6,7 +6,7 @@ Golden references serve simultaneously as complete tutorials, expected AI output
 
 ## Control conformance gallery
 
-[Control Gallery](./control-gallery/preview.html) is a non-fielding fixture containing all 16 officially documented surveydown question controls, plus both the single-value and two-handle forms of `slider_numeric`. It is used for Python/JavaScript conformance and desktop/mobile interaction tests.
+[Control Gallery](./control-gallery/preview.html) is a non-fielding fixture containing all 16 officially documented surveydown question controls, both forms of `slider_numeric`, responsive matrices, configurable navigation, and greedyQ's audio/video extensions. It is used for Python/JavaScript conformance and desktop/mobile interaction tests.
 
 ## `greedyQSimple`
 

@@ -113,7 +113,7 @@ The AI may open the preview, show an interactive artifact, or give you a folder 
 
 Preview mode shows desktop and mobile versions, uses imaginary participants, and keeps test responses local. It must not send responses to an external service.
 
-To inspect every supported question control in one place, open the [live control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html). It contains all 16 surveydown-compatible control types plus both single-value and range forms of the numeric slider. The repository copy is available at [`examples/control-gallery/`](./examples/control-gallery/) if the live page has not finished publishing.
+To inspect every supported control in one place, open the [live control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html). It contains all 16 surveydown-compatible question types, both numeric-slider forms, responsive matrices, navigation policies, and greedyQ's audio and video extensions. The repository copy is available at [`examples/control-gallery/`](./examples/control-gallery/) if the live page has not finished publishing.
 
 Use **View structure** at the top of any preview to inspect the questionnaire before clicking through it. The read-only outline shows pages in respondent order, identifies text blocks with `T`, identifies questions with `Q`, and shows each question ID and control type. Expand or collapse pages to focus on one part of the survey. This view never changes the questionnaire or saves responses.
 
@@ -125,6 +125,9 @@ For every survey:
 - Use Previous and Continue, then refresh and check that progress resumes.
 - Try opt-out, other, and open-text choices.
 - Check that hidden questions appear only when intended.
+- On a phone, confirm matrices use row cards and two- or three-column groups without horizontal page scrolling.
+- Play every audio or video stimulus and inspect its caption or transcript.
+- Check every declared hidden, disabled, or delayed navigation action.
 - Test completion, consent refusal, screening, and withdrawal routes that apply.
 - Confirm both desktop and mobile views are readable and easy to use.
 - Confirm the test-state value matches the answer you selected.
@@ -220,8 +223,14 @@ Ask for controls in research language; you do not need to remember their code na
 | A date interval | `daterange` | Start and end dates |
 | One response in every row | `matrix` | A standard rating grid |
 | Several responses in every row | `matrix_multiple` | A row-by-column multi-select grid |
+| Play an audio stimulus | `audio` | A sound clip with optional caption and transcript |
+| Play a video stimulus | `video` | A video with optional poster, caption, and transcript |
 
-Matrix questions use the familiar survey-table layout: statements are rows, response choices are column headings, and each cell contains a radio button or checkbox. On a phone, the row-label column stays visible while the response columns scroll horizontally.
+Matrix questions use the familiar survey-table layout on desktop: statements are rows, response choices are column headings, and each cell contains a radio button or checkbox. On a phone, every statement becomes a separate card and response choices are shown in ordered groups of two or three columns, avoiding horizontal page scrolling.
+
+`audio` and `video` are safe greedyQ extensions rather than standalone built-in surveydown question types. They accept validated local or HTTPS media, use native playback controls by default, and do not create response variables. Ask for captions and transcripts whenever the research material permits them.
+
+Page navigation can be shown, hidden, or left visibly disabled. A Next button may also remain disabled for a stated number of seconds when a minimum stimulus-exposure time is part of the approved design. Required unanswered questions alone do not disable Next in advance; clicking it explains what needs an answer.
 
 ## Prompt library
 
@@ -242,13 +251,25 @@ Only people who have used the service may continue. Add one clear eligibility qu
 ### Add a standard matrix
 
 ```text
-Add a matrix asking respondents to rate ease of use, speed, reliability, and clarity. Use the columns Very poor, Poor, Fair, Good, and Excellent. Require one response per row. Show me the table on desktop and how it scrolls on mobile.
+Add a matrix asking respondents to rate ease of use, speed, reliability, and clarity. Use the columns Very poor, Poor, Fair, Good, and Excellent. Require one response per row. Show the standard table on desktop and separate row cards with no horizontal page scrolling on mobile.
 ```
 
 ### Add a multi-select matrix
 
 ```text
 For each product category, ask where it was purchased. Put product categories in rows and In store, Online, and Mobile app in columns. Allow more than one selection in each row.
+```
+
+### Add audio and video stimuli
+
+```text
+Add an audio stimulus with normal playback controls, a short caption, and a transcript, followed by a video stimulus with a poster image and transcript. Use only validated project files or HTTPS URLs. Do not autoplay either item and do not treat playback as a survey response.
+```
+
+### Control Previous and Next
+
+```text
+Hide Previous on the consent page, show it normally on questionnaire pages, and display it disabled on the final review page. On the stimulus page, keep Continue disabled for 12 seconds and show the remaining time. Demonstrate every state in desktop and mobile preview.
 ```
 
 ### Review question quality without silently rewriting
@@ -284,7 +305,7 @@ Open the interactive preview and then open View structure. Walk me through the p
 ### Check mobile usability
 
 ```text
-Test the entire questionnaire at a 390-pixel mobile width. Check touch-target size, contrast, unwanted blank scrolling, automatic scroll-to-top after navigation, image sizing, and horizontal behavior of matrix questions.
+Test the entire questionnaire at a 390-pixel mobile width. Check touch-target size, contrast, unwanted blank scrolling, automatic scroll-to-top after navigation, image and media sizing, and that matrix row cards never create horizontal page scrolling.
 ```
 
 ### Modify without changing anything else

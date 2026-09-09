@@ -225,6 +225,7 @@ The direction is normative: `"Displayed label" = "stored_value"`. An identifier-
 | `daterange` | Date-range input | Two endpoints | **v0.2 implemented** |
 | `matrix` | One radio selection per row | `<id>_<row_id>` columns upstream | **v0.2 target** |
 | `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **v0.2 implemented** |
+| `audio`, `video` | No standalone built-in question types in the documented list; possible through general content/custom mechanisms | No response value | **greedyQ-only extension** |
 
 greedyQ should preserve the logical response shape and migration/export behavior, but its native database does not need to reproduce pipe-separated or wide-column physical storage internally.
 
@@ -246,6 +247,7 @@ greedyQ should preserve the logical response shape and migration/export behavior
 | `option_attr` | Per-option HTML attributes | **Unsupported by design** in its raw form |
 | `yml` | External question-definition path | **Post-v0.2**; root default is v0.2 |
 | `matrix_question_width` | Matrix prompt-column width | **v0.2 implemented** |
+| `mobile_columns` | Not an upstream argument | **greedyQ-only responsive matrix extension** |
 | `...` | Arbitrary input-specific Shiny arguments | **Unsupported by design**; explicitly whitelist portable arguments |
 
 Labels and regular option labels accept Markdown upstream. Raw HTML is also possible, but greedyQ should specify sanitization and a portable Markdown subset.
@@ -262,6 +264,8 @@ The official [Page Navigation](https://surveydown.org/docs/page-navigation) docu
 | `page_next` | Direct forward target | **v0.2 target** |
 | Custom navigation labels | `label_previous`, `label_next` | **v0.2 target** |
 | Hide buttons | `show_previous`, `show_next` | **v0.2 target** |
+| Show, hide, or disable each action | No equivalent documented page-mode enum | **greedyQ-only extension** |
+| Timed Next activation | No equivalent documented `sd_nav()` argument | **greedyQ-only extension** |
 | `sd_next()` | Legacy single Next button | **Post-v0.2** parser alias |
 | `sd_close()` | Exit flow, optional rating/restart/cookie clearing | Basic exit **v0.2**; extended options **Post-v0.2** |
 | `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.2**; reactive redirect **Native implementation** |

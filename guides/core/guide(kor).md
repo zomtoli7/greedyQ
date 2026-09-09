@@ -26,8 +26,9 @@
 - 인증정보를 소스와 생성 산출물에 넣지 않습니다.
 - Pin된 greedyQ repository의 canonical browser runtime file을 byte-for-byte로 복사합니다. AI에게 이를 다시 작성, 단순화, restyle 또는 optimize하도록 요청하면 안 됩니다. Study-specific data는 문서화된 model/configuration slot을 통해서만 입력합니다.
 - Vercel 또는 Supabase 연결을 요청하기 전에 가능한 parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, terminal-path test를 모두 로컬에서 완료합니다.
-- `show_previous = FALSE`이거나 terminal page이면 Previous를 숨기고, navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
-- Widget을 임의로 만들지 말고 canonical surveydown control 16개에서 선택합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다. 고정 parser와 renderer를 사용하며 study마다 control code를 다시 만들지 않습니다.
+- Page navigation policy를 정확히 적용합니다. Previous와 Next는 표시, 숨김 또는 비활성화할 수 있고 Next에는 활성화 지연 시간을 선언할 수 있습니다. Terminal page에는 navigation이 없습니다. Navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
+- Widget을 임의로 만들지 말고 canonical surveydown control 16개에서 선택합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다. Media stimulus에는 고정 greedyQ extension인 `audio`와 `video`를 사용할 수 있습니다. 고정 parser와 renderer를 사용하며 study마다 control code를 다시 만들지 않습니다.
+- Conditional visibility의 source answer가 바뀌면 즉시 다시 평가합니다. Mobile에서는 matrix row를 독립 response card로 표시하고 scale을 2개 또는 3개 column 단위로 나눠 horizontal page scroll을 만들지 않습니다.
 - Repository README의 정확한 current release identifier를 새로 생성하거나 명시적으로 upgrade한 모든 `survey.qmd`의 `greedyq.version`에 복사합니다. 이를 임의로 만들거나 줄이거나 몰래 변경하면 안 됩니다.
 - 논문, preregistration, repository 또는 공유 자료를 준비할 때 정확한 `greedyq.version` release identifier와 함께 greedyQ GitHub 저장소를 인용하고 surveydown PLOS ONE 논문도 함께 인용하라고 안내합니다. 독립적인 greedyQ runtime만 사용한 경우에도 적용하되 surveydown 자체를 실행했는지는 사실대로 설명합니다.
 

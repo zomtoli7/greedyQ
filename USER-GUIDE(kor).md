@@ -113,7 +113,7 @@ AI가 preview를 열거나 interactive artifact를 보여주거나 다운로드�
 
 Preview mode는 컴퓨터와 모바일 화면을 보여주며 가상 참여자를 사용하고 test response를 local에만 보관합니다. 외부 service로 응답을 보내면 안 됩니다.
 
-지원되는 모든 문항 컨트롤을 한곳에서 확인하려면 [온라인 컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)를 여세요. Surveydown-compatible 컨트롤 16종과 숫자 슬라이더의 단일 값·범위 형식을 모두 포함합니다. 웹 게시가 아직 끝나지 않았다면 저장소의 [`examples/control-gallery/`](./examples/control-gallery/) 사본을 사용할 수 있습니다.
+지원되는 모든 컨트롤을 한곳에서 확인하려면 [온라인 컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)를 여세요. Surveydown-compatible 문항 16종, 숫자 슬라이더 두 형식, responsive matrix, navigation policy, greedyQ의 audio와 video extension을 모두 포함합니다. 웹 게시가 아직 끝나지 않았다면 저장소의 [`examples/control-gallery/`](./examples/control-gallery/) 사본을 사용할 수 있습니다.
 
 프리뷰 상단의 **스트럭처 보기(View structure)**를 누르면 설문을 처음부터 클릭하지 않고도 전체 구성을 확인할 수 있습니다. 읽기 전용 개요에서 응답자가 보게 될 페이지 순서, `T`로 표시된 안내문, `Q`로 표시된 문항, 문항 ID와 컨트롤 종류를 보여줍니다. 이 화면은 설문을 변경하거나 응답을 저장하지 않습니다.
 
@@ -125,6 +125,9 @@ Preview mode는 컴퓨터와 모바일 화면을 보여주며 가상 참여자�
 - Previous와 Continue를 사용하고 새로고침 후 진행 상태가 이어지는지 봅니다.
 - 응답 거부, 기타 및 자유응답 선택지를 시험합니다.
 - 숨겨진 문항이 의도한 때에만 나타나는지 확인합니다.
+- 핸드폰에서 matrix가 row card와 2개 또는 3개 column group을 사용하며 horizontal page scroll을 만들지 않는지 확인합니다.
+- 모든 audio 또는 video stimulus를 재생하고 caption과 transcript를 확인합니다.
+- 선언된 숨김, 비활성화 또는 지연 navigation action을 모두 확인합니다.
 - 해당되는 완료, consent 거부, 선별 탈락 및 철회 경로를 시험합니다.
 - 컴퓨터와 모바일 화면을 읽고 누르기 쉬운지 확인합니다.
 - Test-state에 저장된 값이 선택한 답과 일치하는지 확인합니다.
@@ -220,8 +223,14 @@ Prolific 테스트에서는 **테스트 응답**을 유지하고 **유입 경로
 | 날짜 범위 | `daterange` | 시작일과 종료일 |
 | 각 행에서 하나씩 선택 | `matrix` | 일반적인 평정 행렬 |
 | 각 행에서 여러 개 선택 | `matrix_multiple` | 행×열 복수 선택 행렬 |
+| 오디오 자극 재생 | `audio` | Caption과 transcript를 넣을 수 있는 소리 자극 |
+| 비디오 자극 재생 | `video` | Poster, caption, transcript를 넣을 수 있는 영상 자극 |
 
-매트릭스 문항은 일반 설문 도구에서 익숙한 표 형태입니다. 진술문은 행에, 응답 선택지는 열 제목에, 라디오 버튼이나 체크박스는 각 셀에 배치됩니다. 모바일에서는 행 제목을 고정한 채 응답 열만 가로로 움직일 수 있습니다.
+매트릭스 문항은 desktop에서 일반 설문 도구의 표 형태를 사용합니다. 진술문은 행에, 응답 선택지는 열 제목에, 라디오 버튼이나 체크박스는 각 셀에 배치됩니다. 핸드폰에서는 진술문마다 별도 card를 만들고 응답 선택지를 순서대로 2개 또는 3개 column group으로 표시하여 horizontal page scroll을 피합니다.
+
+`audio`와 `video`는 surveydown의 독립 built-in question type이 아니라 안전한 greedyQ extension입니다. 검증된 local 또는 HTTPS media를 받고 기본적으로 browser playback control을 사용하며 response variable은 만들지 않습니다. 연구 자료가 허용하면 caption과 transcript를 함께 요청하십시오.
+
+Page의 Previous와 Next는 표시, 숨김 또는 눈에 보이는 비활성화 상태로 설정할 수 있습니다. 승인된 연구설계에 최소 stimulus 노출 시간이 있다면 Next를 지정한 시간 동안 비활성화하고 남은 시간을 표시할 수도 있습니다. 단순히 required answer가 비었다는 이유로 Next를 미리 비활성화하지는 않으며, 눌렀을 때 필요한 응답을 설명합니다.
 
 ## 복사해서 쓰는 프롬프트 예제
 
@@ -242,13 +251,25 @@ Prolific 테스트에서는 **테스트 응답**을 유지하고 **유입 경로
 ### 일반 매트릭스
 
 ```text
-사용 편의성, 속도, 안정성, 설명의 명확성을 평가하는 매트릭스를 추가해줘. 열은 매우 나쁨, 나쁨, 보통, 좋음, 매우 좋음으로 하고 각 행에서 하나를 반드시 선택하게 해줘. 데스크톱 표와 모바일 가로 스크롤을 모두 보여줘.
+사용 편의성, 속도, 안정성, 설명의 명확성을 평가하는 매트릭스를 추가해줘. 열은 매우 나쁨, 나쁨, 보통, 좋음, 매우 좋음으로 하고 각 행에서 하나를 반드시 선택하게 해줘. 데스크톱에서는 일반 표로, 모바일에서는 가로 스크롤 없는 별도 row card로 보여줘.
 ```
 
 ### 복수 선택 매트릭스
 
 ```text
 제품 범주마다 어디에서 구매했는지 물어봐. 제품 범주는 행에, 오프라인 매장·온라인·모바일 앱은 열에 두고 각 행에서 여러 개를 고를 수 있게 해줘.
+```
+
+### 오디오와 비디오 자극 추가
+
+```text
+일반 재생 컨트롤, 짧은 caption, transcript가 있는 audio stimulus를 넣고 그다음에는 poster image와 transcript가 있는 video stimulus를 넣어줘. 검증된 project file이나 HTTPS URL만 사용하고 둘 다 자동 재생하지 마. 재생 자체를 survey response로 취급하지 마.
+```
+
+### Previous와 Next 동작 지정
+
+```text
+Consent page에서는 Previous를 숨기고 questionnaire page에서는 정상 표시하며 마지막 review page에서는 눈에 보이지만 비활성화해줘. Stimulus page의 Continue는 12초 동안 비활성화하고 남은 시간을 보여줘. Desktop과 mobile preview에서 모든 상태를 보여줘.
 ```
 
 ### 문항 품질 점검
@@ -278,7 +299,7 @@ Prolific 테스트에서는 **테스트 응답**을 유지하고 **유입 경로
 ### 구조와 모바일 확인
 
 ```text
-프리뷰와 스트럭처 보기를 열어 페이지 순서, 안내문, 문항 ID, 컨트롤 종류, 종료 페이지를 설명해줘. 390픽셀 모바일에서 터치 영역, 대비, 빈 스크롤, 상단 이동, 이미지, 매트릭스 가로 움직임도 시험해줘.
+프리뷰와 스트럭처 보기를 열어 페이지 순서, 안내문, 문항 ID, 컨트롤 종류, 종료 페이지를 설명해줘. 390픽셀 모바일에서 터치 영역, 대비, 빈 스크롤, 상단 이동, image와 media 크기, matrix row card에 horizontal page scroll이 없는지도 시험해줘.
 ```
 
 ### 한 부분만 수정

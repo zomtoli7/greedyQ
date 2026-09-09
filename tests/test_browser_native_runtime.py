@@ -180,11 +180,27 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         self.assertIn("<table><colgroup>", core)
         self.assertIn('scope="row"', core)
         self.assertIn('scope="col"', core)
-        self.assertIn("position: sticky", css)
+        self.assertIn("gq-matrix-mobile-row", css)
         for html in (preview, studio):
             compact = "".join(html.split())
             self.assertIn("width:min(390px,100%)", compact)
             self.assertNotIn(".mobile{max-width:none", compact)
+
+    def test_conditional_controls_rerender_and_mobile_matrices_do_not_scroll(self):
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        css = (ROOT / "web/greedyq-runtime.css").read_text()
+        self.assertIn("visibilitySources", core)
+        self.assertIn('control.addEventListener("change"', core)
+        self.assertIn('mode === "mobile"', core)
+        self.assertIn("gq-matrix-mobile-chunk", core)
+        self.assertIn("grid-template-columns: repeat(var(--gq-mobile-columns)", css)
+
+    def test_media_and_navigation_controls_are_fixed_runtime_features(self):
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        for token in ('["audio", "video"]', "next_delay_seconds", "previous_mode", "next_mode", "next_ready_at"):
+            self.assertIn(token, core)
+        self.assertIn("<audio", core)
+        self.assertIn("<video", core)
 
 
 if __name__ == "__main__":

@@ -75,11 +75,41 @@ sd_question(id = "date_range", type = "daterange", label = "Date range")
 ```
 
 ```{r}
-sd_question(id = "one_matrix", type = "matrix", label = "Single-choice matrix", row = c("First row" = "first", "Second row" = "second"), option = c("No" = "no", "Yes" = "yes"))
+sd_question(id = "one_matrix", type = "matrix", label = "Single-choice matrix (seven columns demonstrate mobile chunking)", row = c("First row" = "first", "Second row" = "second"), option = c("Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Neutral" = 4, "Somewhat agree" = 5, "Agree" = 6, "Strongly agree" = 7), mobile_columns = 3)
 ```
 
 ```{r}
 sd_question(id = "multi_matrix", type = "matrix_multiple", label = "Multiple-choice matrix", row = c("First row" = "first", "Second row" = "second"), option = c("Web" = "web", "App" = "app"))
+```
+
+```{r}
+sd_question(id = "audio_example", type = "audio", label = "Audio stimulus (greedyQ extension)", src = "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3", controls = TRUE, caption = "Example audio with participant controls", transcript = "A short dinosaur roar.")
+```
+
+```{r}
+sd_question(id = "video_example", type = "video", label = "Video stimulus (greedyQ extension)", src = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", controls = TRUE, caption = "Example video with participant controls")
+```
+
+```{r}
+sd_question(id = "conditional_choice", type = "mc", label = "Show the conditional text field?", option = c("Yes" = "yes", "No" = "no"))
+```
+
+```{r}
+sd_question(id = "conditional_text", type = "text", label = "This field appeared immediately", placeholder = "Conditional text")
+```
+
+```{r}
+sd_nav(page_next = "navigation_controls", previous_mode = "hide", label_next = "Try navigation controls")
+```
+
+--- navigation_controls
+
+# Navigation controls
+
+This page keeps Previous visible but disabled. Continue becomes available after three seconds.
+
+```{r}
+sd_nav(page_next = "complete", previous_mode = "disable", next_mode = "show", next_delay_seconds = 3, label_next = "Continue after the delay")
 ```
 
 --- complete

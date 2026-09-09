@@ -17,6 +17,7 @@
   "progress_paths": {
     "default": [
       "controls",
+      "navigation_controls",
       "complete"
     ]
   },
@@ -325,15 +326,35 @@
         {
           "id": "one_matrix",
           "type": "matrix",
-          "label": "Single-choice matrix",
+          "label": "Single-choice matrix (seven columns demonstrate mobile chunking)",
           "options": [
             {
-              "label": "No",
-              "value": "no"
+              "label": "Strongly disagree",
+              "value": 1
             },
             {
-              "label": "Yes",
-              "value": "yes"
+              "label": "Disagree",
+              "value": 2
+            },
+            {
+              "label": "Somewhat disagree",
+              "value": 3
+            },
+            {
+              "label": "Neutral",
+              "value": 4
+            },
+            {
+              "label": "Somewhat agree",
+              "value": 5
+            },
+            {
+              "label": "Agree",
+              "value": 6
+            },
+            {
+              "label": "Strongly agree",
+              "value": 7
             }
           ],
           "rows": [
@@ -346,6 +367,7 @@
               "value": "second"
             }
           ],
+          "mobile_columns": 3,
           "required": false
         },
         {
@@ -373,10 +395,72 @@
             }
           ],
           "required": false
+        },
+        {
+          "id": "audio_example",
+          "type": "audio",
+          "label": "Audio stimulus (greedyQ extension)",
+          "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3",
+          "caption": "Example audio with participant controls",
+          "transcript": "A short dinosaur roar.",
+          "controls": true,
+          "required": false
+        },
+        {
+          "id": "video_example",
+          "type": "video",
+          "label": "Video stimulus (greedyQ extension)",
+          "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+          "caption": "Example video with participant controls",
+          "controls": true,
+          "required": false
+        },
+        {
+          "id": "conditional_choice",
+          "type": "mc",
+          "label": "Show the conditional text field?",
+          "options": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "required": false
+        },
+        {
+          "id": "conditional_text",
+          "type": "text",
+          "label": "This field appeared immediately",
+          "placeholder": "Conditional text",
+          "required": false,
+          "show_if": {
+            "field": "conditional_choice",
+            "equals": "yes"
+          }
         }
       ],
       "show_previous": true,
-      "next": "complete"
+      "previous_mode": "hide",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
+      "next": "navigation_controls",
+      "next_label": "Try navigation controls"
+    },
+    {
+      "id": "navigation_controls",
+      "title": "Navigation controls",
+      "body": "This page keeps Previous visible but disabled. Continue becomes available after three seconds.",
+      "questions": [],
+      "show_previous": true,
+      "previous_mode": "disable",
+      "next_mode": "show",
+      "next_delay_seconds": 3,
+      "next": "complete",
+      "next_label": "Continue after the delay"
     },
     {
       "id": "complete",
@@ -384,6 +468,9 @@
       "body": "All controls were displayed.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "completed"
     }
   ],

@@ -120,7 +120,7 @@ Expert users may still author `survey.qmd` and `greedyq.yml` directly. Researche
 
 ## Relationship to surveydown
 
-greedyQ is an independent implementation of surveydown-style `survey.qmd` syntax. Its v0.2 browser runtime implements all 16 question controls in the current official question-types documentation; other syntax remains explicitly classified by compatibility level. It does not incorporate surveydown source code and is not affiliated with or endorsed by the surveydown project or its maintainers. Compatibility does not limit greedyQ-native features: each feature is classified as directly portable, generated into `app.R`, or greedyQ-only with an explicit export diagnostic. See [NOTICE.md](./NOTICE.md) for attribution and license information.
+greedyQ is an independent implementation of surveydown-style `survey.qmd` syntax. Its v0.2 browser runtime implements all 16 question controls in the current official question-types documentation and adds safe `audio` and `video` stimuli as greedyQ extensions; other syntax remains explicitly classified by compatibility level. It does not incorporate surveydown source code and is not affiliated with or endorsed by the surveydown project or its maintainers. Compatibility does not limit greedyQ-native features: each feature is classified as directly portable, generated into `app.R`, or greedyQ-only with an explicit export diagnostic. See [NOTICE.md](./NOTICE.md) for attribution and license information.
 
 ## Citation
 

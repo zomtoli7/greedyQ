@@ -4,6 +4,11 @@ study:
   title: greedyQ Control Gallery
 respondents:
   mode: test
+logic:
+  hidden_answer_policy: clear_on_hide
+  show:
+    - question: conditional_text
+      if: conditional_choice == "yes"
 outcomes:
   complete:
     page: complete

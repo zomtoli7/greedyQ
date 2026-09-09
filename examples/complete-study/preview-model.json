@@ -48,6 +48,9 @@
       "body": "This fictional research fixture asks about a hypothetical municipal program. It takes approximately five minutes.\n\nIf you arrived through a respondent panel, your panel identifiers are validated before this page but are not displayed here.",
       "questions": [],
       "show_previous": false,
+      "previous_mode": "hide",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "consent",
       "next_label": "Read participant information"
     },
@@ -74,6 +77,9 @@
         }
       ],
       "show_previous": false,
+      "previous_mode": "hide",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "eligibility",
       "next_label": "Continue",
       "routes": [
@@ -102,6 +108,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "baseline",
       "routes": [
         {
@@ -181,6 +190,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "stimulus_control",
       "routes": [
         {
@@ -205,6 +217,9 @@
       "body": "The city is considering a program with telephone and in-person help for residents using online public services. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "post_measure",
       "next_label": "Continue"
     },
@@ -214,6 +229,9 @@
       "body": "The city is considering a program with telephone and in-person help so residents can complete online public services more easily and avoid unnecessary trips. The proposal would operate at three libraries, five days per week, with an estimated annual budget of $600,000.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "post_measure",
       "next_label": "Continue"
     },
@@ -320,6 +338,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "outcomes"
     },
     {
@@ -421,6 +442,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "demographics"
     },
     {
@@ -502,6 +526,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "participant_control"
     },
     {
@@ -547,6 +574,9 @@
         }
       ],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "next": "complete",
       "routes": [
         {
@@ -571,6 +601,9 @@
       "body": "Your responses have been submitted. In a production panel run, greedyQ now uses the verified completion route.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "completed"
     },
     {
@@ -579,6 +612,9 @@
       "body": "This fixture is limited to adults. No research questions beyond consent and eligibility were collected.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "screened_out"
     },
     {
@@ -587,6 +623,9 @@
       "body": "No research responses were collected. You may close this page or follow the configured panel return route.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "consent_refused"
     },
     {
@@ -595,6 +634,9 @@
       "body": "The session is marked as withdrawn. If you requested deletion, the request has been recorded for the research team; this message does not claim deletion is complete.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "withdrawn"
     },
     {
@@ -603,6 +645,9 @@
       "body": "The study encountered a technical problem. In a production panel run, greedyQ uses the separately configured technical-error route.",
       "questions": [],
       "show_previous": true,
+      "previous_mode": "show",
+      "next_mode": "show",
+      "next_delay_seconds": 0,
       "terminal": "technical_error"
     }
   ],

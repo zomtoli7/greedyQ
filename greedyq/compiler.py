@@ -76,6 +76,9 @@ def compile_preview(parsed, config):
             page["questions"].append(q)
         nav = source.get("nav", {})
         page["show_previous"] = bool(nav.get("show_previous", survey_settings.get("show-previous", True)))
+        page["previous_mode"] = nav.get("previous_mode", "show" if page["show_previous"] else "hide")
+        page["next_mode"] = nav.get("next_mode", "show")
+        page["next_delay_seconds"] = nav.get("next_delay_seconds", 0)
         if nav.get("page_next"): page["next"] = nav["page_next"]
         elif index + 1 < len(source_pages): page["next"] = source_pages[index + 1]["id"]
         else: page["next"] = None

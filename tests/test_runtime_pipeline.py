@@ -14,7 +14,7 @@ from greedyq.validator import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple"}
+SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video"}
 
 
 class RuntimePipelineTests(unittest.TestCase):
@@ -169,6 +169,12 @@ sd_question(id = "grid", type = "matrix", label = "Grid", row = c("First" = "r1"
 ```
 ```{r}
 sd_question(id = "multi_grid", type = "matrix_multiple", label = "Grid multiple", row = c("First" = "r1"), option = c("No" = 0, "Yes" = 1))
+```
+```{r}
+sd_question(id = "audio_clip", type = "audio", label = "Audio clip", src = "media/clip.mp3", controls = TRUE, transcript = "Sample transcript")
+```
+```{r}
+sd_question(id = "video_clip", type = "video", label = "Video clip", src = "https://example.org/clip.mp4", poster = "images/poster.png", controls = TRUE)
 ```
 
 --- done

@@ -225,6 +225,7 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 | `daterange` | Date-range input | Endpoint 두 개 | **v0.2 구현 완료** |
 | `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.2 target** |
 | `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **v0.2 구현 완료** |
+| `audio`, `video` | 문서화된 목록에는 독립 built-in question type이 없으며 general content/custom mechanism으로 구성 가능 | Response value 없음 | **greedyQ-only extension** |
 
 greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
 
@@ -246,6 +247,7 @@ greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 �
 | `option_attr` | Option별 HTML attribute | Raw form은 **Unsupported by design** |
 | `yml` | 외부 question-definition path | **Post-v0.2**, root default는 v0.2 |
 | `matrix_question_width` | Matrix prompt-column width | **v0.2 구현 완료** |
+| `mobile_columns` | Upstream argument 없음 | **greedyQ-only responsive matrix extension** |
 | `...` | 임의의 input-specific Shiny argument | **Unsupported by design**, portable argument만 명시적으로 allowlist |
 
 Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw HTML도 가능하지만 greedyQ는 sanitization과 portable Markdown subset을 정의해야 합니다.
@@ -262,6 +264,8 @@ Label과 일반 option label은 upstream에서 Markdown을 지원합니다. Raw 
 | `page_next` | 직접 forward target | **v0.2 target** |
 | Custom navigation label | `label_previous`, `label_next` | **v0.2 target** |
 | Button 숨김 | `show_previous`, `show_next` | **v0.2 target** |
+| Action별 표시, 숨김, 비활성화 | 문서화된 동일 page-mode enum 없음 | **greedyQ-only extension** |
+| 시간 지연 Next 활성화 | 문서화된 동일 `sd_nav()` argument 없음 | **greedyQ-only extension** |
 | `sd_next()` | Legacy single Next button | **Post-v0.2** parser alias |
 | `sd_close()` | Exit flow, optional rating/restart/cookie clear | Basic exit **v0.2**, 확장 option **Post-v0.2** |
 | `sd_redirect()` | Static/reactive redirect, delay, new tab | Static redirect **v0.2**, reactive redirect **Native implementation** |

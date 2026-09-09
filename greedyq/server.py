@@ -30,10 +30,18 @@ def question_html(q, saved):
         out.append('<select name="%s"><option value="">%s</option>'%(esc(q["id"]),esc(q.get("placeholder","Choose one"))))
         for option in q.get("options",[]):out.append('<option value="%s" %s>%s</option>'%(esc(option["value"]),"selected" if option["value"]==value else "",esc(option["label"])))
         out.append('</select>')
-    elif q["type"]=="matrix":
+    elif q["type"] in ("matrix", "matrix_multiple"):
         out.append('<div class="matrix"><table><tr><th>Statement</th>'+''.join('<th>%s</th>'%esc(o["label"]) for o in q["options"])+"</tr>")
-        for row in q["rows"]:out.append('<tr><th>%s</th>%s</tr>'%(esc(row["label"]),''.join('<td><input aria-label="%s: %s" type="radio" name="%s:%s" value="%s" %s></td>'%(esc(row["label"]),esc(o["label"]),esc(q["id"]),esc(row["value"]),esc(o["value"]),"checked" if (value or {}).get(row["value"])==o["value"] else "") for o in q["options"])))
+        kind="checkbox" if q["type"]=="matrix_multiple" else "radio"
+        for row in q["rows"]:out.append('<tr><th>%s</th>%s</tr>'%(esc(row["label"]),''.join('<td><input aria-label="%s: %s" type="%s" name="%s:%s" value="%s" %s></td>'%(esc(row["label"]),esc(o["label"]),kind,esc(q["id"]),esc(row["value"]),esc(o["value"]),"checked" if (o["value"] in (value or {}).get(row["value"],[]) if q["type"]=="matrix_multiple" else (value or {}).get(row["value"])==o["value"]) else "") for o in q["options"])))
         out.append('</table></div>')
+    elif q["type"] in ("audio", "video"):
+        attrs=' controls' if q.get("controls",True) else ''
+        attrs+=' muted' if q.get("muted") else ''
+        attrs+=' loop' if q.get("loop") else ''
+        if q["type"]=="audio":out.append('<audio aria-label="%s" src="%s"%s></audio>'%(esc(q["label"]),esc(q.get("src","")),attrs))
+        else:out.append('<video aria-label="%s" src="%s" poster="%s"%s style="width:100%%"></video>'%(esc(q["label"]),esc(q.get("src","")),esc(q.get("poster","")),attrs))
+        if q.get("caption"):out.append('<p class="meta">%s</p>'%esc(q["caption"]))
     elif q["type"]=="textarea":out.append('<textarea name="%s" placeholder="%s">%s</textarea>'%(esc(q["id"]),esc(q.get("placeholder","")),esc(value)))
     else:
         kind="number" if q["type"] in ("numeric","slider_numeric") else "date" if q["type"]=="date" else "text"

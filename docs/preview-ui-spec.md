@@ -24,7 +24,7 @@ Preview uses two labelled viewport frames: a flexible desktop frame and a 390 CS
 
 The persistent top bar contains the greedyQ wordmark, a conspicuous `RESEARCHER PREVIEW` badge, page progress, and an accessible progress value. Avoid application chrome, decorative dashboards, nested cards, or controls unrelated to completing the questionnaire.
 
-Use a calm neutral canvas, a white questionnaire surface, one restrained primary color, clear 1-pixel boundaries, and modest elevation. The minimum content width is 320 CSS pixels. At 200% zoom, content must reflow without horizontal scrolling except wide matrices, which receive their own labelled scroll region.
+Use a calm neutral canvas, a white questionnaire surface, one restrained primary color, clear 1-pixel boundaries, and modest elevation. The minimum content width is 320 CSS pixels. At 200% zoom, content must reflow without page-level horizontal scrolling. Desktop matrices may use a labelled local scroll region when unavoidable; mobile matrices must use response cards and option chunks instead.
 
 ## 3. Respondent page anatomy
 
@@ -38,11 +38,15 @@ Render, in order:
 6. Previous and primary Continue/Submit actions; or
 7. a clearly identified terminal outcome with no outgoing production action.
 
-Use one primary action per page. Previous is visually secondary. Disable Previous only when history is empty or policy forbids it. Do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
+Use one primary action per page. Previous is visually secondary. A declared page policy may show, hide, or disable either navigation action. Next may remain disabled for a declared exposure period and must display a seconds countdown until activation. Outside an explicit timing policy, do not disable Continue merely because required answers are empty; activation must reveal an actionable error and move focus to the first invalid question.
 
 ## 4. Question presentation
 
 The respondent renderer MUST implement every documented surveydown control: text, textarea, numeric, single and multiple choice, button-style single and multiple choice, image-card single and multiple choice, select, labeled and numeric sliders (including a two-handle numeric range), date, date range, single-choice matrix, and multiple-choice matrix. All controls MUST remain keyboard operable, expose an accessible name, preserve stored values rather than display labels, and rehydrate saved answers.
+
+The renderer also implements fixed `audio` and `video` stimulus controls as greedyQ extensions. They use native browser playback controls by default, accept only validated relative or HTTPS media sources, and may include a visible caption and expandable transcript. Autoplay requires muted playback. Media controls never create an answer merely by being displayed.
+
+Conditional questions MUST appear or disappear immediately after the controlling answer changes. A newly visible control must retain a previously saved answer; a newly hidden answer follows the study's declared hidden-answer policy.
 
 - Use native semantic controls whenever possible.
 - Every control has a persistent visible label. Placeholder text is never the only label.
@@ -51,7 +55,7 @@ The respondent renderer MUST implement every documented surveydown control: text
 - Each preview option shows its stored value beneath the display label. Production respondent mode hides stored values.
 - Select controls use an unselectable empty prompt and preserve the display/stored distinction.
 - `slider` renders an accessible native range control over ordered labeled choices and stores the selected choice value; `slider_numeric` renders a numeric range control. Both display their current value and endpoints and remain keyboard operable. Horizontal is the portable default; `orientation = "vertical"` is a greedyQ extension and must be reported as such in native export.
-- Matrix questions use real table headers and unique radio-group names per row. On small screens, prefer one row at a time or a labelled horizontal-scrolling table; never shrink text below the base size.
+- Matrix questions use real table headers and unique radio-group names per row on desktop. On mobile, each original row becomes a labelled response card and ordered options are split into groups of two or three columns without horizontal page scrolling. Never shrink text below the base size or change stored values during this reflow.
 - Optional text areas say `Optional` in visible help or label text. Do not imply that open text is required.
 - Hidden questions are removed from the focus order. When `clear_on_hide` applies, the preview clears the hidden answer and records that event.
 

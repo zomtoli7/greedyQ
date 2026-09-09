@@ -6,7 +6,7 @@ Golden reference는 완전한 tutorial, AI가 만들어야 할 기대 산출물,
 
 ## Control conformance gallery
 
-[Control Gallery](./control-gallery/preview.html)는 공식 surveydown question control 16종과 `slider_numeric`의 single-value 및 two-handle 형식을 모두 담은 비실전용 fixture입니다. Python/JavaScript conformance와 desktop/mobile interaction test에 사용합니다.
+[Control Gallery](./control-gallery/preview.html)는 공식 surveydown question control 16종, `slider_numeric`의 두 형식, responsive matrix, navigation 설정, greedyQ의 audio/video extension을 모두 담은 비실전용 fixture입니다. Python/JavaScript conformance와 desktop/mobile interaction test에 사용합니다.
 
 ## `greedyQSimple`
 

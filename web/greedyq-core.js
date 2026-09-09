@@ -26,6 +26,8 @@
     "daterange",
     "matrix",
     "matrix_multiple",
+    "audio",
+    "video",
   ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
@@ -422,9 +424,19 @@
             "resize",
             "cols",
             "matrix_question_width",
+            "mobile_columns",
             "pre",
             "sep",
             "animate",
+            "src",
+            "poster",
+            "caption",
+            "transcript",
+            "controls",
+            "autoplay",
+            "muted",
+            "loop",
+            "preload",
           ]) {
             if (Object.hasOwn(args, key)) {
               q[key] =
@@ -593,6 +605,27 @@
           ),
         );
       if (
+        ["matrix", "matrix_multiple"].includes(q.type) &&
+        ![2, 3].includes(q.mobile_columns ?? 3)
+      )
+        issues.push(
+          issue(
+            "GQ003",
+            `Matrix question '${q.id}' mobile_columns must be 2 or 3.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (["audio", "video"].includes(q.type) && !q.src)
+        issues.push(
+          issue(
+            "GQ003",
+            `Media control '${q.id}' needs a safe source in src.`,
+            qmd,
+            q._line,
+          ),
+        );
+      if (
         ["mc_image", "mc_multiple_image"].includes(q.type) &&
         (q.images || []).length !== (q.options || []).length
       )
@@ -654,6 +687,33 @@
               q._line,
             ),
           );
+      for (const mediaKey of ["src", "poster"]) {
+        const media = q[mediaKey];
+        if (
+          media != null &&
+          !(
+            String(media).startsWith("https://") ||
+            /^(?!\/)(?!.*\.\.)[A-Za-z0-9_./-]+$/.test(String(media))
+          )
+        )
+          issues.push(
+            issue(
+              "GQ003",
+              `Media control '${q.id}' contains an unsafe ${mediaKey} path.`,
+              qmd,
+              q._line,
+            ),
+          );
+      }
+      if (["audio", "video"].includes(q.type) && q.autoplay && !q.muted)
+        issues.push(
+          issue(
+            "GQ003",
+            `Media control '${q.id}' may autoplay only when muted.`,
+            qmd,
+            q._line,
+          ),
+        );
       if (
         q.type === "slider_numeric" &&
         Array.isArray(q.default) &&
@@ -717,6 +777,28 @@
             `Question '${q.id}' uses unsupported argument '${arg}'.`,
             qmd,
             q._line,
+          ),
+        );
+    }
+    for (const p of pages) {
+      for (const key of ["previous_mode", "next_mode"])
+        if (![undefined, null, "show", "hide", "disable"].includes(p.nav?.[key]))
+          issues.push(
+            issue(
+              "GQ003",
+              `Page '${p.id}' uses an unsupported ${key}. Choose show, hide, or disable.`,
+              qmd,
+              p._nav_line,
+            ),
+          );
+      const delay = p.nav?.next_delay_seconds ?? 0;
+      if (typeof delay !== "number" || delay < 0 || delay > 86400)
+        issues.push(
+          issue(
+            "GQ003",
+            `Page '${p.id}' needs next_delay_seconds between 0 and 86400.`,
+            qmd,
+            p._nav_line,
           ),
         );
     }
@@ -1023,6 +1105,11 @@
       page.show_previous = Boolean(
         nav.show_previous ?? settings["show-previous"] ?? true,
       );
+      page.previous_mode =
+        nav.previous_mode ?? (page.show_previous ? "show" : "hide");
+      page.next_mode =
+        nav.next_mode ?? (nav.show_next === false ? "hide" : "show");
+      page.next_delay_seconds = nav.next_delay_seconds ?? 0;
       page.next = nav.page_next || (parsed.pages[index + 1]?.id ?? null);
       if (nav.label_next) page.next_label = nav.label_next;
       const routes = skips
@@ -1507,6 +1594,23 @@
           .join("");
       if (q.type === "select")
         return `<select data-id="${esc(q.id)}"><option value="">${esc(q.placeholder || "Choose one")}</option>${q.options.map((o) => `<option value="${esc(o.value)}" ${selected === o.value ? "selected" : ""}>${esc(o.label)}</option>`).join("")}</select>`;
+      if (["audio", "video"].includes(q.type)) {
+        const attributes = [
+          q.controls !== false ? "controls" : "",
+          q.autoplay ? "autoplay" : "",
+          q.muted ? "muted" : "",
+          q.loop ? "loop" : "",
+          `preload="${esc(q.preload || "metadata")}"`,
+        ]
+          .filter(Boolean)
+          .join(" ");
+        const transcript = q.transcript
+          ? `<details class="gq-transcript"><summary>Transcript</summary><p>${esc(q.transcript)}</p></details>`
+          : "";
+        if (q.type === "audio")
+          return `<figure class="gq-media"><audio aria-label="${esc(q.label)}" src="${esc(q.src)}" ${attributes}></audio>${q.caption ? `<figcaption>${esc(q.caption)}</figcaption>` : ""}${transcript}</figure>`;
+        return `<figure class="gq-media"><video aria-label="${esc(q.label)}" src="${esc(q.src)}" ${q.poster ? `poster="${esc(q.poster)}"` : ""} ${attributes}></video>${q.caption ? `<figcaption>${esc(q.caption)}</figcaption>` : ""}${transcript}</figure>`;
+      }
       if (["matrix", "matrix_multiple"].includes(q.type)) {
         const rawWidth = String(q.matrix_question_width ?? "40").replace(
             "%",
@@ -1520,6 +1624,32 @@
               ? numericWidth
               : 40,
           cellType = q.type === "matrix_multiple" ? "checkbox" : "radio";
+        if (mode === "mobile") {
+          const chunkSize = q.mobile_columns ?? 3,
+            chunks = [];
+          for (let index = 0; index < q.options.length; index += chunkSize)
+            chunks.push(q.options.slice(index, index + chunkSize));
+          return `<div class="gq-matrix-mobile" role="group" aria-label="${esc(q.label)}">${q.rows
+            .map(
+              (r) =>
+                `<section class="gq-matrix-mobile-row"><h3>${esc(r.label)}</h3>${chunks
+                  .map(
+                    (chunk) =>
+                      `<div class="gq-matrix-mobile-chunk" style="--gq-mobile-columns:${chunk.length}">${chunk
+                        .map((o) => {
+                          const checked =
+                            q.type === "matrix_multiple"
+                              ? Array.isArray(selected?.[r.value]) &&
+                                selected[r.value].includes(o.value)
+                              : selected?.[r.value] === o.value;
+                          return `<label class="gq-matrix-mobile-cell"><span>${esc(o.label)}</span><input type="${cellType}" aria-label="${esc(`${r.label} — ${o.label}`)}" name="${esc(q.id + ":" + r.value)}" value="${esc(o.value)}" ${checked ? "checked" : ""}></label>`;
+                        })
+                        .join("")}</div>`,
+                  )
+                  .join("")}</section>`,
+            )
+            .join("")}</div>`;
+        }
         return `<div class="gq-matrix" role="region" aria-label="${esc(q.label)}" tabindex="0"><table><colgroup><col style="width:${promptWidth}%">${q.options.map(() => `<col style="width:${(100 - promptWidth) / q.options.length}%">`).join("")}</colgroup><thead><tr><th class="gq-matrix-corner" scope="col"></th>${q.options.map((o) => `<th scope="col">${esc(o.label)}</th>`).join("")}</tr></thead><tbody>${q.rows
           .map(
             (r) =>
@@ -1546,6 +1676,7 @@
     }
     function collect(p) {
       for (const q of visible(p)) {
+        if (["audio", "video"].includes(q.type)) continue;
         if (q.type === "slider") {
           const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
             option = q.options?.[Number(e?.value)];
@@ -1625,6 +1756,7 @@
       options.onState?.(JSON.parse(JSON.stringify(state)));
     }
     let renderedPage = null;
+    let delayTimer = null;
     function render(message = "") {
       const p = pages.get(state.page);
       if (!p) {
@@ -1642,6 +1774,24 @@
         : `${pos} / ${path.length}`;
       const pageChanged = renderedPage !== p.id;
       renderedPage = p.id;
+      if (pageChanged && p.next_delay_seconds > 0) {
+        state.next_ready_page = p.id;
+        state.next_ready_at = Date.now() + p.next_delay_seconds * 1000;
+      }
+      if (delayTimer) clearTimeout(delayTimer);
+      const delayRemaining =
+          state.next_ready_page === p.id
+            ? Math.max(0, (state.next_ready_at || 0) - Date.now())
+            : 0,
+        previousMode = p.previous_mode ?? (p.show_previous === false ? "hide" : "show"),
+        nextMode = p.next_mode ?? "show",
+        showBack =
+          !p.terminal &&
+          previousMode !== "hide" &&
+          (state.history.length > 0 || previousMode === "disable"),
+        backDisabled = previousMode === "disable" || !state.history.length,
+        showNext = !p.terminal && nextMode !== "hide",
+        nextDisabled = nextMode === "disable" || delayRemaining > 0;
       card.innerHTML = `<p class="gq-eyebrow">${esc(model.title)}</p><h1>${esc(p.title)}</h1><div class="gq-copy">${esc(p.body || "")}</div>${visible(
         p,
       )
@@ -1651,7 +1801,9 @@
         )
         .join(
           "",
-        )}${message ? `<p class="gq-error" role="alert">${esc(message)}</p>` : ""}<div class="gq-actions">${state.history.length && p.show_previous !== false && !p.terminal ? `<button data-back>${esc(model.messages.previous)}</button>` : ""}${p.terminal ? `<strong>${esc(p.terminal)}</strong>` : `<button data-next>${esc(p.next_label || model.messages.next)}</button>`}</div>`;
+        )}${message ? `<p class="gq-error" role="alert">${esc(message)}</p>` : ""}<div class="gq-actions">${showBack ? `<button data-back ${backDisabled ? "disabled" : ""}>${esc(model.messages.previous)}</button>` : ""}${p.terminal ? `<strong>${esc(p.terminal)}</strong>` : showNext ? `<button data-next ${nextDisabled ? "disabled" : ""}>${esc(p.next_label || model.messages.next)}${delayRemaining > 0 ? ` (${Math.ceil(delayRemaining / 1000)}s)` : ""}</button>` : ""}</div>`;
+      if (delayRemaining > 0 && nextMode !== "disable")
+        delayTimer = setTimeout(() => render(message), Math.min(1000, delayRemaining));
       const back = card.querySelector("[data-back]");
       if (back)
         back.onclick = () => {
@@ -1690,6 +1842,19 @@
             } else output.textContent = `${question?.pre || ""}${slider.value}`;
           }
         };
+      const visibilitySources = new Set(
+        (p.questions || [])
+          .map((question) => question.show_if?.field)
+          .filter(Boolean),
+      );
+      for (const control of card.querySelectorAll("input,select,textarea"))
+        control.addEventListener("change", () => {
+          const source = control.name?.split(":")[0] || control.dataset.id;
+          if (!visibilitySources.has(source)) return;
+          collect(p);
+          save();
+          render();
+        });
       const next = card.querySelector("[data-next]");
       if (next)
         next.onclick = () => {
