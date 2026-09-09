@@ -19,7 +19,7 @@
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "92ed5b4529bd5ad6c38e6af0adb95b7e774d71939a709905300ad12717167e6c",
+      "sha256": "eaa992a80fe5472ae8fabf08cd2046eb0716278acd1254a34a09878b2a4fabdd",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_purpose_population",
@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "4c65446172f9f521c12b3b5286baeb7281fea57a62e582a3b1c9073cab40eeeb",
+      "sha256": "e4e6c4d459787241621af825bf9eb92755f343ddaaa1837c86e0d6ead89238e7",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -155,7 +155,7 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "805fcfcfc0dfc7237e5b048d8c0ce9c9a764b55bfadb44a25e64cd76334b79e0",
+      "sha256": "d84a2dbea66984ca02ddaa8158ceea9e178b91bee0c26034e001dd3c4ec11fa8",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -176,7 +176,7 @@
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa",
+      "sha256": "abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820",
       "status": "validated",
       "based_on_decision_ids": []
     },

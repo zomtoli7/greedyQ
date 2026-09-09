@@ -239,7 +239,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa` | `no` |
+| `web/greedyq-core.js` | `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
 | `templates/browser/respondent.html` | `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f` | `no` |
 | `templates/browser/preview.html` | `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65` | `no` |
@@ -256,7 +256,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
-| `greedyq/validator.py` | `52ae540a3b3ff4edfc9ac7097e69cefd22826595f6540ac3746012a2d9bf8f10` | `no` |
+| `greedyq/validator.py` | `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f` | `no` |
 | `greedyq/compiler.py` | `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3` | `no` |
 | `greedyq/build.py` | `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
@@ -415,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa`
+SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -897,6 +897,19 @@ SHA-256: `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa`
       issues.push(
         issue("GQ003", "Set the study settings version to 0.2.", yml, 1),
       );
+    const greedyqVersion = parsed.front_matter?.greedyq?.version;
+    if (
+      typeof greedyqVersion !== "string" ||
+      !/^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$/.test(greedyqVersion)
+    )
+      issues.push(
+        issue(
+          "GQ003",
+          "Set greedyq.version to the exact release identifier shown at the top of the greedyQ repository (for example, 0.2_2026-09-09_abcdef0).",
+          qmd,
+          1,
+        ),
+      );
     const organization = parsed.front_matter?.greedyq?.organization;
     if (
       organization != null &&
@@ -1204,7 +1217,7 @@ SHA-256: `7be8d04de1da45f4873d1d88cbc7ece289bbede99d379128a25218426a532dfa`
         "system-messages",
       ]),
       namespaceKeys = {
-        greedyq: new Set(["spec_version", "organization"]),
+        greedyq: new Set(["spec_version", "version", "organization"]),
         "theme-settings": new Set([
           "theme",
           "barposition",
@@ -4476,7 +4489,7 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `52ae540a3b3ff4edfc9ac7097e69cefd22826595f6540ac3746012a2d9bf8f10`
+SHA-256: `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
@@ -4488,7 +4501,7 @@ SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_butto
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
-    "greedyq": {"spec_version", "organization"},
+    "greedyq": {"spec_version", "version", "organization"},
     "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
     "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
     "system-messages": {"previous", "next", "required"},
@@ -4527,6 +4540,9 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     organization = front.get("greedyq", {}).get("organization")
     if organization is not None and (not isinstance(organization, str) or not organization.strip() or len(organization) > 120):
         issues.append(_item("GQ003", "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).", qmd_path, 1))
+    greedyq_version = front.get("greedyq", {}).get("version")
+    if not isinstance(greedyq_version, str) or not re.fullmatch(r"0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}", greedyq_version):
+        issues.append(_item("GQ003", "Set greedyq.version to the exact release identifier shown at the top of the greedyQ repository (for example, 0.2_2026-09-09_abcdef0).", qmd_path, 1))
     for value in sorted({x for x in page_ids if page_ids.count(x) > 1}):
         issues.append(_item("GQ001", "The page name '%s' is used more than once. Give every page a unique name." % value, qmd_path))
     for value in sorted({x for x in question_ids if x and question_ids.count(x) > 1}):

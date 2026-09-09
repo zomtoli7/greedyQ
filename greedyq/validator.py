@@ -7,7 +7,7 @@ SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_butto
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
-    "greedyq": {"spec_version", "organization"},
+    "greedyq": {"spec_version", "version", "organization"},
     "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
     "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
     "system-messages": {"previous", "next", "required"},
@@ -46,6 +46,9 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     organization = front.get("greedyq", {}).get("organization")
     if organization is not None and (not isinstance(organization, str) or not organization.strip() or len(organization) > 120):
         issues.append(_item("GQ003", "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).", qmd_path, 1))
+    greedyq_version = front.get("greedyq", {}).get("version")
+    if not isinstance(greedyq_version, str) or not re.fullmatch(r"0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}", greedyq_version):
+        issues.append(_item("GQ003", "Set greedyq.version to the exact release identifier shown at the top of the greedyQ repository (for example, 0.2_2026-09-09_abcdef0).", qmd_path, 1))
     for value in sorted({x for x in page_ids if page_ids.count(x) > 1}):
         issues.append(_item("GQ001", "The page name '%s' is used more than once. Give every page a unique name." % value, qmd_path))
     for value in sorted({x for x in question_ids if x and question_ids.count(x) > 1}):

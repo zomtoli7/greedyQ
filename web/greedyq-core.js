@@ -477,6 +477,19 @@
       issues.push(
         issue("GQ003", "Set the study settings version to 0.2.", yml, 1),
       );
+    const greedyqVersion = parsed.front_matter?.greedyq?.version;
+    if (
+      typeof greedyqVersion !== "string" ||
+      !/^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$/.test(greedyqVersion)
+    )
+      issues.push(
+        issue(
+          "GQ003",
+          "Set greedyq.version to the exact release identifier shown at the top of the greedyQ repository (for example, 0.2_2026-09-09_abcdef0).",
+          qmd,
+          1,
+        ),
+      );
     const organization = parsed.front_matter?.greedyq?.organization;
     if (
       organization != null &&
@@ -784,7 +797,7 @@
         "system-messages",
       ]),
       namespaceKeys = {
-        greedyq: new Set(["spec_version", "organization"]),
+        greedyq: new Set(["spec_version", "version", "organization"]),
         "theme-settings": new Set([
           "theme",
           "barposition",

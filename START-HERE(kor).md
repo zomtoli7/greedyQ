@@ -25,6 +25,12 @@ greedyQ는 online academic research를 위한 agent-executable application speci
 
 > 이 설문을 통해 무엇을 알고 싶고, 누구의 의견을 듣고 싶으신가요?
 
+연구자가 답하면 실제 설문 문항을 만들기 전에 다음 필수 질문을 합니다.
+
+> 문항을 scratch부터 하나씩 직접 작성하시겠어요, 아니면 제가 검토용 AI-assisted questionnaire draft를 먼저 준비해드릴까요?
+
+둘 중 하나를 기록하기 전에는 문항 생성을 진행하지 않습니다. 연구자 직접 작성 mode에서는 시작 page와 종료 page만 만든 뒤 첫 문항을 요청합니다. 연구자가 여러 문항을 한꺼번에 말하면 제시한 순서대로 추가하고 검토한다고 안내합니다. AI-assisted mode에서는 draft를 제안하기 전에 연구 목적, 대상, 필요한 design constraint를 확인합니다.
+
 수정이라면 기존 연구를 쉬운 말로 요약하고 무엇을 바꾸고 싶은지 묻습니다. 포킹이라면 core guide에 따라 독립적인 사본을 먼저 만든 뒤 무엇을 다르게 할지 묻습니다.
 
 한 번에 하나의 핵심 질문만 합니다. 일관된 설문 초안이 생기면 구현 보고서가 아니라 참여자용 interactive preview를 보여줍니다.

@@ -25,6 +25,12 @@ For a new study, begin with:
 
 > What would you like to learn from this survey, and who would you like to hear from?
 
+After the researcher answers, and before drafting any substantive survey question, ask this required question:
+
+> Would you like to write each question yourself from scratch, or would you like me to prepare an AI-assisted questionnaire draft for you to review?
+
+Do not proceed without recording one of these modes. In researcher-written mode, create only an opening page and an ending page, then ask for the first question. If the researcher gives several questions together, say that you will add and review them in the order provided. In AI-assisted mode, confirm the research purpose, population, and necessary design constraints before proposing the draft.
+
 For modification, summarize the existing study in plain language and ask what the researcher wants to change. For a fork, first create an independent copy according to the core guide, then ask what should differ.
 
 Ask one focused question at a time. Show the interactive participant preview—not an implementation report—as soon as a coherent questionnaire exists.

@@ -5,6 +5,7 @@
     "title": "greedyQ User Experience Survey",
     "greedyq": {
       "spec_version": "0.2",
+      "version": "0.2_2026-09-09_f3085c2",
       "organization": "greedyQ Research Team"
     },
     "theme-settings": {
@@ -65,7 +66,7 @@
           "id": "consent_choice",
           "type": "mc",
           "label": "Do you consent to participate in this survey?",
-          "_line": 56,
+          "_line": 57,
           "options": [
             {
               "label": "Yes, I consent",
@@ -92,14 +93,14 @@
           "id": "age",
           "type": "numeric",
           "label": "What is your age in years?",
-          "_line": 76,
+          "_line": 77,
           "placeholder": "Age"
         },
         {
           "id": "used_greedyq",
           "type": "mc",
           "label": "Have you used greedyQ to create or revise a questionnaire?",
-          "_line": 86,
+          "_line": 87,
           "options": [
             {
               "label": "Yes",
@@ -122,7 +123,7 @@
           "id": "use_frequency",
           "type": "select",
           "label": "How many times have you used greedyQ?",
-          "_line": 102,
+          "_line": 103,
           "options": [
             {
               "label": "Once",
@@ -147,7 +148,7 @@
           "id": "primary_use",
           "type": "select",
           "label": "What was your main reason for using greedyQ most recently?",
-          "_line": 118,
+          "_line": 119,
           "options": [
             {
               "label": "Create a new survey",
@@ -180,14 +181,14 @@
           "id": "primary_use_other",
           "type": "text",
           "label": "What was your main reason for using greedyQ?",
-          "_line": 136,
+          "_line": 137,
           "placeholder": "Brief description"
         },
         {
           "id": "ai_host",
           "type": "select",
           "label": "Which AI product did you mainly use with greedyQ?",
-          "_line": 146,
+          "_line": 147,
           "options": [
             {
               "label": "ChatGPT",
@@ -220,7 +221,7 @@
           "id": "completion_status",
           "type": "mc",
           "label": "How far did you get in your most recent use?",
-          "_line": 164,
+          "_line": 165,
           "options": [
             {
               "label": "I created and tested a complete survey",
@@ -244,7 +245,7 @@
           "id": "guide_access",
           "type": "mc",
           "label": "How did you give the greedyQ instructions to your AI?",
-          "_line": 179,
+          "_line": 180,
           "options": [
             {
               "label": "I shared the greedyQ repository or START-HERE link",
@@ -275,7 +276,7 @@
           "id": "overall_satisfaction",
           "type": "slider",
           "label": "Overall, how satisfied were you with greedyQ?",
-          "_line": 197,
+          "_line": 198,
           "options": [
             {
               "label": "Very dissatisfied",
@@ -311,7 +312,7 @@
           "id": "experience_ratings",
           "type": "matrix",
           "label": "How much do you agree with each statement about greedyQ?",
-          "_line": 215,
+          "_line": 216,
           "options": [
             {
               "label": "Strongly disagree",
@@ -357,7 +358,7 @@
           "id": "confidence",
           "type": "slider",
           "label": "How confident were you that the resulting survey reflected what you wanted?",
-          "_line": 237,
+          "_line": 238,
           "options": [
             {
               "label": "Not at all confident",
@@ -385,7 +386,7 @@
           "id": "time_saved",
           "type": "select",
           "label": "Compared with your usual way of making a survey, how did greedyQ affect the time required?",
-          "_line": 253,
+          "_line": 254,
           "options": [
             {
               "label": "It took much more time",
@@ -418,7 +419,7 @@
           "id": "low_satisfaction_reason",
           "type": "textarea",
           "label": "What most contributed to your dissatisfaction?",
-          "_line": 271,
+          "_line": 272,
           "placeholder": "Optional detail"
         }
       ]
@@ -432,7 +433,7 @@
           "id": "had_problem",
           "type": "mc",
           "label": "Did you encounter a problem that made it harder to complete your survey?",
-          "_line": 284,
+          "_line": 285,
           "options": [
             {
               "label": "Yes",
@@ -452,7 +453,7 @@
           "id": "problem_area",
           "type": "select",
           "label": "Where did the most important problem occur?",
-          "_line": 298,
+          "_line": 299,
           "options": [
             {
               "label": "The AI conversation or questions",
@@ -485,7 +486,7 @@
           "id": "problem_detail",
           "type": "textarea",
           "label": "What happened, and what would you have expected instead?",
-          "_line": 316,
+          "_line": 317,
           "placeholder": "Please avoid including names, credentials, or private research data"
         }
       ]
@@ -499,14 +500,14 @@
           "id": "recommend_score",
           "type": "numeric",
           "label": "How likely are you to recommend greedyQ to another researcher, from 0 (not at all likely) to 10 (extremely likely)?",
-          "_line": 329,
+          "_line": 330,
           "placeholder": "0 to 10"
         },
         {
           "id": "use_again",
           "type": "mc",
           "label": "Would you use greedyQ for another survey?",
-          "_line": 339,
+          "_line": 340,
           "options": [
             {
               "label": "Definitely not",
@@ -534,14 +535,14 @@
           "id": "most_valuable",
           "type": "textarea",
           "label": "What was the most valuable part of greedyQ for you?",
-          "_line": 355,
+          "_line": 356,
           "placeholder": "Optional"
         },
         {
           "id": "improvement",
           "type": "textarea",
           "label": "What is the single most important improvement we should make?",
-          "_line": 365,
+          "_line": 366,
           "placeholder": "Optional"
         }
       ]
@@ -555,7 +556,7 @@
           "id": "withdraw_now",
           "type": "mc",
           "label": "What would you like to do?",
-          "_line": 380,
+          "_line": 381,
           "options": [
             {
               "label": "Submit my feedback",
@@ -571,7 +572,7 @@
           "id": "deletion_request",
           "type": "mc",
           "label": "Should the research team receive a request to delete responses already collected in this session?",
-          "_line": 393,
+          "_line": 394,
           "options": [
             {
               "label": "Yes, record a deletion request",

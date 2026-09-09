@@ -1,4 +1,5 @@
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -10,6 +11,21 @@ LEGACY_TOKEN = "0." + "1"
 
 
 class VersionContractTests(unittest.TestCase):
+    def test_current_surveys_carry_a_release_identifier(self):
+        pattern = re.compile(r'^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$')
+        for path in ROOT.glob("examples/*/survey.qmd"):
+            match = re.search(r'^\s+version:\s+"([^"]+)"$', path.read_text(), re.MULTILINE)
+            self.assertIsNotNone(match, path)
+            self.assertRegex(match.group(1), pattern, path)
+
+    def test_new_study_requires_question_authoring_mode(self):
+        start = (ROOT / "START-HERE.md").read_text()
+        core = (ROOT / "guides/core/guide.md").read_text()
+        for text in (start, core):
+            self.assertIn("from scratch", text)
+            self.assertIn("AI-assisted", text)
+        self.assertIn("opening page and an ending page", start)
+
     def test_active_specification_and_archive_exist(self):
         self.assertTrue((ROOT / "docs/greedyq-v0.2-spec.md").is_file())
         self.assertTrue((ROOT / "docs/greedyq-v0.2-spec(kor).md").is_file())

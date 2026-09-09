@@ -56,12 +56,13 @@ session_id time_start time_end exit_survey_rating current_page browser ip_addres
 
 ### 4.1 Front matter
 
-파일은 `greedyq.spec_version`을 포함하는 YAML front matter로 시작해야 합니다. 새 연구는 participant에게 보이는 연구 주체 또는 연구팀 label인 `greedyq.organization`을 포함해야 하며 1–120자여야 합니다. 이 값이 없는 기존 파일은 중립적인 “Research team” fallback을 표시합니다. v0.2은 문서화된 `theme-settings`, `survey-settings`, `system-messages` namespace를 허용합니다. 지원되지 않는 Quarto 실행 option은 거부해야 합니다.
+파일은 `greedyq.spec_version`과 `greedyq.version`을 포함하는 YAML front matter로 시작해야 합니다. `greedyq.version`은 repository의 current release identifier와 같아야 하며 형식은 `0.2_YYYY-MM-DD_<short-commit>`입니다. 새 연구는 participant에게 보이는 연구 주체 또는 연구팀 label인 `greedyq.organization`을 포함해야 하며 1–120자여야 합니다. 이 값이 없는 기존 파일은 중립적인 “Research team” fallback을 표시합니다. v0.2은 문서화된 `theme-settings`, `survey-settings`, `system-messages` namespace를 허용합니다. 지원되지 않는 Quarto 실행 option은 거부해야 합니다.
 
 ```yaml
 ---
 greedyq:
   spec_version: "0.2"
+  version: "0.2_YYYY-MM-DD_<short-commit>"
   organization: "Example University Research Team"
 survey-settings:
   show-previous: true

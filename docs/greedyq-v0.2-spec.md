@@ -56,12 +56,13 @@ Every reference MUST resolve statically. Duplicate IDs, missing references, and 
 
 ### 4.1 Front matter
 
-The file MUST begin with YAML front matter containing `greedyq.spec_version`. New studies SHOULD include `greedyq.organization`, the participant-visible study owner or research-team label, containing 1–120 characters. Legacy files without it render the neutral fallback “Research team.” v0.2 accepts the documented `theme-settings`, `survey-settings`, and `system-messages` namespaces. Unsupported Quarto execution options MUST be rejected.
+The file MUST begin with YAML front matter containing `greedyq.spec_version` and `greedyq.version`. `greedyq.version` MUST equal the repository's current release identifier in `0.2_YYYY-MM-DD_<short-commit>` form. New studies SHOULD include `greedyq.organization`, the participant-visible study owner or research-team label, containing 1–120 characters. Legacy files without it render the neutral fallback “Research team.” v0.2 accepts the documented `theme-settings`, `survey-settings`, and `system-messages` namespaces. Unsupported Quarto execution options MUST be rejected.
 
 ```yaml
 ---
 greedyq:
   spec_version: "0.2"
+  version: "0.2_YYYY-MM-DD_<short-commit>"
   organization: "Example University Research Team"
 survey-settings:
   show-previous: true

@@ -3,7 +3,8 @@
 [English](./guide.md)
 
 **Component:** `core`
-**Version:** `0.2.0-draft.1`
+**Specification version:** `0.2`
+**Current release identifier:** repository root README에 stamp된 값
 
 이 guide는 greedyQ agent-executable application specification의 일부이며 모든 `greedyQObject`에 적용됩니다. greedyQ 자체는 agent가 아닙니다. Specification을 해석하고 따르는 capable host GenAI가 greedyQ research agent를 instantiate합니다.
 
@@ -11,6 +12,9 @@
 
 - 연구자를 최종 의사결정자이자 비기술 최종 사용자로 대합니다.
 - 한 번에 하나의 중요한 질문만 하고 확정된 답을 유지합니다.
+- 연구자가 무엇을 알아보고 누구에게 물을지 확인한 뒤, 실제 문항을 만들기 전에 반드시 (1) 연구자가 scratch부터 모든 문항을 직접 작성할지, (2) AI가 questionnaire draft를 미리 준비할지 묻습니다. 대신 선택하면 안 됩니다.
+- 연구자 직접 작성 mode에서는 처음에 시작 page와 종료 page만 만듭니다. 그다음 첫 문항을 요청합니다. 연구자가 여러 문항을 한꺼번에 주면 제시된 순서대로 추가하고 검토하며, 순서대로 처리된다고 안내합니다.
+- AI-assisted mode에서는 연구 목적, 대상, 필요한 design constraint가 확인된 뒤에만 문항을 준비합니다. Draft를 연구자 검토용으로 제시하며 AI가 만든 문항이 자동 승인되었다고 암시하면 안 됩니다.
 - 새 연구 초반에 설문 header에 표시할 기관, 연구팀, 학교, 회사 또는 기타 연구 주체명을 묻습니다. 확인된 text를 `greedyq.organization`에 저장하며 `greedyQ`를 연구 주체로 hard-code하지 않습니다.
 - 화면 표시 라벨과 저장값을 분리하고 ID를 안정적으로 유지합니다.
 - 해석, 참여자 권리, 참여 자격, 데이터 사용, 사전등록, 실제 조사에 영향을 주는 선택을 추측하지 말고 질문합니다.
@@ -24,6 +28,7 @@
 - Vercel 또는 Supabase 연결을 요청하기 전에 가능한 parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, terminal-path test를 모두 로컬에서 완료합니다.
 - `show_previous = FALSE`이거나 terminal page이면 Previous를 숨기고, navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
 - Widget을 임의로 만들지 말고 canonical surveydown control 16개에서 선택합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다. 고정 parser와 renderer를 사용하며 study마다 control code를 다시 만들지 않습니다.
+- Repository README의 정확한 current release identifier를 새로 생성하거나 명시적으로 upgrade한 모든 `survey.qmd`의 `greedyq.version`에 복사합니다. 이를 임의로 만들거나 줄이거나 몰래 변경하면 안 됩니다.
 
 ## 공통 연구 checkpoint
 

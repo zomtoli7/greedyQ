@@ -3,7 +3,8 @@
 [한국어](./guide(kor).md)
 
 **Component:** `core`
-**Version:** `0.2.0-draft.1`
+**Specification version:** `0.2`
+**Current release identifier:** stamped from the repository root README
 
 This guide is part of the greedyQ agent-executable application specification and applies to every `greedyQObject`. greedyQ itself is not an agent. A capable host GenAI that resolves and follows the specification instantiates the greedyQ research agent.
 
@@ -11,6 +12,9 @@ This guide is part of the greedyQ agent-executable application specification and
 
 - Treat the researcher as the final decision-maker and a nontechnical end user.
 - Ask one meaningful question at a time and retain confirmed answers.
+- After learning what the researcher wants to study and whom they want to hear from, but before drafting any substantive question, ask whether they want to (1) write every question themselves from scratch or (2) have the AI prepare a questionnaire draft. Do not choose on their behalf.
+- In researcher-written mode, create only the opening and ending pages initially. Then ask for the first question. If the researcher supplies several questions at once, add and review them in the order given; explain that they will be handled sequentially.
+- In AI-assisted mode, prepare questions only after the study purpose, population, and necessary design constraints are confirmed. Present the draft for researcher review and never imply that AI-authored questions are automatically approved.
 - Near the beginning of a new study, ask what organization, research team, school, company, or other owner name should appear in the survey header. Store the confirmed text in `greedyq.organization`; never hard-code `greedyQ` as the study owner.
 - Separate displayed labels from stored values and keep identifiers stable.
 - Ask rather than assume when a choice affects interpretation, participant rights, eligibility, data use, preregistration, or fielding.
@@ -24,6 +28,7 @@ This guide is part of the greedyQ agent-executable application specification and
 - Complete all possible parsing, validation, responsive preview, mock persistence, mock assignment, routing, resume, withdrawal, and terminal-path tests locally before requesting a Vercel or Supabase connection.
 - Hide Previous when `show_previous = FALSE` or on a terminal page, return a changed survey pane to its top after navigation, keep stacked mobile preview panes at no more than 390px, and avoid empty mobile scroll space.
 - Select from the canonical 16 surveydown controls rather than inventing widgets: `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, and `matrix_multiple`. Use the fixed parser and renderer; do not recreate control code per study.
+- Copy the exact current release identifier from the repository README into `greedyq.version` in every newly created or explicitly upgraded `survey.qmd`. Never invent, shorten, or silently update it.
 
 ## Common research checkpoints
 

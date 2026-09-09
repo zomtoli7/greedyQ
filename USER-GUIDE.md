@@ -74,6 +74,13 @@ Confirm that the AI created a separate copy and did not overwrite the original.
 
 The AI should act like a research assistant, not a software engineer. It will ask about the research purpose, intended participants, design, main outcome, recruitment, questionnaire, survey flow, consent and privacy, analysis, and preregistration.
 
+Immediately after you explain what you want to learn and whom you want to hear from, the AI must ask how you want to write the questions:
+
+- **Write them yourself from scratch:** the AI initially creates only the opening and ending pages, then asks you for the first question. You may provide one question or several; several questions are added and reviewed in the order you give them.
+- **Ask the AI to prepare a draft:** the AI confirms the purpose, participants, and essential design choices, then proposes a complete draft for your review. You remain responsible for approving every research decision.
+
+The AI must not silently assume the second option merely because it can generate questions.
+
 Near the beginning, it will also ask what participant-visible name should appear at the top of the survey—for example, a company, university, laboratory, or research-team name. This is stored as `greedyq.organization` and can be changed later.
 
 It is fine to answer “not decided yet.” The AI should record an unresolved decision instead of inventing an answer.

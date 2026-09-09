@@ -112,6 +112,7 @@ class RuntimePipelineTests(unittest.TestCase):
 title: "Question types"
 greedyq:
   spec_version: "0.2"
+  version: "0.2_2026-09-09_f3085c2"
 survey-settings:
   start-page: questions
   required: [single, multiple, grid]
