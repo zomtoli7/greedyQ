@@ -34,7 +34,7 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "cf9dff02a2073a0b4c4207832db92c72e0e5ecb5a18878b52b2556eb60d05f3b",
+      "manifest_sha256": "7f46b57ec999bac17722c9b62abd5910c635021854db9f5164ccbf15354823c7",
       "dependencies": [],
       "conflicts": [],
       "files": [
@@ -80,11 +80,11 @@
         },
         {
           "path": "schemas/preview-model.schema.json",
-          "sha256": "ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60"
+          "sha256": "e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713"
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820"
+          "sha256": "9b5bea14a08d2b6ef859f04981887e44c2d230d9cf6f1e766d9444028687de20"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -92,11 +92,11 @@
         },
         {
           "path": "templates/browser/respondent.html",
-          "sha256": "210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f"
+          "sha256": "dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb"
         },
         {
           "path": "templates/browser/preview.html",
-          "sha256": "8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65"
+          "sha256": "8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1"
         },
         {
           "path": "templates/browser/studio.html",
@@ -104,7 +104,11 @@
         },
         {
           "path": "templates/supabase/002_browser_rpc.sql",
-          "sha256": "e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827"
+          "sha256": "16854bd96a1ee26f8eb1659f221e960595bad7a2ece1c0b299ef39a372a112c3"
+        },
+        {
+          "path": "templates/supabase/connection-test.html",
+          "sha256": "b4bcd5be5ffb4a2639ef4dd58f0658425f669a7d8729f481e6cc6166253eb1e0"
         },
         {
           "path": "greedyq/__init__.py",
@@ -128,11 +132,11 @@
         },
         {
           "path": "greedyq/compiler.py",
-          "sha256": "cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3"
+          "sha256": "b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6"
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47"
+          "sha256": "56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031"
         },
         {
           "path": "greedyq/runtime.py",
@@ -156,7 +160,7 @@
         },
         {
           "path": "greedyq/deployment.py",
-          "sha256": "d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f"
+          "sha256": "0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b"
         }
       ]
     },
@@ -173,7 +177,7 @@
       "files": [
         {
           "path": "guides/modules/deployment-vercel-supabase/guide.md",
-          "sha256": "35d13e78052194e956c4a39f26f9ae54eb649bfd8cbda0141576fb230613512c"
+          "sha256": "63c8e9dc584178f296460fc3a4aa350b09c5da36eefbfcccbbce826f1db97276"
         },
         {
           "path": "guides/modules/deployment-vercel-supabase/checkpoints.json",
@@ -181,7 +185,7 @@
         },
         {
           "path": "examples/complete-study/supabase/migrations/001_initial.sql",
-          "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62"
+          "sha256": "e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635"
         },
         {
           "path": "examples/complete-study/vercel.json",

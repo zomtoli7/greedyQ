@@ -138,6 +138,13 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         result = self.node('const gq=require("./web/greedyq-core.js");console.log(JSON.stringify(gq.parseProlificLaunch("?PROLIFIC_PID=p&STUDY_ID=s&SESSION_ID=x","test")));')
         self.assertEqual("passed", result["status"])
 
+    def test_supabase_bridge_creates_session_and_registers_external_identifiers(self):
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        for token in ("greedyq_create_session", "p_greedyq_version", "registerExternal", "externalIdentifiers?.SESSION_ID"):
+            self.assertIn(token, core)
+        result = self.node('const values=new Map();global.localStorage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};global.crypto=require("crypto").webcrypto;const gq=require("./web/greedyq-core.js");console.log(JSON.stringify({id:gq.stableSessionId("study","not-a-uuid")}));')
+        self.assertRegex(result["id"], r"^[0-9a-f-]{36}$")
+
     def test_accessibility_and_mobile_contract_is_present(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
         css = (ROOT / "web/greedyq-runtime.css").read_text()

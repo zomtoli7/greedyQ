@@ -4,9 +4,22 @@
   "title": "greedyQ Preview Model",
   "type": "object",
   "additionalProperties": false,
-  "required": ["study_id", "title", "start_page", "conditions", "pages"],
+  "required": [
+    "study_id",
+    "study_version",
+    "greedyq_version",
+    "title",
+    "start_page",
+    "conditions",
+    "pages"
+  ],
   "properties": {
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "study_version": { "type": "string", "minLength": 1 },
+    "greedyq_version": {
+      "type": "string",
+      "pattern": "^0\\.2_\\d{4}-\\d{2}-\\d{2}_[0-9a-f]{7,12}$"
+    },
     "title": { "type": "string", "minLength": 1 },
     "organization": { "type": "string", "minLength": 1, "maxLength": 120 },
     "start_page": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },

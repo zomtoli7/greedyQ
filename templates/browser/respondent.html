@@ -22,6 +22,8 @@
     <script id="greedyq-model" type="application/json">
       {
         "study_id": "replace_me",
+        "study_version": "unknown",
+        "greedyq_version": "0.2_2026-09-09_ee423e6",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -52,6 +54,7 @@
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
+        let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",
           model.brand_color || "#315c8a",
@@ -66,16 +69,18 @@
               '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
             return;
           }
+          externalIdentifiers = launch.identifiers;
         }
         const sessionId = greedyQ.stableSessionId(
           model.study_id,
-          params.get("session") || params.get("SESSION_ID"),
+          params.get("session"),
         );
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {
             url: deployment.supabase_url,
             anonKey: deployment.supabase_anon_key,
             sessionId,
+            externalIdentifiers,
             onError: (error) => {
               root.insertAdjacentHTML(
                 "afterbegin",

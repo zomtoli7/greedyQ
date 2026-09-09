@@ -64,15 +64,23 @@ class ReleasePipelineTests(unittest.TestCase):
 
     def test_rpc_migration_requires_capability_tokens_and_locked_assignment(self):
         sql = (ROOT / "templates/supabase/002_browser_rpc.sql").read_text().lower()
-        for token in ("p_access_token", "digest(p_access_token", "pg_advisory_xact_lock", "security definer", "research data cannot be saved before consent", "greedyq_register_external", "duplicate participant", "for update", "research_data_deleted", "grant execute"):
+        for token in ("greedyq_create_session", "p_access_token", "p_greedyq_version", "digest(p_access_token", "pg_advisory_xact_lock", "security definer", "research data cannot be saved before consent", "greedyq_register_external", "duplicate participant", "for update", "research_data_deleted", "grant execute"):
             self.assertIn(token, sql)
         self.assertNotIn("grant select on public.gq_answers to anon", sql)
+
+    def test_browser_connection_tester_uses_only_synthetic_public_configuration(self):
+        tester = (ROOT / "templates/supabase/connection-test.html").read_text().lower()
+        for token in ("greedyq_create_session", "greedyq_assign_condition", "greedyq_save_session", "greedyq_register_external", "greedyq_withdraw_session", "is_test: true", "synthetic"):
+            self.assertIn(token, tester)
+        self.assertNotIn("service_role_key", tester)
+        self.assertNotIn("database_password", tester)
 
     def test_runtime_uses_only_public_supabase_configuration(self):
         template = (ROOT / "templates/browser/respondent.html").read_text().lower()
         self.assertIn("supabase_anon_key", template)
         self.assertNotIn("service_role", template)
         self.assertNotIn("database_password", template)
+        self.assertIn("externalidentifiers", template)
 
 
 if __name__ == "__main__": unittest.main()

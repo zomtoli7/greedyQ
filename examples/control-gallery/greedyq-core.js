@@ -1056,6 +1056,8 @@
     }
     return {
       study_id: config.study?.id || "greedyq_preview",
+      study_version: config.study?.version || "unknown",
+      greedyq_version: front.greedyq?.version,
       title: config.study?.title || front.title || "greedyQ Survey",
       organization: front.greedyq?.organization || "Research team",
       start_page: start,
@@ -1258,6 +1260,7 @@
     accessToken,
     studyId,
     studyVersion = "unknown",
+    greedyqVersion,
     specVersion = "0.2",
     isTest = true,
     consentQuestion = null,
@@ -1284,6 +1287,16 @@
       };
     return {
       kind: "supabase-secure",
+      create: (id) =>
+        call("greedyq_create_session", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_study_id: studyId,
+          p_study_version: studyVersion,
+          p_spec_version: specVersion,
+          p_greedyq_version: greedyqVersion,
+          p_is_test: isTest,
+        }),
       load: (id) =>
         call("greedyq_resume_session", {
           p_session_id: id,
@@ -1308,8 +1321,18 @@
           p_study_id: studyId,
           p_study_version: studyVersion,
           p_spec_version: specVersion,
+          p_greedyq_version: greedyqVersion,
           p_conditions: conditions,
           p_is_test: isTest,
+        }),
+      registerExternal: (id, identifiers) =>
+        call("greedyq_register_external", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_provider: "prolific",
+          p_participant_id: identifiers.PROLIFIC_PID,
+          p_external_study_id: identifiers.STUDY_ID,
+          p_external_session_id: identifiers.SESSION_ID,
         }),
       raw: base,
     };
@@ -1346,7 +1369,12 @@
   }
   function stableSessionId(studyId, provided) {
     const key = `greedyq-session:${studyId}`;
-    if (provided) {
+    if (
+      provided &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+        provided,
+      )
+    ) {
       localStorage.setItem(key, provided);
       return provided;
     }
@@ -1805,24 +1833,29 @@
   async function mountSupabaseRespondent(
     root,
     model,
-    { url, anonKey, sessionId, onError } = {},
+    { url, anonKey, sessionId, externalIdentifiers, onError } = {},
   ) {
-    const storageKey = `greedyq-capability:${model.study_id}`,
+    const storageKey = `greedyq-capability:${model.study_id}:${externalIdentifiers?.SESSION_ID || "direct"}`,
       saved = JSON.parse(localStorage.getItem(storageKey) || "null"),
       id = saved?.id || sessionId || crypto.randomUUID(),
       accessToken =
         saved?.accessToken || `${crypto.randomUUID()}${crypto.randomUUID()}`;
     localStorage.setItem(storageKey, JSON.stringify({ id, accessToken }));
     const remote = createSecureSupabaseBackend({
-        url,
-        anonKey,
-        accessToken,
-        studyId: model.study_id,
-        specVersion: "0.2",
-        isTest: model.runtime_policy?.mode !== "production",
-        consentQuestion: model.runtime_policy?.consent?.question,
-      }),
-      loaded = await remote.load(id),
+      url,
+      anonKey,
+      accessToken,
+      studyId: model.study_id,
+      studyVersion: model.study_version,
+      greedyqVersion: model.greedyq_version,
+      specVersion: "0.2",
+      isTest: model.runtime_policy?.mode !== "production",
+      consentQuestion: model.runtime_policy?.consent?.question,
+    });
+    await remote.create(id);
+    if (externalIdentifiers)
+      await remote.registerExternal(id, externalIdentifiers);
+    const loaded = await remote.load(id),
       memory = createMemoryBackend();
     if (loaded?.state)
       memory.save(id, {
@@ -1830,10 +1863,18 @@
         condition: loaded.condition ?? loaded.state.condition ?? null,
       });
     else if (loaded?.page) memory.save(id, loaded);
+    let initialCondition =
+      loaded?.condition ?? loaded?.state?.condition ?? null;
+    if (!model.assignment_page && !initialCondition)
+      initialCondition = await remote.assign(
+        id,
+        model.conditions || ["default"],
+      );
     const bridge = {
       kind: "supabase-bridge",
       load: memory.load,
-      assign: (sid, conditions) => remote.assign(sid, conditions),
+      assign: (sid, conditions) =>
+        initialCondition || remote.assign(sid, conditions),
       inspect: memory.inspect,
       save: (sid, state) => {
         memory.save(sid, state);

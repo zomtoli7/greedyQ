@@ -23,6 +23,7 @@
     "templates/browser/preview.html",
     "templates/browser/studio.html",
     "templates/supabase/002_browser_rpc.sql",
+    "templates/supabase/connection-test.html",
     "greedyq/__init__.py",
     "greedyq/__main__.py",
     "greedyq/yaml_min.py",

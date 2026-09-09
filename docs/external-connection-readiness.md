@@ -2,7 +2,7 @@
 
 [한국어](./external-connection-readiness(kor).md)
 
-**Version:** `0.2.0-draft.1`  
+**Release:** `0.2_2026-09-09_ee423e6`
 **Status:** locally verified; external accounts not connected
 
 greedyQ prepares and tests the survey application before any Vercel, Supabase, or Prolific account is connected. This boundary keeps ordinary questionnaire review local and makes the final external step a configuration and verification task rather than a new implementation task.
@@ -16,6 +16,7 @@ greedyQ prepares and tests the survey application before any Vercel, Supabase, o
 - The JavaScript validator and compiler are compared with the Python reference implementation on both golden studies and on deliberately invalid inputs.
 - A static Vercel bundle and offline deployment preflight are generated.
 - Canonical Supabase migrations define tables, RLS boundaries, capability-token RPC access, locked balanced assignment, consent-gated answer writes, duplicate Prolific identifier rejection, and transactional withdrawal deletion.
+- A browser-native `supabase-connection-test.html` verifies the connected project with synthetic `is_test` sessions and withdraws them afterward.
 - Prolific launch parameters and HTTPS completion URLs are validated in test code.
 - Preregistration Markdown, JSON, and a SHA-256 manifest can be generated as an explicitly unapproved local draft.
 - A native surveydown project and an honest compatibility report can be generated without claiming behavioral equivalence.
@@ -30,6 +31,7 @@ No live Vercel deployment, Supabase migration, Prolific study configuration, OSF
 2. Resolve every validation error and material research decision.
 3. Generate and review the preregistration draft; submit only after separate explicit approval.
 4. Create a Supabase project in the approved region and apply `001_initial.sql`, then `002_browser_rpc.sql`.
+   Follow the nontechnical [Supabase setup guide](../SUPABASE-SETUP.md); do not provide a service-role key or database password.
 5. Put only the Supabase project URL and anonymous key into the deployment configuration. Never expose a service-role key or database password.
 6. Run `python3 -m greedyq preflight STUDY_DIR` or the equivalent agent check.
 7. Deploy the already-tested static bundle to Vercel.

@@ -5,6 +5,7 @@ create table public.gq_sessions (
   study_id text not null,
   study_version text not null,
   spec_version text not null,
+  greedyq_version text not null,
   current_page text not null default 'welcome',
   is_test boolean not null default false,
   lifecycle_state text not null default 'created' check (
@@ -151,6 +152,7 @@ select
   s.study_id,
   s.study_version,
   s.spec_version,
+  s.greedyq_version,
   s.created_at,
   s.terminal_at as completed_at,
   coalesce(

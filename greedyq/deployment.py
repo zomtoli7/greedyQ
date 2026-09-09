@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 
 
-REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "vercel.json", ".env.example")
-REQUIRED_RPC = ("greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
+REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
+REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
 
 
 def preflight(study_dir):

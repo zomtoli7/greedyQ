@@ -153,6 +153,8 @@ Feedback을 준 다음 복사합니다.
 
 Preview 승인 후 greedyQ는 preregistration draft, Vercel-ready survey, Supabase setup file, Prolific setting, native surveydown export를 준비할 수 있습니다. Account 연결, 제출, deployment 및 모집에는 각각 별도 승인과 외부 검증이 필요합니다. [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)에서 계속하십시오.
 
+첫 test database를 만들 준비가 되면 [Supabase 프로젝트 연결하기](./SUPABASE-SETUP(kor).md)를 따르세요. 이 단계는 Vercel deployment와 실제 participant 모집 전에 멈춥니다.
+
 ## 자주 생기는 문제
 
 - **AI가 GitHub를 읽지 못함:** [전체 fallback guide](./guides/greedyq-guide.md)를 다운로드해 파일 하나만 첨부하고 시작 메시지를 반복합니다.

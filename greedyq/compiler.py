@@ -114,6 +114,8 @@ def compile_preview(parsed, config):
         paths[assigned] = path
     model = {
         "study_id": config.get("study", {}).get("id", "greedyq_preview"),
+        "study_version": config.get("study", {}).get("version", "unknown"),
+        "greedyq_version": front.get("greedyq", {}).get("version"),
         "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
         "organization": front.get("greedyq", {}).get("organization", "Research team"),
         "start_page": start,

@@ -1,6 +1,7 @@
 -- greedyQ v0.2 browser RPC boundary. Apply after 001_initial.sql.
 alter table public.gq_sessions add column if not exists access_token_hash text;
 alter table public.gq_sessions add column if not exists browser_state jsonb not null default '{}'::jsonb;
+alter table public.gq_sessions add column if not exists greedyq_version text not null default 'unknown';
 
 create or replace function public.greedyq_token_ok(p_session_id uuid, p_access_token text)
 returns boolean language sql stable security definer set search_path=public,pg_temp as $$
@@ -14,14 +15,25 @@ returns jsonb language sql stable security definer set search_path=public,pg_tem
     else null end from public.gq_sessions where id=p_session_id;
 $$;
 
-create or replace function public.greedyq_assign_condition(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_conditions text[],p_is_test boolean)
+create or replace function public.greedyq_create_session(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_greedyq_version text,p_is_test boolean)
+returns void language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+  if coalesce(length(p_access_token),0)<24 then raise exception 'invalid session capability'; end if;
+  if coalesce(length(p_greedyq_version),0)<1 then raise exception 'greedyQ version required'; end if;
+  insert into public.gq_sessions(id,study_id,study_version,spec_version,greedyq_version,is_test,access_token_hash)
+  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_greedyq_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex'))
+  on conflict(id) do nothing;
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+end;$$;
+
+create or replace function public.greedyq_assign_condition(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_greedyq_version text,p_conditions text[],p_is_test boolean)
 returns text language plpgsql security definer set search_path=public,pg_temp as $$
 declare v_condition text; v_min bigint;
 begin
   if coalesce(array_length(p_conditions,1),0)<1 then raise exception 'conditions required'; end if;
   perform pg_advisory_xact_lock(hashtext(p_study_id));
-  insert into public.gq_sessions(id,study_id,study_version,spec_version,is_test,access_token_hash)
-  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex')) on conflict(id) do nothing;
+  insert into public.gq_sessions(id,study_id,study_version,spec_version,greedyq_version,is_test,access_token_hash)
+  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_greedyq_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex')) on conflict(id) do nothing;
   if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
   select condition into v_condition from public.gq_assignments where session_id=p_session_id order by assigned_at limit 1;
   if v_condition is not null then return v_condition; end if;
@@ -67,5 +79,5 @@ begin
   insert into public.gq_lifecycle_events(session_id,from_state,to_state,page_id,metadata) values(p_session_id,v_state,'withdrawn','withdrawn',jsonb_build_object('research_data_deleted',true));
 end;$$;
 
-revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
-grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;
+revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
+grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;

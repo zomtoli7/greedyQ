@@ -239,32 +239,32 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820` | `no` |
+| `web/greedyq-core.js` | `9b5bea14a08d2b6ef859f04981887e44c2d230d9cf6f1e766d9444028687de20` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f` | `no` |
-| `templates/browser/preview.html` | `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65` | `no` |
+| `templates/browser/respondent.html` | `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb` | `no` |
+| `templates/browser/preview.html` | `8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
-| `templates/supabase/002_browser_rpc.sql` | `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827` | `no` |
-| `examples/complete-study/supabase/migrations/001_initial.sql` | `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62` | `no` |
+| `templates/supabase/002_browser_rpc.sql` | `16854bd96a1ee26f8eb1659f221e960595bad7a2ece1c0b299ef39a372a112c3` | `no` |
+| `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `examples/complete-study/vercel.json` | `fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60` | `no` |
+| `schemas/preview-model.schema.json` | `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713` | `no` |
 | `greedyq/__init__.py` | `ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a` | `no` |
 | `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `fea237175d4ca7341e39fe6787f92064a180f2c7eabe8e8ec597d78bbf6720fa` | `no` |
 | `greedyq/validator.py` | `c40374c7daf2789832a71aee491ff462242ad27385f76a1af0341a95d9a0433f` | `no` |
-| `greedyq/compiler.py` | `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3` | `no` |
-| `greedyq/build.py` | `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47` | `no` |
+| `greedyq/compiler.py` | `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6` | `no` |
+| `greedyq/build.py` | `56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
 | `greedyq/prolific.py` | `c17995c246f9f1716b41dc1bfd8c8d819a432b594e2f6e96ee6661b2c0a05261` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
 | `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
-| `greedyq/deployment.py` | `d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f` | `no` |
+| `greedyq/deployment.py` | `0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -415,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
+SHA-256: `9b5bea14a08d2b6ef859f04981887e44c2d230d9cf6f1e766d9444028687de20`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1476,6 +1476,8 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
     }
     return {
       study_id: config.study?.id || "greedyq_preview",
+      study_version: config.study?.version || "unknown",
+      greedyq_version: front.greedyq?.version,
       title: config.study?.title || front.title || "greedyQ Survey",
       organization: front.greedyq?.organization || "Research team",
       start_page: start,
@@ -1678,6 +1680,7 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
     accessToken,
     studyId,
     studyVersion = "unknown",
+    greedyqVersion,
     specVersion = "0.2",
     isTest = true,
     consentQuestion = null,
@@ -1704,6 +1707,16 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
       };
     return {
       kind: "supabase-secure",
+      create: (id) =>
+        call("greedyq_create_session", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_study_id: studyId,
+          p_study_version: studyVersion,
+          p_spec_version: specVersion,
+          p_greedyq_version: greedyqVersion,
+          p_is_test: isTest,
+        }),
       load: (id) =>
         call("greedyq_resume_session", {
           p_session_id: id,
@@ -1728,8 +1741,18 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
           p_study_id: studyId,
           p_study_version: studyVersion,
           p_spec_version: specVersion,
+          p_greedyq_version: greedyqVersion,
           p_conditions: conditions,
           p_is_test: isTest,
+        }),
+      registerExternal: (id, identifiers) =>
+        call("greedyq_register_external", {
+          p_session_id: id,
+          p_access_token: accessToken,
+          p_provider: "prolific",
+          p_participant_id: identifiers.PROLIFIC_PID,
+          p_external_study_id: identifiers.STUDY_ID,
+          p_external_session_id: identifiers.SESSION_ID,
         }),
       raw: base,
     };
@@ -1766,7 +1789,12 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
   }
   function stableSessionId(studyId, provided) {
     const key = `greedyq-session:${studyId}`;
-    if (provided) {
+    if (
+      provided &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+        provided,
+      )
+    ) {
       localStorage.setItem(key, provided);
       return provided;
     }
@@ -2225,24 +2253,29 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
   async function mountSupabaseRespondent(
     root,
     model,
-    { url, anonKey, sessionId, onError } = {},
+    { url, anonKey, sessionId, externalIdentifiers, onError } = {},
   ) {
-    const storageKey = `greedyq-capability:${model.study_id}`,
+    const storageKey = `greedyq-capability:${model.study_id}:${externalIdentifiers?.SESSION_ID || "direct"}`,
       saved = JSON.parse(localStorage.getItem(storageKey) || "null"),
       id = saved?.id || sessionId || crypto.randomUUID(),
       accessToken =
         saved?.accessToken || `${crypto.randomUUID()}${crypto.randomUUID()}`;
     localStorage.setItem(storageKey, JSON.stringify({ id, accessToken }));
     const remote = createSecureSupabaseBackend({
-        url,
-        anonKey,
-        accessToken,
-        studyId: model.study_id,
-        specVersion: "0.2",
-        isTest: model.runtime_policy?.mode !== "production",
-        consentQuestion: model.runtime_policy?.consent?.question,
-      }),
-      loaded = await remote.load(id),
+      url,
+      anonKey,
+      accessToken,
+      studyId: model.study_id,
+      studyVersion: model.study_version,
+      greedyqVersion: model.greedyq_version,
+      specVersion: "0.2",
+      isTest: model.runtime_policy?.mode !== "production",
+      consentQuestion: model.runtime_policy?.consent?.question,
+    });
+    await remote.create(id);
+    if (externalIdentifiers)
+      await remote.registerExternal(id, externalIdentifiers);
+    const loaded = await remote.load(id),
       memory = createMemoryBackend();
     if (loaded?.state)
       memory.save(id, {
@@ -2250,10 +2283,18 @@ SHA-256: `abee209abe6d610974576418993ecf74a7db15ceb82d43e1fc6c564416efe820`
         condition: loaded.condition ?? loaded.state.condition ?? null,
       });
     else if (loaded?.page) memory.save(id, loaded);
+    let initialCondition =
+      loaded?.condition ?? loaded?.state?.condition ?? null;
+    if (!model.assignment_page && !initialCondition)
+      initialCondition = await remote.assign(
+        id,
+        model.conditions || ["default"],
+      );
     const bridge = {
       kind: "supabase-bridge",
       load: memory.load,
-      assign: (sid, conditions) => remote.assign(sid, conditions),
+      assign: (sid, conditions) =>
+        initialCondition || remote.assign(sid, conditions),
       inspect: memory.inspect,
       save: (sid, state) => {
         memory.save(sid, state);
@@ -2644,7 +2685,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
+SHA-256: `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb`
 
 ```html
 <!doctype html>
@@ -2671,6 +2712,8 @@ SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
     <script id="greedyq-model" type="application/json">
       {
         "study_id": "replace_me",
+        "study_version": "unknown",
+        "greedyq_version": "0.2_2026-09-09_ee423e6",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -2701,6 +2744,7 @@ SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
+        let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",
           model.brand_color || "#315c8a",
@@ -2715,16 +2759,18 @@ SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
               '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
             return;
           }
+          externalIdentifiers = launch.identifiers;
         }
         const sessionId = greedyQ.stableSessionId(
           model.study_id,
-          params.get("session") || params.get("SESSION_ID"),
+          params.get("session"),
         );
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {
             url: deployment.supabase_url,
             anonKey: deployment.supabase_anon_key,
             sessionId,
+            externalIdentifiers,
             onError: (error) => {
               root.insertAdjacentHTML(
                 "afterbegin",
@@ -2753,7 +2799,7 @@ SHA-256: `210b9e1e5093b941b9771c3b6fd4b1627eebaa4fb50a244b64c6020672ae028f`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65`
+SHA-256: `8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1`
 
 ```html
 <!doctype html>
@@ -2979,6 +3025,8 @@ SHA-256: `8c7dad72fd4faea40f8e6fb795fab914a5edc7171e3f03b718552900fe713e65`
     <script id="greedyq-model" type="application/json">
       {
         "study_id": "replace_me",
+        "study_version": "unknown",
+        "greedyq_version": "0.2_2026-09-09_ee423e6",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -3262,12 +3310,13 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 
 ### FILE: `templates/supabase/002_browser_rpc.sql`
 
-SHA-256: `e7f36dc1aaeea18041b284178db6f0085d039f0769af123c4d64a08f11916827`
+SHA-256: `16854bd96a1ee26f8eb1659f221e960595bad7a2ece1c0b299ef39a372a112c3`
 
 ```sql
 -- greedyQ v0.2 browser RPC boundary. Apply after 001_initial.sql.
 alter table public.gq_sessions add column if not exists access_token_hash text;
 alter table public.gq_sessions add column if not exists browser_state jsonb not null default '{}'::jsonb;
+alter table public.gq_sessions add column if not exists greedyq_version text not null default 'unknown';
 
 create or replace function public.greedyq_token_ok(p_session_id uuid, p_access_token text)
 returns boolean language sql stable security definer set search_path=public,pg_temp as $$
@@ -3281,14 +3330,25 @@ returns jsonb language sql stable security definer set search_path=public,pg_tem
     else null end from public.gq_sessions where id=p_session_id;
 $$;
 
-create or replace function public.greedyq_assign_condition(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_conditions text[],p_is_test boolean)
+create or replace function public.greedyq_create_session(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_greedyq_version text,p_is_test boolean)
+returns void language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+  if coalesce(length(p_access_token),0)<24 then raise exception 'invalid session capability'; end if;
+  if coalesce(length(p_greedyq_version),0)<1 then raise exception 'greedyQ version required'; end if;
+  insert into public.gq_sessions(id,study_id,study_version,spec_version,greedyq_version,is_test,access_token_hash)
+  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_greedyq_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex'))
+  on conflict(id) do nothing;
+  if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
+end;$$;
+
+create or replace function public.greedyq_assign_condition(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_greedyq_version text,p_conditions text[],p_is_test boolean)
 returns text language plpgsql security definer set search_path=public,pg_temp as $$
 declare v_condition text; v_min bigint;
 begin
   if coalesce(array_length(p_conditions,1),0)<1 then raise exception 'conditions required'; end if;
   perform pg_advisory_xact_lock(hashtext(p_study_id));
-  insert into public.gq_sessions(id,study_id,study_version,spec_version,is_test,access_token_hash)
-  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex')) on conflict(id) do nothing;
+  insert into public.gq_sessions(id,study_id,study_version,spec_version,greedyq_version,is_test,access_token_hash)
+  values(p_session_id,p_study_id,p_study_version,p_spec_version,p_greedyq_version,p_is_test,encode(digest(p_access_token,'sha256'),'hex')) on conflict(id) do nothing;
   if not public.greedyq_token_ok(p_session_id,p_access_token) then raise exception 'invalid session capability'; end if;
   select condition into v_condition from public.gq_assignments where session_id=p_session_id order by assigned_at limit 1;
   if v_condition is not null then return v_condition; end if;
@@ -3334,13 +3394,13 @@ begin
   insert into public.gq_lifecycle_events(session_id,from_state,to_state,page_id,metadata) values(p_session_id,v_state,'withdrawn','withdrawn',jsonb_build_object('research_data_deleted',true));
 end;$$;
 
-revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
-grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_assign_condition(uuid,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;
+revoke all on function public.greedyq_token_ok(uuid,text),public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) from public;
+grant execute on function public.greedyq_resume_session(uuid,text),public.greedyq_create_session(uuid,text,text,text,text,text,boolean),public.greedyq_assign_condition(uuid,text,text,text,text,text,text[],boolean),public.greedyq_save_session(uuid,text,jsonb,text),public.greedyq_register_external(uuid,text,text,text,text,text),public.greedyq_withdraw_session(uuid,text) to anon,authenticated;
 ```
 
 ### FILE: `examples/complete-study/supabase/migrations/001_initial.sql`
 
-SHA-256: `af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62`
+SHA-256: `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635`
 
 ```sql
 create extension if not exists pgcrypto;
@@ -3350,6 +3410,7 @@ create table public.gq_sessions (
   study_id text not null,
   study_version text not null,
   spec_version text not null,
+  greedyq_version text not null,
   current_page text not null default 'welcome',
   is_test boolean not null default false,
   lifecycle_state text not null default 'created' check (
@@ -3496,6 +3557,7 @@ select
   s.study_id,
   s.study_version,
   s.spec_version,
+  s.greedyq_version,
   s.created_at,
   s.terminal_at as completed_at,
   coalesce(
@@ -3815,7 +3877,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60`
+SHA-256: `e8cf821dcfca212e975e70aca669c5839bde715ec06e09bebe5a8722c2379713`
 
 ```json
 {
@@ -3824,9 +3886,22 @@ SHA-256: `ec020e4d6c6a9bdb882546a701f726ec5260563a26098226a88d050dd2948d60`
   "title": "greedyQ Preview Model",
   "type": "object",
   "additionalProperties": false,
-  "required": ["study_id", "title", "start_page", "conditions", "pages"],
+  "required": [
+    "study_id",
+    "study_version",
+    "greedyq_version",
+    "title",
+    "start_page",
+    "conditions",
+    "pages"
+  ],
   "properties": {
     "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+    "study_version": { "type": "string", "minLength": 1 },
+    "greedyq_version": {
+      "type": "string",
+      "pattern": "^0\\.2_\\d{4}-\\d{2}-\\d{2}_[0-9a-f]{7,12}$"
+    },
     "title": { "type": "string", "minLength": 1 },
     "organization": { "type": "string", "minLength": 1, "maxLength": 120 },
     "start_page": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
@@ -4650,7 +4725,7 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `cd0cb25afaad5183cde4473fdb0c8b6e6743dab6cb53df101b371a9687ce9fd3`
+SHA-256: `b251586c25bae4740630f43b05f47f6d3c9694adf9e0d7af02841bd0d74074d6`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
@@ -4769,6 +4844,8 @@ def compile_preview(parsed, config):
         paths[assigned] = path
     model = {
         "study_id": config.get("study", {}).get("id", "greedyq_preview"),
+        "study_version": config.get("study", {}).get("version", "unknown"),
+        "greedyq_version": front.get("greedyq", {}).get("version"),
         "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
         "organization": front.get("greedyq", {}).get("organization", "Research team"),
         "start_page": start,
@@ -4798,7 +4875,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `691ae66baf56886c6887d0abd2f72eb857139bb734829411c94c79debdec3d47`
+SHA-256: `56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -4849,6 +4926,7 @@ def build(study_dir, write=True):
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
+        (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
     return report, model
@@ -5197,7 +5275,7 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `d434e1e2e3a04260bee4069e85949fbf95a2376c3cba97d50e8d3f1fc59c3c0f`
+SHA-256: `0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -5206,8 +5284,8 @@ import json
 from pathlib import Path
 
 
-REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "vercel.json", ".env.example")
-REQUIRED_RPC = ("greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
+REQUIRED_STATIC = ("index.html", "preview.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css", "supabase-connection-test.html", "vercel.json", ".env.example")
+REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_save_session", "greedyq_assign_condition", "greedyq_register_external", "greedyq_withdraw_session")
 
 
 def preflight(study_dir):

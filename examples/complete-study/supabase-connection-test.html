@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https:; base-uri 'none'; frame-ancestors 'none'"
+    />
+    <title>greedyQ Supabase connection test</title>
+    <style>
+      body {
+        margin: 0;
+        background: #f2f4f7;
+        color: #182230;
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 28px;
+        background: white;
+        border: 1px solid #d0d5dd;
+        border-radius: 14px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      label {
+        display: block;
+        margin: 16px 0;
+        font-weight: 700;
+      }
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 6px;
+        padding: 11px;
+        border: 1px solid #98a2b3;
+        border-radius: 8px;
+        font: inherit;
+      }
+      button {
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 8px;
+        background: #315c8a;
+        color: white;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.5;
+      }
+      .notice {
+        padding: 12px;
+        background: #fffaeb;
+        border-left: 4px solid #fdb022;
+      }
+      ol {
+        padding-left: 24px;
+      }
+      li {
+        margin: 8px 0;
+      }
+      .pass {
+        color: #067647;
+      }
+      .fail {
+        color: #b42318;
+      }
+      code {
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>greedyQ Supabase connection test</h1>
+      <p class="notice">
+        <strong>Test data only.</strong> This page creates synthetic sessions,
+        verifies them, and withdraws them. Never enter a service-role key,
+        database password, real participant ID, or other private information.
+      </p>
+      <label
+        >Supabase project URL<input
+          id="url"
+          type="url"
+          placeholder="https://your-project.supabase.co"
+          autocomplete="off"
+      /></label>
+      <label
+        >Supabase publishable or legacy anon key<input
+          id="key"
+          type="password"
+          autocomplete="off"
+      /></label>
+      <button id="run">Run all connection tests</button>
+      <ol id="results" aria-live="polite"></ol>
+    </main>
+    <script>
+      const release = "0.2_2026-09-09_ee423e6",
+        results = document.getElementById("results"),
+        add = (message, passed) => {
+          const item = document.createElement("li");
+          item.className = passed ? "pass" : "fail";
+          item.textContent = `${passed ? "PASS" : "FAIL"}: ${message}`;
+          results.append(item);
+        };
+      document.getElementById("run").onclick = async (event) => {
+        const button = event.currentTarget,
+          url = document.getElementById("url").value.replace(/\/$/, ""),
+          key = document.getElementById("key").value,
+          token = `${crypto.randomUUID()}${crypto.randomUUID()}`,
+          first = crypto.randomUUID(),
+          second = crypto.randomUUID(),
+          participant = `GQ_TEST_${crypto.randomUUID()}`,
+          headers = {
+            apikey: key,
+            Authorization: `Bearer ${key}`,
+            "Content-Type": "application/json",
+          },
+          rpc = async (name, body, expectFailure = false) => {
+            const response = await fetch(`${url}/rest/v1/rpc/${name}`, {
+              method: "POST",
+              headers,
+              body: JSON.stringify(body),
+            });
+            if (expectFailure) return !response.ok;
+            if (!response.ok)
+              throw new Error(`${name} returned HTTP ${response.status}`);
+            return response.status === 204 ? null : response.json();
+          },
+          create = (id, accessToken = token) =>
+            rpc("greedyq_create_session", {
+              p_session_id: id,
+              p_access_token: accessToken,
+              p_study_id: "greedyq_connection_test",
+              p_study_version: "test",
+              p_spec_version: "0.2",
+              p_greedyq_version: release,
+              p_is_test: true,
+            });
+        results.replaceChildren();
+        if (!/^https:\/\/.+\.supabase\.co$/.test(url) || !key) {
+          add("Enter the project URL and publishable/anon key.", false);
+          return;
+        }
+        button.disabled = true;
+        try {
+          await create(first);
+          add("Synthetic browser session can be created.", true);
+          const unauthorized = await rpc("greedyq_resume_session", {
+            p_session_id: first,
+            p_access_token: `${crypto.randomUUID()}${crypto.randomUUID()}`,
+          });
+          add(
+            "A wrong capability token cannot resume the session.",
+            unauthorized == null,
+          );
+          const assigned = await rpc("greedyq_assign_condition", {
+            p_session_id: first,
+            p_access_token: token,
+            p_study_id: "greedyq_connection_test",
+            p_study_version: "test",
+            p_spec_version: "0.2",
+            p_greedyq_version: release,
+            p_conditions: ["control", "treatment"],
+            p_is_test: true,
+          });
+          const stable = await rpc("greedyq_assign_condition", {
+            p_session_id: first,
+            p_access_token: token,
+            p_study_id: "greedyq_connection_test",
+            p_study_version: "test",
+            p_spec_version: "0.2",
+            p_greedyq_version: release,
+            p_conditions: ["control", "treatment"],
+            p_is_test: true,
+          });
+          add(
+            "Random assignment is created and remains stable.",
+            assigned === stable && ["control", "treatment"].includes(assigned),
+          );
+          await rpc("greedyq_save_session", {
+            p_session_id: first,
+            p_access_token: token,
+            p_state: {
+              page: "consent",
+              lifecycle: "active",
+              consent_accepted: false,
+              answers: { consent_choice: "yes" },
+            },
+            p_consent_question: "consent_choice",
+          });
+          await rpc("greedyq_save_session", {
+            p_session_id: first,
+            p_access_token: token,
+            p_state: {
+              page: "questions",
+              lifecycle: "in_progress",
+              consent_accepted: true,
+              answers: {
+                consent_choice: "yes",
+                connection_test_answer: "synthetic",
+              },
+            },
+            p_consent_question: "consent_choice",
+          });
+          const resumed = await rpc("greedyq_resume_session", {
+            p_session_id: first,
+            p_access_token: token,
+          });
+          add(
+            "Consent-gated answer saving and resume work.",
+            resumed?.state?.answers?.connection_test_answer === "synthetic",
+          );
+          await rpc("greedyq_register_external", {
+            p_session_id: first,
+            p_access_token: token,
+            p_provider: "prolific",
+            p_participant_id: participant,
+            p_external_study_id: "GQ_CONNECTION_TEST",
+            p_external_session_id: "FIRST",
+          });
+          const token2 = `${crypto.randomUUID()}${crypto.randomUUID()}`;
+          await create(second, token2);
+          const duplicateBlocked = await rpc(
+            "greedyq_register_external",
+            {
+              p_session_id: second,
+              p_access_token: token2,
+              p_provider: "prolific",
+              p_participant_id: participant,
+              p_external_study_id: "GQ_CONNECTION_TEST",
+              p_external_session_id: "SECOND",
+            },
+            true,
+          );
+          add(
+            "Duplicate external participant registration is blocked.",
+            duplicateBlocked,
+          );
+          const direct = await fetch(`${url}/rest/v1/gq_answers?select=*`, {
+            headers: { apikey: key, Authorization: `Bearer ${key}` },
+          });
+          const directRows = direct.ok ? await direct.json() : [];
+          add(
+            "Anonymous clients cannot enumerate answer rows.",
+            !Array.isArray(directRows) || directRows.length === 0,
+          );
+          await rpc("greedyq_withdraw_session", {
+            p_session_id: first,
+            p_access_token: token,
+          });
+          const withdrawn = await rpc("greedyq_resume_session", {
+            p_session_id: first,
+            p_access_token: token,
+          });
+          add(
+            "Withdrawal deletes research data and preserves only withdrawn state.",
+            withdrawn?.state?.lifecycle === "withdrawn",
+          );
+          await rpc("greedyq_withdraw_session", {
+            p_session_id: second,
+            p_access_token: token2,
+          });
+          add("Synthetic test sessions were cleaned up.", true);
+        } catch (error) {
+          add(error.message, false);
+        } finally {
+          button.disabled = false;
+        }
+      };
+    </script>
+  </body>
+</html>

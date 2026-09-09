@@ -153,6 +153,8 @@ I personally tested the desktop and mobile preview and approve this questionnair
 
 After preview approval, greedyQ can prepare a preregistration draft, a Vercel-ready survey, Supabase setup files, Prolific settings, and a native surveydown export. Account connection, submission, deployment, and recruitment each require separate approval and external verification. Continue with [External Connection Readiness](./docs/external-connection-readiness.md).
 
+When you are ready to create the first test database, follow [Connect a Supabase Project](./SUPABASE-SETUP.md). It stops before Vercel deployment and real recruitment.
+
 ## Common problems
 
 - **The AI cannot read GitHub:** Download and attach the single [full fallback guide](./guides/greedyq-guide.md), then repeat your starting message.
