@@ -133,6 +133,20 @@ def _replace_question_block(text, question):
     return updated
 
 
+def _force_preview_mode(text):
+    """Keep generated native projects safe for local review by default."""
+    pattern = re.compile(r"(?m)^(survey-settings:\s*\n)((?:[ \t]+.*(?:\n|$))*)")
+    match = pattern.search(text)
+    if not match:
+        raise ValueError("Native Surveydown export requires a survey-settings YAML section.")
+    body = match.group(2)
+    if re.search(r"(?m)^\s+mode:\s*", body):
+        body = re.sub(r"(?m)^(\s+)mode:\s*.*$", r"\1mode: preview", body, count=1)
+    else:
+        body = "  mode: preview\n" + body
+    return text[:match.start()] + match.group(1) + body + text[match.end():]
+
+
 def _output_binding(question):
     qid = _safe_id(question["id"])
     qtype = question["type"]
@@ -210,7 +224,7 @@ def generate(study_dir, parsed, config):
     study_dir = Path(study_dir)
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)
-    source = (study_dir / "survey.qmd").read_text()
+    source = _force_preview_mode((study_dir / "survey.qmd").read_text())
     custom_questions = []
     for page in parsed.get("pages", []):
         for question in page.get("questions", []):
@@ -229,7 +243,10 @@ def generate(study_dir, parsed, config):
     bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
-    features = [{"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."}]
+    features = [
+        {"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."},
+        {"id": "safe_preview_mode", "classification": "directly_portable", "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."},
+    ]
     if custom_questions:
         features.append({
             "id": "greedyq_custom_controls", "classification": "generated_custom",

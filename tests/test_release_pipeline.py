@@ -61,11 +61,13 @@ class ReleasePipelineTests(unittest.TestCase):
             _, parsed, config = load_study(study)
             output, report = generate_export(study, parsed, config)
             self.assertIn("shiny::shinyApp", (output / "app.R").read_text())
-            self.assertEqual((study / "survey.qmd").read_bytes(), (output / "survey.qmd").read_bytes())
+            self.assertEqual((study / "survey.qmd").read_text(), (output / "survey.qmd").read_text().replace("  mode: preview\n", "", 1))
             self.assertFalse(report["equivalence_claimed"])
             if shutil.which("Rscript"):
                 subprocess.run(["Rscript", "-e", f"parse(file={json.dumps(str(output / 'app.R'))})"], check=True, capture_output=True, text=True)
             self.assertEqual("generated_unverified", report["generator_status"])
+            exported_qmd = (output / "survey.qmd").read_text()
+            self.assertRegex(exported_qmd, r"survey-settings:\n\s+mode: preview")
             app = (output / "app.R").read_text()
             for token in ("sd_show_if(", "sd_skip_if(", "sd_stop_if(", 'sd_value("gender")', "sd_is_answered", "assignment_condition <- sample", "sd_store_value(assignment_condition)"):
                 self.assertIn(token, app)
