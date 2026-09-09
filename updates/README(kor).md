@@ -8,6 +8,7 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-09-09_e770a9c`](./0.2/0.2_2026-09-09_e770a9c(kor).md) — 학술 사용 시 greedyQ와 surveydown 공동 인용 안내
 - [`0.2_2026-09-09_5ce7a3a`](./0.2/0.2_2026-09-09_5ce7a3a(kor).md) — 휴대폰 preview에서 desktop canvas 유지
 - [`0.2_2026-09-09_40c5053`](./0.2/0.2_2026-09-09_40c5053(kor).md) — 필터링된 CSV에서도 모든 설문 열 유지
 - [`0.2_2026-09-09_825f6fb`](./0.2/0.2_2026-09-09_825f6fb(kor).md) — 보호된 결과 대시보드와 Vercel 두 링크 배포

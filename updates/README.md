@@ -8,6 +8,7 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-09-09_e770a9c`](./0.2/0.2_2026-09-09_e770a9c.md) — require joint citation of greedyQ and surveydown for scholarly use
 - [`0.2_2026-09-09_5ce7a3a`](./0.2/0.2_2026-09-09_5ce7a3a.md) — preserve the desktop canvas when previewing on a phone
 - [`0.2_2026-09-09_40c5053`](./0.2/0.2_2026-09-09_40c5053.md) — complete all survey columns in filtered CSV exports
 - [`0.2_2026-09-09_825f6fb`](./0.2/0.2_2026-09-09_825f6fb.md) — protected results dashboard and two-link Vercel deployment

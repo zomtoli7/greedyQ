@@ -4,7 +4,7 @@
 
 [한국어](./SUPABASE-SETUP(kor).md)
 
-**greedyQ release:** `0.2_2026-09-09_5ce7a3a`
+**greedyQ release:** `0.2_2026-09-09_e770a9c`
 **Current state:** ready for account creation; no external project connected
 
 This page begins where local questionnaire testing ends. You do not need database knowledge. The AI should handle one step at a time and keep the survey in test mode until every connected test passes.
