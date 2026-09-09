@@ -104,7 +104,7 @@
         },
         {
           "path": "templates/supabase/002_browser_rpc.sql",
-          "sha256": "16854bd96a1ee26f8eb1659f221e960595bad7a2ece1c0b299ef39a372a112c3"
+          "sha256": "d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323"
         },
         {
           "path": "templates/supabase/connection-test.html",

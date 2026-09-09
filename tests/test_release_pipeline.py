@@ -64,7 +64,7 @@ class ReleasePipelineTests(unittest.TestCase):
 
     def test_rpc_migration_requires_capability_tokens_and_locked_assignment(self):
         sql = (ROOT / "templates/supabase/002_browser_rpc.sql").read_text().lower()
-        for token in ("greedyq_create_session", "p_access_token", "p_greedyq_version", "digest(p_access_token", "pg_advisory_xact_lock", "security definer", "research data cannot be saved before consent", "greedyq_register_external", "duplicate participant", "for update", "research_data_deleted", "grant execute"):
+        for token in ("greedyq_create_session", "p_access_token", "p_greedyq_version", "extensions.digest(p_access_token", "pg_advisory_xact_lock", "security definer", "research data cannot be saved before consent", "greedyq_register_external", "duplicate participant", "for update", "research_data_deleted", "grant execute"):
             self.assertIn(token, sql)
         self.assertNotIn("grant select on public.gq_answers to anon", sql)
 
