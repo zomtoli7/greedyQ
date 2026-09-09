@@ -40,24 +40,16 @@
           model.brand_color || "#315c8a",
         );
         if (model.runtime_policy?.respondent_source?.startsWith("prolific")) {
-          const launch = greedyQ.parseProlificLaunch(
+          const launch = greedyQ.resolveProlificLaunch(
             location.search,
             model.runtime_policy.mode,
           );
           if (launch.status !== "passed") {
-            if (model.runtime_policy.mode === "test")
-              externalIdentifiers = greedyQ.syntheticProlificLaunch(
-                sessionId,
-                model.study_id,
-              );
-            else {
-              root.innerHTML =
-                '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
-              return;
-            }
-          } else {
-            externalIdentifiers = launch.identifiers;
+            root.innerHTML =
+              '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
+            return;
           }
+          externalIdentifiers = launch.identifiers;
         }
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {

@@ -84,7 +84,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31"
+          "sha256": "ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -92,7 +92,7 @@
         },
         {
           "path": "templates/browser/respondent.html",
-          "sha256": "5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9"
+          "sha256": "7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d"
         },
         {
           "path": "templates/browser/preview.html",
@@ -148,7 +148,7 @@
         },
         {
           "path": "greedyq/prolific.py",
-          "sha256": "ddf53fde00e6c51d49e49882784cebcc986a7841c6d60635743666c8cc0a2d90"
+          "sha256": "2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe"
         },
         {
           "path": "greedyq/preregistration.py",

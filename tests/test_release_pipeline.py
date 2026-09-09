@@ -9,7 +9,7 @@ from greedyq.build import build, load_study
 from greedyq.deployment import preflight
 from greedyq.exporter import generate as generate_export
 from greedyq.preregistration import generate as generate_preregistration
-from greedyq.prolific import completion_url, parse_launch, synthetic_launch
+from greedyq.prolific import completion_url, parse_launch, resolve_launch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -29,13 +29,15 @@ class ReleasePipelineTests(unittest.TestCase):
 
     def test_prolific_completion_is_https_and_encoded(self):
         self.assertEqual("https://app.prolific.com/submissions/complete?cc=A%2FB", completion_url("https://app.prolific.com/submissions/complete", "A/B"))
-
-    def test_test_launch_identifiers_are_synthetic_and_deterministic(self):
-        first = synthetic_launch("123e4567-e89b-12d3-a456-426614174000", "study one")
-        second = synthetic_launch("123e4567-e89b-12d3-a456-426614174000", "study one")
-        self.assertEqual(first, second)
-        self.assertTrue(all(value.startswith("GQ_TEST_") for value in first.values()))
         with self.assertRaises(ValueError): completion_url("http://example.test", "OK")
+
+    def test_parameter_free_test_launch_is_recorded_as_direct(self):
+        direct = resolve_launch("", "test")
+        self.assertEqual("passed", direct["status"])
+        self.assertEqual("direct_test", direct["source"])
+        self.assertIsNone(direct["identifiers"])
+        self.assertEqual("failed", resolve_launch("", "production")["status"])
+        self.assertEqual("failed", resolve_launch("?PROLIFIC_PID=partial", "test")["status"])
 
     def test_preregistration_is_draft_hashes_exact_sources_and_never_submits(self):
         with tempfile.TemporaryDirectory() as tmp:

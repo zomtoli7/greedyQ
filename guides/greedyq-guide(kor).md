@@ -239,9 +239,9 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31` | `no` |
+| `web/greedyq-core.js` | `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9` | `no` |
+| `templates/browser/respondent.html` | `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d` | `no` |
 | `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323` | `no` |
@@ -261,7 +261,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `greedyq/build.py` | `56d20d271ddae2076a48fca41c284da3ab1791632c7661a3dbcf80c9387eb031` | `no` |
 | `greedyq/runtime.py` | `e4d73ed00495c7360785602bc4723c78837854c4e40f4e6df3c41792dfc2fcda` | `no` |
 | `greedyq/server.py` | `8995d99d485d4cb265cca8a6c73111a94943305d14fcd89cafa34aae55a5a406` | `no` |
-| `greedyq/prolific.py` | `ddf53fde00e6c51d49e49882784cebcc986a7841c6d60635743666c8cc0a2d90` | `no` |
+| `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
 | `greedyq/exporter.py` | `dfac36d3a480fab786093b37ab5c54195fda6970284a09deb9ee2a25c5273070` | `no` |
 | `greedyq/deployment.py` | `0f7ca280d28dd8ff101788b8269661516480d72bf13ecdfdf7576222beb0550b` | `no` |
@@ -415,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31`
+SHA-256: `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1787,14 +1787,13 @@ SHA-256: `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31`
       issues,
     };
   }
-  function syntheticProlificLaunch(sessionId, studyId) {
-    const cleanSession = String(sessionId).replaceAll("-", "_"),
-      cleanStudy = String(studyId).replace(/[^A-Za-z0-9_-]/g, "_");
-    return {
-      PROLIFIC_PID: `GQ_TEST_${cleanSession}`,
-      STUDY_ID: `GQ_TEST_${cleanStudy}`,
-      SESSION_ID: `GQ_TEST_${cleanSession}`,
-    };
+  function resolveProlificLaunch(search, mode = "test") {
+    const parsed = parseProlificLaunch(search, mode),
+      supplied = Object.values(parsed.identifiers).filter(Boolean);
+    if (parsed.status === "passed") return { ...parsed, source: "prolific" };
+    if (mode === "test" && supplied.length === 0)
+      return { status: "passed", mode, source: "direct_test", identifiers: null, issues: [] };
+    return { ...parsed, source: "invalid" };
   }
   function stableSessionId(studyId, provided) {
     const key = `greedyq-session:${studyId}`;
@@ -2340,7 +2339,7 @@ SHA-256: `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31`
     condition,
     detectDevice,
     parseProlificLaunch,
-    syntheticProlificLaunch,
+    resolveProlificLaunch,
     stableSessionId,
     createMemoryBackend,
     createLocalMockBackend: createConcurrentLocalMockBackend,
@@ -2704,7 +2703,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9`
+SHA-256: `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d`
 
 ```html
 <!doctype html>
@@ -2773,24 +2772,16 @@ SHA-256: `5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9`
           model.brand_color || "#315c8a",
         );
         if (model.runtime_policy?.respondent_source?.startsWith("prolific")) {
-          const launch = greedyQ.parseProlificLaunch(
+          const launch = greedyQ.resolveProlificLaunch(
             location.search,
             model.runtime_policy.mode,
           );
           if (launch.status !== "passed") {
-            if (model.runtime_policy.mode === "test")
-              externalIdentifiers = greedyQ.syntheticProlificLaunch(
-                sessionId,
-                model.study_id,
-              );
-            else {
-              root.innerHTML =
-                '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
-              return;
-            }
-          } else {
-            externalIdentifiers = launch.identifiers;
+            root.innerHTML =
+              '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
+            return;
           }
+          externalIdentifiers = launch.identifiers;
         }
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {
@@ -5196,7 +5187,7 @@ def serve(model,config,store,port=4180):
 
 ### FILE: `greedyq/prolific.py`
 
-SHA-256: `ddf53fde00e6c51d49e49882784cebcc986a7841c6d60635743666c8cc0a2d90`
+SHA-256: `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe`
 
 ```python
 """Pure validation and normalization for Prolific-compatible launch parameters."""
@@ -5204,17 +5195,6 @@ SHA-256: `ddf53fde00e6c51d49e49882784cebcc986a7841c6d60635743666c8cc0a2d90`
 from urllib.parse import parse_qs, urlencode, urlparse
 
 REQUIRED = ("PROLIFIC_PID", "STUDY_ID", "SESSION_ID")
-
-
-def synthetic_launch(session_id, study_id):
-    """Return deterministic, visibly synthetic identifiers for test deployments."""
-    clean_session = str(session_id).replace("-", "_")
-    clean_study = "".join(char if char.isalnum() or char in "_-" else "_" for char in str(study_id))
-    return {
-        "PROLIFIC_PID": "GQ_TEST_%s" % clean_session,
-        "STUDY_ID": "GQ_TEST_%s" % clean_study,
-        "SESSION_ID": "GQ_TEST_%s" % clean_session,
-    }
 
 
 def parse_launch(url_or_query, mode="test"):
@@ -5229,6 +5209,15 @@ def parse_launch(url_or_query, mode="test"):
     if mode not in ("test", "production"):
         issues.append({"code": "GQ020", "message": "Respondent mode must be test or production."})
     return {"status": "passed" if not issues else "failed", "mode": mode, "identifiers": {key: values.get(key) for key in REQUIRED}, "issues": issues}
+
+
+def resolve_launch(url_or_query, mode="test"):
+    """Allow a parameter-free direct launch only in test mode."""
+    parsed = parse_launch(url_or_query, mode)
+    if parsed["status"] == "passed": return {**parsed, "source": "prolific"}
+    if mode == "test" and not any(parsed["identifiers"].values()):
+        return {"status": "passed", "mode": mode, "source": "direct_test", "identifiers": None, "issues": []}
+    return {**parsed, "source": "invalid"}
 
 
 def completion_url(base_url, completion_code):

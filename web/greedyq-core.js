@@ -1367,14 +1367,13 @@
       issues,
     };
   }
-  function syntheticProlificLaunch(sessionId, studyId) {
-    const cleanSession = String(sessionId).replaceAll("-", "_"),
-      cleanStudy = String(studyId).replace(/[^A-Za-z0-9_-]/g, "_");
-    return {
-      PROLIFIC_PID: `GQ_TEST_${cleanSession}`,
-      STUDY_ID: `GQ_TEST_${cleanStudy}`,
-      SESSION_ID: `GQ_TEST_${cleanSession}`,
-    };
+  function resolveProlificLaunch(search, mode = "test") {
+    const parsed = parseProlificLaunch(search, mode),
+      supplied = Object.values(parsed.identifiers).filter(Boolean);
+    if (parsed.status === "passed") return { ...parsed, source: "prolific" };
+    if (mode === "test" && supplied.length === 0)
+      return { status: "passed", mode, source: "direct_test", identifiers: null, issues: [] };
+    return { ...parsed, source: "invalid" };
   }
   function stableSessionId(studyId, provided) {
     const key = `greedyq-session:${studyId}`;
@@ -1920,7 +1919,7 @@
     condition,
     detectDevice,
     parseProlificLaunch,
-    syntheticProlificLaunch,
+    resolveProlificLaunch,
     stableSessionId,
     createMemoryBackend,
     createLocalMockBackend: createConcurrentLocalMockBackend,

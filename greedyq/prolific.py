@@ -5,17 +5,6 @@ from urllib.parse import parse_qs, urlencode, urlparse
 REQUIRED = ("PROLIFIC_PID", "STUDY_ID", "SESSION_ID")
 
 
-def synthetic_launch(session_id, study_id):
-    """Return deterministic, visibly synthetic identifiers for test deployments."""
-    clean_session = str(session_id).replace("-", "_")
-    clean_study = "".join(char if char.isalnum() or char in "_-" else "_" for char in str(study_id))
-    return {
-        "PROLIFIC_PID": "GQ_TEST_%s" % clean_session,
-        "STUDY_ID": "GQ_TEST_%s" % clean_study,
-        "SESSION_ID": "GQ_TEST_%s" % clean_session,
-    }
-
-
 def parse_launch(url_or_query, mode="test"):
     parsed = urlparse(url_or_query)
     query = parsed.query if parsed.query else url_or_query.lstrip("?")
@@ -28,6 +17,15 @@ def parse_launch(url_or_query, mode="test"):
     if mode not in ("test", "production"):
         issues.append({"code": "GQ020", "message": "Respondent mode must be test or production."})
     return {"status": "passed" if not issues else "failed", "mode": mode, "identifiers": {key: values.get(key) for key in REQUIRED}, "issues": issues}
+
+
+def resolve_launch(url_or_query, mode="test"):
+    """Allow a parameter-free direct launch only in test mode."""
+    parsed = parse_launch(url_or_query, mode)
+    if parsed["status"] == "passed": return {**parsed, "source": "prolific"}
+    if mode == "test" and not any(parsed["identifiers"].values()):
+        return {"status": "passed", "mode": mode, "source": "direct_test", "identifiers": None, "issues": []}
+    return {**parsed, "source": "invalid"}
 
 
 def completion_url(base_url, completion_code):
