@@ -2,7 +2,7 @@
 title: "Digital Service Information Study"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-09-09_3aefdd0"
+  version: "0.2_2026-09-09_825f6fb"
 theme-settings:
   theme: default
   barposition: top

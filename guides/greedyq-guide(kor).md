@@ -241,8 +241,8 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
 | `web/greedyq-core.js` | `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d` | `no` |
-| `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
+| `templates/browser/respondent.html` | `d78eeff7b868f3cef1106a7b329c2d62844f52741e632c88aae3a0aebfbe120a` | `no` |
+| `templates/browser/preview.html` | `2dbbfffb9ff8837b5688d7490284bdf9c3c17c55238573957a29669975702940` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `9e03b3e48aac54078453597cfc53f58a7cd84941a76a7f66f18f5aab7148d161` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -2706,7 +2706,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d`
+SHA-256: `d78eeff7b868f3cef1106a7b329c2d62844f52741e632c88aae3a0aebfbe120a`
 
 ```html
 <!doctype html>
@@ -2734,7 +2734,7 @@ SHA-256: `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_3aefdd0",
+        "greedyq_version": "0.2_2026-09-09_825f6fb",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -2821,7 +2821,7 @@ SHA-256: `7cbe872924e6d23a4de44afd559e1ad719ca908859dc19a89259e64e8c189c6d`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad`
+SHA-256: `2dbbfffb9ff8837b5688d7490284bdf9c3c17c55238573957a29669975702940`
 
 ```html
 <!doctype html>
@@ -3048,7 +3048,7 @@ SHA-256: `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_3aefdd0",
+        "greedyq_version": "0.2_2026-09-09_825f6fb",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
