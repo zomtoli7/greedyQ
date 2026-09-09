@@ -156,6 +156,8 @@ Feedback을 준 다음 복사합니다.
 
 Preview 승인 후 greedyQ는 preregistration draft, Vercel-ready survey, Supabase setup file, Prolific setting, native surveydown export를 준비할 수 있습니다. Account 연결, 제출, deployment 및 모집에는 각각 별도 승인과 외부 검증이 필요합니다. [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)에서 계속하십시오.
 
+Agent는 외부 연결을 요청하기 전에 [로컬 운영 및 복구 검사](./docs/operations-runbook(kor).md)를 완료해야 합니다.
+
 ## 연구에 사용한 software 인용하기
 
 연구가 논문, preprint, 학위논문 또는 보고서로 공개된다면 설문이 greedyQ의 독립 browser runtime에서만 실행되었더라도 greedyQ와 surveydown을 모두 인용하십시오. `survey.qmd`의 `greedyq.version`에 저장된 정확한 release identifier를 사용해야 합니다. 복사해서 사용할 수 있는 reference와 정확한 연구방법 문구는 [CITATION(kor).md](./CITATION(kor).md)를 참고하십시오.

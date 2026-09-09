@@ -1,6 +1,9 @@
 import json
 import copy
 import os
+import socket
+import functools
+import http.server
 import shutil
 import subprocess
 import tempfile
@@ -214,6 +217,28 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         compact = "".join(css.split())
         self.assertIn("grid-template-columns:repeat(11,minmax(0,1fr))", compact)
         self.assertIn("box-sizing:border-box", compact)
+
+    def test_real_browser_e2e_for_responsive_controls_and_results_csv(self):
+        chrome = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+        playwright = Path("/Users/dongsookim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright")
+        if not chrome.is_file() or not playwright.is_dir():
+            self.skipTest("local Chrome/Playwright browser harness is unavailable")
+        class QuietHandler(http.server.SimpleHTTPRequestHandler):
+            def log_message(self, format, *args):
+                pass
+        handler = functools.partial(QuietHandler, directory=str(ROOT / "examples/control-gallery"))
+        loopback = socket.gethostbyname("localhost")
+        server = http.server.ThreadingHTTPServer((loopback, 0), handler)
+        thread = __import__("threading").Thread(target=server.serve_forever, daemon=True); thread.start()
+        try:
+            env = {**os.environ, "NODE_PATH": str(playwright.parent)}
+            result = subprocess.run([str(NODE), str(ROOT / "tests/browser_e2e.cjs"), f"http://localhost:{server.server_port}", str(chrome)], cwd=ROOT, env=env, text=True, capture_output=True, check=True)
+            report = json.loads(result.stdout.strip().splitlines()[-1])
+            self.assertEqual(4, len(report["responsive"]))
+            self.assertGreaterEqual(report["structuredAnswers"], 7)
+            self.assertGreater(report["dictionaryRows"], 20)
+        finally:
+            server.shutdown(); server.server_close(); thread.join()
 
 
 if __name__ == "__main__":

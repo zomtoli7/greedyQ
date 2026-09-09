@@ -1,6 +1,7 @@
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
 
 import json
+import hashlib
 import re
 from pathlib import Path
 
@@ -50,6 +51,12 @@ def build(study_dir, write=True):
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
         (migrations / "003_results_dashboard.sql").write_bytes((ROOT / "templates/supabase/003_results_dashboard.sql").read_bytes())
+        migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
+        migration_manifest = {
+            "schema_version": "0.2",
+            "migrations": [{"name": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()} for path in migration_files],
+        }
+        (migrations / "manifest.json").write_text(json.dumps(migration_manifest, indent=2) + "\n")
         api = study_dir / "api"; api.mkdir(exist_ok=True)
         (api / "results.js").write_bytes((ROOT / "templates/vercel/api/results.js").read_bytes())
     return report, model

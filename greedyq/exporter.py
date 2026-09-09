@@ -61,6 +61,65 @@ def _custom_call(question):
     )
 
 
+def _condition_r(expression, derived_fields=frozenset()):
+    """Translate the deliberately small greedyQ condition language to safe R."""
+    expression = str(expression or "").strip()
+    parts = re.split(r"\s+(and|or)\s+", expression)
+    if len(parts) > 1:
+        rendered = [_condition_r(part, derived_fields) if part not in ("and", "or") else ("&" if part == "and" else "|") for part in parts]
+        return "(" + " ".join(rendered) + ")"
+    answered = re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)", expression)
+    if answered:
+        return ("!" if answered.group(1) else "") + f"sd_is_answered({_r(answered.group(2))})"
+    comparison = re.fullmatch(r"([a-z][a-z0-9_]*)\s*(==|!=|<=|>=|<|>)\s*(.+)", expression)
+    if not comparison:
+        raise ValueError(f"Unsupported export condition: {expression}")
+    field, operator, raw = comparison.groups()
+    raw = raw.strip()
+    if raw[:1] in ("'", '"') and raw[-1:] == raw[:1]:
+        value = _r(raw[1:-1])
+    elif re.fullmatch(r"-?\d+(?:\.\d+)?", raw):
+        value = raw
+    else:
+        raise ValueError(f"Unsupported export condition value: {raw}")
+    source = field if field in derived_fields else f"sd_value({_r(field)})"
+    return f"({source} {operator} {value})"
+
+
+def _workflow_bindings(config):
+    randomizations = config.get("randomization", []) or []
+    derived = {item.get("store", {}).get("condition_as") for item in randomizations}
+    derived.discard(None)
+    lines = []
+    for randomization in randomizations:
+        field = randomization.get("store", {}).get("condition_as")
+        conditions = list((randomization.get("conditions") or {}).keys())
+        if field and conditions:
+            lines.extend([
+                f"  {field} <- sample({_r(conditions)}, 1)",
+                f"  sd_store_value({field})",
+            ])
+    show_rules = config.get("logic", {}).get("show", []) or []
+    if show_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
+        lines.append("  sd_show_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    # Randomized page branches are represented by sd_show_if() above. Emitting
+    # the same derived-field branch as a global sd_skip_if() would make it true
+    # from the first page and could jump past all preceding pages.
+    skip_rules = [
+        rule for rule in sorted(config.get("logic", {}).get("skip", []) or [], key=lambda item: -item.get("priority", 0))
+        if not any(re.search(rf"\b{re.escape(field)}\b", str(rule.get("if", ""))) for field in derived)
+    ]
+    if skip_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
+        lines.append("  sd_skip_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    validation_rules = config.get("logic", {}).get("validate", []) or []
+    if validation_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
+        lines.append("  sd_stop_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    return "\n".join(lines)
+
+
 def _replace_question_block(text, question):
     qid = re.escape(str(question["id"]))
     pattern = re.compile(
@@ -167,7 +226,7 @@ def generate(study_dir, parsed, config):
         if source_directory.is_dir():
             shutil.copytree(source_directory, output / directory, dirs_exist_ok=True)
 
-    bindings = "\n".join(_output_binding(question) for question in custom_questions)
+    bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
     features = [{"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."}]
@@ -178,9 +237,9 @@ def generate(study_dir, parsed, config):
             "note": "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
         })
     if config.get("logic"):
-        features.append({"id": "declarative_logic", "classification": "greedyq_only", "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."})
+        features.append({"id": "declarative_logic", "classification": "generated_unverified", "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."})
     if config.get("randomization"):
-        features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
+        features.append({"id": "random_assignment", "classification": "generated_unverified", "note": "Assignment was translated to a stored native random draw; fixed-block balance and greedyQ persistence equivalence are not claimed."})
     if config.get("consent"):
         features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
     if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])):

@@ -7,7 +7,7 @@ import urllib.request
 from pathlib import Path
 
 from greedyq.build import build, load_study
-from greedyq.runtime import Store
+from greedyq.runtime import Store, parse_form, structured_answer_problem
 from greedyq.server import serve
 
 
@@ -123,6 +123,27 @@ class RespondentRuntimeTests(unittest.TestCase):
             body=urllib.request.urlopen("http://localhost:%d/study"%server.server_address[1]).read().decode()
             self.assertIn("question-block",body);self.assertIn("document.addEventListener('change',update)",body)
         finally:server.shutdown();server.server_close();thread.join()
+
+    def test_reference_runtime_parses_and_checks_advanced_answers(self):
+        page={"questions":[
+            {"id":"rank","type":"rank_order","label":"Rank","required":True,"options":[{"value":"a"},{"value":"b"}]},
+            {"id":"sum","type":"constant_sum","label":"Allocate","options":[{"value":"a"},{"value":"b"}],"total":100},
+            {"id":"group","type":"pick_group_rank","label":"Group","required":True,"options":[{"value":"a"}],"groups":[{"value":"main"}]},
+            {"id":"place","type":"drill_down","label":"Place","required":True,"path_separator":" > ","options":[{"label":"Asia > Korea > Seoul","value":"seoul"}]},
+            {"id":"time","type":"timing","label":"Time"},
+        ]}
+        form={"rank:a":["1"],"rank:b":["2"],"sum:a":["40"],"sum:b":["60"],"group:a:group":["main"],"group:a:rank":["1"],"place":["seoul"],"time":["12"]}
+        answers=parse_form(page,form)
+        self.assertEqual({"a":1,"b":2},answers["rank"])
+        self.assertEqual(["Asia","Korea","Seoul"],answers["place"])
+        self.assertEqual({"seconds_on_page":12},answers["time"])
+        self.assertIsNone(structured_answer_problem(page["questions"][1],answers["sum"]))
+        self.assertIn("add up",structured_answer_problem(page["questions"][1],{"a":40,"b":40}))
+        self.assertIn("negative",structured_answer_problem(page["questions"][1],{"a":110,"b":-10}))
+        self.assertIn("only once",structured_answer_problem(page["questions"][0],{"a":1,"b":1}))
+        self.assertIn("every item",structured_answer_problem(page["questions"][0],{"a":1}))
+        self.assertIn("invalid rank",structured_answer_problem(page["questions"][0],{"a":1,"b":3}))
+        self.assertIn("every level",structured_answer_problem(page["questions"][3],["Asia","Korea"]))
 
 
 if __name__=="__main__":unittest.main()

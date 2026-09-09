@@ -12,14 +12,14 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 - 동일한 고정 browser JavaScript core가 지원 QMD/YAML subset을 parse, validate, compile, render합니다.
 - `index.html`은 현재 device에 따라 desktop 또는 mobile layout을 자동 선택합니다.
 - `preview.html`은 서로 독립적인 desktop/mobile participant를 함께 표시하고 network write를 차단하며 synthetic browser storage를 사용합니다.
-- 새로고침 재개, 안정적인 mock 배정, 철회/reset, 필수 응답, 숫자 범위, routing, terminal outcome을 자동 테스트합니다.
+- 새로고침 재개, 안정적인 mock 배정, 철회/reset, 필수 및 구조화 응답, 숫자 범위, routing, terminal outcome을 자동 테스트합니다. 실제 Chrome E2E suite가 320px, 390px, 768px, 1280px layout, dashboard filter, 다운로드 CSV 구조도 검사합니다.
 - JavaScript validator/compiler를 두 golden study와 의도적으로 잘못 만든 입력에서 Python reference implementation과 비교합니다.
 - Static Vercel bundle과 offline deployment preflight를 생성합니다.
-- Canonical Supabase migration은 table, RLS boundary, capability-token RPC access, lock을 사용하는 균형 배정, consent-gated answer write, 중복 Prolific identifier 거부, transactional withdrawal deletion을 정의합니다.
+- 세 canonical Supabase migration은 table, RLS boundary, capability-token RPC access, lock을 사용하는 균형 배정, consent-gated answer write, 중복 Prolific identifier 거부, transactional withdrawal deletion, 연구자 results boundary를 정의합니다. 순서가 기록된 checksum manifest가 연결 전에 누락되거나 변경된 migration file을 탐지합니다.
 - Browser-native `supabase-connection-test.html`은 synthetic `is_test` session으로 연결된 project를 검증하고 끝난 뒤 철회합니다.
 - Test code에서 Prolific launch parameter와 HTTPS completion URL을 검증합니다.
 - 명시적으로 승인되지 않은 local draft 상태의 preregistration Markdown, JSON, SHA-256 manifest를 생성할 수 있습니다.
-- 동작 동등성을 허위로 주장하지 않는 native surveydown project와 compatibility report를 생성할 수 있습니다.
+- 동작 동등성을 허위로 주장하지 않는 native surveydown project와 compatibility report를 생성할 수 있습니다. 생성된 logic은 문서화된 `sd_show_if()`, `sd_skip_if()`, `sd_stop_if()`를 사용하고 custom control은 `sd_question_custom()`을 사용합니다. 공개 Surveydown 1.3.0 API 및 R parser와 대조했습니다.
 
 ## 외부 계정이 필요한 항목
 

@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "856833ceefd888d419c249df6a333b180f9dcb8c3e675de449d8b37e4f53f2d2",
+      "sha256": "968283786fd58f80aed14cb2f920c01f954fdbbe63c2fc592af49a17a2a2304c",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -242,6 +242,15 @@
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
+      ]
+    },
+    {
+      "path": "supabase/migrations/manifest.json",
+      "kind": "derived",
+      "sha256": "7c8b1822b8167aae189a3b30292564a2c237336b6c4b57619a172f4628f6bd16",
+      "status": "validated",
+      "based_on_decision_ids": [
+
       ]
     }
   ],

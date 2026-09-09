@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.2",
+  "scenarios": [
+    {"id":"new_researcher_written","requires":["write every question themselves","create only the opening and ending pages","ask for the first question"]},
+    {"id":"new_ai_assisted","requires":["have the AI prepare a questionnaire draft","Present the draft for researcher review"]},
+    {"id":"nontechnical_communication","requires":["default audience is a researcher who may have no software knowledge","Do not expose internal file lists"]},
+    {"id":"organization_header","requires":["what organization, research team, school, company","greedyq.organization"]},
+    {"id":"modify","requires":["preserve the study ID","invalidate approvals affected by the change"]},
+    {"id":"fork","requires":["assign a new study ID","clear live integrations and secrets"]},
+    {"id":"custom_control","requires":["more AI usage and time","appearance, interaction, validation, mobile behavior, accessibility, and stored data"]},
+    {"id":"preview_gate","requires":["Make a self-contained participant preview","Run deterministic structural checks"]},
+    {"id":"no_invented_external_success","requires":["Never invent external configuration","successful preview build is not production deployment"]},
+    {"id":"fielding_authority","requires":["final decision-maker","May this exact reviewed version be prepared for live recruitment?"]}
+  ]
+}

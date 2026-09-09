@@ -25,6 +25,10 @@
 - [x] Surveydown `sd_question_custom()` generation for greedyQ-only controls.
 - [x] R syntax validation for generated `app.R` in the development environment.
 - [x] Offline deployment preflight and deterministic unit/regression suite.
+- [x] Real-browser E2E at 320px, 390px, 768px, and 1280px, including conditional display, structured controls, resume, terminal navigation, dashboard filters, and CSV download.
+- [x] Ordered Supabase migration manifest with checksum verification, tamper detection, and recovery guidance.
+- [x] Scripted AI-workflow conformance scenarios for new researcher-written and AI-assisted studies, modification, fork, custom controls, preview approval, and external-action truthfulness.
+- [x] Generated Surveydown projects checked against the public Surveydown 1.3.0 API; generated app and QMD R blocks pass R syntax validation.
 - [ ] Native Surveydown behavioral review of every generated custom control in a running Shiny application.
 - [ ] Fresh-account, one-click Vercel/Supabase provisioning test; this requires user-approved OAuth connections.
 - [ ] Cross-model creation/modification/fork evaluations with GPT, Claude, Gemini, and other capable hosts.
@@ -33,7 +37,7 @@
 ## Next product work
 
 1. Complete the external OAuth provisioning experience so a researcher signs into Vercel and receives only a survey URL and results URL.
-2. Add production observability, migration versioning/rollback guidance, retention controls, and disaster-recovery exercises.
+2. Add production observability, researcher-configurable retention controls, and live disaster-recovery exercises. Offline migration versioning, integrity checks, and recovery guidance are complete.
 3. Expand experimental designs: weighted/stratified assignment, factorial studies, reproducible seeds, CBC/conjoint, and external design tables.
 4. Add multilingual authoring and respondent presentation.
 5. Add live OSF/preregistration adapters while preserving an explicit final-submission approval gate.

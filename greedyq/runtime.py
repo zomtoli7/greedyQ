@@ -64,6 +64,8 @@ class Store:
                     db.rollback(); raise ValueError("Please answer: %s" % q["label"])
                 if value is not None and q.get("min") is not None and float(value)<q["min"]: db.rollback(); raise ValueError("%s must be at least %s."%(q["label"],q["min"]))
                 if value is not None and q.get("max") is not None and float(value)>q["max"]: db.rollback(); raise ValueError("%s must be at most %s."%(q["label"],q["max"]))
+                problem=structured_answer_problem(q,value)
+                if problem: db.rollback(); raise ValueError(problem)
             consent_q=consent.get("confirmation_question")
             accepted=session["lifecycle_state"] in ("consented","in_progress")
             if page==next((p["id"] for p in model["pages"] if any(q["id"]==consent_q for q in p.get("questions",[]))),None):
@@ -112,6 +114,34 @@ def next_for(page, answers, condition):
     return page.get("next")
 
 
+def structured_answer_problem(q, value):
+    if value is None:return None
+    if q.get("type")=="rank_order":
+        ranks=[rank for rank in value.values() if rank not in (None,"")]
+        expected={option["value"] for option in q.get("options",[])}
+        if q.get("required") and set(value)!=expected:return "Please rank every item in %s."%q["label"]
+        if any(not isinstance(rank,(int,float)) or rank%1 or rank<1 or rank>len(expected) for rank in ranks):return "%s contains an invalid rank."%q["label"]
+        if len(ranks)!=len(set(ranks)):return "%s must use each rank only once."%q["label"]
+    if q.get("type")=="constant_sum":
+        try: values=[float(item or 0) for item in value.values()]
+        except (TypeError,ValueError):return "%s must contain numbers only."%q["label"]
+        if any(item<0 for item in values):return "%s cannot contain negative values."%q["label"]
+        if sum(values)!=float(q.get("total",100)):return "%s must add up to %s."%(q["label"],q.get("total",100))
+    if q.get("type")=="side_by_side" and q.get("required"):
+        if any(row["value"] not in value.get(column["value"],{}) for column in q.get("columns",[]) for row in q.get("rows",[])):
+            return "Please complete every item in %s."%q["label"]
+    if q.get("type")=="pick_group_rank":
+        expected={option["value"] for option in q.get("options",[])}
+        if q.get("required") and set(value)!=expected:return "Please place every item in %s."%q["label"]
+        for group in q.get("groups",[]):
+            ranks=[item.get("rank") for item in value.values() if item.get("group")==group["value"] and item.get("rank") is not None]
+            if len(ranks)!=len(set(ranks)):return "%s must use each rank only once within a group."%q["label"]
+    if q.get("type")=="drill_down" and q.get("required"):
+        depth=max((len(str(option.get("label","")).split(q.get("path_separator"," > "))) for option in q.get("options",[])),default=0)
+        if not isinstance(value,list) or len(value)!=depth:return "Please complete every level in %s."%q["label"]
+    return None
+
+
 def parse_form(page, form):
     result={}
     for q in page.get("questions",[]):
@@ -122,11 +152,26 @@ def parse_form(page, form):
             result[q["id"]]={o["value"]:scalar(form.get("%s:%s"%(q["id"],o["value"]),[0])[0]) for o in q.get("options",[])}
         elif q["type"]=="side_by_side":
             result[q["id"]]={c["value"]:{r["value"]:scalar(form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0]) for r in q.get("rows",[]) if form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0] is not None} for c in q.get("columns",[])}
+        elif q["type"]=="pick_group_rank":
+            values={}
+            for option in q.get("options",[]):
+                group=form.get("%s:%s:group"%(q["id"],option["value"]),[None])[0]; rank=form.get("%s:%s:rank"%(q["id"],option["value"]),[None])[0]
+                if group:values[option["value"]]={"group":scalar(group),"rank":scalar(rank) if rank else None}
+            if values:result[q["id"]]=values
+        elif q["type"]=="drill_down":
+            if q["id"] in form:
+                selected=form[q["id"]][0]; match=next((o for o in q.get("options",[]) if str(o["value"])==selected),None)
+                result[q["id"]]=str(match["label"]).split(q.get("path_separator"," > ")) if match else selected
+        elif q["type"]=="timing":
+            if q["id"] in form:result[q["id"]]={"seconds_on_page":scalar(form[q["id"]][0])}
+        elif q["type"]=="daterange":
+            values=[form.get("%s:%s"%(q["id"],index),[""])[0] for index in (0,1)]
+            if all(values):result[q["id"]]=values
         elif q["type"] in ("matrix", "matrix_multiple"):
             if q["type"] == "matrix_multiple": rows={r["value"]:[scalar(v) for v in form.get("%s:%s"%(q["id"],r["value"]),[])] for r in q.get("rows",[])}; rows={k:v for k,v in rows.items() if v}
             else: rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
             if rows:result[q["id"]]=rows
-        elif q["type"]=="mc_multiple":
+        elif q["type"] in ("mc_multiple","mc_multiple_buttons","mc_multiple_image"):
             if q["id"] in form:result[q["id"]]=[scalar(v) for v in form[q["id"]]]
         elif q["id"] in form:result[q["id"]]=scalar(form[q["id"]][0])
     return result

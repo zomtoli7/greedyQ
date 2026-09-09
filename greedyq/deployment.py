@@ -1,6 +1,8 @@
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
 
 import json
+import hashlib
+import re
 from pathlib import Path
 
 
@@ -18,6 +20,19 @@ def preflight(study_dir):
         if vercel.get("framework") not in (None, "static"): issues.append({"code": "GQ030", "message": "Vercel must serve the static bundle without a framework runtime."})
     except (OSError, ValueError): issues.append({"code": "GQ030", "message": "vercel.json is missing or invalid."})
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
+    migration_paths = sorted((root / "supabase/migrations").glob("[0-9][0-9][0-9]_*.sql"))
+    numbers = [int(re.match(r"(\d{3})_", path.name).group(1)) for path in migration_paths]
+    if numbers != sorted(set(numbers)):
+        issues.append({"code": "GQ013", "message": "Supabase migration numbers must be unique and ordered."})
+    manifest_path = root / "supabase/migrations/manifest.json"
+    try:
+        manifest = json.loads(manifest_path.read_text())
+        recorded = {item["name"]: item["sha256"] for item in manifest.get("migrations", [])}
+        for path in migration_paths:
+            if recorded.get(path.name) != hashlib.sha256(path.read_bytes()).hexdigest():
+                issues.append({"code": "GQ013", "message": "Supabase migration checksum does not match: %s" % path.name})
+    except (OSError, ValueError, KeyError):
+        issues.append({"code": "GQ013", "message": "Supabase migration manifest is missing or invalid."})
     for rpc in REQUIRED_RPC:
         if rpc not in migrations: issues.append({"code": "GQ013", "message": "Supabase migration does not define %s." % rpc})
     for token in REQUIRED_DATA_SAFETY:

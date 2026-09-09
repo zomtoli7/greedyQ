@@ -12,14 +12,14 @@ greedyQ prepares and tests the survey application before any Vercel, Supabase, o
 - The same fixed browser JavaScript core parses, validates, compiles, and renders the supported QMD/YAML subset.
 - `index.html` automatically selects a desktop or mobile layout from the current device.
 - `preview.html` displays independent desktop and mobile participants together, blocks network writes, and uses synthetic browser storage.
-- Refresh resume, stable mock assignment, withdrawal/reset, required answers, numeric bounds, routing, and terminal outcomes are covered by automated tests.
+- Refresh resume, stable mock assignment, withdrawal/reset, required and structured answers, numeric bounds, routing, and terminal outcomes are covered by automated tests. A real Chrome E2E suite also checks 320px, 390px, 768px, and 1280px layouts, dashboard filters, and downloaded CSV structure.
 - The JavaScript validator and compiler are compared with the Python reference implementation on both golden studies and on deliberately invalid inputs.
 - A static Vercel bundle and offline deployment preflight are generated.
-- Canonical Supabase migrations define tables, RLS boundaries, capability-token RPC access, locked balanced assignment, consent-gated answer writes, duplicate Prolific identifier rejection, and transactional withdrawal deletion.
+- Three canonical Supabase migrations define tables, RLS boundaries, capability-token RPC access, locked balanced assignment, consent-gated answer writes, duplicate Prolific identifier rejection, transactional withdrawal deletion, and the researcher results boundary. An ordered checksum manifest detects missing or changed migration files before connection.
 - A browser-native `supabase-connection-test.html` verifies the connected project with synthetic `is_test` sessions and withdraws them afterward.
 - Prolific launch parameters and HTTPS completion URLs are validated in test code.
 - Preregistration Markdown, JSON, and a SHA-256 manifest can be generated as an explicitly unapproved local draft.
-- A native surveydown project and an honest compatibility report can be generated without claiming behavioral equivalence.
+- A native surveydown project and an honest compatibility report can be generated without claiming behavioral equivalence. Generated logic uses documented `sd_show_if()`, `sd_skip_if()`, and `sd_stop_if()` helpers; generated custom controls use `sd_question_custom()`. The output has been checked against the public Surveydown 1.3.0 API and R parser.
 
 ## What still requires an external account
 

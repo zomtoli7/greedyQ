@@ -261,13 +261,13 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/parser.py` | `0fa67b62667f99d8bab44b0cd8a3e03dd0c8160bf3b8a58f139ff6fc4fa26777` | `no` |
 | `greedyq/validator.py` | `f7927ea8bf2a477daa882af9268148e26eb6e156c93f4fea24ab32b2c3bf3b2a` | `no` |
 | `greedyq/compiler.py` | `ad280733d6e5d82dca7a76dd7248aa96cf732743cae6ca1273a5e72019dc373f` | `no` |
-| `greedyq/build.py` | `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e` | `no` |
-| `greedyq/runtime.py` | `55737e7399e401374bde367a2829b7a9b68f93ae9c1217ea380c6c9287b63474` | `no` |
+| `greedyq/build.py` | `07f3a7b89d13e13c2214bbe4eb468b36236a33baa7539858600564c1c3a62a33` | `no` |
+| `greedyq/runtime.py` | `a8f1910c617eace17d88a5ae8b3cbec1b46b611aa8df5a144cf4d1ad119fa110` | `no` |
 | `greedyq/server.py` | `9942f06cb2b9faa359608b36c71d7373138cc9baa7c5df7f906a776dd9b09746` | `no` |
 | `greedyq/prolific.py` | `2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe` | `no` |
 | `greedyq/preregistration.py` | `c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae` | `no` |
-| `greedyq/exporter.py` | `26569ff5176890fc9a22da752b46842d8ab88e81aee17e672225c5246cbfe01a` | `no` |
-| `greedyq/deployment.py` | `35fd87aef7b1ed8ab6f355ac3c30977d8f3f44d68c9c812a273ffc6b9bd930a5` | `no` |
+| `greedyq/exporter.py` | `ad80cfe3406608ed9b9ef61a4a355715069c66b9a1aca948ac1629d8cd5c885e` | `no` |
+| `greedyq/deployment.py` | `0f563b07702268cdec6d6ee260f0c3fbdd664e57f904f362946cfb22617829d8` | `no` |
 
 ### FILE: `docs/preview-ui-spec.md`
 
@@ -5555,12 +5555,13 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `f138a0d8395b7575127d07c97cdefb3e10c2d26a4c97aaf63124f6655678f91e`
+SHA-256: `07f3a7b89d13e13c2214bbe4eb468b36236a33baa7539858600564c1c3a62a33`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
 
 import json
+import hashlib
 import re
 from pathlib import Path
 
@@ -5610,6 +5611,12 @@ def build(study_dir, write=True):
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
         (migrations / "003_results_dashboard.sql").write_bytes((ROOT / "templates/supabase/003_results_dashboard.sql").read_bytes())
+        migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
+        migration_manifest = {
+            "schema_version": "0.2",
+            "migrations": [{"name": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()} for path in migration_files],
+        }
+        (migrations / "manifest.json").write_text(json.dumps(migration_manifest, indent=2) + "\n")
         api = study_dir / "api"; api.mkdir(exist_ok=True)
         (api / "results.js").write_bytes((ROOT / "templates/vercel/api/results.js").read_bytes())
     return report, model
@@ -5617,7 +5624,7 @@ def build(study_dir, write=True):
 
 ### FILE: `greedyq/runtime.py`
 
-SHA-256: `55737e7399e401374bde367a2829b7a9b68f93ae9c1217ea380c6c9287b63474`
+SHA-256: `a8f1910c617eace17d88a5ae8b3cbec1b46b611aa8df5a144cf4d1ad119fa110`
 
 ```python
 """Local respondent runtime with durable SQLite sessions."""
@@ -5686,6 +5693,8 @@ class Store:
                     db.rollback(); raise ValueError("Please answer: %s" % q["label"])
                 if value is not None and q.get("min") is not None and float(value)<q["min"]: db.rollback(); raise ValueError("%s must be at least %s."%(q["label"],q["min"]))
                 if value is not None and q.get("max") is not None and float(value)>q["max"]: db.rollback(); raise ValueError("%s must be at most %s."%(q["label"],q["max"]))
+                problem=structured_answer_problem(q,value)
+                if problem: db.rollback(); raise ValueError(problem)
             consent_q=consent.get("confirmation_question")
             accepted=session["lifecycle_state"] in ("consented","in_progress")
             if page==next((p["id"] for p in model["pages"] if any(q["id"]==consent_q for q in p.get("questions",[]))),None):
@@ -5734,6 +5743,34 @@ def next_for(page, answers, condition):
     return page.get("next")
 
 
+def structured_answer_problem(q, value):
+    if value is None:return None
+    if q.get("type")=="rank_order":
+        ranks=[rank for rank in value.values() if rank not in (None,"")]
+        expected={option["value"] for option in q.get("options",[])}
+        if q.get("required") and set(value)!=expected:return "Please rank every item in %s."%q["label"]
+        if any(not isinstance(rank,(int,float)) or rank%1 or rank<1 or rank>len(expected) for rank in ranks):return "%s contains an invalid rank."%q["label"]
+        if len(ranks)!=len(set(ranks)):return "%s must use each rank only once."%q["label"]
+    if q.get("type")=="constant_sum":
+        try: values=[float(item or 0) for item in value.values()]
+        except (TypeError,ValueError):return "%s must contain numbers only."%q["label"]
+        if any(item<0 for item in values):return "%s cannot contain negative values."%q["label"]
+        if sum(values)!=float(q.get("total",100)):return "%s must add up to %s."%(q["label"],q.get("total",100))
+    if q.get("type")=="side_by_side" and q.get("required"):
+        if any(row["value"] not in value.get(column["value"],{}) for column in q.get("columns",[]) for row in q.get("rows",[])):
+            return "Please complete every item in %s."%q["label"]
+    if q.get("type")=="pick_group_rank":
+        expected={option["value"] for option in q.get("options",[])}
+        if q.get("required") and set(value)!=expected:return "Please place every item in %s."%q["label"]
+        for group in q.get("groups",[]):
+            ranks=[item.get("rank") for item in value.values() if item.get("group")==group["value"] and item.get("rank") is not None]
+            if len(ranks)!=len(set(ranks)):return "%s must use each rank only once within a group."%q["label"]
+    if q.get("type")=="drill_down" and q.get("required"):
+        depth=max((len(str(option.get("label","")).split(q.get("path_separator"," > "))) for option in q.get("options",[])),default=0)
+        if not isinstance(value,list) or len(value)!=depth:return "Please complete every level in %s."%q["label"]
+    return None
+
+
 def parse_form(page, form):
     result={}
     for q in page.get("questions",[]):
@@ -5744,11 +5781,26 @@ def parse_form(page, form):
             result[q["id"]]={o["value"]:scalar(form.get("%s:%s"%(q["id"],o["value"]),[0])[0]) for o in q.get("options",[])}
         elif q["type"]=="side_by_side":
             result[q["id"]]={c["value"]:{r["value"]:scalar(form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0]) for r in q.get("rows",[]) if form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0] is not None} for c in q.get("columns",[])}
+        elif q["type"]=="pick_group_rank":
+            values={}
+            for option in q.get("options",[]):
+                group=form.get("%s:%s:group"%(q["id"],option["value"]),[None])[0]; rank=form.get("%s:%s:rank"%(q["id"],option["value"]),[None])[0]
+                if group:values[option["value"]]={"group":scalar(group),"rank":scalar(rank) if rank else None}
+            if values:result[q["id"]]=values
+        elif q["type"]=="drill_down":
+            if q["id"] in form:
+                selected=form[q["id"]][0]; match=next((o for o in q.get("options",[]) if str(o["value"])==selected),None)
+                result[q["id"]]=str(match["label"]).split(q.get("path_separator"," > ")) if match else selected
+        elif q["type"]=="timing":
+            if q["id"] in form:result[q["id"]]={"seconds_on_page":scalar(form[q["id"]][0])}
+        elif q["type"]=="daterange":
+            values=[form.get("%s:%s"%(q["id"],index),[""])[0] for index in (0,1)]
+            if all(values):result[q["id"]]=values
         elif q["type"] in ("matrix", "matrix_multiple"):
             if q["type"] == "matrix_multiple": rows={r["value"]:[scalar(v) for v in form.get("%s:%s"%(q["id"],r["value"]),[])] for r in q.get("rows",[])}; rows={k:v for k,v in rows.items() if v}
             else: rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
             if rows:result[q["id"]]=rows
-        elif q["type"]=="mc_multiple":
+        elif q["type"] in ("mc_multiple","mc_multiple_buttons","mc_multiple_image"):
             if q["id"] in form:result[q["id"]]=[scalar(v) for v in form[q["id"]]]
         elif q["id"] in form:result[q["id"]]=scalar(form[q["id"]][0])
     return result
@@ -5967,7 +6019,7 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `26569ff5176890fc9a22da752b46842d8ab88e81aee17e672225c5246cbfe01a`
+SHA-256: `ad80cfe3406608ed9b9ef61a4a355715069c66b9a1aca948ac1629d8cd5c885e`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
@@ -6031,6 +6083,65 @@ def _custom_call(question):
         f"  value = {_r('gq_' + _safe_id(qid) + '_value')}\n"
         ")"
     )
+
+
+def _condition_r(expression, derived_fields=frozenset()):
+    """Translate the deliberately small greedyQ condition language to safe R."""
+    expression = str(expression or "").strip()
+    parts = re.split(r"\s+(and|or)\s+", expression)
+    if len(parts) > 1:
+        rendered = [_condition_r(part, derived_fields) if part not in ("and", "or") else ("&" if part == "and" else "|") for part in parts]
+        return "(" + " ".join(rendered) + ")"
+    answered = re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)", expression)
+    if answered:
+        return ("!" if answered.group(1) else "") + f"sd_is_answered({_r(answered.group(2))})"
+    comparison = re.fullmatch(r"([a-z][a-z0-9_]*)\s*(==|!=|<=|>=|<|>)\s*(.+)", expression)
+    if not comparison:
+        raise ValueError(f"Unsupported export condition: {expression}")
+    field, operator, raw = comparison.groups()
+    raw = raw.strip()
+    if raw[:1] in ("'", '"') and raw[-1:] == raw[:1]:
+        value = _r(raw[1:-1])
+    elif re.fullmatch(r"-?\d+(?:\.\d+)?", raw):
+        value = raw
+    else:
+        raise ValueError(f"Unsupported export condition value: {raw}")
+    source = field if field in derived_fields else f"sd_value({_r(field)})"
+    return f"({source} {operator} {value})"
+
+
+def _workflow_bindings(config):
+    randomizations = config.get("randomization", []) or []
+    derived = {item.get("store", {}).get("condition_as") for item in randomizations}
+    derived.discard(None)
+    lines = []
+    for randomization in randomizations:
+        field = randomization.get("store", {}).get("condition_as")
+        conditions = list((randomization.get("conditions") or {}).keys())
+        if field and conditions:
+            lines.extend([
+                f"  {field} <- sample({_r(conditions)}, 1)",
+                f"  sd_store_value({field})",
+            ])
+    show_rules = config.get("logic", {}).get("show", []) or []
+    if show_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
+        lines.append("  sd_show_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    # Randomized page branches are represented by sd_show_if() above. Emitting
+    # the same derived-field branch as a global sd_skip_if() would make it true
+    # from the first page and could jump past all preceding pages.
+    skip_rules = [
+        rule for rule in sorted(config.get("logic", {}).get("skip", []) or [], key=lambda item: -item.get("priority", 0))
+        if not any(re.search(rf"\b{re.escape(field)}\b", str(rule.get("if", ""))) for field in derived)
+    ]
+    if skip_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
+        lines.append("  sd_skip_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    validation_rules = config.get("logic", {}).get("validate", []) or []
+    if validation_rules:
+        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
+        lines.append("  sd_stop_if(\n    " + ",\n    ".join(formulas) + "\n  )")
+    return "\n".join(lines)
 
 
 def _replace_question_block(text, question):
@@ -6139,7 +6250,7 @@ def generate(study_dir, parsed, config):
         if source_directory.is_dir():
             shutil.copytree(source_directory, output / directory, dirs_exist_ok=True)
 
-    bindings = "\n".join(_output_binding(question) for question in custom_questions)
+    bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
     features = [{"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."}]
@@ -6150,9 +6261,9 @@ def generate(study_dir, parsed, config):
             "note": "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
         })
     if config.get("logic"):
-        features.append({"id": "declarative_logic", "classification": "greedyq_only", "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."})
+        features.append({"id": "declarative_logic", "classification": "generated_unverified", "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."})
     if config.get("randomization"):
-        features.append({"id": "random_assignment", "classification": "greedyq_only", "note": "The base app.R does not claim equivalent persisted assignment."})
+        features.append({"id": "random_assignment", "classification": "generated_unverified", "note": "Assignment was translated to a stored native random draw; fixed-block balance and greedyQ persistence equivalence are not claimed."})
     if config.get("consent"):
         features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
     if any(q.get("orientation") == "vertical" for page in parsed.get("pages", []) for q in page.get("questions", [])):
@@ -6173,12 +6284,14 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `35fd87aef7b1ed8ab6f355ac3c30977d8f3f44d68c9c812a273ffc6b9bd930a5`
+SHA-256: `0f563b07702268cdec6d6ee260f0c3fbdd664e57f904f362946cfb22617829d8`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
 
 import json
+import hashlib
+import re
 from pathlib import Path
 
 
@@ -6196,6 +6309,19 @@ def preflight(study_dir):
         if vercel.get("framework") not in (None, "static"): issues.append({"code": "GQ030", "message": "Vercel must serve the static bundle without a framework runtime."})
     except (OSError, ValueError): issues.append({"code": "GQ030", "message": "vercel.json is missing or invalid."})
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
+    migration_paths = sorted((root / "supabase/migrations").glob("[0-9][0-9][0-9]_*.sql"))
+    numbers = [int(re.match(r"(\d{3})_", path.name).group(1)) for path in migration_paths]
+    if numbers != sorted(set(numbers)):
+        issues.append({"code": "GQ013", "message": "Supabase migration numbers must be unique and ordered."})
+    manifest_path = root / "supabase/migrations/manifest.json"
+    try:
+        manifest = json.loads(manifest_path.read_text())
+        recorded = {item["name"]: item["sha256"] for item in manifest.get("migrations", [])}
+        for path in migration_paths:
+            if recorded.get(path.name) != hashlib.sha256(path.read_bytes()).hexdigest():
+                issues.append({"code": "GQ013", "message": "Supabase migration checksum does not match: %s" % path.name})
+    except (OSError, ValueError, KeyError):
+        issues.append({"code": "GQ013", "message": "Supabase migration manifest is missing or invalid."})
     for rpc in REQUIRED_RPC:
         if rpc not in migrations: issues.append({"code": "GQ013", "message": "Supabase migration does not define %s." % rpc})
     for token in REQUIRED_DATA_SAFETY:

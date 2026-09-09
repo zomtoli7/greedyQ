@@ -6,8 +6,8 @@
   "summary": {
     "directly_portable": 1,
     "generated_custom": 1,
-    "generated_unverified": 0,
-    "greedyq_only": 1,
+    "generated_unverified": 1,
+    "greedyq_only": 0,
     "unsupported": 0
   },
   "features": [
@@ -35,13 +35,13 @@
     },
     {
       "id": "declarative_logic",
-      "classification": "greedyq_only",
-      "note": "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."
+      "classification": "generated_unverified",
+      "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
     }
   ],
   "material_mismatches": [
     "greedyQ-only controls were translated to sd_question_custom() plus generated Shiny bindings. Review their behavior before fielding.",
-    "Declarative greedyQ display and route logic is not yet translated to native Shiny behavior."
+    "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
   ],
   "equivalence_claimed": false
 }

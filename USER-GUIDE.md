@@ -156,6 +156,8 @@ I personally tested the desktop and mobile preview and approve this questionnair
 
 After preview approval, greedyQ can prepare a preregistration draft, a Vercel-ready survey, Supabase setup files, Prolific settings, and a native surveydown export. Account connection, submission, deployment, and recruitment each require separate approval and external verification. Continue with [External Connection Readiness](./docs/external-connection-readiness.md).
 
+The agent must complete the [local operations and recovery checks](./docs/operations-runbook.md) before requesting those connections.
+
 ## Cite your study software
 
 If the study appears in a publication, preprint, thesis, or report, cite both greedyQ and surveydown—even if the survey ran only on greedyQ's independent browser runtime. Use the exact release identifier stored as `greedyq.version` in `survey.qmd`. See [CITATION.md](./CITATION.md) for copy-ready references and accurate methods wording.

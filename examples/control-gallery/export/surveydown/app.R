@@ -7,6 +7,9 @@ db <- sd_db_connect()
 ui <- sd_ui()
 server <- function(input, output, session) {
   sd_server(db = db)
+  sd_show_if(
+    (sd_value("conditional_choice") == "yes") ~ "conditional_text"
+  )
   output$gq_audio_example_output <- renderUI({ tags$audio(src = "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3", controls = NA, style = 'max-width:100%;') })
   gq_audio_example_value <- reactive(NULL)
   output$gq_video_example_output <- renderUI({ tags$video(src = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", controls = NA, style = 'max-width:100%;') })

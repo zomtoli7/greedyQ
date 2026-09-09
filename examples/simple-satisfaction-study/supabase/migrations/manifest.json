@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.2",
+  "migrations": [
+    {
+      "name": "001_initial.sql",
+      "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62"
+    },
+    {
+      "name": "002_browser_rpc.sql",
+      "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514"
+    },
+    {
+      "name": "003_results_dashboard.sql",
+      "sha256": "db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51"
+    }
+  ]
+}

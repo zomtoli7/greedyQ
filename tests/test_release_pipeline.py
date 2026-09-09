@@ -66,6 +66,11 @@ class ReleasePipelineTests(unittest.TestCase):
             if shutil.which("Rscript"):
                 subprocess.run(["Rscript", "-e", f"parse(file={json.dumps(str(output / 'app.R'))})"], check=True, capture_output=True, text=True)
             self.assertEqual("generated_unverified", report["generator_status"])
+            app = (output / "app.R").read_text()
+            for token in ("sd_show_if(", "sd_skip_if(", "sd_stop_if(", 'sd_value("gender")', "sd_is_answered", "assignment_condition <- sample", "sd_store_value(assignment_condition)"):
+                self.assertIn(token, app)
+            skip_section = app.split("sd_skip_if(", 1)[1].split("sd_stop_if(", 1)[0]
+            self.assertNotIn("assignment_condition", skip_section)
 
     def test_exporter_translates_greedyq_controls_to_surveydown_custom_controls(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -147,6 +152,18 @@ class ReleasePipelineTests(unittest.TestCase):
             report = preflight(study)
             self.assertEqual("failed", report["status"])
             self.assertTrue(any(issue["code"] == "GQ013" for issue in report["issues"]))
+
+    def test_build_records_and_preflight_verifies_migration_checksums(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            study = self.copy_study(tmp)
+            build(study)
+            manifest = json.loads((study / "supabase/migrations/manifest.json").read_text())
+            self.assertEqual(["001_initial.sql", "002_browser_rpc.sql", "003_results_dashboard.sql"], [item["name"] for item in manifest["migrations"]])
+            self.assertEqual("passed", preflight(study)["status"])
+            migration = study / "supabase/migrations/003_results_dashboard.sql"
+            migration.write_text(migration.read_text() + "\n-- changed after build\n")
+            report = preflight(study)
+            self.assertTrue(any("checksum" in item["message"] for item in report["issues"]))
 
     def test_browser_connection_tester_uses_only_synthetic_public_configuration(self):
         tester = (ROOT / "templates/supabase/connection-test.html").read_text().lower()

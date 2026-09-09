@@ -25,6 +25,10 @@
 - [x] greedyQ 전용 control의 Surveydown `sd_question_custom()` 생성.
 - [x] 개발 환경에서 생성된 `app.R`의 R 문법 검사.
 - [x] offline deployment preflight 및 결정론적 unit/regression suite.
+- [x] 320px, 390px, 768px, 1280px 실제 browser E2E. 조건부 표시, 구조화 control, 재접속, 종료 navigation, dashboard filter, CSV download를 포함합니다.
+- [x] 순서가 기록된 Supabase migration manifest, checksum 검증, 변조 탐지 및 복구 안내.
+- [x] 연구자 직접 작성·AI-assisted 신규 연구, 수정, fork, custom control, preview 승인, 외부 작업의 정직한 보고를 다루는 AI workflow conformance scenario.
+- [x] 공개 Surveydown 1.3.0 API에 대한 생성 project 대조 및 생성된 app·QMD R block의 R 문법 검사.
 - [ ] 실행 중인 Shiny app에서 생성된 모든 custom control의 native Surveydown 동작 검토.
 - [ ] 새 계정 기준 Vercel/Supabase one-click provisioning test. 사용자 승인 OAuth 연결이 필요합니다.
 - [ ] GPT, Claude, Gemini 및 다른 capable host에서 생성·수정·fork 평가.
@@ -33,7 +37,7 @@
 ## 다음 제품 작업
 
 1. 연구자가 Vercel 로그인 후 설문 URL과 결과 URL만 받도록 external OAuth provisioning 경험을 완성합니다.
-2. production observability, migration versioning/rollback 안내, retention control, disaster-recovery exercise를 추가합니다.
+2. production observability, 연구자가 설정하는 retention control, live disaster-recovery exercise를 추가합니다. offline migration versioning, 무결성 검사, 복구 안내는 완료되었습니다.
 3. weighted/stratified assignment, factorial study, reproducible seed, CBC/conjoint, external design table을 추가합니다.
 4. 다국어 authoring과 respondent presentation을 추가합니다.
 5. 명시적 최종 제출 승인 관문을 유지하면서 live OSF/preregistration adapter를 추가합니다.
