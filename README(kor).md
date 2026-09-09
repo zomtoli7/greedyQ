@@ -3,8 +3,8 @@
 [English](./README.md)
 
 - **현재 specification:** `0.2`
-- **현재 release:** `0.2_2026-09-09_825f6fb`
-- **Release source commit:** [`3aefdd0`](https://github.com/zomtoli7/greedyQ/commit/825f6fb) · [업데이트 히스토리](./updates/README(kor).md)
+- **현재 release:** `0.2_2026-09-09_40c5053`
+- **Release source commit:** [`3aefdd0`](https://github.com/zomtoli7/greedyQ/commit/40c5053) · [업데이트 히스토리](./updates/README(kor).md)
 
 [설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 

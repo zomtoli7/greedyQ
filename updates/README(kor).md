@@ -8,6 +8,7 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-09-09_40c5053`](./0.2/0.2_2026-09-09_40c5053(kor).md) — 필터링된 CSV에서도 모든 설문 열 유지
 - [`0.2_2026-09-09_825f6fb`](./0.2/0.2_2026-09-09_825f6fb(kor).md) — 보호된 결과 대시보드와 Vercel 두 링크 배포
 - [`0.2_2026-09-09_3aefdd0`](./0.2/0.2_2026-09-09_3aefdd0(kor).md) — account access 전 안전한 Supabase connection handoff 준비
 - [`0.2_2026-09-09_ee423e6`](./0.2/0.2_2026-09-09_ee423e6(kor).md) — release provenance와 필수 문항 작성 방식 선택

@@ -2,7 +2,7 @@
 title: "greedyQ User Experience Survey"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-09-09_825f6fb"
+  version: "0.2_2026-09-09_40c5053"
   organization: "greedyQ Research Team"
 theme-settings:
   theme: default

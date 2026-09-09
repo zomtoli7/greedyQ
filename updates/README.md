@@ -8,6 +8,7 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-09-09_40c5053`](./0.2/0.2_2026-09-09_40c5053.md) — complete all survey columns in filtered CSV exports
 - [`0.2_2026-09-09_825f6fb`](./0.2/0.2_2026-09-09_825f6fb.md) — protected results dashboard and two-link Vercel deployment
 - [`0.2_2026-09-09_3aefdd0`](./0.2/0.2_2026-09-09_3aefdd0.md) — secure Supabase connection handoff prepared before account access
 - [`0.2_2026-09-09_ee423e6`](./0.2/0.2_2026-09-09_ee423e6.md) — release provenance and required question-authoring choice
