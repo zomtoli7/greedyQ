@@ -240,9 +240,9 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
 | `web/greedyq-core.js` | `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0` | `no` |
-| `web/greedyq-runtime.css` | `84ea4746b5165f7b8b6b66c19493e886798bafcf877750348e9ceadd7f55f1ce` | `no` |
-| `templates/browser/respondent.html` | `6d58f8ab4adc073ea903bcbb4c36fc85cecafbcfe6db94097998d5acdbc05827` | `no` |
-| `templates/browser/preview.html` | `7e3ba40a1c66ef77f653e4e2affe04f99c387f4c73f18966e0ab3488dec0dcf7` | `no` |
+| `web/greedyq-runtime.css` | `fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8` | `no` |
+| `templates/browser/respondent.html` | `3b697733c759c065c8d24d869bdfb8e97cccc4e7b0cdb2c18e4d9c5c3c4ab9ef` | `no` |
+| `templates/browser/preview.html` | `291c06de10cbd19642c5265ee1480fbe1fc55431fdfc7bb8ac35bbcc6355a18b` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -2649,7 +2649,7 @@ SHA-256: `d9bdce13586a053297d5ebd6cd4fc89ea2e0e967c62db90f89c2f95ccdcf9fd0`
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `84ea4746b5165f7b8b6b66c19493e886798bafcf877750348e9ceadd7f55f1ce`
+SHA-256: `fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8`
 
 ```css
 :root {
@@ -2970,10 +2970,10 @@ SHA-256: `84ea4746b5165f7b8b6b66c19493e886798bafcf877750348e9ceadd7f55f1ce`
 }
 .gq-pgr-item { grid-template-columns: minmax(0, 1fr) minmax(130px, 1fr) 100px; }
 .gq-pgr-item label { color: var(--gq-muted); font-size: 13px; }
-.gq-nps-scale { display: grid; grid-template-columns: repeat(11, minmax(38px, 1fr)); gap: 5px; }
+.gq-nps-scale { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 5px; min-width: 0; }
 .gq-nps-scale label { display: grid; place-items: center; }
 .gq-nps-scale input { position: absolute; opacity: 0; }
-.gq-nps-scale span { display: grid; place-items: center; width: 100%; min-height: 42px; border: 1px solid var(--gq-line); border-radius: 8px; }
+.gq-nps-scale span { display: grid; place-items: center; width: 100%; min-width: 0; min-height: 42px; box-sizing: border-box; border: 1px solid var(--gq-line); border-radius: 8px; }
 .gq-nps-scale input:checked + span { background: var(--gq-brand); border-color: var(--gq-brand); color: #fff; }
 .gq-nps-anchors { display: flex; justify-content: space-between; gap: 16px; margin-top: 8px; color: var(--gq-muted); font-size: 13px; }
 .gq-constant-sum output { justify-self: end; font-weight: 800; }
@@ -2983,7 +2983,8 @@ SHA-256: `84ea4746b5165f7b8b6b66c19493e886798bafcf877750348e9ceadd7f55f1ce`
 .gq-drill-down label { display: grid; gap: 5px; color: var(--gq-muted); font-size: 13px; }
 .gq-custom { border-left: 4px solid var(--gq-brand); padding-left: 12px; }
 @media (max-width: 600px) {
-  .gq-nps-scale { grid-template-columns: repeat(6, 1fr); }
+  .gq-nps-scale { grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 2px; }
+  .gq-nps-scale span { min-height: 34px; font-size: 12px; }
   .gq-pgr-item { grid-template-columns: 1fr; }
   .gq-rank-order > label,
   .gq-constant-sum > label { grid-template-columns: minmax(0, 1fr) 90px; }
@@ -3093,7 +3094,7 @@ SHA-256: `84ea4746b5165f7b8b6b66c19493e886798bafcf877750348e9ceadd7f55f1ce`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `6d58f8ab4adc073ea903bcbb4c36fc85cecafbcfe6db94097998d5acdbc05827`
+SHA-256: `3b697733c759c065c8d24d869bdfb8e97cccc4e7b0cdb2c18e4d9c5c3c4ab9ef`
 
 ```html
 <!doctype html>
@@ -3121,7 +3122,7 @@ SHA-256: `6d58f8ab4adc073ea903bcbb4c36fc85cecafbcfe6db94097998d5acdbc05827`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_9d9ffe9",
+        "greedyq_version": "0.2_2026-09-09_236d2a3",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -3208,7 +3209,7 @@ SHA-256: `6d58f8ab4adc073ea903bcbb4c36fc85cecafbcfe6db94097998d5acdbc05827`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `7e3ba40a1c66ef77f653e4e2affe04f99c387f4c73f18966e0ab3488dec0dcf7`
+SHA-256: `291c06de10cbd19642c5265ee1480fbe1fc55431fdfc7bb8ac35bbcc6355a18b`
 
 ```html
 <!doctype html>
@@ -3449,7 +3450,7 @@ SHA-256: `7e3ba40a1c66ef77f653e4e2affe04f99c387f4c73f18966e0ab3488dec0dcf7`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_9d9ffe9",
+        "greedyq_version": "0.2_2026-09-09_236d2a3",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],

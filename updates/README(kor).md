@@ -8,6 +8,7 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-09-09_236d2a3`](./0.2/0.2_2026-09-09_236d2a3(kor).md) — NPS 척도를 모바일 폭에 맞춤
 - [`0.2_2026-09-09_9d9ffe9`](./0.2/0.2_2026-09-09_9d9ffe9(kor).md) — advanced control과 confirmation-first custom control
 - [`0.2_2026-09-09_2f20a8c`](./0.2/0.2_2026-09-09_2f20a8c(kor).md) — responsive matrix, media stimulus, 조건부 문항, navigation policy
 - [`0.2_2026-09-09_e770a9c`](./0.2/0.2_2026-09-09_e770a9c(kor).md) — 학술 사용 시 greedyQ와 surveydown 공동 인용 안내

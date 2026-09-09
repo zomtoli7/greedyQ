@@ -8,6 +8,7 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-09-09_236d2a3`](./0.2/0.2_2026-09-09_236d2a3.md) — fit the NPS scale to mobile width
 - [`0.2_2026-09-09_9d9ffe9`](./0.2/0.2_2026-09-09_9d9ffe9.md) — advanced controls and confirmation-first custom controls
 - [`0.2_2026-09-09_2f20a8c`](./0.2/0.2_2026-09-09_2f20a8c.md) — responsive matrices, media stimuli, conditional fields, and navigation policies
 - [`0.2_2026-09-09_e770a9c`](./0.2/0.2_2026-09-09_e770a9c.md) — require joint citation of greedyQ and surveydown for scholarly use

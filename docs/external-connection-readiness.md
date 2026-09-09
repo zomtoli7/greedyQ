@@ -2,7 +2,7 @@
 
 [한국어](./external-connection-readiness(kor).md)
 
-**Release:** `0.2_2026-09-09_9d9ffe9`
+**Release:** `0.2_2026-09-09_236d2a3`
 **Status:** locally verified; external accounts not connected
 
 greedyQ prepares and tests the survey application before any Vercel, Supabase, or Prolific account is connected. This boundary keeps ordinary questionnaire review local and makes the final external step a configuration and verification task rather than a new implementation task.

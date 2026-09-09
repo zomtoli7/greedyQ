@@ -10,7 +10,7 @@
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "df150826e8dc90123a7c5ea9d95f565df0d4656df1ca9445a87458dabb3587cc",
+      "sha256": "aacba26fd27422510257d6c0cc9a39bb0a6cb0280e3d17632d803570a0cc7014",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_research_question",
@@ -73,7 +73,7 @@
     {
       "path": "preview-model.json",
       "kind": "derived",
-      "sha256": "9e4f0b912b97f6887c338724388733644333b0a298b391fb2c80199522f49bae",
+      "sha256": "79ec9a4e0e990f27d4a07e056b899b25ea9fa00b7fdbbdb518b66377f76d2914",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "bba813012107ffb4c38acdac9a13cd9fb9730efddd986e32e8f19d1e58024e0d",
+      "sha256": "ee63474f6489547d3911d1300f027d2c078389ae6221167ef30f295343207bb1",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "61a9b33a7dcf4d32d69cecd196de7fbc17d80622723a0486c0188a36c4e7c748",
+      "sha256": "64c7813d42c84a657e0a1efe6cf57272da033582eb6be8164eb53ff6a8902864",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -136,7 +136,7 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "6b9258ef33ab911de7f34ea9c7dc738d004bb103e6582e0492a9b70c6bb7b1dc",
+      "sha256": "2a8b4f70a77b733ec200f24a4400ba83decd170ec5683bc30dea0ee60872f9b1",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -154,7 +154,7 @@
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "f6fc274299df89f01ad4f4398aa91505d266f343d4371fa34733469c22f37883",
+      "sha256": "02d8c9e44ea90da53fbe6619a816113c5582fd28cfb06a8d3b55f067ba24947a",
       "status": "validated",
       "based_on_decision_ids": [
 
@@ -226,7 +226,7 @@
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "e81fefb6f8d028216f6ebfd15c47ffe01f2e14cf0fe20899134f7342df250fea",
+      "sha256": "88a9c2322fbc44ea222099d83f952546a2a98d43180232439b820b467f482b00",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
