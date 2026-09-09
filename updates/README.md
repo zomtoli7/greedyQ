@@ -8,4 +8,5 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-09-09_3aefdd0`](./0.2/0.2_2026-09-09_3aefdd0.md) — secure Supabase connection handoff prepared before account access
 - [`0.2_2026-09-09_ee423e6`](./0.2/0.2_2026-09-09_ee423e6.md) — release provenance and required question-authoring choice

@@ -3,8 +3,8 @@
 [한국어](./README(kor).md)
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-09-09_ee423e6`
-- **Release source commit:** [`ee423e6`](https://github.com/zomtoli7/greedyQ/commit/ee423e6) · [Update history](./updates/README.md)
+- **Current release:** `0.2_2026-09-09_3aefdd0`
+- **Release source commit:** [`3aefdd0`](https://github.com/zomtoli7/greedyQ/commit/3aefdd0) · [Update history](./updates/README.md)
 
 [Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Connect Supabase](./SUPABASE-SETUP.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 

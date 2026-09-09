@@ -241,8 +241,8 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
 | `web/greedyq-core.js` | `9b5bea14a08d2b6ef859f04981887e44c2d230d9cf6f1e766d9444028687de20` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb` | `no` |
-| `templates/browser/preview.html` | `8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1` | `no` |
+| `templates/browser/respondent.html` | `153ceb96b2ab9e2e7f427305404b53160668570a0fb3df8f58c65405c56e7c53` | `no` |
+| `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `16854bd96a1ee26f8eb1659f221e960595bad7a2ece1c0b299ef39a372a112c3` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
@@ -2685,7 +2685,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb`
+SHA-256: `153ceb96b2ab9e2e7f427305404b53160668570a0fb3df8f58c65405c56e7c53`
 
 ```html
 <!doctype html>
@@ -2713,7 +2713,7 @@ SHA-256: `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_ee423e6",
+        "greedyq_version": "0.2_2026-09-09_3aefdd0",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -2799,7 +2799,7 @@ SHA-256: `dfa25f5cfce96db56c66dfd0a317f06ae2b6086e9ea8f8417163915feb35ebcb`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1`
+SHA-256: `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad`
 
 ```html
 <!doctype html>
@@ -3026,7 +3026,7 @@ SHA-256: `8ba37be3736c90a6374ce031dea42e916b406bc15512be4a1bd926b2a14a6dd1`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-09_ee423e6",
+        "greedyq_version": "0.2_2026-09-09_3aefdd0",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],

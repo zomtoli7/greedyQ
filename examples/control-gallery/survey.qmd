@@ -2,7 +2,7 @@
 title: "greedyQ Control Gallery"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-09-09_ee423e6"
+  version: "0.2_2026-09-09_3aefdd0"
   organization: "greedyQ"
 survey-settings:
   start-page: controls
