@@ -239,9 +239,9 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `docs/preview-ui-spec.md` | `163eb574e0c74089367f52540967e8142e9058173cb951048904dc4adb1f88aa` | `no` |
-| `web/greedyq-core.js` | `aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132` | `no` |
+| `web/greedyq-core.js` | `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
-| `templates/browser/respondent.html` | `2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac` | `no` |
+| `templates/browser/respondent.html` | `5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9` | `no` |
 | `templates/browser/preview.html` | `7a7a7b4cd914b8ab27a69299c69d8032439ea65032ecd8abcfac5fe0a7bcabad` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323` | `no` |
@@ -415,7 +415,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132`
+SHA-256: `b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -2307,7 +2307,16 @@ SHA-256: `aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132`
       inspect: memory.inspect,
       save: (sid, state) => {
         memory.save(sid, state);
-        remote.save(sid, state).catch((error) => onError?.(error));
+        const persistedState = {
+          ...state,
+          lifecycle:
+            state.lifecycle === "active"
+              ? state.consent_accepted
+                ? "in_progress"
+                : "created"
+              : state.lifecycle,
+        };
+        remote.save(sid, persistedState).catch((error) => onError?.(error));
       },
       clear: (sid) => {
         memory.clear(sid);
@@ -2695,7 +2704,7 @@ SHA-256: `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac`
+SHA-256: `5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9`
 
 ```html
 <!doctype html>
@@ -2790,10 +2799,11 @@ SHA-256: `2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac`
             sessionId,
             externalIdentifiers,
             onError: (error) => {
-              root.insertAdjacentHTML(
-                "afterbegin",
-                '<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>',
-              );
+              if (!root.querySelector("[data-save-error]"))
+                root.insertAdjacentHTML(
+                  "afterbegin",
+                  '<p class="gq-error" data-save-error>Your response could not be saved. Please check your connection before continuing.</p>',
+                );
               console.error(error);
             },
           });

@@ -1887,7 +1887,16 @@
       inspect: memory.inspect,
       save: (sid, state) => {
         memory.save(sid, state);
-        remote.save(sid, state).catch((error) => onError?.(error));
+        const persistedState = {
+          ...state,
+          lifecycle:
+            state.lifecycle === "active"
+              ? state.consent_accepted
+                ? "in_progress"
+                : "created"
+              : state.lifecycle,
+        };
+        remote.save(sid, persistedState).catch((error) => onError?.(error));
       },
       clear: (sid) => {
         memory.clear(sid);

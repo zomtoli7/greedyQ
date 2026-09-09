@@ -66,10 +66,11 @@
             sessionId,
             externalIdentifiers,
             onError: (error) => {
-              root.insertAdjacentHTML(
-                "afterbegin",
-                '<p class="gq-error">Your response could not be saved. Please check your connection before continuing.</p>',
-              );
+              if (!root.querySelector("[data-save-error]"))
+                root.insertAdjacentHTML(
+                  "afterbegin",
+                  '<p class="gq-error" data-save-error>Your response could not be saved. Please check your connection before continuing.</p>',
+                );
               console.error(error);
             },
           });

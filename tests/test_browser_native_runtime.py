@@ -147,6 +147,8 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
             self.assertIn(token, core)
         self.assertIn('typeof loaded.state.page === "string"', core)
         self.assertIn('typeof loaded?.page === "string"', core)
+        self.assertIn('state.lifecycle === "active"', core)
+        self.assertIn('state.consent_accepted', core)
         result = self.node('const values=new Map();global.localStorage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};global.crypto=require("crypto").webcrypto;const gq=require("./web/greedyq-core.js");console.log(JSON.stringify({id:gq.stableSessionId("study","not-a-uuid")}));')
         self.assertRegex(result["id"], r"^[0-9a-f-]{36}$")
 
@@ -154,6 +156,8 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         core = (ROOT / "web/greedyq-core.js").read_text()
         css = (ROOT / "web/greedyq-runtime.css").read_text()
         html = (ROOT / "templates/browser/respondent.html").read_text()
+        self.assertIn("data-save-error", html)
+        self.assertIn('root.querySelector("[data-save-error]")', html)
         for token in ('<html lang="en">', 'name="viewport"'):
             self.assertIn(token, html)
         for token in ("<fieldset", "<legend", 'role="alert"', "aria-live"):

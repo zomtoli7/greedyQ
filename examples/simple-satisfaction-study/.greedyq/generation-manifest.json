@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "5b4413ff44970d50768958aa98b3189fa32ca588624f248aa5ec1ff5946d9a7b",
+      "sha256": "2ad73b3835c0025e216f5851b457f98d5727f04ac4b95be7659372b688175236",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -169,14 +169,14 @@
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "2385a687bd964872029d7069cc6105c9420cef6a16701d1ce8a36b7b970880ba",
+      "sha256": "de706d3cbf868cf5168ddae0bda8e4ef81eb37b6dee9b6a1609c839830dee545",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132",
+      "sha256": "b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31",
       "status": "validated",
       "based_on_decision_ids": []
     },

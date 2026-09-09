@@ -84,7 +84,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "aa9251f4e323ca74645e6c40beeb2de2bb632242b86d293df9a4670438183132"
+          "sha256": "b92ce1236e3b3448c7d76253f7dc9f764a28d22c19cf05d799eb83aea60d2b31"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -92,7 +92,7 @@
         },
         {
           "path": "templates/browser/respondent.html",
-          "sha256": "2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac"
+          "sha256": "5cd48e2967d6b0673ebc26e245802e10733ed4e7613260a5064f83515619b9e9"
         },
         {
           "path": "templates/browser/preview.html",
