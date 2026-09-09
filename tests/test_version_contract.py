@@ -13,7 +13,7 @@ LEGACY_TOKEN = "0." + "1"
 class VersionContractTests(unittest.TestCase):
     def test_current_surveys_carry_a_release_identifier(self):
         pattern = re.compile(r'^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$')
-        readme_match = re.search(r'^\*\*Current release:\*\* `([^`]+)`', (ROOT / "README.md").read_text(), re.MULTILINE)
+        readme_match = re.search(r'^- \*\*Current release:\*\* `([^`]+)`', (ROOT / "README.md").read_text(), re.MULTILINE)
         self.assertIsNotNone(readme_match)
         current_release = readme_match.group(1)
         self.assertRegex(current_release, pattern)

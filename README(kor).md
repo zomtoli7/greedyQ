@@ -2,9 +2,9 @@
 
 [English](./README.md)
 
-**현재 specification:** `0.2`  
-**현재 release:** `0.2_2026-09-09_ee423e6`  
-**Release source commit:** [`ee423e6`](https://github.com/zomtoli7/greedyQ/commit/ee423e6) · [업데이트 히스토리](./updates/README(kor).md)
+- **현재 specification:** `0.2`
+- **현재 release:** `0.2_2026-09-09_ee423e6`
+- **Release source commit:** [`ee423e6`](https://github.com/zomtoli7/greedyQ/commit/ee423e6) · [업데이트 히스토리](./updates/README(kor).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
