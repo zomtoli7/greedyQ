@@ -8,6 +8,7 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-09-09_fcb3c86`](./0.2/0.2_2026-09-09_fcb3c86(kor).md) — export, 구조화 결과, 무결성 검사 안정화
 - [`0.2_2026-09-09_236d2a3`](./0.2/0.2_2026-09-09_236d2a3(kor).md) — NPS 척도를 모바일 폭에 맞춤
 - [`0.2_2026-09-09_9d9ffe9`](./0.2/0.2_2026-09-09_9d9ffe9(kor).md) — advanced control과 confirmation-first custom control
 - [`0.2_2026-09-09_2f20a8c`](./0.2/0.2_2026-09-09_2f20a8c(kor).md) — responsive matrix, media stimulus, 조건부 문항, navigation policy
