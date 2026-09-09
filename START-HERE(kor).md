@@ -35,4 +35,6 @@ greedyQ는 online academic research를 위한 agent-executable application speci
 
 한 번에 하나의 핵심 질문만 합니다. 일관된 설문 초안이 생기면 구현 보고서가 아니라 참여자용 interactive preview를 보여줍니다.
 
+연구자가 논문, preregistration, repository 또는 공유 자료를 준비하면 `CITATION(kor).md`로 안내합니다. greedyQ 논문이 나오기 전까지 독립적인 greedyQ browser runtime만 사용한 연구를 포함하여 모든 greedyQ 학술 사용은 version이 명시된 greedyQ GitHub 저장소와 surveydown PLOS ONE 논문을 함께 인용해야 합니다.
+
 Repository tool을 사용할 수 있으면 `preview-model.json`을 직접 작성하지 않습니다. `python3 -m greedyq build PATH_TO_STUDY`를 실행하고, 연구 의도를 바꾸지 않는 범위에서 모든 blocking message를 고친 다음 생성된 `preview.html`을 엽니다. 로컬 브라우저를 열 수 있으면 `python3 -m greedyq preview PATH_TO_STUDY`를 실행합니다. 연구자에게는 검토해야 할 내용만 설명하고, 요청받지 않는 한 parser와 validation 세부사항을 일반 대화에 노출하지 않습니다.

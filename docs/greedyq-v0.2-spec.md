@@ -269,3 +269,5 @@ Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom 
 ## 18. Versioning
 
 Breaking grammar or semantic changes require a new specification version. A fielded study MUST pin the greedyQ specification, validator, runtime, schema migration, consent document, preregistration package, guide, and export-generator versions. Generated artifacts MUST include provenance sufficient to reproduce their source commit and configuration.
+
+Until a peer-reviewed greedyQ paper is available, publication-facing artifacts MUST remind researchers to cite both (1) the greedyQ GitHub repository with the exact release identifier recorded in `greedyq.version` and (2) the surveydown PLOS ONE paper. This dual-citation policy applies even when the study uses only the independent greedyQ runtime. Methods text MUST distinguish building on surveydown's prior survey-as-code conventions from actually executing the surveydown package.

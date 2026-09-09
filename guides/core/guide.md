@@ -29,6 +29,7 @@ This guide is part of the greedyQ agent-executable application specification and
 - Hide Previous when `show_previous = FALSE` or on a terminal page, return a changed survey pane to its top after navigation, keep stacked mobile preview panes at no more than 390px, and avoid empty mobile scroll space.
 - Select from the canonical 16 surveydown controls rather than inventing widgets: `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, and `matrix_multiple`. Use the fixed parser and renderer; do not recreate control code per study.
 - Copy the exact current release identifier from the repository README into `greedyq.version` in every newly created or explicitly upgraded `survey.qmd`. Never invent, shorten, or silently update it.
+- When preparing publication, preregistration, repository, or sharing materials, include a citation reminder: cite the greedyQ GitHub repository with the exact `greedyq.version` release identifier and also cite the surveydown PLOS ONE paper. Apply this policy even when only the independent greedyQ runtime was used, while describing truthfully whether surveydown itself was executed.
 
 ## Common research checkpoints
 

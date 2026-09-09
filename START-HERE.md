@@ -35,4 +35,6 @@ For modification, summarize the existing study in plain language and ask what th
 
 Ask one focused question at a time. Show the interactive participant preview—not an implementation report—as soon as a coherent questionnaire exists.
 
+When the researcher prepares publication, preregistration, repository, or sharing materials, direct them to `CITATION.md`. Until a greedyQ paper exists, every scholarly use of greedyQ should cite both the versioned greedyQ GitHub repository and the surveydown PLOS ONE paper, including studies run only with the independent greedyQ browser runtime.
+
 When repository tools are available, do not hand-author `preview-model.json`. Run `python3 -m greedyq build PATH_TO_STUDY`, correct every blocking message without changing research intent, and open the generated `preview.html`. Run `python3 -m greedyq preview PATH_TO_STUDY` when a local browser can be opened. Tell the researcher only what they need to review; keep parser and validation details out of the ordinary conversation unless they ask.

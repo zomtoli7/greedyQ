@@ -122,6 +122,10 @@ Expert users may still author `survey.qmd` and `greedyq.yml` directly. Researche
 
 greedyQ is an independent implementation of surveydown-style `survey.qmd` syntax. Its v0.2 browser runtime implements all 16 question controls in the current official question-types documentation; other syntax remains explicitly classified by compatibility level. It does not incorporate surveydown source code and is not affiliated with or endorsed by the surveydown project or its maintainers. Compatibility does not limit greedyQ-native features: each feature is classified as directly portable, generated into `app.R`, or greedyQ-only with an explicit export diagnostic. See [NOTICE.md](./NOTICE.md) for attribution and license information.
 
+## Citation
+
+Until a greedyQ paper is available, scholarly work using greedyQ should cite both the [greedyQ GitHub repository](https://github.com/zomtoli7/greedyQ), with the exact release identifier recorded in `survey.qmd`, and the [surveydown PLOS ONE paper](https://doi.org/10.1371/journal.pone.0331002). This applies even when only the independent greedyQ browser runtime is used. Copy-ready references and methods wording are provided in [CITATION.md](./CITATION.md).
+
 ## Project status
 
 greedyQ now has an account-free, connection-ready v0.2 runtime candidate. The fixed JavaScript core parses QMD/YAML, validates and compiles the supported syntax, renders all documented surveydown question controls in adaptive desktop/mobile respondent views, and renders both views together with mock persistence and assignment for local review. Its normalized output conforms to the Python reference on the golden studies, the complete control gallery, and negative validator fixtures. Static Vercel files, canonical Supabase RPC migrations, Prolific launch validation, preregistration drafts, native surveydown export, and offline preflight are implemented. Live service connection and verification remain deliberately unperformed; see [external connection readiness](./docs/external-connection-readiness.md).

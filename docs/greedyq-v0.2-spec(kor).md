@@ -260,3 +260,5 @@ Browser implementation은 Python reference와 동일하게 독립 작성된 conf
 ## 18. Versioning
 
 Breaking grammar 또는 semantic change에는 새 specification version이 필요합니다. Fielded study는 greedyQ specification, validator, runtime, schema migration, consent document, preregistration package, guide, export-generator version을 고정해야 합니다. 생성 artifact는 source commit과 configuration을 재현하기에 충분한 provenance를 포함해야 합니다.
+
+Peer-reviewed greedyQ 논문이 나오기 전까지 publication-facing artifact는 연구자에게 (1) `greedyq.version`에 기록된 정확한 release identifier와 함께 greedyQ GitHub 저장소를 인용하고 (2) surveydown PLOS ONE 논문도 함께 인용하도록 안내해야 합니다. 이 공동 인용 정책은 독립적인 greedyQ runtime만 사용한 연구에도 적용됩니다. Methods 문구는 surveydown의 선행 survey-as-code 관례를 계승한 것과 surveydown package 자체를 실제 실행한 것을 구분해야 합니다.

@@ -14,6 +14,8 @@ Surveydown is prior open-source work distributed under the MIT License:
 
 - Project: [surveydown-dev/surveydown](https://github.com/surveydown-dev/surveydown)
 - License: [surveydown MIT License](https://github.com/surveydown-dev/surveydown/blob/main/LICENSE.md)
+
+For scholarly use, greedyQ asks researchers to cite both the greedyQ GitHub repository and the surveydown PLOS ONE paper, including when the independent greedyQ runtime is used without executing surveydown. This academic citation policy is separate from software-license compliance. See [CITATION.md](./CITATION.md).
 - Copyright (c) 2025 John Paul Helveston, Pingfan Hu, Bogdan Bunea
 
 greedyQ is not affiliated with, endorsed by, sponsored by, or maintained by the surveydown project or its maintainers. References to surveydown describe compatibility, provenance, or an export target; they do not imply an official relationship.

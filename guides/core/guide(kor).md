@@ -29,6 +29,7 @@
 - `show_previous = FALSE`이거나 terminal page이면 Previous를 숨기고, navigation 후 변경된 survey pane을 맨 위로 이동하며, pane이 쌓여도 mobile preview는 최대 390px을 유지하고 빈 mobile scroll 공간을 만들지 않습니다.
 - Widget을 임의로 만들지 말고 canonical surveydown control 16개에서 선택합니다. `text`, `textarea`, `numeric`, `mc`, `mc_multiple`, `mc_buttons`, `mc_multiple_buttons`, `mc_image`, `mc_multiple_image`, `select`, `slider`, `slider_numeric`, `date`, `daterange`, `matrix`, `matrix_multiple`입니다. 고정 parser와 renderer를 사용하며 study마다 control code를 다시 만들지 않습니다.
 - Repository README의 정확한 current release identifier를 새로 생성하거나 명시적으로 upgrade한 모든 `survey.qmd`의 `greedyq.version`에 복사합니다. 이를 임의로 만들거나 줄이거나 몰래 변경하면 안 됩니다.
+- 논문, preregistration, repository 또는 공유 자료를 준비할 때 정확한 `greedyq.version` release identifier와 함께 greedyQ GitHub 저장소를 인용하고 surveydown PLOS ONE 논문도 함께 인용하라고 안내합니다. 독립적인 greedyQ runtime만 사용한 경우에도 적용하되 surveydown 자체를 실행했는지는 사실대로 설명합니다.
 
 ## 공통 연구 checkpoint
 

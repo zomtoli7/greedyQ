@@ -18,6 +18,8 @@ The product is not intended to be a pixel-for-pixel Qualtrics clone, another GUI
 
 greedyQ is an independent MIT-licensed implementation. Its primary product is its own Vercel/Supabase web runtime; it adopts a documented subset of surveydown-style `survey.qmd` conventions for authoring compatibility and generates native surveydown projects for advanced R, Shiny, and Quarto customization. It incorporates no surveydown source code and claims no affiliation or endorsement.
 
+For scholarly use, greedyQ follows a dual-citation policy. Until a peer-reviewed greedyQ paper is available, researchers should cite the exact greedyQ GitHub release used and the surveydown PLOS ONE paper, even when the survey ran only on the independent greedyQ runtime. This recognizes the prior survey-as-code work without inaccurately claiming that the surveydown package executed the study.
+
 ### Core proposition
 
 > Package a reproducible research methodology and workflow as an agent-executable specification that turns a capable general-purpose GenAI into a domain-specific research application.

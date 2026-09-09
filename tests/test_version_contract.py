@@ -51,6 +51,9 @@ class VersionContractTests(unittest.TestCase):
             ROOT / ".greedyq",
             ROOT / "docs/archive" / ("v" + LEGACY_TOKEN),
         }
+        # Match the retired greedyQ version as a version token, not an
+        # unrelated decimal substring such as the surveydown DOI 10.1371/....
+        legacy_version = re.compile(r"(?<![0-9])(?:v)?0[.]1(?:[._-]|(?![0-9]))", re.IGNORECASE)
         offenders = []
         for path in ROOT.rglob("*"):
             if not path.is_file() or any(root in path.parents for root in excluded_roots):
@@ -59,7 +62,7 @@ class VersionContractTests(unittest.TestCase):
                 text = path.read_text()
             except UnicodeDecodeError:
                 continue
-            if LEGACY_TOKEN in text:
+            if legacy_version.search(text):
                 offenders.append(str(path.relative_to(ROOT)))
         self.assertEqual([], offenders)
 

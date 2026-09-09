@@ -18,6 +18,8 @@ greedyQ 자체는 agent가 아닙니다. greedyQ specification과 capable host G
 
 greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자체 Vercel/Supabase web runtime이며, 작성 호환성을 위해 문서화된 surveydown-style `survey.qmd` 관례의 일부를 채택하고 고급 R, Shiny, Quarto 사용자 정의를 위한 native surveydown 프로젝트를 생성합니다. Surveydown 소스 코드를 포함하지 않으며 제휴 또는 보증 관계를 주장하지 않습니다.
 
+학술 사용에는 공동 인용 정책을 적용합니다. Peer-reviewed greedyQ 논문이 나오기 전까지 연구자는 독립적인 greedyQ runtime에서만 설문을 실행한 경우에도 사용한 정확한 greedyQ GitHub release와 surveydown PLOS ONE 논문을 함께 인용해야 합니다. 이는 surveydown package가 실제 연구를 실행했다고 잘못 주장하지 않으면서 선행 survey-as-code 작업을 인정하기 위한 것입니다.
+
 ### 핵심 제안
 
 > 재현 가능한 연구방법론과 workflow를 agent-executable specification으로 package하여 capable general-purpose GenAI를 domain-specific research application으로 전환합니다.
