@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "1584aa3429ab1704f04cece48b1ce95cd319e3f6665fab3d4a7f1ae63f73a162",
+  "registry_sha256": "0f61f12e0112abaf41f2ee0a96e19eea21445b22fcb522b108a052de1c6b148c",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -274,7 +274,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "examples/complete-study/vercel.json",
-      "sha256": "fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34"
+      "sha256": "d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17"
     },
     {
       "component": "export-surveydown",

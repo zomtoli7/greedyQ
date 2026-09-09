@@ -110,7 +110,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "2079b27f0b48cfa2c8f89f52a31240f9a6facd4f7939cbb3e4c3ec24abe08adc",
+      "sha256": "7e3fab78f56fb8ea9beae60586adf4b6e14ba60c74b8d86150e2654f8afb8cfd",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -137,7 +137,7 @@
     {
       "path": "vercel.json",
       "kind": "source",
-      "sha256": "fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34",
+      "sha256": "d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"

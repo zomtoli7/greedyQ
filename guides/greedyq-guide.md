@@ -246,7 +246,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `d583d2ade8643c67eb220755bc739dbc6ef30977ef2ef9eb5e87806e510bf323` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
-| `examples/complete-study/vercel.json` | `fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34` | `no` |
+| `examples/complete-study/vercel.json` | `d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
@@ -3606,12 +3606,12 @@ grant select on public.gq_analysis_export to gq_analyst;
 
 ### FILE: `examples/complete-study/vercel.json`
 
-SHA-256: `fc4f6565ad7b9d1a17b9509ce93fb348092f7467a90156bccf11137f78056f34`
+SHA-256: `d0cad2c058dc950ada14e4e5e32a34b42bf6a395e468d02b02af0548bdb27c17`
 
 ```json
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false
 }
 ```
