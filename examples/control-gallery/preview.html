@@ -59,6 +59,14 @@
         width: min(390px, 100%);
         justify-self: center;
       }
+      .desktop-scroll {
+        min-width: 0;
+        overflow-x: auto;
+        border-radius: 16px;
+      }
+      .desktop-scroll .desktop {
+        width: 100%;
+      }
       .tools {
         padding: 0 24px 18px;
         color: #d0d5dd;
@@ -176,6 +184,10 @@
         .viewport {
           height: 700px;
         }
+        .desktop-scroll .desktop {
+          width: 900px;
+          max-width: none;
+        }
       }
     </style>
   </head>
@@ -195,10 +207,12 @@
       ><span>Both panes use independent mock sessions.</span>
     </div>
     <main class="preview-grid">
-      <section class="viewport">
-        <header>Desktop · wide-screen mode</header>
-        <div class="screen"><div id="desktop"></div></div>
-      </section>
+      <div class="desktop-scroll" aria-label="Scrollable desktop preview">
+        <section class="viewport desktop">
+          <header>Desktop · wide-screen mode</header>
+          <div class="screen"><div id="desktop"></div></div>
+        </section>
+      </div>
       <section class="viewport mobile">
         <header>Mobile · 390px mode</header>
         <div class="screen"><div id="mobile"></div></div>

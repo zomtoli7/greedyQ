@@ -26,6 +26,8 @@ It writes `index.html`, dual-mode `preview.html`, fixed `greedyq-core.js`, fixed
 
 Preview uses virtual participant IDs and a local mock adapter. It tests required answers, display/skip logic, desktop and mobile layouts, balanced persistent assignment, partial-save resume, terminal outcomes, and withdrawal deletion without transmitting data. Desktop and mobile preview panes have independent sessions so both paths can be exercised side by side.
 
+On a phone, the desktop pane remains a 900-pixel desktop canvas inside its own horizontal scroller; it does not collapse into the mobile layout. The mobile pane remains a 390-pixel canvas and shrinks only when the physical viewport is narrower.
+
 Mock data is synthetic browser-local state, not a claim that Supabase has been configured or verified. Reset removes the virtual sessions. Production credentials and participant identifiers are prohibited in preview.
 
 ## Structure overview

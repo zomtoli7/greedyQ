@@ -96,7 +96,7 @@
         },
         {
           "path": "templates/browser/preview.html",
-          "sha256": "88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0"
+          "sha256": "5c04f909c0ec12cee0ca765368fcb681b6fdd8e62f987fd78b97934f56416fbf"
         },
         {
           "path": "templates/browser/studio.html",

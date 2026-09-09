@@ -102,6 +102,8 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         compact = "".join(html.split())
         self.assertIn('mode:"desktop"', compact)
         self.assertIn('mode:"mobile"', compact)
+        self.assertIn('class="desktop-scroll"', html)
+        self.assertIn("width: 900px", html)
 
     def test_browser_renderer_enforces_numeric_bounds_before_navigation(self):
         core = (ROOT / "web/greedyq-core.js").read_text()

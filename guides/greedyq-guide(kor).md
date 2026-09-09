@@ -242,7 +242,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `web/greedyq-core.js` | `ff5f62b15a99fcf27c11c146731e8230c3aaa7d08eac978666273ff66295ecba` | `no` |
 | `web/greedyq-runtime.css` | `f94f1354802c9d73b9325db9f7ec12ec05188d4dfcfb3cdd19980165a0b54048` | `no` |
 | `templates/browser/respondent.html` | `625a4136d7fe2feb8584f992dec5d96ac15a7703a3ed61f57bc5eba45fa72422` | `no` |
-| `templates/browser/preview.html` | `88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0` | `no` |
+| `templates/browser/preview.html` | `5c04f909c0ec12cee0ca765368fcb681b6fdd8e62f987fd78b97934f56416fbf` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `b48993fe6afcf27b20fe6ea4500882dd0648e824eb6629262a2218bd39081c2d` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -2821,7 +2821,7 @@ SHA-256: `625a4136d7fe2feb8584f992dec5d96ac15a7703a3ed61f57bc5eba45fa72422`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0`
+SHA-256: `5c04f909c0ec12cee0ca765368fcb681b6fdd8e62f987fd78b97934f56416fbf`
 
 ```html
 <!doctype html>
@@ -2884,6 +2884,14 @@ SHA-256: `88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0`
         max-width: 390px;
         width: min(390px, 100%);
         justify-self: center;
+      }
+      .desktop-scroll {
+        min-width: 0;
+        overflow-x: auto;
+        border-radius: 16px;
+      }
+      .desktop-scroll .desktop {
+        width: 100%;
       }
       .tools {
         padding: 0 24px 18px;
@@ -3002,6 +3010,10 @@ SHA-256: `88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0`
         .viewport {
           height: 700px;
         }
+        .desktop-scroll .desktop {
+          width: 900px;
+          max-width: none;
+        }
       }
     </style>
   </head>
@@ -3021,10 +3033,12 @@ SHA-256: `88162e5ecd50d2c44db8c1e8d97ee1bc344616d7ac490ce0a770852dbcbdf0c0`
       ><span>Both panes use independent mock sessions.</span>
     </div>
     <main class="preview-grid">
-      <section class="viewport">
-        <header>Desktop · wide-screen mode</header>
-        <div class="screen"><div id="desktop"></div></div>
-      </section>
+      <div class="desktop-scroll" aria-label="Scrollable desktop preview">
+        <section class="viewport desktop">
+          <header>Desktop · wide-screen mode</header>
+          <div class="screen"><div id="desktop"></div></div>
+        </section>
+      </div>
       <section class="viewport mobile">
         <header>Mobile · 390px mode</header>
         <div class="screen"><div id="mobile"></div></div>

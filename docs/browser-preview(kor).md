@@ -26,6 +26,8 @@ python3 -m greedyq build examples/complete-study
 
 Preview는 virtual participant ID와 local mock adapter를 사용합니다. 데이터를 전송하지 않고 required answer, display/skip logic, desktop/mobile layout, balanced persistent assignment, partial-save resume, terminal outcome, withdrawal deletion을 시험합니다. Desktop과 mobile preview pane은 독립 session을 사용하므로 양쪽 경로를 나란히 테스트할 수 있습니다.
 
+휴대폰에서 desktop pane은 자체 가로 스크롤 영역 안의 900px desktop canvas를 유지하며 mobile layout으로 축소되지 않습니다. Mobile pane은 390px canvas를 유지하고 실제 viewport가 그보다 좁을 때만 줄어듭니다.
+
 Mock data는 synthetic browser-local state이며 Supabase가 설정 또는 검증되었다는 뜻이 아닙니다. Reset은 virtual session을 제거합니다. Production credential과 participant identifier는 preview에서 금지합니다.
 
 ## 구조 개요
