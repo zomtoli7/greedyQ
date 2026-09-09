@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "0f61f12e0112abaf41f2ee0a96e19eea21445b22fcb522b108a052de1c6b148c",
+  "registry_sha256": "9142e69b3cdf984ad9709676063c225274be825f63faf0a980f837548065019c",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -105,7 +105,7 @@
     {
       "component": "core",
       "path": "web/greedyq-core.js",
-      "sha256": "9b5bea14a08d2b6ef859f04981887e44c2d230d9cf6f1e766d9444028687de20"
+      "sha256": "5815c88f2c6b455ef593a2d489ab4d1fed555bf18a038813365e236a9394888f"
     },
     {
       "component": "core",
@@ -115,7 +115,7 @@
     {
       "component": "core",
       "path": "templates/browser/respondent.html",
-      "sha256": "153ceb96b2ab9e2e7f427305404b53160668570a0fb3df8f58c65405c56e7c53"
+      "sha256": "2359b1aeaf10486448bb30ed8989729c032f6a6a840c520f708e02819df350ac"
     },
     {
       "component": "core",
@@ -185,7 +185,7 @@
     {
       "component": "core",
       "path": "greedyq/prolific.py",
-      "sha256": "c17995c246f9f1716b41dc1bfd8c8d819a432b594e2f6e96ee6661b2c0a05261"
+      "sha256": "ddf53fde00e6c51d49e49882784cebcc986a7841c6d60635743666c8cc0a2d90"
     },
     {
       "component": "core",

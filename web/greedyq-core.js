@@ -1367,6 +1367,15 @@
       issues,
     };
   }
+  function syntheticProlificLaunch(sessionId, studyId) {
+    const cleanSession = String(sessionId).replaceAll("-", "_"),
+      cleanStudy = String(studyId).replace(/[^A-Za-z0-9_-]/g, "_");
+    return {
+      PROLIFIC_PID: `GQ_TEST_${cleanSession}`,
+      STUDY_ID: `GQ_TEST_${cleanStudy}`,
+      SESSION_ID: `GQ_TEST_${cleanSession}`,
+    };
+  }
   function stableSessionId(studyId, provided) {
     const key = `greedyq-session:${studyId}`;
     if (
@@ -1902,6 +1911,7 @@
     condition,
     detectDevice,
     parseProlificLaunch,
+    syntheticProlificLaunch,
     stableSessionId,
     createMemoryBackend,
     createLocalMockBackend: createConcurrentLocalMockBackend,

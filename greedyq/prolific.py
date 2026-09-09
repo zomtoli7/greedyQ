@@ -5,6 +5,17 @@ from urllib.parse import parse_qs, urlencode, urlparse
 REQUIRED = ("PROLIFIC_PID", "STUDY_ID", "SESSION_ID")
 
 
+def synthetic_launch(session_id, study_id):
+    """Return deterministic, visibly synthetic identifiers for test deployments."""
+    clean_session = str(session_id).replace("-", "_")
+    clean_study = "".join(char if char.isalnum() or char in "_-" else "_" for char in str(study_id))
+    return {
+        "PROLIFIC_PID": "GQ_TEST_%s" % clean_session,
+        "STUDY_ID": "GQ_TEST_%s" % clean_study,
+        "SESSION_ID": "GQ_TEST_%s" % clean_session,
+    }
+
+
 def parse_launch(url_or_query, mode="test"):
     parsed = urlparse(url_or_query)
     query = parsed.query if parsed.query else url_or_query.lstrip("?")

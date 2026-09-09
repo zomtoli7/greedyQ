@@ -137,6 +137,9 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         self.assertIn("stableSessionId", respondent)
         result = self.node('const gq=require("./web/greedyq-core.js");console.log(JSON.stringify(gq.parseProlificLaunch("?PROLIFIC_PID=p&STUDY_ID=s&SESSION_ID=x","test")));')
         self.assertEqual("passed", result["status"])
+        synthetic = self.node('const gq=require("./web/greedyq-core.js");console.log(JSON.stringify(gq.syntheticProlificLaunch("123e4567-e89b-12d3-a456-426614174000","study one")));')
+        self.assertTrue(all(value.startswith("GQ_TEST_") for value in synthetic.values()))
+        self.assertIn("model.runtime_policy.mode === \"test\"", respondent)
 
     def test_supabase_bridge_creates_session_and_registers_external_identifiers(self):
         core = (ROOT / "web/greedyq-core.js").read_text()

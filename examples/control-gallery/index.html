@@ -30,6 +30,10 @@
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
+        const sessionId = greedyQ.stableSessionId(
+          model.study_id,
+          params.get("session"),
+        );
         let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",
@@ -41,16 +45,20 @@
             model.runtime_policy.mode,
           );
           if (launch.status !== "passed") {
-            root.innerHTML =
-              '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
-            return;
+            if (model.runtime_policy.mode === "test")
+              externalIdentifiers = greedyQ.syntheticProlificLaunch(
+                sessionId,
+                model.study_id,
+              );
+            else {
+              root.innerHTML =
+                '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
+              return;
+            }
+          } else {
+            externalIdentifiers = launch.identifiers;
           }
-          externalIdentifiers = launch.identifiers;
         }
-        const sessionId = greedyQ.stableSessionId(
-          model.study_id,
-          params.get("session"),
-        );
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {
             url: deployment.supabase_url,
