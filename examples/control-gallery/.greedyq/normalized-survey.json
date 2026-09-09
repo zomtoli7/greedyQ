@@ -431,8 +431,186 @@
         }
       ],
       "nav": {
-        "page_next": "navigation_controls",
+        "page_next": "advanced_controls",
         "previous_mode": "hide",
+        "label_next": "Try advanced controls"
+      }
+    },
+    {
+      "id": "advanced_controls",
+      "title": "greedyQ advanced controls",
+      "body": "These deterministic extensions cover common advanced research interactions.",
+      "questions": [
+        {
+          "id": "rank_example",
+          "type": "rank_order",
+          "label": "Rank these priorities",
+          "_line": 110,
+          "options": [
+            {
+              "label": "Ease of use",
+              "value": "ease"
+            },
+            {
+              "label": "Speed",
+              "value": "speed"
+            },
+            {
+              "label": "Flexibility",
+              "value": "flexibility"
+            }
+          ]
+        },
+        {
+          "id": "sbs_example",
+          "type": "side_by_side",
+          "label": "Rate both versions",
+          "_line": 114,
+          "options": [
+            {
+              "label": "Low",
+              "value": 1
+            },
+            {
+              "label": "Medium",
+              "value": 2
+            },
+            {
+              "label": "High",
+              "value": 3
+            }
+          ],
+          "rows": [
+            {
+              "label": "Clear",
+              "value": "clear"
+            },
+            {
+              "label": "Useful",
+              "value": "useful"
+            }
+          ],
+          "columns": [
+            {
+              "label": "Current",
+              "value": "current"
+            },
+            {
+              "label": "Proposed",
+              "value": "proposed"
+            }
+          ]
+        },
+        {
+          "id": "nps_example",
+          "type": "nps",
+          "label": "How likely are you to recommend greedyQ?",
+          "_line": 118,
+          "min": 0,
+          "max": 10,
+          "low_label": "Not at all likely",
+          "high_label": "Extremely likely"
+        },
+        {
+          "id": "timing_example",
+          "type": "timing",
+          "label": "Time on this page",
+          "_line": 122
+        },
+        {
+          "id": "sum_example",
+          "type": "constant_sum",
+          "label": "Allocate 100 points",
+          "_line": 126,
+          "options": [
+            {
+              "label": "Design",
+              "value": "design"
+            },
+            {
+              "label": "Testing",
+              "value": "testing"
+            },
+            {
+              "label": "Documentation",
+              "value": "documentation"
+            }
+          ],
+          "total": 100
+        },
+        {
+          "id": "group_rank_example",
+          "type": "pick_group_rank",
+          "label": "Group and rank these items",
+          "_line": 130,
+          "options": [
+            {
+              "label": "Speed",
+              "value": "speed"
+            },
+            {
+              "label": "Trust",
+              "value": "trust"
+            },
+            {
+              "label": "Ease",
+              "value": "ease"
+            }
+          ],
+          "groups": [
+            {
+              "label": "Essential",
+              "value": "essential"
+            },
+            {
+              "label": "Optional",
+              "value": "optional"
+            }
+          ]
+        },
+        {
+          "id": "drill_example",
+          "type": "drill_down",
+          "label": "Choose a location",
+          "_line": 134,
+          "options": [
+            {
+              "label": "Asia > Korea > Seoul",
+              "value": "kr_seoul"
+            },
+            {
+              "label": "Asia > Korea > Busan",
+              "value": "kr_busan"
+            },
+            {
+              "label": "Europe > France > Paris",
+              "value": "fr_paris"
+            }
+          ],
+          "path_separator": " > "
+        },
+        {
+          "id": "custom_example",
+          "type": "custom",
+          "label": "Custom control based on a built-in template",
+          "_line": 138,
+          "options": [
+            {
+              "label": "First",
+              "value": "first"
+            },
+            {
+              "label": "Second",
+              "value": "second"
+            }
+          ],
+          "base_type": "mc_buttons",
+          "customization": "Confirmed button-card treatment",
+          "custom_class": "gq-custom-button-card"
+        }
+      ],
+      "nav": {
+        "page_next": "navigation_controls",
         "label_next": "Try navigation controls"
       }
     },

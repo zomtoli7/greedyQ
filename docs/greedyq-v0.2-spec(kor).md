@@ -88,6 +88,10 @@ Question은 allowlist된 `sd_question()` call 하나를 포함하는 실행되�
 
 현재 surveydown question-type 문서에는 독립적인 built-in type이 없으므로 greedyQ는 `audio`와 `video` media control을 greedyQ-only extension으로 추가합니다. 안전한 relative 또는 HTTPS `src`가 필요하고 video에는 안전한 `poster`를 지정할 수 있습니다. 둘 다 `controls`, `autoplay`, `muted`, `loop`, `preload`, `caption`, `transcript`를 선언할 수 있습니다. Autoplay는 muted인 경우에만 허용합니다. Media control은 stimulus를 표시하며 response variable을 만들지 않습니다.
 
+Advanced greedyQ-only control은 `rank_order`(item-to-rank map), `side_by_side`(column-to-row response map), `nps`(기본 0–10 response), `timing`(숨겨진 seconds-on-page record), `constant_sum`(선언된 목표 합계가 있는 item allocation map), `pick_group_rank`(item-to-group-and-rank map), `drill_down`(순서가 있는 hierarchical path)입니다. 일반적인 survey interaction에서 착안한 greedyQ의 독립 구현이며 Qualtrics와 binary 또는 data-format compatibility를 주장하지 않습니다.
+
+`custom`은 지원되는 `base_type`, 평문 `customization` 합의를 선언하고 namespaced `custom_class`를 선택적으로 선언해야 합니다. Agent는 추가 시간과 usage를 사전에 안내하고 visual behavior, interaction, validation, responsive behavior, accessibility, stored value에 대한 연구자 대화를 마친 뒤 확인을 받아야 생성할 수 있습니다. Custom control은 fixed base control을 확장해야 하며 deterministic parser를 교체하거나 arbitrary script를 몰래 삽입하면 안 됩니다.
+
 Button control은 `direction`, `selected`, `justified`를 지원합니다. Image control은 option마다 하나의 안전한 relative 또는 HTTPS `image` source가 필요합니다. `daterange`는 순서가 있는 두 날짜 array를 저장합니다. `matrix_multiple`은 row별 선택 value array를 저장합니다. greedyQ native persistence는 array와 row object를 사용하고, surveydown export 시 필요한 pipe-separated 및 wide-column 표현으로 변환합니다.
 
 `slider`는 named option vector를 순서가 있는 labeled scale로 사용하고 선택한 option value를 저장합니다. `slider_numeric`은 숫자 `min`, `max`, 선택적인 양수 `step` argument를 사용합니다. 둘 다 drag와 keyboard 조작이 가능한 native range control로 표시됩니다. `orientation`은 `horizontal`(portable default) 또는 `vertical`일 수 있습니다. Vertical orientation은 greedyQ extension이므로 native surveydown export diagnostic에서 반드시 알려야 합니다.

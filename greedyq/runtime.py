@@ -115,7 +115,14 @@ def next_for(page, answers, condition):
 def parse_form(page, form):
     result={}
     for q in page.get("questions",[]):
-        if q["type"] in ("matrix", "matrix_multiple"):
+        if q["type"]=="rank_order":
+            values={o["value"]:scalar(form.get("%s:%s"%(q["id"],o["value"]),[None])[0]) for o in q.get("options",[])}; values={k:v for k,v in values.items() if v is not None};
+            if values:result[q["id"]]=values
+        elif q["type"]=="constant_sum":
+            result[q["id"]]={o["value"]:scalar(form.get("%s:%s"%(q["id"],o["value"]),[0])[0]) for o in q.get("options",[])}
+        elif q["type"]=="side_by_side":
+            result[q["id"]]={c["value"]:{r["value"]:scalar(form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0]) for r in q.get("rows",[]) if form.get("%s:%s:%s"%(q["id"],c["value"],r["value"]),[None])[0] is not None} for c in q.get("columns",[])}
+        elif q["type"] in ("matrix", "matrix_multiple"):
             if q["type"] == "matrix_multiple": rows={r["value"]:[scalar(v) for v in form.get("%s:%s"%(q["id"],r["value"]),[])] for r in q.get("rows",[])}; rows={k:v for k,v in rows.items() if v}
             else: rows={r["value"]:form.get("%s:%s"%(q["id"],r["value"]),[None])[0] for r in q.get("rows",[])}; rows={k:scalar(v) for k,v in rows.items() if v is not None}
             if rows:result[q["id"]]=rows

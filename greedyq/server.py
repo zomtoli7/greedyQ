@@ -23,7 +23,24 @@ def question_block(q, saved):
 def question_html(q, saved):
     required='<span class="required"> *</span>' if q.get("required") else ""; out=['<fieldset><legend>%s%s</legend>'%(esc(q["label"]),required)]
     value=saved.get(q["id"])
-    if q["type"] in ("mc","mc_multiple","slider"):
+    if q["type"]=="custom":
+        base=dict(q);base["type"]=q.get("base_type","text");return question_html(base,saved)
+    if q["type"]=="rank_order":
+        for option in q.get("options",[]):out.append('<label class="choice">%s <select name="%s:%s"><option value="">Rank</option>%s</select></label>'%(esc(option["label"]),esc(q["id"]),esc(option["value"]),''.join('<option value="%s">%s</option>'%(i,i) for i in range(1,len(q["options"])+1))))
+    elif q["type"]=="nps":
+        for number in range(int(q.get("min",0)),int(q.get("max",10))+1):out.append('<label class="choice"><input type="radio" name="%s" value="%s"> %s</label>'%(esc(q["id"]),number,number))
+    elif q["type"]=="timing":out.append('<input type="hidden" name="%s" value="0">'%esc(q["id"]))
+    elif q["type"]=="constant_sum":
+        for option in q.get("options",[]):out.append('<label class="choice">%s <input type="number" min="0" name="%s:%s" value="0"></label>'%(esc(option["label"]),esc(q["id"]),esc(option["value"])))
+    elif q["type"]=="side_by_side":
+        for column in q.get("columns",[]):
+            out.append('<h3>%s</h3><div class="matrix"><table>'%esc(column["label"]))
+            for row in q.get("rows",[]):out.append('<tr><th>%s</th>%s</tr>'%(esc(row["label"]),''.join('<td><label><input type="radio" name="%s:%s:%s" value="%s"> %s</label></td>'%(esc(q["id"]),esc(column["value"]),esc(row["value"]),esc(option["value"]),esc(option["label"])) for option in q.get("options",[]))))
+            out.append('</table></div>')
+    elif q["type"]=="pick_group_rank":
+        for option in q.get("options",[]):out.append('<div class="choice"><strong>%s</strong><select name="%s:%s:group"><option value="">Group</option>%s</select><input type="number" min="1" name="%s:%s:rank" placeholder="Rank"></div>'%(esc(option["label"]),esc(q["id"]),esc(option["value"]),''.join('<option value="%s">%s</option>'%(esc(group["value"]),esc(group["label"])) for group in q.get("groups",[])),esc(q["id"]),esc(option["value"])))
+    elif q["type"]=="drill_down":out.append('<select name="%s">%s</select>'%(esc(q["id"]),''.join('<option value="%s">%s</option>'%(esc(option["value"]),esc(option["label"])) for option in q.get("options",[]))))
+    elif q["type"] in ("mc","mc_multiple","slider"):
         kind="checkbox" if q["type"]=="mc_multiple" else "radio"; selected=value if isinstance(value,list) else [value]
         for option in q.get("options",[]):out.append('<label class="choice"><input type="%s" name="%s" value="%s" %s> %s</label>'%(kind,esc(q["id"]),esc(option["value"]),"checked" if option["value"] in selected else "",esc(option["label"])))
     elif q["type"]=="select":

@@ -46,6 +46,8 @@ The respondent renderer MUST implement every documented surveydown control: text
 
 The renderer also implements fixed `audio` and `video` stimulus controls as greedyQ extensions. They use native browser playback controls by default, accept only validated relative or HTTPS media sources, and may include a visible caption and expandable transcript. Autoplay requires muted playback. Media controls never create an answer merely by being displayed.
 
+Advanced extension controls must remain usable without precision dragging. Rank order uses explicit rank selectors; side-by-side reflows into labelled sections; NPS keeps every number and both anchors visible; timing is hidden; constant sum shows the live total; pick/group/rank exposes group and rank fields for each item; and drill-down reveals only choices compatible with the selected path. Custom controls visibly inherit an existing base control and must meet the same keyboard, focus, contrast, validation, and mobile requirements.
+
 Conditional questions MUST appear or disappear immediately after the controlling answer changes. A newly visible control must retain a previously saved answer; a newly hidden answer follows the study's declared hidden-answer policy.
 
 - Use native semantic controls whenever possible.

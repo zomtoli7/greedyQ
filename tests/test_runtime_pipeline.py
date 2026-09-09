@@ -14,7 +14,7 @@ from greedyq.validator import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video"}
+SUPPORTED_TYPES_FOR_TEST = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video", "rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"}
 
 
 class RuntimePipelineTests(unittest.TestCase):
@@ -175,6 +175,30 @@ sd_question(id = "audio_clip", type = "audio", label = "Audio clip", src = "medi
 ```
 ```{r}
 sd_question(id = "video_clip", type = "video", label = "Video clip", src = "https://example.org/clip.mp4", poster = "images/poster.png", controls = TRUE)
+```
+```{r}
+sd_question(id = "rank", type = "rank_order", label = "Rank", option = c("A" = "a", "B" = "b"))
+```
+```{r}
+sd_question(id = "side", type = "side_by_side", label = "Side", column = c("Now" = "now", "Later" = "later"), row = c("A" = "a"), option = c("Low" = 1, "High" = 2))
+```
+```{r}
+sd_question(id = "recommend", type = "nps", label = "Recommend")
+```
+```{r}
+sd_question(id = "page_time", type = "timing", label = "Timing")
+```
+```{r}
+sd_question(id = "allocation", type = "constant_sum", label = "Allocate", option = c("A" = "a", "B" = "b"), total = 100)
+```
+```{r}
+sd_question(id = "organize", type = "pick_group_rank", label = "Organize", option = c("A" = "a", "B" = "b"), group = c("First" = "first", "Second" = "second"))
+```
+```{r}
+sd_question(id = "location", type = "drill_down", label = "Location", option = c("Asia > Korea" = "kr", "Europe > France" = "fr"))
+```
+```{r}
+sd_question(id = "customized", type = "custom", base_type = "mc_buttons", label = "Customized", option = c("A" = "a", "B" = "b"), customization = "Confirmed")
 ```
 
 --- done

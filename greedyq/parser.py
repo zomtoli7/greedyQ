@@ -119,7 +119,7 @@ def _call_args(body, line):
         if pair is None: raise ParseError("Every %s argument must have a name." % name, line)
         key, raw = pair
         if key in args: raise ParseError("Argument '%s' appears more than once." % key, line)
-        args[key] = _sequence(raw, line) if key in ("option", "options", "row", "rows", "image", "default", "selected") and (raw.startswith("c(") or raw.startswith("seq(")) else _unquote(raw)
+        args[key] = _sequence(raw, line) if key in ("option", "options", "row", "rows", "image", "default", "selected", "column", "columns", "group", "groups") and (raw.startswith("c(") or raw.startswith("seq(")) else _unquote(raw)
     return name, args
 
 
@@ -160,14 +160,18 @@ def parse_qmd(path):
                     args.pop("options")
                 if "row" in args: q["rows"] = args.pop("row")
                 if "rows" in args: q["rows"] = args.pop("rows")
+                if "column" in args: q["columns"] = args.pop("column")
+                if "columns" in args: q["columns"] = args.pop("columns")
+                if "group" in args: q["groups"] = args.pop("group")
+                if "groups" in args: q["groups"] = args.pop("groups")
                 if "image" in args: q["images"] = [item["value"] for item in args.pop("image")]
                 if q.get("type") in ("mc_image", "mc_multiple_image"):
                     for option in q.get("options", []): option["caption"] = option.get("_named", True)
-                for option in q.get("options", []) + q.get("rows", []): option.pop("_named", None)
+                for option in q.get("options", []) + q.get("rows", []) + q.get("columns", []) + q.get("groups", []): option.pop("_named", None)
                 if isinstance(args.get("default"), list): args["default"] = [item["value"] for item in args["default"]]
                 if isinstance(args.get("selected"), list): args["selected"] = [item["value"] for item in args["selected"]]
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "mobile_columns", "pre", "sep", "animate", "src", "poster", "caption", "transcript", "controls", "autoplay", "muted", "loop", "preload"):
+                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "mobile_columns", "pre", "sep", "animate", "src", "poster", "caption", "transcript", "controls", "autoplay", "muted", "loop", "preload", "total", "path_separator", "low_label", "high_label", "base_type", "customization", "custom_class"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)

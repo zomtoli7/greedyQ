@@ -99,7 +99,49 @@ sd_question(id = "conditional_text", type = "text", label = "This field appeared
 ```
 
 ```{r}
-sd_nav(page_next = "navigation_controls", previous_mode = "hide", label_next = "Try navigation controls")
+sd_nav(page_next = "advanced_controls", previous_mode = "hide", label_next = "Try advanced controls")
+```
+
+--- advanced_controls
+
+# greedyQ advanced controls
+
+These deterministic extensions cover common advanced research interactions.
+
+```{r}
+sd_question(id = "rank_example", type = "rank_order", label = "Rank these priorities", option = c("Ease of use" = "ease", "Speed" = "speed", "Flexibility" = "flexibility"))
+```
+
+```{r}
+sd_question(id = "sbs_example", type = "side_by_side", label = "Rate both versions", column = c("Current" = "current", "Proposed" = "proposed"), row = c("Clear" = "clear", "Useful" = "useful"), option = c("Low" = 1, "Medium" = 2, "High" = 3))
+```
+
+```{r}
+sd_question(id = "nps_example", type = "nps", label = "How likely are you to recommend greedyQ?", min = 0, max = 10, low_label = "Not at all likely", high_label = "Extremely likely")
+```
+
+```{r}
+sd_question(id = "timing_example", type = "timing", label = "Time on this page")
+```
+
+```{r}
+sd_question(id = "sum_example", type = "constant_sum", label = "Allocate 100 points", option = c("Design" = "design", "Testing" = "testing", "Documentation" = "documentation"), total = 100)
+```
+
+```{r}
+sd_question(id = "group_rank_example", type = "pick_group_rank", label = "Group and rank these items", option = c("Speed" = "speed", "Trust" = "trust", "Ease" = "ease"), group = c("Essential" = "essential", "Optional" = "optional"))
+```
+
+```{r}
+sd_question(id = "drill_example", type = "drill_down", label = "Choose a location", option = c("Asia > Korea > Seoul" = "kr_seoul", "Asia > Korea > Busan" = "kr_busan", "Europe > France > Paris" = "fr_paris"), path_separator = " > ")
+```
+
+```{r}
+sd_question(id = "custom_example", type = "custom", base_type = "mc_buttons", label = "Custom control based on a built-in template", option = c("First" = "first", "Second" = "second"), customization = "Confirmed button-card treatment", custom_class = "gq-custom-button-card")
+```
+
+```{r}
+sd_nav(page_next = "navigation_controls", label_next = "Try navigation controls")
 ```
 
 --- navigation_controls

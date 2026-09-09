@@ -28,6 +28,14 @@
     "matrix_multiple",
     "audio",
     "video",
+    "rank_order",
+    "side_by_side",
+    "nps",
+    "timing",
+    "constant_sum",
+    "pick_group_rank",
+    "drill_down",
+    "custom",
   ]);
   const ID_RE = /^[a-z][a-z0-9_]{1,63}$/;
 
@@ -324,6 +332,10 @@
           "image",
           "default",
           "selected",
+          "column",
+          "columns",
+          "group",
+          "groups",
         ].includes(pair[0]) && /^(?:c|seq)\(/.test(pair[1])
           ? sequence(pair[1], line)
           : scalar(pair[1]);
@@ -389,11 +401,15 @@
           if (args.options && !q.options) q.options = args.options;
           if (args.row) q.rows = args.row;
           if (args.rows) q.rows = args.rows;
+          if (args.column) q.columns = args.column;
+          if (args.columns) q.columns = args.columns;
+          if (args.group) q.groups = args.group;
+          if (args.groups) q.groups = args.groups;
           if (args.image) q.images = args.image.map((item) => item.value);
           if (["mc_image", "mc_multiple_image"].includes(q.type))
             for (const option of q.options || [])
               option.caption = option._named !== false;
-          for (const option of [...(q.options || []), ...(q.rows || [])])
+          for (const option of [...(q.options || []), ...(q.rows || []), ...(q.columns || []), ...(q.groups || [])])
             delete option._named;
           if (args.label_select) q.placeholder = args.label_select;
           for (const key of [
@@ -403,6 +419,10 @@
             "rows",
             "label_select",
             "image",
+            "column",
+            "columns",
+            "group",
+            "groups",
           ])
             delete args[key];
           for (const key of [
@@ -437,6 +457,13 @@
             "muted",
             "loop",
             "preload",
+            "total",
+            "path_separator",
+            "low_label",
+            "high_label",
+            "base_type",
+            "customization",
+            "custom_class",
           ]) {
             if (Object.hasOwn(args, key)) {
               q[key] =
@@ -625,6 +652,25 @@
             q._line,
           ),
         );
+      if (
+        ["rank_order", "constant_sum", "pick_group_rank", "drill_down"].includes(q.type) &&
+        (q.options || []).length < 2
+      )
+        issues.push(issue("GQ003", `Question '${q.id}' needs at least two items.`, qmd, q._line));
+      if (
+        q.type === "side_by_side" &&
+        (!(q.rows || []).length || !(q.options || []).length || !(q.columns || []).length)
+      )
+        issues.push(issue("GQ003", `Side-by-side question '${q.id}' needs rows, columns, and answer choices.`, qmd, q._line));
+      if (q.type === "pick_group_rank" && (q.groups || []).length < 2)
+        issues.push(issue("GQ003", `Pick, group, and rank question '${q.id}' needs at least two groups.`, qmd, q._line));
+      if (q.type === "constant_sum" && (!(typeof (q.total ?? 100) === "number") || (q.total ?? 100) <= 0))
+        issues.push(issue("GQ003", `Constant-sum question '${q.id}' needs a positive total.`, qmd, q._line));
+      if (
+        q.type === "custom" &&
+        (!TYPES.has(q.base_type) || ["custom", "timing", "audio", "video"].includes(q.base_type))
+      )
+        issues.push(issue("GQ003", `Custom question '${q.id}' must name a supported response control in base_type.`, qmd, q._line));
       if (
         ["mc_image", "mc_multiple_image"].includes(q.type) &&
         (q.images || []).length !== (q.options || []).length
@@ -1536,9 +1582,31 @@
       nextFor = (p) =>
         (p.routes || []).find((r) => matches(r.when))?.to ?? p.next;
     function input(q) {
-      const selected = state.answers[q.id],
+      const selected = state.answers[q.id] ?? q._answer,
         initial = selected ?? q.selected,
         today = new Date().toISOString().slice(0, 10);
+      if (q.type === "custom")
+        return `<div class="gq-custom ${esc(q.custom_class || "")}" data-customization="${esc(q.customization || "")}">${input({ ...q, type: q.base_type })}</div>`;
+      if (q.type === "rank_order")
+        return `<div class="gq-rank-order">${(q.options || []).map((o) => `<label><span>${esc(o.label)}</span><select data-rank-item="${esc(o.value)}"><option value="">Rank</option>${q.options.map((_, i) => `<option value="${i + 1}" ${selected?.[o.value] === i + 1 ? "selected" : ""}>${i + 1}</option>`).join("")}</select></label>`).join("")}</div>`;
+      if (q.type === "nps") {
+        const min = q.min ?? 0, max = q.max ?? 10;
+        return `<div class="gq-nps"><div class="gq-nps-scale">${Array.from({ length: max - min + 1 }, (_, i) => min + i).map((n) => `<label><input type="radio" name="${esc(q.id)}" value="${n}" ${selected === n ? "checked" : ""}><span>${n}</span></label>`).join("")}</div><div class="gq-nps-anchors"><span>${esc(q.low_label || "Not at all likely")}</span><span>${esc(q.high_label || "Extremely likely")}</span></div></div>`;
+      }
+      if (q.type === "timing")
+        return `<input type="hidden" data-id="${esc(q.id)}" data-timing value="${Math.max(0, Math.round((Date.now() - (state.page_entered_at || Date.now())) / 1000))}">`;
+      if (q.type === "constant_sum") {
+        const total = q.total ?? 100;
+        return `<div class="gq-constant-sum">${(q.options || []).map((o) => `<label><span>${esc(o.label)}</span><input type="number" min="0" step="${esc(q.step ?? 1)}" data-constant-item="${esc(o.value)}" value="${esc(selected?.[o.value] ?? 0)}"></label>`).join("")}<output data-constant-total>0 / ${esc(total)}</output></div>`;
+      }
+      if (q.type === "side_by_side")
+        return `<div class="gq-side-by-side">${(q.columns || []).map((column) => `<section><h3>${esc(column.label)}</h3>${input({ ...q, id: `${q.id}:${column.value}`, type: "matrix", columns: undefined, mobile_columns: q.mobile_columns ?? 3, _answer: selected?.[column.value] })}</section>`).join("")}</div>`;
+      if (q.type === "pick_group_rank")
+        return `<div class="gq-pick-group-rank">${(q.options || []).map((o) => `<div class="gq-pgr-item"><strong>${esc(o.label)}</strong><label>Group<select data-pgr-group="${esc(o.value)}"><option value="">Choose</option>${(q.groups || []).map((g) => `<option value="${esc(g.value)}" ${selected?.[o.value]?.group === g.value ? "selected" : ""}>${esc(g.label)}</option>`).join("")}</select></label><label>Rank<input type="number" min="1" max="${q.options.length}" data-pgr-rank="${esc(o.value)}" value="${esc(selected?.[o.value]?.rank ?? "")}"></label></div>`).join("")}</div>`;
+      if (q.type === "drill_down") {
+        const separator = q.path_separator || " > ", paths = (q.options || []).map((o) => String(o.label).split(separator)), current = Array.isArray(selected) ? selected : [], levels = Math.max(0, ...paths.map((p) => p.length));
+        return `<div class="gq-drill-down" data-separator="${esc(separator)}">${Array.from({ length: levels }, (_, level) => { const prefix = current.slice(0, level); const choices = [...new Set(paths.filter((path) => prefix.every((part, i) => path[i] === part)).map((path) => path[level]).filter(Boolean))]; return `<label>Level ${level + 1}<select data-drill-level="${level}"><option value="">Choose</option>${choices.map((choice) => `<option value="${esc(choice)}" ${current[level] === choice ? "selected" : ""}>${esc(choice)}</option>`).join("")}</select></label>`; }).join("")}</div>`;
+      }
       if (["mc", "mc_buttons", "mc_image"].includes(q.type))
         return (q.options || [])
           .map(
@@ -1677,6 +1745,30 @@
     function collect(p) {
       for (const q of visible(p)) {
         if (["audio", "video"].includes(q.type)) continue;
+        const effectiveType = q.type === "custom" ? q.base_type : q.type;
+        if (q.type === "timing") {
+          state.answers[q.id] = { seconds_on_page: Math.max(0, Math.round((Date.now() - (state.page_entered_at || Date.now())) / 1000)) };
+          continue;
+        }
+        if (q.type === "rank_order") {
+          const answer = Object.fromEntries([...root.querySelectorAll(`[data-q="${CSS.escape(q.id)}"] [data-rank-item]`)].filter((e) => e.value).map((e) => [scalar(e.dataset.rankItem), Number(e.value)]));
+          if (Object.keys(answer).length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
+        }
+        if (q.type === "constant_sum") {
+          const answer = Object.fromEntries([...root.querySelectorAll(`[data-q="${CSS.escape(q.id)}"] [data-constant-item]`)].map((e) => [scalar(e.dataset.constantItem), Number(e.value || 0)]));
+          state.answers[q.id] = answer; continue;
+        }
+        if (q.type === "side_by_side") {
+          const answer = {};
+          for (const column of q.columns || []) { const rows = {}; for (const row of q.rows || []) { const found = root.querySelector(`[name="${CSS.escape(q.id + ":" + column.value + ":" + row.value)}"]:checked`); if (found) rows[row.value] = scalar(found.value); } if (Object.keys(rows).length) answer[column.value] = rows; }
+          if (Object.keys(answer).length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
+        }
+        if (q.type === "pick_group_rank") {
+          const answer = {}; for (const option of q.options || []) { const group = root.querySelector(`[data-pgr-group="${CSS.escape(String(option.value))}"]`)?.value, rank = root.querySelector(`[data-pgr-rank="${CSS.escape(String(option.value))}"]`)?.value; if (group) answer[option.value] = { group: scalar(group), rank: rank ? Number(rank) : null }; } if (Object.keys(answer).length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
+        }
+        if (q.type === "drill_down") {
+          const answer = [...root.querySelectorAll(`[data-q="${CSS.escape(q.id)}"] [data-drill-level]`)].map((e) => e.value).filter(Boolean); if (answer.length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
+        }
         if (q.type === "slider") {
           const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
             option = q.options?.[Number(e?.value)];
@@ -1696,7 +1788,7 @@
           else delete state.answers[q.id];
           continue;
         }
-        if (["matrix", "matrix_multiple"].includes(q.type)) {
+        if (["matrix", "matrix_multiple"].includes(effectiveType)) {
           const v = {};
           for (const row of q.rows) {
             const found = [
@@ -1706,7 +1798,7 @@
             ];
             if (found.length)
               v[row.value] =
-                q.type === "matrix_multiple"
+                effectiveType === "matrix_multiple"
                   ? found.map((e) => scalar(e.value))
                   : scalar(found[0].value);
           }
@@ -1742,14 +1834,36 @@
     }
     function missing(q) {
       const v = state.answers[q.id];
+      const matrixType = q.type === "custom" ? q.base_type : q.type;
       return (
         q.required &&
         (v == null ||
           v === "" ||
           (Array.isArray(v) && !v.length) ||
-          (["matrix", "matrix_multiple"].includes(q.type) &&
+          (["matrix", "matrix_multiple"].includes(matrixType) &&
             q.rows.some((r) => !Object.hasOwn(v || {}, r.value))))
       );
+    }
+    function answerProblem(q) {
+      const v = state.answers[q.id];
+      if (q.type === "rank_order" && v) {
+        const ranks = Object.values(v);
+        if (new Set(ranks).size !== ranks.length) return "Use each rank only once.";
+        if (q.required && ranks.length !== (q.options || []).length) return "Rank every item.";
+      }
+      if (q.type === "constant_sum" && v && Object.values(v).reduce((a, b) => a + Number(b || 0), 0) !== (q.total ?? 100))
+        return `The allocation must total ${q.total ?? 100}.`;
+      if (q.type === "side_by_side" && q.required && (q.columns || []).some((column) => (q.rows || []).some((row) => !Object.hasOwn(v?.[column.value] || {}, row.value))))
+        return "Answer every row in every column.";
+      if (q.type === "pick_group_rank" && v) {
+        if (q.required && Object.keys(v).length !== (q.options || []).length) return "Place every item in a group.";
+        for (const group of q.groups || []) { const ranks = Object.values(v).filter((item) => item.group === group.value).map((item) => item.rank).filter(Boolean); if (new Set(ranks).size !== ranks.length) return `Use each rank only once within ${group.label}.`; }
+      }
+      if (q.type === "drill_down" && q.required) {
+        const separator = q.path_separator || " > ", valid = (q.options || []).some((option) => String(option.label).split(separator).join("\u0000") === (v || []).join("\u0000"));
+        if (!valid) return "Complete every level of the selection.";
+      }
+      return null;
     }
     function save() {
       backend.save(sessionId, state);
@@ -1774,6 +1888,7 @@
         : `${pos} / ${path.length}`;
       const pageChanged = renderedPage !== p.id;
       renderedPage = p.id;
+      if (pageChanged) state.page_entered_at = Date.now();
       if (pageChanged && p.next_delay_seconds > 0) {
         state.next_ready_page = p.id;
         state.next_ready_at = Date.now() + p.next_delay_seconds * 1000;
@@ -1842,6 +1957,12 @@
             } else output.textContent = `${question?.pre || ""}${slider.value}`;
           }
         };
+      for (const sum of card.querySelectorAll(".gq-constant-sum")) {
+        const updateSum = () => { const values = [...sum.querySelectorAll("[data-constant-item]")].map((e) => Number(e.value || 0)); const qid = sum.closest("[data-q]")?.dataset.q, question = (p.questions || []).find((item) => item.id === qid), total = question?.total ?? 100; sum.querySelector("[data-constant-total]").textContent = `${values.reduce((a, b) => a + b, 0)} / ${total}`; };
+        sum.addEventListener("input", updateSum); updateSum();
+      }
+      for (const drill of card.querySelectorAll(".gq-drill-down select"))
+        drill.addEventListener("change", () => { collect(p); save(); render(); });
       const visibilitySources = new Set(
         (p.questions || [])
           .map((question) => question.show_if?.field)
@@ -1871,6 +1992,8 @@
               ?.focus();
             return;
           }
+          const invalidAnswer = visible(p).map((q) => [q, answerProblem(q)]).find(([, problem]) => problem);
+          if (invalidAnswer) { render(invalidAnswer[1]); card.querySelector(`[data-q="${CSS.escape(invalidAnswer[0].id)}"] input,[data-q="${CSS.escape(invalidAnswer[0].id)}"] select`)?.focus(); return; }
           const target = nextFor(p);
           if (!target || !pages.has(target)) {
             render("The next page is unavailable.");

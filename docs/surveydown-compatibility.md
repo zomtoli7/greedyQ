@@ -226,6 +226,7 @@ The direction is normative: `"Displayed label" = "stored_value"`. An identifier-
 | `matrix` | One radio selection per row | `<id>_<row_id>` columns upstream | **v0.2 target** |
 | `matrix_multiple` | Multiple checkbox selections per row | Per-row values; upstream pipe joining | **v0.2 implemented** |
 | `audio`, `video` | No standalone built-in question types in the documented list; possible through general content/custom mechanisms | No response value | **greedyQ-only extension** |
+| `rank_order`, `side_by_side`, `nps`, `timing`, `constant_sum`, `pick_group_rank`, `drill_down`, `custom` | Not standalone `sd_question()` types in the documented surveydown list | Structured values documented by greedyQ | **greedyQ-only extensions** |
 
 greedyQ should preserve the logical response shape and migration/export behavior, but its native database does not need to reproduce pipe-separated or wide-column physical storage internally.
 

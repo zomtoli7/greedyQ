@@ -113,7 +113,7 @@ AI가 preview를 열거나 interactive artifact를 보여주거나 다운로드�
 
 Preview mode는 컴퓨터와 모바일 화면을 보여주며 가상 참여자를 사용하고 test response를 local에만 보관합니다. 외부 service로 응답을 보내면 안 됩니다.
 
-지원되는 모든 컨트롤을 한곳에서 확인하려면 [온라인 컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)를 여세요. Surveydown-compatible 문항 16종, 숫자 슬라이더 두 형식, responsive matrix, navigation policy, greedyQ의 audio와 video extension을 모두 포함합니다. 웹 게시가 아직 끝나지 않았다면 저장소의 [`examples/control-gallery/`](./examples/control-gallery/) 사본을 사용할 수 있습니다.
+지원되는 모든 컨트롤을 한곳에서 확인하려면 [온라인 컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)를 여세요. Surveydown-compatible 문항 16종, 숫자 슬라이더 두 형식, responsive matrix, navigation policy, advanced 및 custom-base 예제를 포함한 모든 고정 greedyQ extension을 담고 있습니다. 웹 게시가 아직 끝나지 않았다면 저장소의 [`examples/control-gallery/`](./examples/control-gallery/) 사본을 사용할 수 있습니다.
 
 프리뷰 상단의 **스트럭처 보기(View structure)**를 누르면 설문을 처음부터 클릭하지 않고도 전체 구성을 확인할 수 있습니다. 읽기 전용 개요에서 응답자가 보게 될 페이지 순서, `T`로 표시된 안내문, `Q`로 표시된 문항, 문항 ID와 컨트롤 종류를 보여줍니다. 이 화면은 설문을 변경하거나 응답을 저장하지 않습니다.
 
@@ -225,12 +225,22 @@ Prolific 테스트에서는 **테스트 응답**을 유지하고 **유입 경로
 | 각 행에서 여러 개 선택 | `matrix_multiple` | 행×열 복수 선택 행렬 |
 | 오디오 자극 재생 | `audio` | Caption과 transcript를 넣을 수 있는 소리 자극 |
 | 비디오 자극 재생 | `video` | Poster, caption, transcript를 넣을 수 있는 영상 자극 |
+| 선호 순서 정하기 | `rank_order` | 항목 전체의 순위 |
+| 여러 버전을 나란히 평가 | `side_by_side` | 같은 항목과 척도를 공유하는 여러 표 |
+| 추천 의향 질문 | `nps` | 표준 0–10 추천 의향 척도 |
+| 페이지 체류시간 기록 | `timing` | 화면에 보이지 않는 초 단위 기록 |
+| 고정 합계 배분 | `constant_sum` | 예산, 시간, 비율 배분 |
+| 그룹으로 나누고 순위 정하기 | `pick_group_rank` | 범주화 후 그룹 안 우선순위 |
+| 계층을 좁혀 선택 | `drill_down` | 지역–국가–도시 같은 경로 |
+| 합의된 특수 interaction | `custom` | 지원되는 base control을 신중하게 확장 |
 
 매트릭스 문항은 desktop에서 일반 설문 도구의 표 형태를 사용합니다. 진술문은 행에, 응답 선택지는 열 제목에, 라디오 버튼이나 체크박스는 각 셀에 배치됩니다. 핸드폰에서는 진술문마다 별도 card를 만들고 응답 선택지를 순서대로 2개 또는 3개 column group으로 표시하여 horizontal page scroll을 피합니다.
 
 `audio`와 `video`는 surveydown의 독립 built-in question type이 아니라 안전한 greedyQ extension입니다. 검증된 local 또는 HTTPS media를 받고 기본적으로 browser playback control을 사용하며 response variable은 만들지 않습니다. 연구 자료가 허용하면 caption과 transcript를 함께 요청하십시오.
 
 Page의 Previous와 Next는 표시, 숨김 또는 눈에 보이는 비활성화 상태로 설정할 수 있습니다. 승인된 연구설계에 최소 stimulus 노출 시간이 있다면 Next를 지정한 시간 동안 비활성화하고 남은 시간을 표시할 수도 있습니다. 단순히 required answer가 비었다는 이유로 Next를 미리 비활성화하지는 않으며, 눌렀을 때 필요한 응답을 설명합니다.
+
+항상 지원 control을 우선합니다. 맞는 control이 없으면 AI는 custom control에 시간과 AI usage가 더 들 수 있음을 먼저 안내하고 모양, interaction, validation, mobile behavior, accessibility, 저장 결과가 모두 확정될 때까지 핵심 질문을 합니다. 연구자가 요약을 확인한 뒤에만 가장 가까운 base control을 재사용하여 구현합니다.
 
 ## 복사해서 쓰는 프롬프트 예제
 
@@ -270,6 +280,18 @@ Page의 Previous와 Next는 표시, 숨김 또는 눈에 보이는 비활성화 
 
 ```text
 Consent page에서는 Previous를 숨기고 questionnaire page에서는 정상 표시하며 마지막 review page에서는 눈에 보이지만 비활성화해줘. Stimulus page의 Continue는 12초 동안 비활성화하고 남은 시간을 보여줘. Desktop과 mobile preview에서 모든 상태를 보여줘.
+```
+
+### Advanced control 사용
+
+```text
+응답자가 다섯 가지 우선순위의 순위를 정하고, 세 활동에 정확히 100점을 배분한 다음, 지역·국가·도시 drill-down으로 도시를 고르게 해줘. 문항을 승인하기 전에 저장되는 데이터 형태를 설명하고 desktop과 mobile 동작을 보여줘.
+```
+
+### Custom control 요청
+
+```text
+제품 카드 형태의 custom control이 필요할 수 있어. 코드를 만들기 전에 추가 시간과 AI usage를 안내하고 가장 가까운 기존 greedyQ control을 찾아줘. 모양, 선택 방식, validation, mobile layout, accessibility, export value를 한 번에 하나씩 물어봐. 합의 내용을 요약하고 내 확인을 받은 뒤에만 구현해줘.
 ```
 
 ### 문항 품질 점검

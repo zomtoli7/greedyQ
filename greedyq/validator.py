@@ -3,7 +3,7 @@
 import re
 
 
-SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video"}
+SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video", "rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
@@ -94,6 +94,16 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
                 issues.append(_item("GQ003", "Media control '%s' contains an unsafe %s path." % (q["id"], media_key), qmd_path, line))
         if q.get("type") in {"audio", "video"} and q.get("autoplay") and not q.get("muted"):
             issues.append(_item("GQ003", "Media control '%s' may autoplay only when muted." % q["id"], qmd_path, line))
+        if q.get("type") in {"rank_order", "constant_sum", "pick_group_rank", "drill_down"} and len(q.get("options", [])) < 2:
+            issues.append(_item("GQ003", "Question '%s' needs at least two items." % q["id"], qmd_path, line))
+        if q.get("type") == "side_by_side" and (not q.get("rows") or not q.get("options") or not q.get("columns")):
+            issues.append(_item("GQ003", "Side-by-side question '%s' needs rows, columns, and answer choices." % q["id"], qmd_path, line))
+        if q.get("type") == "pick_group_rank" and len(q.get("groups", [])) < 2:
+            issues.append(_item("GQ003", "Pick, group, and rank question '%s' needs at least two groups." % q["id"], qmd_path, line))
+        if q.get("type") == "constant_sum" and (not isinstance(q.get("total", 100), (int, float)) or q.get("total", 100) <= 0):
+            issues.append(_item("GQ003", "Constant-sum question '%s' needs a positive total." % q["id"], qmd_path, line))
+        if q.get("type") == "custom" and q.get("base_type") not in SUPPORTED_TYPES - {"custom", "timing", "audio", "video"}:
+            issues.append(_item("GQ003", "Custom question '%s' must name a supported response control in base_type." % q["id"], qmd_path, line))
         if q.get("type") == "slider_numeric" and isinstance(q.get("default"), list) and len(q["default"]) not in (1, 2):
             issues.append(_item("GQ003", "Numeric slider '%s' default must contain one value or two range endpoints." % q["id"], qmd_path, line))
         if q.get("type") == "slider" and len(q.get("options", [])) < 2:

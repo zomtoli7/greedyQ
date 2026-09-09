@@ -202,6 +202,14 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         self.assertIn("<audio", core)
         self.assertIn("<video", core)
 
+    def test_advanced_and_custom_controls_are_fixed_runtime_features(self):
+        core = (ROOT / "web/greedyq-core.js").read_text()
+        css = (ROOT / "web/greedyq-runtime.css").read_text()
+        for token in ("rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"):
+            self.assertIn(token, core)
+        for token in ("gq-rank-order", "gq-side-by-side", "gq-nps-scale", "gq-constant-sum", "gq-pick-group-rank", "gq-drill-down"):
+            self.assertIn(token, css)
+
 
 if __name__ == "__main__":
     unittest.main()

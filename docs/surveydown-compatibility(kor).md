@@ -226,6 +226,7 @@ sd_question(id = "age", yml = "questions/demographics.yml")
 | `matrix` | Row당 radio 하나 | Upstream은 `<id>_<row_id>` column | **v0.2 target** |
 | `matrix_multiple` | Row당 checkbox 복수 | Row별 value, upstream pipe joining | **v0.2 구현 완료** |
 | `audio`, `video` | 문서화된 목록에는 독립 built-in question type이 없으며 general content/custom mechanism으로 구성 가능 | Response value 없음 | **greedyQ-only extension** |
+| `rank_order`, `side_by_side`, `nps`, `timing`, `constant_sum`, `pick_group_rank`, `drill_down`, `custom` | 문서화된 surveydown 목록의 독립 `sd_question()` type이 아님 | greedyQ가 문서화한 structured value | **greedyQ-only extension** |
 
 greedyQ는 논리적 response shape와 migration/export 동작을 보존해야 하지만 내부 native database에서 pipe-separated 또는 wide-column 물리 저장 방식을 재현할 필요는 없습니다.
 

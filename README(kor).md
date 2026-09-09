@@ -120,7 +120,7 @@ Expert user는 계속 `survey.qmd`와 `greedyq.yml`을 직접 작성할 수 있�
 
 ## surveydown과의 관계
 
-greedyQ는 surveydown-style `survey.qmd` 문법의 독립 구현입니다. v0.2 browser runtime은 현재 공식 question-types documentation의 control 16종을 모두 구현하고 안전한 `audio`와 `video` stimulus를 greedyQ extension으로 추가하며, 나머지 문법은 compatibility level을 명시적으로 구분합니다. surveydown 소스 코드를 포함하지 않으며 surveydown 프로젝트 또는 maintainer와 제휴하거나 이들의 보증을 받지 않습니다. 호환성이 greedyQ native 기능을 제한하지 않으며, 각 기능은 직접 이동 가능, `app.R`로 생성 가능, 또는 명시적인 export diagnostic이 있는 greedyQ-only로 분류합니다. 출처 및 라이선스 정보는 [NOTICE(kor).md](./NOTICE(kor).md)를 참고하십시오.
+greedyQ는 surveydown-style `survey.qmd` 문법의 독립 구현입니다. v0.2 browser runtime은 현재 공식 question-types documentation의 control 16종을 모두 구현하고 media, ranking, side-by-side, NPS, timing, constant-sum, grouping/ranking, drill-down 및 확인된 custom control을 greedyQ extension으로 추가하며, 나머지 문법은 compatibility level을 명시적으로 구분합니다. surveydown 소스 코드를 포함하지 않으며 surveydown 프로젝트 또는 maintainer와 제휴하거나 이들의 보증을 받지 않습니다. 호환성이 greedyQ native 기능을 제한하지 않으며, 각 기능은 직접 이동 가능, `app.R`로 생성 가능, 또는 명시적인 export diagnostic이 있는 greedyQ-only로 분류합니다. 출처 및 라이선스 정보는 [NOTICE(kor).md](./NOTICE(kor).md)를 참고하십시오.
 
 ## 인용
 

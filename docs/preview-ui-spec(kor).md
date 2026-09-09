@@ -46,6 +46,8 @@ Respondent renderer는 문서화된 surveydown control을 모두 구현해야 �
 
 Renderer는 고정된 `audio`와 `video` stimulus control도 greedyQ extension으로 구현합니다. 기본적으로 browser native playback control을 사용하고 검증된 relative 또는 HTTPS media source만 허용하며 visible caption과 펼칠 수 있는 transcript를 포함할 수 있습니다. Autoplay에는 muted playback이 필요합니다. Media control은 표시되었다는 이유만으로 answer를 만들지 않습니다.
 
+Advanced extension control은 정밀한 drag 없이도 사용할 수 있어야 합니다. Rank order는 명시적인 rank selector를 사용하고 side-by-side는 label이 있는 section으로 reflow하며 NPS는 모든 숫자와 양쪽 anchor를 보여줍니다. Timing은 숨겨지고 constant sum은 현재 합계를 표시하며 pick/group/rank는 각 item의 group과 rank field를 제공합니다. Drill-down은 선택한 path와 맞는 choice만 보여줍니다. Custom control은 기존 base control을 명확히 상속하고 동일한 keyboard, focus, contrast, validation, mobile 요건을 충족해야 합니다.
+
 Conditional question은 controlling answer가 바뀐 즉시 나타나거나 사라져야 합니다. 새로 보이는 control은 이전에 저장된 answer를 유지하고 새로 숨겨진 answer는 study의 hidden-answer policy를 따릅니다.
 
 - 가능하면 native semantic control을 사용합니다.

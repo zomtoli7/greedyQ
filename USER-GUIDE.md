@@ -113,7 +113,7 @@ The AI may open the preview, show an interactive artifact, or give you a folder 
 
 Preview mode shows desktop and mobile versions, uses imaginary participants, and keeps test responses local. It must not send responses to an external service.
 
-To inspect every supported control in one place, open the [live control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html). It contains all 16 surveydown-compatible question types, both numeric-slider forms, responsive matrices, navigation policies, and greedyQ's audio and video extensions. The repository copy is available at [`examples/control-gallery/`](./examples/control-gallery/) if the live page has not finished publishing.
+To inspect every supported control in one place, open the [live control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html). It contains all 16 surveydown-compatible question types, both numeric-slider forms, responsive matrices, navigation policies, and every fixed greedyQ extension including advanced and custom-base examples. The repository copy is available at [`examples/control-gallery/`](./examples/control-gallery/) if the live page has not finished publishing.
 
 Use **View structure** at the top of any preview to inspect the questionnaire before clicking through it. The read-only outline shows pages in respondent order, identifies text blocks with `T`, identifies questions with `Q`, and shows each question ID and control type. Expand or collapse pages to focus on one part of the survey. This view never changes the questionnaire or saves responses.
 
@@ -225,12 +225,22 @@ Ask for controls in research language; you do not need to remember their code na
 | Several responses in every row | `matrix_multiple` | A row-by-column multi-select grid |
 | Play an audio stimulus | `audio` | A sound clip with optional caption and transcript |
 | Play a video stimulus | `video` | A video with optional poster, caption, and transcript |
+| Put items in preference order | `rank_order` | Complete ranking of a list |
+| Rate parallel versions together | `side_by_side` | Several compact grids sharing items and scales |
+| Ask recommendation likelihood | `nps` | A standard 0–10 likelihood scale |
+| Record page time | `timing` | Hidden seconds-on-page metadata |
+| Allocate a fixed total | `constant_sum` | Budgets, time, or percentage allocation |
+| Sort into groups and rank | `pick_group_rank` | Categorization followed by within-group priority |
+| Narrow a hierarchy | `drill_down` | Region–country–city and similar paths |
+| Confirmed special interaction | `custom` | A carefully agreed extension of a supported base control |
 
 Matrix questions use the familiar survey-table layout on desktop: statements are rows, response choices are column headings, and each cell contains a radio button or checkbox. On a phone, every statement becomes a separate card and response choices are shown in ordered groups of two or three columns, avoiding horizontal page scrolling.
 
 `audio` and `video` are safe greedyQ extensions rather than standalone built-in surveydown question types. They accept validated local or HTTPS media, use native playback controls by default, and do not create response variables. Ask for captions and transcripts whenever the research material permits them.
 
 Page navigation can be shown, hidden, or left visibly disabled. A Next button may also remain disabled for a stated number of seconds when a minimum stimulus-exposure time is part of the approved design. Required unanswered questions alone do not disable Next in advance; clicking it explains what needs an answer.
+
+Always prefer a supported control. If none fits, the AI must warn that a custom control can take more time and AI usage, then ask focused questions until its appearance, interaction, validation, phone behavior, accessibility, and saved result are all confirmed. Implementation begins only after that confirmation and must reuse the closest supported base control.
 
 ## Prompt library
 
@@ -270,6 +280,18 @@ Add an audio stimulus with normal playback controls, a short caption, and a tran
 
 ```text
 Hide Previous on the consent page, show it normally on questionnaire pages, and display it disabled on the final review page. On the stimulus page, keep Continue disabled for 12 seconds and show the remaining time. Demonstrate every state in desktop and mobile preview.
+```
+
+### Use advanced controls
+
+```text
+Ask respondents to rank five priorities, allocate exactly 100 points across three activities, and then choose a city through region, country, and city drill-down fields. Explain the stored data shape and demonstrate desktop and phone behavior before I approve the questions.
+```
+
+### Request a custom control
+
+```text
+I may need a custom product-card control. Before creating code, warn me about extra time and AI usage, identify the closest existing greedyQ control, and ask me one question at a time about appearance, selection behavior, validation, mobile layout, accessibility, and exported values. Summarize the agreement and wait for my confirmation before implementing it.
 ```
 
 ### Review question quality without silently rewriting

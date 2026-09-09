@@ -158,7 +158,15 @@
             "matrix",
             "matrix_multiple",
             "audio",
-            "video"
+            "video",
+            "rank_order",
+            "side_by_side",
+            "nps",
+            "timing",
+            "constant_sum",
+            "pick_group_rank",
+            "drill_down",
+            "custom"
           ]
         },
         "label": { "type": "string", "minLength": 1 },
@@ -189,6 +197,13 @@
         "status": { "type": "string" },
         "matrix_question_width": { "type": ["string", "number"] },
         "mobile_columns": { "enum": [2, 3] },
+        "total": { "type": "number", "exclusiveMinimum": 0 },
+        "path_separator": { "type": "string", "minLength": 1 },
+        "low_label": { "type": "string" },
+        "high_label": { "type": "string" },
+        "base_type": { "type": "string" },
+        "customization": { "type": "string" },
+        "custom_class": { "type": "string" },
         "src": { "type": "string", "minLength": 1 },
         "poster": { "type": "string", "minLength": 1 },
         "caption": { "type": "string" },
@@ -203,6 +218,8 @@
         "animate": {},
         "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
         "rows": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "columns": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "groups": { "type": "array", "items": { "$ref": "#/$defs/option" } },
         "show_if": { "$ref": "#/$defs/rule" }
       },
       "allOf": [

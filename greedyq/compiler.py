@@ -60,7 +60,7 @@ def compile_preview(parsed, config):
         page["questions"] = []
         for source_question in source["questions"]:
             q = {key: value for key, value in source_question.items() if not key.startswith("_") and key != "unsupported_arguments"}
-            for collection in ("options", "rows"):
+            for collection in ("options", "rows", "columns", "groups"):
                 if collection in q:
                     q[collection] = [{key: value for key, value in item.items() if not key.startswith("_")} for item in q[collection]]
             q["required"] = q.get("id") in required
