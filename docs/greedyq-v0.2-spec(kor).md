@@ -62,7 +62,7 @@ session_id time_start time_end exit_survey_rating current_page browser ip_addres
 ---
 greedyq:
   spec_version: "0.2"
-  version: "0.2_YYYY-MM-DD_<short-commit>"
+  version: "0.2_2026-09-09_ee423e6"
   organization: "Example University Research Team"
 survey-settings:
   show-previous: true

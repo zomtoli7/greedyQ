@@ -10,7 +10,7 @@
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "f89e1d48e203559fcd73e601210f61c486f275cdbe936e57f009eef73142ea31",
+      "sha256": "687b83183264ba3e2a0f93bdf05f27634d37a28a5833a1b7b6eb8ec42f0a512e",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_research_question",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "89239df3a50f015e63b520ca2af18cef0ac6e76145e9dffd317ecd05f99af152",
+      "sha256": "b29f66c5af6d5699f4ece17ef553f286395ad28ac2eca58959910741de2f39ad",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -134,7 +134,7 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "2880c2648538c8e941438ea594a176bbd1ed568f7b35b57e17dddef80a5393bd",
+      "sha256": "7a314f14b21aecf867dab4ee98d6351c71e369003c60325fb8f206e437f27ef7",
       "status": "validated",
       "based_on_decision_ids": []
     },

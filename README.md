@@ -2,6 +2,10 @@
 
 [한국어](./README(kor).md)
 
+**Current specification:** `0.2`  
+**Current release:** `0.2_2026-09-09_ee423e6`  
+**Release source commit:** [`ee423e6`](https://github.com/zomtoli7/greedyQ/commit/ee423e6) · [Update history](./updates/README.md)
+
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
 greedyQ is a specification-driven, AI-native application for online academic research. Rather than implementing the application itself in conventional source code, greedyQ specifies how a general-purpose generative AI agent should instantiate and operate the application.

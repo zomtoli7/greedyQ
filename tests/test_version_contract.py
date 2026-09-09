@@ -13,10 +13,16 @@ LEGACY_TOKEN = "0." + "1"
 class VersionContractTests(unittest.TestCase):
     def test_current_surveys_carry_a_release_identifier(self):
         pattern = re.compile(r'^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$')
+        readme_match = re.search(r'^\*\*Current release:\*\* `([^`]+)`', (ROOT / "README.md").read_text(), re.MULTILINE)
+        self.assertIsNotNone(readme_match)
+        current_release = readme_match.group(1)
+        self.assertRegex(current_release, pattern)
         for path in ROOT.glob("examples/*/survey.qmd"):
             match = re.search(r'^\s+version:\s+"([^"]+)"$', path.read_text(), re.MULTILINE)
             self.assertIsNotNone(match, path)
             self.assertRegex(match.group(1), pattern, path)
+            self.assertEqual(current_release, match.group(1), path)
+        self.assertIn(f"**Current release identifier:** `{current_release}`", (ROOT / "guides/core/guide.md").read_text())
 
     def test_new_study_requires_question_authoring_mode(self):
         start = (ROOT / "START-HERE.md").read_text()

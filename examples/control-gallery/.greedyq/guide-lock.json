@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "0f93fc5fde93050573035b629854740b4cd7c51a246de50fb3a2ade0f3dfa597",
+  "registry_sha256": "c812c6411b3238518c542643702d4c138c5e7acb8eb4a50ed2a4a232d8948f90",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -25,7 +25,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "48af1b0d91a648f4539af719daf778ec95f2cc2bb1d43849aaa43972cd6e3cba"
+      "sha256": "a442c92203f3b84bc1f683eee94835b837300e8ed2cef8989150902dd04213c6"
     },
     {
       "component": "core",
@@ -40,7 +40,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "5fbc1604d316e37d83f9710f7b60ba9d7019d10d463e6e2008ab712ea813b63e"
+      "sha256": "174c9968a0895d46487fcdbbfb664695be01fadbb1e2c3508b3a735002b68e3e"
     },
     {
       "component": "core",
