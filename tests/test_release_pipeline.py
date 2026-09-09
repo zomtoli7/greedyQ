@@ -74,6 +74,8 @@ class ReleasePipelineTests(unittest.TestCase):
             self.assertIn(token, tester)
         self.assertNotIn("service_role_key", tester)
         self.assertNotIn("database_password", tester)
+        self.assertIn('lifecycle: "created"', tester)
+        self.assertNotIn('lifecycle: "active"', tester)
 
     def test_runtime_uses_only_public_supabase_configuration(self):
         template = (ROOT / "templates/browser/respondent.html").read_text().lower()

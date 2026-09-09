@@ -108,7 +108,7 @@
         },
         {
           "path": "templates/supabase/connection-test.html",
-          "sha256": "041ab33beea08e78eb94f39fcc74c640b4428b0b75f74341d3cbbe2ce7498dc7"
+          "sha256": "430de694a74d942c63d0eeb8b52a39b101205894c21cf9f8c2be598bf0fabd33"
         },
         {
           "path": "greedyq/__init__.py",

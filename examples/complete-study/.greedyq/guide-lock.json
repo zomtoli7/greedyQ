@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "3d89f69f069daa705d86230544a048b4425c8a9d4a99eb88f7159179ed055c52",
+  "registry_sha256": "1584aa3429ab1704f04cece48b1ce95cd319e3f6665fab3d4a7f1ae63f73a162",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -159,7 +159,7 @@
     {
       "component": "core",
       "path": "templates/supabase/connection-test.html",
-      "sha256": "041ab33beea08e78eb94f39fcc74c640b4428b0b75f74341d3cbbe2ce7498dc7"
+      "sha256": "430de694a74d942c63d0eeb8b52a39b101205894c21cf9f8c2be598bf0fabd33"
     },
     {
       "component": "core",
