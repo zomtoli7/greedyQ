@@ -8,6 +8,9 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-25_f2afa11`](./0.2/0.2_2026-10-25_f2afa11.md) — Keep the established Vercel/Supabase journey, prefer existing authorized official connections, and make Onboard your agent optional.
+
+
 - [`0.2_2026-10-25_15d4d3e`](./0.2/0.2_2026-10-25_15d4d3e.md) — Fix untouched required sliders and conditional follow-up expressions; use the same browser screen for local checks and deployment.
 
 - [`0.2_2026-10-25_7beafe4`](./0.2/0.2_2026-10-25_7beafe4.md) — Verify the first-researcher website → questionnaire → browser → results → archive journey with a disposable local database and synthetic responses.
