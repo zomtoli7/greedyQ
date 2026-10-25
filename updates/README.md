@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-25_15d4d3e`](./0.2/0.2_2026-10-25_15d4d3e.md) — Fix untouched required sliders and conditional follow-up expressions; use the same browser screen for local checks and deployment.
+
 - [`0.2_2026-10-25_7beafe4`](./0.2/0.2_2026-10-25_7beafe4.md) — Verify the first-researcher website → questionnaire → browser → results → archive journey with a disposable local database and synthetic responses.
 
 - [`0.2_2026-10-25_0af2387`](./0.2/0.2_2026-10-25_0af2387.md) — Complete standard Prolific ID capture, isolated repeat Preview, atomic withdrawal erasure, protected results/CSV and routine-review evidence handling.

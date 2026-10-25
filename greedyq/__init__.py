@@ -1,4 +1,4 @@
 """greedyQ v0.2 reference parser, validator, and preview builder."""
 
 __version__ = "0.2.0-draft.1"
-__release__ = "0.2_2026-10-25_7beafe4"
+__release__ = "0.2_2026-10-25_15d4d3e"
