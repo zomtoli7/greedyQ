@@ -1,5 +1,9 @@
 # greedyQ
 
+- **Current specification:** `0.2`
+- **Current release:** `0.2_2026-10-25_0af2387`
+- **Release source commit:** [`0af2387`](https://github.com/zomtoli7/greedyQ/commit/0af2387ca62fd2550f5d594595ca8d45c788bc17) · [Update history](./updates/README.md)
+
 [Compatibility audit](./docs/surveydown-compatibility-audit.md) · [Preregistration drafts](./PREREGISTRATION.md) · [Resume and upgrade](./UPGRADING.md) · [External returns](./EXTERNAL-RETURNS.md) · [Google Sites plan](./docs/google-sites-plan.md)
 
 [Finish and archive a study](./ARCHIVING.md) · [Cloud lifecycle operator contract](./docs/cloud-lifecycle.md)
@@ -7,10 +11,6 @@
 [Random assignment and question shuffling](./RANDOMIZATION.md) · [Local verification and upgrade status](./docs/randomization-verification.md)
 
 [한국어](./README(kor).md)
-
-- **Current specification:** `0.2`
-- **Current release:** `0.2_2026-09-10_c4a8405`
-- **Release source commit:** [`c4a8405`](https://github.com/zomtoli7/greedyQ/commit/c4a8405) · [Update history](./updates/README.md)
 
 [Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Connect to Prolific](./PROLIFIC-SETUP.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
@@ -136,7 +136,7 @@ Until a greedyQ paper is available, scholarly work using greedyQ should cite bot
 
 greedyQ provides a browser-native v0.2 runtime candidate with account-free local preview. The fixed JavaScript core parses QMD/YAML, validates and compiles supported syntax, renders adaptive desktop/mobile surveys and dual previews, and conforms to the Python reference on the golden studies, control gallery and negative fixtures. Vercel/Supabase deployment, protected results, canonical migrations 001–006, Prolific identifier capture, preregistration drafts, native surveydown export and offline preflight are implemented.
 
-On 2026-10-25, the connected test environment verified Prolific draft Preview for normal completion, no consent, withdrawal and repeated attempts. New withdrawals erase answers before return, while disclosed administrative identifiers remain for duplicate prevention. Protected results/CSV and server-side test/production separation were checked. The one-person paid pilot was published by the researcher and then temporarily paused for routine Prolific review; no paid submission, approval or payment is verified. Signed Prolific URLs and repeated production submissions remain unsupported. See [Prolific setup](./PROLIFIC-SETUP.md), [verification evidence](./docs/prolific-cloud-test-2026-10-25.md), [paid-pilot status](./docs/prolific-paid-pilot-2026-10-25.md) and [external readiness](./docs/external-connection-readiness.md). These working-tree updates are not a newly stamped public release.
+On 2026-10-25, the connected test environment verified Prolific draft Preview for normal completion, no consent, withdrawal and repeated attempts. New withdrawals erase answers before return, while disclosed administrative identifiers remain for duplicate prevention. Protected results/CSV and server-side test/production separation were checked. The one-person paid pilot was published by the researcher and then temporarily paused for routine Prolific review; no paid submission, approval or payment is verified. Signed Prolific URLs and repeated production submissions remain unsupported. See [Prolific setup](./PROLIFIC-SETUP.md), [verification evidence](./docs/prolific-cloud-test-2026-10-25.md), [paid-pilot status](./docs/prolific-paid-pilot-2026-10-25.md) and [external readiness](./docs/external-connection-readiness.md). The release records this verified scope; existing deployed studies retain their recorded version until a reviewed upgrade.
 
 ## Try the responsive preview
 

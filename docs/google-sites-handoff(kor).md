@@ -2,7 +2,7 @@
 
 [English](./google-sites-handoff.md)
 
-먼저 같은 폴더의 `google-sites-plan(kor).md`를 읽으세요. 이 묶음은 원격 작업본에서 고른 문서이며 아직 공개되지 않은 변경을 포함합니다. 새 공개 릴리스가 아닙니다. 기존 저장소를 이 파일로 덮어쓰거나 모든 상대 링크 대상이 포함됐다고 가정하지 마세요.
+먼저 같은 폴더의 `google-sites-plan(kor).md`를 읽으세요. 현재 버전의 웹사이트 원본과 전체 교체 임베드는 `website/`에 있고 릴리스·이력은 `release.json`과 `updates/0.2/`에서 생성합니다. `website/copy-embed.html`에서 한 번에 코드를 복사할 수 있습니다. 이 파일의 생성·GitHub 반영만으로 Google Sites 편집이 저장·게시되지는 않습니다. 일부 인계 파일로 기존 저장소를 덮어쓰지 않습니다.
 
 ## 현재 소유자 결정
 

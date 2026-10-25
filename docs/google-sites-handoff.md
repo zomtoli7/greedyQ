@@ -2,7 +2,7 @@
 
 [한국어](./google-sites-handoff(kor).md)
 
-Read `google-sites-plan.md` beside this file first. This bundle contains selected documentation from the remote working tree, including unpublished changes. It is not a new public release. Do not replace an existing checkout with these files or assume every relative link is included.
+Read `google-sites-plan.md` beside this file first. The current versioned website sources and complete replacement embed are under `website/`; their release/history come from `release.json` and `updates/0.2/`. Open `website/copy-embed.html` for the single-copy replacement workflow. Generating or pushing these files does not itself save or publish an edit to Google Sites. Do not replace an existing checkout with a partial handoff bundle.
 
 ## Current owner decisions
 

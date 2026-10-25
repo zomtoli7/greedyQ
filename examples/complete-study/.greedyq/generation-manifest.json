@@ -2,15 +2,15 @@
   "schema_version": "0.2",
   "study_id": "digital_service_info_001",
   "study_version": "1.0.0-fixture",
-  "guide_version": "0.2.0-draft.1",
+  "guide_version": "0.2_2026-10-25_0af2387",
   "spec_version": "0.2.0-draft.1",
-  "source_commit": null,
+  "source_commit": "0af2387ca62fd2550f5d594595ca8d45c788bc17",
   "generated_at": null,
   "artifacts": [
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "43291730e89f8555ce667acd36e4ed2d2e19316cf8f5fb1e2b60209ddc748eac",
+      "sha256": "2a0780d14247b61fccafc065617059b001e8bf9996af8fca344d8a901f15bac3",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_research_question",
@@ -73,7 +73,7 @@
     {
       "path": "preview-model.json",
       "kind": "derived",
-      "sha256": "3868920b2ba2826f2db0de1b2b2d6390be3d0c4462cb8cf63baa4f256a81973a",
+      "sha256": "4d32bb806825685857eef05fd90e809b22c6106a107934bff48d3402716213a9",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "6c82d9fe9183c71d9de20250430041f02b621595a01540fff43fb5217260ccf3",
+      "sha256": "3436a4d4c898356490c4ecda3034ee5633b071ed74bf872a218891e262ca5296",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "43aa98837a368ab0554edce47f585509e0aa6c1027c1fcdcf7ffbe6775254d4d",
+      "sha256": "9ff4e04dc7a245df657201e8c5136b1bb6beec39a06ff1b3e7c9a3688e033c1b",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -134,7 +134,7 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "3d891689780183bbc30c851fa9d700d26176ea64de550b2677583ad0c2d10fcb",
+      "sha256": "ece079764021f544b92ddff02136ad9f2cc3dcf1d17b3c736a7d3140963b75ce",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -148,14 +148,14 @@
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "82b43d67c3faf344e7eeb97e494e4a4853de6dd55238f70f2d72384c466b6c6d",
+      "sha256": "c8c3c0ef30238b356cb54149500e0c23d51119dd8f4ad9a9f8a393340f4cbcdc",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "a9de837384d74dfd915c6de725987cedbc2533cdee790d4b119352eb6c2b2561",
+      "sha256": "6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -204,7 +204,7 @@
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "b4b3aee73b6fec995221b8601b547771dff050d5d1d3aa5dd65df8ef42aeb3ec",
+      "sha256": "85615a878c6e643907a53603baad338c52edfa7cfb68c3ff8e1946837449029b",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"

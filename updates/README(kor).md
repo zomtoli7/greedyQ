@@ -8,6 +8,9 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-10-25_0af2387`](./0.2/0.2_2026-10-25_0af2387(kor).md) — 기본 Prolific ID 기록·분리된 반복 Preview·원자적 철회 답변 삭제·보호된 결과/CSV·내부 검토 상태 처리를 정리했습니다.
+- [`0.2_2026-09-10_c4a8405`](./0.2/0.2_2026-09-10_c4a8405(kor).md) — 반응형 브라우저 검사·native export 안정화.
+
 - [`0.2_2026-09-09_fcb3c86`](./0.2/0.2_2026-09-09_fcb3c86(kor).md) — export, 구조화 결과, 무결성 검사 안정화
 - [`0.2_2026-09-09_236d2a3`](./0.2/0.2_2026-09-09_236d2a3(kor).md) — NPS 척도를 모바일 폭에 맞춤
 - [`0.2_2026-09-09_9d9ffe9`](./0.2/0.2_2026-09-09_9d9ffe9(kor).md) — advanced control과 confirmation-first custom control

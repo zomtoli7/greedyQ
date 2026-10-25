@@ -20,8 +20,8 @@ def stamp(source_commit,date):
     release='0.2_'+date+'_'+short
     metadata.update(release=release,source_commit=commit,release_date=date,documentation_updated=date)
     (ROOT/'release.json').write_text(json.dumps(metadata,indent=2)+'\n')
-    for relative in ('README.md','README(kor).md','guides/core/guide.md','guides/core/guide(kor).md','docs/external-connection-readiness.md','docs/external-connection-readiness(kor).md'):
-        path=ROOT/relative;text=path.read_text().replace(old,release)
+    for relative in ('README.md','README(kor).md','guides/core/guide.md','guides/core/guide(kor).md','SUPABASE-SETUP.md','SUPABASE-SETUP(kor).md','docs/greedyq-v0.2-spec.md','docs/greedyq-v0.2-spec(kor).md','docs/external-connection-readiness.md','docs/external-connection-readiness(kor).md'):
+        path=ROOT/relative;text=re.sub(r'0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}',release,path.read_text())
         if relative.startswith('README'):
             text=re.sub(r'\[`[0-9a-f]{7,40}`\]\(https://github.com/zomtoli7/greedyQ/commit/[0-9a-f]+\)',f'[`{short}`](https://github.com/zomtoli7/greedyQ/commit/{commit})',text)
         path.write_text(text)

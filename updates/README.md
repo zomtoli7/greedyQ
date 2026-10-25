@@ -8,6 +8,9 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-25_0af2387`](./0.2/0.2_2026-10-25_0af2387.md) — Complete standard Prolific ID capture, isolated repeat Preview, atomic withdrawal erasure, protected results/CSV and routine-review evidence handling.
+- [`0.2_2026-09-10_c4a8405`](./0.2/0.2_2026-09-10_c4a8405.md) — Responsive browser checks and native export stabilization.
+
 - [`0.2_2026-09-09_fcb3c86`](./0.2/0.2_2026-09-09_fcb3c86.md) — stabilized exports, structured results, and integrity checks
 - [`0.2_2026-09-09_236d2a3`](./0.2/0.2_2026-09-09_236d2a3.md) — fit the NPS scale to mobile width
 - [`0.2_2026-09-09_9d9ffe9`](./0.2/0.2_2026-09-09_9d9ffe9.md) — advanced controls and confirmation-first custom controls

@@ -238,7 +238,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `release.json` | `090d013c68d16ee8c3718ebdeaf64a58ee20ea73c80ace9b8b931991389f963d` | `no` |
+| `release.json` | `d0f9e38ac8f514027124e7c9f3c412338b253fc570021e05938781b10e456393` | `no` |
 | `PROLIFIC-SETUP.md` | `7b1764d12f3446c6ab0c755519aeb0b4741609a7b0d3fb71fadbbef28852ca16` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -260,10 +260,10 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `a9de837384d74dfd915c6de725987cedbc2533cdee790d4b119352eb6c2b2561` | `no` |
+| `web/greedyq-core.js` | `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f` | `no` |
 | `web/greedyq-runtime.css` | `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b` | `no` |
-| `templates/browser/respondent.html` | `9ace735dc5601bd7a592df25af7e1061e1293e2ed4f7de9625ef7b977502c7f2` | `no` |
-| `templates/browser/preview.html` | `f66bc11a2308f798cedb82f9c0582ba3b41e81ed0bcc98d94504bfa481f425b8` | `no` |
+| `templates/browser/respondent.html` | `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de` | `no` |
+| `templates/browser/preview.html` | `6b899e078ad9ad013a1366e7da1c64f17e87fd7f1748a02af6709452693af670` | `no` |
 | `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
 | `templates/browser/results.html` | `5bec540198ad694cb63ef0da15b6e7ad533bbacf08fb9841a00501767b3d4f80` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -280,7 +280,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc` | `no` |
-| `greedyq/__init__.py` | `87c2ce41e92b79697011fa851c0e0b9f4b14cb0a96319233b0963ac2d5781715` | `no` |
+| `greedyq/__init__.py` | `a73bf386302202f0ccd12a5087c6c0037cdc788c88442f9a63ec1acbc78ea65d` | `no` |
 | `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
@@ -297,14 +297,14 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 ### FILE: `release.json`
 
-SHA-256: `090d013c68d16ee8c3718ebdeaf64a58ee20ea73c80ace9b8b931991389f963d`
+SHA-256: `d0f9e38ac8f514027124e7c9f3c412338b253fc570021e05938781b10e456393`
 
 ```json
 {
   "spec_version": "0.2",
-  "release": "0.2_2026-09-10_c4a8405",
-  "source_commit": "c4a8405",
-  "release_date": "2026-09-10",
+  "release": "0.2_2026-10-25_0af2387",
+  "source_commit": "0af2387ca62fd2550f5d594595ca8d45c788bc17",
+  "release_date": "2026-10-25",
   "documentation_updated": "2026-10-25",
   "prolific_paid_pilot": "paused_for_review",
   "paid_submission_verified": false,
@@ -1784,7 +1784,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `a9de837384d74dfd915c6de725987cedbc2533cdee790d4b119352eb6c2b2561`
+SHA-256: `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1795,7 +1795,7 @@ SHA-256: `a9de837384d74dfd915c6de725987cedbc2533cdee790d4b119352eb6c2b2561`
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   const VERSION = "0.2.0-draft.1";
-  const RELEASE = "0.2_2026-09-10_c4a8405";
+  const RELEASE = "0.2_2026-10-25_0af2387";
   // Generated from greedyq/locale-messages.json; parity is tested.
   const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"]};
   const LANGUAGES = ['en','ko','zh-CN','zh-TW'];
@@ -4840,7 +4840,7 @@ SHA-256: `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `9ace735dc5601bd7a592df25af7e1061e1293e2ed4f7de9625ef7b977502c7f2`
+SHA-256: `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de`
 
 ```html
 <!doctype html>
@@ -4872,7 +4872,7 @@ SHA-256: `9ace735dc5601bd7a592df25af7e1061e1293e2ed4f7de9625ef7b977502c7f2`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-10_c4a8405",
+        "greedyq_version": "0.2_2026-10-25_0af2387",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -4975,7 +4975,7 @@ SHA-256: `9ace735dc5601bd7a592df25af7e1061e1293e2ed4f7de9625ef7b977502c7f2`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `f66bc11a2308f798cedb82f9c0582ba3b41e81ed0bcc98d94504bfa481f425b8`
+SHA-256: `6b899e078ad9ad013a1366e7da1c64f17e87fd7f1748a02af6709452693af670`
 
 ```html
 <!doctype html>
@@ -5216,7 +5216,7 @@ SHA-256: `f66bc11a2308f798cedb82f9c0582ba3b41e81ed0bcc98d94504bfa481f425b8`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-09-10_c4a8405",
+        "greedyq_version": "0.2_2026-10-25_0af2387",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -6938,13 +6938,13 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
 
 ### FILE: `greedyq/__init__.py`
 
-SHA-256: `87c2ce41e92b79697011fa851c0e0b9f4b14cb0a96319233b0963ac2d5781715`
+SHA-256: `a73bf386302202f0ccd12a5087c6c0037cdc788c88442f9a63ec1acbc78ea65d`
 
 ```python
 """greedyQ v0.2 reference parser, validator, and preview builder."""
 
 __version__ = "0.2.0-draft.1"
-__release__ = "0.2_2026-09-10_c4a8405"
+__release__ = "0.2_2026-10-25_0af2387"
 ```
 
 ### FILE: `greedyq/__main__.py`
