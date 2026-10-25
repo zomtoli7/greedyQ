@@ -2,7 +2,7 @@
 
 [한국어](./claude-build-review(kor).md)
 
-Reviewed 2026-10-25 against the supplied `greedyQ-build-deploy-test.md`. The pasted HTML is byte-identical to the current website embed, not a second independent test report. The original Claude study folder was not supplied. Findings were reproduced using independently created synthetic studies, without touching the live paid Prolific pilot.
+Reviewed 2026-10-25 against the supplied `greedyQ-build-deploy-test.md`. The pasted HTML is byte-identical to the website embed at the start of this review, not a second independent test report. The original Claude study folder was not supplied. Findings were reproduced using independently created synthetic studies, without touching the live paid Prolific pilot.
 
 | Report | Response and verification boundary |
 | --- | --- |
@@ -19,4 +19,6 @@ Reviewed 2026-10-25 against the supplied `greedyQ-build-deploy-test.md`. The pas
 
 Verification covers fresh draft creation, missing records/documents, unsafe paths, approval invalidation, CLI output, expression parity, actual browser sliders/follow-ups and the full existing suite. Generated native R source is syntax-checked when R is available; this is not proof of complete surveydown behavioral equivalence. External deployment remains unverified by Claude’s report because login was its stopping point.
 
-Vercel’s optional new onboarding route is reviewed separately in [Vercel agent onboarding](./vercel-agent-onboarding.md). No global installation, authentication, paid recruitment or cloud mutation was performed for this review.
+Vercel’s optional new onboarding route is reviewed separately in [Vercel agent onboarding](./vercel-agent-onboarding.md). No global installation, authentication, paid recruitment or Vercel/Supabase project changes was performed for this review.
+
+Verification completed: after release stamping, all 187 Python and 41 Node/browser tests passed, with no skips. GitHub and Google Sites were updated, and the entire public website embed matched the generated source. Guidance now also covers AI-assisted research-specific allocation, including four groups followed by group-specific sequential text stimuli.
