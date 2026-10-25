@@ -1,6 +1,6 @@
 # Governance and IRB Module
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Ask whether detailed governance and IRB work should happen now or after the coherent instrument draft. Deferral changes timing, not whether the work is required. Immediately screen for vulnerable populations, sensitive or identifying data, deception, elevated risk, regulated interventions, and known institutional restrictions.
 

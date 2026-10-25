@@ -1,6 +1,6 @@
 # Prolific Module
 
-[English](./guide.md)
+[English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
 [Prolific 연결 안내](../../../PROLIFIC-SETUP(kor).md)를 따르고 `tools/prepare_prolific.py`로 외부 변경 없이 설정 자료를 준비합니다. 연구자 계정 생성·로그인, 워크스페이스 선택, URL 파라미터를 사용하는 초안 준비, 실제 연구 ID·완료 경로 확인을 안내합니다. `respondents.prolific`에 실제 검토 결과를 기록하고 검사를 통과하려고 검토 플래그를 임의로 채우지 않습니다. 기본 ID는 서명 인증이 아닙니다. 서명 URL·반복 제출 연구는 이 모듈에서 지원하지 않습니다. 연동 시험을 이유로 모집·지급을 임의로 활성화하지 않습니다.
 

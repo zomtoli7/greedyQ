@@ -1,6 +1,6 @@
 # greedyQ AI Study Builder Guide — Compact
 
-[English](./greedyq-guide-compact.md)
+[English](./greedyq-guide-compact.md) · [简体中文](./greedyq-guide-compact(zh-CN).md)
 
 **버전:** `0.2.0-draft.1`
 Context가 제한될 때 이 compact guide를 사용합니다. 사용할 수 있으면 full guide와 고정된 greedyQ specification이 우선합니다.
@@ -92,3 +92,5 @@ Named QMD vector는 항상 `"Displayed label" = "stored_value"`를 사용합니�
 ## 각 작업 기간 종료
 
 Current phase, confirmed decision, unresolved blocker, changed file, validation result, 실제 검증된 external action, 남은 approval, 권장 next action 하나를 보고합니다. “drafted”, “approved”, “submitted”, “registered”, “embargoed”, “deployed”, “fielding started”를 하나로 합치지 않습니다.
+
+추가 필수 확인: 문항 작성 전 직접 작성/AI 초안 중 연구자가 선택하며 기관명과 참여자 언어도 확인합니다. 사전등록은 초안 파일만 제공합니다. 기존 Vercel 로그인·Supabase 승인 여정을 유지하고 이미 승인된 공식 연결을 우선 활용합니다. Onboard your agent는 선택 사항입니다. 빠진 팀 승인은 해당 팀 승인 후 같은 연결에서 재확인합니다.

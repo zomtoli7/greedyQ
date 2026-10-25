@@ -1,6 +1,6 @@
 # greedyQ Guide
 
-[English](./README.md)
+[English](./README.md) · [简体中文](./README(zh-CN).md)
 
 이 guide들은 greedyQ **agent-executable application specification**의 module입니다. greedyQ 자체는 agent가 아닙니다. Capable host GenAI가 이 specification을 해석하여 greedyQ research agent를 instantiate합니다.
 
@@ -21,14 +21,14 @@
 | --- | --- | --- |
 | 새 대화 | Mode를 감지하고 research question 하나만 질문 | Guide startup protocol에 정의 |
 | 단일 attachment | Full guide에서 canonical code를 추출하고 hash 검증 | `greedyq-guide.md`의 embedded canonical bundle |
-| Reference study 재개 | Preregistration phase, open decision 두 개, blocked fielding 보고 | `.greedyq/study-state.json`으로 표현 |
-| OSF draft 제출 요청 | 정확한 hash 승인과 connected authorization 요구 | `open_osf_submission`으로 차단 |
+| Reference study 재개 | 현재 단계·미정 결정·승인 상태 읽기 | `.greedyq/study-state.json`으로 표현 |
+| OSF draft 제출 요청 | 초안 파일만 제공하고 실제 등록은 연구자가 별도로 처리 | Preregistration module |
 | Recruitment 시작 요청 | Preregistration 및 deployment gate 요구 | Fielding gate 차단 상태 |
 | Target sample 변경 | Superseding decision을 append하고 영향받는 hash를 stale 처리 | Decision 및 manifest contract에서 요구 |
 | 임의의 R 추가 | 실행을 거부하고 declarative 또는 export-safe 대안 제공 | Guide 및 v0.2 specification에서 금지 |
 | Deployment 성공 주장 | External verification evidence 요구 | 모든 external operation이 `not_attempted` 상태 |
 
-Structural fixture는 JSON Schema validation, decision-reference check, artifact-hash check, QMD reference check, 영문/한국어 문서 parity를 통과합니다. Python reference parser, validator, preview, local respondent runtime은 현재 문서화된 reference behavior를 실행합니다. Browser-native JavaScript conformance와 production Supabase/Vercel behavior는 아직 구현 및 검증해야 합니다.
+Structural fixture는 JSON Schema validation, decision-reference check, artifact-hash check, QMD reference check, 영문/한국어 문서 parity를 통과합니다. Python reference parser, validator, preview, local respondent runtime은 현재 문서화된 reference behavior를 실행합니다. 브라우저 JavaScript 일치와 일부 클라우드 경로에는 시험 근거가 있습니다. 정확한 범위는 현재 외부 연결 준비 기록을 참고하며 다른 계정·임의 모델·새 배포에 대한 보증은 아닙니다.
 
 ## 다음 behavioral evaluation
 
@@ -41,3 +41,5 @@ Structural fixture는 JSON Schema validation, decision-reference check, artifact
 5. QMD, YAML, state, preregistration artifact의 일관된 생성
 
 Question pacing, decision fidelity, methodological escalation, syntax validity, state resumability, correction success, external-action truthfulness를 평가합니다.
+
+중국어 시작·사용자·AI 가이드는 `(zh-CN).md` 파일을 사용합니다. 영문 규약과 코드·해시는 그대로 유지하며 참여자 언어는 별도로 확인합니다. 기존 공식 Vercel 연결을 우선 활용하되 Onboard your agent는 선택 사항으로 안내합니다.

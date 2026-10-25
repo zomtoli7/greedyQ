@@ -1,6 +1,6 @@
 # surveydown Export Module
 
-[English](./guide.md)
+[English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
 `survey.qmd`와 `app.R`을 포함한 native surveydown-compatible project를 중요한 보조 산출물로 만듭니다. greedyQ Vercel/Supabase runtime이 기본입니다. 공개된 surveydown behavior와 documentation만 사용하고 source, test, internal fixture를 복사하지 않습니다.
 

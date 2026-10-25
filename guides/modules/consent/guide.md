@@ -1,6 +1,6 @@
 # Consent Module
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Create a versioned consent page using only confirmed study facts. Describe purpose, activities, duration, foreseeable risks and benefits, compensation, voluntary participation, withdrawal, data collection and retention, contacts, and eligibility in plain language as applicable.
 

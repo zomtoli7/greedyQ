@@ -69,3 +69,5 @@ Supabase 리소스는 서버 비밀키를 받는 결과 프로젝트에만 연�
 `python3 -m unittest tests.test_archive`, `node --test tests/cloud_lifecycle.cjs`와 전체 Python 테스트를 실행합니다. 실제 수집 종료·재개와 연구자가 참여한 Supabase 중지·재개를 검증했습니다. 정확한 범위와 현재 리소스 상태는 [반복 사용자 인수 검사](./repeat-user-acceptance(kor).md)를 참고하세요. 유료 계정 동작, 대규모 동시 접근 부하, 무인 Supabase 관리 권한은 검증하지 않았습니다. ZIP 복원은 필수 범위가 아닙니다. 서비스 재개는 **Resume project**, 수집 재개는 별도 승인한 `reopen` CLI 작업을 사용합니다.
 
 출처: [Vercel 중지](https://vercel.com/docs/projects/managing-projects), [Supabase 중지 API와 권한](https://supabase.com/docs/reference/api/v1-pause-a-project), [Supabase TLS](https://supabase.com/docs/guides/platform/ssl-enforcement).
+
+기존 CLI 기반 운영 경로는 계속 지원합니다. 승인된 공식 Vercel 연결이 있으면 계정·팀을 확인한 뒤 지원 작업에 우선 사용하고, 기능이 없으면 같은 검수·승인 경계를 유지하며 기존 경로를 사용합니다. Onboard your agent는 필수가 아닙니다. CLI와 MCP의 인증은 별도로 확인하고 팀 접근 거절은 해당 팀 승인으로 해결하며 몰래 다른 인증으로 우회하지 않습니다. [연결 선택 규약](../guides/modules/deployment-vercel-supabase/guide(kor).md)을 따르세요.

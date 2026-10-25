@@ -49,3 +49,7 @@
 - Version normative specifications and generated artifacts.
 - Add conformance tests for documented syntax and behavior.
 - Keep the core workflow usable without R, RStudio, Quarto, or Shiny.
+
+## Maintaining Chinese guides
+
+When editing an entry, user or AI guide with a `(zh-CN).md` counterpart, synchronize material content across English, Korean and Chinese. English remains normative; do not translate code, identifiers, paths or hashes. The Chinese full guide embeds the same fixed code and receives the same release stamp. This does not require translating every developer document. Website instructions must explain actions and screens for researchers without computing experience, defining quoted terms such as “Survey link”, “Results link” and “Preview” at first use.

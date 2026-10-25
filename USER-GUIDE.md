@@ -1,6 +1,6 @@
 # greedyQ User Guide
 
-[한국어](./USER-GUIDE(kor).md)
+[한국어](./USER-GUIDE(kor).md) · [简体中文](./USER-GUIDE(zh-CN).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -174,7 +174,7 @@ The agent must complete the [local operations and recovery checks](./docs/operat
 
 If the study appears in a publication, preprint, thesis, or report, cite both greedyQ and surveydown—even if the survey ran only on greedyQ's independent browser runtime. Use the exact release identifier stored as `greedyq.version` in `survey.qmd`. See [CITATION.md](./CITATION.md) for copy-ready references and accurate methods wording.
 
-When you are ready to create the first test database, follow [Connect a Supabase Project](./SUPABASE-SETUP.md). It stops before Vercel deployment and real recruitment.
+Use [Connect a Supabase Project](./SUPABASE-SETUP.md) only for recovery when automatic setup is unavailable. It is not part of the normal researcher journey.
 
 ## 7. Connect once and receive two links
 
@@ -183,6 +183,8 @@ A connected AI agent needs file and account-operation tools to complete this sta
 The normal deployment flow does not ask you to operate Supabase. Sign in to Vercel, approve the Supabase resource presented inside Vercel, and allow the connected AI agent to finish setup. It must install the database migrations, connect environment variables, deploy the public survey, deploy a Vercel-authenticated results application, and verify both links.
 
 The completion message must contain a **survey link** to share with participants and a **results link** for researchers authorized through the Vercel team. Instructions to copy database keys, paste SQL, find Supabase tables, or manually connect environment variables are recovery instructions, not the normal greedyQ experience.
+
+If an official Vercel connection is already available, your AI uses it first. Otherwise it can continue with the established supported connection route. **Onboard your agent is optional, not required.** You should not normally need to install tools or plugins yourself. If an additional team grant is needed, the AI gives you the approval link for that team only. Login and team authorization can be separate steps.
 
 ## 8. Check test responses in the dashboard
 

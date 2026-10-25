@@ -110,5 +110,5 @@ def update(path: Path, embedded: str) -> None:
 
 
 bundle = make_bundle()
-for guide in ("guides/greedyq-guide.md", "guides/greedyq-guide(kor).md"):
+for guide in ("guides/greedyq-guide.md", "guides/greedyq-guide(kor).md", "guides/greedyq-guide(zh-CN).md"):
     update(ROOT / guide, bundle)

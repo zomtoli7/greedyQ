@@ -11,7 +11,7 @@ class ReleaseMetadataTests(unittest.TestCase):
         identifier=release['release']
         self.assertRegex(identifier,r'^0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}$')
         self.assertTrue(release['source_commit'].startswith(identifier.rsplit('_',1)[-1]))
-        for relative in ('README.md','README(kor).md','guides/core/guide.md','guides/core/guide(kor).md'):
+        for relative in ('README.md','README(kor).md','README(zh-CN).md','guides/core/guide.md','guides/core/guide(kor).md','guides/core/guide(zh-CN).md'):
             self.assertIn(identifier,(ROOT/relative).read_text()[:3000])
         self.assertIn('__release__ = "'+identifier+'"',(ROOT/'greedyq/__init__.py').read_text())
         self.assertIn('const RELEASE = "'+identifier+'"',(ROOT/'web/greedyq-core.js').read_text())

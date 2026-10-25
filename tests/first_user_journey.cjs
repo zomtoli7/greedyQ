@@ -10,7 +10,11 @@ const ops = require('../tools/cloud_lifecycle.cjs');
 const results = require('../templates/vercel/api/results.js');
 const repo = path.resolve(__dirname, '..'), study = process.argv[2];
 const model = JSON.parse(fs.readFileSync(path.join(study, 'preview-model.json')));
-const client = new Client({host:process.env.PGHOST, port:Number(process.env.PGPORT), database:'postgres'});
+const connection = {host:process.env.PGHOST, port:Number(process.env.PGPORT), database:'postgres'};
+const client = new Client(connection);
+// Keep participant RLS calls on their own connection; SET ROLE must never
+// leak into administrative assertions when an autosave is still in flight.
+const respondentClient = new Client(connection);
 const quote = value => "'" + String(value).replaceAll("'", "''") + "'";
 let browser, server;
 let rpcQueue=Promise.resolve();
@@ -24,9 +28,7 @@ async function rpc(name, body) {
     const encoded = value==null ? 'NULL' : quote(typeof value==='object' ? JSON.stringify(value) : value);
     return `${key} => ${encoded}::${types[i]}`;
   });
-  await client.query('SET ROLE anon');
-  try { return (await client.query(`SELECT to_json(public.${name}(${args.join(',')})) value`)).rows[0].value; }
-  finally { await client.query('RESET ROLE'); }
+  return (await respondentClient.query(`SELECT to_json(public.${name}(${args.join(',')})) value`)).rows[0].value;
 }
 // Exercise the real results handler through a local PostgREST-shaped adapter.
 async function databaseFetch(input) {
@@ -46,6 +48,8 @@ async function databaseFetch(input) {
 }
 async function main() {
   await client.connect();
+  await respondentClient.connect();
+  await respondentClient.query('SET ROLE anon');
   await ops.registerStudy(client,model);
   const bundles=path.join(study,'bundles');
   ops.prepareDeployments({repo,model,directory:bundles,url:'https://journey.supabase.test',publishableKey:'sb_publishable_imaginary'});
@@ -180,4 +184,4 @@ assert all(not r['problem_detail'] for r in rows)
   assert.deepEqual(blocked,[]);assert.deepEqual(errors,[]);
   console.log(JSON.stringify({sessions:6,completed:2,incomplete:1,withdrawn_answers:0,archive_sessions:manifest.counts.sessions,cloud_calls:0,provider:'local fake only',browser_errors:errors.length}));
 }
-main().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)await new Promise(r=>server.close(r));await client.end();});
+main().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)await new Promise(r=>server.close(r));await respondentClient.end();await client.end();});

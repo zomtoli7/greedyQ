@@ -1,6 +1,6 @@
 # greedyQ 시작하기
 
-[English](./START-HERE.md)
+[English](./START-HERE.md) · [简体中文](./START-HERE(zh-CN).md)
 
 greedyQ는 online academic research를 위한 agent-executable application specification입니다. greedyQ 자체는 agent가 아닙니다. Capable general-purpose GenAI가 이 specification을 불러오면 greedyQ research agent를 instantiate합니다.
 
@@ -44,3 +44,5 @@ Repository tool을 사용할 수 있으면 `preview-model.json`을 직접 작성
 미리보기는 계정 없이 먼저 만듭니다. 실제 배포 단계에서는 연구자의 Vercel 계정과 직접 로그인·승인이 필요하다는 점을 초기에 알려주세요. AI가 로그인이나 승인을 대신했다고 말하지 마세요. Vercel의 선택적 **Onboard your agent** 기능은 [검토 안내](./docs/vercel-agent-onboarding(kor).md)를 따릅니다. Supabase 설정이나 실제 설문 배포까지 완료하는 기능은 아닙니다.
 
 새 연구를 시작할 때 저장소의 한 커밋 또는 전체 다운로드를 사용하고 그 안의 파일과 해시를 함께 고정하세요. 서로 다른 시점의 main 파일들을 섞지 마세요. 초기 core 검사만 필요하면 `python3 tools/resolve_guide.py --core-only`를 사용합니다. 연구 유형을 정한 뒤 실제 연구용 lock을 생성하세요. 새 폴더는 `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language ko`로 만들 수 있습니다. 이 명령은 시작·종료 페이지만 만들며, 문항 작성 방식에 대한 연구자의 선택을 대신하지 않습니다.
+
+기본 배포 여정은 기존 방식으로 유지합니다. 이미 승인된 공식 Vercel 연결은 계정·대상 팀 확인 후 우선 활용하고, 사용할 수 없거나 기능이 부족하면 지원되는 기존 경로로 진행합니다. Onboard your agent를 필수 설치 단계로 요구하지 마세요. 팀 승인만 빠졌다면 계정 전체를 재연결하지 말고 해당 팀 접근 승인 후 재확인하세요.

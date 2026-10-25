@@ -1,6 +1,6 @@
 # Governance 및 IRB Module
 
-[English](./guide.md)
+[English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
 자세한 governance 및 IRB 작업을 지금 할지 일관된 설문 초안 뒤에 할지 묻습니다. 미루는 것은 순서의 변경이지 작업의 생략이 아닙니다. 취약 집단, 민감정보 또는 식별정보, deception, 높은 위험, 규제 대상 intervention, 알고 있는 기관 제한은 즉시 점검합니다.
 

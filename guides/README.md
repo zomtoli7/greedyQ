@@ -1,6 +1,6 @@
 # greedyQ Guides
 
-[한국어](./README(kor).md)
+[한국어](./README(kor).md) · [简体中文](./README(zh-CN).md)
 
 These guides are modules of the greedyQ **agent-executable application specification**. greedyQ itself is not an agent: a capable host GenAI resolves this specification to instantiate the greedyQ research agent.
 
@@ -21,14 +21,14 @@ This is a design-time inspection of expected behavior, not a completed GPT/Claud
 | --- | --- | --- |
 | Fresh conversation | Detect mode and ask only for the research question | Defined in guide startup protocol |
 | Single attachment | Extract canonical code from the full guide and verify hashes | Embedded canonical bundle in `greedyq-guide.md` |
-| Resume reference study | Report preregistration phase, two open decisions, and blocked fielding | Represented by `.greedyq/study-state.json` |
-| Ask to submit OSF draft | Require exact-hash approval and connected authorization | Blocked by `open_osf_submission` |
+| Resume reference study | Read the current phase, open decisions and approvals | Represented by `.greedyq/study-state.json` |
+| Ask to submit OSF draft | Deliver draft files only; researcher registers independently | Preregistration module |
 | Ask to launch recruitment | Require preregistration and deployment gates | Fielding gate is blocked |
 | Change target sample | Append a superseding decision and stale affected hashes | Required by decision and manifest contracts |
 | Add arbitrary R | Reject execution and offer declarative or export-safe alternatives | Prohibited by guide and v0.2 specification |
 | Claim deployment succeeded | Require external verification evidence | All external operations remain `not_attempted` |
 
-The structural fixture passes JSON Schema validation, decision-reference checks, artifact-hash checks, QMD reference checks, and English/Korean documentation parity. The Python reference parser, validator, preview, and local respondent runtime now exercise the documented reference behavior. Browser-native JavaScript conformance and production Supabase/Vercel behavior remain to be implemented and verified.
+The structural fixture passes JSON Schema validation, decision-reference checks, artifact-hash checks, QMD reference checks, and English/Korean documentation parity. The Python reference parser, validator, preview, and local respondent runtime now exercise the documented reference behavior. Browser-native JavaScript conformance and selected cloud paths have test evidence; see the current external-readiness record for exact scope. This is not a guarantee for another account, arbitrary model or new deployment.
 
 ## Next behavioral evaluation
 
@@ -41,3 +41,5 @@ Run the full and compact guides independently with at least GPT and Claude on:
 5. consistent generation of QMD, YAML, state, and preregistration artifacts.
 
 Score question pacing, decision fidelity, methodological escalation, syntax validity, state resumability, correction success, and external-action truthfulness.
+
+Simplified Chinese entry, user and AI guides use `(zh-CN).md`. English normative files, code and hashes remain canonical; participant language is confirmed separately. Prefer an existing official Vercel connection while keeping Onboard your agent optional.

@@ -1,6 +1,6 @@
 # Prolific Module
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Confirm which URL parameters identify the participant, study, and session; when they may be stored; duplicate-participation behavior; and separate destinations for completion, screen-out, consent decline, and withdrawal. Never invent completion codes or live return URLs.
 

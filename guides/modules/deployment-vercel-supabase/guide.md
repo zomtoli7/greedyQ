@@ -1,6 +1,6 @@
 # Vercel and Supabase Deployment Module
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Use the registered canonical templates for application configuration and database policy. Keep secrets in provider environment settings, use least-privilege browser access, keep privileged operations server-side, and never expose a service-role credential.
 
@@ -8,7 +8,7 @@ Apply the complete 001–007 migration set, then register each reviewed model wi
 
 Preparing files, configuring services, deploying, verifying a live URL, and beginning recruitment are distinct states. Perform external changes only with authorization and available connected tools. Report only results actually observed. Before fielding, test consent, resume, assignment persistence, every terminal outcome, duplicate handling, withdrawal, data deletion requests, and analysis export against the deployed version.
 
-The default researcher journey asks only for Vercel sign-in and one approval of the Vercel-native Supabase resource. The agent then provisions all migrations, environment bindings, a public survey deployment, and a separate results deployment protected by Vercel Authentication. Return labeled Survey and Results links; do not make ordinary researchers operate Supabase.
+The default researcher journey asks only for Vercel sign-in and the required approval of the Vercel-native Supabase resource. The agent then provisions all migrations, environment bindings, a public survey deployment, and a separate results deployment protected by Vercel Authentication. Return labeled Survey and Results links; do not make ordinary researchers operate Supabase.
 
 Before requesting account access, build the study and provide `supabase-connection-test.html` plus all registered migrations, including `003_results_dashboard.sql`. The connected browser runtime MUST create a capability-protected session before its first save, store the exact `greedyq_version`, keep Prolific's external `SESSION_ID` separate from the internal UUID, and use atomic `greedyq_start_prolific` for session/identifier registration. Do not implement the ordinary launch as two separate create/register requests. Use `greedyq_start_prolific_preview` only with a server-verified Test grant. Store `is_test` independently from `respondent_source`. Before fielding, create a direct test response and observe it under Test/Direct in the results dashboard while Real responses remains unchanged. Use [RESULTS-DASHBOARD.md](../../../RESULTS-DASHBOARD.md) for the researcher-facing workflow; [SUPABASE-SETUP.md](../../../SUPABASE-SETUP.md) is a recovery guide.
 
@@ -17,3 +17,15 @@ Migration 007 prunes answers omitted from a newly accepted complete browser snap
 Explain during intake that the preview needs no account, while publishing requires the researcher’s own Vercel login and connection approval. Optional [Vercel agent onboarding](../../../docs/vercel-agent-onboarding.md) does not replace login, Supabase setup or response-storage verification. Start new folders with `init` to include opening/ending pages, review records and deployment files. Use `preflight PATH_TO_STUDY` for local package preparation and `preflight PATH_TO_STUDY --stage deployment` before publishing. The latter blocks mock mode and pending decisions/approvals; verify the live connection separately even after it passes.
 
 When the configured candidate lives in a separate directory, use `preflight PATH_TO_STUDY --stage deployment --deployment-index PREPARED_SURVEY/index.html`. Keep the original preview in mock mode; the check also verifies the candidate contains the current validated model.
+
+## Connection selection policy
+
+The main researcher journey remains: review the survey, sign in to Vercel, approve the required Vercel/Supabase access, then receive verified Survey and Results links. **Onboard your agent is optional, never a prerequisite.** Do not add tool installation, plugin setup or app restart to the standard first-use checklist.
+
+1. Inspect the host's existing connections before installing or configuring anything. Prefer an already available official Vercel connection for operations it supports, after verifying the authenticated account and the intended team with read-only calls. An empty team list is not proof that the user has no teams or projects.
+2. If the official connection is unavailable, or lacks an operation, use the established supported CLI/integration route with independently verified account/team scope. Do not switch accounts, use personal defaults, duplicate projects or treat CLI login as proof of MCP authorization. Both routes must apply the same canonical files, researcher approvals, privacy boundaries and live acceptance checks.
+3. On a team-access denial, use the provider's `authorize_team_access` recovery for the known team and show the returned consent link. Keep it pending until the researcher approves, then retry the same request through the same connection. SSO is not required for this additional team grant. Do not reconnect the whole account, erase credentials, or silently use another credential to bypass a refused authorization. A temporary consent URL must not appear in public documentation or a respondent bundle.
+4. Offer Onboard your agent only as an optional setup aid when requested or when the researcher wants to prepare a supported host for repeated use. Reuse existing tools, install guidance once for that host, and refresh/reload only if the new tools are not discoverable. Preserve unrelated settings. Global onboarding must not create/link projects, provision Supabase, deploy or start collection.
+5. Verify actual tool calls after setup: documentation search, team listing and access to the intended team. Installation, authentication, tool discovery, team access, deployment and saved-response verification are separate states. Never mark the whole study ready from a successful onboarding test. If neither route is usable, preserve the complete study and explain the supported handoff.
+
+Keep confirmation enabled for account or project changes. Ask only for the specific missing login or approval, using plain language. Do not ask researchers to paste credentials or learn the names of internal tools.

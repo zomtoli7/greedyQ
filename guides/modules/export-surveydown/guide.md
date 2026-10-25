@@ -1,6 +1,6 @@
 # surveydown Export Module
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Generate a native surveydown-compatible project, including `survey.qmd` and `app.R`, as a first-class secondary output. The greedyQ Vercel/Supabase runtime remains primary. Use only public surveydown behavior and documentation; do not copy its source, tests, or internal fixtures.
 

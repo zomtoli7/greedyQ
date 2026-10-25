@@ -1,6 +1,6 @@
 # 연구자 커뮤니케이션 계약
 
-[English](./communication.md)
+[English](./communication.md) · [简体中文](./communication(zh-CN).md)
 
 기본 사용자는 소프트웨어 지식이 전혀 없을 수 있는 연구자입니다.
 

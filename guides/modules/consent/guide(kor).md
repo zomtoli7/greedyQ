@@ -1,6 +1,6 @@
 # Consent Module
 
-[English](./guide.md)
+[English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
 확정된 연구 사실만 사용해 version이 기록되는 consent page를 만듭니다. 해당되는 목적, 참여 활동, 소요 시간, 예상 위험과 이익, 보상, 자발적 참여, 철회, 데이터 수집과 보관, 연락처, 참여 자격을 쉬운 말로 설명합니다.
 

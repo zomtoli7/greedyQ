@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-25_15d4d3e",
-  "registry_sha256": "c4558151ad2a6ac31ef714aa114e9d3b0dcbaced35ae612ee7ba6fd78155bf80",
+  "registry_sha256": "c3ea7f153233ec128b6beca1bfe41877aa70ed2dcca50f32f86237405ce9b24e",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -43,7 +43,7 @@
       "kind": "module",
       "version": "0.2.0-draft.1",
       "manifest": "guides/modules/deployment-vercel-supabase/component.json",
-      "manifest_sha256": "fdea5928a35a96a8880b3a46cd8b1c4edbf96552bcef98842342696f60a80b56"
+      "manifest_sha256": "82383461a2abcd510736cea5174d2d8034162c15ff56112d6f8507deb8641952"
     }
   ],
   "resolved_files": [
@@ -125,7 +125,7 @@
     {
       "component": "core",
       "path": "docs/cloud-lifecycle.md",
-      "sha256": "b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9"
+      "sha256": "816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110"
     },
     {
       "component": "core",
@@ -145,12 +145,12 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "0b0a701dba667722e5f690e64881c491e80f6a26a60d3cc632a3df9514f9b62c"
+      "sha256": "2a1f63d941a8b2e3f5825397afb1ce7900cef40399aff3108d2f49b23ca0af46"
     },
     {
       "component": "core",
       "path": "guides/core/communication.md",
-      "sha256": "f99dbd15f28a91a57b20c099ea38ca001e4e7a31a681b0e9bb937fb1f6077348"
+      "sha256": "707ad574d9bf20e3a0d34c6d351332a74a0dd85b734a04b8629ef2939bf44cf9"
     },
     {
       "component": "core",
@@ -345,7 +345,7 @@
     {
       "component": "simple",
       "path": "guides/profiles/simple/guide.md",
-      "sha256": "b2dcd183cc06dc540b90168868cdfdc54df7042b9fe506e1823d55dacf40452a"
+      "sha256": "f941e2e040ee3ce18e4432aef6bda5bbedf8a437454bc5ca14a749b09ef02baf"
     },
     {
       "component": "simple",
@@ -355,7 +355,7 @@
     {
       "component": "governance-irb",
       "path": "guides/modules/governance-irb/guide.md",
-      "sha256": "66ec5e6b633869fb593e3dcaa4f229fefc4ad1a94a6ce74f55eba7c867819bd0"
+      "sha256": "4a369eee8185760158ad1400e022300e1353c63fe9bbbd59878a575f5da704ac"
     },
     {
       "component": "governance-irb",
@@ -365,7 +365,7 @@
     {
       "component": "consent",
       "path": "guides/modules/consent/guide.md",
-      "sha256": "517c152c03a84871622e9ac6a75bc78b63659042db7c7e076292bad1c6dfe9e9"
+      "sha256": "1043f37dff062c9d515d8dbed6ae7bc93806f9877ba79bcef7294787b34c79d3"
     },
     {
       "component": "consent",
@@ -375,7 +375,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "guides/modules/deployment-vercel-supabase/guide.md",
-      "sha256": "88109381ebd54c669277c285dad56987b70e297a1547ff5f84acff28d4702506"
+      "sha256": "cdc8d01fd1ca7b8af09c4b3523931dbf1610d99f3bce76a4214055cfd829bf04"
     },
     {
       "component": "deployment-vercel-supabase",
@@ -411,6 +411,11 @@
       "component": "deployment-vercel-supabase",
       "path": "examples/complete-study/vercel.json",
       "sha256": "78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f"
+    },
+    {
+      "component": "deployment-vercel-supabase",
+      "path": "docs/vercel-agent-onboarding.md",
+      "sha256": "e6c0db54955cc322d3c79431b1262db7a9acbe486ac0ce3c8bb45d6310b513b0"
     }
   ]
 }

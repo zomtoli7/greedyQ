@@ -1,6 +1,6 @@
 # greedyQ Core Guide
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 **Component:** `core`
 **Specification version:** `0.2`
@@ -72,3 +72,7 @@ Migration 007 prunes answers omitted from a newly accepted complete browser snap
 Render approved participant information and consent text in the actual survey page before the consent choice. A reference to a local `consent.md` file does not display that information, and source documents are not automatically included in a public deployment. Review the rendered text, contacts and privacy/withdrawal notice in both preview modes; do not treat an inaccessible document link as a consent screen.
 
 Include `007_answer_snapshot.sql` in the canonical migration list above: it synchronizes accepted answer snapshots and prevents removed answers from reappearing. Use `init` to create a new study folder, records and default deployment files. Default `preflight` checks the local package; `preflight --stage deployment` also blocks mock mode and pending approvals. Run the deployment stage before publishing and separately verify live storage. A required slider must not count as answered without an explicit configured default or participant interaction.
+
+## Default connection journey
+
+Keep survey review, Vercel sign-in, required Supabase connection approval, and delivery of Survey/Results links as the main journey. Prefer an existing authorized official Vercel connection after verifying account and target team; otherwise use the established supported connection route, including when an operation is unavailable. **Onboard your agent is optional, never required.** Do not make installation or restart part of the normal researcher checklist. Request only the missing team grant when needed, and distinguish setup from deployment and response-storage verification. Follow the [deployment module connection selection policy](../modules/deployment-vercel-supabase/guide.md).

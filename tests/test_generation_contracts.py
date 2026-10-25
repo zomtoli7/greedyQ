@@ -139,7 +139,7 @@ class GenerationContractTests(unittest.TestCase):
             "schemas/ai/generation-manifest.schema.json",
             "schemas/preview-model.schema.json",
         )
-        for guide_name in ("greedyq-guide.md", "greedyq-guide(kor).md"):
+        for guide_name in ("greedyq-guide.md", "greedyq-guide(kor).md", "greedyq-guide(zh-CN).md"):
             guide = (ROOT / "guides" / guide_name).read_text()
             for relative in bundled_files:
                 source = (ROOT / relative).read_text().rstrip("\n")
@@ -375,8 +375,15 @@ class GenerationContractTests(unittest.TestCase):
         for path in ROOT.rglob("*.md"):
             if ".git" in path.parts:
                 continue
-            peer = path.with_name(path.name.replace("(kor).md", ".md")) if path.name.endswith("(kor).md") else path.with_name(path.stem + "(kor).md")
-            self.assertTrue(peer.exists(), str(path))
+            if path.name.endswith("(zh-CN).md"):
+                source = path.with_name(path.name.replace("(zh-CN).md", ".md"))
+                peers = (source, source.with_name(source.stem + "(kor).md"))
+                for peer in peers:
+                    self.assertTrue(peer.exists(), str(path))
+                    self.assertIn(path.name, peer.read_text(), str(peer))
+            else:
+                peer = path.with_name(path.name.replace("(kor).md", ".md")) if path.name.endswith("(kor).md") else path.with_name(path.stem + "(kor).md")
+                self.assertTrue(peer.exists(), str(path))
 
 
 if __name__ == "__main__":

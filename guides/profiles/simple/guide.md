@@ -1,6 +1,6 @@
 # greedyQSimple Profile Guide
 
-[한국어](./guide(kor).md)
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 **Object:** `greedyQSimple`
 

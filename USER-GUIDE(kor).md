@@ -1,6 +1,6 @@
 # greedyQ 사용자 설명서
 
-[English](./USER-GUIDE.md)
+[English](./USER-GUIDE.md) · [简体中文](./USER-GUIDE(zh-CN).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -174,7 +174,7 @@ Agent는 외부 연결을 요청하기 전에 [로컬 운영 및 복구 검사](
 
 연구가 논문, preprint, 학위논문 또는 보고서로 공개된다면 설문이 greedyQ의 독립 browser runtime에서만 실행되었더라도 greedyQ와 surveydown을 모두 인용하십시오. `survey.qmd`의 `greedyq.version`에 저장된 정확한 release identifier를 사용해야 합니다. 복사해서 사용할 수 있는 reference와 정확한 연구방법 문구는 [CITATION(kor).md](./CITATION(kor).md)를 참고하십시오.
 
-첫 test database를 만들 준비가 되면 [Supabase 프로젝트 연결하기](./SUPABASE-SETUP(kor).md)를 따르세요. 이 단계는 Vercel deployment와 실제 participant 모집 전에 멈춥니다.
+자동 설정을 사용할 수 없을 때만 복구용 [Supabase 프로젝트 연결하기](./SUPABASE-SETUP(kor).md)를 사용합니다. 일반 연구자의 기본 여정에는 포함되지 않습니다.
 
 ## 7. 한 번 연결하고 두 개의 링크 받기
 
@@ -183,6 +183,8 @@ Agent는 외부 연결을 요청하기 전에 [로컬 운영 및 복구 검사](
 정상 배포 흐름에서는 연구자가 Supabase를 직접 다루지 않습니다. Vercel에 로그인하고 Vercel 안에서 제시되는 Supabase 리소스를 승인한 뒤, 연결된 AI agent가 설정을 끝내도록 합니다. AI는 데이터베이스 migration 설치, 환경변수 연결, 공개 설문 배포, Vercel 로그인으로 보호되는 결과 화면 배포, 두 링크 검증을 수행해야 합니다.
 
 완료 메시지에는 참가자에게 공유할 **설문 링크**와 Vercel 팀에서 승인된 연구자가 사용할 **결과 링크**가 있어야 합니다. 데이터베이스 키 복사, SQL 붙여넣기, Supabase 테이블 찾기, 환경변수 수동 연결은 정상 사용자 절차가 아니라 복구 절차입니다.
+
+공식 Vercel 연결이 이미 있으면 AI가 우선 활용합니다. 없어도 기존의 지원되는 연결 방식으로 진행할 수 있습니다. **Onboard your agent는 선택 사항이고 필수가 아닙니다.** 일반적으로 별도의 도구나 플러그인을 직접 설치할 필요는 없습니다. 팀 접근 승인이 추가로 필요하면 AI가 해당 팀의 승인 링크만 안내합니다. 로그인 성공과 팀 접근 승인은 별개일 수 있습니다.
 
 ## 8. 대시보드에서 테스트 응답 확인하기
 

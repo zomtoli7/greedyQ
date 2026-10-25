@@ -1,6 +1,6 @@
 # greedyQ AI Study Builder Guide
 
-[English](./greedyq-guide.md)
+[English](./greedyq-guide.md) · [简体中文](./greedyq-guide(zh-CN).md)
 
 **Guide 버전:** `0.2.0-draft.1`
 **호환 스펙:** `greedyQ 0.2.0-draft.1`
@@ -106,7 +106,7 @@ Primary model, contrast, alpha 또는 interval, covariate, exclusion, missing-da
 
 `osf_preregistration`, `generic_markdown` 또는 사용 가능한 다른 adapter를 선택합니다. Confirmed decision만으로 draft를 생성합니다. Unresolved commitment를 눈에 띄게 나열합니다. Contributor, affiliation, visibility, embargo, 포함 artifact, stopping rule을 확인합니다. Human-readable Markdown, machine-readable JSON, SHA-256 artifact manifest를 만듭니다.
 
-Draft 생성은 registration이 아닙니다. 제출 전에 정확히 hash된 package에 대한 별도 승인을 요구합니다. 승인 뒤 대상 hash를 잠급니다. 변경에는 amendment 또는 새 version이 필요합니다. 허가된 submission 후 registry ID, URL, visibility, timestamp, template을 검증하고 기록합니다.
+초안 생성은 등록이 아닙니다. 파일만 제공하고 실제 등록은 연구자가 별도로 처리합니다. OSF 로그인이나 API 제출을 요청하지 않습니다. 승인된 해시는 유지하며 파일 변경에는 수정본이나 새 버전이 필요합니다.
 
 ### Phase J: deployment 및 respondent source
 
@@ -259,7 +259,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `RANDOMIZATION.md` | `b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb` | `no` |
 | `docs/repeat-user-acceptance.md` | `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1` | `no` |
 | `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
-| `docs/cloud-lifecycle.md` | `b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9` | `no` |
+| `docs/cloud-lifecycle.md` | `816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110` | `no` |
 | `tools/cloud_lifecycle.cjs` | `2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06` | `no` |
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
@@ -1755,7 +1755,7 @@ ZIP-to-database restoration is explicitly outside the required product scope. Th
 
 ### FILE: `docs/cloud-lifecycle.md`
 
-SHA-256: `b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9`
+SHA-256: `816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110`
 
 ```markdown
 # Cloud setup and archive operator contract
@@ -1829,6 +1829,8 @@ The finalizer rechecks ZIP contents, SHA-256, study/resource binding, sharing ev
 Run `python3 -m unittest tests.test_archive` and `node --test tests/cloud_lifecycle.cjs`, followed by the full Python suite. Live closure/reopening and researcher-assisted Supabase pause/resume are now verified; see [repeat-user acceptance](./repeat-user-acceptance.md) for exact coverage and current resource state. Paid-plan behavior, load/concurrency stress and unattended Supabase management authorization are not verified. ZIP restoration is outside required scope. Use **Resume project** for provider resumption, and the separately approved `reopen` CLI operation for collection.
 
 Sources: [Vercel pause](https://vercel.com/docs/projects/managing-projects), [Supabase pause API and permission](https://supabase.com/docs/reference/api/v1-pause-a-project), [Supabase TLS](https://supabase.com/docs/guides/platform/ssl-enforcement).
+
+The established CLI operations route remains supported. Prefer an authorized official Vercel connection after checking account and team for operations it supports; use the established route for missing capabilities with the same approval and acceptance boundaries. Onboard your agent is not required. Verify CLI and MCP credentials independently; resolve denied team access with the specific team grant rather than silently bypassing it with other credentials. Follow the [connection selection policy](../guides/modules/deployment-vercel-supabase/guide.md).
 ```
 
 ### FILE: `tools/cloud_lifecycle.cjs`
@@ -10417,3 +10419,5 @@ def preflight(study_dir, stage="package", deployment_index=None):
 ```
 
 <!-- GREEDYQ_BUNDLE_END -->
+
+기본 연결은 기존 Vercel 로그인·필요한 Supabase 승인·설문/결과 링크 전달입니다. 이미 승인된 공식 연결을 계정·팀 확인 후 우선 사용하고 없으면 지원되는 기존 경로를 사용합니다. Onboard your agent는 선택 사항입니다. 팀 승인만 빠졌다면 해당 팀 승인 후 같은 연결에서 재확인하며 권한 거절을 우회하지 않습니다. 예전 본문에 등록 관련 상태가 나와도 실제 OSF 작업은 수행하지 않고 초안 파일만 제공합니다. 문항 생성 전 직접 작성/AI 초안 중 선택을 먼저 확인하고 기관명·참여자 언어도 별도로 확인합니다.

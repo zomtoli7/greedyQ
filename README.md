@@ -10,7 +10,7 @@
 
 [Random assignment and question shuffling](./RANDOMIZATION.md) · [Local verification and upgrade status](./docs/randomization-verification.md)
 
-[한국어](./README(kor).md)
+[한국어](./README(kor).md) · [简体中文](./README(zh-CN).md)
 
 [Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Connect to Prolific](./PROLIFIC-SETUP.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
@@ -111,7 +111,7 @@ The target onboarding experience is:
 3. Answer one focused question at a time and confirm material decisions.
 4. Review the generated study, consent, logic, randomization, data plan, and preregistration draft.
 5. Validate and preview the generated project.
-6. Explicitly approve the preregistration package and submit it manually or through an authorized connected agent before fielding.
+6. Review and approve the preregistration draft files; handle any actual registration independently before fielding when required.
 7. Let a connected agent configure GitHub, Vercel, and Supabase, or follow the generated handoff instructions.
 8. Approve and publish the web-native survey and, when useful, export the native surveydown project.
 
@@ -169,3 +169,9 @@ English Markdown files are the source of truth. Every Markdown document has a sy
 ## License
 
 greedyQ is distributed under the [MIT License](./LICENSE).
+
+## Vercel connection approach
+
+The main journey is survey review → Vercel sign-in and required Supabase connection approval → verified Survey and Results links. The AI prefers an existing official Vercel connection after checking account and target team, and uses the established supported route when the connection or operation is unavailable. **Onboard your agent is optional, not a required setup step.** See the [user guide](./USER-GUIDE.md) and [optional preparation guide](./docs/vercel-agent-onboarding.md).
+
+Entry, user and AI guides also have Simplified Chinese `(zh-CN).md` copies. This does not imply that every developer document is translated.

@@ -1,6 +1,6 @@
 # Preregistration Module
 
-[English](./guide.md)
+[English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
 연구자가 읽는 초안, 구조화 데이터, 그리고 초안과 정확한 승인 연구 산출물을 연결하는 manifest를 만듭니다. 미결정 hypothesis, outcome, sample size, stopping rule, exclusion, model, multiplicity decision, visibility setting은 명시적으로 미결정 상태로 남기며 지어내지 않습니다.
 

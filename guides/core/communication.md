@@ -1,6 +1,6 @@
 # Researcher Communication Contract
 
-[한국어](./communication(kor).md)
+[한국어](./communication(kor).md) · [简体中文](./communication(zh-CN).md)
 
 The default audience is a researcher who may have no software knowledge.
 

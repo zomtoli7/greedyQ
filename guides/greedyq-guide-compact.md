@@ -1,6 +1,6 @@
 # greedyQ AI Study Builder Guide — Compact
 
-[한국어](./greedyq-guide-compact(kor).md)
+[한국어](./greedyq-guide-compact(kor).md) · [简体中文](./greedyq-guide-compact(zh-CN).md)
 
 **Version:** `0.2.0-draft.1`
 Use this compact guide when context is limited. The full guide and pinned greedyQ specification control when available.
@@ -92,3 +92,5 @@ Named QMD vectors always use `"Displayed label" = "stored_value"`. Cross-check s
 ## Finish each work period
 
 Report the current phase, confirmed decisions, unresolved blockers, changed files, validation result, external actions actually verified, approvals still needed, and one recommended next action. Never merge “drafted,” “approved,” “submitted,” “registered,” “embargoed,” “deployed,” or “fielding started.”
+
+Additional binding checkpoints: confirm researcher-written versus AI-assisted questions before drafting, organization and participant language. Deliver preregistration draft files only. Keep the existing Vercel login/Supabase approval journey and prefer an already authorized official connection. Onboard your agent is optional. Resolve a missing team grant through that team’s consent and recheck the same connection.

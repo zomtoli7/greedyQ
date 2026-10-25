@@ -8,7 +8,7 @@
 
 [연구 종료·보관](./ARCHIVING(kor).md) · [클라우드 운영 규약](./docs/cloud-lifecycle(kor).md)
 
-[English](./README.md)
+[English](./README.md) · [简体中文](./README(zh-CN).md)
 
 [무작위 배정과 문항 순서 섞기](./RANDOMIZATION(kor).md) · [로컬 검증 및 업그레이드 상태](./docs/randomization-verification(kor).md)
 
@@ -111,7 +111,7 @@ Versioned greedyQ repository + 연구자의 연구 아이디어
 3. 한 번에 하나씩 제시되는 질문에 답하고 중요한 결정을 확인합니다.
 4. 생성된 연구, consent, logic, randomization, data plan, preregistration draft를 검토합니다.
 5. 생성된 프로젝트를 validate하고 preview합니다.
-6. Preregistration package를 명시적으로 승인하고 fielding 전에 직접 제출하거나 권한 있는 연결 agent를 통해 제출합니다.
+6. 사전등록 초안 파일을 검토·승인하고, 실제 등록이 필요하면 수집 전에 연구자가 별도로 처리합니다.
 7. 연결된 agent가 GitHub, Vercel, Supabase를 설정하게 하거나 생성된 handoff 안내를 따릅니다.
 8. Web-native 설문을 승인·공개하고, 필요하면 native surveydown 프로젝트를 export합니다.
 
@@ -169,3 +169,9 @@ Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH
 ## 라이선스
 
 greedyQ는 [MIT License](./LICENSE)로 배포합니다.
+
+## Vercel 연결 방식
+
+기본 여정은 설문 검토 → Vercel 로그인과 필요한 Supabase 연결 승인 → 검증한 설문·결과 링크 전달입니다. AI는 계정·대상 팀을 확인한 기존 공식 Vercel 연결을 우선 사용하고, 사용할 수 없거나 필요한 기능이 없으면 지원되는 기존 경로로 진행합니다. **Onboard your agent는 선택 사항이며 필수 준비 단계가 아닙니다.** [사용자 안내](./USER-GUIDE(kor).md)와 [선택적 연결 준비](./docs/vercel-agent-onboarding(kor).md)를 참고하세요.
+
+간체 중국어 시작 안내·사용자 설명서·AI 가이드를 `(zh-CN).md`로 제공합니다. 모든 개발 문서가 중국어로 번역된 것은 아닙니다.

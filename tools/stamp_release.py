@@ -22,12 +22,12 @@ def stamp(source_commit,date,notes=None):
     release='0.2_'+date+'_'+short
     metadata.update(release=release,source_commit=commit,release_date=date,documentation_updated=date)
     (ROOT/'release.json').write_text(json.dumps(metadata,indent=2)+'\n')
-    for relative in ('README.md','README(kor).md','guides/core/guide.md','guides/core/guide(kor).md','SUPABASE-SETUP.md','SUPABASE-SETUP(kor).md','docs/greedyq-v0.2-spec.md','docs/greedyq-v0.2-spec(kor).md','docs/external-connection-readiness.md','docs/external-connection-readiness(kor).md'):
+    for relative in ('README.md','README(kor).md','README(zh-CN).md','guides/core/guide.md','guides/core/guide(kor).md','guides/core/guide(zh-CN).md','SUPABASE-SETUP.md','SUPABASE-SETUP(kor).md','docs/greedyq-v0.2-spec.md','docs/greedyq-v0.2-spec(kor).md','docs/external-connection-readiness.md','docs/external-connection-readiness(kor).md'):
         path=ROOT/relative;text=re.sub(r'0\.2_\d{4}-\d{2}-\d{2}_[0-9a-f]{7,12}',release,path.read_text())
         if relative.startswith('README'):
             text=re.sub(r'\[`[0-9a-f]{7,40}`\]\(https://github.com/zomtoli7/greedyQ/commit/[0-9a-f]+\)',f'[`{short}`](https://github.com/zomtoli7/greedyQ/commit/{commit})',text)
         path.write_text(text)
-    for relative in ('guides/greedyq-guide.md','guides/greedyq-guide(kor).md'):
+    for relative in ('guides/greedyq-guide.md','guides/greedyq-guide(kor).md','guides/greedyq-guide(zh-CN).md'):
         path=ROOT/relative;text=path.read_text()
         text=re.sub(r'(?m)^\*\*Guide version:\*\* `[^`]+`',f'**Guide version:** `{release}`',text)
         text=re.sub(r'(?m)^\*\*Compatible specification:\*\* `[^`]+`','**Compatible specification:** `greedyQ 0.2`',text)
@@ -63,12 +63,16 @@ def stamp(source_commit,date,notes=None):
         command('-m','greedyq','build','examples/'+study)
         command('-m','greedyq','export-surveydown','examples/'+study)
     command('tools/build_guide_registry.py')
-    for study in ('complete-study','simple-satisfaction-study'):
-        directory=ROOT/'examples'/study;descriptor=json.loads((directory/'greedyq.study.json').read_text())
+    for study in ('complete-study','simple-satisfaction-study','control-gallery'):
+        directory=ROOT/'examples'/study
+        descriptor_path=directory/'greedyq.study.json'
+        descriptor=json.loads((descriptor_path if descriptor_path.is_file() else directory/'.greedyq/guide-lock.json').read_text())
         args=['tools/resolve_guide.py','--profile',descriptor['profile']]
         for module in descriptor['modules']:args+=['--module',module]
         command(*args,'--output',str(directory/'.greedyq/guide-lock.json'))
-        manifest=directory/'.greedyq/generation-manifest.json';data=json.loads(manifest.read_text());data['guide_version']=release;data['source_commit']=commit
+        manifest=directory/'.greedyq/generation-manifest.json'
+        if not manifest.is_file():continue
+        data=json.loads(manifest.read_text());data['guide_version']=release;data['source_commit']=commit
         for entry in data['artifacts']:
             file=directory/entry['path']
             if file.is_file():entry['sha256']=hashlib.sha256(file.read_bytes()).hexdigest()
