@@ -4,6 +4,7 @@
   "greedyq_version": "0.2_2026-09-10_c4a8405",
   "title": "greedyQ User Experience Survey",
   "organization": "greedyQ Research Team",
+  "language": "en",
   "start_page": "welcome",
   "brand_color": "#315c8a",
   "messages": {
@@ -128,6 +129,16 @@
             "equals": "no"
           },
           "to": "screened_out"
+        }
+      ],
+      "checks": [
+        {
+          "question": "age",
+          "when": {
+            "field": "age",
+            "gt": 120
+          },
+          "message": "Enter an age of 120 or less."
         }
       ]
     },
@@ -537,7 +548,25 @@
       "previous_mode": "show",
       "next_mode": "show",
       "next_delay_seconds": 0,
-      "next": "future_use"
+      "next": "future_use",
+      "checks": [
+        {
+          "question": "problem_area",
+          "when": {
+            "all": [
+              {
+                "field": "had_problem",
+                "equals": "yes"
+              },
+              {
+                "field": "problem_area",
+                "answered": false
+              }
+            ]
+          },
+          "message": "Choose the area where the most important problem occurred."
+        }
+      ]
     },
     {
       "id": "future_use",
@@ -600,12 +629,30 @@
       "previous_mode": "show",
       "next_mode": "show",
       "next_delay_seconds": 0,
-      "next": "participant_control"
+      "next": "participant_control",
+      "checks": [
+        {
+          "question": "recommend_score",
+          "when": {
+            "any": [
+              {
+                "field": "recommend_score",
+                "lt": 0
+              },
+              {
+                "field": "recommend_score",
+                "gt": 10
+              }
+            ]
+          },
+          "message": "Enter a number from 0 to 10."
+        }
+      ]
     },
     {
       "id": "participant_control",
       "title": "Before submitting",
-      "body": "You may submit your feedback or withdraw. If you withdraw, you may also ask us to delete the responses associated with this session.",
+      "body": "You may submit your feedback or withdraw. Saving a withdrawal deletes this session's answers.",
       "questions": [
         {
           "id": "withdraw_now",
@@ -626,15 +673,11 @@
         {
           "id": "deletion_request",
           "type": "mc",
-          "label": "Should the research team receive a request to delete responses already collected in this session?",
+          "label": "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
           "options": [
             {
-              "label": "Yes, record a deletion request",
+              "label": "I understand that my answers will be deleted",
               "value": "yes"
-            },
-            {
-              "label": "No",
-              "value": "no"
             }
           ],
           "required": true,
@@ -663,6 +706,24 @@
             "equals": "submit"
           },
           "to": "complete"
+        }
+      ],
+      "checks": [
+        {
+          "question": "deletion_request",
+          "when": {
+            "all": [
+              {
+                "field": "withdraw_now",
+                "equals": "withdraw"
+              },
+              {
+                "field": "deletion_request",
+                "answered": false
+              }
+            ]
+          },
+          "message": "Confirm that withdrawing deletes this session's answers before continuing."
         }
       ]
     },
@@ -702,7 +763,7 @@
     {
       "id": "withdrawn",
       "title": "Participation ended",
-      "body": "Your session is marked as withdrawn. If you requested deletion, the request has been recorded; this message does not claim deletion is already complete.",
+      "body": "Saving this withdrawal deletes the session's answers. If a saving error appears, retry before leaving.",
       "questions": [],
       "show_previous": true,
       "previous_mode": "show",

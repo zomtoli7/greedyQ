@@ -12,7 +12,7 @@ const fail = (condition, message) => { if (!condition) throw new Error(message);
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     await page.goto(`${base}/preview.html`, { waitUntil: "domcontentloaded" });
     await page.selectOption("#page", "advanced_controls");
-    await page.evaluate(() => { mobile.state.page = "advanced_controls"; mobile.render(); });
+    await page.evaluate(() => { const {mobile}=window.greedyQPreview; mobile.state.page = "advanced_controls"; mobile.render(); });
     const check = await page.evaluate(() => {
       const root = document.querySelector("#mobile");
       return {
@@ -47,7 +47,8 @@ const fail = (condition, message) => { if (!condition) throw new Error(message);
   const drills = await desktop.locator("[data-drill-level]").all();
   await drills[0].selectOption({ label: "Asia" }); await drills[1].selectOption({ label: "Korea" }); await drills[2].selectOption({ label: "Seoul" });
   await desktop.getByRole("button", { name: "Try navigation controls" }).click();
-  const answers = await page.evaluate(() => desktop.state.answers);
+  await desktop.getByRole('heading',{name:'Navigation controls',exact:true}).waitFor();
+  const answers = await page.evaluate(() => window.greedyQPreview.desktop.state.answers);
   for (const id of ["rank_example", "sbs_example", "nps_example", "timing_example", "sum_example", "group_rank_example", "drill_example"]) fail(Object.hasOwn(answers, id), `missing ${id}`);
   const accessibility = await desktop.evaluate(root => ({
     unlabeled: [...root.querySelectorAll("input,select,textarea")].filter(control => !control.getAttribute("aria-label") && !control.closest("label")).length,
@@ -56,6 +57,7 @@ const fail = (condition, message) => { if (!condition) throw new Error(message);
   fail(accessibility.unlabeled === 0, "unlabeled form controls found");
   fail(accessibility.duplicateIds === 0, "duplicate element IDs found");
   await page.reload();
+  await page.locator("#desktop").getByRole('heading',{name:'Navigation controls',exact:true}).waitFor();
   fail(await page.locator("#desktop").getByText("Navigation controls").isVisible(), "preview session session did not resume after refresh");
   await page.selectOption("#page", "complete");
   fail(await page.locator("#desktop .gq-actions button").count() === 0, "terminal page exposes navigation");

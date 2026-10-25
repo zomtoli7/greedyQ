@@ -305,7 +305,7 @@ sd_question(
 
 # Before submitting
 
-You may submit the study, withdraw, or record a request for the fictional research team to delete the responses associated with this session.
+You may submit the study or withdraw. Saving a withdrawal deletes this session's answers. Minimal administrative identifiers remain for panel return and duplicate prevention.
 
 ```{r}
 sd_question(
@@ -324,10 +324,9 @@ sd_question(
 sd_question(
   id = "deletion_request",
   type = "mc",
-  label = "Should the research team receive a request to delete responses already collected in this session?",
+  label = "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
   option = c(
-    "Yes, record a deletion request" = "yes",
-    "No" = "no"
+    "I understand that my answers will be deleted" = "yes"
   )
 )
 ```
@@ -354,7 +353,7 @@ No research responses were collected. You may close this page or follow the conf
 
 # Participation ended
 
-The session is marked as withdrawn. If you requested deletion, the request has been recorded for the research team; this message does not claim deletion is complete.
+Saving this withdrawal deletes the session's answers. If a saving error appears, retry before leaving. Minimal administrative identifiers remain for panel return and duplicate prevention.
 
 --- technical_error
 

@@ -258,6 +258,7 @@
       }
     </script>
     <script>
+      (async()=>{
       const model = JSON.parse(
           document.getElementById("greedyq-model").textContent,
         ),
@@ -270,11 +271,13 @@
             null,
             2,
           ));
+      await backend.ready;
       let desktop = greedyQ.mountRespondent(
           document.getElementById("desktop"),
           model,
           {
             mode: "desktop",
+            preview: true,
             backend,
             sessionId: "preview-desktop",
             onState: show,
@@ -285,11 +288,13 @@
           model,
           {
             mode: "mobile",
+            preview: true,
             backend,
             sessionId: "preview-mobile",
             onState: show,
           },
         );
+      window.greedyQPreview={desktop,mobile,backend};
       for (const value of model.conditions)
         document.getElementById("condition").add(new Option(value, value));
       for (const p of model.pages)
@@ -331,7 +336,7 @@
             );
           for (const question of page.questions || [])
             items.push(
-              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? " · required" : ""}</div></div></li>`,
+              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? " · required" : ""}${page.shuffle_questions?.includes(question.id) ? " · shuffled within page (tree shows source order)" : ""}</div></div></li>`,
             );
           if (!items.length)
             items.push(
@@ -364,6 +369,7 @@
         show();
       };
       show();
+      })().catch(error=>{document.getElementById("state").textContent="Preview could not start: "+error.message;});
     </script>
   </body>
 </html>

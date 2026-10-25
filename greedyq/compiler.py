@@ -1,9 +1,25 @@
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
 
 import re
+from .randomization import option_plan, page_plan
+from .redirects import redirect_plan
+from .localization import translate
+from .prolific import integration_plan
 
 
 OPS = (("!=", "not_equals"), ("<=", "lte"), (">=", "gte"), ("==", "equals"), ("<", "lt"), (">", "gt"))
+
+
+def split_condition(text, connector):
+    parts=[];start=0;quote=None;escaped=False
+    for i,char in enumerate(text):
+        if escaped:escaped=False;continue
+        if char=='\\' and quote:escaped=True;continue
+        if quote:
+            if char==quote:quote=None
+        elif char in "\"'":quote=char
+        elif text.startswith(connector,i):parts.append(text[start:i]);start=i+len(connector)
+    return parts+[text[start:]]
 
 
 def _literal(raw):
@@ -19,9 +35,12 @@ def _literal(raw):
 def condition(expression):
     """Convert the safe comparison subset to preview predicates."""
     expression = str(expression).strip()
-    for connector, key in ((" and ", "all"), (" or ", "any")):
-        if connector in expression:
-            return {key: [condition(part) for part in expression.split(connector)]}
+    answered=re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)",expression)
+    if answered:return {"field":answered.group(2),"answered":not bool(answered.group(1))}
+    for connector, key in ((" or ", "any"), (" and ", "all")):
+        parts=split_condition(expression,connector)
+        if len(parts)>1:
+            return {key: [condition(part) for part in parts]}
     for token, key in OPS:
         if token in expression:
             field, value = expression.split(token, 1)
@@ -44,7 +63,14 @@ def _constraint(question, rules):
 
 
 def compile_preview(parsed, config):
+    derived = [r.get("store",{}).get("condition_as") for r in config.get("randomization",[]) or []]
+    def predicate(expression):
+        for field in filter(None,derived): expression=re.sub(r"\b"+re.escape(field)+r"\b", "assignment_condition",str(expression))
+        return condition(expression)
     front = parsed["front_matter"]
+    prolific = integration_plan(config)
+    language = front.get('greedyq', {}).get('language', 'en')
+    option_plans = option_plan(parsed)
     survey_settings = front.get("survey-settings", {})
     required = set(survey_settings.get("required", []))
     logic = config.get("logic", {})
@@ -57,15 +83,18 @@ def compile_preview(parsed, config):
     source_pages = parsed["pages"]
     for index, source in enumerate(source_pages):
         page = {key: source[key] for key in ("id", "title", "body")}
+        for rule in shows:
+            if rule.get("page")==page["id"]: page["show_if"]=predicate(rule.get("if",""))
         page["questions"] = []
         for source_question in source["questions"]:
             q = {key: value for key, value in source_question.items() if not key.startswith("_") and key != "unsupported_arguments"}
             for collection in ("options", "rows", "columns", "groups"):
                 if collection in q:
                     q[collection] = [{key: value for key, value in item.items() if not key.startswith("_")} for item in q[collection]]
-            q["required"] = q.get("id") in required
+            q["required"] = bool(survey_settings.get("all-required", False)) or q.get("id") in required
+            if q["id"] in option_plans: q["shuffle_items"] = option_plans[q["id"]]
             for rule in shows:
-                if rule.get("question") == q.get("id"): q["show_if"] = condition(rule.get("if", ""))
+                if rule.get("question") == q.get("id"): q["show_if"] = predicate(rule.get("if", ""))
             _constraint(q, validations)
             if any(rule.get("question") == q.get("id") and ("not answered(%s)" % q.get("id")) in str(rule.get("if", "")) for rule in validations):
                 q["required"] = True
@@ -86,11 +115,19 @@ def compile_preview(parsed, config):
         routes = []
         for rule in skips:
             if rule.get("from") == page["id"]:
-                routes.append({"when": condition(rule.get("if", "")), "to": rule.get("to")})
+                routes.append({"when": predicate(rule.get("if", "")), "to": rule.get("to")})
         if routes: page["routes"] = routes
+        checks=[{"question":r.get("question"),"when":predicate(r.get("if","")),"message":r.get("message",translate(language,"Please review this answer."))} for r in validations if any(q["id"]==r.get("question") for q in page["questions"])]
+        if checks:page["checks"]=checks
         if page["id"] in terminal_by_page:
             page.pop("next", None); page["terminal"] = terminal_by_page[page["id"]]
+            outcome=next(o for o in outcomes.values() if o.get("page")==page["id"])
+            redirect=redirect_plan(outcome)
+            if redirect: page["redirect"]=redirect
         pages.append(page)
+
+    for rule in config.get("question_order", []):
+        next(p for p in pages if p["id"] == rule["page"])["shuffle_questions"] = list(rule["questions"])
 
     randomizations = config.get("randomization", []) or []
     conditions = ["default"]
@@ -119,19 +156,21 @@ def compile_preview(parsed, config):
         "study_id": config.get("study", {}).get("id", "greedyq_preview"),
         "study_version": config.get("study", {}).get("version", "unknown"),
         "greedyq_version": front.get("greedyq", {}).get("version"),
-        "title": config.get("study", {}).get("title", front.get("title", "greedyQ Survey")),
-        "organization": front.get("greedyq", {}).get("organization", "Research team"),
+        "title": config.get("study", {}).get("title", front.get("title", translate(language, "greedyQ Survey"))),
+        "organization": front.get("greedyq", {}).get("organization", translate(language, "Research team")),
+        "language": language,
         "start_page": start,
         "brand_color": front.get("theme-settings", {}).get("barcolor", "#315c8a"),
         "messages": {
-            "previous": front.get("system-messages", {}).get("previous", "Previous"),
-            "next": front.get("system-messages", {}).get("next", "Continue"),
-            "required": front.get("system-messages", {}).get("required", "Please answer the required questions before continuing."),
+            "previous": front.get("system-messages", {}).get("previous", translate(language, "Previous")),
+            "next": front.get("system-messages", {}).get("next", translate(language, "Continue")),
+            "required": front.get("system-messages", {}).get("required", translate(language, "Please answer the required questions before continuing.")),
         },
         "conditions": conditions,
         "progress_paths": paths,
         "pages": pages,
         "runtime_policy": {
+            **({'prolific':prolific} if prolific else {}),
             "mode": config.get("respondents", {}).get("mode", "test"),
             "consent": ({
                 "question": config.get("consent", {}).get("confirmation_question"),
@@ -143,4 +182,7 @@ def compile_preview(parsed, config):
         },
     }
     if assignment_page: model["assignment_page"] = assignment_page
+    if randomizations: model["randomization"] = first
+    shuffled_pages = page_plan(parsed, config)
+    if shuffled_pages: model["shuffle_pages"] = shuffled_pages
     return model

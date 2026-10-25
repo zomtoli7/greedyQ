@@ -12,6 +12,18 @@
     {
       "name": "003_results_dashboard.sql",
       "sha256": "db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51"
+    },
+    {
+      "name": "004_randomization.sql",
+      "sha256": "959fcffdb0df4f753ff81e9733e72a925a357522aa0e5fc1dd125ced9718f519"
+    },
+    {
+      "name": "005_prolific.sql",
+      "sha256": "cf67178ae3a6503b208e471686f043227a1c20d62e3d81060d76af71863bb52e"
+    },
+    {
+      "name": "006_withdrawal_preview.sql",
+      "sha256": "b60808de5814f0a852db44a444d6d1b1e042ef6635860de2aaebdf642b9fc4b1"
     }
   ]
 }

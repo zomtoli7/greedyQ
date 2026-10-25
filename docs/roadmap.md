@@ -15,6 +15,7 @@
 - Consent-first collection, persistent sessions, withdrawal deletion, deterministic assignment, direct/Prolific source marking, test-response separation, Supabase RPC boundary, and Vercel static deployment bundle.
 - Researcher results dashboard with real/test and direct/Prolific filters, progress and condition summaries, analysis-ready structured CSV columns, and a variable guide.
 - Preregistration drafts, manifests, Prolific routes, native Surveydown project export, and explicit compatibility reports.
+- Standard Prolific launches with atomic ID binding, duplicate protection, private expiring repeat-preview grants, withdrawal answer erasure, protected identity-bearing CSV and explicit provider-review waiting states.
 - Stable checks for syntax/routes, stored-value references, durable `.greedyq` state, manifest hashes, migration safety contracts, and secret placement.
 
 ## v0.2 stabilization gates
@@ -31,17 +32,19 @@
 - [x] Generated Surveydown projects checked against the public Surveydown 1.3.0 API; generated app and QMD R blocks pass R syntax validation.
 - [x] The complete native Surveydown control gallery renders and starts in safe preview mode with Surveydown 1.3.0, R, Quarto, and Shiny without a database account.
 - [ ] Native Surveydown behavioral review of every generated custom control in a running Shiny application.
-- [ ] Fresh-account, one-click Vercel/Supabase provisioning test; this requires user-approved OAuth connections.
+- [x] Researcher-assisted fresh-account Vercel/Supabase connection test on 2026-09-10; latest migration 006 additionally verified on the dedicated connected test resource. See the dated evidence rather than assuming acceptance for every future account/version.
+- [x] Actual Prolific draft Preview for completion, refusal, withdrawal and repeat starts; protected results and erasure checked.
+- [ ] Genuine paid Prolific submission matching, approval and payment: first one-person pilot is paused for routine provider review.
 - [ ] Cross-model creation/modification/fork evaluations with GPT, Claude, Gemini, and other capable hosts.
 - [ ] Accessibility audit with assistive technology and a recruited non-technical researcher usability study.
 
 ## Next product work
 
-1. Complete the external OAuth provisioning experience so a researcher signs into Vercel and receives only a survey URL and results URL.
+1. Maintain the approved Vercel/Supabase survey-and-results journey and finish the paid Prolific pilot after provider review; preserve settings while review is pending.
 2. Add production observability, researcher-configurable retention controls, and live disaster-recovery exercises. Offline migration versioning, integrity checks, and recovery guidance are complete.
 3. Expand experimental designs: weighted/stratified assignment, factorial studies, reproducible seeds, CBC/conjoint, and external design tables.
-4. Add multilingual authoring and respondent presentation.
-5. Add live OSF/preregistration adapters while preserving an explicit final-submission approval gate.
+4. Extend supported participant-language packs beyond the implemented English, Korean and Simplified/Traditional Chinese; keep authored translations under researcher review.
+5. Maintain the official OSF field inventory and downloadable preregistration drafts. OSF login, submission and registry management are out of scope; researchers register independently.
 6. Build the PPTX import path with confidence and conversion reports.
 7. Conduct the portability/conformance study that will support the greedyQ white paper.
 

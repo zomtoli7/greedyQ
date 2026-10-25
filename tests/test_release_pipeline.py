@@ -26,7 +26,7 @@ class ReleasePipelineTests(unittest.TestCase):
     def test_prolific_launch_requires_all_three_identifiers(self):
         good = parse_launch("?PROLIFIC_PID=p1&STUDY_ID=s1&SESSION_ID=x1", "test")
         self.assertEqual("passed", good["status"])
-        bad = parse_launch("?PROLIFIC_PID=p1", "production")
+        bad = parse_launch("?PROLIFIC_PID=" + "a" * 24, "production")
         self.assertEqual("failed", bad["status"])
         self.assertEqual({"STUDY_ID", "SESSION_ID"}, {x["message"].split()[0] for x in bad["issues"]})
 
@@ -172,7 +172,7 @@ class ReleasePipelineTests(unittest.TestCase):
             study = self.copy_study(tmp)
             build(study)
             manifest = json.loads((study / "supabase/migrations/manifest.json").read_text())
-            self.assertEqual(["001_initial.sql", "002_browser_rpc.sql", "003_results_dashboard.sql"], [item["name"] for item in manifest["migrations"]])
+            self.assertEqual(["001_initial.sql", "002_browser_rpc.sql", "003_results_dashboard.sql", "004_randomization.sql", "005_prolific.sql", "006_withdrawal_preview.sql"], [item["name"] for item in manifest["migrations"]])
             self.assertEqual("passed", preflight(study)["status"])
             migration = study / "supabase/migrations/003_results_dashboard.sql"
             migration.write_text(migration.read_text() + "\n-- changed after build\n")

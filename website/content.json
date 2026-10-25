@@ -1,0 +1,848 @@
+{
+  "en": {
+    "nav": [
+      "Home",
+      "Start",
+      "Guide",
+      "Examples",
+      "About"
+    ],
+    "copy": "Copy",
+    "copied": "Copied",
+    "selectCopy": "Select text to copy",
+    "promptLabel": "Ask your AI",
+    "contents": "Contents",
+    "next": "Next",
+    "previous": "Previous",
+    "menu": "Menu",
+    "language": "Language",
+    "draft": "Source documents: 10 Sep 2026",
+    "home": {
+      "eyebrow": "Online research, through conversation",
+      "title": "Be greedy with your time.",
+      "sub": "Just ask your AI to make your questionnaire.",
+      "text": "Describe your study. Review a working survey. Keep control of the research.",
+      "start": "Start a survey",
+      "example": "Explore examples",
+      "steps": [
+        [
+          "Describe",
+          "Tell your AI what you want to learn and who should take part."
+        ],
+        [
+          "Review",
+          "Try the questionnaire on desktop and mobile."
+        ],
+        [
+          "Approve",
+          "Approve the study and connections before collecting responses."
+        ]
+      ],
+      "note": "No coding needed to begin. Preview uses imaginary responses; deployment needs separate account approvals."
+    },
+    "start": {
+      "title": "Start with your research question.",
+      "lead": "Open an AI that can read GitHub. Copy this prompt and replace the brackets.",
+      "prompt": "Read and follow greedyQ:\nhttps://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md\n\nCreate a new study. Ask one question at a time and guide me to an interactive desktop-and-mobile preview.\n\nI want to learn: [research question]\nParticipants: [who should take part]\n\nFirst ask whether I want to write the questions myself or review an AI draft. Do not connect accounts or deploy yet.",
+      "after": "The AI should ask about your purpose, participants and how you want to write the questions. You can leave decisions unresolved.",
+      "returnTitle": "Returning to a study?",
+      "returnText": "Provide your study folder. Resume the existing version, request a specific change, or fork an independent copy. Upgrade only after reviewing the differences.",
+      "action": "Build your first questionnaire"
+    },
+    "guideGroups": [
+      [
+        "Create",
+        [
+          "first",
+          "controls",
+          "flow",
+          "appearance",
+          "preview"
+        ]
+      ],
+      [
+        "Experiments",
+        [
+          "random"
+        ]
+      ],
+      [
+        "Collect",
+        [
+          "deploy",
+          "results",
+          "prereg"
+        ]
+      ],
+      [
+        "Return",
+        [
+          "archive",
+          "upgrade"
+        ]
+      ]
+    ],
+    "guide": [
+      {
+        "id": "first",
+        "title": "Your first questionnaire",
+        "lead": "Choose who writes the questions, then review the result.",
+        "body": "<p>Describe your research purpose and participants, and choose the organization name they should see. Detailed consent and ethics review can follow the first draft, but must be resolved before deployment.</p><h2>Ask AI for a survey draft</h2><p>Describe a simple study, then review a questionnaire drafted by your AI. Adapt the purpose and participants in this example.</p><div data-control-prompt=\"first-draft\"></div><p>Review the proposed questions and personally complete the working preview.</p><h2>Write the questions yourself</h2><p>Ask the AI to create only the opening and ending pages first. When it asks for your first question, provide one question or several in the order you want. Leave undecided choices unresolved.</p><div data-control-prompt=\"first-manual\"></div><h2>Ask in research language</h2><p><strong>Written answers:</strong> A single line or a longer response.<br><strong>Categories:</strong> One choice, multiple choices, images or a dropdown.<br><strong>Ratings:</strong> Numbers, sliders and matrices.<br><strong>Extensions:</strong> Ranking, a fixed total of 100 points, hierarchical choices, audio and video.</p><div data-control-prompt=\"first-research\"></div><p>Request captions and transcripts when the research permits. greedyQ extensions are not all built-in Surveydown question types.</p>",
+        "prompt": ""
+      },
+      {
+        "id": "controls",
+        "title": "Question controls",
+        "lead": "Choose how participants answer. Describe the task to your AI; you do not need to memorize the code names.",
+        "body": "<nav class=\"control-index\" aria-label=\"Find a control\"><a href=\"#control-short_text\" data-control-jump=\"control-short_text\">Short answer</a><a href=\"#control-long_text\" data-control-jump=\"control-long_text\">Long answer</a><a href=\"#control-number\" data-control-jump=\"control-number\">Number</a><a href=\"#control-single\" data-control-jump=\"control-single\">Single choice</a><a href=\"#control-multiple\" data-control-jump=\"control-multiple\">Multiple choice</a><a href=\"#control-buttons\" data-control-jump=\"control-buttons\">Single-choice buttons</a><a href=\"#control-multi_buttons\" data-control-jump=\"control-multi_buttons\">Multiple-choice buttons</a><a href=\"#control-image\" data-control-jump=\"control-image\">Single image choice</a><a href=\"#control-multi_image\" data-control-jump=\"control-multi_image\">Multiple image choices</a><a href=\"#control-menu\" data-control-jump=\"control-menu\">Dropdown</a><a href=\"#control-labeled_slider\" data-control-jump=\"control-labeled_slider\">Labeled slider</a><a href=\"#control-numeric_slider\" data-control-jump=\"control-numeric_slider\">Numeric slider</a><a href=\"#control-range_slider\" data-control-jump=\"control-range_slider\">Range slider</a><a href=\"#control-one_date\" data-control-jump=\"control-one_date\">Date</a><a href=\"#control-date_range\" data-control-jump=\"control-date_range\">Date range</a><a href=\"#control-one_matrix\" data-control-jump=\"control-one_matrix\">Single-choice matrix</a><a href=\"#control-multi_matrix\" data-control-jump=\"control-multi_matrix\">Multiple-choice matrix</a><a href=\"#control-audio_example\" data-control-jump=\"control-audio_example\">Audio stimulus</a><a href=\"#control-video_example\" data-control-jump=\"control-video_example\">Video stimulus</a><a href=\"#control-rank_example\" data-control-jump=\"control-rank_example\">Rank order</a><a href=\"#control-sbs_example\" data-control-jump=\"control-sbs_example\">Side-by-side ratings</a><a href=\"#control-nps_example\" data-control-jump=\"control-nps_example\">Recommendation likelihood</a><a href=\"#control-timing\" data-control-jump=\"control-timing\">Page timing</a><a href=\"#control-sum_example\" data-control-jump=\"control-sum_example\">Fixed-total allocation</a><a href=\"#control-group_rank_example\" data-control-jump=\"control-group_rank_example\">Group and rank</a><a href=\"#control-drill_example\" data-control-jump=\"control-drill_example\">Hierarchical choice</a><a href=\"#control-custom_example\" data-control-jump=\"control-custom_example\">Custom control</a></nav><div class=\"control-list\"><section class=\"control-item\" id=\"control-short_text\"><p class=\"eyebrow\">Standard questions</p><h2>01 · Short answer</h2><p>One-line answers, labels or codes.</p><p class=\"control-code\"><code>text</code></p><div class=\"recording\" data-recording=\"short_text\"></div><div data-control-prompt=\"short_text\"></div></section><section class=\"control-item\" id=\"control-long_text\"><p class=\"eyebrow\">Standard questions</p><h2>02 · Long answer</h2><p>Comments and explanations that need several lines.</p><p class=\"control-code\"><code>textarea</code></p><div class=\"recording\" data-recording=\"long_text\"></div><div data-control-prompt=\"long_text\"></div></section><section class=\"control-item\" id=\"control-number\"><p class=\"eyebrow\">Standard questions</p><h2>03 · Number</h2><p>Age, quantity or amount; specify units and valid limits.</p><p class=\"control-code\"><code>numeric</code></p><div class=\"recording\" data-recording=\"number\"></div><div data-control-prompt=\"number\"></div></section><section class=\"control-item\" id=\"control-single\"><p class=\"eyebrow\">Standard questions</p><h2>04 · Single choice</h2><p>Choose one category, or select all that apply. State which rule applies.</p><p class=\"control-code\"><code>mc</code></p><div class=\"recording\" data-recording=\"single\"></div><div data-control-prompt=\"single\"></div></section><section class=\"control-item\" id=\"control-multiple\"><p class=\"eyebrow\">Standard questions</p><h2>05 · Multiple choice</h2><p>Choose one category, or select all that apply. State which rule applies.</p><p class=\"control-code\"><code>mc_multiple</code></p><div class=\"recording\" data-recording=\"multiple\"></div><div data-control-prompt=\"multiple\"></div></section><section class=\"control-item\" id=\"control-buttons\"><p class=\"eyebrow\">Standard questions</p><h2>06 · Single-choice buttons</h2><p>The same single/multiple selection rules, displayed as prominent buttons for short lists.</p><p class=\"control-code\"><code>mc_buttons</code></p><div class=\"recording\" data-recording=\"buttons\"></div><div data-control-prompt=\"buttons\"></div></section><section class=\"control-item\" id=\"control-multi_buttons\"><p class=\"eyebrow\">Standard questions</p><h2>07 · Multiple-choice buttons</h2><p>The same single/multiple selection rules, displayed as prominent buttons for short lists.</p><p class=\"control-code\"><code>mc_multiple_buttons</code></p><div class=\"recording\" data-recording=\"multi_buttons\"></div><div data-control-prompt=\"multi_buttons\"></div></section><section class=\"control-item\" id=\"control-image\"><p class=\"eyebrow\">Standard questions</p><h2>08 · Single image choice</h2><p>Choose one or several image cards. Supply meaningful labels as well as images.</p><p class=\"control-code\"><code>mc_image</code></p><div class=\"recording\" data-recording=\"image\"></div><div data-control-prompt=\"image\"></div></section><section class=\"control-item\" id=\"control-multi_image\"><p class=\"eyebrow\">Standard questions</p><h2>09 · Multiple image choices</h2><p>Choose one or several image cards. Supply meaningful labels as well as images.</p><p class=\"control-code\"><code>mc_multiple_image</code></p><div class=\"recording\" data-recording=\"multi_image\"></div><div data-control-prompt=\"multi_image\"></div></section><section class=\"control-item\" id=\"control-menu\"><p class=\"eyebrow\">Standard questions</p><h2>10 · Dropdown</h2><p>Choose from a long category list. The initial empty prompt is not an answer.</p><p class=\"control-code\"><code>select</code></p><div class=\"recording\" data-recording=\"menu\"></div><div data-control-prompt=\"menu\"></div></section><section class=\"control-item\" id=\"control-labeled_slider\"><p class=\"eyebrow\">Standard questions</p><h2>11 · Labeled slider</h2><p>Move across ordered labels, such as low to high. Stores the selected category value.</p><p class=\"control-code\"><code>slider</code></p><div class=\"recording\" data-recording=\"labeled_slider\"></div><div data-control-prompt=\"labeled_slider\"></div></section><section class=\"control-item\" id=\"control-numeric_slider\"><p class=\"eyebrow\">Standard questions</p><h2>12 · Numeric slider</h2><p>Select one number or a lower–upper interval with two handles. Define endpoints and units.</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"numeric_slider\"></div><div data-control-prompt=\"numeric_slider\"></div></section><section class=\"control-item\" id=\"control-range_slider\"><p class=\"eyebrow\">Standard questions</p><h2>13 · Range slider</h2><p>Select one number or a lower–upper interval with two handles. Define endpoints and units.</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"range_slider\"></div><div data-control-prompt=\"range_slider\"></div></section><section class=\"control-item\" id=\"control-one_date\"><p class=\"eyebrow\">Standard questions</p><h2>14 · Date</h2><p>Ask for one calendar date or a start and end date.</p><p class=\"control-code\"><code>date</code></p><div class=\"recording\" data-recording=\"one_date\"></div><div data-control-prompt=\"one_date\"></div></section><section class=\"control-item\" id=\"control-date_range\"><p class=\"eyebrow\">Standard questions</p><h2>15 · Date range</h2><p>Ask for one calendar date or a start and end date.</p><p class=\"control-code\"><code>daterange</code></p><div class=\"recording\" data-recording=\"date_range\"></div><div data-control-prompt=\"date_range\"></div></section><section class=\"control-item\" id=\"control-one_matrix\"><p class=\"eyebrow\">Standard questions</p><h2>16 · Single-choice matrix</h2><p>Repeat one scale across several statements. Single-choice requires one answer per row; multiple-choice allows several.</p><p class=\"control-code\"><code>matrix</code></p><div class=\"recording\" data-recording=\"one_matrix\"></div><div data-control-prompt=\"one_matrix\"></div></section><section class=\"control-item\" id=\"control-multi_matrix\"><p class=\"eyebrow\">Standard questions</p><h2>17 · Multiple-choice matrix</h2><p>Repeat one scale across several statements. Single-choice requires one answer per row; multiple-choice allows several.</p><p class=\"control-code\"><code>matrix_multiple</code></p><div class=\"recording\" data-recording=\"multi_matrix\"></div><div data-control-prompt=\"multi_matrix\"></div></section><section class=\"control-item\" id=\"control-audio_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>18 · Audio stimulus</h2><p>Present media with normal playback controls. Add captions or transcripts when the research permits. Displaying media does not create an answer variable.</p><p class=\"control-code\"><code>audio</code></p><div class=\"recording\" data-recording=\"audio_example\"></div><div data-control-prompt=\"audio_example\"></div></section><section class=\"control-item\" id=\"control-video_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>19 · Video stimulus</h2><p>Present media with normal playback controls. Add captions or transcripts when the research permits. Displaying media does not create an answer variable.</p><p class=\"control-code\"><code>video</code></p><div class=\"recording\" data-recording=\"video_example\"></div><div data-control-prompt=\"video_example\"></div></section><section class=\"control-item\" id=\"control-rank_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>20 · Rank order</h2><p>Put the full list in preference order using explicit rank selectors, without precision dragging.</p><p class=\"control-code\"><code>rank_order</code></p><div class=\"recording\" data-recording=\"rank_example\"></div><div data-control-prompt=\"rank_example\"></div></section><section class=\"control-item\" id=\"control-sbs_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>21 · Side-by-side ratings</h2><p>Compare several ratings sharing items and scales. On a phone, show clearly labeled sections.</p><p class=\"control-code\"><code>side_by_side</code></p><div class=\"recording\" data-recording=\"sbs_example\"></div><div data-control-prompt=\"sbs_example\"></div></section><section class=\"control-item\" id=\"control-nps_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>22 · Recommendation likelihood</h2><p>Use the standard 0–10 likelihood scale, keeping all numbers and both endpoint labels visible.</p><p class=\"control-code\"><code>nps</code></p><div class=\"recording\" data-recording=\"nps_example\"></div><div data-control-prompt=\"nps_example\"></div></section><section class=\"control-item\" id=\"control-timing\"><p class=\"eyebrow\">greedyQ extensions</p><h2>23 · Page timing</h2><p>Records hidden seconds-on-page metadata; it is not a visible question. Confirm its role in the study.</p><p class=\"control-code\"><code>timing</code></p><p class=\"note\">Timing is hidden. Participants do not answer a visible control. Ask your agent to show the recorded timing value and explain how it is used.</p><div data-control-prompt=\"timing\"></div></section><section class=\"control-item\" id=\"control-sum_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>24 · Fixed-total allocation</h2><p>Distribute a budget, time or 100 points across items. Show the running total and validate the agreed total.</p><p class=\"control-code\"><code>constant_sum</code></p><div class=\"recording\" data-recording=\"sum_example\"></div><div data-control-prompt=\"sum_example\"></div></section><section class=\"control-item\" id=\"control-group_rank_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>25 · Group and rank</h2><p>Assign items to groups, then rank within each group using explicit fields.</p><p class=\"control-code\"><code>pick_group_rank</code></p><div class=\"recording\" data-recording=\"group_rank_example\"></div><div data-control-prompt=\"group_rank_example\"></div></section><section class=\"control-item\" id=\"control-drill_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>26 · Hierarchical choice</h2><p>Narrow a path such as region → country → city. Each level shows only compatible choices.</p><p class=\"control-code\"><code>drill_down</code></p><div class=\"recording\" data-recording=\"drill_example\"></div><div data-control-prompt=\"drill_example\"></div></section><section class=\"control-item\" id=\"control-custom_example\"><p class=\"eyebrow\">greedyQ extensions</p><h2>27 · Custom control</h2><p>Extend the closest supported control only after agreeing appearance, behavior, validation, mobile access and saved values.</p><p class=\"control-code\"><code>custom</code></p><div class=\"recording\" data-recording=\"custom_example\"></div><div data-control-prompt=\"custom_example\"></div></section></div>",
+        "prompt": ""
+      },
+      {
+        "id": "flow",
+        "title": "Survey flow",
+        "lead": "Decide which questions people see and where each route ends.",
+        "body": "<ol><li>Mark required and optional answers.</li><li>Describe eligibility, conditional questions and ending routes.</li><li>Open <strong>View structure</strong> to inspect pages and questions: T means text; Q means question.</li><li>Click through every route, including refusal and withdrawal.</li></ol><h2>Navigation</h2><p>Previous and Next may be visible, hidden or disabled. Required answers are checked when the participant continues. A timed delay should be part of your approved design.</p><h2>If something goes wrong</h2><p>Tell the AI the page, the answer you selected and the screen you expected. Structure view is read-only; it does not save responses.</p>",
+        "prompt": "Show eligibility and consent-refusal routes on desktop and mobile. Apply only the required answers and navigation rules I approved. Ask before changing a research decision."
+      },
+      {
+        "id": "appearance",
+        "title": "Appearance and buttons",
+        "lead": "Ask your AI to adjust the survey’s visual style, wording, and navigation without changing the study.",
+        "body": "<h2>Colors and visual style</h2><p>Describe the background, text, and accent colors you want—for example, a white background with dark text and a university-colored primary button. Ask for readable contrast, visible keyboard focus, and a mobile preview.</p><div data-control-prompt=\"look-colors\"></div><h2>Participant-facing wording</h2><p>You can request changes to the organization name, titles, instructions, and button labels. Say exactly where a change should apply. Cosmetic edits should preserve question IDs, saved values, routing, and randomization.</p><div data-control-prompt=\"look-words\"></div><h2>Show, hide, or disable a button</h2><ul><li><strong>Show:</strong> the button is visible and can be used.</li><li><strong>Hide:</strong> the button is absent from that page.</li><li><strong>Disable:</strong> the button remains visible but cannot be used.</li></ul><p>For example, hide Previous on a consent page, show it on questionnaire pages, and leave it visible but disabled on a final review page. Confirm that every intended route remains reachable.</p><h2>Delay progression</h2><p>When your approved design requires a minimum exposure time, keep Continue disabled for a specified duration and show the time remaining. This is different from a missing required answer: normally, clicking Next explains what needs an answer rather than disabling it in advance.</p><div data-control-prompt=\"look-buttons\"></div><h2>Review the whole experience</h2><p>Check the beginning, questionnaire, errors, and ending on desktop and phone. Try the keyboard, read every button label, and test all hidden, disabled, and delayed states. Ask for a short before-and-after summary before approving.</p>",
+        "prompt": ""
+      },
+      {
+        "id": "preview",
+        "title": "Test and review",
+        "lead": "A working preview is for testing, not recruitment.",
+        "body": "<ol><li>Personally complete desktop and mobile views using imaginary answers.</li><li>Try missing required answers, Previous/Next and refresh/resume.</li><li>Check every condition, ending and media stimulus.</li><li>Review revisions and approve the exact questionnaire version.</li></ol><h2>On a phone</h2><p>Check readable text, touch targets and matrices without horizontal scrolling. Request captions or transcripts when the material permits.</p><h2>If the preview fails</h2><p>Keep the supplied preview files together. Ask the AI to rebuild them and check refresh/resume. Automated validation never replaces your review.</p><h2>Revise individual questions</h2><p>Identify the question by name or exact wording and explain the specific change. Preserve other questions, stored values, routing, and research decisions, then check the revised question in the preview.</p>",
+        "prompt": "In [question name or exact wording], change only [specific change]. Preserve all other questions, stored values, routing, and randomization. Briefly explain the change and show the revised question in the desktop and phone preview."
+      },
+      {
+        "id": "random",
+        "title": "Assignment and ordering",
+        "lead": "Assigning people to conditions and shuffling content are separate choices.",
+        "body": "<h2>Assign participants</h2><p><strong>Simple random assignment:</strong> each person gets an independent draw. A 1:1 ratio does not guarantee equal final groups.</p><p><strong>Fixed blocks:</strong> completed blocks match the approved ratio. Dropout and an incomplete final block can still leave unequal analysis groups; a known block size can make later allocations predictable.</p><h2>Shuffle presentation</h2><ul><li>Shuffle selected questions on one page; keep other positions fixed.</li><li>Shuffle supported choices or matrix rows, keeping “Other” last if needed.</li><li>Page shuffling is limited to one independent, contiguous middle group. Keep consent, assignment, treatment and endings fixed; conditional routes are not supported in that group.</li></ul><h2>Review before applying</h2><p>Approve method, conditions, ratio, timing and any block size. Test all conditions and refresh/resume. Saved ordering describes planned presentation, not proof that a question was read.</p><p>One between-participant assignment is supported per study. Cluster, stratified, adaptive and multiple-stage assignment are outside the current scope.</p>",
+        "prompt": "Explain simple versus fixed-block assignment for A and B. Ask me to approve the ratio and assignment point. Separately shuffle the first four choices while keeping Other last. Show both conditions and check refresh/resume."
+      },
+      {
+        "id": "deploy",
+        "title": "Deploy and collect",
+        "lead": "Receive a public survey link and a separate protected results link.",
+        "body": "<ol><li>Resolve consent, privacy and remaining study decisions.</li><li>Review accounts, data location and possible costs.</li><li>Sign in to Vercel and approve the Supabase connection presented to you. A connected AI completes setup.</li><li>Verify both links and submit a synthetic test response.</li><li>Approve real collection separately.</li></ol><h2>Keep the two links distinct</h2><p>Share the survey with participants. Share protected results only with authorized researchers. An unauthenticated visitor must be denied access to results.</p><h2>If connection fails</h2><p>An AI without connected tools must provide a handoff instead of claiming success. Database editors and secret-key handling are recovery steps, not the normal researcher flow. Prolific integration needs its own test.</p>",
+        "prompt": "Prepare deployment for the approved questionnaire. Explain the required approvals and costs. Verify the public survey and protected results links with synthetic data. Do not recruit until I separately approve."
+      },
+      {
+        "id": "results",
+        "title": "Review responses",
+        "lead": "Check trial submissions before opening real collection.",
+        "body": "<ol><li>Open the protected results link.</li><li>Choose <strong>Test responses</strong>, then <strong>Source: Direct</strong>.</li><li>Submit one trial response and select <strong>Refresh</strong>.</li><li>Check counts, answers and where participants stopped.</li><li>Use <strong>Download CSV</strong> for the visible filters; read <strong>Variable guide</strong> for column meanings.</li></ol><h2>Test is not real</h2><p><strong>Real responses</strong> excludes tests. A Prolific test stays a test; change Source to Prolific without changing its test status.</p><h2>Understand the export</h2><p>Every survey variable remains a column. Unanswered fields are blank; structured controls have stable analysis columns. The dashboard is an operational review tool, not a statistical analysis package.</p>",
+        "prompt": "Show a direct test response in the dashboard. Refresh the counts and answer summary. Confirm that Real responses excludes the test, then explain the filtered CSV columns."
+      },
+      {
+        "id": "prereg",
+        "title": "Preregistration drafts",
+        "lead": "Get reviewable files. Registration remains a separate action.",
+        "body": "<ol><li>Decide whether you want a draft; it is not required just to preview.</li><li>Review hypotheses, sample size, stopping rules, outcomes, exclusions and analysis.</li><li>Keep missing decisions marked TO CONFIRM and review not-applicable fields.</li><li>Download the English and Korean Markdown drafts. Register independently if needed.</li></ol><h2>What the draft contains</h2><p>The source guide follows an OSF-linked offline form with 29 fields, checked on 10 September 2026. It covers study metadata, design, collection, variables, analysis and additional context.</p><p>greedyQ does not log in to OSF, submit a registration or choose an embargo. A complete draft is still unregistered. Translation of approved answers needs researcher review.</p>",
+        "prompt": "Prepare an OSF preregistration draft using confirmed decisions only. Ask about missing decisions one at a time. Do not log in to OSF or submit anything."
+      },
+      {
+        "id": "archive",
+        "title": "Finish and archive",
+        "lead": "Download and check your files before pausing services.",
+        "body": "<ol><li>Confirm the study, shared services and how to handle participants still responding.</li><li>Approve closing collection.</li><li>Download real-response CSV, test-response CSV and the study archive ZIP.</li><li>Check row counts and save a secure second copy.</li><li>Confirm receipt, then approve pausing dedicated services if appropriate.</li></ol><h2>Keep the right files</h2><p>The archive includes incomplete responses. Its structured CSV differs from the dashboard’s flattened CSV. The private ZIP may include participant identifiers: never place it in a public repository.</p><p>The archive is for retention and analysis, not automatic database restoration. Keep the original study folder and media separately. Pausing is not permanent storage; provider policies and fees must be checked.</p><h2>After closure</h2><p>Shared services stay running. Closed surveys may show a generic save failure. Keep a research-team contact route for later withdrawal requests and update retained copies.</p>",
+        "prompt": "Help me finish collection and archive this study. Check active participants and shared services first. Download the data and wait until I confirm safe storage. Do not delete projects."
+      },
+      {
+        "id": "upgrade",
+        "title": "Resume, change or fork",
+        "lead": "Preserve the original and review changes before upgrading.",
+        "body": "<p><strong>Resume:</strong> continue the current study and its pinned version.</p><p><strong>Modify:</strong> change only the agreed parts of the existing study.</p><p><strong>Fork:</strong> create a separate study with a new ID; do not transfer old responses by default.</p><h2>Upgrade a draft</h2><ol><li>Provide the saved study folder.</li><li>Review version differences and approve an upgrade if wanted.</li><li>Upgrade a separate copy.</li><li>Compare desktop/mobile previews and approve the new version.</li></ol><p>Automatic upgrades cover draft/test studies only. Active studies need a separately reviewed change plan. Resuming a service does not itself reopen collection; reopening needs explicit approval and verification.</p>",
+        "prompt": "Resume this saved study. Explain differences from the current greedyQ version. After my approval, upgrade a separate copy and show both previews. Preserve research decisions and the original files."
+      }
+    ],
+    "aboutGroups": [
+      [
+        "Project",
+        [
+          "identity",
+          "principles"
+        ]
+      ],
+      [
+        "Compatibility",
+        [
+          "support",
+          "export"
+        ]
+      ],
+      [
+        "Reference",
+        [
+          "citation",
+          "license",
+          "updates"
+        ]
+      ]
+    ],
+    "about": [
+      {
+        "id": "identity",
+        "title": "What is greedyQ?",
+        "lead": "A consistent research workflow for a capable AI.",
+        "body": "<p>greedyQ is a specification-driven, AI-native application for online academic research. Its guides, templates and approval checkpoints tell a general-purpose AI how to create research documents and working surveys.</p><p>greedyQ itself is not an agent. The specification plus a capable AI produces a research agent; the agent then creates the study.</p><h2>What it covers</h2><p>Questionnaires, experiments, consent, randomization, data plans, preregistration drafts, deployment and fielding. The researcher makes the decisions and owns the data.</p><h2>Two ways to work</h2><p><strong>Chat:</strong> the AI prepares files and explains the next steps. <strong>Connected agent:</strong> with the right permissions, it can also configure services and verify deployment.</p>"
+      },
+      {
+        "id": "principles",
+        "title": "Researcher control",
+        "lead": "Keep decisions explicit and studies reproducible.",
+        "body": "<ul><li>Ask before changing meaningful research decisions.</li><li>Record unresolved questions instead of inventing answers.</li><li>Review the actual participant experience, not only a technical report.</li><li>Keep study files and the exact software version.</li><li>Separate preview, account connection and recruitment approvals.</li><li>Keep respondent data under researcher control.</li></ul><p>The primary path uses a browser survey with Vercel and Supabase. Direct source editing and native Surveydown export remain options for advanced work.</p>"
+      },
+      {
+        "id": "support",
+        "title": "Supported scope",
+        "lead": "Compatibility is feature-specific, not a promise of complete equivalence.",
+        "body": "<table><thead><tr><th>Area</th><th>Current boundary</th></tr></thead><tbody><tr><td>Questions</td><td>16 documented Surveydown-style controls, plus greedyQ extensions such as media, ranking and allocations.</td></tr><tr><td>Logic</td><td>Bounded visibility, skips and stop checks; not unrestricted R expressions or Shiny programs.</td></tr><tr><td>Formatting</td><td>Basic escaped label formatting. Full Markdown and arbitrary HTML are not equivalent.</td></tr><tr><td>Ordering</td><td>Selected choices, matrix rows, questions and restricted page groups. Not arbitrary page routing.</td></tr><tr><td>Settings</td><td>Some theme, bar-position and footer settings are accepted without full visual support. Automatic IP/browser metadata collection is not implemented.</td></tr><tr><td>External returns</td><td>Approved HTTPS return destinations; preview navigation disabled. Live returns require successful saving. Prolific integration needs verification.</td></tr></tbody></table><h2>Custom controls</h2><p>Start with the closest supported control. Agree on appearance, behavior, saved values, accessibility, mobile use and extra AI effort before implementation.</p>"
+      },
+      {
+        "id": "export",
+        "title": "Native Surveydown export",
+        "lead": "Review the differences before choosing another runtime.",
+        "body": "<p>A native export includes <code>survey.qmd</code> and <code>app.R</code>. It is a first-class secondary path, while the greedyQ browser runtime remains primary.</p><ul><li><strong>Portable:</strong> preserved directly.</li><li><strong>Generated:</strong> converted into native files and requiring review.</li><li><strong>greedyQ-only:</strong> unavailable in the native runtime.</li><li><strong>Unsupported:</strong> not an equivalent export.</li></ul><p>Question/page shuffling is unsupported in native export. Fixed-block assignment and refresh persistence are not claimed equivalent. Generated extension controls must be tested in native Surveydown; generated code alone is not proof.</p><p>greedyQ does not execute arbitrary R or JavaScript from survey definitions. Use native Surveydown for customization beyond the supported browser scope.</p>"
+      },
+      {
+        "id": "citation",
+        "title": "Citing your study software",
+        "lead": "Cite both projects, including studies run only with greedyQ.",
+        "body": "<p>Use the exact release recorded in your study’s <code>greedyq.version</code>. Do not claim Surveydown executed the survey unless it did; if it did, also report its package version.</p><h2>References</h2><p>greedyQ project. (2026). <em>greedyQ: A specification-driven, AI-native application for online academic research</em> (Version &lt;release identifier&gt;) [Computer software]. GitHub.</p><p>Hu, P., Bunea, B., &amp; Helveston, J. (2025). surveydown: An open-source, markdown-based platform for programmable and reproducible surveys. <em>PLOS ONE, 20</em>(8), e0331002. DOI: 10.1371/journal.pone.0331002.</p><h2>Suggested methods wording</h2><div data-snippet=\"methods\"></div><h2>BibTeX</h2><div data-snippet=\"bib\"></div>"
+      },
+      {
+        "id": "license",
+        "title": "License and attribution",
+        "lead": "An independent open-source project under the MIT License.",
+        "body": "<p>greedyQ independently implements a documented subset of Surveydown-style authoring conventions. It does not incorporate or redistribute Surveydown source code.</p><p>Surveydown is prior MIT-licensed work. Copyright © 2025 John Paul Helveston, Pingfan Hu and Bogdan Bunea.</p><p>greedyQ is not affiliated with, endorsed by, sponsored by or maintained by Surveydown or its maintainers. References describe compatibility, provenance or an export target.</p><h2>Keep the distinctions clear</h2><p>The request to cite both projects for academic use is separate from software-license compliance. The software license does not determine the license of your research data or preregistration.</p>"
+      },
+      {
+        "id": "updates",
+        "title": "Version and updates",
+        "lead": "Know which version your study actually uses.",
+        "body": "<p><strong>Recorded release:</strong> <code>0.2_2026-09-10_c4a8405</code>.<br><strong>This guide:</strong> based on the 10 September handoff, including unreleased changes. This is not a new public release.</p><p>Updates do not automatically change deployed studies. Review differences, preserve the original and test an upgraded draft before use.</p><h2>Public update history</h2><p>Each substantive update has an English note and a Korean counterpart. Release identifiers record the version, date and source commit; metadata-only stamping commits are not separate releases.</p><ul class=\"history\"><li><code>2026-09-09 · fcb3c86</code><br>Stabilized exports, structured results and integrity checks.</li><li><code>2026-09-09 · 236d2a3</code><br>Fit the NPS scale to mobile width.</li><li><code>2026-09-09 · 9d9ffe9</code><br>Advanced controls and confirmation-first custom controls.</li><li><code>2026-09-09 · 2f20a8c</code><br>Responsive matrices, media, conditional fields and navigation policies.</li><li><code>2026-09-09 · e770a9c</code><br>Joint citation of greedyQ and Surveydown for scholarly use.</li><li><code>2026-09-09 · 5ce7a3a</code><br>Preserved the desktop canvas on phones.</li><li><code>2026-09-09 · 40c5053</code><br>All survey columns retained in filtered CSV exports.</li><li><code>2026-09-09 · 825f6fb</code><br>Protected results dashboard and two-link deployment.</li><li><code>2026-09-09 · 3aefdd0</code><br>Prepared secure Supabase connection handoff.</li><li><code>2026-09-09 · ee423e6</code><br>Release provenance and explicit question-authoring choice.</li></ul><h2>Original sources</h2><p><a href=\"https://github.com/zomtoli7/greedyQ\" target=\"_blank\" rel=\"noopener\">greedyQ repository</a> · <a href=\"https://doi.org/10.1371/journal.pone.0331002\" target=\"_blank\" rel=\"noopener\">Surveydown paper</a></p>"
+      }
+    ],
+    "methods": "The questionnaire was created and deployed using greedyQ (version <release identifier>), whose survey specification builds on the survey-as-code approach and survey.qmd authoring conventions established by surveydown (Hu, Bunea, & Helveston, 2025).",
+    "examples": "<p>Try imaginary questions, then ask your AI for controls that suit your research.</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\"><strong>Open the public question gallery in a new tab ↗</strong></a></p><p>The gallery uses virtual participants and makes no external response writes. Do not enter real participant or research data. The public link works, but it is not pinned to a specific release. It may differ from new features in the handoff working copy.</p>",
+    "clipUI": {
+      "play": "Play",
+      "pause": "Pause",
+      "replay": "Replay",
+      "step": "Next frame",
+      "caption": "Recorded in the live gallery · English demo · step-by-step playback",
+      "alt": "Actual control interaction recorded in the greedyQ gallery",
+      "jump": "Find a control",
+      "standard": "Standard questions",
+      "extensions": "greedyQ extensions",
+      "hidden": "Timing is hidden. Participants do not answer a visible control. Ask your agent to show the recorded timing value and explain how it is used.",
+      "test": "Show the desktop and phone preview, explain the saved values, and ask me before changing research decisions."
+    },
+    "controlPrompts": {
+      "short_text": "Ask for a short project nickname in a single-line text box.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "long_text": "Ask what should improve, using a multiline answer box.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "number": "Ask weekly hours of service use as a number from 0 to 168, in hours.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "single": "Ask the main device used: computer, phone, or tablet. Allow exactly one choice.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "multiple": "Ask which devices were used this month. Allow every applicable choice: computer, phone, tablet.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "buttons": "Show Yes and No as prominent buttons for whether the participant has tried the service. Allow one answer.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "multi_buttons": "Show the features Search, Save, and Share as selectable buttons. Allow several selections.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "image": "Show our two approved package images with descriptive labels. Ask participants to choose one package.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "multi_image": "Show the approved product images with labels and let participants select all products they recognize.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "menu": "Ask for one field of study from my category list using a dropdown. Begin with an empty Choose one prompt.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "labeled_slider": "Ask perceived difficulty on an ordered slider: Very easy, Easy, Neutral, Difficult, Very difficult. Preserve category codes.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "numeric_slider": "Ask confidence from 0 to 10 with a numeric slider. Keep the current value and endpoints visible.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "range_slider": "Ask an acceptable monthly price interval from 0 to 100 using two handles. Show both selected limits and the currency.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "one_date": "Ask the date of the participant’s most recent service use with a calendar date field.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "date_range": "Ask the start and end dates of service use. Explain how reversed dates are handled before implementing the rule.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "one_matrix": "Rate ease of use, speed, and clarity from Very poor to Excellent. Require one answer per row. Use row cards on phones.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "multi_matrix": "For each product category, ask where it was purchased: store, website, app. Allow several selections in each row.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "audio_example": "Present my approved audio file with ordinary playback controls, a caption, and a transcript. Do not autoplay or treat playback as an answer.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "video_example": "Present my approved video with a poster image, playback controls, and available captions or transcript. Do not autoplay.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "rank_example": "Ask participants to rank ease of use, speed, and flexibility. Use rank selectors so dragging is not required.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "sbs_example": "Rate the current and proposed versions on clarity and usefulness with the same Low–Medium–High scale. Label both versions clearly on phones.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "nps_example": "Ask likelihood of recommending the service on the 0–10 scale. Show every number and both endpoint descriptions.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "timing": "Record time spent on the stimulus page as hidden metadata. Explain when timing starts and stops and how it is exported. Do not invent an exclusion threshold.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "sum_example": "Allocate exactly 100 points across design, testing, and documentation. Show the live total and explain any mismatch.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "group_rank_example": "Group speed, trust, and ease into Essential or Optional, then rank the items within each group.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "drill_example": "Choose a location through region, country, and city. Show only cities belonging to the selected country and reset incompatible later selections.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "custom_example": "I need a product-choice card. Identify the closest supported base control and agree appearance, interaction, mobile behavior, accessibility, saved values, and extra work before coding.\n\nShow the desktop and phone preview, explain the saved values, and ask me before changing research decisions.",
+      "look-colors": "Use a white background, dark charcoal text, and a deep-green primary button. Keep contrast and keyboard focus clear. Show desktop and phone previews. Do not change questions, answer values, or study routes.",
+      "look-words": "Show [university or laboratory name] at the top. Change Continue to Next on questionnaire pages and use Submit on the final page. Preserve the actions and all stored values. Show me the revised screens.",
+      "look-buttons": "Hide Previous on consent, show it on questionnaire pages, and display it disabled on final review. On the approved stimulus page, delay Continue for 12 seconds with a countdown. Show every state on desktop and phone.",
+      "first-draft": "Follow the greedyQ start guide. Create a satisfaction survey under three minutes for people who have used our service at least once. Cover overall satisfaction, ease of use, usefulness, result quality, reuse intention and one improvement. First confirm how I want to write the questions, and show a working preview before deployment.",
+      "first-manual": "I will write the questions myself. Create only the opening and ending pages, then ask for my first question. Record unresolved decisions instead of inventing them.",
+      "first-research": "Ask participants to rank five priorities and allocate exactly 100 points across three activities. Explain what the saved answers mean, demonstrate desktop and mobile behavior, then ask for my approval."
+    },
+    "examplesArchived": "<p>Try imaginary questions, then ask your AI for controls that suit your research.</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\"><strong>Open the public question gallery in a new tab ↗</strong></a></p><p>The gallery uses virtual participants and makes no external response writes. Do not enter real participant or research data. The public link works, but it is not pinned to a specific release. It may differ from new features in the handoff working copy.</p><h2>1. Try the questions</h2><p>① Try choices, written answers, sliders and matrices. ② Compare Desktop and Mobile. ③ Open View structure to inspect the sequence. ④ Select Try advanced controls for ranking, allocations and other extensions.</p><blockquote>Add a matrix rating ease of use, speed, reliability and clarity. Use five choices from Very poor to Excellent. Show a table on desktop and individual row cards without horizontal scrolling on a phone.</blockquote><p><strong>Expected result:</strong> A desktop table and phone-friendly row cards. Each view has its own virtual participant.</p><h2>2. Ask in research language</h2><p><strong>Written answers:</strong> A single line or a longer response.<br><strong>Categories:</strong> One choice, multiple choices, images or a dropdown.<br><strong>Ratings:</strong> Numbers, sliders and matrices.<br><strong>Extensions:</strong> Ranking, a fixed total of 100 points, hierarchical choices, audio and video.</p><blockquote>Ask participants to rank five priorities and allocate exactly 100 points across three activities. Explain what the saved answers mean, demonstrate desktop and mobile behavior, then ask for my approval.</blockquote><p>Request captions and transcripts when the research permits. greedyQ extensions are not all built-in Surveydown question types.</p><h2>3. Start with a short survey</h2><blockquote>Follow the greedyQ start guide. Create a satisfaction survey under three minutes for people who have used our service at least once. Cover overall satisfaction, ease of use, usefulness, result quality, reuse intention and one improvement. First confirm how I want to write the questions, and show a working preview before deployment.</blockquote><p>① Adapt the purpose and participants. ② Review proposed questions. ③ Personally complete the preview.</p><h2>Something went wrong?</h2><p>If the embed is too small or fails, use the new-tab link above. The gallery has English examples; ask your AI for Korean questions when needed. Before creating a special control, identify the nearest supported control and agree on extra time, AI usage, mobile behavior, accessibility and saved values.</p>"
+  },
+  "ko": {
+    "nav": [
+      "홈",
+      "시작하기",
+      "사용법",
+      "예제",
+      "소개"
+    ],
+    "copy": "복사",
+    "copied": "복사됨",
+    "selectCopy": "텍스트 선택 후 복사",
+    "promptLabel": "AI에게 요청하기",
+    "contents": "목차",
+    "next": "다음",
+    "previous": "이전",
+    "menu": "메뉴",
+    "language": "언어",
+    "draft": "원본 문서: 2026.09.10",
+    "home": {
+      "eyebrow": "대화로 시작하는 온라인 연구",
+      "title": "연구에 쓸 시간을 아끼세요.",
+      "sub": "설문 제작은 AI에게 요청하세요.",
+      "text": "연구를 설명하고, 작동하는 설문을 검토하세요. 연구의 결정권은 여러분에게 있습니다.",
+      "start": "설문 시작하기",
+      "example": "예제 둘러보기",
+      "steps": [
+        [
+          "설명",
+          "알고 싶은 것과 참여 대상을 AI에게 알려주세요."
+        ],
+        [
+          "검토",
+          "컴퓨터와 휴대전화에서 설문을 직접 시험하세요."
+        ],
+        [
+          "승인",
+          "연구와 연결을 승인한 뒤 응답을 수집하세요."
+        ]
+      ],
+      "note": "시작하는 데 코딩은 필요하지 않습니다. 미리보기는 가상 응답을 사용하며, 배포에는 별도 계정 승인이 필요합니다."
+    },
+    "start": {
+      "title": "연구 질문 하나로 시작하세요.",
+      "lead": "GitHub 문서를 읽을 수 있는 AI에 아래 내용을 붙여넣고 대괄호를 바꾸세요.",
+      "prompt": "다음 greedyQ 안내서를 읽고 따라줘:\nhttps://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md\n\n새 연구를 만들자. 한 번에 한 가지씩 질문하고 컴퓨터·모바일에서 작동하는 미리보기까지 안내해줘.\n\n알고 싶은 것: [연구 질문]\n참여 대상: [누구에게 물을지]\n\n문항을 직접 쓸지 AI 초안을 검토할지 먼저 물어봐. 아직 계정 연결이나 배포는 하지 마.",
+      "after": "AI가 목적·참여 대상·문항 작성 방식을 물어봐야 합니다. 정하지 않은 결정은 미정으로 남겨도 됩니다.",
+      "returnTitle": "진행 중인 연구가 있나요?",
+      "returnText": "연구 폴더를 제공하고 재개, 특정 부분 수정, 독립된 사본 만들기 중 하나를 요청하세요. 업그레이드는 차이를 검토한 뒤 승인합니다.",
+      "action": "첫 설문 만들기"
+    },
+    "guideGroups": [
+      [
+        "만들기",
+        [
+          "first",
+          "controls",
+          "flow",
+          "appearance",
+          "preview"
+        ]
+      ],
+      [
+        "실험",
+        [
+          "random"
+        ]
+      ],
+      [
+        "수집",
+        [
+          "deploy",
+          "results",
+          "prereg"
+        ]
+      ],
+      [
+        "다시 사용",
+        [
+          "archive",
+          "upgrade"
+        ]
+      ]
+    ],
+    "guide": [
+      {
+        "id": "first",
+        "title": "첫 설문 만들기",
+        "lead": "문항 작성 방식을 선택한 뒤 결과를 검토합니다.",
+        "body": "<p>연구 목적과 참여 대상을 설명하고, 참여자에게 보일 기관명을 정하세요. 동의·윤리 세부사항은 첫 초안 이후에 검토할 수 있지만 배포 전에는 해결해야 합니다.</p><h2>AI에게 설문 초안 요청하기</h2><p>간단한 연구 목적을 알려주고 AI가 작성한 설문 초안을 검토하는 방식입니다. 아래 예시의 대상과 목적을 바꿔 요청하세요.</p><div data-control-prompt=\"first-draft\"></div><p>제안된 문항을 검토하고, 미리보기에서 직접 끝까지 응답해 보세요.</p><h2>직접 문항을 작성하기</h2><p>문항을 직접 작성하려면 AI에게 시작·종료 화면만 먼저 만들도록 요청하세요. AI가 첫 문항을 물으면 한 문항씩 또는 여러 문항을 순서대로 제공할 수 있습니다. 정하지 않은 결정은 미정으로 남깁니다.</p><div data-control-prompt=\"first-manual\"></div><h2>연구 목적에 맞게 요청하기</h2><p><strong>짧은 답:</strong> 한 줄 입력 또는 긴 서술형.<br><strong>범주 선택:</strong> 하나 선택, 여러 개 선택, 이미지 선택 또는 드롭다운.<br><strong>평가:</strong> 숫자, 슬라이더, 표 문항.<br><strong>확장 예제:</strong> 순위 정하기, 합계 100점 배분, 단계별 지역 선택, 오디오·비디오.</p><div data-control-prompt=\"first-research\"></div><p>미디어에는 연구가 허용하는 범위에서 자막·대본을 요청하세요. greedyQ 확장 문항이 모두 Surveydown 기본 문항은 아닙니다.</p>",
+        "prompt": ""
+      },
+      {
+        "id": "controls",
+        "title": "문항 컨트롤",
+        "lead": "참여자가 어떻게 답할지 고르는 안내입니다. 코드 이름을 외우지 말고 필요한 응답 방식을 AI에게 설명하세요.",
+        "body": "<nav class=\"control-index\" aria-label=\"컨트롤 찾기\"><a href=\"#control-short_text\" data-control-jump=\"control-short_text\">짧은 답변</a><a href=\"#control-long_text\" data-control-jump=\"control-long_text\">긴 답변</a><a href=\"#control-number\" data-control-jump=\"control-number\">숫자</a><a href=\"#control-single\" data-control-jump=\"control-single\">단일 선택</a><a href=\"#control-multiple\" data-control-jump=\"control-multiple\">복수 선택</a><a href=\"#control-buttons\" data-control-jump=\"control-buttons\">단일 선택 버튼</a><a href=\"#control-multi_buttons\" data-control-jump=\"control-multi_buttons\">복수 선택 버튼</a><a href=\"#control-image\" data-control-jump=\"control-image\">단일 이미지 선택</a><a href=\"#control-multi_image\" data-control-jump=\"control-multi_image\">복수 이미지 선택</a><a href=\"#control-menu\" data-control-jump=\"control-menu\">드롭다운</a><a href=\"#control-labeled_slider\" data-control-jump=\"control-labeled_slider\">범주형 슬라이더</a><a href=\"#control-numeric_slider\" data-control-jump=\"control-numeric_slider\">숫자 슬라이더</a><a href=\"#control-range_slider\" data-control-jump=\"control-range_slider\">구간 슬라이더</a><a href=\"#control-one_date\" data-control-jump=\"control-one_date\">날짜</a><a href=\"#control-date_range\" data-control-jump=\"control-date_range\">기간</a><a href=\"#control-one_matrix\" data-control-jump=\"control-one_matrix\">단일 선택 행렬</a><a href=\"#control-multi_matrix\" data-control-jump=\"control-multi_matrix\">복수 선택 행렬</a><a href=\"#control-audio_example\" data-control-jump=\"control-audio_example\">음성 자극</a><a href=\"#control-video_example\" data-control-jump=\"control-video_example\">영상 자극</a><a href=\"#control-rank_example\" data-control-jump=\"control-rank_example\">순위 매기기</a><a href=\"#control-sbs_example\" data-control-jump=\"control-sbs_example\">나란히 평가</a><a href=\"#control-nps_example\" data-control-jump=\"control-nps_example\">추천 의향</a><a href=\"#control-timing\" data-control-jump=\"control-timing\">페이지 체류 시간</a><a href=\"#control-sum_example\" data-control-jump=\"control-sum_example\">고정 합계 배분</a><a href=\"#control-group_rank_example\" data-control-jump=\"control-group_rank_example\">분류 후 순위</a><a href=\"#control-drill_example\" data-control-jump=\"control-drill_example\">단계별 선택</a><a href=\"#control-custom_example\" data-control-jump=\"control-custom_example\">사용자 정의</a></nav><div class=\"control-list\"><section class=\"control-item\" id=\"control-short_text\"><p class=\"eyebrow\">기본 문항</p><h2>01 · 짧은 답변</h2><p>한 줄 답변·이름표·코드에 사용합니다.</p><p class=\"control-code\"><code>text</code></p><div class=\"recording\" data-recording=\"short_text\"></div><div data-control-prompt=\"short_text\"></div></section><section class=\"control-item\" id=\"control-long_text\"><p class=\"eyebrow\">기본 문항</p><h2>02 · 긴 답변</h2><p>의견이나 이유처럼 여러 줄이 필요한 답변입니다.</p><p class=\"control-code\"><code>textarea</code></p><div class=\"recording\" data-recording=\"long_text\"></div><div data-control-prompt=\"long_text\"></div></section><section class=\"control-item\" id=\"control-number\"><p class=\"eyebrow\">기본 문항</p><h2>03 · 숫자</h2><p>나이·수량·금액을 입력합니다. 단위와 허용 범위를 정하세요.</p><p class=\"control-code\"><code>numeric</code></p><div class=\"recording\" data-recording=\"number\"></div><div data-control-prompt=\"number\"></div></section><section class=\"control-item\" id=\"control-single\"><p class=\"eyebrow\">기본 문항</p><h2>04 · 단일 선택</h2><p>하나만 고르거나 해당하는 항목을 모두 고릅니다. 선택 규칙을 명시하세요.</p><p class=\"control-code\"><code>mc</code></p><div class=\"recording\" data-recording=\"single\"></div><div data-control-prompt=\"single\"></div></section><section class=\"control-item\" id=\"control-multiple\"><p class=\"eyebrow\">기본 문항</p><h2>05 · 복수 선택</h2><p>하나만 고르거나 해당하는 항목을 모두 고릅니다. 선택 규칙을 명시하세요.</p><p class=\"control-code\"><code>mc_multiple</code></p><div class=\"recording\" data-recording=\"multiple\"></div><div data-control-prompt=\"multiple\"></div></section><section class=\"control-item\" id=\"control-buttons\"><p class=\"eyebrow\">기본 문항</p><h2>06 · 단일 선택 버튼</h2><p>단일·복수 선택을 큰 버튼으로 표시합니다. 짧은 보기 목록에 적합합니다.</p><p class=\"control-code\"><code>mc_buttons</code></p><div class=\"recording\" data-recording=\"buttons\"></div><div data-control-prompt=\"buttons\"></div></section><section class=\"control-item\" id=\"control-multi_buttons\"><p class=\"eyebrow\">기본 문항</p><h2>07 · 복수 선택 버튼</h2><p>단일·복수 선택을 큰 버튼으로 표시합니다. 짧은 보기 목록에 적합합니다.</p><p class=\"control-code\"><code>mc_multiple_buttons</code></p><div class=\"recording\" data-recording=\"multi_buttons\"></div><div data-control-prompt=\"multi_buttons\"></div></section><section class=\"control-item\" id=\"control-image\"><p class=\"eyebrow\">기본 문항</p><h2>08 · 단일 이미지 선택</h2><p>이미지 카드 하나 또는 여러 개를 고릅니다. 이미지와 의미 있는 설명을 함께 준비하세요.</p><p class=\"control-code\"><code>mc_image</code></p><div class=\"recording\" data-recording=\"image\"></div><div data-control-prompt=\"image\"></div></section><section class=\"control-item\" id=\"control-multi_image\"><p class=\"eyebrow\">기본 문항</p><h2>09 · 복수 이미지 선택</h2><p>이미지 카드 하나 또는 여러 개를 고릅니다. 이미지와 의미 있는 설명을 함께 준비하세요.</p><p class=\"control-code\"><code>mc_multiple_image</code></p><div class=\"recording\" data-recording=\"multi_image\"></div><div data-control-prompt=\"multi_image\"></div></section><section class=\"control-item\" id=\"control-menu\"><p class=\"eyebrow\">기본 문항</p><h2>10 · 드롭다운</h2><p>긴 범주 목록에서 고릅니다. 처음 보이는 빈 안내 문구는 답변이 아닙니다.</p><p class=\"control-code\"><code>select</code></p><div class=\"recording\" data-recording=\"menu\"></div><div data-control-prompt=\"menu\"></div></section><section class=\"control-item\" id=\"control-labeled_slider\"><p class=\"eyebrow\">기본 문항</p><h2>11 · 범주형 슬라이더</h2><p>낮음→높음처럼 순서가 있는 범주를 고릅니다. 선택한 범주의 값이 저장됩니다.</p><p class=\"control-code\"><code>slider</code></p><div class=\"recording\" data-recording=\"labeled_slider\"></div><div data-control-prompt=\"labeled_slider\"></div></section><section class=\"control-item\" id=\"control-numeric_slider\"><p class=\"eyebrow\">기본 문항</p><h2>12 · 숫자 슬라이더</h2><p>숫자 하나 또는 두 손잡이로 하한·상한 구간을 고릅니다. 양 끝값과 단위를 정하세요.</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"numeric_slider\"></div><div data-control-prompt=\"numeric_slider\"></div></section><section class=\"control-item\" id=\"control-range_slider\"><p class=\"eyebrow\">기본 문항</p><h2>13 · 구간 슬라이더</h2><p>숫자 하나 또는 두 손잡이로 하한·상한 구간을 고릅니다. 양 끝값과 단위를 정하세요.</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"range_slider\"></div><div data-control-prompt=\"range_slider\"></div></section><section class=\"control-item\" id=\"control-one_date\"><p class=\"eyebrow\">기본 문항</p><h2>14 · 날짜</h2><p>날짜 하나 또는 시작일·종료일을 묻습니다.</p><p class=\"control-code\"><code>date</code></p><div class=\"recording\" data-recording=\"one_date\"></div><div data-control-prompt=\"one_date\"></div></section><section class=\"control-item\" id=\"control-date_range\"><p class=\"eyebrow\">기본 문항</p><h2>15 · 기간</h2><p>날짜 하나 또는 시작일·종료일을 묻습니다.</p><p class=\"control-code\"><code>daterange</code></p><div class=\"recording\" data-recording=\"date_range\"></div><div data-control-prompt=\"date_range\"></div></section><section class=\"control-item\" id=\"control-one_matrix\"><p class=\"eyebrow\">기본 문항</p><h2>16 · 단일 선택 행렬</h2><p>여러 진술에 같은 척도를 적용합니다. 단일형은 행마다 하나, 복수형은 행마다 여러 개를 선택합니다.</p><p class=\"control-code\"><code>matrix</code></p><div class=\"recording\" data-recording=\"one_matrix\"></div><div data-control-prompt=\"one_matrix\"></div></section><section class=\"control-item\" id=\"control-multi_matrix\"><p class=\"eyebrow\">기본 문항</p><h2>17 · 복수 선택 행렬</h2><p>여러 진술에 같은 척도를 적용합니다. 단일형은 행마다 하나, 복수형은 행마다 여러 개를 선택합니다.</p><p class=\"control-code\"><code>matrix_multiple</code></p><div class=\"recording\" data-recording=\"multi_matrix\"></div><div data-control-prompt=\"multi_matrix\"></div></section><section class=\"control-item\" id=\"control-audio_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>18 · 음성 자극</h2><p>일반 재생 버튼으로 연구 자극을 제시합니다. 연구가 허용하면 자막·대본을 제공합니다. 재생 화면 자체는 응답 변수를 만들지 않습니다.</p><p class=\"control-code\"><code>audio</code></p><div class=\"recording\" data-recording=\"audio_example\"></div><div data-control-prompt=\"audio_example\"></div></section><section class=\"control-item\" id=\"control-video_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>19 · 영상 자극</h2><p>일반 재생 버튼으로 연구 자극을 제시합니다. 연구가 허용하면 자막·대본을 제공합니다. 재생 화면 자체는 응답 변수를 만들지 않습니다.</p><p class=\"control-code\"><code>video</code></p><div class=\"recording\" data-recording=\"video_example\"></div><div data-control-prompt=\"video_example\"></div></section><section class=\"control-item\" id=\"control-rank_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>20 · 순위 매기기</h2><p>목록 전체의 선호 순위를 정합니다. 정밀한 드래그 없이 순위 선택으로 조작합니다.</p><p class=\"control-code\"><code>rank_order</code></p><div class=\"recording\" data-recording=\"rank_example\"></div><div data-control-prompt=\"rank_example\"></div></section><section class=\"control-item\" id=\"control-sbs_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>21 · 나란히 평가</h2><p>항목·척도를 공유하는 여러 평가를 함께 제시합니다. 휴대폰에서는 이름이 붙은 구역으로 나눕니다.</p><p class=\"control-code\"><code>side_by_side</code></p><div class=\"recording\" data-recording=\"sbs_example\"></div><div data-control-prompt=\"sbs_example\"></div></section><section class=\"control-item\" id=\"control-nps_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>22 · 추천 의향</h2><p>표준 0–10 추천 의향 척도입니다. 모든 숫자와 양 끝 설명이 보여야 합니다.</p><p class=\"control-code\"><code>nps</code></p><div class=\"recording\" data-recording=\"nps_example\"></div><div data-control-prompt=\"nps_example\"></div></section><section class=\"control-item\" id=\"control-timing\"><p class=\"eyebrow\">greedyQ 확장</p><h2>23 · 페이지 체류 시간</h2><p>화면에 질문을 띄우지 않고 페이지 체류 초를 기록합니다. 연구에서 사용할 목적을 확인하세요.</p><p class=\"control-code\"><code>timing</code></p><p class=\"note\">시간 기록은 숨겨진 기능으로 참여자가 직접 답하는 화면이 없습니다. 에이전트에게 기록된 시간과 활용 방식을 보여 달라고 요청하세요.</p><div data-control-prompt=\"timing\"></div></section><section class=\"control-item\" id=\"control-sum_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>24 · 고정 합계 배분</h2><p>예산·시간·100점 등을 항목별로 배분합니다. 현재 합계를 표시하고 정한 총합을 확인합니다.</p><p class=\"control-code\"><code>constant_sum</code></p><div class=\"recording\" data-recording=\"sum_example\"></div><div data-control-prompt=\"sum_example\"></div></section><section class=\"control-item\" id=\"control-group_rank_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>25 · 분류 후 순위</h2><p>항목을 그룹으로 분류한 뒤 그룹 안에서 순위를 정합니다. 그룹·순위 입력란을 사용합니다.</p><p class=\"control-code\"><code>pick_group_rank</code></p><div class=\"recording\" data-recording=\"group_rank_example\"></div><div data-control-prompt=\"group_rank_example\"></div></section><section class=\"control-item\" id=\"control-drill_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>26 · 단계별 선택</h2><p>지역→국가→도시처럼 범위를 좁힙니다. 앞선 선택에 맞는 하위 보기만 표시합니다.</p><p class=\"control-code\"><code>drill_down</code></p><div class=\"recording\" data-recording=\"drill_example\"></div><div data-control-prompt=\"drill_example\"></div></section><section class=\"control-item\" id=\"control-custom_example\"><p class=\"eyebrow\">greedyQ 확장</p><h2>27 · 사용자 정의</h2><p>가장 가까운 기존 컨트롤을 바탕으로 만듭니다. 외형·동작·검증·모바일·접근성·저장값을 먼저 합의하세요.</p><p class=\"control-code\"><code>custom</code></p><div class=\"recording\" data-recording=\"custom_example\"></div><div data-control-prompt=\"custom_example\"></div></section></div>",
+        "prompt": ""
+      },
+      {
+        "id": "flow",
+        "title": "설문 흐름",
+        "lead": "누가 어떤 문항을 보고 어디로 이동하는지 정합니다.",
+        "body": "<ol><li>필수·선택 응답을 구분합니다.</li><li>참여 조건, 조건부 문항과 종료 경로를 설명합니다.</li><li><strong>View structure</strong>에서 페이지와 문항을 봅니다. T는 텍스트, Q는 문항입니다.</li><li>동의 거절·철회를 포함한 모든 경로를 직접 눌러봅니다.</li></ol><h2>이전과 다음</h2><p>버튼은 표시·숨김·비활성화할 수 있습니다. 필수 응답은 다음으로 넘어갈 때 검사합니다. 시간 지연은 승인한 연구 설계에 포함되어야 합니다.</p><h2>문제가 생기면</h2><p>어느 페이지에서 무엇을 선택했고 어떤 화면을 기대했는지 알려주세요. 구조 보기는 읽기 전용이며 응답을 저장하지 않습니다.</p>",
+        "prompt": "컴퓨터·모바일에서 참여 조건과 동의 거절 경로를 보여줘. 승인한 필수 응답과 이동 규칙만 적용하고 연구 결정은 바꾸기 전에 물어봐."
+      },
+      {
+        "id": "appearance",
+        "title": "화면과 버튼 설정",
+        "lead": "연구 내용은 유지하면서 설문의 색상·안내 문구·버튼 동작을 AI에게 조정해 달라고 요청할 수 있습니다.",
+        "body": "<h2>색상과 화면 분위기</h2><p>배경색·글자색·강조색을 원하는 모습으로 설명하세요. 예를 들어 흰 배경, 짙은 글자, 대학을 대표하는 색상의 주요 버튼을 요청할 수 있습니다. 읽기 쉬운 대비, 키보드 포커스와 모바일 화면도 함께 확인하세요.</p><div data-control-prompt=\"look-colors\"></div><h2>참여자에게 보이는 문구</h2><p>기관명·제목·안내 문장·버튼 이름의 변경을 요청할 수 있습니다. 어느 화면에 적용할지 구체적으로 말하세요. 외형을 바꾸더라도 문항 ID·저장값·분기·무작위 배정은 유지하도록 요청하세요.</p><div data-control-prompt=\"look-words\"></div><h2>버튼 표시·숨김·비활성화</h2><ul><li><strong>표시:</strong> 버튼이 보이고 누를 수 있습니다.</li><li><strong>숨김:</strong> 해당 페이지에서 버튼을 보이지 않게 합니다.</li><li><strong>비활성화:</strong> 버튼은 보이지만 누를 수 없습니다.</li></ul><p>예를 들어 동의 화면에서는 이전 버튼을 숨기고, 문항 화면에서는 표시하며, 최종 검토에서는 보이되 비활성화할 수 있습니다. 의도한 모든 진행 경로가 여전히 가능한지 확인하세요.</p><h2>다음 단계로 넘어가는 시간 지연</h2><p>승인된 연구설계에 최소 자극 노출 시간이 있다면, 지정한 시간 동안 다음 버튼을 비활성화하고 남은 시간을 표시할 수 있습니다. 필수 응답 누락과는 다릅니다. 일반적으로 필수 문항이 비어 있으면 다음 버튼을 미리 막지 않고, 눌렀을 때 필요한 응답을 설명합니다.</p><div data-control-prompt=\"look-buttons\"></div><h2>전체 경험 확인</h2><p>컴퓨터와 휴대폰에서 시작·문항·오류·종료 화면을 확인하세요. 키보드 조작과 버튼 문구를 살펴보고 숨김·비활성화·지연 상태를 모두 시험하세요. 승인 전에는 바뀐 내용을 짧게 비교해 달라고 요청하세요.</p>",
+        "prompt": ""
+      },
+      {
+        "id": "preview",
+        "title": "테스트와 검토",
+        "lead": "미리보기는 시험용입니다. 실제 모집 화면이 아닙니다.",
+        "body": "<ol><li>컴퓨터·모바일에서 가상 응답으로 끝까지 시험합니다.</li><li>필수 응답 누락, 이전·다음, 새로고침·재개를 확인합니다.</li><li>모든 실험 조건, 종료 화면과 미디어를 점검합니다.</li><li>수정본을 재검토하고 정확한 설문 버전을 승인합니다.</li></ol><h2>휴대전화에서</h2><p>글자, 터치 영역, 표 문항의 가로 스크롤을 확인하세요. 연구 자료가 허용하면 자막·대본을 요청하세요.</p><h2>미리보기가 안 되면</h2><p>받은 파일을 같은 폴더에 두세요. AI에게 다시 만들고 새로고침·재개를 검사하도록 요청하세요. 자동 검사는 직접 검토를 대신하지 않습니다.</p><h2>문항 별로 수정하기</h2><p>수정할 문항의 이름이나 정확한 문구와 바꿀 부분을 알려주세요. 다른 문항·응답값·분기·연구 결정은 유지하고, 수정된 문항을 미리보기에서 다시 확인하세요.</p>",
+        "prompt": "[문항 이름 또는 정확한 문구]에서 [수정할 내용]만 바꿔줘. 다른 문항, 저장값, 분기와 무작위 배정은 유지해줘. 변경점을 짧게 설명하고 컴퓨터·휴대폰 미리보기에서 수정된 문항을 보여줘."
+      },
+      {
+        "id": "random",
+        "title": "배정과 순서 섞기",
+        "lead": "참여자 배정과 문항·선택지 순서는 별개의 결정입니다.",
+        "body": "<h2>참여자 배정</h2><p><strong>단순 무작위:</strong> 각 참여자에게 독립적으로 배정합니다. 1:1 확률이 최종 인원까지 같다는 뜻은 아닙니다.</p><p><strong>고정 블록:</strong> 완료된 배정 블록 안에서 승인한 비율을 맞춥니다. 이탈과 마지막 미완성 블록 때문에 분석 인원은 다를 수 있고, 알려진 블록 크기는 이후 배정을 예측하기 쉽게 만들 수 있습니다.</p><h2>제시 순서</h2><ul><li>같은 페이지의 지정 문항만 섞고 나머지는 고정합니다.</li><li>지원되는 선택지 또는 표의 행을 섞을 수 있습니다. 기타는 마지막에 고정할 수 있습니다.</li><li>페이지는 독립된 연속 중간 구간 하나만 섞습니다. 동의·배정·처치·종료 화면은 고정하며 해당 구간의 조건부 이동은 지원하지 않습니다.</li></ul><h2>적용 전 검토</h2><p>방식·조건·비율·시점·블록 크기를 승인하고 모든 조건과 새로고침·재개를 시험하세요. 저장된 순서는 제시 계획이며 읽었다는 증거가 아닙니다.</p><p>연구당 참여자 간 배정 한 번을 지원합니다. 군집·층화·적응형·여러 단계 배정은 현재 범위 밖입니다.</p>",
+        "prompt": "A와 B의 단순 무작위·고정 블록 배정 차이를 설명하고 비율과 배정 시점을 승인받아줘. 별도로 첫 네 선택지만 섞고 기타는 마지막에 고정해줘. 두 조건과 새로고침·재개를 보여줘."
+      },
+      {
+        "id": "deploy",
+        "title": "배포와 수집",
+        "lead": "참여자용 설문 링크와 보호된 결과 링크를 받습니다.",
+        "body": "<ol><li>동의·개인정보·미정 연구 결정을 해결합니다.</li><li>계정, 데이터 저장 지역과 비용을 검토합니다.</li><li>Vercel에 로그인하고 제시된 Supabase 연결을 승인합니다. 연결된 AI가 설정합니다.</li><li>두 링크를 검증하고 가상 시험 응답을 보냅니다.</li><li>실제 수집은 별도로 승인합니다.</li></ol><h2>두 링크 구분하기</h2><p>설문 링크는 참여자에게, 결과 링크는 승인된 연구자에게만 전달하세요. 로그인하지 않은 방문자는 결과에 접근할 수 없어야 합니다.</p><h2>연결에 실패하면</h2><p>연결 도구가 없는 AI는 완료를 주장하는 대신 인계 안내를 제공해야 합니다. 데이터베이스 편집과 비밀키 취급은 정상적인 연구자 경로가 아닙니다. Prolific은 별도 시험이 필요합니다.</p>",
+        "prompt": "승인한 설문의 배포를 준비해줘. 필요한 승인과 비용을 설명하고 가상 데이터로 설문·보호된 결과 링크를 검증해줘. 별도 승인 전에는 모집하지 마."
+      },
+      {
+        "id": "results",
+        "title": "응답 확인",
+        "lead": "실제 수집 전에 시험 응답이 보이는지 확인합니다.",
+        "body": "<ol><li>보호된 결과 링크를 엽니다.</li><li><strong>Test responses</strong>와 <strong>Source: Direct</strong>를 선택합니다.</li><li>시험 응답 하나를 보낸 뒤 <strong>Refresh</strong>를 누릅니다.</li><li>응답 수, 답변과 이탈 위치를 확인합니다.</li><li><strong>Download CSV</strong>로 현재 필터의 자료를 받고 <strong>Variable guide</strong>에서 열의 의미를 확인합니다.</li></ol><h2>시험과 실제</h2><p><strong>Real responses</strong>는 시험 응답을 제외합니다. Prolific 시험도 시험입니다. 시험 상태는 유지한 채 Source만 Prolific으로 바꿉니다.</p><h2>내려받은 자료</h2><p>모든 설문 변수의 열이 유지되고 미응답은 빈칸입니다. 구조화된 문항은 고정된 분석 열로 펼쳐집니다. 결과 화면은 운영 점검용이며 통계 분석 도구가 아닙니다.</p>",
+        "prompt": "직접 접속한 시험 응답을 결과 화면에서 보여줘. 응답 수와 답변 요약을 새로고침하고 Real responses에서 시험이 제외되는지 확인해줘. 현재 필터의 CSV 열을 설명해줘."
+      },
+      {
+        "id": "prereg",
+        "title": "사전등록 초안",
+        "lead": "검토할 파일을 받습니다. 등록은 별도입니다.",
+        "body": "<ol><li>초안이 필요한지 정합니다. 미리보기만 볼 때는 필요하지 않습니다.</li><li>가설·표본 수·중단 규칙·결과·제외 기준·분석을 검토합니다.</li><li>미정은 TO CONFIRM으로 남기고 해당 없음 항목도 확인합니다.</li><li>영어·한국어 Markdown 초안을 받습니다. 필요하면 연구자가 별도로 등록합니다.</li></ol><h2>담기는 내용</h2><p>원본 안내서는 2026년 9월 10일 확인한 OSF 연결 오프라인 양식의 29개 항목을 따릅니다. 연구 정보, 설계, 수집, 변수, 분석과 추가 맥락을 다룹니다.</p><p>greedyQ는 OSF 로그인, 제출, 공개 유예 설정을 하지 않습니다. 완성된 초안도 등록된 연구는 아닙니다. 승인한 답변의 번역도 연구자가 검토해야 합니다.</p>",
+        "prompt": "확정된 결정만으로 OSF 사전등록 초안을 만들어줘. 빠진 결정은 한 번에 하나씩 물어봐. OSF 로그인이나 제출은 하지 마."
+      },
+      {
+        "id": "archive",
+        "title": "종료와 보관",
+        "lead": "파일을 받아 확인한 뒤 서비스를 일시 중지합니다.",
+        "body": "<ol><li>해당 연구, 공유 서비스와 응답 중인 참여자 처리를 확인합니다.</li><li>수집 종료를 승인합니다.</li><li>실제 응답 CSV, 시험 응답 CSV와 보관 ZIP을 받습니다.</li><li>행 수를 확인하고 안전한 사본을 하나 더 저장합니다.</li><li>저장했다고 확인한 뒤 필요하면 전용 서비스 중지를 승인합니다.</li></ol><h2>무엇을 보관하나요?</h2><p>미완성 응답도 포함됩니다. 보관 CSV의 구조화된 값은 결과 화면의 펼친 CSV와 다릅니다. 비공개 ZIP에는 참여자 식별자가 있을 수 있으므로 공개 저장소에 올리지 마세요.</p><p>ZIP은 보관·분석용이며 데이터베이스 자동 복원 파일이 아닙니다. 원본 연구 폴더와 미디어도 따로 보관하세요. 일시 중지는 영구 보관이 아니므로 서비스 정책과 비용을 확인해야 합니다.</p><h2>종료 이후</h2><p>공유 서비스는 유지합니다. 닫힌 설문은 일반 저장 실패 화면을 보일 수 있습니다. 이후 철회 요청을 받을 연구팀 연락 경로를 유지하고 보관 사본에도 반영하세요.</p>",
+        "prompt": "수집을 마치고 이 연구를 보관하도록 도와줘. 응답 중인 참여자와 공유 서비스를 먼저 확인해줘. 자료를 내려받고 내가 안전하게 저장했다고 확인할 때까지 기다려줘. 프로젝트는 삭제하지 마."
+      },
+      {
+        "id": "upgrade",
+        "title": "재개·수정·복사",
+        "lead": "원본을 보존하고 차이를 검토한 뒤 업그레이드합니다.",
+        "body": "<p><strong>재개:</strong> 기존 연구와 고정된 버전을 이어갑니다.</p><p><strong>수정:</strong> 기존 연구에서 합의한 부분만 바꿉니다.</p><p><strong>포크:</strong> 새 ID로 독립된 연구를 만듭니다. 이전 응답은 자동으로 옮기지 않습니다.</p><h2>초안 업그레이드</h2><ol><li>저장한 연구 폴더를 제공합니다.</li><li>버전 차이를 검토하고 원하면 업그레이드를 승인합니다.</li><li>별도 사본을 업그레이드합니다.</li><li>컴퓨터·모바일 미리보기를 비교하고 새 버전을 승인합니다.</li></ol><p>자동 업그레이드는 초안·시험 연구만 다룹니다. 운영 중 연구는 별도 변경 계획이 필요합니다. 서비스 재개만으로 수집이 다시 열리지는 않습니다. 수집 재개에도 명시적 승인과 검증이 필요합니다.</p>",
+        "prompt": "저장한 연구를 재개하자. 현재 greedyQ 버전과 차이를 설명해줘. 승인 후 별도 사본을 업그레이드하고 두 미리보기를 보여줘. 연구 결정과 원본 파일은 보존해줘."
+      }
+    ],
+    "aboutGroups": [
+      [
+        "프로젝트",
+        [
+          "identity",
+          "principles"
+        ]
+      ],
+      [
+        "호환성",
+        [
+          "support",
+          "export"
+        ]
+      ],
+      [
+        "참고 자료",
+        [
+          "citation",
+          "license",
+          "updates"
+        ]
+      ]
+    ],
+    "about": [
+      {
+        "id": "identity",
+        "title": "greedyQ란?",
+        "lead": "범용 AI가 일관된 연구 절차를 따르도록 돕습니다.",
+        "body": "<p>greedyQ는 온라인 학술연구를 위한 명세 기반 AI 네이티브 애플리케이션입니다. 안내서·양식·승인 절차가 AI에게 연구 문서와 작동하는 설문을 만드는 방법을 알려줍니다.</p><p>greedyQ 자체가 에이전트는 아닙니다. 명세를 읽은 범용 AI가 연구 에이전트 역할을 하고 연구 결과물을 만듭니다.</p><h2>다루는 범위</h2><p>설문, 실험, 동의, 무작위 배정, 데이터 계획, 사전등록 초안, 배포와 수집을 다룹니다. 결정권과 데이터 소유권은 연구자에게 있습니다.</p><h2>두 가지 작업 방식</h2><p><strong>대화:</strong> AI가 파일과 다음 단계 안내를 준비합니다. <strong>연결된 에이전트:</strong> 필요한 권한이 있으면 서비스 설정과 배포 검증까지 수행합니다.</p>"
+      },
+      {
+        "id": "principles",
+        "title": "연구자의 결정권",
+        "lead": "중요한 결정을 명시하고 연구를 재현 가능하게 유지합니다.",
+        "body": "<ul><li>중요한 연구 결정은 바꾸기 전에 묻습니다.</li><li>모르는 답은 만들지 않고 미정으로 기록합니다.</li><li>기술 보고서보다 실제 참여자 화면을 검토합니다.</li><li>연구 파일과 정확한 소프트웨어 버전을 보관합니다.</li><li>미리보기·계정 연결·모집 승인을 구분합니다.</li><li>응답 데이터는 연구자가 관리합니다.</li></ul><p>기본 경로는 Vercel·Supabase를 사용하는 브라우저 설문입니다. 고급 작업에는 원본 직접 편집과 native Surveydown 내보내기를 사용할 수 있습니다.</p>"
+      },
+      {
+        "id": "support",
+        "title": "지원 범위",
+        "lead": "호환성은 기능별로 판단합니다. 전체 동등성을 보장하지 않습니다.",
+        "body": "<table><thead><tr><th>영역</th><th>현재 범위</th></tr></thead><tbody><tr><td>문항</td><td>문서화된 Surveydown 방식 16종과 미디어·순위·배분 등의 greedyQ 확장.</td></tr><tr><td>로직</td><td>제한된 표시·이동·중단 조건. 임의의 R 수식이나 Shiny 프로그램은 아님.</td></tr><tr><td>서식</td><td>이스케이프된 기본 라벨 서식. 전체 Markdown·임의 HTML과는 다름.</td></tr><tr><td>순서</td><td>지정 선택지·표의 행·문항·제한된 페이지 구간. 임의의 경로는 지원하지 않음.</td></tr><tr><td>설정</td><td>일부 테마·바 위치·푸터는 입력을 받아도 화면에 완전히 적용되지 않음. IP·브라우저 정보 자동 수집은 미구현.</td></tr><tr><td>외부 복귀</td><td>승인한 HTTPS 목적지. 미리보기는 이동하지 않으며 실제 복귀는 저장 성공 후 가능. Prolific은 검증 필요.</td></tr></tbody></table><h2>커스텀 문항</h2><p>가장 가까운 기존 문항부터 찾습니다. 외형·작동·저장값·접근성·모바일·추가 AI 작업량을 합의한 뒤 제작합니다.</p>"
+      },
+      {
+        "id": "export",
+        "title": "Native Surveydown 내보내기",
+        "lead": "다른 실행 환경을 선택하기 전에 차이를 검토하세요.",
+        "body": "<p>내보내기에는 <code>survey.qmd</code>와 <code>app.R</code>가 포함됩니다. 공식적인 보조 경로이며 기본은 greedyQ 브라우저 설문입니다.</p><ul><li><strong>직접 호환:</strong> 그대로 보존.</li><li><strong>생성:</strong> native 파일로 변환 후 검토 필요.</li><li><strong>greedyQ 전용:</strong> native 환경에서 동일하게 제공되지 않음.</li><li><strong>미지원:</strong> 동등한 내보내기를 제공하지 않음.</li></ul><p>문항·페이지 순서 섞기는 native 내보내기에서 미지원입니다. 고정 블록 배정과 새로고침 후 유지도 동등하다고 주장할 수 없습니다. 확장 문항은 실제 Surveydown에서 검사해야 하며 코드 생성만으로 검증된 것은 아닙니다.</p><p>greedyQ는 설문 정의에 담긴 임의의 R·JavaScript를 실행하지 않습니다. 지원 범위를 넘는 맞춤 작업에는 native Surveydown을 사용하세요.</p>"
+      },
+      {
+        "id": "citation",
+        "title": "연구 소프트웨어 인용",
+        "lead": "greedyQ만 실행했어도 두 프로젝트를 함께 인용합니다.",
+        "body": "<p>연구의 <code>greedyq.version</code>에 기록된 정확한 릴리스를 쓰세요. Surveydown을 실행하지 않았다면 실행했다고 쓰지 말고, 실행했다면 해당 패키지 버전도 적으세요.</p><h2>참고문헌</h2><p>greedyQ project. (2026). <em>greedyQ: A specification-driven, AI-native application for online academic research</em> (Version &lt;release identifier&gt;) [Computer software]. GitHub.</p><p>Hu, P., Bunea, B., &amp; Helveston, J. (2025). surveydown: An open-source, markdown-based platform for programmable and reproducible surveys. <em>PLOS ONE, 20</em>(8), e0331002. DOI: 10.1371/journal.pone.0331002.</p><h2>방법 절 문구 예시</h2><div data-snippet=\"methods\"></div><h2>BibTeX</h2><div data-snippet=\"bib\"></div>"
+      },
+      {
+        "id": "license",
+        "title": "라이선스와 출처",
+        "lead": "MIT 라이선스의 독립 오픈소스 프로젝트입니다.",
+        "body": "<p>greedyQ는 문서화된 Surveydown 방식의 일부 작성 규칙을 독립적으로 구현합니다. Surveydown 소스 코드를 포함하거나 재배포하지 않습니다.</p><p>Surveydown은 앞선 MIT 라이선스 오픈소스 연구입니다. Copyright © 2025 John Paul Helveston, Pingfan Hu, Bogdan Bunea.</p><p>greedyQ는 Surveydown 또는 그 관리자의 제휴·보증·후원·관리를 받지 않습니다. Surveydown 언급은 호환성·출처·내보내기 대상을 설명합니다.</p><h2>구분할 사항</h2><p>학술 사용 시 두 프로젝트를 인용하라는 요청은 소프트웨어 라이선스 준수와 별개입니다. 소프트웨어 라이선스가 연구 데이터나 사전등록 문서의 라이선스를 정하지는 않습니다.</p>"
+      },
+      {
+        "id": "updates",
+        "title": "버전과 업데이트",
+        "lead": "내 연구에 실제로 사용된 버전을 확인하세요.",
+        "body": "<p><strong>기록된 릴리스:</strong> <code>0.2_2026-09-10_c4a8405</code>.<br><strong>이 안내:</strong> 9월 10일 인계본의 미공개 변경을 포함합니다. 새 공개 릴리스 소개가 아닙니다.</p><p>업데이트가 운영 중인 연구를 자동 변경하지는 않습니다. 차이를 검토하고 원본을 보존한 뒤 업그레이드한 초안을 시험하세요.</p><h2>공개 업데이트 이력</h2><p>주요 변경마다 영어·한국어 기록이 있습니다. 릴리스 식별자는 버전·날짜·원본 커밋을 담고, 메타데이터만 갱신한 커밋은 별도 릴리스로 세지 않습니다.</p><ul class=\"history\"><li><code>2026-09-09 · fcb3c86</code><br>내보내기·구조화된 결과·무결성 검사 안정화.</li><li><code>2026-09-09 · 236d2a3</code><br>모바일 너비에 맞춘 NPS 척도.</li><li><code>2026-09-09 · 9d9ffe9</code><br>고급 문항과 사전 확인을 거치는 커스텀 문항.</li><li><code>2026-09-09 · 2f20a8c</code><br>반응형 표·미디어·조건부 문항·이동 정책.</li><li><code>2026-09-09 · e770a9c</code><br>학술 사용 시 greedyQ·Surveydown 공동 인용.</li><li><code>2026-09-09 · 5ce7a3a</code><br>휴대전화에서 데스크톱 캔버스 유지.</li><li><code>2026-09-09 · 40c5053</code><br>필터 CSV에서도 모든 설문 열 보존.</li><li><code>2026-09-09 · 825f6fb</code><br>보호된 결과 화면과 두 링크 배포.</li><li><code>2026-09-09 · 3aefdd0</code><br>안전한 Supabase 연결 인계 준비.</li><li><code>2026-09-09 · ee423e6</code><br>릴리스 출처와 문항 작성 방식의 명시적 선택.</li></ul><h2>원본 출처</h2><p><a href=\"https://github.com/zomtoli7/greedyQ\" target=\"_blank\" rel=\"noopener\">greedyQ 저장소</a> · <a href=\"https://doi.org/10.1371/journal.pone.0331002\" target=\"_blank\" rel=\"noopener\">Surveydown 논문</a></p>"
+      }
+    ],
+    "methods": "본 설문은 greedyQ(버전 <사용 릴리스>)를 사용하여 제작·배포했다. greedyQ의 설문 명세는 Surveydown(Hu, Bunea, & Helveston, 2025)의 survey-as-code 접근과 survey.qmd 작성 규칙을 바탕으로 한다.",
+    "examples": "<p>가상 문항을 직접 눌러보고 내 연구에 맞는 문항을 AI에게 요청하세요.</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\"><strong>공개 문항 갤러리 새 탭에서 열기 ↗</strong></a></p><p>갤러리는 가상 참여자만 사용하며 외부 서비스에 응답을 쓰지 않습니다. 실제 참여자나 연구 데이터를 입력하지 마세요. 공개 갤러리 연결을 확인했지만 주소는 특정 릴리스에 고정되어 있지 않습니다. 첨부 작업본의 새 기능과 차이가 있을 수 있습니다.</p>",
+    "clipUI": {
+      "play": "재생",
+      "pause": "일시정지",
+      "replay": "다시 재생",
+      "step": "다음 장면",
+      "caption": "실제 갤러리 조작 화면 · 영문 데모 · 단계별 재생",
+      "alt": "greedyQ 갤러리에서 실제로 조작한 컨트롤 화면",
+      "jump": "컨트롤 찾기",
+      "standard": "기본 문항",
+      "extensions": "greedyQ 확장",
+      "hidden": "시간 기록은 숨겨진 기능으로 참여자가 직접 답하는 화면이 없습니다. 에이전트에게 기록된 시간과 활용 방식을 보여 달라고 요청하세요.",
+      "test": "컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘."
+    },
+    "controlPrompts": {
+      "short_text": "프로젝트의 짧은 별명을 한 줄 입력란으로 물어봐.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "long_text": "개선했으면 하는 점을 여러 줄 입력란으로 물어봐.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "number": "주당 서비스 사용 시간을 0~168 사이의 숫자로 물어봐. 단위는 시간이야.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "single": "주로 쓰는 기기를 컴퓨터·휴대폰·태블릿 중 하나만 고르게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "multiple": "이번 달 사용한 기기를 컴퓨터·휴대폰·태블릿에서 모두 고를 수 있게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "buttons": "서비스 사용 경험을 예·아니오 버튼으로 물어봐. 하나만 선택하게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "multi_buttons": "검색·저장·공유 기능을 버튼으로 제시하고 여러 개를 선택할 수 있게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "image": "승인한 패키지 이미지 두 개를 설명과 함께 보여주고 하나를 고르게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "multi_image": "승인한 제품 이미지를 설명과 함께 보여주고 알아보는 제품을 모두 고르게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "menu": "내 전공 목록에서 하나를 드롭다운으로 고르게 해줘. 처음에는 선택 안내만 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "labeled_slider": "매우 쉬움·쉬움·보통·어려움·매우 어려움 순서의 슬라이더로 난이도를 물어봐. 범주 코드는 유지해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "numeric_slider": "자신감을 0~10 숫자 슬라이더로 물어봐. 현재 값과 양 끝값을 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "range_slider": "월 적정 가격을 0~100 범위의 두 손잡이 슬라이더로 물어봐. 선택한 하한·상한과 통화 단위를 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "one_date": "가장 최근 서비스를 사용한 날짜를 날짜 입력란으로 물어봐.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "date_range": "서비스 사용 시작일과 종료일을 물어봐. 날짜가 거꾸로 입력되면 어떻게 처리할지 먼저 설명해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "one_matrix": "사용 편의성·속도·명료함을 매우 나쁨~매우 좋음으로 평가하게 해줘. 행마다 하나씩 응답하고 휴대폰에서는 행별 카드로 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "multi_matrix": "제품 범주별로 구매한 곳을 매장·웹사이트·앱에서 고르게 해줘. 행마다 여러 곳을 선택할 수 있어야 해.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "audio_example": "승인한 음성 파일에 재생 버튼·설명·대본을 붙여줘. 자동 재생하지 말고 재생 자체를 응답으로 취급하지 마.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "video_example": "승인한 영상에 포스터 이미지·재생 버튼과 가능한 자막 또는 대본을 붙여줘. 자동 재생하지 마.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "rank_example": "사용 편의성·속도·유연성의 순위를 정하게 해줘. 드래그 없이 순위 선택으로 조작할 수 있어야 해.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "sbs_example": "현재 버전과 제안 버전의 명료함·유용성을 같은 낮음·보통·높음 척도로 평가하게 해줘. 휴대폰에서도 버전 이름을 분명히 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "nps_example": "서비스 추천 의향을 0~10으로 물어봐. 모든 숫자와 양 끝 설명을 보여줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "timing": "자극 페이지 체류 시간을 숨겨진 기록으로 남겨줘. 측정 시작·종료와 내보내는 값을 설명해줘. 제외 기준은 임의로 정하지 마.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "sum_example": "디자인·테스트·문서화에 정확히 100점을 나누게 해줘. 현재 합계를 보여주고 총합이 맞지 않으면 설명해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "group_rank_example": "속도·신뢰·편의성을 필수 또는 선택 그룹으로 분류하고 그룹 안에서 순위를 정하게 해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "drill_example": "지역·국가·도시 순서로 장소를 고르게 해줘. 선택한 국가의 도시만 보여주고 앞선 답이 바뀌면 맞지 않는 뒤쪽 선택은 정리해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "custom_example": "제품 선택 카드가 필요해. 가장 가까운 기본 컨트롤을 찾고 외형·동작·모바일·접근성·저장값·추가 작업을 먼저 합의한 뒤 구현해줘.\n\n컴퓨터·휴대폰 미리보기와 저장값을 설명하고, 연구 결정을 바꾸기 전에는 내게 확인해줘.",
+      "look-colors": "흰 배경, 짙은 회색 글자, 짙은 녹색 주요 버튼으로 바꿔줘. 대비와 키보드 포커스를 명확히 하고 컴퓨터·휴대폰 미리보기를 보여줘. 문항·응답값·연구 경로는 바꾸지 마.",
+      "look-words": "상단에 [대학 또는 연구실 이름]을 표시해줘. 문항 화면의 Continue는 다음으로, 마지막 화면은 제출로 표시해줘. 버튼 동작과 저장값은 유지하고 바뀐 화면을 보여줘.",
+      "look-buttons": "동의 화면에서는 이전 버튼을 숨기고, 문항 화면에서는 표시하고, 최종 검토에서는 보이되 비활성화해줘. 승인한 자극 페이지에서 다음 버튼은 12초 후 활성화하고 남은 시간을 표시해줘. 컴퓨터·휴대폰에서 모든 상태를 보여줘.",
+      "first-draft": "greedyQ 시작 안내를 따라, 우리 서비스를 한 번 이상 이용한 사람에게 3분 이내 만족도 설문을 만들어줘. 전반적 만족도·사용 편의성·유용성·결과 품질·재이용 의향·개선점 한 가지를 다뤄줘. 문항 작성 방식을 먼저 확인하고 배포 전에 실제 미리보기를 보여줘.",
+      "first-manual": "문항은 내가 직접 작성할게. 시작과 종료 화면만 만든 뒤 첫 문항을 물어봐. 미정인 결정을 임의로 채우지 마.",
+      "first-research": "우선순위 다섯 개를 순서대로 정하고 세 활동에 정확히 100점을 나누는 문항을 만들어줘. 저장될 응답의 의미를 설명하고 컴퓨터·모바일에서 보여준 뒤 승인을 받아줘."
+    },
+    "examplesArchived": "<p>가상 문항을 직접 눌러보고 내 연구에 맞는 문항을 AI에게 요청하세요.</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\"><strong>공개 문항 갤러리 새 탭에서 열기 ↗</strong></a></p><p>갤러리는 가상 참여자만 사용하며 외부 서비스에 응답을 쓰지 않습니다. 실제 참여자나 연구 데이터를 입력하지 마세요. 공개 갤러리 연결을 확인했지만 주소는 특정 릴리스에 고정되어 있지 않습니다. 첨부 작업본의 새 기능과 차이가 있을 수 있습니다.</p><h2>1. 문항을 직접 체험하기</h2><p>① 갤러리에서 선택형·입력형·슬라이더·표 문항을 눌러봅니다. ② Desktop과 Mobile 화면을 비교합니다. ③ View structure를 열어 문항 순서를 봅니다. ④ Try advanced controls에서 순위·점수 배분 등 확장 문항을 체험합니다.</p><blockquote>만족도 설문에 사용 편의성·속도·신뢰성·명확성을 평가하는 표 문항을 추가해줘. 매우 나쁨부터 매우 좋음까지 다섯 선택지를 사용해줘. 컴퓨터에서는 표, 휴대전화에서는 가로 스크롤 없는 행별 카드로 보여줘.</blockquote><p><strong>기대 결과:</strong> 컴퓨터에서는 표의 행과 열, 휴대전화에서는 행별 카드로 문항을 검토할 수 있습니다. 각 화면은 독립된 가상 참여자입니다.</p><h2>2. 연구 목적에 맞게 요청하기</h2><p><strong>짧은 답:</strong> 한 줄 입력 또는 긴 서술형.<br><strong>범주 선택:</strong> 하나 선택, 여러 개 선택, 이미지 선택 또는 드롭다운.<br><strong>평가:</strong> 숫자, 슬라이더, 표 문항.<br><strong>확장 예제:</strong> 순위 정하기, 합계 100점 배분, 단계별 지역 선택, 오디오·비디오.</p><blockquote>우선순위 다섯 개를 순서대로 정하고 세 활동에 정확히 100점을 나누는 문항을 만들어줘. 저장될 응답의 의미를 설명하고 컴퓨터·모바일에서 보여준 뒤 승인을 받아줘.</blockquote><p>미디어에는 연구가 허용하는 범위에서 자막·대본을 요청하세요. greedyQ 확장 문항이 모두 Surveydown 기본 문항은 아닙니다.</p><h2>3. 짧은 설문부터 만들기</h2><blockquote>greedyQ 시작 안내를 따라, 우리 서비스를 한 번 이상 이용한 사람에게 3분 이내 만족도 설문을 만들어줘. 전반적 만족도·사용 편의성·유용성·결과 품질·재이용 의향·개선점 한 가지를 다뤄줘. 문항 작성 방식을 먼저 확인하고 배포 전에 실제 미리보기를 보여줘.</blockquote><p>① 대상과 목적을 바꿉니다. ② 제안된 문항을 검토합니다. ③ 실제로 끝까지 눌러봅니다.</p><h2>막혔을 때</h2><p>임베드가 작거나 열리지 않으면 위 새 탭 링크를 사용하세요. 갤러리는 영어 예제이며 한국어 문항은 AI에게 요청할 수 있습니다. 원하는 특수 문항이 없으면 가장 가까운 기존 문항을 먼저 찾고, 추가 작업 시간·AI 사용량·모바일·접근성·저장값을 합의한 후 제작하세요.</p>"
+  },
+  "zh": {
+    "nav": [
+      "首页",
+      "开始使用",
+      "使用指南",
+      "示例",
+      "关于"
+    ],
+    "copy": "复制",
+    "copied": "已复制",
+    "selectCopy": "选择文本后复制",
+    "promptLabel": "向 AI 提问",
+    "contents": "目录",
+    "next": "下一项",
+    "previous": "上一项",
+    "menu": "菜单",
+    "language": "语言",
+    "draft": "来源文档：2026-09-10",
+    "home": {
+      "eyebrow": "通过对话开展在线研究",
+      "title": "把时间留给研究。",
+      "sub": "让 AI 帮你制作问卷。",
+      "text": "描述研究，试用问卷。研究决策始终由你掌握。",
+      "start": "开始制作问卷",
+      "example": "浏览示例",
+      "steps": [
+        [
+          "描述",
+          "告诉 AI 你想了解什么，以及谁应参与。"
+        ],
+        [
+          "审阅",
+          "在电脑和手机上亲自测试问卷。"
+        ],
+        [
+          "批准",
+          "批准研究和服务连接，再开始收集回答。"
+        ]
+      ],
+      "note": "开始时无需编程。预览使用虚拟回答；部署需要单独批准账户连接。"
+    },
+    "start": {
+      "title": "从一个研究问题开始。",
+      "lead": "打开能阅读 GitHub 的 AI，复制以下提示并替换方括号内容。",
+      "prompt": "请阅读并遵循 greedyQ 指南：\nhttps://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md\n\n创建一项新研究。请用中文、每次只问一个问题，引导我完成可在电脑和手机上操作的预览。\n\n我想了解：[研究问题]\n参与对象：[向谁提问]\n\n先问我想自己编写问题，还是审阅 AI 起草的问卷。暂时不要连接账户或部署。",
+      "after": "AI 应先询问研究目的、参与对象和问题编写方式。尚未决定的事项可以保留为待确认。",
+      "returnTitle": "已有研究？",
+      "returnText": "提供研究文件夹。选择继续原版本、修改指定部分，或建立独立副本。先审阅差异，再批准升级。",
+      "action": "制作第一份问卷"
+    },
+    "guideGroups": [
+      [
+        "制作",
+        [
+          "first",
+          "controls",
+          "flow",
+          "appearance",
+          "preview"
+        ]
+      ],
+      [
+        "实验",
+        [
+          "random"
+        ]
+      ],
+      [
+        "收集",
+        [
+          "deploy",
+          "results",
+          "prereg"
+        ]
+      ],
+      [
+        "再次使用",
+        [
+          "archive",
+          "upgrade"
+        ]
+      ]
+    ],
+    "guide": [
+      {
+        "id": "first",
+        "title": "第一份问卷",
+        "lead": "先选择问题编写方式，再审阅结果。",
+        "body": "<p>说明研究目的和参与对象，并确定参与者看到的机构名称。知情同意与伦理细节可在初稿后审阅，但部署前必须解决。</p><h2>请 AI 起草问卷</h2><p>先描述一个简单研究，再审阅 AI 起草的问卷。请按自己的研究修改示例中的目的和参与对象。</p><div data-control-prompt=\"first-draft\"></div><p>审阅建议的问题，并亲自完整填写可操作的预览。</p><h2>自己编写问题</h2><p>请 AI 先只制作开始和结束页面。它询问第一个问题后，你可以按所需顺序提供一个或多个问题。尚未决定的事项保持待确认。</p><div data-control-prompt=\"first-manual\"></div><h2>用研究语言提出需求</h2><p>文字回答可用单行或长文本；分类可用单选、多选、图片或下拉框；评价可用数值、滑块或矩阵。扩展示例包括排序、100 分定额分配、分层选择和音视频。</p><div data-control-prompt=\"first-research\"></div><p>研究允许时要求字幕和文字稿。greedyQ 扩展不全是 Surveydown 内置题型。</p>",
+        "prompt": ""
+      },
+      {
+        "id": "controls",
+        "title": "题目控件",
+        "lead": "选择参与者如何作答。向 AI 说明任务即可，无需记住代码名称。",
+        "body": "<nav class=\"control-index\" aria-label=\"查找控件\"><a href=\"#control-short_text\" data-control-jump=\"control-short_text\">简短回答</a><a href=\"#control-long_text\" data-control-jump=\"control-long_text\">长回答</a><a href=\"#control-number\" data-control-jump=\"control-number\">数字</a><a href=\"#control-single\" data-control-jump=\"control-single\">单选</a><a href=\"#control-multiple\" data-control-jump=\"control-multiple\">多选</a><a href=\"#control-buttons\" data-control-jump=\"control-buttons\">单选按钮</a><a href=\"#control-multi_buttons\" data-control-jump=\"control-multi_buttons\">多选按钮</a><a href=\"#control-image\" data-control-jump=\"control-image\">图片单选</a><a href=\"#control-multi_image\" data-control-jump=\"control-multi_image\">图片多选</a><a href=\"#control-menu\" data-control-jump=\"control-menu\">下拉选择</a><a href=\"#control-labeled_slider\" data-control-jump=\"control-labeled_slider\">带标签滑块</a><a href=\"#control-numeric_slider\" data-control-jump=\"control-numeric_slider\">数值滑块</a><a href=\"#control-range_slider\" data-control-jump=\"control-range_slider\">区间滑块</a><a href=\"#control-one_date\" data-control-jump=\"control-one_date\">日期</a><a href=\"#control-date_range\" data-control-jump=\"control-date_range\">日期范围</a><a href=\"#control-one_matrix\" data-control-jump=\"control-one_matrix\">单选矩阵</a><a href=\"#control-multi_matrix\" data-control-jump=\"control-multi_matrix\">多选矩阵</a><a href=\"#control-audio_example\" data-control-jump=\"control-audio_example\">音频材料</a><a href=\"#control-video_example\" data-control-jump=\"control-video_example\">视频材料</a><a href=\"#control-rank_example\" data-control-jump=\"control-rank_example\">排序</a><a href=\"#control-sbs_example\" data-control-jump=\"control-sbs_example\">并列评价</a><a href=\"#control-nps_example\" data-control-jump=\"control-nps_example\">推荐意愿</a><a href=\"#control-timing\" data-control-jump=\"control-timing\">页面计时</a><a href=\"#control-sum_example\" data-control-jump=\"control-sum_example\">固定总额分配</a><a href=\"#control-group_rank_example\" data-control-jump=\"control-group_rank_example\">分组并排序</a><a href=\"#control-drill_example\" data-control-jump=\"control-drill_example\">逐级选择</a><a href=\"#control-custom_example\" data-control-jump=\"control-custom_example\">自定义控件</a></nav><div class=\"control-list\"><section class=\"control-item\" id=\"control-short_text\"><p class=\"eyebrow\">基本题型</p><h2>01 · 简短回答</h2><p>用于单行回答、标签或代码。</p><p class=\"control-code\"><code>text</code></p><div class=\"recording\" data-recording=\"short_text\"></div><div data-control-prompt=\"short_text\"></div></section><section class=\"control-item\" id=\"control-long_text\"><p class=\"eyebrow\">基本题型</p><h2>02 · 长回答</h2><p>用于需要多行的意见或说明。</p><p class=\"control-code\"><code>textarea</code></p><div class=\"recording\" data-recording=\"long_text\"></div><div data-control-prompt=\"long_text\"></div></section><section class=\"control-item\" id=\"control-number\"><p class=\"eyebrow\">基本题型</p><h2>03 · 数字</h2><p>输入年龄、数量或金额，并指定单位和有效范围。</p><p class=\"control-code\"><code>numeric</code></p><div class=\"recording\" data-recording=\"number\"></div><div data-control-prompt=\"number\"></div></section><section class=\"control-item\" id=\"control-single\"><p class=\"eyebrow\">基本题型</p><h2>04 · 单选</h2><p>选择一个类别或所有适用项；请明确选择规则。</p><p class=\"control-code\"><code>mc</code></p><div class=\"recording\" data-recording=\"single\"></div><div data-control-prompt=\"single\"></div></section><section class=\"control-item\" id=\"control-multiple\"><p class=\"eyebrow\">基本题型</p><h2>05 · 多选</h2><p>选择一个类别或所有适用项；请明确选择规则。</p><p class=\"control-code\"><code>mc_multiple</code></p><div class=\"recording\" data-recording=\"multiple\"></div><div data-control-prompt=\"multiple\"></div></section><section class=\"control-item\" id=\"control-buttons\"><p class=\"eyebrow\">基本题型</p><h2>06 · 单选按钮</h2><p>将单选或多选显示为醒目的按钮，适合较短的选项列表。</p><p class=\"control-code\"><code>mc_buttons</code></p><div class=\"recording\" data-recording=\"buttons\"></div><div data-control-prompt=\"buttons\"></div></section><section class=\"control-item\" id=\"control-multi_buttons\"><p class=\"eyebrow\">基本题型</p><h2>07 · 多选按钮</h2><p>将单选或多选显示为醒目的按钮，适合较短的选项列表。</p><p class=\"control-code\"><code>mc_multiple_buttons</code></p><div class=\"recording\" data-recording=\"multi_buttons\"></div><div data-control-prompt=\"multi_buttons\"></div></section><section class=\"control-item\" id=\"control-image\"><p class=\"eyebrow\">基本题型</p><h2>08 · 图片单选</h2><p>选择一张或多张图片卡片；同时提供有意义的文字标签。</p><p class=\"control-code\"><code>mc_image</code></p><div class=\"recording\" data-recording=\"image\"></div><div data-control-prompt=\"image\"></div></section><section class=\"control-item\" id=\"control-multi_image\"><p class=\"eyebrow\">基本题型</p><h2>09 · 图片多选</h2><p>选择一张或多张图片卡片；同时提供有意义的文字标签。</p><p class=\"control-code\"><code>mc_multiple_image</code></p><div class=\"recording\" data-recording=\"multi_image\"></div><div data-control-prompt=\"multi_image\"></div></section><section class=\"control-item\" id=\"control-menu\"><p class=\"eyebrow\">基本题型</p><h2>10 · 下拉选择</h2><p>从较长的类别列表选择；初始提示文字不算回答。</p><p class=\"control-code\"><code>select</code></p><div class=\"recording\" data-recording=\"menu\"></div><div data-control-prompt=\"menu\"></div></section><section class=\"control-item\" id=\"control-labeled_slider\"><p class=\"eyebrow\">基本题型</p><h2>11 · 带标签滑块</h2><p>在低到高等有序标签间选择，保存所选类别的值。</p><p class=\"control-code\"><code>slider</code></p><div class=\"recording\" data-recording=\"labeled_slider\"></div><div data-control-prompt=\"labeled_slider\"></div></section><section class=\"control-item\" id=\"control-numeric_slider\"><p class=\"eyebrow\">基本题型</p><h2>12 · 数值滑块</h2><p>选择一个数值，或用两个滑块选择上下限；指定端点和单位。</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"numeric_slider\"></div><div data-control-prompt=\"numeric_slider\"></div></section><section class=\"control-item\" id=\"control-range_slider\"><p class=\"eyebrow\">基本题型</p><h2>13 · 区间滑块</h2><p>选择一个数值，或用两个滑块选择上下限；指定端点和单位。</p><p class=\"control-code\"><code>slider_numeric</code></p><div class=\"recording\" data-recording=\"range_slider\"></div><div data-control-prompt=\"range_slider\"></div></section><section class=\"control-item\" id=\"control-one_date\"><p class=\"eyebrow\">基本题型</p><h2>14 · 日期</h2><p>询问一个日期，或开始和结束日期。</p><p class=\"control-code\"><code>date</code></p><div class=\"recording\" data-recording=\"one_date\"></div><div data-control-prompt=\"one_date\"></div></section><section class=\"control-item\" id=\"control-date_range\"><p class=\"eyebrow\">基本题型</p><h2>15 · 日期范围</h2><p>询问一个日期，或开始和结束日期。</p><p class=\"control-code\"><code>daterange</code></p><div class=\"recording\" data-recording=\"date_range\"></div><div data-control-prompt=\"date_range\"></div></section><section class=\"control-item\" id=\"control-one_matrix\"><p class=\"eyebrow\">基本题型</p><h2>16 · 单选矩阵</h2><p>对多条陈述使用同一量表；单选矩阵每行一个答案，多选矩阵允许多个。</p><p class=\"control-code\"><code>matrix</code></p><div class=\"recording\" data-recording=\"one_matrix\"></div><div data-control-prompt=\"one_matrix\"></div></section><section class=\"control-item\" id=\"control-multi_matrix\"><p class=\"eyebrow\">基本题型</p><h2>17 · 多选矩阵</h2><p>对多条陈述使用同一量表；单选矩阵每行一个答案，多选矩阵允许多个。</p><p class=\"control-code\"><code>matrix_multiple</code></p><div class=\"recording\" data-recording=\"multi_matrix\"></div><div data-control-prompt=\"multi_matrix\"></div></section><section class=\"control-item\" id=\"control-audio_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>18 · 音频材料</h2><p>使用常规播放控件呈现材料；研究允许时提供字幕或文字稿。显示媒体本身不创建回答变量。</p><p class=\"control-code\"><code>audio</code></p><div class=\"recording\" data-recording=\"audio_example\"></div><div data-control-prompt=\"audio_example\"></div></section><section class=\"control-item\" id=\"control-video_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>19 · 视频材料</h2><p>使用常规播放控件呈现材料；研究允许时提供字幕或文字稿。显示媒体本身不创建回答变量。</p><p class=\"control-code\"><code>video</code></p><div class=\"recording\" data-recording=\"video_example\"></div><div data-control-prompt=\"video_example\"></div></section><section class=\"control-item\" id=\"control-rank_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>20 · 排序</h2><p>用明确的名次选择控件排列整个列表，无需精确拖动。</p><p class=\"control-code\"><code>rank_order</code></p><div class=\"recording\" data-recording=\"rank_example\"></div><div data-control-prompt=\"rank_example\"></div></section><section class=\"control-item\" id=\"control-sbs_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>21 · 并列评价</h2><p>并列呈现共享项目和量表的多组评价，手机上改为带标签的分区。</p><p class=\"control-code\"><code>side_by_side</code></p><div class=\"recording\" data-recording=\"sbs_example\"></div><div data-control-prompt=\"sbs_example\"></div></section><section class=\"control-item\" id=\"control-nps_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>22 · 推荐意愿</h2><p>采用标准的0–10推荐意愿量表，显示全部数字及两端说明。</p><p class=\"control-code\"><code>nps</code></p><div class=\"recording\" data-recording=\"nps_example\"></div><div data-control-prompt=\"nps_example\"></div></section><section class=\"control-item\" id=\"control-timing\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>23 · 页面计时</h2><p>在后台记录页面停留秒数，不是可见问题；请确认研究用途。</p><p class=\"control-code\"><code>timing</code></p><p class=\"note\">计时在后台进行，没有供参与者直接回答的可见控件。请智能体展示记录的时间值并解释用途。</p><div data-control-prompt=\"timing\"></div></section><section class=\"control-item\" id=\"control-sum_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>24 · 固定总额分配</h2><p>在项目间分配预算、时间或100分；显示当前合计并校验约定总额。</p><p class=\"control-code\"><code>constant_sum</code></p><div class=\"recording\" data-recording=\"sum_example\"></div><div data-control-prompt=\"sum_example\"></div></section><section class=\"control-item\" id=\"control-group_rank_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>25 · 分组并排序</h2><p>将项目分组，再用明确的分组和名次字段进行组内排序。</p><p class=\"control-code\"><code>pick_group_rank</code></p><div class=\"recording\" data-recording=\"group_rank_example\"></div><div data-control-prompt=\"group_rank_example\"></div></section><section class=\"control-item\" id=\"control-drill_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>26 · 逐级选择</h2><p>沿地区→国家→城市等路径逐步缩小范围，只显示与上级选择匹配的选项。</p><p class=\"control-code\"><code>drill_down</code></p><div class=\"recording\" data-recording=\"drill_example\"></div><div data-control-prompt=\"drill_example\"></div></section><section class=\"control-item\" id=\"control-custom_example\"><p class=\"eyebrow\">greedyQ 扩展</p><h2>27 · 自定义控件</h2><p>基于最接近的现有控件扩展；先约定外观、行为、校验、移动端、无障碍和保存值。</p><p class=\"control-code\"><code>custom</code></p><div class=\"recording\" data-recording=\"custom_example\"></div><div data-control-prompt=\"custom_example\"></div></section></div>",
+        "prompt": ""
+      },
+      {
+        "id": "flow",
+        "title": "问卷流程",
+        "lead": "决定谁看到哪些问题，以及每条路径如何结束。",
+        "body": "<ol><li>区分必答和选答问题。</li><li>说明资格条件、条件显示和结束路径。</li><li>打开 <strong>View structure</strong> 查看页面和问题：T 表示文本，Q 表示问题。</li><li>亲自测试每条路径，包括拒绝同意和退出。</li></ol><h2>上一页与下一页</h2><p>按钮可显示、隐藏或禁用。继续时检查必答项。定时延迟必须属于获批的研究设计。</p><h2>出现问题时</h2><p>告诉 AI 所在页面、选择的答案和预期画面。结构视图仅供阅读，不修改问卷或保存回答。</p>",
+        "prompt": "在电脑和手机上展示资格筛选与拒绝同意的路径。只应用我批准的必答项和导航规则。修改研究决策前请先询问。"
+      },
+      {
+        "id": "appearance",
+        "title": "外观与按钮设置",
+        "lead": "请 AI 调整问卷的配色、说明文字和导航，同时保留研究内容。",
+        "body": "<h2>配色与视觉风格</h2><p>说明希望使用的背景色、文字色和强调色，例如白色背景、深色文字与大学代表色的主要按钮。同时检查可读性、对比度、键盘焦点和手机预览。</p><div data-control-prompt=\"look-colors\"></div><h2>参与者看到的文字</h2><p>可以请求修改机构名称、标题、说明和按钮标签。明确修改应用在哪些页面。外观调整应保留题目 ID、保存值、分支和随机分配。</p><div data-control-prompt=\"look-words\"></div><h2>显示、隐藏或禁用按钮</h2><ul><li><strong>显示：</strong>按钮可见且可用。</li><li><strong>隐藏：</strong>该页面不显示按钮。</li><li><strong>禁用：</strong>按钮仍可见，但无法使用。</li></ul><p>例如，在同意页隐藏上一页，在题目页正常显示，在最终审阅页显示但禁用。确认所有预期路径仍然可达。</p><h2>延迟进入下一步</h2><p>如果已批准的研究设计要求最短材料展示时间，可以在指定时间内禁用继续按钮并显示倒计时。这不同于遗漏必答题：通常点击下一步时说明需要回答的项目，而不是预先禁用按钮。</p><div data-control-prompt=\"look-buttons\"></div><h2>检查完整体验</h2><p>在电脑和手机上检查开始、题目、错误和结束画面。测试键盘操作、按钮标签以及所有隐藏、禁用和延迟状态。批准前请 AI 简要比较修改前后的差异。</p>",
+        "prompt": ""
+      },
+      {
+        "id": "preview",
+        "title": "测试与审阅",
+        "lead": "预览用于测试，不代表可以开始招募。",
+        "body": "<ol><li>用虚拟回答完整测试电脑和手机视图。</li><li>尝试漏答必答项、上一页/下一页、刷新与继续。</li><li>检查每个实验条件、结束页面和媒体刺激。</li><li>重新审阅修改后的问卷，批准确切版本。</li></ol><h2>在手机上</h2><p>检查文字、触控区域和矩阵题，避免横向滚动。研究材料允许时，请要求字幕或文字稿。</p><h2>预览无法打开时</h2><p>将收到的文件保存在同一文件夹中。请 AI 重新生成并检查刷新与继续。自动检查不能代替亲自审阅。</p><h2>逐题修改</h2><p>提供题目名称或原文，并说明具体修改。保留其他题目、保存值、分支与研究决策，然后在预览中重新检查该题。</p>",
+        "prompt": "在[题目名称或原文]中，只修改[具体内容]。保留其他题目、保存值、分支和随机分配。简要说明变化，并在电脑和手机预览中展示修改后的题目。"
+      },
+      {
+        "id": "random",
+        "title": "分组与顺序随机化",
+        "lead": "将参与者分配到条件与打乱内容顺序是不同决策。",
+        "body": "<h2>分配参与者</h2><p><strong>简单随机分配：</strong>每人独立抽取条件。1:1 概率并不保证最终人数相等。</p><p><strong>固定区组：</strong>完成的分配区组符合批准的比例。但退出和最后一个未完成区组仍可能导致分析样本不均衡；已知区组大小也可能让后续分配更容易被预测。</p><h2>呈现顺序</h2><ul><li>打乱同一页面中选定的问题，其他位置保持不变。</li><li>可打乱支持的选项或矩阵行，并将“其他”固定在末尾。</li><li>页面随机化只支持一个独立、连续的中间区段。同意、分配、处理和结束页面保持固定；该区段不支持条件跳转。</li></ul><h2>应用前确认</h2><p>批准方法、条件、比例、时点和区组大小，测试所有条件与刷新/继续。保存的顺序表示计划呈现顺序，不证明参与者已阅读。</p><p>每项研究支持一次参与者间分配。整群、分层、自适应和多阶段分配不在当前支持范围内。</p>",
+        "prompt": "解释 A/B 简单随机与固定区组分配的区别，请我批准比例和分配时点。另行打乱前四个选项，固定“其他”在末尾。展示两种条件并检查刷新与继续。"
+      },
+      {
+        "id": "deploy",
+        "title": "部署与收集",
+        "lead": "获取公开问卷链接和独立的受保护结果链接。",
+        "body": "<ol><li>解决同意、隐私与待定研究决策。</li><li>审阅账户、数据地区和可能费用。</li><li>登录 Vercel，批准界面中提供的 Supabase 连接；已连接的 AI 完成设置。</li><li>验证两个链接，并提交一条虚拟测试回答。</li><li>单独批准正式收集。</li></ol><h2>区分两个链接</h2><p>问卷链接给参与者，结果链接只给获授权的研究者。未登录访问者必须无法查看结果。</p><h2>连接失败时</h2><p>没有连接工具的 AI 应提供交接说明，而不能声称已完成部署。操作数据库编辑器和密钥不是研究者的常规流程。Prolific 需要单独测试。</p>",
+        "prompt": "为已批准的问卷准备部署。说明所需批准和费用，用虚拟数据验证公开问卷与受保护结果链接。未经单独批准，不要招募参与者。"
+      },
+      {
+        "id": "results",
+        "title": "查看回答",
+        "lead": "开始正式收集前，先确认测试回答可见。",
+        "body": "<ol><li>打开受保护的结果链接。</li><li>选择 <strong>Test responses</strong>，再选择 <strong>Source: Direct</strong>。</li><li>提交一条测试回答并点击 <strong>Refresh</strong>。</li><li>检查数量、答案和参与者停止的位置。</li><li>用 <strong>Download CSV</strong> 下载当前筛选结果，通过 <strong>Variable guide</strong> 查看列的含义。</li></ol><h2>测试不等于正式数据</h2><p><strong>Real responses</strong> 排除测试回答。Prolific 测试仍属于测试；仅将 Source 改为 Prolific，不改变测试状态。</p><h2>理解导出文件</h2><p>所有问卷变量都会保留为列，未回答项为空。结构化题型展开为稳定的分析列。结果页面用于运行检查，不是统计分析软件。</p>",
+        "prompt": "在结果页面展示一条直接访问产生的测试回答。刷新数量和答案摘要，确认 Real responses 不包含该测试，再解释当前筛选 CSV 的列。"
+      },
+      {
+        "id": "prereg",
+        "title": "预注册草稿",
+        "lead": "获得可审阅的文件；正式注册另行进行。",
+        "body": "<ol><li>决定是否需要草稿；仅预览问卷时不必准备。</li><li>审阅假设、样本量、停止规则、结果、排除标准和分析。</li><li>将缺失决策标为 TO CONFIRM，并检查不适用项。</li><li>下载英文和韩文 Markdown 草稿；需要时自行注册。</li></ol><h2>包含什么</h2><p>来源指南采用 2026 年 9 月 10 日核对的 OSF 链接离线表格，共 29 项，涵盖研究信息、设计、收集、变量、分析和补充背景。</p><p>greedyQ 不登录 OSF、不提交注册，也不选择延迟公开期限。完整草稿仍未注册。已批准答案的翻译也需研究者审阅。网站提供中文说明，不表示当前生成器会输出中文预注册文件。</p>",
+        "prompt": "仅根据已确认的决策准备 OSF 预注册草稿。每次询问一个缺失决策。不要登录 OSF 或提交任何内容。"
+      },
+      {
+        "id": "archive",
+        "title": "结束与存档",
+        "lead": "先下载并确认文件，再暂停服务。",
+        "body": "<ol><li>确认研究、共享服务及仍在作答的参与者如何处理。</li><li>批准关闭收集。</li><li>下载正式回答 CSV、测试回答 CSV 和研究存档 ZIP。</li><li>核对行数，另存一份安全副本。</li><li>确认已保存后，视需要批准暂停专用服务。</li></ol><h2>保存哪些内容</h2><p>存档包括未完成回答。其结构化 CSV 与结果页面展开后的 CSV 不同。私有 ZIP 可能包含参与者标识，不能放到公开仓库。</p><p>ZIP 用于留存和分析，不会自动恢复数据库。原研究文件夹和媒体也应单独保存。暂停不等于永久存储，仍需检查服务政策与费用。</p><h2>关闭之后</h2><p>共享服务继续运行。已关闭问卷可能显示普通保存失败。保留研究团队的联系渠道，处理后续退出请求并更新存档副本。</p>",
+        "prompt": "帮助我结束收集并存档。先检查正在回答的参与者和共享服务。下载资料后，等我确认已安全保存。不要删除项目。"
+      },
+      {
+        "id": "upgrade",
+        "title": "继续、修改或复制",
+        "lead": "保留原件，先审阅差异，再升级。",
+        "body": "<p><strong>继续：</strong>保留现有研究及其固定版本。</p><p><strong>修改：</strong>只修改现有研究中约定的部分。</p><p><strong>复制：</strong>用新 ID 建立独立研究，默认不转移旧回答。</p><h2>升级草稿</h2><ol><li>提供保存的研究文件夹。</li><li>审阅版本差异，按需批准升级。</li><li>升级独立副本。</li><li>比较电脑和手机预览，批准新版本。</li></ol><p>自动升级仅适用于草稿和测试研究。运行中的研究需要另行审阅变更计划。恢复服务不会自动重新开放收集；重新收集需要明确批准和验证。</p>",
+        "prompt": "继续这项已保存研究。解释与当前 greedyQ 版本的差异。经我批准后升级独立副本，并展示两份预览。保留研究决策和原文件。"
+      }
+    ],
+    "aboutGroups": [
+      [
+        "项目",
+        [
+          "identity",
+          "principles"
+        ]
+      ],
+      [
+        "兼容性",
+        [
+          "support",
+          "export"
+        ]
+      ],
+      [
+        "参考",
+        [
+          "citation",
+          "license",
+          "updates"
+        ]
+      ]
+    ],
+    "about": [
+      {
+        "id": "identity",
+        "title": "什么是 greedyQ？",
+        "lead": "让通用 AI 遵循一致的研究流程。",
+        "body": "<p>greedyQ 是面向在线学术研究的、以规范驱动的 AI 原生应用。指南、模板和批准节点告诉通用 AI 如何制作研究文档和可运行问卷。</p><p>greedyQ 本身不是智能体。规范加上具备能力的 AI 才形成研究智能体，再由它建立研究。</p><h2>覆盖范围</h2><p>问卷、实验、同意、随机分配、数据计划、预注册草稿、部署和收集。研究者掌握决策与数据。</p><h2>两种工作方式</h2><p><strong>对话：</strong>AI 准备文件并说明下一步。<strong>已连接的智能体：</strong>具备所需权限时，还可设置服务并验证部署。</p>"
+      },
+      {
+        "id": "principles",
+        "title": "研究者的控制权",
+        "lead": "明确决策，保留研究的可复现性。",
+        "body": "<ul><li>修改重要研究决策前先询问。</li><li>记录待定事项，不编造答案。</li><li>审阅真实参与者界面，而非仅看技术报告。</li><li>保留研究文件和确切软件版本。</li><li>区分预览、账户连接和招募批准。</li><li>回答数据由研究者管理。</li></ul><p>主要路径是使用 Vercel 和 Supabase 的浏览器问卷。高级用户也可直接编辑源文件或导出 native Surveydown 项目。</p>"
+      },
+      {
+        "id": "support",
+        "title": "支持范围",
+        "lead": "兼容性按功能判断，不代表完全等价。",
+        "body": "<table><thead><tr><th>领域</th><th>当前边界</th></tr></thead><tbody><tr><td>题型</td><td>16 种已记录的 Surveydown 风格题型，以及媒体、排序和分配等 greedyQ 扩展。</td></tr><tr><td>逻辑</td><td>受限的显示、跳转和终止条件，不是任意 R 表达式或 Shiny 程序。</td></tr><tr><td>格式</td><td>基本安全标签格式，不等同于完整 Markdown 或任意 HTML。</td></tr><tr><td>顺序</td><td>指定选项、矩阵行、问题和受限页面区段，不支持任意路径组合。</td></tr><tr><td>设置</td><td>部分主题、进度条位置和页脚设置虽被接受但未完整显示。尚未实现自动收集 IP/浏览器信息。</td></tr><tr><td>外部返回</td><td>获批的 HTTPS 目标。预览不跳转，正式返回须先保存成功。Prolific 需要验证。</td></tr></tbody></table><h2>自定义题型</h2><p>先选择最接近的已支持题型。实现前约定外观、交互、保存值、无障碍、手机体验和额外 AI 工作量。</p>"
+      },
+      {
+        "id": "export",
+        "title": "导出 native Surveydown",
+        "lead": "选择另一运行环境前，先审阅差异。",
+        "body": "<p>导出包含 <code>survey.qmd</code> 与 <code>app.R</code>，属于正式支持的辅助路径；主要路径仍是 greedyQ 浏览器问卷。</p><ul><li><strong>可直接移植：</strong>原样保留。</li><li><strong>生成：</strong>转换为 native 文件，需审阅。</li><li><strong>greedyQ 专用：</strong>native 环境不提供相同行为。</li><li><strong>不支持：</strong>无法提供等价导出。</li></ul><p>Native 导出不支持问题/页面顺序随机化，也不声称固定区组分配与刷新保持行为等价。扩展题型必须在实际 Surveydown 中测试，生成代码不等于验证成功。</p><p>greedyQ 不执行问卷定义中的任意 R 或 JavaScript。超出浏览器支持范围的定制可使用 native Surveydown。</p>"
+      },
+      {
+        "id": "citation",
+        "title": "引用研究软件",
+        "lead": "即使仅运行 greedyQ，也请引用两个项目。",
+        "body": "<p>填写研究 <code>greedyq.version</code> 中记录的确切版本。没有运行 Surveydown 就不要声称运行过；如实际使用，还应报告其软件包版本。</p><h2>参考文献</h2><p>greedyQ project. (2026). <em>greedyQ: A specification-driven, AI-native application for online academic research</em> (Version &lt;release identifier&gt;) [Computer software]. GitHub.</p><p>Hu, P., Bunea, B., &amp; Helveston, J. (2025). surveydown: An open-source, markdown-based platform for programmable and reproducible surveys. <em>PLOS ONE, 20</em>(8), e0331002. DOI: 10.1371/journal.pone.0331002.</p><h2>方法部分示例</h2><div data-snippet=\"methods\"></div><h2>BibTeX</h2><div data-snippet=\"bib\"></div>"
+      },
+      {
+        "id": "license",
+        "title": "许可与归属",
+        "lead": "采用 MIT 许可的独立开源项目。",
+        "body": "<p>greedyQ 独立实现了部分已记录的 Surveydown 风格编写约定，不包含或再分发 Surveydown 源代码。</p><p>Surveydown 是采用 MIT 许可的先前开源成果。Copyright © 2025 John Paul Helveston, Pingfan Hu, Bogdan Bunea。</p><p>greedyQ 并非由 Surveydown 或其维护者合作、认可、赞助或维护。相关提及用于说明兼容性、来源或导出目标。</p><h2>注意区分</h2><p>学术使用时共同引用的要求与软件许可合规是不同事项。软件许可不会决定研究数据或预注册文档的许可。</p>"
+      },
+      {
+        "id": "updates",
+        "title": "版本与更新",
+        "lead": "确认研究实际使用的版本。",
+        "body": "<p><strong>记录版本：</strong><code>0.2_2026-09-10_c4a8405</code>。<br><strong>本指南：</strong>基于 9 月 10 日交接材料，包含未公开修改，并非新公开版本公告。</p><p>更新不会自动改变已部署研究。请审阅差异、保留原件，再测试升级后的草稿。</p><h2>公开更新记录</h2><p>每项实质更新都有英文和韩文记录。版本标识包含版本号、日期及源提交；仅更新版本元数据的提交不单列为新版本。</p><ul class=\"history\"><li><code>2026-09-09 · fcb3c86</code><br>稳定导出、结构化结果和完整性检查。</li><li><code>2026-09-09 · 236d2a3</code><br>让 NPS 量表适应手机宽度。</li><li><code>2026-09-09 · 9d9ffe9</code><br>高级题型和先确认再实现的自定义题型。</li><li><code>2026-09-09 · 2f20a8c</code><br>响应式矩阵、媒体、条件问题和导航策略。</li><li><code>2026-09-09 · e770a9c</code><br>学术使用时共同引用 greedyQ 与 Surveydown。</li><li><code>2026-09-09 · 5ce7a3a</code><br>在手机上保留桌面画布。</li><li><code>2026-09-09 · 40c5053</code><br>筛选后的 CSV 保留所有问卷列。</li><li><code>2026-09-09 · 825f6fb</code><br>受保护结果页和双链接部署。</li><li><code>2026-09-09 · 3aefdd0</code><br>准备安全的 Supabase 连接交接。</li><li><code>2026-09-09 · ee423e6</code><br>记录版本来源并明确问题编写方式。</li></ul><h2>原始来源</h2><p><a href=\"https://github.com/zomtoli7/greedyQ\" target=\"_blank\" rel=\"noopener\">greedyQ 仓库</a> · <a href=\"https://doi.org/10.1371/journal.pone.0331002\" target=\"_blank\" rel=\"noopener\">Surveydown 论文</a></p>"
+      }
+    ],
+    "methods": "本问卷使用 greedyQ（版本 <实际版本>）制作和部署。其问卷规范建立在 Surveydown（Hu, Bunea, & Helveston, 2025）的 survey-as-code 方法和 survey.qmd 编写约定基础上。",
+    "examples": "<p>亲自试用虚拟问题，再向 AI 请求适合研究的题型。</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\" rel=\"noopener\">在新标签页打开公开题型展示 ↗</a></p><p>展示使用虚拟参与者，不向外部服务写入回答。请勿输入真实参与者或研究数据。公开地址未固定到某个版本，可能与交接材料中的新功能不同。</p>",
+    "clipUI": {
+      "play": "播放",
+      "pause": "暂停",
+      "replay": "重播",
+      "step": "下一帧",
+      "caption": "真实题型展示操作 · 英文演示 · 分步播放",
+      "alt": "在 greedyQ 题型展示中实际操作的画面",
+      "jump": "查找控件",
+      "standard": "基本题型",
+      "extensions": "greedyQ 扩展",
+      "hidden": "计时在后台进行，没有供参与者直接回答的可见控件。请智能体展示记录的时间值并解释用途。",
+      "test": "展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。"
+    },
+    "controlPrompts": {
+      "short_text": "用单行文本框询问项目的简短昵称。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "long_text": "用多行文本框询问需要改进的方面。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "number": "询问每周使用服务的小时数，范围0至168，单位为小时。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "single": "询问主要使用的设备：电脑、手机或平板，只能选一项。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "multiple": "询问本月使用过的设备，可多选电脑、手机和平板。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "buttons": "用醒目的“是／否”按钮询问是否用过服务，只能选一项。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "multi_buttons": "将搜索、保存、分享显示为可选按钮，允许多选。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "image": "显示两张已批准的包装图片及文字说明，让参与者选择一张。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "multi_image": "显示已批准的产品图片及标签，让参与者选择所有认识的产品。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "menu": "使用下拉框从我提供的专业列表选择一项，初始显示未选择提示。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "labeled_slider": "用非常容易、容易、一般、困难、非常困难的有序滑块询问难度，保留类别编码。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "numeric_slider": "用0至10的数值滑块询问信心，显示当前值及两端数值。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "range_slider": "用两个滑块选择0至100之间可接受的月费区间，显示上下限和货币单位。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "one_date": "用日期输入框询问最近一次使用服务的日期。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "date_range": "询问服务使用的开始和结束日期，先说明日期顺序颠倒时的处理规则。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "one_matrix": "用非常差到非常好的量表评价易用性、速度和清晰度，每行一个答案，手机使用逐行卡片。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "multi_matrix": "对每类产品询问购买渠道：实体店、网站、应用，每行允许多选。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "audio_example": "呈现已批准的音频文件，提供播放控件、说明和文字稿，不自动播放，也不将播放视为回答。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "video_example": "呈现已批准的视频，提供封面、播放控件及可用的字幕或文字稿，不自动播放。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "rank_example": "让参与者为易用性、速度、灵活性排序，使用名次选择，无需拖动。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "sbs_example": "用相同的低、中、高量表评价当前版和建议版的清晰度及有用性，手机上也清楚标出版本。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "nps_example": "用0至10量表询问推荐服务的意愿，显示全部数字和两端说明。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "timing": "在后台记录刺激材料页的停留时间，说明计时起止及导出值，不要自行设定排除阈值。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "sum_example": "在设计、测试、文档间分配恰好100分，显示实时合计并说明总额不符的问题。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "group_rank_example": "将速度、信任和便利分为必要或可选，再在各组内排序。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "drill_example": "按地区、国家、城市逐级选择，只显示所选国家的城市，上级改变时清理不兼容的下级选项。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "custom_example": "我需要产品选择卡片。先找出最接近的基础控件，并约定外观、交互、移动端、无障碍、保存值和额外工作，再开始实现。\n\n展示电脑和手机预览，解释保存值，更改研究决策前请先征求我的确认。",
+      "look-colors": "使用白色背景、深灰文字和深绿色主要按钮，保持清晰的对比度和键盘焦点。展示电脑与手机预览，不修改题目、回答值或研究路径。",
+      "look-words": "在顶部显示[大学或实验室名称]。将题目页的 Continue 改为下一步，将最终页按钮标为提交。保留按钮行为及保存值，展示修改后的页面。",
+      "look-buttons": "在同意页隐藏上一页，在题目页显示，在最终审阅页显示但禁用。在已批准的材料页，将继续按钮延迟12秒启用并显示倒计时。展示电脑与手机上的全部状态。",
+      "first-draft": "遵循 greedyQ 开始指南，为使用过我们服务的人制作三分钟内的满意度问卷。包括总体满意度、易用性、有用性、结果质量、再次使用意愿和一项改进建议。先确认问题编写方式，部署前展示可操作预览。",
+      "first-manual": "我会自己编写问题。请先建立开始与结束页面，再问我第一个问题。记录待确认事项，不要擅自补全研究决策。",
+      "first-research": "让参与者给五个优先事项排序，并在三项活动间分配恰好 100 分。解释保存答案的含义，展示电脑和手机交互后再请我批准。"
+    },
+    "examplesArchived": "<p>亲自试用虚拟问题，再向 AI 请求适合研究的题型。</p><p><a href=\"https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html\" target=\"_blank\" rel=\"noopener\">在新标签页打开公开题型展示 ↗</a></p><p>展示使用虚拟参与者，不向外部服务写入回答。请勿输入真实参与者或研究数据。公开地址未固定到某个版本，可能与交接材料中的新功能不同。展示本身保留原有英文内容。</p><h2>1. 试用问题</h2><p>① 尝试选择题、文字输入、滑块和矩阵。② 比较 Desktop 与 Mobile。③ 打开 View structure 查看顺序。④ 选择 Try advanced controls 体验排序、分配等扩展。</p><blockquote>增加一个矩阵题，评价易用性、速度、可靠性和清晰度，采用从非常差到非常好的五级选项。电脑显示表格，手机显示无需横向滚动的逐行卡片。</blockquote><p><strong>预期结果：</strong>电脑表格和手机行卡片，每个视图使用独立的虚拟参与者。</p><h2>2. 用研究语言提出需求</h2><p>文字回答可用单行或长文本；分类可用单选、多选、图片或下拉框；评价可用数值、滑块或矩阵。扩展示例包括排序、100 分定额分配、分层选择和音视频。</p><blockquote>让参与者给五个优先事项排序，并在三项活动间分配恰好 100 分。解释保存答案的含义，展示电脑和手机交互后再请我批准。</blockquote><p>研究允许时要求字幕和文字稿。greedyQ 扩展不全是 Surveydown 内置题型。</p><h2>3. 从简短问卷开始</h2><blockquote>遵循 greedyQ 开始指南，为使用过我们服务的人制作三分钟内的满意度问卷。包括总体满意度、易用性、有用性、结果质量、再次使用意愿和一项改进建议。先确认问题编写方式，部署前展示可操作预览。</blockquote><p>① 调整目的和对象。② 审阅问题。③ 亲自完整测试。</p><h2>遇到问题？</h2><p>嵌入太小或无法打开时，使用上方新标签页链接。特殊题型应先寻找最接近的已有题型，并确认额外工作量、手机体验、无障碍和保存值。</p>"
+  }
+}

@@ -6,6 +6,8 @@
 
 Use this profile when the study assigns participants, sessions, clusters, stimuli, order, or another unit to conditions and estimates an effect of that assignment.
 
+The profile describes research intent, not a promise that every assignment unit is implemented. The fixed runtime currently supports one respondent-level simple or fixed-block assignment. Explain the distinction and confirm the method, weights, block size when relevant, and timing. Follow [RANDOMIZATION.md](../../../RANDOMIZATION.md); reject unsupported units or multiple stages instead of ignoring them. Selected within-page question shuffling is a separate opt-in feature, with stable recorded order and fixed anchors.
+
 Confirm the research question, primary outcome, hypotheses, assignment unit, conditions, allocation probabilities, timing of assignment, persistence across resume, stimuli, manipulation checks, contamination risks, exclusions, stopping rule, and primary analysis. Never invent a condition, stimulus, hypothesis direction, sample size, exclusion, or analysis commitment.
 
 Randomization must happen once at the declared unit, use a documented source of randomness, persist before condition-dependent content is shown, and remain stable after refresh or resume. Preview controls may force conditions for review but must be visibly separate from respondent controls and must never alter production assignment behavior.

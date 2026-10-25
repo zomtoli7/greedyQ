@@ -275,10 +275,20 @@ class GenerationContractTests(unittest.TestCase):
         outcomes = {p.get("terminal") for p in self.preview_model["pages"] if p.get("terminal")}
         self.assertEqual({"completed", "screened_out", "consent_refused", "withdrawn", "technical_error"}, outcomes)
 
-    def test_preview_model_contains_no_redirect_or_secret_material(self):
+    def test_preview_model_contains_no_secret_material_and_only_fixed_https_returns(self):
         raw = json.dumps(self.preview_model).lower()
-        for forbidden in ("https://", "service_role", "api_key", "password", "bearer "):
+        for forbidden in ("service_role", "api_key", "password", "bearer "):
             self.assertNotIn(forbidden, raw)
+        from urllib.parse import urlsplit
+        for page in self.preview_model['pages']:
+            if page.get('redirect'):
+                self.assertTrue(page.get('terminal'))
+                url=urlsplit(page['redirect']['url'])
+                self.assertEqual('https',url.scheme)
+                self.assertIsNone(url.username)
+                self.assertIsNone(url.password)
+        # Actual no-navigation behavior is checked by ordering_browser.cjs,
+        # including a configured zero-delay return in desktop/mobile previews.
 
     def test_built_reference_preview_contains_exact_model(self):
         built = (ROOT / "examples" / "complete-study" / "preview.html").read_text()

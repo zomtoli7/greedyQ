@@ -311,7 +311,7 @@ sd_question(
 
 # Before submitting
 
-You may submit the study, withdraw, or record a request for the fictional research team to delete the responses associated with this session.
+You may submit the study or withdraw. Saving a withdrawal deletes this session's answers. Minimal administrative identifiers remain for panel return and duplicate prevention.
 
 ```{r}
 sd_question(
@@ -330,15 +330,19 @@ sd_question(
 sd_question(
   id = "deletion_request",
   type = "mc",
-  label = "Should the research team receive a request to delete responses already collected in this session?",
+  label = "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
   option = c(
-    "Yes, record a deletion request" = "yes",
-    "No" = "no"
+    "I understand that my answers will be deleted" = "yes"
   )
 )
 ```
 
 --- complete
+
+
+```{r}
+sd_redirect(id = "gq_return_complete", url = "https://app.prolific.com/submissions/complete?cc=EXAMPLE_COMPLETE", label = "Continue to the next website", button = TRUE, newtab = FALSE)
+```
 
 # Thank you
 
@@ -346,11 +350,21 @@ Your responses have been submitted. In a production panel run, greedyQ now uses 
 
 --- screened_out
 
+
+```{r}
+sd_redirect(id = "gq_return_screened_out", url = "https://app.prolific.com/submissions/complete?cc=EXAMPLE_SCREENOUT", label = "Continue to the next website", button = TRUE, newtab = FALSE)
+```
+
 # You are not eligible
 
 This fixture is limited to adults. No research questions beyond consent and eligibility were collected.
 
 --- consent_refused
+
+
+```{r}
+sd_redirect(id = "gq_return_consent_refused", url = "https://app.prolific.com/submissions/complete?cc=EXAMPLE_REFUSAL", label = "Continue to the next website", button = TRUE, newtab = FALSE)
+```
 
 # Participation declined
 
@@ -358,11 +372,21 @@ No research responses were collected. You may close this page or follow the conf
 
 --- withdrawn
 
+
+```{r}
+sd_redirect(id = "gq_return_withdrawn", url = "https://app.prolific.com/submissions/complete?cc=EXAMPLE_WITHDRAWN", label = "Continue to the next website", button = TRUE, newtab = FALSE)
+```
+
 # Participation ended
 
-The session is marked as withdrawn. If you requested deletion, the request has been recorded for the research team; this message does not claim deletion is complete.
+Saving this withdrawal deletes the session's answers. If a saving error appears, retry before leaving. Minimal administrative identifiers remain for panel return and duplicate prevention.
 
 --- technical_error
+
+
+```{r}
+sd_redirect(id = "gq_return_technical_error", url = "https://app.prolific.com/submissions/complete?cc=EXAMPLE_ERROR", label = "Continue to the next website", button = TRUE, newtab = FALSE)
+```
 
 # We could not continue
 

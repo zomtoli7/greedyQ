@@ -80,7 +80,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
 14. **The web-native runtime comes first.** Vercel and Supabase are the primary execution path; native surveydown export is a first-class parallel output, not the greedyQ runtime.
 15. **Advanced customization has an escape hatch.** Generate `app.R` and related native project files so researchers can continue directly in surveydown when unrestricted R, Shiny, or Quarto is required.
-16. **Preregistration is a first-class output.** Generate a reviewable, versioned preregistration package from confirmed study and analysis decisions, and require explicit researcher approval before any registry submission or sample collection.
+16. **Preregistration drafts are a first-class output.** Generate reviewable, versioned draft files from confirmed research decisions using the official field inventory. No OSF login, submission or registry-management integration is provided. Researchers independently register if needed; draft creation never authorizes recruitment.
 
 ## 5. Compatibility strategy
 

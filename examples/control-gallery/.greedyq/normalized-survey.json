@@ -592,20 +592,24 @@
         {
           "id": "custom_example",
           "type": "custom",
-          "label": "Custom control based on a built-in template",
+          "label": "How did this experience feel? Choose an emotion card.",
           "_line": 138,
           "options": [
             {
-              "label": "First",
-              "value": "first"
+              "label": "😞 Frustrating",
+              "value": "frustrated"
             },
             {
-              "label": "Second",
-              "value": "second"
+              "label": "😐 Just okay",
+              "value": "neutral"
+            },
+            {
+              "label": "😊 Delightful",
+              "value": "delighted"
             }
           ],
           "base_type": "mc_buttons",
-          "customization": "Confirmed button-card treatment",
+          "customization": "Emotion cards: a styled single-choice button template; one stored category, not a new rating scale.",
           "custom_class": "gq-custom-button-card"
         }
       ],

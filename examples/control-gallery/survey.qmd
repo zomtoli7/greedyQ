@@ -137,7 +137,7 @@ sd_question(id = "drill_example", type = "drill_down", label = "Choose a locatio
 ```
 
 ```{r}
-sd_question(id = "custom_example", type = "custom", base_type = "mc_buttons", label = "Custom control based on a built-in template", option = c("First" = "first", "Second" = "second"), customization = "Confirmed button-card treatment", custom_class = "gq-custom-button-card")
+sd_question(id = "custom_example", type = "custom", base_type = "mc_buttons", label = "How did this experience feel? Choose an emotion card.", option = c("😞 Frustrating" = "frustrated", "😐 Just okay" = "neutral", "😊 Delightful" = "delighted"), customization = "Emotion cards: a styled single-choice button template; one stored category, not a new rating scale.", custom_class = "gq-custom-button-card")
 ```
 
 ```{r}

@@ -51,6 +51,9 @@ def build(study_dir, write=True):
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
         (migrations / "003_results_dashboard.sql").write_bytes((ROOT / "templates/supabase/003_results_dashboard.sql").read_bytes())
+        (migrations / "004_randomization.sql").write_bytes((ROOT / "templates/supabase/004_randomization.sql").read_bytes())
+        (migrations / "005_prolific.sql").write_bytes((ROOT / "templates/supabase/005_prolific.sql").read_bytes())
+        (migrations / "006_withdrawal_preview.sql").write_bytes((ROOT / "templates/supabase/006_withdrawal_preview.sql").read_bytes())
         migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
         migration_manifest = {
             "schema_version": "0.2",

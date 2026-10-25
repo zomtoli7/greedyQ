@@ -1,12 +1,18 @@
 # greedyQ
 
+[호환성 점검](./docs/surveydown-compatibility-audit(kor).md) · [사전등록 초안](./PREREGISTRATION(kor).md) · [재개·업그레이드](./UPGRADING(kor).md) · [외부 반환](./EXTERNAL-RETURNS(kor).md) · [Google Sites 구성안](./docs/google-sites-plan(kor).md)
+
+[연구 종료·보관](./ARCHIVING(kor).md) · [클라우드 운영 규약](./docs/cloud-lifecycle(kor).md)
+
 [English](./README.md)
+
+[무작위 배정과 문항 순서 섞기](./RANDOMIZATION(kor).md) · [로컬 검증 및 업그레이드 상태](./docs/randomization-verification(kor).md)
 
 - **현재 specification:** `0.2`
 - **현재 release:** `0.2_2026-09-10_c4a8405`
-- **Release source commit:** [`fcb3c86`](https://github.com/zomtoli7/greedyQ/commit/fcb3c86) · [업데이트 히스토리](./updates/README(kor).md)
+- **Release source commit:** [`c4a8405`](https://github.com/zomtoli7/greedyQ/commit/c4a8405) · [업데이트 히스토리](./updates/README(kor).md)
 
-[설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [Prolific 연결](./PROLIFIC-SETUP(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -128,7 +134,9 @@ greedyQ 논문이 나오기 전까지 greedyQ를 사용한 학술 연구는 `sur
 
 ## 프로젝트 상태
 
-greedyQ에는 이제 계정 없이 검증할 수 있는 connection-ready v0.2 runtime candidate가 있습니다. 고정 JavaScript core가 지원 QMD/YAML 문법을 parse·validate·compile하고 공식 surveydown question control을 adaptive desktop/mobile respondent view에 모두 render하며 mock persistence/assignment를 사용하는 동시 preview를 제공합니다. Golden study, 전체 control gallery 및 잘못된 validator fixture에서 normalized output이 Python reference와 conform합니다. Static Vercel file, canonical Supabase RPC migration, Prolific launch validation, preregistration draft, native surveydown export, offline preflight가 구현되었습니다. Live service 연결 및 검증은 의도적으로 수행하지 않았습니다. 자세한 내용은 [외부 연결 준비 상태](./docs/external-connection-readiness(kor).md)를 참고하십시오.
+greedyQ는 계정 없이 로컬 미리보기를 할 수 있는 브라우저 기반 v0.2 실행 후보를 제공합니다. 고정 JavaScript core가 지원 QMD/YAML을 파싱·검증·컴파일하고 컴퓨터·모바일 설문과 동시 미리보기를 표시합니다. 골든 예제·컨트롤 갤러리·잘못된 입력에서 Python reference와 일치합니다. Vercel/Supabase 배포·보호된 결과·기본 001–006·Prolific ID 기록·사전등록 초안·native surveydown export·배포 전 점검을 구현했습니다.
+
+2026-10-25에 연결된 시험 환경에서 정상 완료·동의 거부·철회·반복 시작을 실제 Prolific 초안 Preview로 확인했습니다. 새 철회는 반환 전에 답변을 삭제하고 사전에 설명한 관리용 식별자만 중복 방지를 위해 남깁니다. 보호된 결과·CSV와 서버의 시험/실제 수집 분리도 검사했습니다. 연구자가 게시한 1명 유료 시험은 Prolific의 일반 내부 검토로 일시 중지됐으며 유료 제출·승인·지급은 미검증입니다. 서명 Prolific URL과 실제 반복 제출 연구는 미지원입니다. [Prolific 연결](./PROLIFIC-SETUP(kor).md), [검증 근거](./docs/prolific-cloud-test-2026-10-25(kor).md), [유료 시험 상태](./docs/prolific-paid-pilot-2026-10-25(kor).md), [외부 연결 준비](./docs/external-connection-readiness(kor).md)를 참고하세요. 현재 작업본 갱신이며 새 공개 릴리스 식별자를 붙인 것은 아닙니다.
 
 ## Responsive preview 사용하기
 

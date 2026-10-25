@@ -161,6 +161,13 @@
             "A wrong capability token cannot resume the session.",
             unauthorized == null,
           );
+          const premature = await rpc("greedyq_assign_condition", {
+            p_session_id:first,p_access_token:token,p_study_id:"greedyq_connection_test",p_study_version:"test",p_spec_version:"0.2",p_greedyq_version:release,p_conditions:["control","treatment"],p_is_test:true,
+          }, true);
+          add("Assignment before consent is rejected.",premature);
+          await rpc("greedyq_save_session", {
+            p_session_id:first,p_access_token:token,p_state:{page:"consent",lifecycle:"consented",answers:{consent_choice:"yes"}},p_consent_question:"consent_choice",
+          });
           const assigned = await rpc("greedyq_assign_condition", {
             p_session_id: first,
             p_access_token: token,

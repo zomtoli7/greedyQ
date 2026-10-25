@@ -1,0 +1,46 @@
+{
+  "report_version": "0.2",
+  "generator_status": "generated_unverified",
+  "study_id": "greedyq_user_satisfaction_001",
+  "spec_version": "0.2",
+  "summary": {
+    "directly_portable": 2,
+    "generated_custom": 0,
+    "generated_unverified": 1,
+    "greedyq_only": 1,
+    "unsupported": 1
+  },
+  "features": [
+    {
+      "id": "qmd_pages_and_native_questions",
+      "classification": "directly_portable",
+      "note": "Native surveydown question and page syntax is preserved."
+    },
+    {
+      "id": "safe_preview_mode",
+      "classification": "directly_portable",
+      "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."
+    },
+    {
+      "id": "declarative_logic",
+      "classification": "generated_unverified",
+      "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
+    },
+    {
+      "id": "consent_ledger",
+      "classification": "greedyq_only",
+      "note": "Displayed consent is preserved; the event ledger is not."
+    },
+    {
+      "id": "withdrawal_erasure",
+      "classification": "unsupported",
+      "note": "The withdrawal page is exported, but atomic deletion of answers, local state and assignment is a greedyQ database capability. Implement and verify equivalent native storage deletion before fielding."
+    }
+  ],
+  "material_mismatches": [
+    "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review.",
+    "Displayed consent is preserved; the event ledger is not.",
+    "The withdrawal page is exported, but atomic deletion of answers, local state and assignment is a greedyQ database capability. Implement and verify equivalent native storage deletion before fielding."
+  ],
+  "equivalence_claimed": false
+}

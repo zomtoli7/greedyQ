@@ -20,19 +20,19 @@ governance:
 
 consent:
   id: consent_main
-  version: 1.0.0
-  effective_date: 2026-09-07
+  version: 1.1.0
+  effective_date: 2026-10-25
   document: consent.md
-  sha256: 8ece5ba9e4c5b07489c83a9516f9a10c324ed958cab7dbfdaffdbc0558cd72e2
+  sha256: 6bf5254fdf1877d32966bc133903ac8c6bbe64914f6a7aaf04f94a2941ca52c2
   confirmation_question: consent_choice
   accept_value: "yes"
   refusal_outcome: consent_refused
   collect_research_data_only_after_acceptance: true
   amendment_requires_reconsent: true
   withdrawal:
-    default_response_policy: retain_flagged
+    default_response_policy: delete_answers
     deletion_request_question: deletion_request
-    deletion_is_manual_until_verified: true
+    deletion_is_manual_until_verified: false
 
 respondents:
   source: direct_link
@@ -121,7 +121,7 @@ logic:
     - id: withdrawal_deletion_choice
       question: deletion_request
       if: withdraw_now == "withdraw" and not answered(deletion_request)
-      message: Choose whether to record a deletion request before withdrawing.
+      message: Confirm that withdrawing deletes this session's answers before continuing.
 
 outcomes:
   complete:

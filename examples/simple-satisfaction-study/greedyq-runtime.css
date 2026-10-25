@@ -430,6 +430,13 @@
     font-size: 27px;
   }
 }
+.gq-q { scroll-margin-top: 24px; }
+.gq-q:focus { outline: 2px solid #315e86; outline-offset: 6px; }
+.gq-total-warning { color: #a32419; background: #fff0ed; font-weight: 700; border-radius: 4px; padding: 4px 8px; }
+.gq-selection-hint, .gq-timing-preview { color: #596578; font-size: .9rem; }
+.gq-answer-warning { border-left: 3px solid #a32419; padding-left: 12px; }
+.gq-timing-preview output { font-variant-numeric: tabular-nums; }
+.gq-custom-button-card .gq-choice { padding: 20px; border-radius: 16px; }
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;

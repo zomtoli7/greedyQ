@@ -6,7 +6,7 @@ library(surveydown)
 db <- sd_db_connect()
 ui <- sd_ui()
 server <- function(input, output, session) {
-  assignment_condition <- sample(c("control", "treatment"), 1)
+  assignment_condition <- sample(c("control", "treatment"), 1, prob = c(1, 1))
   sd_store_value(assignment_condition)
   sd_show_if(
     (assignment_condition == "control") ~ "stimulus_control",
@@ -24,7 +24,7 @@ server <- function(input, output, session) {
   sd_stop_if(
     (sd_value("age") > 120) ~ "Enter an age of 120 or less.",
     !sd_is_answered("attention_check") ~ "Select one response. The requested answer is Somewhat agree.",
-    ((sd_value("withdraw_now") == "withdraw") & !sd_is_answered("deletion_request")) ~ "Choose whether to record a deletion request before withdrawing."
+    ((sd_value("withdraw_now") == "withdraw") & !sd_is_answered("deletion_request")) ~ "Confirm that withdrawing deletes this session's answers before continuing."
   )
   sd_server(db = db)
 }

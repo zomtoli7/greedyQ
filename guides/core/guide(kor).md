@@ -3,12 +3,21 @@
 [English](./guide.md)
 
 **Component:** `core`
+
+참가자용 내용을 작성하기 전에 대화 언어와 별도로 참가자용 언어를 확인하고, 중국어는 간체·번체를 구분합니다. [커뮤니케이션 규약](./communication(kor).md)의 언어 확인 절차에 따라 `greedyq.language`를 기록합니다. 모든 참가자용 원문을 번역해 연구자의 검토를 받고 문항뿐 아니라 기본 안내도 검사합니다. 제공되는 언어팩 밖의 언어를 지원한다고 약속하지 않습니다.
 **Specification version:** `0.2`
+
+다운로드한 초안을 재개할 때 기존 릴리스·런타임 해시와 현재 규약을 비교하고 업그레이드를 제안합니다. [UPGRADING(kor).md](../../UPGRADING(kor).md)에 따라 별도 복사본에서 이전 결정을 보존하고 영향을 받는 승인을 재검토하며 미리보기를 다시 확인합니다. 운영 연구를 자동 업그레이드하지 않습니다.
+
+사전등록은 초안 파일만 제공합니다. [PREREGISTRATION(kor).md](../../PREREGISTRATION(kor).md)에 따라 OSF 로그인, 제출, 등록 설정 관리를 수행하지 않습니다.
 **Current release identifier:** `0.2_2026-09-10_c4a8405`
 
 이 guide는 greedyQ agent-executable application specification의 일부이며 모든 `greedyQObject`에 적용됩니다. greedyQ 자체는 agent가 아닙니다. Specification을 해석하고 따르는 capable host GenAI가 greedyQ research agent를 instantiate합니다.
 
 ## 필수 행동
+
+- 승인된 계정 설정에서는 [클라우드 운영 지침](../../docs/cloud-lifecycle(kor).md)과 기준 운영 코드를 사용하며, 데이터 수집 전에 결과 운영 별칭 주소의 보호를 검증합니다.
+- 연구를 종료하는 재사용자는 [아카이빙](../../ARCHIVING(kor).md)을 따릅니다. 종료 승인, 전체 비공개 내보내기, 다운로드 확인을 거친 뒤 각 서비스의 중지를 확인합니다. 리소스를 삭제하거나 공유 데이터베이스를 중지하지 않습니다. 중지는 영구 보관이 아니며 추가 관리 승인이 필요할 수 있습니다.
 
 - 연구자를 최종 의사결정자이자 비기술 최종 사용자로 대합니다.
 - 한 번에 하나의 중요한 질문만 하고 확정된 답을 유지합니다.
@@ -56,4 +65,6 @@ Browser-native greedyQ parser, validator, preview를 사용할 수 있으면 이
 
 Generated browser bundle은 고정된 `greedyq-core.js`, 고정된 `greedyq-runtime.css`, participant용 `index.html`, desktop/mobile 동시 표시 `preview.html`로 구성됩니다. Normal browser Studio는 `survey.qmd`와 `greedyq.yml`을 받아 로컬에서 실행되며 Python이나 Node.js를 요구하지 않습니다. Vercel은 이미 테스트한 participant bundle의 static host 역할만 합니다. Supabase는 로컬 승인 후에만 mock adapter를 대체하며 parsing, validation, rendering, routing 또는 study semantics를 바꾸면 안 됩니다.
 
-External connection 전에 `preregister`, `export-surveydown`, `preflight`와 동등한 작업을 실행합니다. Preregistration output은 승인되지 않은 local draft로 유지합니다. Native export는 모든 material mismatch를 보고하고 greedyQ-only behavior가 남으면 equivalence를 주장하면 안 됩니다. Supabase setup은 세 canonical migration을 숫자 순서대로 적용합니다. `001_initial.sql`은 table, RLS, withdrawal, analysis boundary를 만들고, 고정 `002_browser_rpc.sql`은 capability-token session, consent-gated write, locked assignment를 만들며, 고정 `003_results_dashboard.sql`은 보호된 연구자 결과 boundary를 만듭니다. Build는 모든 migration hash를 `supabase/migrations/manifest.json`에 기록해야 하며 preflight는 누락된 파일, 중복 번호, checksum 불일치가 있으면 중단해야 합니다. 적용한 migration을 수정하거나 대체 security RPC를 임의로 만들지 말고 다음 번호 migration을 추가합니다.
+External connection 전에 `preregister`, `export-surveydown`, `preflight`와 동등한 작업을 실행합니다. Preregistration output은 승인되지 않은 local draft로 유지합니다. Native export는 모든 material mismatch를 보고하고 greedyQ-only behavior가 남으면 equivalence를 주장하면 안 됩니다. Supabase setup은 canonical migration 001–006를 숫자 순서대로 적용합니다. `001_initial.sql`은 table, RLS, withdrawal, analysis boundary를, `002_browser_rpc.sql`은 browser session을, `003_results_dashboard.sql`은 결과 metadata를, `004_randomization.sql`은 서버 기준 배정과 문항 순서 저장 boundary를, `005_prolific.sql`은 패널 ID 연결을, `006_withdrawal_preview.sql`은 철회 답변 삭제와 비공개 반복 시험 권한을 만듭니다. 이후 에이전트는 검토한 모든 모델을 `registerStudy(client, model)`로 등록합니다. 기존 데이터베이스 업그레이드 제한을 포함하여 [RANDOMIZATION(kor).md](../../RANDOMIZATION(kor).md)를 따릅니다. Build는 모든 migration hash를 `supabase/migrations/manifest.json`에 기록해야 하며 preflight는 누락된 파일, 중복 번호, checksum 불일치가 있으면 중단해야 합니다. 적용한 migration을 수정하거나 대체 security RPC를 임의로 만들지 말고 다음 번호 migration을 추가합니다.
+
+무작위 배정이나 문항 순서 섞기를 추가하기 전에 쉬운 말로 선택지를 설명하고 연구자의 결정을 확인합니다. 참가자 단위의 단순 또는 고정 블록 배정 하나와, 같은 페이지 내 지정한 문항의 순서 섞기를 지원합니다. 기존 연구에 임의로 섞기를 추가하거나, 최소 인원 우선 배정을 무작위 배정으로 대체하거나, 미지원인 여러 단계·층화·선택지 순서·페이지 순서 무작위화를 약속하지 않습니다. 재접속 때 배정과 문항 순서를 유지합니다.

@@ -4,6 +4,12 @@
 
 The default audience is a researcher who may have no software knowledge.
 
+## Participant language checkpoint
+
+Before drafting participant-visible content, ask which language participants should see. Keep the researcher's conversation language separate. If Chinese is requested, confirm Simplified (`zh-CN`) or Traditional (`zh-TW`); do not guess from the conversation. Record the confirmed choice as `greedyq.language` in QMD. Built-in participant UI packs currently support `en`, `ko`, `zh-CN`, `zh-TW`. Explain unsupported languages rather than silently using English.
+
+Translate and have the researcher review all authored content: title, team name as appropriate, pages, consent, questions, choices, validation messages, custom hints, button labels, image descriptions, media transcripts/captions, and terminal/return wording. Changing the language flag does not translate these strings. Do not translate IDs, stored values, conditions, URLs, or response data. A later language change requires explicit review of translations, not a new research design. Test empty, invalid, loading/failure, completion and refusal screens as well as ordinary pages. Browser-owned date pickers and media menus follow browser/OS settings and must not be promised to follow the survey language. Researcher preview tools and results dashboards have a separate interface language scope.
+
 ## Say this, not the implementation detail
 
 - “I checked the survey structure” instead of “schema validation passed.”

@@ -4,6 +4,7 @@
   "greedyq_version": "0.2_2026-09-10_c4a8405",
   "title": "greedyQ Control Gallery",
   "organization": "greedyQ",
+  "language": "en",
   "start_page": "controls",
   "brand_color": "#315c8a",
   "messages": {
@@ -607,19 +608,23 @@
         {
           "id": "custom_example",
           "type": "custom",
-          "label": "Custom control based on a built-in template",
+          "label": "How did this experience feel? Choose an emotion card.",
           "options": [
             {
-              "label": "First",
-              "value": "first"
+              "label": "😞 Frustrating",
+              "value": "frustrated"
             },
             {
-              "label": "Second",
-              "value": "second"
+              "label": "😐 Just okay",
+              "value": "neutral"
+            },
+            {
+              "label": "😊 Delightful",
+              "value": "delighted"
             }
           ],
           "base_type": "mc_buttons",
-          "customization": "Confirmed button-card treatment",
+          "customization": "Emotion cards: a styled single-choice button template; one stored category, not a new rating scale.",
           "custom_class": "gq-custom-button-card",
           "required": false
         }

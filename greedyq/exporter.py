@@ -4,6 +4,8 @@ import json
 import re
 import shutil
 from pathlib import Path
+from .redirects import redirect_plan
+from .compiler import split_condition
 
 
 CUSTOM_TYPES = {
@@ -57,10 +59,9 @@ def _custom_call(question):
 def _condition_r(expression, derived_fields=frozenset()):
     """Translate the deliberately small greedyQ condition language to safe R."""
     expression = str(expression or "").strip()
-    parts = re.split(r"\s+(and|or)\s+", expression)
-    if len(parts) > 1:
-        rendered = [_condition_r(part, derived_fields) if part not in ("and", "or") else ("&" if part == "and" else "|") for part in parts]
-        return "(" + " ".join(rendered) + ")"
+    for connector,operator in ((" or "," | "),(" and "," & ")):
+        parts=split_condition(expression,connector)
+        if len(parts)>1:return '('+operator.join(_condition_r(part,derived_fields) for part in parts)+')'
     answered = re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)", expression)
     if answered:
         return ("!" if answered.group(1) else "") + f"sd_is_answered({_r(answered.group(2))})"
@@ -84,12 +85,24 @@ def _workflow_bindings(config):
     derived = {item.get("store", {}).get("condition_as") for item in randomizations}
     derived.discard(None)
     lines = []
+    for name,outcome in config.get('outcomes',{}).items():
+        plan=redirect_plan(outcome)
+        if plan and plan['params']:
+            lines.append('  observe({')
+            lines.append('    params <- sd_get_url_pars()')
+            chunks=[_r(plan['url']+('&' if '?' in plan['url'] else '?'))]
+            for i,(key,source) in enumerate(plan['params'].items()):
+                lines.append(f'    req(length(params[{_r(source)}]) == 1, !is.na(params[{_r(source)}]), nzchar(params[{_r(source)}]))')
+                chunks.extend([_r(('&' if i else '')+key+'='),f'URLencode(params[{_r(source)}], reserved = TRUE)'])
+            lines.append(f'    sd_redirect(id = {_r("gq_return_"+name)}, url = paste0({", ".join(chunks)}), label = {_r(plan["label"])}, button = TRUE, newtab = {_r(plan["newtab"])})')
+            lines.append('  })')
     for randomization in randomizations:
         field = randomization.get("store", {}).get("condition_as")
         conditions = list((randomization.get("conditions") or {}).keys())
+        weights = list((randomization.get("conditions") or {}).values())
         if field and conditions:
             lines.extend([
-                f"  {field} <- sample({_r(conditions)}, 1)",
+                f"  {field} <- sample({_r(conditions)}, 1, prob = {_r(weights)})",
                 f"  sd_store_value({field})",
             ])
     show_rules = config.get("logic", {}).get("show", []) or []
@@ -171,6 +184,7 @@ def _force_preview_mode(text):
     if close < 0:
         raise ValueError("Native Surveydown export requires YAML front matter.")
     header, remainder = text[:close], text[close:]
+    header=re.sub(r'(?m)^survey_settings:', 'survey-settings:',header)
     if not re.search(r"(?m)^format:\s*", header):
         header = header.replace("---\n", "---\nformat: html\n", 1)
     text = header + remainder
@@ -279,6 +293,16 @@ def generate(study_dir, parsed, config):
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)
     source = _rewrite_nav_extensions(_force_preview_mode((study_dir / "survey.qmd").read_text()))
+    for name,outcome in config.get('outcomes',{}).items():
+        plan=redirect_plan(outcome)
+        if not plan: continue
+        # Do not attach an automatic external action to the safe native preview.
+        if plan['params']: call=f'sd_output({_r("gq_return_"+name)})'
+        else: call=f'sd_redirect(id = {_r("gq_return_"+name)}, url = {_r(plan["url"])}, label = {_r(plan["label"])}, button = TRUE, newtab = {_r(plan["newtab"])})'
+        pattern=re.compile(r'(?m)^---\s+'+re.escape(outcome['page'])+r'\s*$')
+        match=pattern.search(source)
+        if not match: raise ValueError('Redirect ending page not found.')
+        source=source[:match.end()]+'\n\n```{r}\n'+call+'\n```\n'+source[match.end():]
     custom_questions = []
     for page in parsed.get("pages", []):
         for question in page.get("questions", []):
@@ -305,6 +329,8 @@ def generate(study_dir, parsed, config):
         {"id": "qmd_pages_and_native_questions", "classification": "directly_portable", "note": "Native surveydown question and page syntax is preserved."},
         {"id": "safe_preview_mode", "classification": "directly_portable", "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."},
     ]
+    if any(o.get('redirect') for o in config.get('outcomes',{}).values()):
+        features.append({'id':'external_redirect','classification':'generated_unverified','note':'Terminal return buttons and approved input URL parameters are generated. Automatic timers are omitted in native preview. Verify save-before-return and panel behavior in the target R runtime; native preview buttons can navigate externally when clicked.'})
     if custom_questions:
         features.append({
             "id": "greedyq_custom_controls", "classification": "generated_custom",
@@ -313,10 +339,23 @@ def generate(study_dir, parsed, config):
         })
     if config.get("logic"):
         features.append({"id": "declarative_logic", "classification": "generated_unverified", "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."})
+    if config.get('respondents',{}).get('source')=='prolific':
+        features.append({'id':'prolific_identity_boundary','classification':'unsupported','note':'The native export does not reproduce browser/Supabase atomic Prolific registration, duplicate isolation or save-before-completion-code behavior. Return buttons alone are not an equivalent panel integration; configure and verify the native target separately.'})
     if config.get("randomization"):
         features.append({"id": "random_assignment", "classification": "generated_unverified", "note": "Assignment was translated to a stored native random draw; fixed-block balance and greedyQ persistence equivalence are not claimed."})
+    if config.get("question_order"):
+        features.append({"id":"question_order", "classification":"unsupported", "note":"Within-page question shuffling and its saved presentation order are not translated. Native export retains source order; do not field it as an equivalent randomized questionnaire."})
+    if config.get("page_order"):
+        features.append({"id":"page_order", "classification":"unsupported", "note":"Page shuffling is a greedyQ extension; native export retains source order and is not equivalent."})
+    settings=parsed.get("front_matter",{}).get("survey-settings",{})
+    if parsed.get('front_matter',{}).get('greedyq',{}).get('language','en')!='en':
+        features.append({'id':'participant_language','classification':'generated_unverified','note':'Authored text is preserved, but greedyQ browser UI translations do not configure native Surveydown system messages. Verify and localize the native target before fielding.'})
+    if settings.get("shuffled") or settings.get("all-shuffled"):
+        features.append({"id":"option_shuffling", "classification":"generated_unverified", "note":"Native shuffled/all-shuffled header settings are preserved. Cross-refresh order persistence must be tested in the target Surveydown version."})
     if config.get("consent"):
         features.append({"id": "consent_ledger", "classification": "greedyq_only", "note": "Displayed consent is preserved; the event ledger is not."})
+    if any(o.get('lifecycle_state')=='withdrawn' for o in config.get('outcomes',{}).values()):
+        features.append({'id':'withdrawal_erasure','classification':'unsupported','note':'The withdrawal page is exported, but atomic deletion of answers, local state and assignment is a greedyQ database capability. Implement and verify equivalent native storage deletion before fielding.'})
     bounded_numeric = [q["id"] for page in parsed.get("pages", []) for q in page.get("questions", []) if q.get("type") == "numeric" and (q.get("min") is not None or q.get("max") is not None or q.get("step") is not None)]
     if bounded_numeric:
         features.append({"id": "numeric_input_bounds", "classification": "generated_unverified", "questions": bounded_numeric, "note": "Native Surveydown 1.3.0 does not accept greedyQ numeric min/max/step widget arguments; equivalent stop rules must be reviewed."})

@@ -2,8 +2,10 @@
 
 [English](./external-connection-readiness.md)
 
+**무작위 배정 업그레이드:** 새 실행 코드는 001–006 migration과 검토한 모든 모델의 등록이 필요합니다. 서버 규약을 확인하여 이전 버전이나 일치하지 않는 설정은 차단합니다. [RANDOMIZATION(kor).md](../RANDOMIZATION(kor).md)를 따릅니다. 과거 계정 연결 시험이 이번 업그레이드의 승인 근거가 되지는 않습니다.
+
 **Release:** `0.2_2026-09-10_c4a8405`
-**상태:** 로컬 검증 완료, 외부 계정 미연결
+**상태:** 로컬·연결 시험 검증 완료. 유료 Prolific 시험은 서비스 내부 검토로 중지됐으며 지급은 미검증입니다.
 
 greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애플리케이션을 준비하고 테스트합니다. 이 경계 덕분에 일반적인 설문 검토는 로컬에서 이루어지고, 마지막 외부 단계는 새로운 구현이 아니라 설정 및 검증 작업이 됩니다.
 
@@ -15,7 +17,7 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 - 새로고침 재개, 안정적인 mock 배정, 철회/reset, 필수 및 구조화 응답, 숫자 범위, routing, terminal outcome을 자동 테스트합니다. 실제 Chrome E2E suite가 320px, 390px, 768px, 1280px layout, dashboard filter, 다운로드 CSV 구조도 검사합니다.
 - JavaScript validator/compiler를 두 golden study와 의도적으로 잘못 만든 입력에서 Python reference implementation과 비교합니다.
 - Static Vercel bundle과 offline deployment preflight를 생성합니다.
-- 세 canonical Supabase migration은 table, RLS boundary, capability-token RPC access, lock을 사용하는 균형 배정, consent-gated answer write, 중복 Prolific identifier 거부, transactional withdrawal deletion, 연구자 results boundary를 정의합니다. 순서가 기록된 checksum manifest가 연결 전에 누락되거나 변경된 migration file을 탐지합니다.
+- 여섯 canonical Supabase migration은 테이블, RLS, 접근 토큰 RPC, 배정, 동의 후 응답 저장, 테스트·실제가 분리된 원자적 Prolific 등록, 철회 답변 삭제, 반복 시험 권한과 연구자 결과 경계를 정의합니다. 순서와 해시가 기록된 manifest가 연결 전에 누락·변경된 파일을 탐지합니다.
 - Browser-native `supabase-connection-test.html`은 synthetic `is_test` session으로 연결된 project를 검증하고 끝난 뒤 철회합니다.
 - Test code에서 Prolific launch parameter와 HTTPS completion URL을 검증합니다.
 - 명시적으로 승인되지 않은 local draft 상태의 preregistration Markdown, JSON, SHA-256 manifest를 생성할 수 있습니다.
@@ -23,7 +25,7 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 
 ## 외부 계정이 필요한 항목
 
-로컬 테스트는 live Vercel deployment, Supabase migration 적용, Prolific study 설정, OSF 제출, production redirect 또는 실제 participant transaction을 수행하지 않습니다. 이런 작업에는 연구자의 계정, 권한, region 및 retention 선택, 명시적 승인이 필요합니다. 연결 후에는 각 서비스를 독립적으로 검증해야 하며, 생성 파일이 존재한다는 사실은 서비스가 작동한다는 증거가 아닙니다.
+로컬 테스트는 live Vercel deployment, Supabase migration 적용, Prolific study 설정, production redirect 또는 실제 participant transaction을 수행하지 않습니다. 이런 작업에는 연구자의 계정, 권한, region 및 retention 선택, 명시적 승인이 필요합니다. 연결 후에는 각 서비스를 독립적으로 검증해야 하며, 생성 파일이 존재한다는 사실은 서비스가 작동한다는 증거가 아닙니다.
 
 ## 최종 연결 순서
 
@@ -42,4 +44,4 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 
 ## 증거와 한계
 
-Repository unit/contract test는 deterministic behavior와 생성된 연결 artifact에 대한 로컬 증거를 제공합니다. PostgreSQL SQL은 test로 source review되지만 이 계정 미연결 단계에서는 live Supabase PostgreSQL instance에 실행하지 않았습니다. Browser file은 로컬 제공 및 syntax check를 수행하며, target browser/device에서의 cross-browser 및 assistive-technology acceptance test는 release 단계에 남습니다.
+Repository unit/contract test는 deterministic behavior와 생성된 연결 artifact에 대한 로컬 증거를 제공합니다. 2026-10-25에 전용 Supabase 시험 데이터베이스와 배포된 Vercel 설문·결과 앱에서 001–006 및 철회·반복 Preview를 실행했습니다. 정확한 근거와 한계는 [클라우드 검증 기록](./prolific-cloud-test-2026-10-25(kor).md)을 참고하세요. 다른 계정·유료 Prolific 제출·모든 브라우저·보조 기술까지 검증한 것은 아니며 해당 환경별 확인이 남습니다.

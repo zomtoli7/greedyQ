@@ -1,12 +1,24 @@
 # greedyQ User Guide
 
+## Returning to a study and preparing to share
+
+- Resume a downloaded draft: “Compare this study with the current greedyQ release. Upgrade a separate copy and show me the changes.” See [safe upgrades](./UPGRADING.md). Your original remains unchanged and your research decisions need not change.
+- Shuffle choices: “Shuffle the first four options, but keep Other last.” See [ordering settings](./RANDOMIZATION.md). Page shuffling is available only for independent linear page groups; the AI must explain restrictions before changing your design.
+- Prepare registration text: “Give me the OSF draft, with undecided fields clearly marked.” See [draft files](./PREREGISTRATION.md). No OSF login or submission is involved.
+- Add a return link: “Save the response before enabling the return button; don't navigate away in preview.” See [external returns](./EXTERNAL-RETURNS.md).
+- Ask about compatibility: “Which of my features differ in native Surveydown export?” Read the [current audit](./docs/surveydown-compatibility-audit.md). Not every Surveydown setting or reactive R expression is implemented.
+
+For experiments and randomized question presentation, see [Random assignment and question order](./RANDOMIZATION.md). It explains simple versus fixed-block assignment, includes copyable requests, and describes which questions can be shuffled while preserving their order on resume. Your AI must ask before choosing these settings. The results CSV records both assignment details and presented question order. Existing deployed studies are not automatically upgraded by a repository update.
+
 [한국어](./USER-GUIDE(kor).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
-This guide takes a nontechnical researcher from an idea to a survey that can be tested on desktop and mobile. It stops before real accounts are connected or real participants are recruited.
+This guide takes a nontechnical researcher from an idea to a survey that can be tested on desktop and mobile. Connected deployment requires approval. After collection, use [Finish and archive a survey](./ARCHIVING.md) to download responses and pause dedicated services for your next study.
 
 ## What you need
+
+Returning users: see [pause, resume, and start another survey](./docs/repeat-user-acceptance.md). Resume the existing project for an interruption; use a new study ID for another survey. Archived ZIP files are for analysis, not rebuilding the online service.
 
 - GPT, Claude, or another capable AI that can read a public GitHub repository
 - A short description of what you want to learn and whose opinions you want
@@ -154,7 +166,7 @@ I personally tested the desktop and mobile preview and approve this questionnair
 
 ## What comes next
 
-After preview approval, greedyQ can prepare a preregistration draft, a Vercel-ready survey, Supabase setup files, Prolific settings, and a native surveydown export. Account connection, submission, deployment, and recruitment each require separate approval and external verification. Continue with [External Connection Readiness](./docs/external-connection-readiness.md).
+After preview approval, greedyQ can prepare a preregistration draft, a Vercel-ready survey, Supabase setup files, Prolific settings, and a native surveydown export. Account connection, deployment, and recruitment each require separate approval and external verification. Preregistration is delivered as files only; researchers submit independently if desired. Continue with [External Connection Readiness](./docs/external-connection-readiness.md).
 
 The agent must complete the [local operations and recovery checks](./docs/operations-runbook.md) before requesting those connections.
 
@@ -186,6 +198,38 @@ For a Prolific test, keep **Test responses** selected and change **Source** to *
 **Download CSV** follows the visible filters. Every survey variable remains a column even when the current records did not answer it; missing answers are blank. Matrix rows and advanced structured controls are expanded into stable analysis columns, and **Variable guide** explains those names. See the [detailed Results Dashboard guide](./RESULTS-DASHBOARD.md).
 
 ## Common problems
+
+### Recruit with Prolific
+
+Ask: “Connect this reviewed survey to Prolific, prepare a draft and test it before recruitment.” Follow [Prolific setup](./PROLIFIC-SETUP.md). Your AI prepares the survey/ID capture/return paths, while you confirm the study settings and completion actions in your researcher account. Results and CSV keep Prolific IDs alongside answers and separate test responses. Account Preview and real submission/payment checks are separate from local simulation.
+
+For repeated draft testing, open **Repeat Prolific preview** in the protected results page, enter the survey URL and create a private test link. Put that link in the Prolific draft with URL-parameter ID recording enabled. Use **Start a new test** in the survey to try another ending without deleting earlier test responses or changing participant IDs. The link expires after 24 hours and works only in Test mode. Before real collection, remove it and use the reviewed production link.
+
+A successfully saved withdrawal deletes this session's answers and assignment from the active database and removes them from subsequent results/CSV downloads. Minimal panel identifiers and withdrawal status remain for returning to Prolific and preventing duplicate participation; disclose this to participants. Existing downloads and provider backups are outside automatic deletion. See [withdrawal and repeat-preview details](./PROLIFIC-SETUP.md#withdrawal-deletion-and-verification).
+
+Before paid recruitment, replace the repeat-test link with an ordinary Production survey URL and review the real participant task, consent, duration, reward and total cost. A Prolific Preview of that Production URL can create a Real-mode record; use the separate account-free preview for wording review. If Prolific pauses for routine review and says no action is needed, preserve settings and wait for its decision. Stored answers alone do not prove a platform submission or payment. After matching genuine completed work, approve through Prolific and record the agreed retention deadline. See the [complete implementation and evidence summary](./docs/prolific-integration-status.md).
+
+### Survey language
+
+You can work with your AI in Korean while publishing a Chinese survey. At the start, the AI asks for the participant language; for Chinese it confirms Simplified or Traditional. Say: “Keep speaking Korean with me, but make all participant-facing content Simplified Chinese, including errors and buttons.” Built-in UI packs support English, Korean, Simplified Chinese and Traditional Chinese. The AI translates authored content separately and asks you to review it. Changing only the language setting does not translate your questions or consent form. IDs and saved values stay unchanged.
+
+Expert setting: `language: zh-CN` under the QMD `greedyq:` header; use `zh-TW` for Traditional Chinese, `ko` for Korean or `en` for English. Older studies without this setting retain English defaults. Browser-owned date/media menus may still use the device language. Researcher tools are separate from the participant interface; native Surveydown exports require target-language verification.
+
+### Appearance and navigation
+
+Visual design is part of your research. Ask your AI to change supported colors, research-team name, question/choice wording, button labels and navigation. Review computer and mobile previews. Use supported settings rather than rewriting the shared runtime; ask the AI to explain unsupported appearance requests.
+
+- “Use our approved blue for the progress bar and our team name at the top.”
+- “Hide Previous on the stimulus page and enable Next after 15 seconds.”
+- “Show Previous but disable it here. Rename Next to Continue.”
+- “Remove Select all that apply from this question only.”
+- “Change that instruction to Choose every service you have used.”
+
+`selection_hint = FALSE` or `selection_hint = ""` removes the multiple-selection instruction; a string replaces it. This greedyQ extension covers checkbox, button, image and multiple-selection matrix templates, including custom variants. Review native export compatibility. Existing navigation settings are `previous_mode`, `next_mode` and `next_delay_seconds`. A delay is not proof of reading; visual changes must not accidentally reveal experimental conditions.
+
+On Next, explanations appear above every invalid question and focus moves to the first. Constant-sum totals use a warning color until the target is reached. Timing shows a faint running clock only in preview. The custom gallery example is an emotion-card variation on single-choice buttons, not a validated psychological scale.
+
+### Other issues
 
 - **The AI cannot read GitHub:** Download and attach the single [full fallback guide](./guides/greedyq-guide.md), then repeat your starting message.
 - **The AI is too technical:** Say, “Follow greedyQ's communication rules. Treat me as a nontechnical researcher and ask one focused question at a time.”

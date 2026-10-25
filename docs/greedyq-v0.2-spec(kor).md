@@ -145,17 +145,21 @@ Consent amendment는 재확인을 요구해야 합니다. Withdrawal policy는 �
 
 Detailed work를 연기하면 draft preview에 눈에 띄는 placeholder governance 및 consent content를 사용할 수 있습니다. 이를 reviewed 또는 approved로 표현하면 안 됩니다. Detailed governance, privacy, withdrawal, retention, participant-facing consent는 coherent instrument draft 후 interactive preview approval 전에 확인해야 합니다. 이 confirmation이 기록되기 전에는 production deployment를 차단해야 합니다.
 
-Deletion-on-withdrawal을 선택하면 runtime은 operation을 atomic하고 idempotent하게 수행해야 합니다. Session을 lock하고, 설정에 따라 research answer, assignment, external identifier를 삭제하고, 명시된 최소 operational record만 유지하며, terminal lifecycle event를 append하고, 실패 시 전체 operation을 rollback해야 합니다. 생성되는 Supabase project는 `examples/complete-study/supabase/migrations/001_initial.sql`의 검토된 canonical implementation을 출발점으로 사용해야 합니다. Study-specific deviation은 문서화하고 researcher 승인을 받아야 합니다.
+기본 runtime은 철회 시 연구 답변을 원자적·멱등적으로 삭제합니다. 세션을 잠그고 답변·배정·동의 이벤트·브라우저 저장 답변 및 순서를 삭제하며, 사전에 설명한 최소 운영 기록과 반환·중복 방지용 관리 식별자만 유지하고 최소 종료 이벤트를 기록합니다. 실패하면 전체를 되돌립니다. 사용한 배정 자리는 재사용하면 안 됩니다. 서버의 정리된 상태를 확인한 뒤 반환을 열고 이후 답변 저장을 거부해야 합니다. 기존 다운로드·제공업체 백업·외부 플랫폼 기록을 지우는 기능은 아닙니다. 생성 Supabase 프로젝트는 기본 001–006을 적용해야 하며 미검토 대체 코드를 만들면 안 됩니다. 다른 보관 정책은 연구자의 명시적 검토와 별도 구현·검증이 필요하며 메타데이터만으로 기본 runtime이 철회 답변을 보관한다고 주장하면 안 됩니다.
 
 ## 9. Respondent source 및 Prolific
 
 Generic respondent contract는 allowlist된 inbound parameter, validation, canonical identifier, duplicate policy, outcome redirect를 정의합니다. Raw query parameter는 명시적으로 allowlist하지 않으면 저장해서는 안 됩니다.
 
-Prolific preset은 `PROLIFIC_PID`, `STUDY_ID`, `SESSION_ID`를 인식합니다. Panel run에서는 consent 전에 유효한 participant ID가 필요합니다. Duplicate behavior는 `resume`, `reject`, `allow` 중 하나여야 하며 v0.2 default는 `resume`입니다. Completion, screen-out, consent-refusal, technical-error route는 서로 달라야 하고 test mode에서는 production redirect를 차단해야 합니다.
+Prolific preset은 `PROLIFIC_PID`, `STUDY_ID`, `SESSION_ID`를 인식하며 패널 참여에는 검증된 세 ID가 모두 필요합니다. 기본 중복 설정은 `resume` 또는 `block`이고 기본값은 `resume`이며 실제 반복 제출 연구는 미지원입니다. 사용하는 완료·선별 탈락·동의 거부·철회·기술 문제 경로는 서로 달라야 합니다. 로컬 미리보기는 외부 반환을 막고, 연결된 Test 모드의 Prolific 초안 시험은 검토한 시험 경로로만 반환할 수 있습니다. 보호된 결과 서비스가 발급한 24시간 비공개 권한은 패널 ID를 유지한 채 별도 Test 공간을 만들 수 있습니다. 실제 수집·만료·다른 연구의 권한을 서버에서 거부하고 일반 중복 방지는 유지해야 합니다. 서명 Prolific URL은 이 기본 URL 연동에서 명시적으로 미지원입니다.
 
 ## 10. Randomization
 
 v0.2은 simple 및 fixed-block between-subject assignment를 지원합니다. Randomization은 ID, unit, method, condition, allocation, assignment point, persistence key, stored metadata를 선언합니다.
+
+현재 구현은 연구당 참가자 단위 배정 하나와 `session_id` 기반 유지를 지원합니다. 조건별 양의 정수 가중치로 비율을 지정합니다. 단순 배정은 독립적으로 추첨하고 고정 블록은 정해진 비율의 전체 블록을 섞으며, 인원이 적은 조건부터 채우지 않습니다. 테스트와 실제 참여의 배정 순서는 분리합니다. 제한 사항, 추가 004 migration, 관리자 권한의 검토 모델 등록은 [RANDOMIZATION(kor).md](../RANDOMIZATION(kor).md)를 따릅니다. 이전 최소 인원 우선 배정을 새 무작위 연구로 재분류하거나 혼합하면 안 됩니다.
+
+선택적인 `question_order`는 페이지와 그 안에서 섞을 문항 ID 두 개 이상을 지정합니다. 다른 위치는 고정합니다. 참가자·페이지별 순서를 유지하고 `question_orders`로 내보냅니다. 동의 페이지와 같은 페이지의 조건부 문항·선행 문항 조합은 섞을 수 없습니다. 선택지 순서와 페이지 전체 순서 섞기는 구현하지 않았습니다. 내보내기는 미지원 순서 기능을 보고해야 하며 동등성을 주장하면 안 됩니다.
 
 Assignment는 consent 이후이면서 첫 condition-dependent page 직전에만 이루어져야 합니다. Stimulus 표시 전에 atomic하게 저장하고 refresh/resume 동안 불변이어야 하며 동일한 persistence key에 대해 다시 계산해서는 안 됩니다. Stored metadata에는 condition, method, seed 또는 draw identifier, 해당되는 경우 block identifier, assignment timestamp, specification version을 포함해야 합니다.
 
@@ -202,13 +206,13 @@ Treatment confounding, contamination, construct validity, questionable exclusion
 
 ## 13. Preregistration output 및 fielding gate
 
-Preregistration은 핵심 generated output입니다. `greedyq.yml`은 template adapter, output directory, registration status, fielding gate를 식별해야 합니다. v0.2은 `osf_preregistration`과 `generic_markdown`을 지원하며 추가 registry template은 study model 변경이 아니라 adapter입니다.
+Preregistration은 핵심 초안 파일 출력입니다. v0.2의 `osf_preregistration`, `generic_markdown`은 [PREREGISTRATION(kor).md](../PREREGISTRATION(kor).md)의 항목·제공 규약을 따릅니다. OSF 계정 연결, 제출, 엠바고 관리, 등록 상태 검증은 greedyQ 범위가 아닙니다.
 
 Package는 사람이 읽을 수 있는 Markdown draft, 기계가 읽을 수 있는 JSON representation, 등록 대상 study·consent·stimuli·analysis-plan의 정확한 version을 다루는 SHA-256 artifact manifest를 포함해야 합니다. Hypothesis, design, sampling plan, stopping rule, exclusion, condition, randomization, variable, primary/secondary outcome, analysis model, missing-data handling, 알려진 deviation 또는 unresolved decision을 포함해야 합니다.
 
-LLM은 누락된 중요한 commitment를 연구자에게 질문해야 하며 이를 지어내면 안 됩니다. 모든 unresolved item은 눈에 띄게 표시하고 `ready_for_submission`을 차단해야 합니다. Draft 생성은 submission이 아닙니다. External draft 생성, 제출, public release 또는 embargo 선택, sample collection 시작은 서로 다른 action입니다. 각 external mutation에는 적절한 권한이 필요하며 submission과 public/embargo 선택에는 연구자의 명시적 승인 및 결과 registry state 검증이 필요합니다.
+LLM은 누락된 중요한 결정을 연구자에게 묻고 지어내지 않습니다. 선택 항목을 포함한 모든 양식 항목을 표시하며 미정 답변은 확인 필요로 남깁니다. 생성기는 `ready_for_submission`을 주장하지 않습니다. 연구자는 다운로드한 초안으로 필요할 때 별도 등록합니다. 초안 생성은 모집 승인이 아닙니다.
 
-연구자가 preregistration package를 승인하면 greedyQ는 immutable local snapshot을 기록하고 대상 artifact hash가 변경된 경우 fielding을 차단해야 합니다. 변경에는 문서화된 amendment 또는 새 preregistration version이 필요하며 greedyQ는 승인된 record를 조용히 다시 생성하면 안 됩니다. Registry-specific behavior는 변경될 수 있으므로 adapter는 대상 external template/version을 선언해야 하고 검증 없이 성공적인 registration을 주장하면 안 됩니다.
+승인한 이전 초안을 보존합니다. 변경할 때 새 초안과 연구자 검토가 필요하며 승인 기록을 몰래 덮어쓰지 않습니다. 확인한 양식 출처·날짜를 기록합니다. 기존 registry 메타데이터는 과거 기록이지 현재 연동 요구사항이 아닙니다.
 
 ## 14. Web-native runtime
 
@@ -252,7 +256,7 @@ Complete reference study는 다음을 입증해야 합니다.
 6. Manipulation, attention, Likert, choice, numeric, free-text question
 7. Conditional display와 skip logic
 8. Privacy를 존중하는 demographic
-9. Partial save, resume, withdrawal, deletion-request 기록
+9. Partial save, resume, 원자적 철회 답변 삭제와 최소 관리 기록 보관
 10. 구분된 completion, screen-out, refusal, error outcome
 11. 사람이 읽고 기계가 읽을 수 있는 preregistration artifact 및 artifact-hash manifest
 12. Supabase migration과 Vercel configuration

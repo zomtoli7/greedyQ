@@ -4,15 +4,19 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from .randomization import plan_problem, ordering_problems, boundary_problems, option_plan, page_plan
+from .redirects import redirect_plan
+from .compiler import condition as parse_condition
+from .prolific import integration_plan
 
 
 SUPPORTED_TYPES = {"text", "textarea", "numeric", "mc", "mc_multiple", "mc_buttons", "mc_multiple_buttons", "mc_image", "mc_multiple_image", "select", "slider", "slider_numeric", "date", "daterange", "matrix", "matrix_multiple", "audio", "video", "rank_order", "side_by_side", "nps", "timing", "constant_sum", "pick_group_rank", "drill_down", "custom"}
 ID = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FRONT_KEYS = {"title", "greedyq", "theme-settings", "survey-settings", "system-messages"}
 NAMESPACE_KEYS = {
-    "greedyq": {"spec_version", "version", "organization"},
+    "greedyq": {"spec_version", "version", "organization", "language"},
     "theme-settings": {"theme", "barposition", "barcolor", "footer", "footer-left", "footer-center", "footer-right"},
-    "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required"},
+    "survey-settings": {"show-previous", "use-cookies", "all-required", "start-page", "highlight-unanswered", "capture-metadata", "required", "shuffled", "all-shuffled"},
     "system-messages": {"previous", "next", "required"},
 }
 
@@ -26,6 +30,17 @@ def _item(code, message, path, line=None, severity="error", technical=None):
 
 def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     issues = []
+    try: integration_plan(config)
+    except (ValueError,TypeError) as exc: issues.append(_item('GQ020',str(exc),config_path))
+    try: option_plan(parsed)
+    except ValueError as exc: issues.append(_item("GQ007", str(exc), qmd_path))
+    try: page_plan(parsed, config)
+    except ValueError as exc: issues.append(_item("GQ007", str(exc), config_path))
+    randomizations=config.get("randomization",[])
+    if not isinstance(randomizations,list) or any(not isinstance(r,dict) for r in randomizations):
+        return {"schema_version":"0.2","status":"failed","summary":"1 error(s), 0 warning(s)","issues":[_item("GQ007","randomization must be a list of assignment objects.",config_path)]}
+    if any(not isinstance(r.get(k,{}),dict) for r in randomizations for k in ("conditions","store","assignment_point")):
+        return {"schema_version":"0.2","status":"failed","summary":"1 error(s), 0 warning(s)","issues":[_item("GQ007","Random assignment conditions, store, and assignment_point must be objects.",config_path)]}
     pages = parsed.get("pages", [])
     page_ids = [p.get("id") for p in pages]
     known_pages = set(page_ids)
@@ -36,6 +51,10 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     for key in front:
         if key not in FRONT_KEYS:
             issues.append(_item("GQ003", "The survey header uses '%s', which is not a supported setting." % key, qmd_path, 1))
+    for namespace,defaults in {'theme-settings':{'theme':'default','barposition':'top','footer':'','footer-left':'','footer-center':'','footer-right':''},'survey-settings':{'use-cookies':True,'highlight-unanswered':False,'capture-metadata':False}}.items():
+        for key,default in defaults.items():
+            if key in front.get(namespace,{}) and front[namespace][key]!=default:
+                issues.append(_item('GQ120',"Setting '%s.%s' is not fully implemented in the browser runtime; review the compatibility audit."%(namespace,key),qmd_path,severity='warning'))
     for namespace, allowed in NAMESPACE_KEYS.items():
         value = front.get(namespace, {})
         if isinstance(value, dict):
@@ -47,6 +66,8 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     if config.get("spec_version") != "0.2":
         issues.append(_item("GQ003", "Set the study settings version to 0.2.", config_path, 1))
     organization = front.get("greedyq", {}).get("organization")
+    if front.get('greedyq', {}).get('language', 'en') not in ('en','ko','zh-CN','zh-TW'):
+        issues.append(_item('GQ003', 'Choose en, ko, zh-CN or zh-TW for greedyq.language.', qmd_path, 1))
     if organization is not None and (not isinstance(organization, str) or not organization.strip() or len(organization) > 120):
         issues.append(_item("GQ003", "Set greedyq.organization to the researcher-facing organization or team name (1–120 characters).", qmd_path, 1))
     greedyq_version = front.get("greedyq", {}).get("version")
@@ -146,6 +167,14 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     derived_fields = {item.get("store", {}).get("condition_as") for item in config.get("randomization", []) or []}
     derived_fields.discard(None)
     def check_condition(condition):
+        def inspect(node):
+            if 'all' in node or 'any' in node:
+                for child in node.get('all',node.get('any',[])):inspect(child)
+            elif 'unsupported' in node or not re.fullmatch(r'[a-z][a-z0-9_]*',node.get('field','')) or any(k in node and type(node[k]) not in (int,float) for k in ('lt','lte','gt','gte')):
+                issues.append(_item('GQ011','Use a supported comparison or answered(question) condition; arbitrary expressions are not executed.',config_path))
+            elif node['field'] not in known_questions and node['field'] not in derived_fields and node['field']!='condition':
+                issues.append(_item('GQ011',"A condition refers to '%s', but that question does not exist."%node['field'],config_path))
+        inspect(parse_condition(condition))
         for field, literal in re.findall(r"\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['\"]([^'\"]+)['\"]", str(condition or "")):
             if field not in known_questions and field not in derived_fields:
                 issues.append(_item("GQ011", "A condition refers to '%s', but that question does not exist." % field, config_path))
@@ -167,10 +196,17 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
         target = (page.get("nav") or {}).get("page_next")
         if target and target not in known_pages:
             issues.append(_item("GQ002", "Page '%s' continues to missing page '%s'." % (page["id"], target), qmd_path, page.get("_nav_line")))
+    for rule in logic.get('validate',[]) or []:
+        check_condition(rule.get('if'))
+        if rule.get('question') not in known_questions:issues.append(_item('GQ002','A validation rule refers to a missing question.',config_path))
     for outcome, value in (config.get("outcomes", {}) or {}).items():
         if value.get("page") not in known_pages:
             issues.append(_item("GQ002", "The '%s' ending points to missing page '%s'." % (outcome, value.get("page")), config_path))
+    if len(config.get("randomization", []) or []) > 1:
+        issues.append(_item("GQ007", "Only one between-subject random assignment is supported per study.", config_path))
     for randomization in config.get("randomization", []) or []:
+        problem = plan_problem(randomization)
+        if problem: issues.append(_item("GQ007", problem, config_path))
         after = (randomization.get("assignment_point") or {}).get("after_page")
         if after not in known_pages:
             issues.append(_item("GQ002", "Random assignment refers to missing page '%s'." % after, config_path))
@@ -178,6 +214,8 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             issues.append(_item("GQ007", "Random assignment '%s' needs at least two conditions." % randomization.get("id"), config_path))
         if not randomization.get("persistence_key") or not randomization.get("store", {}).get("condition_as"):
             issues.append(_item("GQ007", "Random assignment '%s' must save each participant's condition so it cannot change on resume." % randomization.get("id"), config_path))
+    for problem in boundary_problems(parsed, config) + ordering_problems(parsed, config):
+        issues.append(_item("GQ007", problem, config_path))
     consent = config.get("consent")
     if consent:
         confirmation = consent.get("confirmation_question")
@@ -189,6 +227,8 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
             if consent.get("accept_value") not in values:
                 issues.append(_item("GQ006", "The configured consent answer '%s' is not an option in question '%s'." % (consent.get("accept_value"), confirmation), config_path))
     for name, outcome in (config.get("outcomes", {}) or {}).items():
+        try: redirect_plan(outcome)
+        except ValueError as exc: issues.append(_item("GQ009", str(exc), config_path))
         redirect = outcome.get("redirect")
         if redirect and not str(redirect).startswith("https://"):
             issues.append(_item("GQ009", "The '%s' redirect must use a secure https address." % name, config_path))

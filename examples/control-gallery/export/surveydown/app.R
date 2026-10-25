@@ -81,11 +81,11 @@ server <- function(input, output, session) {
     output = uiOutput("gq_drill_example_output"),
     value = gq_drill_example_value
   )
-  output$gq_custom_example_output <- renderUI({ selectInput("custom_example", NULL, choices = c("First" = "first", "Second" = "second")) })
+  output$gq_custom_example_output <- renderUI({ selectInput("custom_example", NULL, choices = c("😞 Frustrating" = "frustrated", "😐 Just okay" = "neutral", "😊 Delightful" = "delighted")) })
   gq_custom_example_value <- reactive(input$custom_example)
   sd_question_custom(
     id = "custom_example",
-    label = "Custom control based on a built-in template",
+    label = "How did this experience feel? Choose an emotion card.",
     output = uiOutput("gq_custom_example_output"),
     value = gq_custom_example_value
   )

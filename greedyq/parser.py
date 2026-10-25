@@ -139,6 +139,18 @@ def parse_qmd(path):
     close = text.find("\n---", 4)
     if close < 0: raise ParseError("The YAML front matter is not closed.", 1)
     front = load_yaml(text[4:close])
+    for namespace in ('theme-settings','survey-settings','system-messages'):
+        alias=namespace.replace('-','_')
+        if alias in front:
+            if namespace in front: raise ParseError('Do not repeat a settings namespace using aliases.',1)
+            front[namespace]=front.pop(alias)
+        if isinstance(front.get(namespace),dict):
+            normalized={}
+            for key,value in front[namespace].items():
+                key=key.replace('_','-')
+                if key in normalized: raise ParseError('Do not repeat a setting using aliases.',1)
+                normalized[key]=value
+            front[namespace]=normalized
     body = text[close + 4:].lstrip("\n")
     matches = list(PAGE_RE.finditer(body))
     if not matches: raise ParseError("No survey pages were found. Add a line such as '--- welcome'.")
@@ -171,7 +183,7 @@ def parse_qmd(path):
                 if isinstance(args.get("default"), list): args["default"] = [item["value"] for item in args["default"]]
                 if isinstance(args.get("selected"), list): args["selected"] = [item["value"] for item in args["selected"]]
                 if "label_select" in args: q["placeholder"] = args.pop("label_select")
-                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "mobile_columns", "pre", "sep", "animate", "src", "poster", "caption", "transcript", "controls", "autoplay", "muted", "loop", "preload", "total", "path_separator", "low_label", "high_label", "base_type", "customization", "custom_class"):
+                for key in ("placeholder", "min", "max", "step", "orientation", "direction", "status", "width", "height", "selected", "default", "grid", "individual", "justified", "force_edges", "resize", "cols", "matrix_question_width", "mobile_columns", "pre", "sep", "animate", "src", "poster", "caption", "transcript", "controls", "autoplay", "muted", "loop", "preload", "total", "path_separator", "low_label", "high_label", "base_type", "customization", "custom_class", "selection_hint"):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)

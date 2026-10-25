@@ -59,8 +59,9 @@ console.log(JSON.stringify({report:gq.validateSurvey(parsed,config),model:gq.com
 
     def test_mock_backend_persists_assignment_balances_and_withdraws(self):
         script = r'''const gq=require("./web/greedyq-core.js"),b=gq.createMemoryBackend(),cs=["control","treatment"],assigned=[];
-for(let i=0;i<16;i++)assigned.push(b.assign("p"+i,cs));
-b.save("p0",{page:"two",answers:{q:"yes"}});const resumed=b.load("p0");const stable=b.assign("p0",cs);b.clear("p0");
+const plan={id:"trial",unit:"respondent",persistence_key:"session_id",method:"fixed_block",block_size:4,conditions:{control:1,treatment:1}};
+for(let i=0;i<16;i++)assigned.push(b.assign("p"+i,cs,plan));
+b.save("p0",{page:"two",answers:{q:"yes"}});const resumed=b.load("p0");const stable=b.assign("p0",cs,plan);b.clear("p0");
 console.log(JSON.stringify({assigned,resumed,stable,deleted:b.load("p0"),inspect:b.inspect()}));'''
         result = self.node(script)
         self.assertEqual(8, result["assigned"].count("control"))
@@ -113,15 +114,15 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
     def test_browser_renderer_enforces_numeric_bounds_before_navigation(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
         self.assertIn("function mountRespondentSafe", core)
-        self.assertIn("tooLow", core)
-        self.assertIn("tooHigh", core)
-        self.assertIn("stopImmediatePropagation", core)
+        self.assertIn("!c.validity.valid", core)
+        self.assertIn("if(questionErrors.size)", core)
 
     def test_browser_renderer_defers_assignment_until_declared_boundary(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
         compact = "".join(core.split())
-        self.assertIn("assignmentAllowed=!model.assignment_page", compact)
-        self.assertIn("model.assignment_page===page?.id", compact)
+        self.assertIn('condition:model.assignment_page?null:"default"', compact)
+        self.assertIn("model.assignment_page===p.id", compact)
+        self.assertLess(compact.index("if(questionErrors.size)"),compact.index("state.condition=awaitbackend.assign"))
         self.assertIn("remote.assign(sid,conditions)", compact)
         self.assertNotIn("assigned=loaded?.condition||await remote.assign", core)
 
@@ -150,7 +151,7 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
 
     def test_supabase_bridge_creates_session_and_registers_external_identifiers(self):
         core = (ROOT / "web/greedyq-core.js").read_text()
-        for token in ("greedyq_create_session", "p_greedyq_version", "registerExternal", "externalIdentifiers?.SESSION_ID"):
+        for token in ("greedyq_create_session", "p_greedyq_version", "startProlific", "externalIdentifiers || 'direct'"):
             self.assertIn(token, core)
         self.assertIn('typeof loaded.state.page === "string"', core)
         self.assertIn('typeof loaded?.page === "string"', core)
@@ -232,7 +233,8 @@ console.log(JSON.stringify({saved,conflict,refreshed}));'''
         thread = __import__("threading").Thread(target=server.serve_forever, daemon=True); thread.start()
         try:
             env = {**os.environ, "NODE_PATH": str(playwright.parent)}
-            result = subprocess.run([str(NODE), str(ROOT / "tests/browser_e2e.cjs"), f"http://localhost:{server.server_port}", str(chrome)], cwd=ROOT, env=env, text=True, capture_output=True, check=True)
+            result = subprocess.run([str(NODE), str(ROOT / "tests/browser_e2e.cjs"), f"http://localhost:{server.server_port}", str(chrome)], cwd=ROOT, env=env, text=True, capture_output=True)
+            self.assertEqual(0,result.returncode,result.stderr)
             report = json.loads(result.stdout.strip().splitlines()[-1])
             self.assertEqual(4, len(report["responsive"]))
             self.assertGreaterEqual(report["structuredAnswers"], 7)

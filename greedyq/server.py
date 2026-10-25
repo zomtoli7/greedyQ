@@ -7,6 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlencode, urlparse
 
 from .runtime import Store, matches, parse_form
+from .formatting import inline
 
 
 CSS="""body{margin:0;background:#f5f7fb;color:#172033;font:16px/1.55 system-ui}.top{background:#fff;border-bottom:1px solid #dfe3eb;padding:14px}.top div{max-width:760px;margin:auto;font-size:20px;font-weight:800}.card{max-width:760px;margin:38px auto;background:#fff;border:1px solid #dfe3eb;border-radius:16px;padding:clamp(24px,5vw,52px);box-shadow:0 8px 24px #1018280f}h1{font-size:clamp(27px,4vw,38px)}fieldset{border:0;padding:0;margin:32px 0}legend{font-weight:700;margin-bottom:12px}.choice{display:block;border:1px solid #dfe3eb;border-radius:10px;padding:13px;margin:8px 0}.choice:has(input:checked){border-color:#315c8a;background:#f2f7fc}input[type=text],input[type=number],input[type=date],select,textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #b9c1ce;border-radius:9px;font:inherit}textarea{min-height:110px}.matrix{overflow:auto}.matrix table{border-collapse:collapse;width:100%}.matrix th,.matrix td{padding:9px;border-bottom:1px solid #ddd;text-align:center}.matrix th:first-child{text-align:left}.btn{background:#315c8a;color:#fff;border:0;border-radius:9px;padding:11px 18px;font-weight:700;font:inherit}.error{background:#fff1f0;color:#b42318;border-left:4px solid #b42318;padding:12px}.meta{color:#667085;font-size:13px}.required{color:#b42318}@media(max-width:820px){.card{margin:16px 10px;padding:24px}}"""
@@ -21,7 +22,7 @@ def question_block(q, saved):
 
 
 def question_html(q, saved):
-    required='<span class="required"> *</span>' if q.get("required") else ""; out=['<fieldset><legend>%s%s</legend>'%(esc(q["label"]),required)]
+    required='<span class="required"> *</span>' if q.get("required") else ""; out=['<fieldset><legend>%s%s</legend>'%(inline(q["label"]),required)]
     value=saved.get(q["id"])
     if q["type"]=="custom":
         base=dict(q);base["type"]=q.get("base_type","text");return question_html(base,saved)
@@ -87,7 +88,14 @@ def make_handler(model, config, store):
             if not state:sid=store.create(model,config);state=store.state(sid)
             page=pages[state["session"]["current_page"]]; answers=state["answers"]
             message=parse_qs(urlparse(self.path).query).get("error",[""])[0]
-            terminal=page.get("terminal"); form=''.join(question_block(q,answers) for q in page.get("questions",[]))
+            ordered={q["id"]:q for q in page.get("questions",[])}
+            for qid, original in list(ordered.items()):
+                if qid in state.get("option_orders", {}):
+                    collection="rows" if original["type"]=="matrix" else "options"
+                    items={o["value"]:o for o in original[collection]}
+                    ordered[qid]={**original,collection:[items[v] for v in state["option_orders"][qid]]}
+            ids=state.get("question_orders",{}).get(page["id"],list(ordered))
+            terminal=page.get("terminal"); form=''.join(question_block(ordered[qid],answers) for qid in ids)
             if not terminal:form='<form method="post" action="/answer">%s<button class="btn" type="submit">%s</button></form>'%(form,esc(page.get("next_label",model.get("messages",{}).get("next","Continue"))))
             else:form='<p class="meta">Survey outcome: %s</p>'%esc(terminal)
             script="""<script>(()=>{const scalar=v=>/^-?\\d+(\\.\\d+)?$/.test(v)?Number(v):v;const val=n=>{const es=[...document.querySelectorAll(`[name='${CSS.escape(n)}']`)];const c=es.find(e=>e.checked);if(c)return scalar(c.value);const e=es[0];return e&&!['radio','checkbox'].includes(e.type)?scalar(e.value):null};const ok=r=>{if(!r)return true;if(r.all)return r.all.every(ok);if(r.any)return r.any.some(ok);const a=val(r.field);if('equals'in r)return a===r.equals;if('not_equals'in r)return a!==r.not_equals;if('lt'in r)return a!==null&&Number(a)<r.lt;if('lte'in r)return a!==null&&Number(a)<=r.lte;if('gt'in r)return a!==null&&Number(a)>r.gt;if('gte'in r)return a!==null&&Number(a)>=r.gte;return false};const update=()=>document.querySelectorAll('.question-block').forEach(x=>{const r=x.dataset.rule?JSON.parse(x.dataset.rule):null;x.hidden=!ok(r);x.querySelectorAll('input,select,textarea').forEach(e=>e.disabled=x.hidden)});document.addEventListener('input',update);document.addEventListener('change',update);update()})()</script>"""

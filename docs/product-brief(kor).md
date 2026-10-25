@@ -80,7 +80,7 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
 14. **Web-native runtime이 우선입니다.** Vercel과 Supabase가 주 실행 경로이며 native surveydown export는 greedyQ runtime이 아닌 핵심 병렬 출력입니다.
 15. **고급 사용자 정의에는 escape hatch가 있습니다.** 제한 없는 R, Shiny, Quarto가 필요할 때 연구자가 surveydown에서 직접 이어갈 수 있도록 `app.R`과 관련 native 프로젝트 파일을 생성합니다.
-16. **Preregistration은 핵심 출력입니다.** 확인된 연구 및 분석 결정에서 검토 가능하고 versioned된 preregistration package를 생성하고 registry 제출 또는 sample collection 전에 연구자의 명시적 승인을 요구합니다.
+16. **사전등록 초안은 핵심 출력입니다.** 공식 항목 목록과 확정된 연구 결정으로 검토 가능한 버전별 초안 파일을 만듭니다. OSF 로그인·제출·등록 관리 연동은 제공하지 않습니다. 필요하면 연구자가 별도로 등록하며 초안 생성이 모집 승인을 뜻하지 않습니다.
 
 ## 5. 호환성 전략
 

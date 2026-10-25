@@ -3,8 +3,8 @@
 [한국어](./consent(kor).md)
 
 **Document ID:** `consent_main`
-**Version:** `1.0.0`
-**Effective date:** 2026-09-07
+**Version:** `1.1.0`
+**Effective date:** 2026-10-25
 
 ## Study purpose
 
@@ -24,7 +24,7 @@ The study records your panel participant identifier, responses, assigned conditi
 
 ## Voluntary participation and withdrawal
 
-Participation is voluntary. Refusing or stopping does not create a penalty from the research team. Use the withdrawal option during the study to stop. The deletion-request option records a request for the research team; it does not claim that deletion has already occurred.
+Participation is voluntary. Refusing or stopping does not create a penalty from the research team. Saving a withdrawal during the survey deletes this session's research answers and assignment from the active greedyQ database. Minimal panel identifiers and the withdrawal status remain for returning the submission and preventing duplicate participation. Previously downloaded files, provider backups and Prolific's own records are outside this automatic deletion.
 
 ## Contacts
 

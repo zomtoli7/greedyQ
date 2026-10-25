@@ -6,9 +6,9 @@
   "summary": {
     "directly_portable": 2,
     "generated_custom": 0,
-    "generated_unverified": 2,
+    "generated_unverified": 3,
     "greedyq_only": 1,
-    "unsupported": 0
+    "unsupported": 2
   },
   "features": [
     {
@@ -22,9 +22,19 @@
       "note": "The generated native project starts in Surveydown preview mode; switch to database mode only after review."
     },
     {
+      "id": "external_redirect",
+      "classification": "generated_unverified",
+      "note": "Terminal return buttons and approved input URL parameters are generated. Automatic timers are omitted in native preview. Verify save-before-return and panel behavior in the target R runtime; native preview buttons can navigate externally when clicked."
+    },
+    {
       "id": "declarative_logic",
       "classification": "generated_unverified",
       "note": "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review."
+    },
+    {
+      "id": "prolific_identity_boundary",
+      "classification": "unsupported",
+      "note": "The native export does not reproduce browser/Supabase atomic Prolific registration, duplicate isolation or save-before-completion-code behavior. Return buttons alone are not an equivalent panel integration; configure and verify the native target separately."
     },
     {
       "id": "random_assignment",
@@ -35,12 +45,20 @@
       "id": "consent_ledger",
       "classification": "greedyq_only",
       "note": "Displayed consent is preserved; the event ledger is not."
+    },
+    {
+      "id": "withdrawal_erasure",
+      "classification": "unsupported",
+      "note": "The withdrawal page is exported, but atomic deletion of answers, local state and assignment is a greedyQ database capability. Implement and verify equivalent native storage deletion before fielding."
     }
   ],
   "material_mismatches": [
+    "Terminal return buttons and approved input URL parameters are generated. Automatic timers are omitted in native preview. Verify save-before-return and panel behavior in the target R runtime; native preview buttons can navigate externally when clicked.",
     "Display, skip, and stop rules were translated to native Surveydown helpers and require behavioral review.",
+    "The native export does not reproduce browser/Supabase atomic Prolific registration, duplicate isolation or save-before-completion-code behavior. Return buttons alone are not an equivalent panel integration; configure and verify the native target separately.",
     "Assignment was translated to a stored native random draw; fixed-block balance and greedyQ persistence equivalence are not claimed.",
-    "Displayed consent is preserved; the event ledger is not."
+    "Displayed consent is preserved; the event ledger is not.",
+    "The withdrawal page is exported, but atomic deletion of answers, local state and assignment is a greedyQ database capability. Implement and verify equivalent native storage deletion before fielding."
   ],
   "equivalence_claimed": false
 }

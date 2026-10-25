@@ -154,17 +154,21 @@ Consent amendments MUST require renewed confirmation. Withdrawal policy MUST sta
 
 When detailed work is deferred, a draft preview MAY contain conspicuous placeholder governance and consent content. It MUST NOT present that content as reviewed or approved. Detailed governance, privacy, withdrawal, retention, and participant-facing consent MUST be confirmed after the coherent instrument draft and before interactive preview approval. Production deployment MUST remain blocked until that confirmation is recorded.
 
-When deletion-on-withdrawal is selected, the runtime MUST perform the operation atomically and idempotently. It MUST lock the session, delete research answers, assignments, and external identifiers as configured, retain only the explicitly declared minimum operational record, append the terminal lifecycle event, and roll back the whole operation on failure. Generated Supabase projects MUST start from the reviewed canonical implementation in `examples/complete-study/supabase/migrations/001_initial.sql`; an agent MUST NOT replace it with an unreviewed approximation. Any study-specific deviation MUST be documented and researcher-approved.
+The canonical runtime deletes research answers on withdrawal atomically and idempotently. It MUST lock the session, delete answers, assignments, consent events and stored browser answer/order content, retain only the disclosed minimum operational record and administrative panel identifiers needed for return/duplicate prevention, append a minimal terminal event, and roll back on failure. Consumed allocation slots MUST NOT be reused. It MUST acknowledge the clean server state before enabling return and MUST reject later answer writes. This does not erase prior downloads, provider backups or external platform records. Generated Supabase projects MUST apply the canonical migrations 001–006; an agent MUST NOT replace them with an unreviewed approximation. A different retention policy requires explicit researcher review and a separately implemented and verified variant; metadata alone MUST NOT claim the canonical runtime retains withdrawn answers.
 
 ## 9. Respondent sources and Prolific
 
 The generic respondent contract defines allowlisted inbound parameters, validation, canonical identifiers, duplicate policy, and outcome redirects. Raw query parameters MUST NOT be stored unless explicitly allowlisted.
 
-The Prolific preset recognizes `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID`. A valid participant ID is required before consent for panel runs. Duplicate behavior MUST be one of `resume`, `reject`, or `allow`; v0.2 defaults to `resume`. Completion, screen-out, consent-refusal, and technical-error routes MUST be distinct and test mode MUST suppress production redirects.
+The Prolific preset recognizes `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID`. All three validated identifiers are required for panel runs. Its canonical duplicate settings are `resume` or `block`, defaulting to `resume`; repeated production submissions are unsupported. Completion, screen-out, consent-refusal, withdrawal and technical-error routes MUST be distinct when used. Local preview MUST suppress external returns; connected Test-mode Prolific draft checks MAY return only through reviewed test paths. Private 24-hour preview grants issued from the protected results service MAY create fresh Test-only namespaces with unchanged panel identifiers. Production, expired and wrong-study grants MUST be rejected server-side, and ordinary duplicate protection MUST remain intact. Signed Prolific URLs remain explicitly unsupported by this standard URL integration.
 
 ## 10. Randomization
 
 v0.2 supports simple and fixed-block between-subject assignment. A randomization declares an ID, unit, method, conditions, allocation, assignment point, persistence key, and stored metadata.
+
+The implemented contract is one respondent-level assignment per study with `session_id` persistence. Positive integer condition weights specify the ratio. Simple assignment draws independently; fixed blocks shuffle a complete weighted block, never merely select the least-populated arm. Test and production schedules are separate. See [RANDOMIZATION.md](../RANDOMIZATION.md) for constraints, the additive 004 migration, and privileged registration of the reviewed model. Prior least-count records must not be relabeled or mixed into a new randomized study.
+
+Opt-in `question_order` entries name a page and at least two question IDs to shuffle in place. Other positions remain fixed. Persist the resulting order per session/page and export it as `question_orders`. Consent pages and same-page dependent question/trigger combinations cannot be shuffled. Answer-option and whole-page ordering are not implemented. Export must report unsupported ordering rather than claim equivalence.
 
 Assignment MUST occur only after consent and immediately before the first condition-dependent page. It MUST be atomic, persisted before stimulus display, invariant across refresh/resume, and never recomputed for the same persistence key. Stored metadata MUST include condition, method, seed or draw identifier, block identifier when applicable, assignment timestamp, and specification version.
 
@@ -211,13 +215,13 @@ Methodological concerns such as treatment confounding, contamination, construct 
 
 ## 13. Preregistration output and fielding gate
 
-Preregistration is a first-class generated output. `greedyq.yml` MUST identify a template adapter, output directory, registration status, and fielding gate. v0.2 supports `osf_preregistration` and `generic_markdown`; additional registry templates are adapters rather than changes to the study model.
+Preregistration is a first-class draft-file output. v0.2 supports `osf_preregistration` and `generic_markdown`; both use the field inventory and delivery contract in [PREREGISTRATION.md](../PREREGISTRATION.md). No OSF account connection, submission, embargo management or registry verification is part of greedyQ.
 
 The package MUST include a human-readable Markdown draft, a machine-readable JSON representation, and a SHA-256 artifact manifest covering the exact study, consent, stimuli, and analysis-plan versions being registered. It SHOULD include hypotheses, design, sampling plan, stopping rule, exclusions, conditions, randomization, variables, primary and secondary outcomes, analysis models, missing-data handling, and known deviations or unresolved decisions.
 
-The LLM MUST ask the researcher about missing material commitments and MUST NOT invent them. Every unresolved item MUST remain visibly marked and MUST block `ready_for_submission`. Generation of a draft is not submission. Creating an external draft, submitting it, choosing public release or embargo, and starting sample collection are distinct actions. Each external mutation requires appropriate authorization, and submission plus public/embargo choice requires explicit researcher approval and verification of the resulting registry state.
+The LLM MUST ask about missing material commitments and MUST NOT invent them. All published template fields remain visible, including optional fields. Unknown decisions remain TO CONFIRM. The generator never asserts `ready_for_submission`; the researcher downloads and independently handles registration if needed. Draft creation never authorizes recruitment.
 
-Once the researcher approves a preregistration package, greedyQ MUST record an immutable local snapshot and block fielding when covered artifact hashes change. A change requires a documented amendment or a new preregistration version; greedyQ MUST NOT silently regenerate the approved record. Registry-specific behavior can change, so adapters MUST declare the external template/version they target and MUST not claim successful registration without verification.
+Preserve previously approved drafts. Changes require a new draft and researcher review; never overwrite an approved record silently. Record the checked template source and date. Legacy registry metadata remains historical, not an active integration requirement.
 
 ## 14. Web-native runtime
 
@@ -261,7 +265,7 @@ The complete reference study MUST demonstrate:
 6. manipulation, attention, Likert, choice, numeric, and free-text questions;
 7. conditional display and skip logic;
 8. privacy-respecting demographics;
-9. partial save, resume, withdrawal, and deletion-request recording;
+9. partial save, resume, atomic withdrawal erasure and minimal administrative retention;
 10. distinct completion, screen-out, refusal, and error outcomes;
 11. human-readable and machine-readable preregistration artifacts plus an artifact-hash manifest;
 12. Supabase migration and Vercel configuration; and

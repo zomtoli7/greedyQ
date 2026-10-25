@@ -4,9 +4,9 @@
 
 **Document ID:** `consent_main`
 
-**Version:** `1.0.0`
+**Version:** `1.1.0`
 
-**Effective date:** 2026-09-07
+**Effective date:** 2026-10-25
 
 ## Why we are asking
 
@@ -24,11 +24,11 @@ This survey is expected to involve no more than minimal risk. You may skip optio
 
 The survey records your answers, the consent version, and operational timestamps needed to save and submit the survey. It does not ask for your name, email address, institution, IP address, browser fingerprint, credentials, or private research data. Please do not enter those details in written responses.
 
-Results should be reported in summary form. Because the survey does not ask for a lasting personal identifier, the team may be unable to locate an individual response after submission. During the survey, the withdrawal option can record a request concerning the current session.
+Results should be reported in summary form. Because the survey does not ask for a lasting personal identifier, the team may be unable to locate an individual response after submission. During the survey, saving a withdrawal deletes the current session's research answers from the active greedyQ database.
 
 ## Voluntary participation and withdrawal
 
-Taking part is voluntary. You may decline or stop without penalty. Before submission, choose the withdrawal option if you do not want to continue. A recorded deletion request is a request for action and does not mean deletion has already been completed.
+Taking part is voluntary. You may decline or stop without penalty. Before submission, choose the withdrawal option if you do not want to continue. Once saved successfully, the session's answers and assignment are deleted; a minimal withdrawal record remains. Previously downloaded files and provider backups are outside this automatic deletion.
 
 ## Contacts
 

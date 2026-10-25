@@ -6,6 +6,7 @@ import sqlite3
 import threading
 import time
 import uuid
+from .randomization import draw, question_order, option_order, page_order
 
 
 TERMINAL = {"completed", "screened_out", "consent_refused", "withdrawn", "technical_error"}
@@ -22,6 +23,8 @@ class Store:
 
     def _init(self):
         with self.connect() as db:
+            db.execute("create table if not exists option_orders(session_id text primary key, orders text not null)")
+            db.execute("create table if not exists page_orders(session_id text primary key, orders text not null)")
             db.executescript("""
             create table if not exists sessions(id text primary key,study_id text not null,study_version text not null,spec_version text not null,current_page text not null,is_test integer not null,lifecycle_state text not null,created_at real not null,updated_at real not null,terminal_at real);
             create table if not exists answers(session_id text not null references sessions(id) on delete cascade,question_id text not null,value text,answered_at real not null,primary key(session_id,question_id));
@@ -29,6 +32,8 @@ class Store:
             create table if not exists assignments(session_id text not null references sessions(id) on delete cascade,randomization_id text not null,condition_name text not null,method text not null,block_id text,draw_id text not null,spec_version text not null,assigned_at real not null,primary key(session_id,randomization_id));
             create table if not exists lifecycle_events(id integer primary key autoincrement,session_id text not null references sessions(id) on delete cascade,from_state text,to_state text not null,page_id text,metadata text not null,occurred_at real not null);
             create table if not exists data_requests(id integer primary key autoincrement,session_id text not null references sessions(id) on delete cascade,request_type text not null,status text not null,requested_at real not null);
+            create table if not exists allocation_sequences(scope text primary key,plan text not null,state text not null);
+            create table if not exists question_orders(session_id text primary key references sessions(id) on delete cascade,orders text not null);
             """)
 
     def create(self, model, config):
@@ -36,6 +41,9 @@ class Store:
         with self.connect() as db:
             db.execute("insert into sessions values(?,?,?,?,?,?,?,?,?,null)",(sid,model["study_id"],study.get("version","draft"),config.get("spec_version","0.2"),model["start_page"],1,"created",now,now))
             db.execute("insert into lifecycle_events(session_id,from_state,to_state,page_id,metadata,occurred_at) values(?,?,?,?,?,?)",(sid,None,"created",model["start_page"],"{}",now))
+            db.execute("insert into question_orders values(?,?)", (sid,json.dumps({p["id"]:question_order(p) for p in model["pages"] if p.get("shuffle_questions")})))
+            db.execute("insert into option_orders values(?,?)", (sid,json.dumps({q["id"]:option_order(q) for p in model["pages"] for q in p["questions"] if q.get("shuffle_items")})))
+            if model.get("shuffle_pages"): db.execute("insert into page_orders values(?,?)",(sid,json.dumps(page_order(model))))
         return sid
 
     def state(self, sid):
@@ -44,7 +52,9 @@ class Store:
             if not session:return None
             answers={r["question_id"]:json.loads(r["value"]) for r in db.execute("select question_id,value from answers where session_id=?",(sid,))}
             assignment=db.execute("select * from assignments where session_id=? order by assigned_at limit 1",(sid,)).fetchone()
-            return {"session":dict(session),"answers":answers,"condition":assignment["condition_name"] if assignment else None}
+            orders=db.execute("select orders from question_orders where session_id=?",(sid,)).fetchone()
+            option_orders=db.execute("select orders from option_orders where session_id=?",(sid,)).fetchone()
+            return {"session":dict(session),"answers":answers,"condition":assignment["condition_name"] if assignment else None,"question_orders":json.loads(orders[0]) if orders else {},"option_orders":json.loads(option_orders[0]) if option_orders else {}}
 
     def transition(self, sid, page, answers, model, config):
         pages={p["id"]:p for p in model["pages"]}; consent=config.get("consent",{}); now=time.time()
@@ -82,15 +92,34 @@ class Store:
             randomizations=config.get("randomization",[]) or []
             for rnd in randomizations:
                 if (rnd.get("assignment_point") or {}).get("after_page")==page and not condition:
-                    counts={name:db.execute("select count(*) from assignments where randomization_id=? and condition_name=?",(rnd["id"],name)).fetchone()[0] for name in rnd["conditions"]}
-                    minimum=min(counts.values()); candidates=[name for name,count in counts.items() if count==minimum]; condition=secrets.choice(candidates)
-                    total=sum(counts.values()); block=str(total//int(rnd.get("block_size",len(candidates))))
+                    if consent_q and not accepted: raise ValueError("Consent is required before random assignment.")
+                    scope=json.dumps([session["study_id"],rnd["id"],bool(session["is_test"])])
+                    plan=json.dumps(rnd,sort_keys=True)
+                    prior=db.execute("select plan,state from allocation_sequences where scope=?",(scope,)).fetchone()
+                    if prior and prior["plan"]!=plan: raise ValueError("The random assignment plan changed; create a new study ID.")
+                    sequence=json.loads(prior["state"]) if prior else {}
+                    condition,block=draw(rnd,sequence)
+                    db.execute("insert into allocation_sequences values(?,?,?) on conflict(scope) do update set state=excluded.state",(scope,plan,json.dumps(sequence)))
                     db.execute("insert into assignments values(?,?,?,?,?,?,?,?)",(sid,rnd["id"],condition,rnd.get("method","simple"),block,secrets.token_hex(8),config.get("spec_version","0.2"),now))
             target=next_for(current,combined,condition)
+            for check in current.get('checks',[]):
+                if matches(check['when'],combined,condition):raise ValueError(check['message'])
+            seen={page}
+            while target in pages and not matches(pages[target].get('show_if'),combined,condition):
+                if target in seen:raise ValueError('Conditional page cycle.')
+                seen.add(target);target=next_for(pages[target],combined,condition)
+            order=db.execute("select orders from page_orders where session_id=?",(sid,)).fetchone()
+            if order:
+                sequence=json.loads(order[0]); target=sequence[sequence.index(page)+1]
             if not target or target not in pages: db.rollback(); raise ValueError("The next survey page is not configured correctly.")
             target_page=pages[target]; new_state=target_page.get("terminal") or ("in_progress" if accepted else "created")
-            if new_state=="withdrawn" and combined.get("deletion_request")=="yes":
-                db.execute("delete from answers where session_id=?",(sid,)); db.execute("delete from assignments where session_id=?",(sid,)); db.execute("insert into data_requests(session_id,request_type,status,requested_at) values(?,?,?,?)",(sid,"deletion","recorded",now))
+            if new_state=="withdrawn":
+                db.execute("delete from question_orders where session_id=?",(sid,))
+                db.execute("delete from option_orders where session_id=?",(sid,))
+                db.execute("delete from page_orders where session_id=?",(sid,))
+                db.execute("delete from answers where session_id=?",(sid,)); db.execute("delete from assignments where session_id=?",(sid,))
+                db.execute("delete from consent_events where session_id=?",(sid,)); db.execute("delete from lifecycle_events where session_id=?",(sid,))
+                db.execute("insert into data_requests(session_id,request_type,status,requested_at) values(?,?,?,?)",(sid,"deletion","completed",now))
             db.execute("update sessions set current_page=?,lifecycle_state=?,updated_at=?,terminal_at=? where id=?",(target,new_state,now,now if new_state in TERMINAL else None,sid))
             db.execute("insert into lifecycle_events(session_id,from_state,to_state,page_id,metadata,occurred_at) values(?,?,?,?,?,?)",(sid,session["lifecycle_state"],new_state,target,"{}",now)); db.commit()
         return self.state(sid)
@@ -101,6 +130,7 @@ def matches(rule, answers, condition):
     if "all" in rule:return all(matches(r,answers,condition) for r in rule["all"])
     if "any" in rule:return any(matches(r,answers,condition) for r in rule["any"])
     actual=condition if rule.get("field")=="condition" else answers.get(rule.get("field"))
+    if 'answered' in rule:return (actual is not None and actual!='' and actual!=[] and actual!={})==rule['answered']
     for key,fn in (("equals",lambda a,b:a==b),("not_equals",lambda a,b:a!=b),("lt",lambda a,b:float(a)<b),("lte",lambda a,b:float(a)<=b),("gt",lambda a,b:float(a)>b),("gte",lambda a,b:float(a)>=b)):
         if key in rule:
             try:return fn(actual,rule[key])

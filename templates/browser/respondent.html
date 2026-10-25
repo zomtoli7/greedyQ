@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer" />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
@@ -14,6 +15,9 @@
     <link rel="stylesheet" href="greedyq-runtime.css" />
   </head>
   <body style="margin: 0">
+    <section id="preview-tools" hidden style="padding:12px;background:#fff4ce;color:#172033">
+      <b id="preview-label"></b> <button id="preview-restart" type="button"></button>
+    </section>
     <div id="survey"></div>
     <script src="greedyq-core.js"></script>
     <script id="greedyq-deployment" type="application/json">
@@ -45,6 +49,10 @@
       }
     </script>
     <script>
+      const surveyLanguage=JSON.parse(document.getElementById('greedyq-model').textContent).language || 'en';
+      document.documentElement.lang=surveyLanguage;
+      document.title=JSON.parse(document.getElementById('greedyq-model').textContent).title || 'greedyQ';
+      const ui=(message)=>greedyQ.translate(surveyLanguage,message);
       (async () => {
         const model = JSON.parse(
             document.getElementById("greedyq-model").textContent,
@@ -54,10 +62,6 @@
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
-        const sessionId = greedyQ.stableSessionId(
-          model.study_id,
-          params.get("session"),
-        );
         let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",
@@ -67,40 +71,56 @@
           const launch = greedyQ.resolveProlificLaunch(
             location.search,
             model.runtime_policy.mode,
+            model.runtime_policy.prolific?.study_id,
           );
           if (launch.status !== "passed") {
             root.innerHTML =
-              '<main class="gq-card"><h1>Survey link incomplete</h1><p>Please return to Prolific and open the study from your task page.</p></main>';
+              `<main class="gq-card"><h1>${ui('Survey link incomplete')}</h1><p>${ui('Please return to Prolific and open the study from your task page.')}</p></main>`;
             return;
           }
           externalIdentifiers = launch.identifiers;
         }
+        const previewToken=params.get('gq_preview');
+        if(params.has('gq_preview')){
+          if(model.runtime_policy?.mode!=='test' || !externalIdentifiers || !/^[a-f0-9]{64}$/.test(previewToken || ''))throw new Error('Invalid preview launch.');
+          document.getElementById('preview-tools').hidden=false;
+          document.getElementById('preview-label').textContent=surveyLanguage==='ko'?'반복 시험 중 · 실제 응답으로 수집되지 않습니다.':'Repeat preview · Test responses only.';
+          const restart=document.getElementById('preview-restart');restart.textContent=surveyLanguage==='ko'?'새 시험 시작':'Start a new test';
+          restart.onclick=()=>{
+            const key=`greedyq-capability:${JSON.stringify([model.study_id,'test',externalIdentifiers,previewToken])}`;
+            localStorage.removeItem(key);location.reload();
+          };
+        }
+        const scope=JSON.stringify([model.study_id,model.runtime_policy?.mode || 'test',externalIdentifiers || 'direct']);
+        const sessionId=greedyQ.stableSessionId(scope,externalIdentifiers?null:params.get('session'));
         if (deployment.mode === "supabase")
           await greedyQ.mountSupabaseRespondent(root, model, {
             url: deployment.supabase_url,
             anonKey: deployment.supabase_anon_key,
             sessionId,
             externalIdentifiers,
+            previewToken,
             onError: (error) => {
               if (!root.querySelector("[data-save-error]"))
                 root.insertAdjacentHTML(
                   "afterbegin",
-                  '<p class="gq-error" data-save-error>Your response could not be saved. Please check your connection before continuing.</p>',
+                  `<p class="gq-error" data-save-error>${ui('Your response could not be saved. Please check your connection before continuing.')}</p>`,
                 );
               console.error(error);
             },
           });
-        else
+        else {
+          const backend=greedyQ.createLocalMockBackend(`greedyq:${model.study_id}`);
+          await backend.ready;
           greedyQ.mountRespondent(root, model, {
             mode: greedyQ.detectDevice(),
-            backend: greedyQ.createLocalMockBackend(
-              `greedyq:${model.study_id}`,
-            ),
+            backend,
             sessionId,
           });
+        }
       })().catch((error) => {
         document.getElementById("survey").innerHTML =
-          '<main class="gq-card"><h1>Survey unavailable</h1><p>The secure data connection could not be started.</p></main>';
+          `<main class="gq-card"><h1>${ui('Survey unavailable')}</h1><p>${ui(error.kind==='prolific_duplicate'?'A response already exists. Reopen this study in the browser where you started, or contact the researcher.':'The secure data connection could not be started.')}</p></main>`;
         console.error(error);
       });
     </script>

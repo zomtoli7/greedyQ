@@ -2,8 +2,10 @@
 
 [한국어](./external-connection-readiness(kor).md)
 
+**Randomization upgrade:** the new runtime requires migrations 001–006 and registration of every reviewed model. The runtime checks the server contract and refuses an old or mismatched setup. Follow [RANDOMIZATION.md](../RANDOMIZATION.md); earlier account tests do not establish acceptance of this upgrade.
+
 **Release:** `0.2_2026-09-10_c4a8405`
-**Status:** locally verified; external accounts not connected
+**Status:** local and connected test verification complete; paid Prolific pilot paused for platform review. Payment remains unverified.
 
 greedyQ prepares and tests the survey application before any Vercel, Supabase, or Prolific account is connected. This boundary keeps ordinary questionnaire review local and makes the final external step a configuration and verification task rather than a new implementation task.
 
@@ -15,7 +17,7 @@ greedyQ prepares and tests the survey application before any Vercel, Supabase, o
 - Refresh resume, stable mock assignment, withdrawal/reset, required and structured answers, numeric bounds, routing, and terminal outcomes are covered by automated tests. A real Chrome E2E suite also checks 320px, 390px, 768px, and 1280px layouts, dashboard filters, and downloaded CSV structure.
 - The JavaScript validator and compiler are compared with the Python reference implementation on both golden studies and on deliberately invalid inputs.
 - A static Vercel bundle and offline deployment preflight are generated.
-- Three canonical Supabase migrations define tables, RLS boundaries, capability-token RPC access, locked balanced assignment, consent-gated answer writes, duplicate Prolific identifier rejection, transactional withdrawal deletion, and the researcher results boundary. An ordered checksum manifest detects missing or changed migration files before connection.
+- Six canonical Supabase migrations define tables, RLS boundaries, capability-token RPC access, assignment, consent-gated answers, atomic Prolific registration with test/real isolation, withdrawal deletion and the researcher results boundary. An ordered checksum manifest detects missing or changed files before connection.
 - A browser-native `supabase-connection-test.html` verifies the connected project with synthetic `is_test` sessions and withdraws them afterward.
 - Prolific launch parameters and HTTPS completion URLs are validated in test code.
 - Preregistration Markdown, JSON, and a SHA-256 manifest can be generated as an explicitly unapproved local draft.
@@ -23,7 +25,7 @@ greedyQ prepares and tests the survey application before any Vercel, Supabase, o
 
 ## What still requires an external account
 
-No live Vercel deployment, Supabase migration, Prolific study configuration, OSF submission, production redirect, or real participant transaction is performed by local tests. Those operations require the researcher's account, authorization, region and retention choices, and explicit approval. After connection, each service must be verified independently; the presence of generated files is not evidence that a service works.
+No live Vercel deployment, Supabase migration, Prolific study configuration, production redirect, or real participant transaction is performed by local tests. Those operations require the researcher's account, authorization, region and retention choices, and explicit approval. After connection, each service must be verified independently; the presence of generated files is not evidence that a service works.
 
 ## Final connection sequence
 
@@ -42,4 +44,4 @@ Completion requires two verified URLs: the survey link and the results link. A d
 
 ## Evidence and limits
 
-The repository's unit and contract tests provide local evidence for deterministic behavior and generated connection artifacts. PostgreSQL SQL is source-reviewed by tests but has not been executed against a live Supabase PostgreSQL instance in this account-free phase. Browser files are served and syntax-checked locally; cross-browser and assistive-technology acceptance testing remains a release activity on the target browsers and devices.
+The repository's unit and contract tests provide local evidence for deterministic behavior and generated connection artifacts. On 2026-10-25, migrations 001–006 and the withdrawal/repeat-preview path were exercised on the dedicated Supabase test database with deployed Vercel survey/results applications. See the [cloud verification record](./prolific-cloud-test-2026-10-25.md) for exact evidence and limits. This does not verify a different account, paid Prolific submissions, every browser or assistive technology. Those remain target-specific acceptance activities.

@@ -10,7 +10,7 @@
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "dbdf67defdce6c9069a53022ded7ba8fa0d026813dd9ef92709b5a5be4b2d534",
+      "sha256": "43291730e89f8555ce667acd36e4ed2d2e19316cf8f5fb1e2b60209ddc748eac",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_research_question",
@@ -21,7 +21,7 @@
     {
       "path": "greedyq.yml",
       "kind": "source",
-      "sha256": "1394d1d63c788f77b72dde9de5208bdcd14e0a46b86193ad788441a18c595289",
+      "sha256": "53eccec7ff9e7619cf5009960360114dc51b92bde503746febb81dd4339719e8",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -32,7 +32,7 @@
     {
       "path": "consent.md",
       "kind": "source",
-      "sha256": "c3fdddb7256900faadb9bdfa127b8522c6e0a562ca6cd2de3576764343a68e08",
+      "sha256": "e9698a29211b101fdab61bf91a871acbc28f3e00c540018f4c11d349d766ee50",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_consent_privacy"
@@ -73,7 +73,7 @@
     {
       "path": "preview-model.json",
       "kind": "derived",
-      "sha256": "0d038cc905309aa59e8eb84188900f491682c33edfaae6e5133ec426d1f6a0a9",
+      "sha256": "3868920b2ba2826f2db0de1b2b2d6390be3d0c4462cb8cf63baa4f256a81973a",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "bb5fdfb054eb6f7ac762a72c5696a552392ec69cfd380f169099aedc3482979d",
+      "sha256": "6c82d9fe9183c71d9de20250430041f02b621595a01540fff43fb5217260ccf3",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,11 +116,9 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "d652706e63b85b1d2221222a16dc0acf20a89bc7086b8b8abe4fdc038305f507",
+      "sha256": "43aa98837a368ab0554edce47f585509e0aa6c1027c1fcdcf7ffbe6775254d4d",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": ".greedyq/validation-report.json",
@@ -136,97 +134,77 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "c0daa91a66b812cb5bbc16b2e7a30b5fbbadeb776560e2538c8dd29f9db87988",
+      "sha256": "3d891689780183bbc30c851fa9d700d26176ea64de550b2677583ad0c2d10fcb",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": ".greedyq/validation-report.runtime.json",
       "kind": "derived",
-      "sha256": "281f67c0ad1d92c49be06ea20312abd037e4617bbd01ccf1d313a47b05bf4f20",
+      "sha256": "2b4e01cd3fbcca05191a3769d612f7cde215c98033635d4eabb2883b8c2c7de6",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "e00da10c3c61a9f96088f6eca82b84d06252212f59de08f18bd8d8b6008a632e",
+      "sha256": "82b43d67c3faf344e7eeb97e494e4a4853de6dd55238f70f2d72384c466b6c6d",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627",
+      "sha256": "a9de837384d74dfd915c6de725987cedbc2533cdee790d4b119352eb6c2b2561",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "greedyq-runtime.css",
       "kind": "derived",
-      "sha256": "fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8",
+      "sha256": "d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "design/stimuli.csv",
       "kind": "derived",
       "sha256": "63ad0888498c76cdb48e67607f36a1d36803fe8883f22e6ed0f2b38d6db22893",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "analysis/data-dictionary.csv",
       "kind": "derived",
       "sha256": "50b5533963f066251e8ee9cc84f806bdb52d628e802641690b47fb6d725fbb3e",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "preregistration/preregistration.json",
       "kind": "derived",
       "sha256": "3d813741633bfebe6d603095bdc04f6e6322f19897e90505dea94391c8117502",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "studio.html",
       "kind": "derived",
       "sha256": "b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "supabase/migrations/002_browser_rpc.sql",
       "kind": "derived",
       "sha256": "56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "c18ee5d67914049dbf8421ab4956faab3310dfeaa7a890a58a693885b91e4c83",
+      "sha256": "b4b3aee73b6fec995221b8601b547771dff050d5d1d3aa5dd65df8ef42aeb3ec",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -235,7 +213,7 @@
     {
       "path": "api/results.js",
       "kind": "source",
-      "sha256": "b8a782612d4b48238132c2fafa665507325155370cdafb8a3fdab71d5b891eb4",
+      "sha256": "474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -255,18 +233,14 @@
       "kind": "derived",
       "sha256": "e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     },
     {
       "path": "supabase/migrations/manifest.json",
       "kind": "derived",
-      "sha256": "74aea7cef4e9fd1f0a946794fdb4c49353f9af38555208b59406516824478c80",
+      "sha256": "fdb5646b54840a527dba355cff5c41c8716872879d159708eee8cb66b88335b5",
       "status": "validated",
-      "based_on_decision_ids": [
-
-      ]
+      "based_on_decision_ids": []
     }
   ],
   "external_operations": [

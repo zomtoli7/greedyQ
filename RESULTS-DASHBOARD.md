@@ -4,7 +4,13 @@
 
 The results dashboard is the researcher's everyday view of collected data. Supabase remains the private storage layer; researchers should not need to navigate its tables or write database queries.
 
+For a Prolific study in Test mode, **Repeat Prolific preview** creates a private, 24-hour test link. Enter the deployed survey address, choose **Create repeat-test link**, and use the result in the Prolific draft with ID recording enabled. The survey's **Start a new test** button makes a fresh attempt while preserving prior test records and actual panel IDs. This feature is unavailable for production collection. See [the full procedure](./PROLIFIC-SETUP.md#repeat-a-prolific-preview-safely).
+
+After a successful new withdrawal, refreshing results and downloading CSV must show no research answers or assignment for that session. Its minimal withdrawal status and administrative panel identifiers remain for return and duplicate prevention. Old downloads are not rewritten; earlier withdrawals made before migration 006 are not automatically changed. See [deletion scope](./PROLIFIC-SETUP.md#withdrawal-deletion-and-verification).
+
 ## The two links researchers receive
+
+When collection ends, use [the archive workflow](./ARCHIVING.md), not just the currently filtered dashboard CSV. The final archive includes all real/test responses and verification records. Pausing the results project makes this online dashboard unavailable; download first.
 
 After a connected deployment succeeds, greedyQ returns exactly two primary links:
 
