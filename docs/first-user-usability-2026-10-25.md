@@ -37,3 +37,5 @@ Final pre-release regression: **176 Python tests and 38 Node/browser tests passe
 ## Remaining external boundary
 
 Migration 007 and these runtime changes have local evidence. Existing cloud studies need their own approved migration/rebuild/registration/deployment review; a repository or website update does not upgrade a live survey. In particular, do not change the pilot while Prolific reviews it. Genuine paid submission matching, approval and payment remain pending. Local fake-provider checks do not establish current account permissions, billing limits, Vercel Authentication behavior or provider pause/resume on another account. Previously recorded live acceptance remains evidence for the version tested at that time.
+
+Publication check: `0.2_2026-10-25_7beafe4` passed the full 214-check regression after release stamping. GitHub Pages serves the exact generated embed and release metadata, and the existing Google Sites public page independently matched the entire embed after Safari publication.
