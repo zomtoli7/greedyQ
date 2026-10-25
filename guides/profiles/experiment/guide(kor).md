@@ -13,3 +13,5 @@
 Randomization은 선언된 unit에서 한 번만 수행하고, 문서화된 난수 원천을 사용하며, condition-dependent content를 보여주기 전에 저장되고, 새로고침이나 재접속 후에도 유지되어야 합니다. Preview control은 검토를 위해 condition을 강제할 수 있지만 respondent control과 시각적으로 분리되어야 하며 production assignment behavior를 바꾸면 안 됩니다.
 
 의도한 경우 baseline measure가 treatment보다 앞서는지, treatment-dependent measure가 노출 뒤에 오는지, 숨겨진 응답이 분석을 오염시키지 않는지, 모든 condition이 유효한 outcome에 도달하는지 확인합니다. Instrument 승인 전에 interactive preview에서 모든 condition을 연구자가 검토하도록 요청합니다.
+
+기본 배정 방식만 연구의 한계로 안내하지 마세요. 연구자가 다른 절차를 요청하면 [배정 안내](../../../RANDOMIZATION(kor).md)의 확장 절차로 의도를 확정하고, 기본 기능과 별도 구현·미검증 상태를 구분합니다. “4개 그룹 무작위 배정 + 그룹별 순차 자극물”은 예시일 뿐 새 기본 기능이 아닙니다. 고정 코드를 임의 수정하지 말고 버전별 연구 확장과 동시성·재접속 검증을 준비하세요.

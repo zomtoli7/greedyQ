@@ -14,83 +14,235 @@
     "pages"
   ],
   "properties": {
-    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-    "study_version": { "type": "string", "minLength": 1 },
+    "study_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "study_version": {
+      "type": "string",
+      "minLength": 1
+    },
     "greedyq_version": {
       "type": "string",
       "pattern": "^0\\.2_\\d{4}-\\d{2}-\\d{2}_[0-9a-f]{7,12}$"
     },
-    "title": { "type": "string", "minLength": 1 },
-    "language": { "enum": ["en", "ko", "zh-CN", "zh-TW"] },
-    "organization": { "type": "string", "minLength": 1, "maxLength": 120 },
-    "start_page": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-    "brand_color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "enum": [
+        "en",
+        "ko",
+        "zh-CN",
+        "zh-TW"
+      ]
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "start_page": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "brand_color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
     "messages": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["previous", "next", "required"],
+      "required": [
+        "previous",
+        "next",
+        "required"
+      ],
       "properties": {
-        "previous": { "type": "string" },
-        "next": { "type": "string" },
-        "required": { "type": "string" }
+        "previous": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "required": {
+          "type": "string"
+        }
       }
     },
     "assignment_page": {
       "type": "string",
       "pattern": "^[a-z][a-z0-9_]{1,63}$"
     },
-    "shuffle_pages": {"type":"array","minItems":2,"uniqueItems":true,"items":{"type":"string"}},
-    "randomization": { "type": "object", "required": ["id", "method", "unit", "conditions", "persistence_key"], "properties": { "method": {"enum": ["simple", "fixed_block"]}, "unit": {"const": "respondent"}, "conditions": {"type":"object", "minProperties":2, "additionalProperties":{"type":"integer", "minimum":1}}, "persistence_key":{"const":"session_id"} } },
+    "shuffle_pages": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "randomization": {
+      "type": "object",
+      "required": [
+        "id",
+        "method",
+        "unit",
+        "conditions",
+        "persistence_key"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "simple",
+            "fixed_block"
+          ]
+        },
+        "unit": {
+          "const": "respondent"
+        },
+        "conditions": {
+          "type": "object",
+          "minProperties": 2,
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "persistence_key": {
+          "const": "session_id"
+        }
+      }
+    },
     "conditions": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "progress_paths": {
       "type": "object",
       "additionalProperties": {
         "type": "array",
         "minItems": 1,
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
       }
     },
     "pages": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/page" }
+      "items": {
+        "$ref": "#/$defs/page"
+      }
     },
     "runtime_policy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["mode", "consent", "respondent_source", "duplicate_policy"],
+      "required": [
+        "mode",
+        "consent",
+        "respondent_source",
+        "duplicate_policy"
+      ],
       "properties": {
-        "mode": { "enum": ["test", "production"] },
-        "prolific": {"type":"object","required":["study_id","identity_verification","paths"],"properties":{"study_id":{"type":["string","null"]},"identity_verification":{"const":"url_parameters_only"},"paths":{"type":"object"}}},
-        "consent": {
-          "type": ["object", "null"],
+        "mode": {
+          "enum": [
+            "test",
+            "production"
+          ]
+        },
+        "prolific": {
+          "type": "object",
+          "required": [
+            "study_id",
+            "identity_verification",
+            "paths"
+          ],
           "properties": {
-            "question": { "type": ["string", "null"] },
-            "accept_value": { "$ref": "#/$defs/scalar" },
-            "refusal_outcome": { "type": ["string", "null"] }
+            "study_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "identity_verification": {
+              "const": "url_parameters_only"
+            },
+            "paths": {
+              "type": "object"
+            }
+          }
+        },
+        "consent": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "question": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "accept_value": {
+              "$ref": "#/$defs/scalar"
+            },
+            "refusal_outcome": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           },
           "additionalProperties": false
         },
-        "respondent_source": { "type": "string" },
-        "duplicate_policy": { "enum": ["resume", "reject", "allow", "block"] }
+        "respondent_source": {
+          "type": "string"
+        },
+        "duplicate_policy": {
+          "enum": [
+            "resume",
+            "reject",
+            "allow",
+            "block"
+          ]
+        }
       }
     }
   },
   "$defs": {
-    "scalar": { "type": ["string", "number", "boolean", "null"] },
+    "scalar": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "null"
+      ]
+    },
     "option": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["label", "value"],
+      "required": [
+        "label",
+        "value"
+      ],
       "properties": {
-        "label": { "type": "string", "minLength": 1 },
-        "value": { "$ref": "#/$defs/scalar" },
-        "caption": { "type": "boolean" }
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/scalar"
+        },
+        "caption": {
+          "type": "boolean"
+        }
       }
     },
     "rule": {
@@ -98,40 +250,114 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["all"],
+          "required": [
+            "not"
+          ],
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/rule"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all"
+          ],
           "properties": {
             "all": {
               "type": "array",
               "minItems": 1,
-              "items": { "$ref": "#/$defs/rule" }
+              "items": {
+                "$ref": "#/$defs/rule"
+              }
             }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["any"],
+          "required": [
+            "any"
+          ],
           "properties": {
             "any": {
               "type": "array",
               "minItems": 1,
-              "items": { "$ref": "#/$defs/rule" }
+              "items": {
+                "$ref": "#/$defs/rule"
+              }
             }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["field"],
+          "required": [
+            "field"
+          ],
           "properties": {
-            "field": { "type": "string", "minLength": 1 },
-            "answered": {"type":"boolean"},
-            "equals": { "$ref": "#/$defs/scalar" },
-            "not_equals": { "$ref": "#/$defs/scalar" },
-            "lt": { "type": "number" },
-            "lte": { "type": "number" },
-            "gt": { "type": "number" },
-            "gte": { "type": "number" }
+            "field": {
+              "type": "string",
+              "minLength": 1
+            },
+            "answered": {
+              "type": "boolean"
+            },
+            "equals": {
+              "$ref": "#/$defs/scalar"
+            },
+            "not_equals": {
+              "$ref": "#/$defs/scalar"
+            },
+            "lt": {
+              "type": "number"
+            },
+            "lte": {
+              "type": "number"
+            },
+            "gt": {
+              "type": "number"
+            },
+            "gte": {
+              "type": "number"
+            },
+            "contains": {
+              "$ref": "#/$defs/scalar"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/scalar"
+              }
+            },
+            "length": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "maxProperties": 1,
+              "properties": {
+                "equals": {
+                  "type": "number"
+                },
+                "not_equals": {
+                  "type": "number"
+                },
+                "lt": {
+                  "type": "number"
+                },
+                "lte": {
+                  "type": "number"
+                },
+                "gt": {
+                  "type": "number"
+                },
+                "gte": {
+                  "type": "number"
+                }
+              }
+            }
           },
           "minProperties": 2,
           "maxProperties": 2
@@ -141,9 +367,16 @@
     "question": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "type", "label"],
+      "required": [
+        "id",
+        "type",
+        "label"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,63}$"
+        },
         "type": {
           "enum": [
             "text",
@@ -174,60 +407,204 @@
             "custom"
           ]
         },
-        "label": { "type": "string", "minLength": 1 },
-        "placeholder": { "type": "string" },
-        "required": { "type": "boolean" },
-        "shuffle_items": {"type":"array","minItems":1,"uniqueItems":true,"items":{"$ref":"#/$defs/scalar"}},
-        "min": { "type": "number" },
-        "max": { "type": "number" },
-        "step": { "type": "number", "exclusiveMinimum": 0 },
-        "orientation": { "enum": ["horizontal", "vertical"] },
-        "direction": { "enum": ["horizontal", "vertical"] },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "shuffle_items": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "step": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "orientation": {
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        },
         "images": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "width": { "type": ["string", "number"] },
-        "height": { "type": "string" },
-        "resize": { "type": "string" },
-        "cols": { "type": ["string", "number"] },
+        "width": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "height": {
+          "type": "string"
+        },
+        "resize": {
+          "type": "string"
+        },
+        "cols": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
         "selected": {},
         "default": {
-          "type": ["array", "number"],
-          "items": { "$ref": "#/$defs/scalar" }
+          "type": [
+            "array",
+            "number"
+          ],
+          "items": {
+            "$ref": "#/$defs/scalar"
+          }
         },
-        "grid": { "type": "boolean" },
-        "individual": { "type": "boolean" },
-        "justified": { "type": "boolean" },
-        "force_edges": { "type": "boolean" },
-        "status": { "type": "string" },
-        "matrix_question_width": { "type": ["string", "number"] },
-        "mobile_columns": { "enum": [2, 3] },
-        "total": { "type": "number", "exclusiveMinimum": 0 },
-        "path_separator": { "type": "string", "minLength": 1 },
-        "low_label": { "type": "string" },
-        "high_label": { "type": "string" },
-        "base_type": { "type": "string" },
-        "customization": { "type": "string" },
-        "custom_class": { "type": "string" },
-        "selection_hint": { "type": ["string", "boolean"] },
-        "src": { "type": "string", "minLength": 1 },
-        "poster": { "type": "string", "minLength": 1 },
-        "caption": { "type": "string" },
-        "transcript": { "type": "string" },
-        "controls": { "type": "boolean" },
-        "autoplay": { "type": "boolean" },
-        "muted": { "type": "boolean" },
-        "loop": { "type": "boolean" },
-        "preload": { "enum": ["none", "metadata", "auto"] },
-        "pre": { "type": "string" },
-        "sep": { "type": "string" },
+        "grid": {
+          "type": "boolean"
+        },
+        "individual": {
+          "type": "boolean"
+        },
+        "justified": {
+          "type": "boolean"
+        },
+        "force_edges": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "matrix_question_width": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "mobile_columns": {
+          "enum": [
+            2,
+            3
+          ]
+        },
+        "total": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "path_separator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "low_label": {
+          "type": "string"
+        },
+        "high_label": {
+          "type": "string"
+        },
+        "base_type": {
+          "type": "string"
+        },
+        "customization": {
+          "type": "string"
+        },
+        "custom_class": {
+          "type": "string"
+        },
+        "selection_hint": {
+          "type": [
+            "string",
+            "boolean"
+          ]
+        },
+        "src": {
+          "type": "string",
+          "minLength": 1
+        },
+        "poster": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string"
+        },
+        "transcript": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "boolean"
+        },
+        "autoplay": {
+          "type": "boolean"
+        },
+        "muted": {
+          "type": "boolean"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "preload": {
+          "enum": [
+            "none",
+            "metadata",
+            "auto"
+          ]
+        },
+        "pre": {
+          "type": "string"
+        },
+        "sep": {
+          "type": "string"
+        },
         "animate": {},
-        "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "rows": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "columns": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "groups": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "show_if": { "$ref": "#/$defs/rule" }
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "show_if": {
+          "$ref": "#/$defs/rule"
+        }
       },
       "allOf": [
         {
@@ -249,63 +626,217 @@
               }
             }
           },
-          "then": { "required": ["options"] }
-        },
-        {
-          "if": {
-            "properties": { "type": { "enum": ["matrix", "matrix_multiple"] } }
-          },
-          "then": { "required": ["rows"] }
+          "then": {
+            "required": [
+              "options"
+            ]
+          }
         },
         {
           "if": {
             "properties": {
-              "type": { "enum": ["mc_image", "mc_multiple_image"] }
+              "type": {
+                "enum": [
+                  "matrix",
+                  "matrix_multiple"
+                ]
+              }
             }
           },
-          "then": { "required": ["images"] }
+          "then": {
+            "required": [
+              "rows"
+            ]
+          }
         },
         {
           "if": {
-            "properties": { "type": { "enum": ["audio", "video"] } }
+            "properties": {
+              "type": {
+                "enum": [
+                  "mc_image",
+                  "mc_multiple_image"
+                ]
+              }
+            }
           },
-          "then": { "required": ["src"] }
+          "then": {
+            "required": [
+              "images"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "audio",
+                  "video"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "src"
+            ]
+          }
         }
       ]
     },
     "route": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["when", "to"],
+      "required": [
+        "when",
+        "to"
+      ],
       "properties": {
-        "when": { "$ref": "#/$defs/rule" },
-        "to": { "type": "string" }
+        "when": {
+          "$ref": "#/$defs/rule"
+        },
+        "to": {
+          "type": "string"
+        }
       }
     },
     "page": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "questions"],
+      "required": [
+        "id",
+        "title",
+        "questions"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-        "title": { "type": "string", "minLength": 1 },
-        "body": { "type": "string" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,63}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string"
+        },
         "questions": {
           "type": "array",
-          "items": { "$ref": "#/$defs/question" }
+          "items": {
+            "$ref": "#/$defs/question"
+          }
         },
-        "shuffle_questions": {"type":"array", "minItems":2, "uniqueItems":true, "items":{"type":"string"}},
-        "show_if": {"$ref":"#/$defs/rule"},
-        "checks": {"type":"array","items":{"type":"object","additionalProperties":false,"required":["when","message"],"properties":{"question":{"type":"string"},"when":{"$ref":"#/$defs/rule"},"message":{"type":"string"}}}},
-        "redirect": {"type":"object","additionalProperties":false,"required":["url","params","delay","newtab","label"],"properties":{"url":{"type":"string","pattern":"^https://"},"params":{"type":"object","additionalProperties":{"type":"string"}},"delay":{"type":["integer","null"],"minimum":0,"maximum":3600},"newtab":{"type":"boolean"},"label":{"type":"string"}}},
-        "next": { "type": ["string", "null"] },
-        "next_label": { "type": "string" },
-        "show_previous": { "type": "boolean" },
-        "previous_mode": { "enum": ["show", "hide", "disable"] },
-        "next_mode": { "enum": ["show", "hide", "disable"] },
-        "next_delay_seconds": { "type": "number", "minimum": 0, "maximum": 86400 },
-        "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
-        "terminal": { "type": "string" }
+        "shuffle_questions": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "show_if": {
+          "$ref": "#/$defs/rule"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "when",
+              "message"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "when": {
+                "$ref": "#/$defs/rule"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "redirect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "params",
+            "delay",
+            "newtab",
+            "label"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "delay": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 3600
+            },
+            "newtab": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "next": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_label": {
+          "type": "string"
+        },
+        "show_previous": {
+          "type": "boolean"
+        },
+        "previous_mode": {
+          "enum": [
+            "show",
+            "hide",
+            "disable"
+          ]
+        },
+        "next_mode": {
+          "enum": [
+            "show",
+            "hide",
+            "disable"
+          ]
+        },
+        "next_delay_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 86400
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/route"
+          }
+        },
+        "terminal": {
+          "type": "string"
+        }
       }
     }
   }

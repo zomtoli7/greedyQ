@@ -5,7 +5,7 @@ import re
 import shutil
 from pathlib import Path
 from .redirects import redirect_plan
-from .compiler import split_condition
+from .compiler import condition as parse_condition
 
 
 CUSTOM_TYPES = {
@@ -56,35 +56,40 @@ def _custom_call(question):
     return f"sd_output({_r(qid)}, type = \"question\")"
 
 
-def _condition_r(expression, derived_fields=frozenset()):
-    """Translate the deliberately small greedyQ condition language to safe R."""
-    expression = str(expression or "").strip()
-    for connector,operator in ((" or "," | "),(" and "," & ")):
-        parts=split_condition(expression,connector)
-        if len(parts)>1:return '('+operator.join(_condition_r(part,derived_fields) for part in parts)+')'
-    answered = re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)", expression)
-    if answered:
-        return ("!" if answered.group(1) else "") + f"sd_is_answered({_r(answered.group(2))})"
-    comparison = re.fullmatch(r"([a-z][a-z0-9_]*)\s*(==|!=|<=|>=|<|>)\s*(.+)", expression)
-    if not comparison:
-        raise ValueError(f"Unsupported export condition: {expression}")
-    field, operator, raw = comparison.groups()
-    raw = raw.strip()
-    if raw[:1] in ("'", '"') and raw[-1:] == raw[:1]:
-        value = _r(raw[1:-1])
-    elif re.fullmatch(r"-?\d+(?:\.\d+)?", raw):
-        value = raw
-    else:
-        raise ValueError(f"Unsupported export condition value: {raw}")
-    source = field if field in derived_fields else f"sd_value({_r(field)})"
-    return f"({source} {operator} {value})"
+def _condition_r(expression, derived_fields=frozenset(), question_types=None):
+    """Render the parsed whitelist; never interpolate executable source text."""
+    types=question_types or {}
+    def render(node):
+        if 'unsupported' in node:raise ValueError('Unsupported export condition: '+str(expression))
+        for key,operator in (('all',' & '),('any',' | ')):
+            if key in node:return '('+operator.join(render(n) for n in node[key])+')'
+        if 'not' in node:return '!('+render(node['not'])+')'
+        field=node['field']
+        if field=='condition' and 'assignment_condition' in derived_fields:field='assignment_condition'
+        source=field if field in derived_fields else f'sd_value({_r(field)})'
+        answered=f'!is.null({source})' if field in derived_fields else f'sd_is_answered({_r(field)})'
+        if 'answered' in node:return ('' if node['answered'] else '!')+answered
+        collection=f'gq_collection({source})'
+        if 'contains' in node:return f'({_r(node["contains"])} %in% {collection})'
+        if 'in' in node:return f'isTRUE({answered} && ({source} %in% {_r(node["in"])}))'
+        comparison=node.get('length',node)
+        if 'length' in node:
+            source=f'length({collection})' if types.get(field) in ('mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple') else f'nchar(as.character({source}), type = "chars")'
+        operators={'equals':'==','not_equals':'!=','lt':'<','lte':'<=','gt':'>','gte':'>='}
+        for key,operator in operators.items():
+            if key in comparison:
+                value=comparison[key]
+                if value is None:return '!'+answered if key=='equals' else 'FALSE'
+                out=f'({source} {operator} {_r(value)})'
+                return f'isTRUE(!is.null(sd_value({_r(field)})) && {out})' if field not in derived_fields else f'isTRUE({out})'
+        raise ValueError('Unsupported export condition: '+str(expression))
+    return render(parse_condition(expression))
 
-
-def _workflow_bindings(config):
+def _workflow_bindings(config, question_types=None):
     randomizations = config.get("randomization", []) or []
     derived = {item.get("store", {}).get("condition_as") for item in randomizations}
     derived.discard(None)
-    lines = []
+    lines = ['  gq_collection <- function(value) {', '    if (is.null(value)) return(character())', '    value <- value[!is.na(value)]', '    value <- value[nzchar(as.character(value))]', '    unlist(strsplit(as.character(value), "|", fixed = TRUE), use.names = FALSE)', '  }']
     for name,outcome in config.get('outcomes',{}).items():
         plan=redirect_plan(outcome)
         if plan and plan['params']:
@@ -107,7 +112,7 @@ def _workflow_bindings(config):
             ])
     show_rules = config.get("logic", {}).get("show", []) or []
     if show_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
         lines.append("  sd_show_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     # Randomized page branches are represented by sd_show_if() above. Emitting
     # the same derived-field branch as a global sd_skip_if() would make it true
@@ -117,11 +122,11 @@ def _workflow_bindings(config):
         if not any(re.search(rf"\b{re.escape(field)}\b", str(rule.get("if", ""))) for field in derived)
     ]
     if skip_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
         lines.append("  sd_skip_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     validation_rules = config.get("logic", {}).get("validate", []) or []
     if validation_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
         lines.append("  sd_stop_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     return "\n".join(lines)
 
@@ -322,7 +327,7 @@ def generate(study_dir, parsed, config):
         if source_directory.is_dir():
             shutil.copytree(source_directory, output / directory, dirs_exist_ok=True)
 
-    bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
+    bindings = "\n".join(filter(None, [_workflow_bindings(config, {q['id']:q.get('base_type',q['type']) for p in parsed['pages'] for q in p['questions']}), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
     features = [

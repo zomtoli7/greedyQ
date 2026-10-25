@@ -60,6 +60,10 @@
     "greedyq/prolific.py",
     "greedyq/preregistration.py",
     "greedyq/exporter.py",
-    "greedyq/deployment.py"
+    "greedyq/deployment.py",
+    "greedyq/scaffold.py",
+    "templates/supabase/001_initial.sql",
+    "templates/vercel/vercel.json",
+    "templates/vercel/.env.example"
   ]
 }

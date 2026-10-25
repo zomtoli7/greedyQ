@@ -8,7 +8,7 @@
   const VERSION = "0.2.0-draft.1";
   const RELEASE = "0.2_2026-10-25_7beafe4";
   // Generated from greedyq/locale-messages.json; parity is tested.
-  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"]};
+  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"],"Move the slider to answer.":["슬라이더를 움직여 응답해 주세요.","请移动滑块作答。","請移動滑桿作答。"],"Local preview only. Answers stay in this browser and are not sent to the researcher.":["로컬 미리보기입니다. 응답은 이 브라우저에만 남으며 연구자에게 전달되지 않습니다.","仅供本地预览。回答只保存在此浏览器，不会发送给研究者。","僅供本地預覽。回答只保存在此瀏覽器，不會傳送給研究者。"]};
   const LANGUAGES = ['en','ko','zh-CN','zh-TW'];
   function translate(language, message, values={}) {
     if(!LANGUAGES.includes(language))throw new Error('Choose en, ko, zh-CN or zh-TW for greedyq.language.');
@@ -1024,11 +1024,17 @@
       derivedFields = new Set(
         (config.randomization || []).map((item) => item.store?.condition_as).filter(Boolean),
       ),
-      checkCondition = (expression) => {
+      checkCondition = (expression,ruleId) => {
+        const before=issues.length;
         const inspect=node=>{
           if(node.all || node.any)(node.all || node.any).forEach(inspect);
-          else if(node.unsupported!==undefined || !/^[a-z][a-z0-9_]*$/.test(node.field || '') || ['lt','lte','gt','gte'].some(k=>k in node && typeof node[k]!=='number'))issues.push(issue('GQ011','Use a supported comparison or answered(question) condition; arbitrary expressions are not executed.',yml));
+          else if(node.not)inspect(node.not);
+          else if(node.unsupported!==undefined || !/^[a-z][a-z0-9_]*$/.test(node.field || '') || ['lt','lte','gt','gte'].some(k=>k in node && typeof node[k]!=='number'))issues.push(issue('GQ011','Use a supported condition, for example contains(tools, "other"), length(tools) >= 2, age >= 18 or answered(question). Arbitrary expressions are not executed.',yml));
           else if(!questionIds.has(node.field) && !derivedFields.has(node.field) && node.field!=='condition')issues.push(issue('GQ011',`A condition refers to '${node.field}', but that question does not exist.`,yml));
+          if(node.length && (typeof node.length!=='object'||Object.values(node.length).some(v=>typeof v!=='number')))issues.push(issue('GQ011','length() must compare a collection length with a number.',yml));
+          if('contains'in node || 'in'in node){const values=node.in??[node.contains];if(!Array.isArray(values)||values.some(v=>v!==null&&typeof v==='object'))issues.push(issue('GQ011','Membership requires scalar stored values.',yml));else if(storedValues.get(node.field)?.size)for(const value of values)if(value!==null&&!storedValues.get(node.field).has(String(value)))issues.push(issue('GQ011',`A condition compares '${node.field}' with '${value}', which is not one of its stored answer values.`,yml));}
+          if(node.length){const q=questions.find(q=>q.id===node.field)||{};if(!['text','textarea','mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple','slider','date'].includes(q.type==='custom'?q.base_type:q.type))issues.push(issue('GQ011','length() requires text or a multiple-selection question.',yml));}
+          if('contains'in node){const q=questions.find(q=>q.id===node.field)||{};if(!['mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple'].includes(q.type==='custom'?q.base_type:q.type))issues.push(issue('GQ011','contains() requires a multiple-selection question.',yml));}
         };inspect(condition(expression));
         const pattern = /\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['"]([^'"]+)['"]/g;
         for (const match of String(expression || "").matchAll(pattern)) {
@@ -1038,10 +1044,11 @@
           else if (storedValues.get(field)?.size && !storedValues.get(field).has(literal))
             issues.push(issue("GQ011", `A condition compares '${field}' with '${literal}', which is not one of its stored answer values.`, yml));
         }
+        if(ruleId)for(const item of issues.slice(before))item.message=`Rule '${ruleId}': ${item.message}`;
       };
-    for (const rule of config.logic?.show || []) checkCondition(rule.if);
-    for (const rule of config.logic?.skip || []) checkCondition(rule.if);
-    for(const rule of config.logic?.validate || []) {checkCondition(rule.if);if(!questionIds.has(rule.question))issues.push(issue('GQ002','A validation rule refers to a missing question.',yml));}
+    for (const rule of config.logic?.show || []) checkCondition(rule.if,rule.id||rule.question||rule.from);
+    for (const rule of config.logic?.skip || []) checkCondition(rule.if,rule.id||rule.question||rule.from);
+    for(const rule of config.logic?.validate || []) {checkCondition(rule.if,rule.id||rule.question||rule.from);if(!questionIds.has(rule.question))issues.push(issue('GQ002','A validation rule refers to a missing question.',yml));}
     if ((config.randomization || []).length > 1)
       issues.push(issue("GQ007", "Only one between-subject random assignment is supported per study.", yml));
     for (const randomization of config.randomization || []) {
@@ -1133,32 +1140,43 @@
     ["<", "lt"],
     [">", "gt"],
   ];
-  function condition(expression) {
-    const s = String(expression).trim();
-    const answered=/^(not\s+)?answered\(([a-z][a-z0-9_]*)\)$/.exec(s);
-    if(answered)return {field:answered[2],answered:!answered[1]};
-    for (const [c, key] of [
-      [" or ", "any"],
-      [" and ", "all"],
-    ]) {
-      let quote=null,escaped=false,start=0;const parts=[];
-      for(let i=0;i<s.length;i++) {
-        const char=s[i];if(escaped){escaped=false;continue;}
-        if(char==='\\' && quote){escaped=true;continue;}
-        if(quote){if(char===quote)quote=null;}
-        else if(char==='"' || char==="'")quote=char;
-        else if(s.startsWith(c,i)){parts.push(s.slice(start,i));start=i+c.length;}
-      }
-      parts.push(s.slice(start));if(parts.length>1)return {[key]:parts.map(condition)};
-    }
-    for (const [token, key] of OPS)
-      if (s.includes(token)) {
-        let [field, value] = s.split(token, 2);
-        field =
-          field.trim() === "assignment_condition" ? "condition" : field.trim();
-        return { field, [key]: scalar(value) };
-      }
-    return { unsupported: s };
+  function condition(expression, depth=0) {
+    const original=String(expression).trim();let s=original;
+    if(depth>64 || s.length>4096)return {unsupported:original};
+    const split=(text,separator)=>{let quote=null,escaped=false,level=0,start=0;const parts=[];for(let i=0;i<text.length;i++){const c=text[i];if(escaped){escaped=false;continue;}if(quote){if(c==='\\')escaped=true;else if(c===quote)quote=null;continue;}if(c==='"'||c==="'"){quote=c;continue;}if(c==='('||c==='[')level++;else if(c===')'||c===']')level--;else if(level===0&&text.startsWith(separator,i)){parts.push(text.slice(start,i));start=i+separator.length;i+=separator.length-1;}}parts.push(text.slice(start));return parts;};
+    while(s.startsWith('(')&&s.endsWith(')')){let level=0,quote=null,escaped=false,whole=true;for(let i=0;i<s.length;i++){const c=s[i];if(escaped){escaped=false;continue;}if(quote){if(c==='\\')escaped=true;else if(c===quote)quote=null;continue;}if(c==='"'||c==="'")quote=c;else if(c==='(')level++;else if(c===')'&&--level===0&&i<s.length-1){whole=false;break;}}if(!whole||level!==0)break;s=s.slice(1,-1).trim();}
+    const literal=text=>{text=text.trim();if(text.startsWith('[')&&text.endsWith(']'))return text.slice(1,-1).trim()?split(text.slice(1,-1),',').map(literal):[];if(/^"(?:\\.|[^"\\])*"$/.test(text))return JSON.parse(text);if(/^'(?:\\.|[^'\\])*'$/.test(text))return text.slice(1,-1).replace(/\\(['\\])/g,'$1').replace(/\\n/g,'\n');if(/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(text))return Number(text);if(/^[a-z][a-z0-9_]*$/.test(text))return ({true:true,false:false,null:null})[text]??(text==='null'?null:text);throw Error('literal');};
+    const field=name=>name==='assignment_condition'?'condition':name;
+    for(const [connector,key] of [[' or ','any'],[' and ','all']]){const parts=split(s,connector);if(parts.length>1)return {[key]:parts.map(p=>condition(p,depth+1))};}
+    if(s.startsWith('not ')){const child=condition(s.slice(4),depth+1);return 'answered'in child?{...child,answered:!child.answered}:{not:child};}
+    const answered=/^answered\(\s*([a-z][a-z0-9_]*)\s*\)$/.exec(s);if(answered)return {field:field(answered[1]),answered:true};
+    try {
+      let match=/^contains\(\s*([a-z][a-z0-9_]*)\s*,\s*(.+)\)$/.exec(s);if(match)return {field:field(match[1]),contains:literal(match[2])};
+      match=/^([a-z][a-z0-9_]*)\s+(not in|in)\s+(.+)$/.exec(s);if(match){const list=literal(match[3]);if(!Array.isArray(list))throw Error('membership');const node={field:field(match[1]),in:list};return match[2]==='not in'?{not:node}:node;}
+      match=/^(?:length\(\s*([a-z][a-z0-9_]*)\s*\)|([a-z][a-z0-9_]*))\s*(==|!=|<=|>=|<|>)\s*(.+)$/.exec(s);
+      if(match){const key=OPS.find(([token])=>token===match[3])[1],value=literal(match[4]);if(Array.isArray(value))throw Error('scalar');return match[1]?{field:field(match[1]),length:{[key]:value}}:{field:field(match[2]),[key]:value};}
+    }catch{}
+    return {unsupported:original};
+  }
+  function matchesCondition(rule, answers, assigned) {
+    if(!rule)return true;
+    if(rule.all)return rule.all.every(r=>matchesCondition(r,answers,assigned));
+    if(rule.any)return rule.any.some(r=>matchesCondition(r,answers,assigned));
+    if(rule.not)return !matchesCondition(rule.not,answers,assigned);
+    const actual=rule.field==='condition'?assigned:answers[rule.field];
+    const equal=(a,b)=>typeof a===typeof b && a===b;
+    if('answered'in rule)return (actual!=null&&actual!==''&&(!Array.isArray(actual)||actual.length>0)&&(!(actual&&typeof actual==='object'&&!Array.isArray(actual))||Object.keys(actual).length>0))===rule.answered;
+    if('contains'in rule)return Array.isArray(actual)&&actual.some(v=>equal(v,rule.contains));
+    if('in'in rule)return actual!=null&&rule.in.some(v=>equal(actual,v));
+    const compare=(value,node)=>{
+      if('equals'in node)return equal(value??null,node.equals);
+      if(value==null)return false;
+      if('not_equals'in node)return node.not_equals!=null&&!equal(value,node.not_equals);
+      for(const [key,fn] of [['lt',(a,b)=>a<b],['lte',(a,b)=>a<=b],['gt',(a,b)=>a>b],['gte',(a,b)=>a>=b]])if(key in node)return typeof value==='number'&&typeof node[key]==='number'&&fn(value,node[key]);
+      return false;
+    };
+    if(rule.length){if(typeof actual!=='string'&&!Array.isArray(actual))return false;return compare(typeof actual==='string'?Array.from(actual).length:actual.length,rule.length);}
+    return compare(actual,rule);
   }
   function compileSurvey(parsed, config) {
     const prolific=prolificPlan(config);
@@ -1880,28 +1898,7 @@
       progress = root.querySelector(".gq-progress");
     const value = (f) =>
         f === "condition" ? state.condition : state.answers[f],
-      matches = (r) =>
-        !r
-          ? true
-          : r.all
-            ? r.all.every(matches)
-            : r.any
-              ? r.any.some(matches)
-              : "answered" in r
-                ? (value(r.field)!=null && value(r.field)!=="" && (!Array.isArray(value(r.field)) || value(r.field).length>0))===r.answered
-              : "equals" in r
-                ? value(r.field) === r.equals
-                : "not_equals" in r
-                  ? value(r.field) !== r.not_equals
-                  : "lt" in r
-                    ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) < r.lt
-                    : "lte" in r
-                      ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) <= r.lte
-                      : "gt" in r
-                        ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) > r.gt
-                        : "gte" in r
-                          ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) >= r.gte
-                          : false,
+      matches = (r) => matchesCondition(r,state.answers,state.condition),
       visible = (p) => {
         const byId=new Map((p.questions || []).map(q=>[q.id,q]));
         state.question_orders ||= {};
@@ -1968,7 +1965,7 @@
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(options[index]?.label || "")}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="categorical" type="range" min="0" max="${Math.max(0, options.length - 1)}" step="1" value="${index}"><div class="gq-slider-labels"><span>${esc(options[0]?.label || "")}</span><span>${esc(options.at(-1)?.label || "")}</span></div></div>`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(initial != null ? options[index]?.label || "" : t("Move the slider to answer."))}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="categorical" data-answer-initialized="${initial != null}" type="range" min="0" max="${Math.max(0, options.length - 1)}" step="1" value="${index}"><div class="gq-slider-labels"><span>${esc(options[0]?.label || "")}</span><span>${esc(options.at(-1)?.label || "")}</span></div></div>`;
       }
       if (q.type === "slider_numeric") {
         const values = (q.options || []).map((option) => Number(option.value)),
@@ -1987,9 +1984,9 @@
           outputId = `${q.id}-slider-output`;
         if (defaults.length === 2 || Array.isArray(selected)) {
           const range = Array.isArray(selected) ? selected : defaults;
-          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} ${esc(t('minimum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} ${esc(t('maximum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} ${esc(t('minimum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" data-answer-initialized="${selected != null || defaults.length === 2}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} ${esc(t('maximum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" data-answer-initialized="${selected != null || defaults.length === 2}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
         }
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc((q.pre || "") + current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(selected != null || defaults.length ? (q.pre || "") + current : t("Move the slider to answer."))}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" data-answer-initialized="${selected != null || defaults.length > 0}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
       }
       if (
         ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
@@ -2082,7 +2079,7 @@
       }
       if (q.type === "textarea")
         return `<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder || "")}" style="${q.height ? `height:${esc(q.height)};` : ""}${q.resize ? `resize:${esc(q.resize)};` : ""}" cols="${esc(q.cols || 80)}">${esc(selected || "")}</textarea>`;
-      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? (q.type === "date" ? today : ""))}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
+      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? "")}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
     }
     function collect(p) {
       for (const q of visible(p)) {
@@ -2111,7 +2108,11 @@
         if (q.type === "drill_down") {
           const answer = [...root.querySelectorAll(`[data-q="${CSS.escape(q.id)}"] [data-drill-level]`)].map((e) => e.value).filter(Boolean); if (answer.length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
         }
-        if (q.type === "slider") {
+        if (["slider", "slider_numeric"].includes(effectiveType)) {
+          const sliders=[...root.querySelectorAll(`[data-id="${CSS.escape(q.id)}"][type="range"]`)];
+          if(sliders.length && !sliders.some(e=>e.dataset.answerInitialized==='true')) { delete state.answers[q.id];continue; }
+        }
+        if (effectiveType === "slider") {
           const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
             option = q.options?.[Number(e?.value)];
           if (option) state.answers[q.id] = option.value;
@@ -2149,7 +2150,7 @@
         }
         if (
           q.type === "daterange" ||
-          (q.type === "slider_numeric" &&
+          (effectiveType === "slider_numeric" &&
             root.querySelector(
               `[data-id="${CSS.escape(q.id)}"][data-range-index]`,
             ))
@@ -2343,6 +2344,7 @@
         };
       for (const slider of card.querySelectorAll('input[type="range"]'))
         slider.oninput = () => {
+          slider.dataset.answerInitialized="true";
           const question = (p.questions || []).find(
               (item) => item.id === slider.dataset.id,
             ),
@@ -2377,7 +2379,7 @@
       }
       for (const drill of card.querySelectorAll(".gq-drill-down select"))
         drill.addEventListener("change", () => { collect(p); save(); render(); });
-      const ruleFields=r=>!r?[]:r.field?[r.field]:(r.all || r.any || []).flatMap(ruleFields);
+      const ruleFields=r=>!r?[]:r.field?[r.field]:r.not?ruleFields(r.not):(r.all || r.any || []).flatMap(ruleFields);
       const visibilitySources = new Set((p.questions || []).flatMap(question=>ruleFields(question.show_if)));
       for (const control of card.querySelectorAll("input,select,textarea"))
         control.addEventListener("change", () => {
@@ -2577,14 +2579,13 @@
     });
   }
   return {
-    VERSION, RELEASE, inlineMarkdown, translate,
+    VERSION, RELEASE, condition, matchesCondition, inlineMarkdown, translate,
     planProblem, orderingProblems, drawAssignment, shuffle, questionOrder, optionPlan, optionOrder, pagePlan, pageOrder, redirectPlan, redirectUrl,
     ParseError,
     parseYaml,
     parseSurvey,
     validateSurvey: validateSurveyComplete,
     compileSurvey,
-    condition,
     detectDevice,
     parseProlificLaunch, prolificPlan,
     resolveProlificLaunch,

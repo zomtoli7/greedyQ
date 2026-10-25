@@ -11,15 +11,13 @@
     "theme-settings": {
       "theme": "default",
       "barposition": "top",
-      "barcolor": "#315c8a",
-      "footer-center": "Fictional greedyQ reference study"
+      "barcolor": "#315c8a"
     },
     "survey-settings": {
       "show-previous": true,
       "use-cookies": true,
       "all-required": false,
       "start-page": "welcome",
-      "highlight-unanswered": true,
       "capture-metadata": false,
       "required": [
         "consent_choice",
@@ -60,7 +58,7 @@
           "id": "consent_choice",
           "type": "mc",
           "label": "Do you consent to participate in this study?",
-          "_line": 83,
+          "_line": 81,
           "options": [
             {
               "label": "Yes, I consent",
@@ -87,7 +85,7 @@
           "id": "age",
           "type": "numeric",
           "label": "What is your age in years?",
-          "_line": 103,
+          "_line": 101,
           "placeholder": "Age"
         }
       ]
@@ -101,7 +99,7 @@
           "id": "support_pre",
           "type": "slider",
           "label": "Before seeing details, how much would you support a city program that helps residents use online public services?",
-          "_line": 118,
+          "_line": 116,
           "options": [
             {
               "label": "Strongly oppose",
@@ -137,7 +135,7 @@
           "id": "familiarity",
           "type": "select",
           "label": "Before today, how familiar were you with municipal digital-assistance programs?",
-          "_line": 136,
+          "_line": 134,
           "options": [
             {
               "label": "Not at all familiar",
@@ -189,7 +187,7 @@
           "id": "comprehension",
           "type": "mc",
           "label": "At how many libraries would the proposed program operate?",
-          "_line": 175,
+          "_line": 173,
           "options": [
             {
               "label": "One library",
@@ -213,7 +211,7 @@
           "id": "frame_perception",
           "type": "slider",
           "label": "How strongly did the description emphasize practical benefits to residents?",
-          "_line": 190,
+          "_line": 188,
           "options": [
             {
               "label": "Not at all",
@@ -249,7 +247,7 @@
           "id": "attention_check",
           "type": "mc",
           "label": "For data-quality purposes, please select ‘Somewhat agree.’",
-          "_line": 208,
+          "_line": 206,
           "options": [
             {
               "label": "Strongly disagree",
@@ -292,7 +290,7 @@
           "id": "support_post",
           "type": "slider",
           "label": "After reading the description, how much do you support the proposed program?",
-          "_line": 229,
+          "_line": 227,
           "options": [
             {
               "label": "Strongly oppose",
@@ -328,7 +326,7 @@
           "id": "usefulness",
           "type": "matrix",
           "label": "Please indicate your agreement with each statement.",
-          "_line": 247,
+          "_line": 245,
           "options": [
             {
               "label": "Strongly disagree",
@@ -366,14 +364,14 @@
           "id": "opposition_reason",
           "type": "textarea",
           "label": "What is the main reason you do not support the proposed program?",
-          "_line": 267,
+          "_line": 265,
           "placeholder": "Optional additional detail"
         },
         {
           "id": "comments",
           "type": "textarea",
           "label": "Is there anything else you would like the research team to know?",
-          "_line": 277,
+          "_line": 275,
           "placeholder": "Optional"
         }
       ]
@@ -387,7 +385,7 @@
           "id": "education",
           "type": "select",
           "label": "What is the highest level of education you have completed?",
-          "_line": 290,
+          "_line": 288,
           "options": [
             {
               "label": "Less than secondary school",
@@ -420,7 +418,7 @@
           "id": "gender",
           "type": "mc",
           "label": "How do you describe your gender?",
-          "_line": 308,
+          "_line": 306,
           "options": [
             {
               "label": "Woman",
@@ -448,7 +446,7 @@
           "id": "gender_self_description",
           "type": "text",
           "label": "How would you like to describe your gender?",
-          "_line": 324,
+          "_line": 322,
           "placeholder": "Self-description"
         }
       ]
@@ -462,7 +460,7 @@
           "id": "withdraw_now",
           "type": "mc",
           "label": "What would you like to do?",
-          "_line": 339,
+          "_line": 337,
           "options": [
             {
               "label": "Submit my responses",
@@ -478,7 +476,7 @@
           "id": "deletion_request",
           "type": "mc",
           "label": "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
-          "_line": 352,
+          "_line": 350,
           "options": [
             {
               "label": "I understand that my answers will be deleted",

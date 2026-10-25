@@ -9,39 +9,48 @@ import webbrowser
 from pathlib import Path
 
 from .build import build, load_study
-from .server import serve
-from .runtime import Store
 from .validator import validate
 from .deployment import preflight
 from .exporter import generate as generate_export
 from .preregistration import generate as generate_preregistration
 
 
-def show_report(report):
+def show_report(report, stage="preview"):
+    errors=[item for item in report.get("issues",[]) if item.get("severity","error")!="warning"]
+    warnings=[item for item in report.get("issues",[]) if item.get("severity")=="warning"]
     if report["status"] == "passed":
-        print("Your survey passed validation.")
-        return
-    print("Your survey needs %d change(s) before preview:" % len(report["issues"]))
-    for issue in report["issues"]:
-        location = str(issue.get("file", "study folder")) + ((":" + str(issue["line"])) if issue.get("line") else "")
-        print("- %s (%s)" % (issue["message"], location))
+        print("Your survey passed validation." if stage=="preview" else "Local deployment package checks passed. This does not verify a live connection or approve collection.")
+    else:
+        print("Your survey needs %d change(s) before %s:" % (len(errors),stage))
+    for issue in errors:
+        print("- %s (%s)" % (issue["message"],str(issue.get("file","study folder"))))
+    if warnings:
+        print("Warnings (%d; review separately from blocking errors):" % len(warnings))
+        for issue in warnings:print("- "+issue["message"])
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
+    init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
+        if name=="preflight":
+            item.add_argument("--stage",choices=("package","deployment"),default="package");item.add_argument("--deployment-index")
     preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
-    run = sub.add_parser("run"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
+    run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command == "init":
+            from .scaffold import initialize
+            root=initialize(args.study_dir,args.id,args.profile,args.module,args.title,args.organization,args.language)
+            print("Draft created. Open %s and review the opening and ending pages. No questions or approvals were invented." % (root/"preview.html"));return 0
         if args.command == "validate":
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
         if args.command == "preflight":
-            report = preflight(args.study_dir); show_report(report); return 0 if report["status"] == "passed" else 1
+            report = preflight(args.study_dir,stage=args.stage,deployment_index=args.deployment_index); show_report(report,"deployment"); return 0 if report["status"] == "passed" else 1
         if args.command in ("preregister", "export-surveydown"):
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
@@ -58,20 +67,11 @@ def main(argv=None):
         study = Path(args.study_dir).resolve()
         print("Preview created: %s" % (study / "preview.html"))
         if args.command == "build": return 0
-        if args.command == "run":
-            _, _, config = load_study(study)
-            database = Path(args.database).resolve() if args.database else study / ".greedyq/runtime.sqlite3"
-            server = serve(model, config, Store(database), args.port)
-            url = "http://localhost:%d/study" % args.port
-            print("Respondent test server: %s" % url); print("Test data: %s" % database); print("Press Control-C to stop the server.")
-            if not args.no_open: webbrowser.open(url)
-            try: server.serve_forever()
-            except KeyboardInterrupt: print("\nRespondent test server stopped.")
-            finally: server.server_close()
-            return 0
+        if args.command == "run" and args.database:
+            raise ValueError("run now serves the canonical browser runtime. It uses local browser test storage; --database is not supported. Python Store/serve remain developer reference tools, not the participant UI.")
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(study))
         server = http.server.ThreadingHTTPServer(("localhost", args.port), handler)
-        url = "http://localhost:%d/preview.html" % args.port
+        url = "http://localhost:%d/%s" % (args.port,"index.html" if args.command=="run" else "preview.html")
         print("Open %s" % url); print("Press Control-C to stop the preview server.")
         if not args.no_open: webbrowser.open(url)
         try: server.serve_forever()

@@ -18,6 +18,7 @@
     <section id="preview-tools" hidden style="padding:12px;background:#fff4ce;color:#172033">
       <b id="preview-label"></b> <button id="preview-restart" type="button"></button>
     </section>
+    <section id="local-preview-banner" hidden role="note" style="padding:12px;background:#fff4ce;color:#172033"></section>
     <div id="survey"></div>
     <script src="greedyq-core.js"></script>
     <script id="greedyq-deployment" type="application/json">
@@ -38,6 +39,10 @@
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
+        if(deployment.mode==='mock'){
+          const banner=document.getElementById('local-preview-banner');banner.hidden=false;
+          banner.textContent=ui('Local preview only. Answers stay in this browser and are not sent to the researcher.');
+        }
         let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",

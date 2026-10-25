@@ -166,38 +166,57 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     choices = {q["id"]: {str(item.get("value")) for item in q.get("options", [])} for q in questions if q.get("id")}
     derived_fields = {item.get("store", {}).get("condition_as") for item in config.get("randomization", []) or []}
     derived_fields.discard(None)
-    def check_condition(condition):
+    def check_condition(condition, rule_id=None):
+        before=len(issues)
         def inspect(node):
             if 'all' in node or 'any' in node:
                 for child in node.get('all',node.get('any',[])):inspect(child)
+            elif 'not' in node:inspect(node['not'])
             elif 'unsupported' in node or not re.fullmatch(r'[a-z][a-z0-9_]*',node.get('field','')) or any(k in node and type(node[k]) not in (int,float) for k in ('lt','lte','gt','gte')):
-                issues.append(_item('GQ011','Use a supported comparison or answered(question) condition; arbitrary expressions are not executed.',config_path))
+                issues.append(_item('GQ011','Use a supported condition, for example contains(tools, \"other\"), length(tools) >= 2, age >= 18 or answered(question). Arbitrary expressions are not executed.',config_path))
             elif node['field'] not in known_questions and node['field'] not in derived_fields and node['field']!='condition':
                 issues.append(_item('GQ011',"A condition refers to '%s', but that question does not exist."%node['field'],config_path))
+            if 'length' in node and (not isinstance(node['length'],dict) or any(type(v) not in (int,float) for v in node['length'].values())):
+                issues.append(_item('GQ011','length() must compare a collection length with a number.',config_path))
+            if 'contains' in node or 'in' in node:
+                literals=node.get('in',[node.get('contains')])
+                if not isinstance(literals,list) or any(isinstance(v,(dict,list)) for v in literals):issues.append(_item('GQ011','Membership requires scalar stored values.',config_path))
+                elif choices.get(node.get('field')):
+                    for v in literals:
+                        if v is not None and str(v) not in choices[node['field']]:issues.append(_item('GQ011',"A condition compares '%s' with '%s', which is not one of its stored answer values."%(node['field'],v),config_path))
+            if 'length' in node:
+                q=next((q for q in questions if q.get('id')==node.get('field')),{})
+                if (q.get('base_type') if q.get('type')=='custom' else q.get('type')) not in ('text','textarea','mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple','slider','date'):
+                    issues.append(_item('GQ011','length() requires text or a multiple-selection question.',config_path))
+            if 'contains' in node:
+                q=next((q for q in questions if q.get('id')==node.get('field')),{})
+                if (q.get('base_type') if q.get('type')=='custom' else q.get('type')) not in ('mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple'):issues.append(_item('GQ011','contains() requires a multiple-selection question.',config_path))
         inspect(parse_condition(condition))
         for field, literal in re.findall(r"\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['\"]([^'\"]+)['\"]", str(condition or "")):
             if field not in known_questions and field not in derived_fields:
                 issues.append(_item("GQ011", "A condition refers to '%s', but that question does not exist." % field, config_path))
             elif choices.get(field) and literal not in choices[field]:
                 issues.append(_item("GQ011", "A condition compares '%s' with '%s', which is not one of its stored answer values." % (field, literal), config_path))
+        if rule_id:
+            for item in issues[before:]:item['message']="Rule '%s': %s"%(rule_id,item['message'])
     for rule in logic.get("show", []) or []:
         target = rule.get("question") or rule.get("page")
         known = known_questions if rule.get("question") else known_pages
         if target not in known:
             issues.append(_item("GQ002", "A display rule refers to '%s', but it does not exist." % target, config_path))
-        check_condition(rule.get("if"))
+        check_condition(rule.get("if"),rule.get("id") or rule.get("question") or rule.get("from"))
     for rule in logic.get("skip", []) or []:
         if rule.get("from") not in known_pages:
             issues.append(_item("GQ002", "A route starts from missing page '%s'." % rule.get("from"), config_path))
         if rule.get("to") not in known_pages:
             issues.append(_item("GQ002", "A route points to missing page '%s'." % rule.get("to"), config_path))
-        check_condition(rule.get("if"))
+        check_condition(rule.get("if"),rule.get("id") or rule.get("question") or rule.get("from"))
     for page in pages:
         target = (page.get("nav") or {}).get("page_next")
         if target and target not in known_pages:
             issues.append(_item("GQ002", "Page '%s' continues to missing page '%s'." % (page["id"], target), qmd_path, page.get("_nav_line")))
     for rule in logic.get('validate',[]) or []:
-        check_condition(rule.get('if'))
+        check_condition(rule.get('if'),rule.get('id') or rule.get('question') or rule.get('from'))
         if rule.get('question') not in known_questions:issues.append(_item('GQ002','A validation rule refers to a missing question.',config_path))
     for outcome, value in (config.get("outcomes", {}) or {}).items():
         if value.get("page") not in known_pages:
@@ -268,8 +287,8 @@ def validate_state_artifacts(study_dir):
         if name == "generation-manifest.json" and isinstance(data, dict):
             for artifact in data.get("artifacts", []):
                 relative, expected = artifact.get("path"), artifact.get("sha256")
-                target = root / str(relative or "")
-                if not relative or not target.is_file():
+                target = (root / str(relative or "")).resolve()
+                if not relative or not target.is_relative_to(root.resolve()) or not target.is_file():
                     issues.append(_item("GQ012", "The generation manifest refers to a missing artifact: %s." % relative, path))
                 elif expected and hashlib.sha256(target.read_bytes()).hexdigest() != expected:
                     issues.append(_item("GQ012", "The generated artifact '%s' changed after its manifest was recorded." % relative, path))

@@ -200,10 +200,10 @@
       ><button id="structure-open">View structure</button
       ><label
         >Desktop condition
-        <select id="condition"></select></label
+        <select id="condition" aria-label="Desktop condition"></select></label
       ><label
         >Desktop page
-        <select id="page"></select></label
+        <select id="page" aria-label="Desktop page"></select></label
       ><span>Both panes use independent mock sessions.</span>
     </div>
     <main class="preview-grid">
@@ -247,6 +247,14 @@
             null,
             2,
           ));
+      const uiMessages = {"greedyQ responsive preview": ["greedyQ 반응형 미리보기", "greedyQ 响应式预览", "greedyQ 響應式預覽"], "NO EXTERNAL WRITES": ["외부 저장 안 함", "不向外部写入", "不向外部寫入"], "Reset both virtual participants": ["두 가상 참가자 새로 시작", "重新开始两个虚拟参与者", "重新開始兩個虛擬參與者"], "View structure": ["구조 보기", "查看结构", "查看結構"], "Desktop condition": ["컴퓨터 배정 조건", "电脑分配条件", "電腦分配條件"], "Desktop page": ["컴퓨터 페이지", "电脑页面", "電腦頁面"], "Both panes use independent mock sessions.": ["두 화면은 독립적인 가상 참가자를 사용합니다.", "两个画面使用独立的模拟会话。", "兩個畫面使用獨立的模擬工作階段。"], "Desktop · wide-screen mode": ["컴퓨터 · 넓은 화면", "电脑 · 宽屏模式", "電腦 · 寬螢幕模式"], "Mobile · 390px mode": ["모바일 · 390px 화면", "手机 · 390px 模式", "手機 · 390px 模式"], "Survey structure": ["설문 구조", "问卷结构", "問卷結構"], "Pages, text, and questions in respondent order": ["참가자 순서에 따른 페이지·안내·문항", "按参与者顺序显示页面、文字和题目", "按參與者順序顯示頁面、文字和題目"], "Close": ["닫기", "关闭", "關閉"], "Text block": ["안내문", "文字说明", "文字說明"], "No content items": ["내용 없음", "没有内容", "沒有內容"], " · required": [" · 필수", " · 必答", " · 必答"], " · shuffled within page (tree shows source order)": [" · 페이지 내 섞기 (목록은 작성 순서)", " · 页内随机排序（列表为原始顺序）", " · 頁內隨機排序（列表為原始順序）"], "Close survey structure": ["설문 구조 닫기", "关闭问卷结构", "關閉問卷結構"], "Scrollable desktop preview": ["스크롤 가능한 컴퓨터 미리보기", "可滚动的电脑预览", "可捲動的電腦預覽"]};
+      const localeIndex = {ko:0, "zh-CN":1, "zh-TW":2}[model.language];
+      const ui = text => localeIndex === undefined ? text : (uiMessages[text]?.[localeIndex] ?? text);
+      document.documentElement.lang = model.language || "en";
+      const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+      const uiNodes=[];while(walker.nextNode())if(!['SCRIPT','STYLE'].includes(walker.currentNode.parentElement?.tagName))uiNodes.push(walker.currentNode);
+      for(const node of uiNodes){const text=node.textContent.trim();if(uiMessages[text])node.textContent=node.textContent.replace(text,ui(text));}
+      for(const element of document.querySelectorAll('[aria-label]'))element.setAttribute('aria-label',ui(element.getAttribute('aria-label')));
       await backend.ready;
       let desktop = greedyQ.mountRespondent(
           document.getElementById("desktop"),
@@ -308,15 +316,15 @@
           const items = [];
           if (page.body)
             items.push(
-              `<li><span class="structure-badge">T</span><div>${escapeHtml(excerpt(page.body))}<div class="structure-meta">Text block</div></div></li>`,
+              `<li><span class="structure-badge">T</span><div>${escapeHtml(excerpt(page.body))}<div class="structure-meta">${escapeHtml(ui("Text block"))}</div></div></li>`,
             );
           for (const question of page.questions || [])
             items.push(
-              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? " · required" : ""}${page.shuffle_questions?.includes(question.id) ? " · shuffled within page (tree shows source order)" : ""}</div></div></li>`,
+              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? escapeHtml(ui(" · required")) : ""}${page.shuffle_questions?.includes(question.id) ? escapeHtml(ui(" · shuffled within page (tree shows source order)")) : ""}</div></div></li>`,
             );
           if (!items.length)
             items.push(
-              `<li><span class="structure-badge">—</span><div>No content items</div></li>`,
+              `<li><span class="structure-badge">—</span><div>${escapeHtml(ui("No content items"))}</div></li>`,
             );
           return `<details ${pageIndex === 0 ? "open" : ""}><summary>${pageIndex + 1}. ${escapeHtml(page.title)} <code>[${escapeHtml(page.id)}]</code>${page.terminal ? ` · ${escapeHtml(page.terminal)}` : ""}</summary><ul class="structure-items">${items.join("")}</ul></details>`;
         })

@@ -38,3 +38,9 @@ Ask one focused question at a time. Show the interactive participant preview—n
 When the researcher prepares publication, preregistration, repository, or sharing materials, direct them to `CITATION.md`. Until a greedyQ paper exists, every scholarly use of greedyQ should cite both the versioned greedyQ GitHub repository and the surveydown PLOS ONE paper, including studies run only with the independent greedyQ browser runtime.
 
 When repository tools are available, do not hand-author `preview-model.json`. Run `python3 -m greedyq build PATH_TO_STUDY`, correct every blocking message without changing research intent, and open the generated `preview.html`. Run `python3 -m greedyq preview PATH_TO_STUDY` when a local browser can be opened. Tell the researcher only what they need to review; keep parser and validation details out of the ordinary conversation unless they ask.
+
+## Connection preparation and one pinned guide
+
+Prepare the preview before asking for an account. Explain early that live deployment requires the researcher’s Vercel account and their own login/approval. Never claim to authenticate on their behalf. Vercel’s optional **Onboard your agent** preparation follows the [reviewed guide](./docs/vercel-agent-onboarding.md); it does not complete Supabase setup or deploy the survey.
+
+Use one repository commit or complete downloaded snapshot for a new study, and pin its files and hashes together. Do not mix files fetched from main at different times. For bootstrap-only core verification, use `python3 tools/resolve_guide.py --core-only`; resolve a final profile lock after choosing the study type. Create a new folder with `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language en`. This generates opening and ending pages only, without replacing the researcher’s choice of questionnaire drafting mode.

@@ -423,3 +423,13 @@ Stop the design conversation here. Validate and rebuild the current study, inclu
 ## Troubleshooting
 
 If the AI gives you only a planning document, ask for the **interactive respondent-facing preview**. If a control looks wrong, name the page and question and describe what you see rather than diagnosing code. If the preview opens but answers disappear after refresh, ask the AI to test the local mock session and revision handling. If the live gallery is unavailable, use the repository copy or wait for the GitHub Pages publication workflow to finish.
+
+## Preview versus online publishing
+
+Create the preview without an account. If you choose to publish, sign in to your own Vercel account and personally approve the connection. Do not give your AI a password. Vercel’s optional [Onboard your agent](./docs/vercel-agent-onboarding.md) helps prepare tools; it does not replace login or storage verification. If your host cannot connect, keep the complete study folder and resume in a supported environment.
+
+A local-only banner means answers stay in the browser. Verify actual storage separately with an online test and the results page. Required sliders need interaction unless you explicitly chose a starting value. Ask the AI not to add an unwanted default.
+
+## Ask for an assignment procedure that fits your research
+
+Describe the procedure you want to your AI. For example: “Randomly assign participants to four groups, then show my prepared text list in participation order within each group.” Group assignment is random; the within-group list is sequential. First ask what the existing tools can do and what needs additional implementation. Agree what happens when a list ends or someone stops. A study-specific extension can take extra implementation and testing. Review refresh and simultaneous-participation tests before approving it. See [assignment guidance and prompt examples](./RANDOMIZATION.md).

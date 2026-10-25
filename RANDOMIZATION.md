@@ -4,7 +4,7 @@
 
 ## Researcher choices
 
-greedyQ supports one between-participant assignment per study. Your AI must explain the choices and ask you to approve the method, conditions, ratio, assignment point, and (when applicable) block size. It must not choose these research decisions silently.
+The fixed runtime currently supports one between-participant random assignment per study, with two or more approved groups. Broader research-specific procedures can be developed with your AI as explicit, reviewed extensions, as explained below. Your AI must explain the choices and ask you to approve the method, conditions, ratio, assignment point, and (when applicable) block size. It must not choose these research decisions silently.
 
 - **Simple random assignment:** each participant receives an independent draw. A 1:1 ratio means a 50% chance of each condition, not equal final sample sizes.
 - **Fixed-block random assignment:** each block contains the approved numbers of each condition in a randomly shuffled order. With a block size of 4 and ratio 1:1, every completed block contains two participants per condition. An incomplete last block and participant dropout can leave the analyzed groups unequal. Known fixed block sizes can make later assignments predictable; consider this when deciding whether the method suits the study.
@@ -21,6 +21,20 @@ Examples of requests:
 > Show me both conditions and verify that refreshing does not change a participant's assignment or question order.
 
 No setting is silently changed in an existing study. Use a new study ID for an altered registered plan. Reuse of a session is stable; direct visitors who start a different session are not automatically identified as the same person.
+
+## Research-specific assignment with your AI
+
+You can describe the assignment procedure your research needs in ordinary language. greedyQ is not limited to the two example methods shown above: its AI-guided workflow can help design and implement more varied procedures. First establish which parts use the fixed runtime and which need a reviewed extension. An illustrative design is four-group random assignment followed by a preassigned sequence of text stimuli within each group. This is a researcher-reported use case, not a newly verified built-in sequential-allocation feature.
+
+For example, first assign a participant randomly to A, B, C or D using approved probabilities. Then give the first participant in A the first text on A’s list, the next participant the second text, and so on; each other group has its own list. Group assignment is random. Presentation from the list is sequential, not another random draw. A factorial design may similarly be represented by approved combinations as groups, while stratification, counterbalancing, multiple stages or adaptive rules may require additional implementation. Do not describe every possible design as already available or validated.
+
+Before implementation, ask the researcher to confirm the group ratios, exact stimulus lists, what counts as arrival, what happens when a list ends, how incomplete/withdrawn participation affects the sequence, and the information needed for analysis. Confirm the plan in plain language. Additional implementation and testing can take time. Preserve the reviewed core; put extension code and its versioned contract in an explicit study extension rather than executing arbitrary code from QMD or silently modifying fixed files. Never label a requested procedure as working until its implementation and tests have been checked.
+
+For the four-group example, the live service must reserve the group-specific sequence position and stimulus together at the agreed boundary, so simultaneous arrivals cannot receive the same position accidentally. Refreshing or resuming must show the same stimulus. Keep Test and Real schedules separate. Record group, sequence position, stimulus ID/version and allocation time for analysis. Test simultaneous arrivals, retries, refresh/resume, list exhaustion, withdrawal and separate test/real pools. Explain any native surveydown export difference. These are acceptance criteria for a future or study-specific extension; this documentation update does not add that allocator to the fixed runtime or claim it has passed these tests.
+
+Example request:
+
+> Randomly assign participants to four groups with equal probability. Within each group, show texts from the list I provide in participation order. Explain which parts are already supported and which need an extension. Before writing code, ask me to confirm the order boundary, list-end behavior, incomplete participation and the records I will receive. Preserve the same text on refresh, keep tests separate, and show me the test results before I approve the study.
 
 ## Canonical configuration
 
@@ -75,7 +89,7 @@ This implementation update does not itself migrate or redeploy an existing Verce
 
 Native Surveydown export reports its random-draw translation as unverified; it does not claim fixed-block or persistence equivalence. Question shuffling is reported as unsupported in native export and retains source order. Do not field that export as an equivalent randomized study without implementing and validating the reported differences.
 
-Stratification, variable block sizes, cluster assignment, multiple independent stages and external allocation services remain outside this implemented contract. The AI must state these limits instead of inventing runtime code or silently substituting another design. Choice and page ordering use the separate contracts below.
+Stratification, variable block sizes, cluster assignment, multiple independent stages and external allocation services remain outside this implemented contract. The AI must state these limits instead of claiming built-in support or silently substituting another design. An explicitly requested extension follows the separate design and verification process below. Choice and page ordering use the separate contracts below.
 
 ## Choice and page ordering
 

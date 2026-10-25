@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ReleasePipelineTests(unittest.TestCase):
     def copy_study(self, tmp, name="complete-study"):
         target = Path(tmp) / "study"
-        shutil.copytree(ROOT / "examples" / name, target, ignore=shutil.ignore_patterns(".greedyq", "preview.html", "index.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css"))
+        shutil.copytree(ROOT / "examples" / name, target, ignore=shutil.ignore_patterns("preview.html", "index.html", "studio.html", "greedyq-core.js", "greedyq-runtime.css"))
         return target
 
     def test_prolific_launch_requires_all_three_identifiers(self):
@@ -151,7 +151,7 @@ class ReleasePipelineTests(unittest.TestCase):
         self.assertEqual("passed", report["status"], report)
         with tempfile.TemporaryDirectory() as tmp:
             study = self.copy_study(tmp)
-            (study / ".greedyq").mkdir()
+            (study / ".greedyq").mkdir(exist_ok=True)
             (study / ".greedyq" / "study-state.json").write_text("{}")
             broken = validate_state_artifacts(study)
             self.assertEqual("failed", broken["status"])

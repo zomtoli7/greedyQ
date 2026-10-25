@@ -158,7 +158,7 @@ python3 -m greedyq preview examples/simple-satisfaction-study
 
 Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH_TO_STUDY`, 서버를 시작하지 않고 고정 browser bundle(`index.html`, `preview.html`, `studio.html`, JavaScript, CSS, normalized artifact)을 만들려면 `python3 -m greedyq build PATH_TO_STUDY`를 사용합니다. Preview mode에서는 respondent data가 브라우저 밖으로 전송되지 않습니다. 자세한 내용은 [브라우저 프리뷰 안내](./docs/browser-preview(kor).md)를 참고하십시오.
 
-이 명령은 현재 Python 3가 필요하며 개발 및 conformance 작업을 위한 것입니다. 목표로 하는 최종 사용자 경로에는 capable AI와 modern browser만 필요합니다. 로컬에서 실제로 저장되는 respondent session을 시험하려면 `python3 -m greedyq run examples/complete-study`를 실행하고 `http://localhost:4180/study`를 엽니다. 이 test runtime은 git에서 제외되는 로컬 SQLite database에 응답을 기록하며 아직 Supabase/Vercel production runtime은 아닙니다. [런타임 아키텍처](./docs/runtime-architecture(kor).md)와 [로컬 respondent runtime 안내](./docs/local-respondent-runtime(kor).md)를 참고하십시오.
+개발 명령에는 Python 3가 필요하지만 참가자 화면은 항상 동일한 JavaScript 렌더러를 사용합니다. `python3 -m greedyq run examples/complete-study`로 실행한 뒤 `http://localhost:4180/index.html`에서 확인합니다. mock 응답은 브라우저에만 저장됩니다. [로컬 참가자 화면 안내](./docs/local-respondent-runtime(kor).md)를 참고하세요.
 
 현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [로컬 respondent runtime](./docs/local-respondent-runtime(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 

@@ -13,4 +13,4 @@ def inline(text):
     for pattern,tag in ((r'\*\*\*([^*\n]+)\*\*\*','strong><em'),(r'\*\*([^*\n]+)\*\*','strong'),(r'\*([^*\n]+)\*','em')):
         closing='em></strong' if tag=='strong><em' else tag
         text=re.sub(pattern,lambda m:'<'+tag+'>'+m.group(1)+'</'+closing+'>',text)
-    return re.sub('\x00(\d+)\x00',lambda m:tokens[int(m.group(1))],text)
+    return re.sub(r'\x00(\d+)\x00',lambda m:tokens[int(m.group(1))],text)

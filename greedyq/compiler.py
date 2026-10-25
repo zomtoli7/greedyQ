@@ -1,6 +1,7 @@
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
 
 import re
+import ast
 from .randomization import option_plan, page_plan
 from .redirects import redirect_plan
 from .localization import translate
@@ -33,21 +34,42 @@ def _literal(raw):
 
 
 def condition(expression):
-    """Convert the safe comparison subset to preview predicates."""
-    expression = str(expression).strip()
-    answered=re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)",expression)
-    if answered:return {"field":answered.group(2),"answered":not bool(answered.group(1))}
-    for connector, key in ((" or ", "any"), (" and ", "all")):
-        parts=split_condition(expression,connector)
-        if len(parts)>1:
-            return {key: [condition(part) for part in parts]}
-    for token, key in OPS:
-        if token in expression:
-            field, value = expression.split(token, 1)
-            field = field.strip()
-            if field == "assignment_condition": field = "condition"
-            return {"field": field, key: _literal(value)}
-    return {"unsupported": expression}
+    """Parse a whitelist of expressions; never evaluate Python or R code."""
+    def field(node):
+        if not isinstance(node,ast.Name):raise ValueError()
+        return 'condition' if node.id=='assignment_condition' else node.id
+    def literal(node):
+        if isinstance(node,ast.Constant) and type(node.value) in (str,int,float,bool,type(None)):return node.value
+        if isinstance(node,ast.Name):
+            return {'true':True,'false':False,'null':None}.get(node.id,node.id)
+        if isinstance(node,ast.UnaryOp) and isinstance(node.op,ast.USub) and isinstance(node.operand,ast.Constant) and type(node.operand.value) in (int,float):return -node.operand.value
+        if isinstance(node,(ast.List,ast.Tuple)):return [literal(item) for item in node.elts]
+        raise ValueError()
+    def convert(node):
+        if isinstance(node,ast.BoolOp):return {'all' if isinstance(node.op,ast.And) else 'any':[convert(v) for v in node.values]}
+        if isinstance(node,ast.UnaryOp) and isinstance(node.op,ast.Not):
+            child=convert(node.operand)
+            if 'answered' in child:return {**child,'answered':not child['answered']}
+            return {'not':child}
+        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and not node.keywords:
+            if node.func.id=='answered' and len(node.args)==1:return {'field':field(node.args[0]),'answered':True}
+            if node.func.id=='contains' and len(node.args)==2:return {'field':field(node.args[0]),'contains':literal(node.args[1])}
+        if isinstance(node,ast.Compare) and len(node.ops)==1:
+            op=node.ops[0];right=literal(node.comparators[0]);left=node.left
+            if isinstance(op,(ast.In,ast.NotIn)):
+                if not isinstance(right,list):raise ValueError()
+                result={'field':field(left),'in':right}
+                return {'not':result} if isinstance(op,ast.NotIn) else result
+            names={ast.Eq:'equals',ast.NotEq:'not_equals',ast.Lt:'lt',ast.LtE:'lte',ast.Gt:'gt',ast.GtE:'gte'}
+            key=names.get(type(op))
+            if key is None or isinstance(right,list):raise ValueError()
+            if isinstance(left,ast.Call) and isinstance(left.func,ast.Name) and left.func.id=='length' and len(left.args)==1 and not left.keywords:
+                return {'field':field(left.args[0]),'length':{key:right}}
+            return {'field':field(left),key:right}
+        raise ValueError()
+    if len(str(expression)) > 4096:return {'unsupported':str(expression).strip()}
+    try:return convert(ast.parse(str(expression).strip(),mode='eval').body)
+    except (SyntaxError,ValueError,RecursionError,TypeError):return {'unsupported':str(expression).strip()}
 
 
 def _constraint(question, rules):

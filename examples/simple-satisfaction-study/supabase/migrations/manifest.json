@@ -3,7 +3,7 @@
   "migrations": [
     {
       "name": "001_initial.sql",
-      "sha256": "af09a0749e17e69de015f8c7c4303612d0d107b69a2192abbc18d6c9a40b9d62"
+      "sha256": "e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635"
     },
     {
       "name": "002_browser_rpc.sql",

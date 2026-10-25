@@ -8,13 +8,11 @@ theme-settings:
   theme: default
   barposition: top
   barcolor: "#315c8a"
-  footer-center: "greedyQ user feedback"
 survey-settings:
   show-previous: true
   use-cookies: true
   all-required: false
   start-page: welcome
-  highlight-unanswered: true
   capture-metadata: false
   required:
     - consent_choice

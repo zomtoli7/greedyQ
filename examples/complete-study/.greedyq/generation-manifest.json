@@ -10,7 +10,7 @@
     {
       "path": "survey.qmd",
       "kind": "source",
-      "sha256": "d97b638ecb85bd2aff0bcb0282554820c1db42e08f8025936ca26511a599a98c",
+      "sha256": "c27b60a48d11771549db22baa5db90ad0b7a2e8489ee0e1d155662547d1e000a",
       "status": "generated",
       "based_on_decision_ids": [
         "dec_research_question",
@@ -84,7 +84,7 @@
     {
       "path": "preview.html",
       "kind": "derived",
-      "sha256": "0c6a9e6eb0214039c49f6c084a98af9eead1c36a9b4af55127969c7380bd9db9",
+      "sha256": "3c9784eb35178aff70714f576b7fb5a06cb4066dfb461ae2aa6f2f1c396122fe",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_randomization",
@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "6dd3aeebdb24a8658c9aea4125eeb577d54a8b9a145893ec7f386646b6f44432",
+      "sha256": "ad60039940f3db6042e9caccd9b5cdff64f204d89bccc6ab41b57e03db25f8b7",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -134,35 +134,35 @@
     {
       "path": ".greedyq/normalized-survey.json",
       "kind": "derived",
-      "sha256": "f24048c79b64b52b39ea2400bdedb623afa4079307afaedc562dfed00b86728f",
+      "sha256": "6d57eb8802fff9a5142517675570195c75f0df489324cae86a72c0e6df47ea8e",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": ".greedyq/validation-report.runtime.json",
       "kind": "derived",
-      "sha256": "2b4e01cd3fbcca05191a3769d612f7cde215c98033635d4eabb2883b8c2c7de6",
+      "sha256": "281f67c0ad1d92c49be06ea20312abd037e4617bbd01ccf1d313a47b05bf4f20",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "index.html",
       "kind": "derived",
-      "sha256": "b3e5b9b57f9fc019670c636bd5cd88b67e834589161feeee0153cfa115093b65",
+      "sha256": "233718137f239a908915c0d57b51a6e4c5a0a56c7f13fb27c731a4382c2ca06d",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "greedyq-core.js",
       "kind": "derived",
-      "sha256": "e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0",
+      "sha256": "64d28bf68e1705bcfa9d7c295623a721233debd062689ce1d31347c67d0f28bf",
       "status": "validated",
       "based_on_decision_ids": []
     },
     {
       "path": "greedyq-runtime.css",
       "kind": "derived",
-      "sha256": "d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b",
+      "sha256": "a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977",
       "status": "validated",
       "based_on_decision_ids": []
     },

@@ -6,8 +6,14 @@ library(surveydown)
 db <- sd_db_connect()
 ui <- sd_ui()
 server <- function(input, output, session) {
+  gq_collection <- function(value) {
+    if (is.null(value)) return(character())
+    value <- value[!is.na(value)]
+    value <- value[nzchar(as.character(value))]
+    unlist(strsplit(as.character(value), "|", fixed = TRUE), use.names = FALSE)
+  }
   sd_show_if(
-    (sd_value("conditional_choice") == "yes") ~ "conditional_text"
+    isTRUE(!is.null(sd_value("conditional_choice")) && (sd_value("conditional_choice") == "yes")) ~ "conditional_text"
   )
   output$gq_audio_example_output <- renderUI({ tags$audio(src = "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3", controls = NA, style = 'max-width:100%;') })
   gq_audio_example_value <- reactive(NULL)

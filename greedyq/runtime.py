@@ -129,12 +129,20 @@ def matches(rule, answers, condition):
     if not rule:return True
     if "all" in rule:return all(matches(r,answers,condition) for r in rule["all"])
     if "any" in rule:return any(matches(r,answers,condition) for r in rule["any"])
+    if "not" in rule:return not matches(rule['not'],answers,condition)
     actual=condition if rule.get("field")=="condition" else answers.get(rule.get("field"))
+    equal=lambda a,b:type(a) is type(b) and a==b or type(a) in (int,float) and type(b) in (int,float) and a==b
     if 'answered' in rule:return (actual is not None and actual!='' and actual!=[] and actual!={})==rule['answered']
-    for key,fn in (("equals",lambda a,b:a==b),("not_equals",lambda a,b:a!=b),("lt",lambda a,b:float(a)<b),("lte",lambda a,b:float(a)<=b),("gt",lambda a,b:float(a)>b),("gte",lambda a,b:float(a)>=b)):
-        if key in rule:
-            try:return fn(actual,rule[key])
-            except (TypeError,ValueError):return False
+    if 'contains' in rule:return isinstance(actual,list) and any(equal(v,rule['contains']) for v in actual)
+    if 'in' in rule:return actual is not None and any(equal(actual,v) for v in rule['in'])
+    if 'length' in rule:
+        if not isinstance(actual,(list,str)):return False
+        return matches({'field':'value',**rule['length']},{'value':len(actual)},None)
+    if 'equals' in rule:return equal(actual,rule['equals'])
+    if actual is None:return False
+    if 'not_equals' in rule:return rule['not_equals'] is not None and not equal(actual,rule['not_equals'])
+    for key,fn in (("lt",lambda a,b:a<b),("lte",lambda a,b:a<=b),("gt",lambda a,b:a>b),("gte",lambda a,b:a>=b)):
+        if key in rule:return type(actual) in (int,float) and type(rule[key]) in (int,float) and fn(actual,rule[key])
     return False
 
 

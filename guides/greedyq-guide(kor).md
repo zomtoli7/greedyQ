@@ -238,21 +238,25 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
+| `greedyq/scaffold.py` | `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec` | `no` |
+| `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
+| `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
+| `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
 | `release.json` | `57e598026adbf86febde300ee7ed4145e63815eed760bf714dcd6a8b2a9822f9` | `no` |
 | `PROLIFIC-SETUP.md` | `cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
-| `greedyq/locale-messages.json` | `ed29d149342e812bcc33749485ec8da80a875335f76fe84ab18145b01a77a472` | `no` |
+| `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
 | `docs/surveydown-compatibility-audit.md` | `8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47` | `no` |
 | `EXTERNAL-RETURNS.md` | `a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e` | `no` |
-| `greedyq/formatting.py` | `b3ca2fb98e96812361567037d3436345fbe55dee6c330b7b05c95577364aabd7` | `no` |
+| `greedyq/formatting.py` | `8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d` | `no` |
 | `PREREGISTRATION.md` | `5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948` | `no` |
 | `UPGRADING.md` | `11f423a8eff5445a9dd4028f03cc248dba6e5ef06430b5a711dc1e16b150713d` | `no` |
 | `greedyq/osf_fields.py` | `06a6b117da1bcd2787262638271636bd8b03e720764d6462c7884b22c8a33313` | `no` |
 | `greedyq/redirects.py` | `7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce` | `no` |
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
-| `tools/resolve_guide.py` | `9c3cfca5943dd7f3ad7bfd34aa054755e13beb448b61c19fb9ed10e69f70f39c` | `no` |
-| `RANDOMIZATION.md` | `7c360eea381105c502cf00165bcaf86388587994d34f4d481f92e8e5ef0203cc` | `no` |
+| `tools/resolve_guide.py` | `43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043` | `no` |
+| `RANDOMIZATION.md` | `b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb` | `no` |
 | `docs/repeat-user-acceptance.md` | `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1` | `no` |
 | `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
 | `docs/cloud-lifecycle.md` | `b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9` | `no` |
@@ -260,10 +264,10 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0` | `no` |
-| `web/greedyq-runtime.css` | `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b` | `no` |
-| `templates/browser/respondent.html` | `26471c6ff35ce8524c1efc1fe1beda998bfb2443425d696c2e77b9cd0afd37e0` | `no` |
-| `templates/browser/preview.html` | `47cba8ac1865875364a41c63aae002d1ea4115e24e9713b9a8afbfe2124fa8fa` | `no` |
+| `web/greedyq-core.js` | `64d28bf68e1705bcfa9d7c295623a721233debd062689ce1d31347c67d0f28bf` | `no` |
+| `web/greedyq-runtime.css` | `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977` | `no` |
+| `templates/browser/respondent.html` | `9ae2b42264baaa6bea9b6b2a0ea207ed8117d2ae57e8f08c27f2b504324bf503` | `no` |
+| `templates/browser/preview.html` | `e06cfa365372bfd7ef5555e243561bdd8267354b8f1dff46cf96cee37b6aa0b4` | `no` |
 | `templates/browser/studio.html` | `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a` | `no` |
 | `templates/browser/results.html` | `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -280,21 +284,335 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `schemas/ai/decision-log.schema.json` | `a937bf06a1249069de1f3bd997252bb11addec5956a0e6a0b8546a1f14bca188` | `no` |
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
-| `schemas/preview-model.schema.json` | `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc` | `no` |
+| `schemas/preview-model.schema.json` | `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3` | `no` |
 | `greedyq/__init__.py` | `acb3cd483efa5c40e2a82720686dee7914670ea1bef98555c08fd2c55df84a17` | `no` |
-| `greedyq/__main__.py` | `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21` | `no` |
+| `greedyq/__main__.py` | `dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
-| `greedyq/validator.py` | `e2369bbcc5b6cbf51fcbb788ca4147aa1bf08ccfac083c55d12c689af888b314` | `no` |
-| `greedyq/compiler.py` | `bbb4509a24ffa69ec70b24d2582c895f2a073e0ca4938435d2421de4e9666bd3` | `no` |
-| `greedyq/build.py` | `dba9794e7019cada7adc830be57b1220a5eacbd499e965e2abe3b7cc63a92974` | `no` |
-| `greedyq/runtime.py` | `14373435001867fdeed71116816bc7b32c6973cf3e0bb327332d162bb9156a3e` | `no` |
+| `greedyq/validator.py` | `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3` | `no` |
+| `greedyq/compiler.py` | `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb` | `no` |
+| `greedyq/build.py` | `6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f` | `no` |
+| `greedyq/runtime.py` | `0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9` | `no` |
 | `greedyq/randomization.py` | `fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee` | `no` |
 | `greedyq/server.py` | `73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65` | `no` |
 | `greedyq/prolific.py` | `ba134506dfcce5c3bd126d3cba10bd29df449e260ea8ecf37f40abfc369747b7` | `no` |
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
-| `greedyq/exporter.py` | `a88f7cd5b323558e352af5c88541b0778806d325a834a170aebe68c94bb41e98` | `no` |
-| `greedyq/deployment.py` | `7169b48b81e6e737f9c62bc46755d450adcef1c76957fe1642faeeb7bca0a643` | `no` |
+| `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
+| `greedyq/deployment.py` | `9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb` | `no` |
+
+### FILE: `greedyq/scaffold.py`
+
+SHA-256: `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec`
+
+```python
+"""Create a draft study without inventing questionnaire or approval decisions."""
+import hashlib
+import json
+import re
+from pathlib import Path
+
+from tools.resolve_guide import resolve
+from .build import build
+
+ROOT=Path(__file__).resolve().parents[1]
+
+
+def initialize(destination, study_id, profile, modules=(), title='Untitled research draft', organization='Research team', language='en'):
+    if not re.fullmatch(r'[a-z][a-z0-9_]{1,63}',study_id):raise ValueError('Choose a study ID with lowercase letters, digits and underscores.')
+    if language not in ('en','ko','zh-CN','zh-TW'):raise ValueError('Choose en, ko, zh-CN or zh-TW.')
+    lock=resolve(profile,list(modules))
+    root=Path(destination).resolve()
+    if root.exists():raise FileExistsError('Choose a new folder; existing study files are never overwritten by init.')
+    root.mkdir(parents=True);state=root/'.greedyq';state.mkdir()
+    release=lock['greedyq_release'];version='draft-1'
+    labels={'en':('Welcome','Thank you','Draft preview only. Participant information and questions are not finalized.'),'ko':('설문에 오신 것을 환영합니다','감사합니다','검토용 초안입니다. 참여 안내와 문항은 아직 확정되지 않았습니다.'),'zh-CN':('欢迎参加问卷','谢谢','仅供草稿预览。参与说明和题目尚未确定。'),'zh-TW':('歡迎參加問卷','謝謝','僅供草稿預覽。參與說明和題目尚未確定。')}[language]
+    q=lambda value:json.dumps(value,ensure_ascii=False)
+    (root/'survey.qmd').write_text(f'''---
+title: {q(title)}
+greedyq:
+  spec_version: "0.2"
+  version: {q(release)}
+  organization: {q(organization)}
+  language: {language}
+survey-settings:
+  start-page: welcome
+---
+
+--- welcome
+
+# {labels[0]}
+
+{labels[2]}
+
+--- complete
+
+# {labels[1]}
+''')
+    (root/'greedyq.yml').write_text(f'''spec_version: "0.2"
+study:
+  id: {study_id}
+  title: {q(title)}
+  version: {version}
+  status: draft
+respondents:
+  source: direct_link
+  mode: test
+outcomes:
+  complete:
+    page: complete
+    lifecycle_state: completed
+''')
+    (root/'study-plan.md').write_text('# Study draft\n\n[한국어](./study-plan(kor).md)\n\nThe opening and ending pages are ready for review. The questionnaire, participant information, recruitment and data-handling decisions remain unresolved. Tell your AI the first question, or explicitly ask it to prepare a draft. This is a local preview, not an approved live study.\n')
+    (root/'study-plan(kor).md').write_text('# 연구 초안\n\n[English](./study-plan.md)\n\n시작·종료 페이지만 검토할 수 있습니다. 문항·참여 안내·모집·데이터 처리 결정은 미정입니다. AI에게 첫 문항을 알려주거나 명시적으로 초안을 요청하세요. 승인된 실제 연구가 아니라 로컬 미리보기입니다.\n')
+    consent='consent' in lock['modules']
+    if consent:
+        (root/'consent.md').write_text('# Participant information draft\n\n[한국어](./consent(kor).md)\n\nUNRESOLVED: The researcher must confirm purpose, tasks, duration, risks, data handling, withdrawal and contacts before this notice is written and approved. Do not use this placeholder for recruitment.\n')
+        (root/'consent(kor).md').write_text('# 참여 안내 초안\n\n[English](./consent.md)\n\n미정: 연구자가 목적·과제·시간·위험·데이터 처리·철회·연락처를 확정한 뒤 안내문을 작성하고 승인해야 합니다. 이 임시 문구로 모집하지 마세요.\n')
+    def write(path,data):(root/path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    write('.greedyq/guide-lock.json',lock)
+    write('greedyq.study.json',{'schema_version':'0.2','study_id':study_id,'study_version':version,'object':lock['object'],'profile':profile,'modules':lock['modules'],'origin':{'mode':'new'},'language':language,'entry_points':{'survey':'survey.qmd','config':'greedyq.yml','preview':'preview.html','study_plan':'study-plan.md','consent':'consent.md' if consent else None,'guide_lock':'.greedyq/guide-lock.json'}})
+    base={'schema_version':'0.2','study_id':study_id}
+    write('.greedyq/decision-log.json',{**base,'append_only':True,'decisions':[]})
+    pending={'decision_id':'open_research_design','topic':'Study decisions','question':'What questions, participant information and data-handling choices do you approve?','blocking_scopes':['deployment','fielding'],'status':'open'}
+    write('.greedyq/unresolved-decisions.json',{**base,'items':[pending]})
+    write('.greedyq/study-state.json',{**base,'study_version':version,'guide_version':release,'spec_version':'0.2','mode':'agent','phase':'questionnaire','status':'in_progress','checkpoint':'none','gates':{gate:{'status':'pending'} for gate in ('design','instrument','analysis','preregistration','deployment','fielding')},'confirmed_decision_ids':[],'unresolved_decision_ids':['open_research_design'],'assumptions':[],'artifact_paths':['survey.qmd','greedyq.yml','study-plan.md'],'next_question':'What is your first question?'} )
+    write('.greedyq/validation-report.json',{**base,'study_version':version,'overall_status':'incomplete','checks':[],'manual_gates':[]})
+    sources=['survey.qmd','greedyq.yml','study-plan.md','study-plan(kor).md']+(['consent.md','consent(kor).md'] if consent else [])
+    write('.greedyq/generation-manifest.json',{**base,'study_version':version,'guide_version':release,'spec_version':'0.2','artifacts':[{'path':name,'kind':'source','sha256':hashlib.sha256((root/name).read_bytes()).hexdigest(),'status':'generated','based_on_decision_ids':[]} for name in sources],'external_operations':[]})
+    report,model=build(root)
+    if report['status']!='passed':raise ValueError(report['summary'])
+    return root
+```
+
+### FILE: `templates/supabase/001_initial.sql`
+
+SHA-256: `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635`
+
+```sql
+create extension if not exists pgcrypto;
+
+create table public.gq_sessions (
+  id uuid primary key default gen_random_uuid(),
+  study_id text not null,
+  study_version text not null,
+  spec_version text not null,
+  greedyq_version text not null,
+  current_page text not null default 'welcome',
+  is_test boolean not null default false,
+  lifecycle_state text not null default 'created' check (
+    lifecycle_state in (
+      'created', 'consented', 'in_progress', 'completed', 'screened_out',
+      'consent_refused', 'withdrawn', 'technical_error'
+    )
+  ),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  terminal_at timestamptz
+);
+
+create table public.gq_external_identifiers (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  provider text not null,
+  participant_id text not null,
+  external_study_id text,
+  external_session_id text,
+  created_at timestamptz not null default now(),
+  primary key (provider, participant_id, external_study_id)
+);
+
+create table public.gq_consent_events (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  consent_id text not null,
+  consent_version text not null,
+  document_sha256 text not null check (document_sha256 ~ '^[0-9a-f]{64}$'),
+  decision text not null check (decision in ('accepted', 'refused', 'withdrawn')),
+  occurred_at timestamptz not null default now()
+);
+
+create table public.gq_answers (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  question_id text not null,
+  value jsonb,
+  answered_at timestamptz not null default now(),
+  cleared_at timestamptz,
+  primary key (session_id, question_id)
+);
+
+create table public.gq_assignments (
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  randomization_id text not null,
+  condition text not null,
+  method text not null,
+  block_id text,
+  draw_id text not null,
+  spec_version text not null,
+  assigned_at timestamptz not null default now(),
+  primary key (session_id, randomization_id)
+);
+
+create table public.gq_lifecycle_events (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  from_state text,
+  to_state text not null,
+  page_id text,
+  metadata jsonb not null default '{}'::jsonb,
+  occurred_at timestamptz not null default now()
+);
+
+create table public.gq_data_requests (
+  id bigint generated always as identity primary key,
+  session_id uuid not null references public.gq_sessions(id) on delete cascade,
+  request_type text not null check (request_type in ('deletion', 'withdrawal')),
+  status text not null default 'recorded' check (
+    status in ('recorded', 'reviewing', 'completed', 'denied_with_reason')
+  ),
+  requested_at timestamptz not null default now(),
+  resolved_at timestamptz
+);
+
+alter table public.gq_sessions enable row level security;
+alter table public.gq_external_identifiers enable row level security;
+alter table public.gq_consent_events enable row level security;
+alter table public.gq_answers enable row level security;
+alter table public.gq_assignments enable row level security;
+alter table public.gq_lifecycle_events enable row level security;
+alter table public.gq_data_requests enable row level security;
+
+-- The reference runtime writes through server-controlled functions or a server role.
+-- No direct anonymous SELECT policy is created; respondents cannot enumerate study data.
+
+-- Canonical withdrawal operation. The server role calls this function inside one
+-- transaction. Repeated calls are safe and do not recreate deleted research data.
+create or replace function public.gq_withdraw_and_delete(p_session_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = public, pg_temp
+as $$
+declare
+  v_state text;
+begin
+  select lifecycle_state
+    into v_state
+    from public.gq_sessions
+   where id = p_session_id
+   for update;
+
+  if not found then
+    raise exception 'unknown greedyQ session';
+  end if;
+
+  if v_state = 'withdrawn' then
+    return;
+  end if;
+
+  delete from public.gq_answers where session_id = p_session_id;
+  delete from public.gq_assignments where session_id = p_session_id;
+  delete from public.gq_external_identifiers where session_id = p_session_id;
+  delete from public.gq_consent_events where session_id = p_session_id;
+  delete from public.gq_data_requests where session_id = p_session_id;
+
+  update public.gq_sessions
+     set lifecycle_state = 'withdrawn',
+         current_page = 'withdrawn',
+         updated_at = now(),
+         terminal_at = coalesce(terminal_at, now())
+   where id = p_session_id;
+
+  insert into public.gq_lifecycle_events (
+    session_id, from_state, to_state, page_id, metadata
+  ) values (
+    p_session_id, v_state, 'withdrawn', 'withdrawn',
+    jsonb_build_object('research_data_deleted', true)
+  );
+end;
+$$;
+
+revoke all on function public.gq_withdraw_and_delete(uuid) from public;
+grant execute on function public.gq_withdraw_and_delete(uuid) to service_role;
+
+-- Canonical analysis boundary. It exposes completed, non-test sessions and their
+-- answers as a stable JSON object while deliberately omitting external identifiers.
+create or replace view public.gq_analysis_export
+with (security_invoker = true)
+as
+select
+  s.id as session_id,
+  s.study_id,
+  s.study_version,
+  s.spec_version,
+  s.greedyq_version,
+  s.created_at,
+  s.terminal_at as completed_at,
+  coalesce(
+    jsonb_object_agg(a.question_id, a.value)
+      filter (where a.question_id is not null),
+    '{}'::jsonb
+  ) as answers
+from public.gq_sessions s
+left join public.gq_answers a on a.session_id = s.id
+where s.lifecycle_state = 'completed'
+  and not s.is_test
+group by s.id;
+
+-- The deployment creates/maps this NOLOGIN role for the authenticated analysis
+-- identity. RLS and grants are both required; either one alone is insufficient.
+do $$
+begin
+  if not exists (select 1 from pg_roles where rolname = 'gq_analyst') then
+    create role gq_analyst nologin;
+  end if;
+end
+$$;
+
+create policy gq_analyst_sessions_read on public.gq_sessions
+  for select to gq_analyst
+  using (lifecycle_state = 'completed' and not is_test);
+
+create policy gq_analyst_answers_read on public.gq_answers
+  for select to gq_analyst
+  using (
+    exists (
+      select 1 from public.gq_sessions s
+       where s.id = gq_answers.session_id
+         and s.lifecycle_state = 'completed'
+         and not s.is_test
+    )
+  );
+
+grant usage on schema public to gq_analyst;
+grant select on public.gq_sessions, public.gq_answers to gq_analyst;
+grant select on public.gq_analysis_export to gq_analyst;
+-- Never grant gq_external_identifiers to gq_analyst.
+```
+
+### FILE: `templates/vercel/vercel.json`
+
+SHA-256: `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f`
+
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [{ "source": "/results", "destination": "/results.html" }]
+}
+```
+
+### FILE: `templates/vercel/.env.example`
+
+SHA-256: `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d`
+
+```text
+# Public browser configuration only. The AI inserts these values into the
+# greedyq-deployment JSON block in index.html after explicit approval.
+GREEDYQ_SUPABASE_URL=https://example.supabase.co
+GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
+
+# Never put a service-role key, database password, or other secret in this file.
+```
 
 ### FILE: `release.json`
 
@@ -482,7 +800,7 @@ def translate(language, message):
 
 ### FILE: `greedyq/locale-messages.json`
 
-SHA-256: `ed29d149342e812bcc33749485ec8da80a875335f76fe84ab18145b01a77a472`
+SHA-256: `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad`
 
 ```json
 {
@@ -785,6 +1103,16 @@ SHA-256: `ed29d149342e812bcc33749485ec8da80a875335f76fe84ab18145b01a77a472`
     "이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.",
     "本研究已停止接收回答。如需帮助，请联系研究团队。",
     "本研究已停止接收回答。如需協助，請聯絡研究團隊。"
+  ],
+  "Move the slider to answer.": [
+    "슬라이더를 움직여 응답해 주세요.",
+    "请移动滑块作答。",
+    "請移動滑桿作答。"
+  ],
+  "Local preview only. Answers stay in this browser and are not sent to the researcher.": [
+    "로컬 미리보기입니다. 응답은 이 브라우저에만 남으며 연구자에게 전달되지 않습니다.",
+    "仅供本地预览。回答只保存在此浏览器，不会发送给研究者。",
+    "僅供本地預覽。回答只保存在此瀏覽器，不會傳送給研究者。"
   ]
 }
 ```
@@ -880,7 +1208,7 @@ Native Surveydown export emits return buttons but omits automatic timers in its 
 
 ### FILE: `greedyq/formatting.py`
 
-SHA-256: `b3ca2fb98e96812361567037d3436345fbe55dee6c330b7b05c95577364aabd7`
+SHA-256: `8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d`
 
 ```python
 """Small escaped inline-markdown subset. Raw HTML is never executed."""
@@ -898,7 +1226,7 @@ def inline(text):
     for pattern,tag in ((r'\*\*\*([^*\n]+)\*\*\*','strong><em'),(r'\*\*([^*\n]+)\*\*','strong'),(r'\*([^*\n]+)\*','em')):
         closing='em></strong' if tag=='strong><em' else tag
         text=re.sub(pattern,lambda m:'<'+tag+'>'+m.group(1)+'</'+closing+'>',text)
-    return re.sub('\x00(\d+)\x00',lambda m:tokens[int(m.group(1))],text)
+    return re.sub(r'\x00(\d+)\x00',lambda m:tokens[int(m.group(1))],text)
 ```
 
 ### FILE: `PREREGISTRATION.md`
@@ -1128,7 +1456,7 @@ if __name__=='__main__':
 
 ### FILE: `tools/resolve_guide.py`
 
-SHA-256: `9c3cfca5943dd7f3ad7bfd34aa054755e13beb448b61c19fb9ed10e69f70f39c`
+SHA-256: `43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043`
 
 ```python
 #!/usr/bin/env python3
@@ -1149,10 +1477,10 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def resolve(profile: str, requested_modules: list[str]) -> dict:
+def resolve(profile: str | None, requested_modules: list[str]) -> dict:
     registry = json.loads(REGISTRY_PATH.read_text())
     components = registry["components"]
-    if profile not in components or components[profile]["kind"] != "profile":
+    if profile is not None and (profile not in components or components[profile]["kind"] != "profile"):
         raise ValueError(f"unknown profile: {profile}")
     for module in requested_modules:
         if module not in components or components[module]["kind"] != "module":
@@ -1174,7 +1502,7 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
         active.remove(component_id)
         resolved.append(component_id)
 
-    add(profile)
+    add(profile or "core")
     for module in sorted(set(requested_modules)):
         add(module)
 
@@ -1201,7 +1529,7 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
         "schema_version": "0.2",
         "greedyq_release": registry["release"],
         "registry_sha256": digest(REGISTRY_PATH),
-        "object": components[profile]["object_name"],
+        "object": components[profile or "core"]["object_name"],
         "profile": profile,
         "modules": sorted(component_id for component_id in resolved if components[component_id]["kind"] == "module"),
         "resolved_components": resolved_components,
@@ -1211,10 +1539,13 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--profile", required=True)
+    choice=parser.add_mutually_exclusive_group(required=True)
+    choice.add_argument("--profile")
+    choice.add_argument("--core-only", action="store_true", help="Verify/load core before choosing a study profile")
     parser.add_argument("--module", action="append", default=[])
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.core_only and args.module:parser.error("Choose a profile before resolving modules.")
     result = json.dumps(resolve(args.profile, args.module), indent=2) + "\n"
     if args.output:
         args.output.write_text(result)
@@ -1228,7 +1559,7 @@ if __name__ == "__main__":
 
 ### FILE: `RANDOMIZATION.md`
 
-SHA-256: `7c360eea381105c502cf00165bcaf86388587994d34f4d481f92e8e5ef0203cc`
+SHA-256: `b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb`
 
 ```markdown
 # Random assignment and question order
@@ -1237,7 +1568,7 @@ SHA-256: `7c360eea381105c502cf00165bcaf86388587994d34f4d481f92e8e5ef0203cc`
 
 ## Researcher choices
 
-greedyQ supports one between-participant assignment per study. Your AI must explain the choices and ask you to approve the method, conditions, ratio, assignment point, and (when applicable) block size. It must not choose these research decisions silently.
+The fixed runtime currently supports one between-participant random assignment per study, with two or more approved groups. Broader research-specific procedures can be developed with your AI as explicit, reviewed extensions, as explained below. Your AI must explain the choices and ask you to approve the method, conditions, ratio, assignment point, and (when applicable) block size. It must not choose these research decisions silently.
 
 - **Simple random assignment:** each participant receives an independent draw. A 1:1 ratio means a 50% chance of each condition, not equal final sample sizes.
 - **Fixed-block random assignment:** each block contains the approved numbers of each condition in a randomly shuffled order. With a block size of 4 and ratio 1:1, every completed block contains two participants per condition. An incomplete last block and participant dropout can leave the analyzed groups unequal. Known fixed block sizes can make later assignments predictable; consider this when deciding whether the method suits the study.
@@ -1254,6 +1585,20 @@ Examples of requests:
 > Show me both conditions and verify that refreshing does not change a participant's assignment or question order.
 
 No setting is silently changed in an existing study. Use a new study ID for an altered registered plan. Reuse of a session is stable; direct visitors who start a different session are not automatically identified as the same person.
+
+## Research-specific assignment with your AI
+
+You can describe the assignment procedure your research needs in ordinary language. greedyQ is not limited to the two example methods shown above: its AI-guided workflow can help design and implement more varied procedures. First establish which parts use the fixed runtime and which need a reviewed extension. An illustrative design is four-group random assignment followed by a preassigned sequence of text stimuli within each group. This is a researcher-reported use case, not a newly verified built-in sequential-allocation feature.
+
+For example, first assign a participant randomly to A, B, C or D using approved probabilities. Then give the first participant in A the first text on A’s list, the next participant the second text, and so on; each other group has its own list. Group assignment is random. Presentation from the list is sequential, not another random draw. A factorial design may similarly be represented by approved combinations as groups, while stratification, counterbalancing, multiple stages or adaptive rules may require additional implementation. Do not describe every possible design as already available or validated.
+
+Before implementation, ask the researcher to confirm the group ratios, exact stimulus lists, what counts as arrival, what happens when a list ends, how incomplete/withdrawn participation affects the sequence, and the information needed for analysis. Confirm the plan in plain language. Additional implementation and testing can take time. Preserve the reviewed core; put extension code and its versioned contract in an explicit study extension rather than executing arbitrary code from QMD or silently modifying fixed files. Never label a requested procedure as working until its implementation and tests have been checked.
+
+For the four-group example, the live service must reserve the group-specific sequence position and stimulus together at the agreed boundary, so simultaneous arrivals cannot receive the same position accidentally. Refreshing or resuming must show the same stimulus. Keep Test and Real schedules separate. Record group, sequence position, stimulus ID/version and allocation time for analysis. Test simultaneous arrivals, retries, refresh/resume, list exhaustion, withdrawal and separate test/real pools. Explain any native surveydown export difference. These are acceptance criteria for a future or study-specific extension; this documentation update does not add that allocator to the fixed runtime or claim it has passed these tests.
+
+Example request:
+
+> Randomly assign participants to four groups with equal probability. Within each group, show texts from the list I provide in participation order. Explain which parts are already supported and which need an extension. Before writing code, ask me to confirm the order boundary, list-end behavior, incomplete participation and the records I will receive. Preserve the same text on refresh, keep tests separate, and show me the test results before I approve the study.
 
 ## Canonical configuration
 
@@ -1308,7 +1653,7 @@ This implementation update does not itself migrate or redeploy an existing Verce
 
 Native Surveydown export reports its random-draw translation as unverified; it does not claim fixed-block or persistence equivalence. Question shuffling is reported as unsupported in native export and retains source order. Do not field that export as an equivalent randomized study without implementing and validating the reported differences.
 
-Stratification, variable block sizes, cluster assignment, multiple independent stages and external allocation services remain outside this implemented contract. The AI must state these limits instead of inventing runtime code or silently substituting another design. Choice and page ordering use the separate contracts below.
+Stratification, variable block sizes, cluster assignment, multiple independent stages and external allocation services remain outside this implemented contract. The AI must state these limits instead of claiming built-in support or silently substituting another design. An explicitly requested extension follows the separate design and verification process below. Choice and page ordering use the separate contracts below.
 
 ## Choice and page ordering
 
@@ -2029,7 +2374,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
+SHA-256: `64d28bf68e1705bcfa9d7c295623a721233debd062689ce1d31347c67d0f28bf`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -2042,7 +2387,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
   const VERSION = "0.2.0-draft.1";
   const RELEASE = "0.2_2026-10-25_7beafe4";
   // Generated from greedyq/locale-messages.json; parity is tested.
-  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"]};
+  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"],"Move the slider to answer.":["슬라이더를 움직여 응답해 주세요.","请移动滑块作答。","請移動滑桿作答。"],"Local preview only. Answers stay in this browser and are not sent to the researcher.":["로컬 미리보기입니다. 응답은 이 브라우저에만 남으며 연구자에게 전달되지 않습니다.","仅供本地预览。回答只保存在此浏览器，不会发送给研究者。","僅供本地預覽。回答只保存在此瀏覽器，不會傳送給研究者。"]};
   const LANGUAGES = ['en','ko','zh-CN','zh-TW'];
   function translate(language, message, values={}) {
     if(!LANGUAGES.includes(language))throw new Error('Choose en, ko, zh-CN or zh-TW for greedyq.language.');
@@ -3058,11 +3403,17 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
       derivedFields = new Set(
         (config.randomization || []).map((item) => item.store?.condition_as).filter(Boolean),
       ),
-      checkCondition = (expression) => {
+      checkCondition = (expression,ruleId) => {
+        const before=issues.length;
         const inspect=node=>{
           if(node.all || node.any)(node.all || node.any).forEach(inspect);
-          else if(node.unsupported!==undefined || !/^[a-z][a-z0-9_]*$/.test(node.field || '') || ['lt','lte','gt','gte'].some(k=>k in node && typeof node[k]!=='number'))issues.push(issue('GQ011','Use a supported comparison or answered(question) condition; arbitrary expressions are not executed.',yml));
+          else if(node.not)inspect(node.not);
+          else if(node.unsupported!==undefined || !/^[a-z][a-z0-9_]*$/.test(node.field || '') || ['lt','lte','gt','gte'].some(k=>k in node && typeof node[k]!=='number'))issues.push(issue('GQ011','Use a supported condition, for example contains(tools, "other"), length(tools) >= 2, age >= 18 or answered(question). Arbitrary expressions are not executed.',yml));
           else if(!questionIds.has(node.field) && !derivedFields.has(node.field) && node.field!=='condition')issues.push(issue('GQ011',`A condition refers to '${node.field}', but that question does not exist.`,yml));
+          if(node.length && (typeof node.length!=='object'||Object.values(node.length).some(v=>typeof v!=='number')))issues.push(issue('GQ011','length() must compare a collection length with a number.',yml));
+          if('contains'in node || 'in'in node){const values=node.in??[node.contains];if(!Array.isArray(values)||values.some(v=>v!==null&&typeof v==='object'))issues.push(issue('GQ011','Membership requires scalar stored values.',yml));else if(storedValues.get(node.field)?.size)for(const value of values)if(value!==null&&!storedValues.get(node.field).has(String(value)))issues.push(issue('GQ011',`A condition compares '${node.field}' with '${value}', which is not one of its stored answer values.`,yml));}
+          if(node.length){const q=questions.find(q=>q.id===node.field)||{};if(!['text','textarea','mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple','slider','date'].includes(q.type==='custom'?q.base_type:q.type))issues.push(issue('GQ011','length() requires text or a multiple-selection question.',yml));}
+          if('contains'in node){const q=questions.find(q=>q.id===node.field)||{};if(!['mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple'].includes(q.type==='custom'?q.base_type:q.type))issues.push(issue('GQ011','contains() requires a multiple-selection question.',yml));}
         };inspect(condition(expression));
         const pattern = /\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['"]([^'"]+)['"]/g;
         for (const match of String(expression || "").matchAll(pattern)) {
@@ -3072,10 +3423,11 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
           else if (storedValues.get(field)?.size && !storedValues.get(field).has(literal))
             issues.push(issue("GQ011", `A condition compares '${field}' with '${literal}', which is not one of its stored answer values.`, yml));
         }
+        if(ruleId)for(const item of issues.slice(before))item.message=`Rule '${ruleId}': ${item.message}`;
       };
-    for (const rule of config.logic?.show || []) checkCondition(rule.if);
-    for (const rule of config.logic?.skip || []) checkCondition(rule.if);
-    for(const rule of config.logic?.validate || []) {checkCondition(rule.if);if(!questionIds.has(rule.question))issues.push(issue('GQ002','A validation rule refers to a missing question.',yml));}
+    for (const rule of config.logic?.show || []) checkCondition(rule.if,rule.id||rule.question||rule.from);
+    for (const rule of config.logic?.skip || []) checkCondition(rule.if,rule.id||rule.question||rule.from);
+    for(const rule of config.logic?.validate || []) {checkCondition(rule.if,rule.id||rule.question||rule.from);if(!questionIds.has(rule.question))issues.push(issue('GQ002','A validation rule refers to a missing question.',yml));}
     if ((config.randomization || []).length > 1)
       issues.push(issue("GQ007", "Only one between-subject random assignment is supported per study.", yml));
     for (const randomization of config.randomization || []) {
@@ -3167,32 +3519,43 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
     ["<", "lt"],
     [">", "gt"],
   ];
-  function condition(expression) {
-    const s = String(expression).trim();
-    const answered=/^(not\s+)?answered\(([a-z][a-z0-9_]*)\)$/.exec(s);
-    if(answered)return {field:answered[2],answered:!answered[1]};
-    for (const [c, key] of [
-      [" or ", "any"],
-      [" and ", "all"],
-    ]) {
-      let quote=null,escaped=false,start=0;const parts=[];
-      for(let i=0;i<s.length;i++) {
-        const char=s[i];if(escaped){escaped=false;continue;}
-        if(char==='\\' && quote){escaped=true;continue;}
-        if(quote){if(char===quote)quote=null;}
-        else if(char==='"' || char==="'")quote=char;
-        else if(s.startsWith(c,i)){parts.push(s.slice(start,i));start=i+c.length;}
-      }
-      parts.push(s.slice(start));if(parts.length>1)return {[key]:parts.map(condition)};
-    }
-    for (const [token, key] of OPS)
-      if (s.includes(token)) {
-        let [field, value] = s.split(token, 2);
-        field =
-          field.trim() === "assignment_condition" ? "condition" : field.trim();
-        return { field, [key]: scalar(value) };
-      }
-    return { unsupported: s };
+  function condition(expression, depth=0) {
+    const original=String(expression).trim();let s=original;
+    if(depth>64 || s.length>4096)return {unsupported:original};
+    const split=(text,separator)=>{let quote=null,escaped=false,level=0,start=0;const parts=[];for(let i=0;i<text.length;i++){const c=text[i];if(escaped){escaped=false;continue;}if(quote){if(c==='\\')escaped=true;else if(c===quote)quote=null;continue;}if(c==='"'||c==="'"){quote=c;continue;}if(c==='('||c==='[')level++;else if(c===')'||c===']')level--;else if(level===0&&text.startsWith(separator,i)){parts.push(text.slice(start,i));start=i+separator.length;i+=separator.length-1;}}parts.push(text.slice(start));return parts;};
+    while(s.startsWith('(')&&s.endsWith(')')){let level=0,quote=null,escaped=false,whole=true;for(let i=0;i<s.length;i++){const c=s[i];if(escaped){escaped=false;continue;}if(quote){if(c==='\\')escaped=true;else if(c===quote)quote=null;continue;}if(c==='"'||c==="'")quote=c;else if(c==='(')level++;else if(c===')'&&--level===0&&i<s.length-1){whole=false;break;}}if(!whole||level!==0)break;s=s.slice(1,-1).trim();}
+    const literal=text=>{text=text.trim();if(text.startsWith('[')&&text.endsWith(']'))return text.slice(1,-1).trim()?split(text.slice(1,-1),',').map(literal):[];if(/^"(?:\\.|[^"\\])*"$/.test(text))return JSON.parse(text);if(/^'(?:\\.|[^'\\])*'$/.test(text))return text.slice(1,-1).replace(/\\(['\\])/g,'$1').replace(/\\n/g,'\n');if(/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(text))return Number(text);if(/^[a-z][a-z0-9_]*$/.test(text))return ({true:true,false:false,null:null})[text]??(text==='null'?null:text);throw Error('literal');};
+    const field=name=>name==='assignment_condition'?'condition':name;
+    for(const [connector,key] of [[' or ','any'],[' and ','all']]){const parts=split(s,connector);if(parts.length>1)return {[key]:parts.map(p=>condition(p,depth+1))};}
+    if(s.startsWith('not ')){const child=condition(s.slice(4),depth+1);return 'answered'in child?{...child,answered:!child.answered}:{not:child};}
+    const answered=/^answered\(\s*([a-z][a-z0-9_]*)\s*\)$/.exec(s);if(answered)return {field:field(answered[1]),answered:true};
+    try {
+      let match=/^contains\(\s*([a-z][a-z0-9_]*)\s*,\s*(.+)\)$/.exec(s);if(match)return {field:field(match[1]),contains:literal(match[2])};
+      match=/^([a-z][a-z0-9_]*)\s+(not in|in)\s+(.+)$/.exec(s);if(match){const list=literal(match[3]);if(!Array.isArray(list))throw Error('membership');const node={field:field(match[1]),in:list};return match[2]==='not in'?{not:node}:node;}
+      match=/^(?:length\(\s*([a-z][a-z0-9_]*)\s*\)|([a-z][a-z0-9_]*))\s*(==|!=|<=|>=|<|>)\s*(.+)$/.exec(s);
+      if(match){const key=OPS.find(([token])=>token===match[3])[1],value=literal(match[4]);if(Array.isArray(value))throw Error('scalar');return match[1]?{field:field(match[1]),length:{[key]:value}}:{field:field(match[2]),[key]:value};}
+    }catch{}
+    return {unsupported:original};
+  }
+  function matchesCondition(rule, answers, assigned) {
+    if(!rule)return true;
+    if(rule.all)return rule.all.every(r=>matchesCondition(r,answers,assigned));
+    if(rule.any)return rule.any.some(r=>matchesCondition(r,answers,assigned));
+    if(rule.not)return !matchesCondition(rule.not,answers,assigned);
+    const actual=rule.field==='condition'?assigned:answers[rule.field];
+    const equal=(a,b)=>typeof a===typeof b && a===b;
+    if('answered'in rule)return (actual!=null&&actual!==''&&(!Array.isArray(actual)||actual.length>0)&&(!(actual&&typeof actual==='object'&&!Array.isArray(actual))||Object.keys(actual).length>0))===rule.answered;
+    if('contains'in rule)return Array.isArray(actual)&&actual.some(v=>equal(v,rule.contains));
+    if('in'in rule)return actual!=null&&rule.in.some(v=>equal(actual,v));
+    const compare=(value,node)=>{
+      if('equals'in node)return equal(value??null,node.equals);
+      if(value==null)return false;
+      if('not_equals'in node)return node.not_equals!=null&&!equal(value,node.not_equals);
+      for(const [key,fn] of [['lt',(a,b)=>a<b],['lte',(a,b)=>a<=b],['gt',(a,b)=>a>b],['gte',(a,b)=>a>=b]])if(key in node)return typeof value==='number'&&typeof node[key]==='number'&&fn(value,node[key]);
+      return false;
+    };
+    if(rule.length){if(typeof actual!=='string'&&!Array.isArray(actual))return false;return compare(typeof actual==='string'?Array.from(actual).length:actual.length,rule.length);}
+    return compare(actual,rule);
   }
   function compileSurvey(parsed, config) {
     const prolific=prolificPlan(config);
@@ -3914,28 +4277,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
       progress = root.querySelector(".gq-progress");
     const value = (f) =>
         f === "condition" ? state.condition : state.answers[f],
-      matches = (r) =>
-        !r
-          ? true
-          : r.all
-            ? r.all.every(matches)
-            : r.any
-              ? r.any.some(matches)
-              : "answered" in r
-                ? (value(r.field)!=null && value(r.field)!=="" && (!Array.isArray(value(r.field)) || value(r.field).length>0))===r.answered
-              : "equals" in r
-                ? value(r.field) === r.equals
-                : "not_equals" in r
-                  ? value(r.field) !== r.not_equals
-                  : "lt" in r
-                    ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) < r.lt
-                    : "lte" in r
-                      ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) <= r.lte
-                      : "gt" in r
-                        ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) > r.gt
-                        : "gte" in r
-                          ? value(r.field)!=null && value(r.field)!=="" && Number(value(r.field)) >= r.gte
-                          : false,
+      matches = (r) => matchesCondition(r,state.answers,state.condition),
       visible = (p) => {
         const byId=new Map((p.questions || []).map(q=>[q.id,q]));
         state.question_orders ||= {};
@@ -4002,7 +4344,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
           orientation = q.orientation || "horizontal",
           inputId = `${q.id}-slider`,
           outputId = `${q.id}-slider-output`;
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(options[index]?.label || "")}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="categorical" type="range" min="0" max="${Math.max(0, options.length - 1)}" step="1" value="${index}"><div class="gq-slider-labels"><span>${esc(options[0]?.label || "")}</span><span>${esc(options.at(-1)?.label || "")}</span></div></div>`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(initial != null ? options[index]?.label || "" : t("Move the slider to answer."))}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="categorical" data-answer-initialized="${initial != null}" type="range" min="0" max="${Math.max(0, options.length - 1)}" step="1" value="${index}"><div class="gq-slider-labels"><span>${esc(options[0]?.label || "")}</span><span>${esc(options.at(-1)?.label || "")}</span></div></div>`;
       }
       if (q.type === "slider_numeric") {
         const values = (q.options || []).map((option) => Number(option.value)),
@@ -4021,9 +4363,9 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
           outputId = `${q.id}-slider-output`;
         if (defaults.length === 2 || Array.isArray(selected)) {
           const range = Array.isArray(selected) ? selected : defaults;
-          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} ${esc(t('minimum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} ${esc(t('maximum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+          return `<div class="gq-slider gq-slider-range"><output id="${esc(outputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(range.join(q.sep || " – "))}</output><input aria-label="${esc(q.label)} ${esc(t('minimum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="0" data-slider-kind="numeric-range" data-answer-initialized="${selected != null || defaults.length === 2}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[0])}"><input aria-label="${esc(q.label)} ${esc(t('maximum'))}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-range-index="1" data-slider-kind="numeric-range" data-answer-initialized="${selected != null || defaults.length === 2}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(range[1])}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
         }
-        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc((q.pre || "") + current)}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
+        return `<div class="gq-slider gq-slider-${esc(orientation)}"><output id="${esc(outputId)}" for="${esc(inputId)}" aria-live="polite" data-slider-output="${esc(q.id)}">${esc(selected != null || defaults.length ? (q.pre || "") + current : t("Move the slider to answer."))}</output><input id="${esc(inputId)}" aria-label="${esc(q.label)}" aria-describedby="${esc(outputId)}" data-id="${esc(q.id)}" data-slider-kind="numeric" data-answer-initialized="${selected != null || defaults.length > 0}" type="range" min="${esc(min)}" max="${esc(max)}" step="${esc(step)}" value="${esc(current)}"><div class="gq-slider-labels"><span>${esc(min)}</span><span>${esc(max)}</span></div></div>`;
       }
       if (
         ["mc_multiple", "mc_multiple_buttons", "mc_multiple_image"].includes(
@@ -4116,7 +4458,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
       }
       if (q.type === "textarea")
         return `<textarea data-id="${esc(q.id)}" placeholder="${esc(q.placeholder || "")}" style="${q.height ? `height:${esc(q.height)};` : ""}${q.resize ? `resize:${esc(q.resize)};` : ""}" cols="${esc(q.cols || 80)}">${esc(selected || "")}</textarea>`;
-      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? (q.type === "date" ? today : ""))}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
+      return `<input data-id="${esc(q.id)}" type="${q.type === "numeric" ? "number" : q.type === "date" ? "date" : "text"}" placeholder="${esc(q.placeholder || "")}" value="${esc(selected ?? q.selected ?? "")}" ${q.min != null ? `min="${q.min}"` : ""} ${q.max != null ? `max="${q.max}"` : ""}>`;
     }
     function collect(p) {
       for (const q of visible(p)) {
@@ -4145,7 +4487,11 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
         if (q.type === "drill_down") {
           const answer = [...root.querySelectorAll(`[data-q="${CSS.escape(q.id)}"] [data-drill-level]`)].map((e) => e.value).filter(Boolean); if (answer.length) state.answers[q.id] = answer; else delete state.answers[q.id]; continue;
         }
-        if (q.type === "slider") {
+        if (["slider", "slider_numeric"].includes(effectiveType)) {
+          const sliders=[...root.querySelectorAll(`[data-id="${CSS.escape(q.id)}"][type="range"]`)];
+          if(sliders.length && !sliders.some(e=>e.dataset.answerInitialized==='true')) { delete state.answers[q.id];continue; }
+        }
+        if (effectiveType === "slider") {
           const e = root.querySelector(`[data-id="${CSS.escape(q.id)}"]`),
             option = q.options?.[Number(e?.value)];
           if (option) state.answers[q.id] = option.value;
@@ -4183,7 +4529,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
         }
         if (
           q.type === "daterange" ||
-          (q.type === "slider_numeric" &&
+          (effectiveType === "slider_numeric" &&
             root.querySelector(
               `[data-id="${CSS.escape(q.id)}"][data-range-index]`,
             ))
@@ -4377,6 +4723,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
         };
       for (const slider of card.querySelectorAll('input[type="range"]'))
         slider.oninput = () => {
+          slider.dataset.answerInitialized="true";
           const question = (p.questions || []).find(
               (item) => item.id === slider.dataset.id,
             ),
@@ -4411,7 +4758,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
       }
       for (const drill of card.querySelectorAll(".gq-drill-down select"))
         drill.addEventListener("change", () => { collect(p); save(); render(); });
-      const ruleFields=r=>!r?[]:r.field?[r.field]:(r.all || r.any || []).flatMap(ruleFields);
+      const ruleFields=r=>!r?[]:r.field?[r.field]:r.not?ruleFields(r.not):(r.all || r.any || []).flatMap(ruleFields);
       const visibilitySources = new Set((p.questions || []).flatMap(question=>ruleFields(question.show_if)));
       for (const control of card.querySelectorAll("input,select,textarea"))
         control.addEventListener("change", () => {
@@ -4611,14 +4958,13 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
     });
   }
   return {
-    VERSION, RELEASE, inlineMarkdown, translate,
+    VERSION, RELEASE, condition, matchesCondition, inlineMarkdown, translate,
     planProblem, orderingProblems, drawAssignment, shuffle, questionOrder, optionPlan, optionOrder, pagePlan, pageOrder, redirectPlan, redirectUrl,
     ParseError,
     parseYaml,
     parseSurvey,
     validateSurvey: validateSurveyComplete,
     compileSurvey,
-    condition,
     detectDevice,
     parseProlificLaunch, prolificPlan,
     resolveProlificLaunch,
@@ -4634,7 +4980,7 @@ SHA-256: `e732b739e0c4b4c37ed2594863834f5974f12ad3e295f82a0ef2bace933a4af0`
 
 ### FILE: `web/greedyq-runtime.css`
 
-SHA-256: `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b`
+SHA-256: `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977`
 
 ```css
 :root {
@@ -5082,11 +5428,16 @@ SHA-256: `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b`
     transition: none !important;
   }
 }
+
+/* Keep Korean words intact; allow emergency wrapping only for long tokens. */
+.gq-app:lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
+.gq-app:lang(ko) .gq-matrix-mobile-cell { word-break: keep-all; overflow-wrap: break-word; }
+.gq-app:lang(ko) .gq-matrix th { word-break: keep-all; overflow-wrap: normal; }
 ```
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `26471c6ff35ce8524c1efc1fe1beda998bfb2443425d696c2e77b9cd0afd37e0`
+SHA-256: `9ae2b42264baaa6bea9b6b2a0ea207ed8117d2ae57e8f08c27f2b504324bf503`
 
 ```html
 <!doctype html>
@@ -5109,6 +5460,7 @@ SHA-256: `26471c6ff35ce8524c1efc1fe1beda998bfb2443425d696c2e77b9cd0afd37e0`
     <section id="preview-tools" hidden style="padding:12px;background:#fff4ce;color:#172033">
       <b id="preview-label"></b> <button id="preview-restart" type="button"></button>
     </section>
+    <section id="local-preview-banner" hidden role="note" style="padding:12px;background:#fff4ce;color:#172033"></section>
     <div id="survey"></div>
     <script src="greedyq-core.js"></script>
     <script id="greedyq-deployment" type="application/json">
@@ -5153,6 +5505,10 @@ SHA-256: `26471c6ff35ce8524c1efc1fe1beda998bfb2443425d696c2e77b9cd0afd37e0`
           ),
           root = document.getElementById("survey"),
           params = new URLSearchParams(location.search);
+        if(deployment.mode==='mock'){
+          const banner=document.getElementById('local-preview-banner');banner.hidden=false;
+          banner.textContent=ui('Local preview only. Answers stay in this browser and are not sent to the researcher.');
+        }
         let externalIdentifiers = null;
         document.documentElement.style.setProperty(
           "--gq-brand",
@@ -5229,7 +5585,7 @@ SHA-256: `26471c6ff35ce8524c1efc1fe1beda998bfb2443425d696c2e77b9cd0afd37e0`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `47cba8ac1865875364a41c63aae002d1ea4115e24e9713b9a8afbfe2124fa8fa`
+SHA-256: `e06cfa365372bfd7ef5555e243561bdd8267354b8f1dff46cf96cee37b6aa0b4`
 
 ```html
 <!doctype html>
@@ -5434,10 +5790,10 @@ SHA-256: `47cba8ac1865875364a41c63aae002d1ea4115e24e9713b9a8afbfe2124fa8fa`
       ><button id="structure-open">View structure</button
       ><label
         >Desktop condition
-        <select id="condition"></select></label
+        <select id="condition" aria-label="Desktop condition"></select></label
       ><label
         >Desktop page
-        <select id="page"></select></label
+        <select id="page" aria-label="Desktop page"></select></label
       ><span>Both panes use independent mock sessions.</span>
     </div>
     <main class="preview-grid">
@@ -5505,6 +5861,14 @@ SHA-256: `47cba8ac1865875364a41c63aae002d1ea4115e24e9713b9a8afbfe2124fa8fa`
             null,
             2,
           ));
+      const uiMessages = {"greedyQ responsive preview": ["greedyQ 반응형 미리보기", "greedyQ 响应式预览", "greedyQ 響應式預覽"], "NO EXTERNAL WRITES": ["외부 저장 안 함", "不向外部写入", "不向外部寫入"], "Reset both virtual participants": ["두 가상 참가자 새로 시작", "重新开始两个虚拟参与者", "重新開始兩個虛擬參與者"], "View structure": ["구조 보기", "查看结构", "查看結構"], "Desktop condition": ["컴퓨터 배정 조건", "电脑分配条件", "電腦分配條件"], "Desktop page": ["컴퓨터 페이지", "电脑页面", "電腦頁面"], "Both panes use independent mock sessions.": ["두 화면은 독립적인 가상 참가자를 사용합니다.", "两个画面使用独立的模拟会话。", "兩個畫面使用獨立的模擬工作階段。"], "Desktop · wide-screen mode": ["컴퓨터 · 넓은 화면", "电脑 · 宽屏模式", "電腦 · 寬螢幕模式"], "Mobile · 390px mode": ["모바일 · 390px 화면", "手机 · 390px 模式", "手機 · 390px 模式"], "Survey structure": ["설문 구조", "问卷结构", "問卷結構"], "Pages, text, and questions in respondent order": ["참가자 순서에 따른 페이지·안내·문항", "按参与者顺序显示页面、文字和题目", "按參與者順序顯示頁面、文字和題目"], "Close": ["닫기", "关闭", "關閉"], "Text block": ["안내문", "文字说明", "文字說明"], "No content items": ["내용 없음", "没有内容", "沒有內容"], " · required": [" · 필수", " · 必答", " · 必答"], " · shuffled within page (tree shows source order)": [" · 페이지 내 섞기 (목록은 작성 순서)", " · 页内随机排序（列表为原始顺序）", " · 頁內隨機排序（列表為原始順序）"], "Close survey structure": ["설문 구조 닫기", "关闭问卷结构", "關閉問卷結構"], "Scrollable desktop preview": ["스크롤 가능한 컴퓨터 미리보기", "可滚动的电脑预览", "可捲動的電腦預覽"]};
+      const localeIndex = {ko:0, "zh-CN":1, "zh-TW":2}[model.language];
+      const ui = text => localeIndex === undefined ? text : (uiMessages[text]?.[localeIndex] ?? text);
+      document.documentElement.lang = model.language || "en";
+      const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+      const uiNodes=[];while(walker.nextNode())if(!['SCRIPT','STYLE'].includes(walker.currentNode.parentElement?.tagName))uiNodes.push(walker.currentNode);
+      for(const node of uiNodes){const text=node.textContent.trim();if(uiMessages[text])node.textContent=node.textContent.replace(text,ui(text));}
+      for(const element of document.querySelectorAll('[aria-label]'))element.setAttribute('aria-label',ui(element.getAttribute('aria-label')));
       await backend.ready;
       let desktop = greedyQ.mountRespondent(
           document.getElementById("desktop"),
@@ -5566,15 +5930,15 @@ SHA-256: `47cba8ac1865875364a41c63aae002d1ea4115e24e9713b9a8afbfe2124fa8fa`
           const items = [];
           if (page.body)
             items.push(
-              `<li><span class="structure-badge">T</span><div>${escapeHtml(excerpt(page.body))}<div class="structure-meta">Text block</div></div></li>`,
+              `<li><span class="structure-badge">T</span><div>${escapeHtml(excerpt(page.body))}<div class="structure-meta">${escapeHtml(ui("Text block"))}</div></div></li>`,
             );
           for (const question of page.questions || [])
             items.push(
-              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? " · required" : ""}${page.shuffle_questions?.includes(question.id) ? " · shuffled within page (tree shows source order)" : ""}</div></div></li>`,
+              `<li><span class="structure-badge">Q</span><div>${escapeHtml(question.label)}<div class="structure-meta"><code>${escapeHtml(question.id)}</code> · ${escapeHtml(question.type)}${question.required ? escapeHtml(ui(" · required")) : ""}${page.shuffle_questions?.includes(question.id) ? escapeHtml(ui(" · shuffled within page (tree shows source order)")) : ""}</div></div></li>`,
             );
           if (!items.length)
             items.push(
-              `<li><span class="structure-badge">—</span><div>No content items</div></li>`,
+              `<li><span class="structure-badge">—</span><div>${escapeHtml(ui("No content items"))}</div></li>`,
             );
           return `<details ${pageIndex === 0 ? "open" : ""}><summary>${pageIndex + 1}. ${escapeHtml(page.title)} <code>[${escapeHtml(page.id)}]</code>${page.terminal ? ` · ${escapeHtml(page.terminal)}` : ""}</summary><ul class="structure-items">${items.join("")}</ul></details>`;
         })
@@ -6939,7 +7303,7 @@ SHA-256: `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e`
 
 ### FILE: `schemas/preview-model.schema.json`
 
-SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
+SHA-256: `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3`
 
 ```json
 {
@@ -6958,83 +7322,235 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
     "pages"
   ],
   "properties": {
-    "study_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-    "study_version": { "type": "string", "minLength": 1 },
+    "study_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "study_version": {
+      "type": "string",
+      "minLength": 1
+    },
     "greedyq_version": {
       "type": "string",
       "pattern": "^0\\.2_\\d{4}-\\d{2}-\\d{2}_[0-9a-f]{7,12}$"
     },
-    "title": { "type": "string", "minLength": 1 },
-    "language": { "enum": ["en", "ko", "zh-CN", "zh-TW"] },
-    "organization": { "type": "string", "minLength": 1, "maxLength": 120 },
-    "start_page": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-    "brand_color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "enum": [
+        "en",
+        "ko",
+        "zh-CN",
+        "zh-TW"
+      ]
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "start_page": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "brand_color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
     "messages": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["previous", "next", "required"],
+      "required": [
+        "previous",
+        "next",
+        "required"
+      ],
       "properties": {
-        "previous": { "type": "string" },
-        "next": { "type": "string" },
-        "required": { "type": "string" }
+        "previous": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "required": {
+          "type": "string"
+        }
       }
     },
     "assignment_page": {
       "type": "string",
       "pattern": "^[a-z][a-z0-9_]{1,63}$"
     },
-    "shuffle_pages": {"type":"array","minItems":2,"uniqueItems":true,"items":{"type":"string"}},
-    "randomization": { "type": "object", "required": ["id", "method", "unit", "conditions", "persistence_key"], "properties": { "method": {"enum": ["simple", "fixed_block"]}, "unit": {"const": "respondent"}, "conditions": {"type":"object", "minProperties":2, "additionalProperties":{"type":"integer", "minimum":1}}, "persistence_key":{"const":"session_id"} } },
+    "shuffle_pages": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "randomization": {
+      "type": "object",
+      "required": [
+        "id",
+        "method",
+        "unit",
+        "conditions",
+        "persistence_key"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "simple",
+            "fixed_block"
+          ]
+        },
+        "unit": {
+          "const": "respondent"
+        },
+        "conditions": {
+          "type": "object",
+          "minProperties": 2,
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "persistence_key": {
+          "const": "session_id"
+        }
+      }
+    },
     "conditions": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "progress_paths": {
       "type": "object",
       "additionalProperties": {
         "type": "array",
         "minItems": 1,
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
       }
     },
     "pages": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/page" }
+      "items": {
+        "$ref": "#/$defs/page"
+      }
     },
     "runtime_policy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["mode", "consent", "respondent_source", "duplicate_policy"],
+      "required": [
+        "mode",
+        "consent",
+        "respondent_source",
+        "duplicate_policy"
+      ],
       "properties": {
-        "mode": { "enum": ["test", "production"] },
-        "prolific": {"type":"object","required":["study_id","identity_verification","paths"],"properties":{"study_id":{"type":["string","null"]},"identity_verification":{"const":"url_parameters_only"},"paths":{"type":"object"}}},
-        "consent": {
-          "type": ["object", "null"],
+        "mode": {
+          "enum": [
+            "test",
+            "production"
+          ]
+        },
+        "prolific": {
+          "type": "object",
+          "required": [
+            "study_id",
+            "identity_verification",
+            "paths"
+          ],
           "properties": {
-            "question": { "type": ["string", "null"] },
-            "accept_value": { "$ref": "#/$defs/scalar" },
-            "refusal_outcome": { "type": ["string", "null"] }
+            "study_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "identity_verification": {
+              "const": "url_parameters_only"
+            },
+            "paths": {
+              "type": "object"
+            }
+          }
+        },
+        "consent": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "question": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "accept_value": {
+              "$ref": "#/$defs/scalar"
+            },
+            "refusal_outcome": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           },
           "additionalProperties": false
         },
-        "respondent_source": { "type": "string" },
-        "duplicate_policy": { "enum": ["resume", "reject", "allow", "block"] }
+        "respondent_source": {
+          "type": "string"
+        },
+        "duplicate_policy": {
+          "enum": [
+            "resume",
+            "reject",
+            "allow",
+            "block"
+          ]
+        }
       }
     }
   },
   "$defs": {
-    "scalar": { "type": ["string", "number", "boolean", "null"] },
+    "scalar": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "null"
+      ]
+    },
     "option": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["label", "value"],
+      "required": [
+        "label",
+        "value"
+      ],
       "properties": {
-        "label": { "type": "string", "minLength": 1 },
-        "value": { "$ref": "#/$defs/scalar" },
-        "caption": { "type": "boolean" }
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/scalar"
+        },
+        "caption": {
+          "type": "boolean"
+        }
       }
     },
     "rule": {
@@ -7042,40 +7558,114 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["all"],
+          "required": [
+            "not"
+          ],
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/rule"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all"
+          ],
           "properties": {
             "all": {
               "type": "array",
               "minItems": 1,
-              "items": { "$ref": "#/$defs/rule" }
+              "items": {
+                "$ref": "#/$defs/rule"
+              }
             }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["any"],
+          "required": [
+            "any"
+          ],
           "properties": {
             "any": {
               "type": "array",
               "minItems": 1,
-              "items": { "$ref": "#/$defs/rule" }
+              "items": {
+                "$ref": "#/$defs/rule"
+              }
             }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["field"],
+          "required": [
+            "field"
+          ],
           "properties": {
-            "field": { "type": "string", "minLength": 1 },
-            "answered": {"type":"boolean"},
-            "equals": { "$ref": "#/$defs/scalar" },
-            "not_equals": { "$ref": "#/$defs/scalar" },
-            "lt": { "type": "number" },
-            "lte": { "type": "number" },
-            "gt": { "type": "number" },
-            "gte": { "type": "number" }
+            "field": {
+              "type": "string",
+              "minLength": 1
+            },
+            "answered": {
+              "type": "boolean"
+            },
+            "equals": {
+              "$ref": "#/$defs/scalar"
+            },
+            "not_equals": {
+              "$ref": "#/$defs/scalar"
+            },
+            "lt": {
+              "type": "number"
+            },
+            "lte": {
+              "type": "number"
+            },
+            "gt": {
+              "type": "number"
+            },
+            "gte": {
+              "type": "number"
+            },
+            "contains": {
+              "$ref": "#/$defs/scalar"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/scalar"
+              }
+            },
+            "length": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "maxProperties": 1,
+              "properties": {
+                "equals": {
+                  "type": "number"
+                },
+                "not_equals": {
+                  "type": "number"
+                },
+                "lt": {
+                  "type": "number"
+                },
+                "lte": {
+                  "type": "number"
+                },
+                "gt": {
+                  "type": "number"
+                },
+                "gte": {
+                  "type": "number"
+                }
+              }
+            }
           },
           "minProperties": 2,
           "maxProperties": 2
@@ -7085,9 +7675,16 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
     "question": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "type", "label"],
+      "required": [
+        "id",
+        "type",
+        "label"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,63}$"
+        },
         "type": {
           "enum": [
             "text",
@@ -7118,60 +7715,204 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
             "custom"
           ]
         },
-        "label": { "type": "string", "minLength": 1 },
-        "placeholder": { "type": "string" },
-        "required": { "type": "boolean" },
-        "shuffle_items": {"type":"array","minItems":1,"uniqueItems":true,"items":{"$ref":"#/$defs/scalar"}},
-        "min": { "type": "number" },
-        "max": { "type": "number" },
-        "step": { "type": "number", "exclusiveMinimum": 0 },
-        "orientation": { "enum": ["horizontal", "vertical"] },
-        "direction": { "enum": ["horizontal", "vertical"] },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "shuffle_items": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "step": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "orientation": {
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        },
         "images": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "width": { "type": ["string", "number"] },
-        "height": { "type": "string" },
-        "resize": { "type": "string" },
-        "cols": { "type": ["string", "number"] },
+        "width": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "height": {
+          "type": "string"
+        },
+        "resize": {
+          "type": "string"
+        },
+        "cols": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
         "selected": {},
         "default": {
-          "type": ["array", "number"],
-          "items": { "$ref": "#/$defs/scalar" }
+          "type": [
+            "array",
+            "number"
+          ],
+          "items": {
+            "$ref": "#/$defs/scalar"
+          }
         },
-        "grid": { "type": "boolean" },
-        "individual": { "type": "boolean" },
-        "justified": { "type": "boolean" },
-        "force_edges": { "type": "boolean" },
-        "status": { "type": "string" },
-        "matrix_question_width": { "type": ["string", "number"] },
-        "mobile_columns": { "enum": [2, 3] },
-        "total": { "type": "number", "exclusiveMinimum": 0 },
-        "path_separator": { "type": "string", "minLength": 1 },
-        "low_label": { "type": "string" },
-        "high_label": { "type": "string" },
-        "base_type": { "type": "string" },
-        "customization": { "type": "string" },
-        "custom_class": { "type": "string" },
-        "selection_hint": { "type": ["string", "boolean"] },
-        "src": { "type": "string", "minLength": 1 },
-        "poster": { "type": "string", "minLength": 1 },
-        "caption": { "type": "string" },
-        "transcript": { "type": "string" },
-        "controls": { "type": "boolean" },
-        "autoplay": { "type": "boolean" },
-        "muted": { "type": "boolean" },
-        "loop": { "type": "boolean" },
-        "preload": { "enum": ["none", "metadata", "auto"] },
-        "pre": { "type": "string" },
-        "sep": { "type": "string" },
+        "grid": {
+          "type": "boolean"
+        },
+        "individual": {
+          "type": "boolean"
+        },
+        "justified": {
+          "type": "boolean"
+        },
+        "force_edges": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "matrix_question_width": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "mobile_columns": {
+          "enum": [
+            2,
+            3
+          ]
+        },
+        "total": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "path_separator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "low_label": {
+          "type": "string"
+        },
+        "high_label": {
+          "type": "string"
+        },
+        "base_type": {
+          "type": "string"
+        },
+        "customization": {
+          "type": "string"
+        },
+        "custom_class": {
+          "type": "string"
+        },
+        "selection_hint": {
+          "type": [
+            "string",
+            "boolean"
+          ]
+        },
+        "src": {
+          "type": "string",
+          "minLength": 1
+        },
+        "poster": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string"
+        },
+        "transcript": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "boolean"
+        },
+        "autoplay": {
+          "type": "boolean"
+        },
+        "muted": {
+          "type": "boolean"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "preload": {
+          "enum": [
+            "none",
+            "metadata",
+            "auto"
+          ]
+        },
+        "pre": {
+          "type": "string"
+        },
+        "sep": {
+          "type": "string"
+        },
         "animate": {},
-        "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "rows": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "columns": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "groups": { "type": "array", "items": { "$ref": "#/$defs/option" } },
-        "show_if": { "$ref": "#/$defs/rule" }
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "show_if": {
+          "$ref": "#/$defs/rule"
+        }
       },
       "allOf": [
         {
@@ -7193,63 +7934,217 @@ SHA-256: `5c04723849519d2f2ccb4ad743c2a264d91e3910da694236b44764ff14fa89fc`
               }
             }
           },
-          "then": { "required": ["options"] }
-        },
-        {
-          "if": {
-            "properties": { "type": { "enum": ["matrix", "matrix_multiple"] } }
-          },
-          "then": { "required": ["rows"] }
+          "then": {
+            "required": [
+              "options"
+            ]
+          }
         },
         {
           "if": {
             "properties": {
-              "type": { "enum": ["mc_image", "mc_multiple_image"] }
+              "type": {
+                "enum": [
+                  "matrix",
+                  "matrix_multiple"
+                ]
+              }
             }
           },
-          "then": { "required": ["images"] }
+          "then": {
+            "required": [
+              "rows"
+            ]
+          }
         },
         {
           "if": {
-            "properties": { "type": { "enum": ["audio", "video"] } }
+            "properties": {
+              "type": {
+                "enum": [
+                  "mc_image",
+                  "mc_multiple_image"
+                ]
+              }
+            }
           },
-          "then": { "required": ["src"] }
+          "then": {
+            "required": [
+              "images"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "audio",
+                  "video"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "src"
+            ]
+          }
         }
       ]
     },
     "route": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["when", "to"],
+      "required": [
+        "when",
+        "to"
+      ],
       "properties": {
-        "when": { "$ref": "#/$defs/rule" },
-        "to": { "type": "string" }
+        "when": {
+          "$ref": "#/$defs/rule"
+        },
+        "to": {
+          "type": "string"
+        }
       }
     },
     "page": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "questions"],
+      "required": [
+        "id",
+        "title",
+        "questions"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$" },
-        "title": { "type": "string", "minLength": 1 },
-        "body": { "type": "string" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,63}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string"
+        },
         "questions": {
           "type": "array",
-          "items": { "$ref": "#/$defs/question" }
+          "items": {
+            "$ref": "#/$defs/question"
+          }
         },
-        "shuffle_questions": {"type":"array", "minItems":2, "uniqueItems":true, "items":{"type":"string"}},
-        "show_if": {"$ref":"#/$defs/rule"},
-        "checks": {"type":"array","items":{"type":"object","additionalProperties":false,"required":["when","message"],"properties":{"question":{"type":"string"},"when":{"$ref":"#/$defs/rule"},"message":{"type":"string"}}}},
-        "redirect": {"type":"object","additionalProperties":false,"required":["url","params","delay","newtab","label"],"properties":{"url":{"type":"string","pattern":"^https://"},"params":{"type":"object","additionalProperties":{"type":"string"}},"delay":{"type":["integer","null"],"minimum":0,"maximum":3600},"newtab":{"type":"boolean"},"label":{"type":"string"}}},
-        "next": { "type": ["string", "null"] },
-        "next_label": { "type": "string" },
-        "show_previous": { "type": "boolean" },
-        "previous_mode": { "enum": ["show", "hide", "disable"] },
-        "next_mode": { "enum": ["show", "hide", "disable"] },
-        "next_delay_seconds": { "type": "number", "minimum": 0, "maximum": 86400 },
-        "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
-        "terminal": { "type": "string" }
+        "shuffle_questions": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "show_if": {
+          "$ref": "#/$defs/rule"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "when",
+              "message"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "when": {
+                "$ref": "#/$defs/rule"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "redirect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "params",
+            "delay",
+            "newtab",
+            "label"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "delay": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 3600
+            },
+            "newtab": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "next": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_label": {
+          "type": "string"
+        },
+        "show_previous": {
+          "type": "boolean"
+        },
+        "previous_mode": {
+          "enum": [
+            "show",
+            "hide",
+            "disable"
+          ]
+        },
+        "next_mode": {
+          "enum": [
+            "show",
+            "hide",
+            "disable"
+          ]
+        },
+        "next_delay_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 86400
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/route"
+          }
+        },
+        "terminal": {
+          "type": "string"
+        }
       }
     }
   }
@@ -7269,7 +8164,7 @@ __release__ = "0.2_2026-10-25_7beafe4"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21`
+SHA-256: `dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f`
 
 ```python
 """CLI for greedyQ's dependency-light Python reference implementation."""
@@ -7283,39 +8178,48 @@ import webbrowser
 from pathlib import Path
 
 from .build import build, load_study
-from .server import serve
-from .runtime import Store
 from .validator import validate
 from .deployment import preflight
 from .exporter import generate as generate_export
 from .preregistration import generate as generate_preregistration
 
 
-def show_report(report):
+def show_report(report, stage="preview"):
+    errors=[item for item in report.get("issues",[]) if item.get("severity","error")!="warning"]
+    warnings=[item for item in report.get("issues",[]) if item.get("severity")=="warning"]
     if report["status"] == "passed":
-        print("Your survey passed validation.")
-        return
-    print("Your survey needs %d change(s) before preview:" % len(report["issues"]))
-    for issue in report["issues"]:
-        location = str(issue.get("file", "study folder")) + ((":" + str(issue["line"])) if issue.get("line") else "")
-        print("- %s (%s)" % (issue["message"], location))
+        print("Your survey passed validation." if stage=="preview" else "Local deployment package checks passed. This does not verify a live connection or approve collection.")
+    else:
+        print("Your survey needs %d change(s) before %s:" % (len(errors),stage))
+    for issue in errors:
+        print("- %s (%s)" % (issue["message"],str(issue.get("file","study folder"))))
+    if warnings:
+        print("Warnings (%d; review separately from blocking errors):" % len(warnings))
+        for issue in warnings:print("- "+issue["message"])
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
+    init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
+        if name=="preflight":
+            item.add_argument("--stage",choices=("package","deployment"),default="package");item.add_argument("--deployment-index")
     preview = sub.add_parser("preview"); preview.add_argument("study_dir", nargs="?", default="."); preview.add_argument("--port", type=int, default=4173); preview.add_argument("--no-open", action="store_true")
-    run = sub.add_parser("run"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
+    run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command == "init":
+            from .scaffold import initialize
+            root=initialize(args.study_dir,args.id,args.profile,args.module,args.title,args.organization,args.language)
+            print("Draft created. Open %s and review the opening and ending pages. No questions or approvals were invented." % (root/"preview.html"));return 0
         if args.command == "validate":
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
         if args.command == "preflight":
-            report = preflight(args.study_dir); show_report(report); return 0 if report["status"] == "passed" else 1
+            report = preflight(args.study_dir,stage=args.stage,deployment_index=args.deployment_index); show_report(report,"deployment"); return 0 if report["status"] == "passed" else 1
         if args.command in ("preregister", "export-surveydown"):
             study, parsed, config = load_study(args.study_dir)
             report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
@@ -7332,20 +8236,11 @@ def main(argv=None):
         study = Path(args.study_dir).resolve()
         print("Preview created: %s" % (study / "preview.html"))
         if args.command == "build": return 0
-        if args.command == "run":
-            _, _, config = load_study(study)
-            database = Path(args.database).resolve() if args.database else study / ".greedyq/runtime.sqlite3"
-            server = serve(model, config, Store(database), args.port)
-            url = "http://localhost:%d/study" % args.port
-            print("Respondent test server: %s" % url); print("Test data: %s" % database); print("Press Control-C to stop the server.")
-            if not args.no_open: webbrowser.open(url)
-            try: server.serve_forever()
-            except KeyboardInterrupt: print("\nRespondent test server stopped.")
-            finally: server.server_close()
-            return 0
+        if args.command == "run" and args.database:
+            raise ValueError("run now serves the canonical browser runtime. It uses local browser test storage; --database is not supported. Python Store/serve remain developer reference tools, not the participant UI.")
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(study))
         server = http.server.ThreadingHTTPServer(("localhost", args.port), handler)
-        url = "http://localhost:%d/preview.html" % args.port
+        url = "http://localhost:%d/%s" % (args.port,"index.html" if args.command=="run" else "preview.html")
         print("Open %s" % url); print("Press Control-C to stop the preview server.")
         if not args.no_open: webbrowser.open(url)
         try: server.serve_forever()
@@ -7692,7 +8587,7 @@ def parse_qmd(path):
 
 ### FILE: `greedyq/validator.py`
 
-SHA-256: `e2369bbcc5b6cbf51fcbb788ca4147aa1bf08ccfac083c55d12c689af888b314`
+SHA-256: `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3`
 
 ```python
 """Deterministic, researcher-readable validation for greedyQ v0.2 studies."""
@@ -7863,38 +8758,57 @@ def validate(parsed, config, qmd_path="survey.qmd", config_path="greedyq.yml"):
     choices = {q["id"]: {str(item.get("value")) for item in q.get("options", [])} for q in questions if q.get("id")}
     derived_fields = {item.get("store", {}).get("condition_as") for item in config.get("randomization", []) or []}
     derived_fields.discard(None)
-    def check_condition(condition):
+    def check_condition(condition, rule_id=None):
+        before=len(issues)
         def inspect(node):
             if 'all' in node or 'any' in node:
                 for child in node.get('all',node.get('any',[])):inspect(child)
+            elif 'not' in node:inspect(node['not'])
             elif 'unsupported' in node or not re.fullmatch(r'[a-z][a-z0-9_]*',node.get('field','')) or any(k in node and type(node[k]) not in (int,float) for k in ('lt','lte','gt','gte')):
-                issues.append(_item('GQ011','Use a supported comparison or answered(question) condition; arbitrary expressions are not executed.',config_path))
+                issues.append(_item('GQ011','Use a supported condition, for example contains(tools, \"other\"), length(tools) >= 2, age >= 18 or answered(question). Arbitrary expressions are not executed.',config_path))
             elif node['field'] not in known_questions and node['field'] not in derived_fields and node['field']!='condition':
                 issues.append(_item('GQ011',"A condition refers to '%s', but that question does not exist."%node['field'],config_path))
+            if 'length' in node and (not isinstance(node['length'],dict) or any(type(v) not in (int,float) for v in node['length'].values())):
+                issues.append(_item('GQ011','length() must compare a collection length with a number.',config_path))
+            if 'contains' in node or 'in' in node:
+                literals=node.get('in',[node.get('contains')])
+                if not isinstance(literals,list) or any(isinstance(v,(dict,list)) for v in literals):issues.append(_item('GQ011','Membership requires scalar stored values.',config_path))
+                elif choices.get(node.get('field')):
+                    for v in literals:
+                        if v is not None and str(v) not in choices[node['field']]:issues.append(_item('GQ011',"A condition compares '%s' with '%s', which is not one of its stored answer values."%(node['field'],v),config_path))
+            if 'length' in node:
+                q=next((q for q in questions if q.get('id')==node.get('field')),{})
+                if (q.get('base_type') if q.get('type')=='custom' else q.get('type')) not in ('text','textarea','mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple','slider','date'):
+                    issues.append(_item('GQ011','length() requires text or a multiple-selection question.',config_path))
+            if 'contains' in node:
+                q=next((q for q in questions if q.get('id')==node.get('field')),{})
+                if (q.get('base_type') if q.get('type')=='custom' else q.get('type')) not in ('mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple'):issues.append(_item('GQ011','contains() requires a multiple-selection question.',config_path))
         inspect(parse_condition(condition))
         for field, literal in re.findall(r"\b([a-z][a-z0-9_]*)\s*(?:==|!=)\s*['\"]([^'\"]+)['\"]", str(condition or "")):
             if field not in known_questions and field not in derived_fields:
                 issues.append(_item("GQ011", "A condition refers to '%s', but that question does not exist." % field, config_path))
             elif choices.get(field) and literal not in choices[field]:
                 issues.append(_item("GQ011", "A condition compares '%s' with '%s', which is not one of its stored answer values." % (field, literal), config_path))
+        if rule_id:
+            for item in issues[before:]:item['message']="Rule '%s': %s"%(rule_id,item['message'])
     for rule in logic.get("show", []) or []:
         target = rule.get("question") or rule.get("page")
         known = known_questions if rule.get("question") else known_pages
         if target not in known:
             issues.append(_item("GQ002", "A display rule refers to '%s', but it does not exist." % target, config_path))
-        check_condition(rule.get("if"))
+        check_condition(rule.get("if"),rule.get("id") or rule.get("question") or rule.get("from"))
     for rule in logic.get("skip", []) or []:
         if rule.get("from") not in known_pages:
             issues.append(_item("GQ002", "A route starts from missing page '%s'." % rule.get("from"), config_path))
         if rule.get("to") not in known_pages:
             issues.append(_item("GQ002", "A route points to missing page '%s'." % rule.get("to"), config_path))
-        check_condition(rule.get("if"))
+        check_condition(rule.get("if"),rule.get("id") or rule.get("question") or rule.get("from"))
     for page in pages:
         target = (page.get("nav") or {}).get("page_next")
         if target and target not in known_pages:
             issues.append(_item("GQ002", "Page '%s' continues to missing page '%s'." % (page["id"], target), qmd_path, page.get("_nav_line")))
     for rule in logic.get('validate',[]) or []:
-        check_condition(rule.get('if'))
+        check_condition(rule.get('if'),rule.get('id') or rule.get('question') or rule.get('from'))
         if rule.get('question') not in known_questions:issues.append(_item('GQ002','A validation rule refers to a missing question.',config_path))
     for outcome, value in (config.get("outcomes", {}) or {}).items():
         if value.get("page") not in known_pages:
@@ -7965,8 +8879,8 @@ def validate_state_artifacts(study_dir):
         if name == "generation-manifest.json" and isinstance(data, dict):
             for artifact in data.get("artifacts", []):
                 relative, expected = artifact.get("path"), artifact.get("sha256")
-                target = root / str(relative or "")
-                if not relative or not target.is_file():
+                target = (root / str(relative or "")).resolve()
+                if not relative or not target.is_relative_to(root.resolve()) or not target.is_file():
                     issues.append(_item("GQ012", "The generation manifest refers to a missing artifact: %s." % relative, path))
                 elif expected and hashlib.sha256(target.read_bytes()).hexdigest() != expected:
                     issues.append(_item("GQ012", "The generated artifact '%s' changed after its manifest was recorded." % relative, path))
@@ -7975,12 +8889,13 @@ def validate_state_artifacts(study_dir):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `bbb4509a24ffa69ec70b24d2582c895f2a073e0ca4938435d2421de4e9666bd3`
+SHA-256: `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
 
 import re
+import ast
 from .randomization import option_plan, page_plan
 from .redirects import redirect_plan
 from .localization import translate
@@ -8013,21 +8928,42 @@ def _literal(raw):
 
 
 def condition(expression):
-    """Convert the safe comparison subset to preview predicates."""
-    expression = str(expression).strip()
-    answered=re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)",expression)
-    if answered:return {"field":answered.group(2),"answered":not bool(answered.group(1))}
-    for connector, key in ((" or ", "any"), (" and ", "all")):
-        parts=split_condition(expression,connector)
-        if len(parts)>1:
-            return {key: [condition(part) for part in parts]}
-    for token, key in OPS:
-        if token in expression:
-            field, value = expression.split(token, 1)
-            field = field.strip()
-            if field == "assignment_condition": field = "condition"
-            return {"field": field, key: _literal(value)}
-    return {"unsupported": expression}
+    """Parse a whitelist of expressions; never evaluate Python or R code."""
+    def field(node):
+        if not isinstance(node,ast.Name):raise ValueError()
+        return 'condition' if node.id=='assignment_condition' else node.id
+    def literal(node):
+        if isinstance(node,ast.Constant) and type(node.value) in (str,int,float,bool,type(None)):return node.value
+        if isinstance(node,ast.Name):
+            return {'true':True,'false':False,'null':None}.get(node.id,node.id)
+        if isinstance(node,ast.UnaryOp) and isinstance(node.op,ast.USub) and isinstance(node.operand,ast.Constant) and type(node.operand.value) in (int,float):return -node.operand.value
+        if isinstance(node,(ast.List,ast.Tuple)):return [literal(item) for item in node.elts]
+        raise ValueError()
+    def convert(node):
+        if isinstance(node,ast.BoolOp):return {'all' if isinstance(node.op,ast.And) else 'any':[convert(v) for v in node.values]}
+        if isinstance(node,ast.UnaryOp) and isinstance(node.op,ast.Not):
+            child=convert(node.operand)
+            if 'answered' in child:return {**child,'answered':not child['answered']}
+            return {'not':child}
+        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and not node.keywords:
+            if node.func.id=='answered' and len(node.args)==1:return {'field':field(node.args[0]),'answered':True}
+            if node.func.id=='contains' and len(node.args)==2:return {'field':field(node.args[0]),'contains':literal(node.args[1])}
+        if isinstance(node,ast.Compare) and len(node.ops)==1:
+            op=node.ops[0];right=literal(node.comparators[0]);left=node.left
+            if isinstance(op,(ast.In,ast.NotIn)):
+                if not isinstance(right,list):raise ValueError()
+                result={'field':field(left),'in':right}
+                return {'not':result} if isinstance(op,ast.NotIn) else result
+            names={ast.Eq:'equals',ast.NotEq:'not_equals',ast.Lt:'lt',ast.LtE:'lte',ast.Gt:'gt',ast.GtE:'gte'}
+            key=names.get(type(op))
+            if key is None or isinstance(right,list):raise ValueError()
+            if isinstance(left,ast.Call) and isinstance(left.func,ast.Name) and left.func.id=='length' and len(left.args)==1 and not left.keywords:
+                return {'field':field(left.args[0]),'length':{key:right}}
+            return {'field':field(left),key:right}
+        raise ValueError()
+    if len(str(expression)) > 4096:return {'unsupported':str(expression).strip()}
+    try:return convert(ast.parse(str(expression).strip(),mode='eval').body)
+    except (SyntaxError,ValueError,RecursionError,TypeError):return {'unsupported':str(expression).strip()}
 
 
 def _constraint(question, rules):
@@ -8170,7 +9106,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `dba9794e7019cada7adc830be57b1220a5eacbd499e965e2abe3b7cc63a92974`
+SHA-256: `6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -8200,6 +9136,38 @@ def load_study(study_dir):
     return study_dir, parsed, config
 
 
+def refresh_manifest(study_dir):
+    """Record generated bytes; source changes invalidate downstream approvals."""
+    internal=study_dir/'.greedyq';path=internal/'generation-manifest.json'
+    if not path.is_file():return
+    data=json.loads(path.read_text());changed=False
+    entries=data.get('artifacts',[])
+    for entry in entries:
+        relative=Path(entry.get('path',''));target=(study_dir/relative).resolve()
+        if not target.is_relative_to(study_dir.resolve()) or not target.is_file():continue
+        digest=hashlib.sha256(target.read_bytes()).hexdigest()
+        if entry.get('kind')=='source' and digest!=entry.get('sha256'):changed=True
+        entry['sha256']=digest
+    names={entry['path'] for entry in entries}
+    for name in ('index.html','preview.html','studio.html','results.html','greedyq-core.js','greedyq-runtime.css','preview-model.json'):
+        if name not in names:entries.append({'path':name,'kind':'derived','sha256':hashlib.sha256((study_dir/name).read_bytes()).hexdigest(),'status':'generated','based_on_decision_ids':[]})
+    if changed:
+        for entry in entries:
+            if entry.get('status')=='approved':entry['status']='validated'
+    data['artifacts']=entries
+    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    state_path=internal/'study-state.json'
+    if changed and state_path.is_file():
+        state=json.loads(state_path.read_text())
+        for gate in ('instrument','deployment','fielding'):
+            state.setdefault('gates',{})[gate]={'status':'pending','reason':'The source changed; review this version again.'}
+        state.update(checkpoint='validated',status='awaiting_approval')
+        state_path.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
+        for entry in entries:
+            if entry.get('path')=='.greedyq/study-state.json':entry['sha256']=hashlib.sha256(state_path.read_bytes()).hexdigest()
+        path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
+
 def build(study_dir, write=True):
     study_dir, parsed, config = load_study(study_dir)
     report = validate(parsed, config, "survey.qmd", "greedyq.yml")
@@ -8223,7 +9191,11 @@ def build(study_dir, write=True):
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())
+        for name in ("vercel.json", ".env.example"):
+            destination = study_dir / name
+            if not destination.exists(): destination.write_bytes((ROOT / "templates/vercel" / name).read_bytes())
         migrations = study_dir / "supabase/migrations"; migrations.mkdir(parents=True, exist_ok=True)
+        (migrations / "001_initial.sql").write_bytes((ROOT / "templates/supabase/001_initial.sql").read_bytes())
         (migrations / "002_browser_rpc.sql").write_bytes((ROOT / "templates/supabase/002_browser_rpc.sql").read_bytes())
         (migrations / "003_results_dashboard.sql").write_bytes((ROOT / "templates/supabase/003_results_dashboard.sql").read_bytes())
         (migrations / "004_randomization.sql").write_bytes((ROOT / "templates/supabase/004_randomization.sql").read_bytes())
@@ -8238,12 +9210,13 @@ def build(study_dir, write=True):
         (migrations / "manifest.json").write_text(json.dumps(migration_manifest, indent=2) + "\n")
         api = study_dir / "api"; api.mkdir(exist_ok=True)
         (api / "results.js").write_bytes((ROOT / "templates/vercel/api/results.js").read_bytes())
+        refresh_manifest(study_dir)
     return report, model
 ```
 
 ### FILE: `greedyq/runtime.py`
 
-SHA-256: `14373435001867fdeed71116816bc7b32c6973cf3e0bb327332d162bb9156a3e`
+SHA-256: `0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9`
 
 ```python
 """Local respondent runtime with durable SQLite sessions."""
@@ -8377,12 +9350,20 @@ def matches(rule, answers, condition):
     if not rule:return True
     if "all" in rule:return all(matches(r,answers,condition) for r in rule["all"])
     if "any" in rule:return any(matches(r,answers,condition) for r in rule["any"])
+    if "not" in rule:return not matches(rule['not'],answers,condition)
     actual=condition if rule.get("field")=="condition" else answers.get(rule.get("field"))
+    equal=lambda a,b:type(a) is type(b) and a==b or type(a) in (int,float) and type(b) in (int,float) and a==b
     if 'answered' in rule:return (actual is not None and actual!='' and actual!=[] and actual!={})==rule['answered']
-    for key,fn in (("equals",lambda a,b:a==b),("not_equals",lambda a,b:a!=b),("lt",lambda a,b:float(a)<b),("lte",lambda a,b:float(a)<=b),("gt",lambda a,b:float(a)>b),("gte",lambda a,b:float(a)>=b)):
-        if key in rule:
-            try:return fn(actual,rule[key])
-            except (TypeError,ValueError):return False
+    if 'contains' in rule:return isinstance(actual,list) and any(equal(v,rule['contains']) for v in actual)
+    if 'in' in rule:return actual is not None and any(equal(actual,v) for v in rule['in'])
+    if 'length' in rule:
+        if not isinstance(actual,(list,str)):return False
+        return matches({'field':'value',**rule['length']},{'value':len(actual)},None)
+    if 'equals' in rule:return equal(actual,rule['equals'])
+    if actual is None:return False
+    if 'not_equals' in rule:return rule['not_equals'] is not None and not equal(actual,rule['not_equals'])
+    for key,fn in (("lt",lambda a,b:a<b),("lte",lambda a,b:a<=b),("gt",lambda a,b:a>b),("gte",lambda a,b:a>=b)):
+        if key in rule:return type(actual) in (int,float) and type(rule[key]) in (int,float) and fn(actual,rule[key])
     return False
 
 
@@ -8939,7 +9920,7 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `a88f7cd5b323558e352af5c88541b0778806d325a834a170aebe68c94bb41e98`
+SHA-256: `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
@@ -8949,7 +9930,7 @@ import re
 import shutil
 from pathlib import Path
 from .redirects import redirect_plan
-from .compiler import split_condition
+from .compiler import condition as parse_condition
 
 
 CUSTOM_TYPES = {
@@ -9000,35 +9981,40 @@ def _custom_call(question):
     return f"sd_output({_r(qid)}, type = \"question\")"
 
 
-def _condition_r(expression, derived_fields=frozenset()):
-    """Translate the deliberately small greedyQ condition language to safe R."""
-    expression = str(expression or "").strip()
-    for connector,operator in ((" or "," | "),(" and "," & ")):
-        parts=split_condition(expression,connector)
-        if len(parts)>1:return '('+operator.join(_condition_r(part,derived_fields) for part in parts)+')'
-    answered = re.fullmatch(r"(not\s+)?answered\(([a-z][a-z0-9_]*)\)", expression)
-    if answered:
-        return ("!" if answered.group(1) else "") + f"sd_is_answered({_r(answered.group(2))})"
-    comparison = re.fullmatch(r"([a-z][a-z0-9_]*)\s*(==|!=|<=|>=|<|>)\s*(.+)", expression)
-    if not comparison:
-        raise ValueError(f"Unsupported export condition: {expression}")
-    field, operator, raw = comparison.groups()
-    raw = raw.strip()
-    if raw[:1] in ("'", '"') and raw[-1:] == raw[:1]:
-        value = _r(raw[1:-1])
-    elif re.fullmatch(r"-?\d+(?:\.\d+)?", raw):
-        value = raw
-    else:
-        raise ValueError(f"Unsupported export condition value: {raw}")
-    source = field if field in derived_fields else f"sd_value({_r(field)})"
-    return f"({source} {operator} {value})"
+def _condition_r(expression, derived_fields=frozenset(), question_types=None):
+    """Render the parsed whitelist; never interpolate executable source text."""
+    types=question_types or {}
+    def render(node):
+        if 'unsupported' in node:raise ValueError('Unsupported export condition: '+str(expression))
+        for key,operator in (('all',' & '),('any',' | ')):
+            if key in node:return '('+operator.join(render(n) for n in node[key])+')'
+        if 'not' in node:return '!('+render(node['not'])+')'
+        field=node['field']
+        if field=='condition' and 'assignment_condition' in derived_fields:field='assignment_condition'
+        source=field if field in derived_fields else f'sd_value({_r(field)})'
+        answered=f'!is.null({source})' if field in derived_fields else f'sd_is_answered({_r(field)})'
+        if 'answered' in node:return ('' if node['answered'] else '!')+answered
+        collection=f'gq_collection({source})'
+        if 'contains' in node:return f'({_r(node["contains"])} %in% {collection})'
+        if 'in' in node:return f'isTRUE({answered} && ({source} %in% {_r(node["in"])}))'
+        comparison=node.get('length',node)
+        if 'length' in node:
+            source=f'length({collection})' if types.get(field) in ('mc_multiple','mc_multiple_buttons','mc_multiple_image','select_multiple') else f'nchar(as.character({source}), type = "chars")'
+        operators={'equals':'==','not_equals':'!=','lt':'<','lte':'<=','gt':'>','gte':'>='}
+        for key,operator in operators.items():
+            if key in comparison:
+                value=comparison[key]
+                if value is None:return '!'+answered if key=='equals' else 'FALSE'
+                out=f'({source} {operator} {_r(value)})'
+                return f'isTRUE(!is.null(sd_value({_r(field)})) && {out})' if field not in derived_fields else f'isTRUE({out})'
+        raise ValueError('Unsupported export condition: '+str(expression))
+    return render(parse_condition(expression))
 
-
-def _workflow_bindings(config):
+def _workflow_bindings(config, question_types=None):
     randomizations = config.get("randomization", []) or []
     derived = {item.get("store", {}).get("condition_as") for item in randomizations}
     derived.discard(None)
-    lines = []
+    lines = ['  gq_collection <- function(value) {', '    if (is.null(value)) return(character())', '    value <- value[!is.na(value)]', '    value <- value[nzchar(as.character(value))]', '    unlist(strsplit(as.character(value), "|", fixed = TRUE), use.names = FALSE)', '  }']
     for name,outcome in config.get('outcomes',{}).items():
         plan=redirect_plan(outcome)
         if plan and plan['params']:
@@ -9051,7 +10037,7 @@ def _workflow_bindings(config):
             ])
     show_rules = config.get("logic", {}).get("show", []) or []
     if show_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('question') or rule.get('page'))}" for rule in show_rules]
         lines.append("  sd_show_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     # Randomized page branches are represented by sd_show_if() above. Emitting
     # the same derived-field branch as a global sd_skip_if() would make it true
@@ -9061,11 +10047,11 @@ def _workflow_bindings(config):
         if not any(re.search(rf"\b{re.escape(field)}\b", str(rule.get("if", ""))) for field in derived)
     ]
     if skip_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('to'))}" for rule in skip_rules]
         lines.append("  sd_skip_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     validation_rules = config.get("logic", {}).get("validate", []) or []
     if validation_rules:
-        formulas = [f"{_condition_r(rule.get('if'), derived)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
+        formulas = [f"{_condition_r(rule.get('if'), derived, question_types)} ~ {_r(rule.get('message', 'Please review this answer.'))}" for rule in validation_rules]
         lines.append("  sd_stop_if(\n    " + ",\n    ".join(formulas) + "\n  )")
     return "\n".join(lines)
 
@@ -9266,7 +10252,7 @@ def generate(study_dir, parsed, config):
         if source_directory.is_dir():
             shutil.copytree(source_directory, output / directory, dirs_exist_ok=True)
 
-    bindings = "\n".join(filter(None, [_workflow_bindings(config), *(_output_binding(question) for question in custom_questions)]))
+    bindings = "\n".join(filter(None, [_workflow_bindings(config, {q['id']:q.get('base_type',q['type']) for p in parsed['pages'] for q in p['questions']}), *(_output_binding(question) for question in custom_questions)]))
     (output / "app.R").write_text(APP_HEADER.format(version=config.get("greedyq_version", config.get("spec_version", "0.2")), bindings=bindings))
 
     features = [
@@ -9324,7 +10310,7 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `7169b48b81e6e737f9c62bc46755d450adcef1c76957fe1642faeeb7bca0a643`
+SHA-256: `9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -9340,8 +10326,63 @@ REQUIRED_RPC = ("greedyq_create_session", "greedyq_resume_session", "greedyq_sav
 REQUIRED_DATA_SAFETY = ("enable row level security", "research_data_deleted", "gq_answers", "gq_consent_events", "gq_lifecycle_events")
 
 
-def preflight(study_dir):
-    root = Path(study_dir); issues = []
+def preflight(study_dir, stage="package", deployment_index=None):
+    if stage not in ("package", "deployment"): raise ValueError("Unknown preflight stage.")
+    root = Path(study_dir).resolve(); issues = []
+    from .validator import validate_state_artifacts
+    from .build import build
+    issues.extend(validate_state_artifacts(root)["issues"])
+    descriptor = None
+    try:
+        descriptor = json.loads((root / "greedyq.study.json").read_text())
+        if not isinstance(descriptor, dict): raise ValueError("Expected a study object.")
+        for key in ("study_id", "study_version", "profile", "entry_points"):
+            if not descriptor.get(key): raise ValueError("Missing " + key)
+        for key in ("survey", "config", "study_plan", "guide_lock"):
+            relative = descriptor["entry_points"].get(key)
+            target = (root / str(relative or "")).resolve()
+            if not relative or not target.is_relative_to(root) or not target.is_file():
+                raise ValueError("Missing or unsafe study entry: " + key)
+        consent = descriptor["entry_points"].get("consent")
+        if consent:
+            target = (root / consent).resolve()
+            if not target.is_relative_to(root) or not target.is_file(): raise ValueError("Missing consent document.")
+        lock = json.loads((root / descriptor["entry_points"]["guide_lock"]).read_text())
+        if lock.get("profile") != descriptor["profile"]: raise ValueError("Study profile and guide lock disagree.")
+        for name in ("study-state.json", "decision-log.json", "unresolved-decisions.json", "generation-manifest.json", "validation-report.json"):
+            record=json.loads((root/'.greedyq'/name).read_text())
+            if record.get('study_id') != descriptor['study_id']: raise ValueError("Study identity disagrees in " + name)
+            if record.get('study_version',descriptor['study_version']) != descriptor['study_version']:raise ValueError("Study version disagrees in " + name)
+        state=json.loads((root/'.greedyq/study-state.json').read_text())
+        if state.get('guide_version') != lock.get('greedyq_release'):raise ValueError("Study state and guide release disagree.")
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        issues.append({"code":"GQ012", "message":"Incomplete study package: " + str(error)})
+    try:
+        validation, model = build(root, write=False)
+        issues.extend(validation["issues"])
+        if model is not None:
+            if descriptor and descriptor["study_id"] != model["study_id"]:
+                issues.append({"code":"GQ012", "message":"Study identity and compiled survey disagree."})
+            candidate=Path(deployment_index) if deployment_index else root/'index.html'
+            candidate_html=candidate.read_text()
+            deployment_match=re.search(r'<script[^>]+id="greedyq-deployment"[^>]*>(.*?)</script>',candidate_html,re.S)
+            candidate_model=re.search(r'<script[^>]+id="greedyq-model"[^>]*>(.*?)</script>',candidate_html,re.S)
+            if not candidate_model or json.loads(candidate_model.group(1)) != model:
+                issues.append({"code":"GQ030", "message":"The deployment candidate does not contain the current validated survey model."})
+            connection=json.loads(deployment_match.group(1)) if deployment_match else {}
+            connected=connection.get('mode')=='supabase' and re.fullmatch(r'https://[a-z0-9-]+[.]supabase[.]co/?',connection.get('supabase_url','')) and bool(connection.get('supabase_anon_key'))
+            if not connected:
+                issues.append({"code":"GQ030", "severity":"error" if stage == "deployment" else "warning", "message":"This is a local preview. Answers are not sent to the researcher; configure and verify the live connection before deployment."})
+        if stage == "deployment":
+            state=json.loads((root/'.greedyq/study-state.json').read_text())
+            pending=json.loads((root/'.greedyq/unresolved-decisions.json').read_text())
+            for gate in ("instrument", "deployment"):
+                if state.get("gates",{}).get(gate,{}).get("status") != "approved":
+                    issues.append({"code":"GQ012", "message":"Researcher approval is pending: " + gate})
+            if any(item.get("status")=="open" and "deployment" in item.get("blocking_scopes",[]) for item in pending.get("items",[])):
+                issues.append({"code":"GQ012", "message":"Resolve the open deployment decisions before deployment."})
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        issues.append({"code":"GQ012", "message":"The survey package could not be checked: " + str(error)})
     for name in REQUIRED_STATIC:
         if not (root / name).is_file(): issues.append({"code": "GQ030", "message": "Missing deployment file: %s" % name})
     try:
@@ -9372,7 +10413,7 @@ def preflight(study_dir):
         if path.is_file() and path.stat().st_size < 2_000_000:
             text = path.read_text(errors="ignore")
             if "service_role" in text.lower() and "api" not in path.relative_to(root).parts and path.suffix in (".html", ".js", ".json"): issues.append({"code": "GQ032", "message": "A browser artifact mentions a service-role credential: %s" % path.relative_to(root)})
-    return {"status": "passed" if not issues else "failed", "issues": issues}
+    return {"status": "failed" if any(item.get("severity", "error") != "warning" for item in issues) else "passed", "issues": issues}
 ```
 
 <!-- GREEDYQ_BUNDLE_END -->

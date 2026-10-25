@@ -2,25 +2,16 @@
 
 [한국어](./local-respondent-runtime(kor).md)
 
-The local runtime tests the same respondent behaviors required before connecting a study to Supabase and Vercel. It uses server-rendered pages, an HttpOnly session cookie, and a local SQLite database.
+Use the canonical browser runtime for all participant screen checks:
 
-```bash
+```sh
 python3 -m greedyq run examples/complete-study
 ```
 
-Open `http://localhost:4180/study`. Each new browser cookie creates an anonymous test session. Successful page transitions save answers; refreshing or reopening the page resumes the current session.
+Open `http://localhost:4180/index.html`. This serves the same fixed JavaScript renderer used by the dual preview and deployment. With mock mode enabled, responses stay in browser test storage and are not sent to a researcher. Use `python3 -m greedyq preview PATH_TO_STUDY` for desktop and mobile panes together. `--port` changes the local port; `--database` is no longer supported by `run`.
 
-Implemented test behavior:
+Python remains the independent parser, validator, compiler and backend-state reference for development. Its internal `Store` and legacy server are tested independently, but their old server-rendered form is not a participant UI conformance test or a substitute for reviewing the canonical browser. Database behavior is separately tested with disposable PostgreSQL and canonical RPC migrations. A local mock test does not verify a real Supabase/Vercel connection.
 
-- consent acceptance or refusal is recorded before research answers;
-- required questions and numeric limits are enforced by the server;
-- partial responses and the current page persist across refreshes;
-- simple/fixed-block conditions are assigned atomically and remain unchanged;
-- screening, completion, refusal, and withdrawal become terminal states;
-- deletion-on-withdrawal removes answers and assignments in one transaction;
-- conditional questions update in the browser and are checked again by the server;
-- the browser cannot choose its experimental condition or next page.
+Create a new draft with `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language en`. Opening and ending pages, pending review records, seven migrations and static deployment files are included; questions and approvals are not invented. `preflight NEW_FOLDER` checks the local package and reports warnings. `preflight NEW_FOLDER --stage deployment` also blocks mock mode and pending deployment decisions/approvals. Even a passing check does not establish a live connection. Do not recruit participants from a local test server.
 
-Test data is stored at `STUDY_DIR/.greedyq/runtime.sqlite3` by default and is ignored by Git. Use `--database PATH` to select another local database and `--port PORT` to change the port.
-
-This is not a production runtime. It binds only to localhost and does not implement Supabase authentication/RLS, Vercel deployment, external respondent identifiers, production redirects, encrypted secrets, operational monitoring, or analysis export. Do not recruit real participants with it.
+When the configured candidate lives in a separate directory, use `preflight PATH_TO_STUDY --stage deployment --deployment-index PREPARED_SURVEY/index.html`. Keep the original preview in mock mode; the check also verifies the candidate contains the current validated model.

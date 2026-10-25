@@ -38,3 +38,9 @@ greedyQ는 online academic research를 위한 agent-executable application speci
 연구자가 논문, preregistration, repository 또는 공유 자료를 준비하면 `CITATION(kor).md`로 안내합니다. greedyQ 논문이 나오기 전까지 독립적인 greedyQ browser runtime만 사용한 연구를 포함하여 모든 greedyQ 학술 사용은 version이 명시된 greedyQ GitHub 저장소와 surveydown PLOS ONE 논문을 함께 인용해야 합니다.
 
 Repository tool을 사용할 수 있으면 `preview-model.json`을 직접 작성하지 않습니다. `python3 -m greedyq build PATH_TO_STUDY`를 실행하고, 연구 의도를 바꾸지 않는 범위에서 모든 blocking message를 고친 다음 생성된 `preview.html`을 엽니다. 로컬 브라우저를 열 수 있으면 `python3 -m greedyq preview PATH_TO_STUDY`를 실행합니다. 연구자에게는 검토해야 할 내용만 설명하고, 요청받지 않는 한 parser와 validation 세부사항을 일반 대화에 노출하지 않습니다.
+
+## 연결 준비와 고정된 가이드
+
+미리보기는 계정 없이 먼저 만듭니다. 실제 배포 단계에서는 연구자의 Vercel 계정과 직접 로그인·승인이 필요하다는 점을 초기에 알려주세요. AI가 로그인이나 승인을 대신했다고 말하지 마세요. Vercel의 선택적 **Onboard your agent** 기능은 [검토 안내](./docs/vercel-agent-onboarding(kor).md)를 따릅니다. Supabase 설정이나 실제 설문 배포까지 완료하는 기능은 아닙니다.
+
+새 연구를 시작할 때 저장소의 한 커밋 또는 전체 다운로드를 사용하고 그 안의 파일과 해시를 함께 고정하세요. 서로 다른 시점의 main 파일들을 섞지 마세요. 초기 core 검사만 필요하면 `python3 tools/resolve_guide.py --core-only`를 사용합니다. 연구 유형을 정한 뒤 실제 연구용 lock을 생성하세요. 새 폴더는 `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language ko`로 만들 수 있습니다. 이 명령은 시작·종료 페이지만 만들며, 문항 작성 방식에 대한 연구자의 선택을 대신하지 않습니다.

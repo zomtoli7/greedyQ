@@ -16,10 +16,10 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def resolve(profile: str, requested_modules: list[str]) -> dict:
+def resolve(profile: str | None, requested_modules: list[str]) -> dict:
     registry = json.loads(REGISTRY_PATH.read_text())
     components = registry["components"]
-    if profile not in components or components[profile]["kind"] != "profile":
+    if profile is not None and (profile not in components or components[profile]["kind"] != "profile"):
         raise ValueError(f"unknown profile: {profile}")
     for module in requested_modules:
         if module not in components or components[module]["kind"] != "module":
@@ -41,7 +41,7 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
         active.remove(component_id)
         resolved.append(component_id)
 
-    add(profile)
+    add(profile or "core")
     for module in sorted(set(requested_modules)):
         add(module)
 
@@ -68,7 +68,7 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
         "schema_version": "0.2",
         "greedyq_release": registry["release"],
         "registry_sha256": digest(REGISTRY_PATH),
-        "object": components[profile]["object_name"],
+        "object": components[profile or "core"]["object_name"],
         "profile": profile,
         "modules": sorted(component_id for component_id in resolved if components[component_id]["kind"] == "module"),
         "resolved_components": resolved_components,
@@ -78,10 +78,13 @@ def resolve(profile: str, requested_modules: list[str]) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--profile", required=True)
+    choice=parser.add_mutually_exclusive_group(required=True)
+    choice.add_argument("--profile")
+    choice.add_argument("--core-only", action="store_true", help="Verify/load core before choosing a study profile")
     parser.add_argument("--module", action="append", default=[])
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.core_only and args.module:parser.error("Choose a profile before resolving modules.")
     result = json.dumps(resolve(args.profile, args.module), indent=2) + "\n"
     if args.output:
         args.output.write_text(result)

@@ -6,7 +6,7 @@
   "spec_version": "0.2.0-draft.1",
   "mode": "agent",
   "phase": "deployment",
-  "status": "blocked",
+  "status": "awaiting_approval",
   "checkpoint": "validated",
   "updated_at": null,
   "confirmed_decision_ids": [
@@ -56,9 +56,8 @@
       "reason": "Approved as the greedyQSimple golden-reference purpose and population."
     },
     "instrument": {
-      "status": "approved",
-      "approval_decision_id": "dec_instrument",
-      "reason": "Approved as the reference satisfaction instrument."
+      "status": "pending",
+      "reason": "The source changed; review this version again."
     },
     "analysis": {
       "status": "approved",
@@ -71,14 +70,12 @@
       "reason": "Preregistration is not enabled for this product-feedback fixture."
     },
     "deployment": {
-      "status": "blocked",
-      "approval_decision_id": null,
-      "reason": "Real governance details and verified service configuration are absent."
+      "status": "pending",
+      "reason": "The source changed; review this version again."
     },
     "fielding": {
-      "status": "blocked",
-      "approval_decision_id": null,
-      "reason": "The preview and a live deployment have not been approved and verified."
+      "status": "pending",
+      "reason": "The source changed; review this version again."
     }
   },
   "next_question": "Which real institution and researcher would be responsible for a live feedback survey?",

@@ -1,19 +1,6 @@
 {
   "schema_version": "0.2",
   "status": "passed",
-  "summary": "0 error(s), 2 warning(s)",
-  "issues": [
-    {
-      "code": "GQ120",
-      "severity": "warning",
-      "message": "Setting 'theme-settings.footer-center' is not fully implemented in the browser runtime; review the compatibility audit.",
-      "file": "survey.qmd"
-    },
-    {
-      "code": "GQ120",
-      "severity": "warning",
-      "message": "Setting 'survey-settings.highlight-unanswered' is not fully implemented in the browser runtime; review the compatibility audit.",
-      "file": "survey.qmd"
-    }
-  ]
+  "summary": "0 error(s), 0 warning(s)",
+  "issues": []
 }

@@ -9,6 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
+    ("greedyq/scaffold.py", "python", False),
+    ("templates/supabase/001_initial.sql", "sql", False),
+    ("templates/vercel/vercel.json", "json", False),
+    ("templates/vercel/.env.example", "text", False),
     ("release.json", "json", False),
     ("PROLIFIC-SETUP.md", "markdown", False),
     ("tools/prepare_prolific.py", "python", False),

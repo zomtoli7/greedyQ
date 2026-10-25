@@ -443,3 +443,8 @@
     transition: none !important;
   }
 }
+
+/* Keep Korean words intact; allow emergency wrapping only for long tokens. */
+.gq-app:lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
+.gq-app:lang(ko) .gq-matrix-mobile-cell { word-break: keep-all; overflow-wrap: break-word; }
+.gq-app:lang(ko) .gq-matrix th { word-break: keep-all; overflow-wrap: normal; }

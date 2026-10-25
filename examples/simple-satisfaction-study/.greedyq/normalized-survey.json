@@ -11,15 +11,13 @@
     "theme-settings": {
       "theme": "default",
       "barposition": "top",
-      "barcolor": "#315c8a",
-      "footer-center": "greedyQ user feedback"
+      "barcolor": "#315c8a"
     },
     "survey-settings": {
       "show-previous": true,
       "use-cookies": true,
       "all-required": false,
       "start-page": "welcome",
-      "highlight-unanswered": true,
       "capture-metadata": false,
       "required": [
         "consent_choice",
@@ -66,7 +64,7 @@
           "id": "consent_choice",
           "type": "mc",
           "label": "Do you consent to participate in this survey?",
-          "_line": 90,
+          "_line": 88,
           "options": [
             {
               "label": "Yes, I consent",
@@ -93,14 +91,14 @@
           "id": "age",
           "type": "numeric",
           "label": "What is your age in years?",
-          "_line": 110,
+          "_line": 108,
           "placeholder": "Age"
         },
         {
           "id": "used_greedyq",
           "type": "mc",
           "label": "Have you used greedyQ to create or revise a questionnaire?",
-          "_line": 120,
+          "_line": 118,
           "options": [
             {
               "label": "Yes",
@@ -123,7 +121,7 @@
           "id": "use_frequency",
           "type": "select",
           "label": "How many times have you used greedyQ?",
-          "_line": 136,
+          "_line": 134,
           "options": [
             {
               "label": "Once",
@@ -148,7 +146,7 @@
           "id": "primary_use",
           "type": "select",
           "label": "What was your main reason for using greedyQ most recently?",
-          "_line": 152,
+          "_line": 150,
           "options": [
             {
               "label": "Create a new survey",
@@ -181,14 +179,14 @@
           "id": "primary_use_other",
           "type": "text",
           "label": "What was your main reason for using greedyQ?",
-          "_line": 170,
+          "_line": 168,
           "placeholder": "Brief description"
         },
         {
           "id": "ai_host",
           "type": "select",
           "label": "Which AI product did you mainly use with greedyQ?",
-          "_line": 180,
+          "_line": 178,
           "options": [
             {
               "label": "ChatGPT",
@@ -221,7 +219,7 @@
           "id": "completion_status",
           "type": "mc",
           "label": "How far did you get in your most recent use?",
-          "_line": 198,
+          "_line": 196,
           "options": [
             {
               "label": "I created and tested a complete survey",
@@ -245,7 +243,7 @@
           "id": "guide_access",
           "type": "mc",
           "label": "How did you give the greedyQ instructions to your AI?",
-          "_line": 213,
+          "_line": 211,
           "options": [
             {
               "label": "I shared the greedyQ repository or START-HERE link",
@@ -276,7 +274,7 @@
           "id": "overall_satisfaction",
           "type": "slider",
           "label": "Overall, how satisfied were you with greedyQ?",
-          "_line": 231,
+          "_line": 229,
           "options": [
             {
               "label": "Very dissatisfied",
@@ -312,7 +310,7 @@
           "id": "experience_ratings",
           "type": "matrix",
           "label": "How much do you agree with each statement about greedyQ?",
-          "_line": 249,
+          "_line": 247,
           "options": [
             {
               "label": "Strongly disagree",
@@ -358,7 +356,7 @@
           "id": "confidence",
           "type": "slider",
           "label": "How confident were you that the resulting survey reflected what you wanted?",
-          "_line": 271,
+          "_line": 269,
           "options": [
             {
               "label": "Not at all confident",
@@ -386,7 +384,7 @@
           "id": "time_saved",
           "type": "select",
           "label": "Compared with your usual way of making a survey, how did greedyQ affect the time required?",
-          "_line": 287,
+          "_line": 285,
           "options": [
             {
               "label": "It took much more time",
@@ -419,7 +417,7 @@
           "id": "low_satisfaction_reason",
           "type": "textarea",
           "label": "What most contributed to your dissatisfaction?",
-          "_line": 305,
+          "_line": 303,
           "placeholder": "Optional detail"
         }
       ]
@@ -433,7 +431,7 @@
           "id": "had_problem",
           "type": "mc",
           "label": "Did you encounter a problem that made it harder to complete your survey?",
-          "_line": 318,
+          "_line": 316,
           "options": [
             {
               "label": "Yes",
@@ -453,7 +451,7 @@
           "id": "problem_area",
           "type": "select",
           "label": "Where did the most important problem occur?",
-          "_line": 332,
+          "_line": 330,
           "options": [
             {
               "label": "The AI conversation or questions",
@@ -486,7 +484,7 @@
           "id": "problem_detail",
           "type": "textarea",
           "label": "What happened, and what would you have expected instead?",
-          "_line": 350,
+          "_line": 348,
           "placeholder": "Please avoid including names, credentials, or private research data"
         }
       ]
@@ -500,14 +498,14 @@
           "id": "recommend_score",
           "type": "numeric",
           "label": "How likely are you to recommend greedyQ to another researcher, from 0 (not at all likely) to 10 (extremely likely)?",
-          "_line": 363,
+          "_line": 361,
           "placeholder": "0 to 10"
         },
         {
           "id": "use_again",
           "type": "mc",
           "label": "Would you use greedyQ for another survey?",
-          "_line": 373,
+          "_line": 371,
           "options": [
             {
               "label": "Definitely not",
@@ -535,14 +533,14 @@
           "id": "most_valuable",
           "type": "textarea",
           "label": "What was the most valuable part of greedyQ for you?",
-          "_line": 389,
+          "_line": 387,
           "placeholder": "Optional"
         },
         {
           "id": "improvement",
           "type": "textarea",
           "label": "What is the single most important improvement we should make?",
-          "_line": 399,
+          "_line": 397,
           "placeholder": "Optional"
         }
       ]
@@ -556,7 +554,7 @@
           "id": "withdraw_now",
           "type": "mc",
           "label": "What would you like to do?",
-          "_line": 414,
+          "_line": 412,
           "options": [
             {
               "label": "Submit my feedback",
@@ -572,7 +570,7 @@
           "id": "deletion_request",
           "type": "mc",
           "label": "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
-          "_line": 427,
+          "_line": 425,
           "options": [
             {
               "label": "I understand that my answers will be deleted",

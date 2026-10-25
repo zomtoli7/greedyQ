@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
-  "greedyq_release": "0.2.0-draft.1",
-  "registry_sha256": "bd0d15b4742f8da1007790e7320b6559455f98efe618ca6c73128e3d5e654334",
+  "greedyq_release": "0.2_2026-10-25_7beafe4",
+  "registry_sha256": "8ead33677acd9afab7662a167ef84507bf6b1505201daf504eb62708918dfc5e",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -11,7 +11,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "7f46b57ec999bac17722c9b62abd5910c635021854db9f5164ccbf15354823c7"
+      "manifest_sha256": "9960f277c68bac7643744b9ff20f62f98f575660793d40001332c099cb74551d"
     },
     {
       "id": "simple",
@@ -24,13 +24,108 @@
   "resolved_files": [
     {
       "component": "core",
+      "path": "release.json",
+      "sha256": "57e598026adbf86febde300ee7ed4145e63815eed760bf714dcd6a8b2a9822f9"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/localization.py",
+      "sha256": "16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/locale-messages.json",
+      "sha256": "828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad"
+    },
+    {
+      "component": "core",
+      "path": "docs/surveydown-compatibility-audit.md",
+      "sha256": "8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47"
+    },
+    {
+      "component": "core",
+      "path": "EXTERNAL-RETURNS.md",
+      "sha256": "a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/formatting.py",
+      "sha256": "8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d"
+    },
+    {
+      "component": "core",
+      "path": "PREREGISTRATION.md",
+      "sha256": "5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948"
+    },
+    {
+      "component": "core",
+      "path": "UPGRADING.md",
+      "sha256": "11f423a8eff5445a9dd4028f03cc248dba6e5ef06430b5a711dc1e16b150713d"
+    },
+    {
+      "component": "core",
+      "path": "tools/upgrade_study.py",
+      "sha256": "4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba"
+    },
+    {
+      "component": "core",
+      "path": "tools/resolve_guide.py",
+      "sha256": "43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/osf_fields.py",
+      "sha256": "06a6b117da1bcd2787262638271636bd8b03e720764d6462c7884b22c8a33313"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/redirects.py",
+      "sha256": "7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce"
+    },
+    {
+      "component": "core",
+      "path": "RANDOMIZATION.md",
+      "sha256": "b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb"
+    },
+    {
+      "component": "core",
+      "path": "docs/repeat-user-acceptance.md",
+      "sha256": "1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1"
+    },
+    {
+      "component": "core",
+      "path": "ARCHIVING.md",
+      "sha256": "2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7"
+    },
+    {
+      "component": "core",
+      "path": "docs/cloud-lifecycle.md",
+      "sha256": "b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9"
+    },
+    {
+      "component": "core",
+      "path": "tools/cloud_lifecycle.cjs",
+      "sha256": "2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06"
+    },
+    {
+      "component": "core",
+      "path": "tools/archive_study.cjs",
+      "sha256": "420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/archive.py",
+      "sha256": "eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e"
+    },
+    {
+      "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "8a1eb1ad4556b2b648c9ca8231eab4468eccbb31873de2c82ea7e4239ab372c3"
+      "sha256": "2e8b505a5943373c40e7bfb1b546efb0c683adc2efb47efd5c8bcbe50a443b9a"
     },
     {
       "component": "core",
       "path": "guides/core/communication.md",
-      "sha256": "eb392923fc22b0c150a960b15890ade0fb321adeebbdc4bda2266ac0d72f02d7"
+      "sha256": "f99dbd15f28a91a57b20c099ea38ca001e4e7a31a681b0e9bb937fb1f6077348"
     },
     {
       "component": "core",
@@ -40,7 +135,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "6ee07a69fc32a0c87239100ac8d8daad99c3f1c3acb48e7b4a68eb3cb271bdaa"
+      "sha256": "e796b7f5d4c40ad7e621f13d7031f000ae37e4b072efd8bbf8eb51195cb28268"
     },
     {
       "component": "core",
@@ -75,32 +170,32 @@
     {
       "component": "core",
       "path": "schemas/preview-model.schema.json",
-      "sha256": "fde4a93544fc78f9bbce5d6b7322eaa657c1a7ad21c52f704151ae155a257ab0"
+      "sha256": "578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3"
     },
     {
       "component": "core",
       "path": "web/greedyq-core.js",
-      "sha256": "0dc99214051aa668977a3e3cbad343ba19bd71fdfed3c99ade707e98e2ca3627"
+      "sha256": "64d28bf68e1705bcfa9d7c295623a721233debd062689ce1d31347c67d0f28bf"
     },
     {
       "component": "core",
       "path": "web/greedyq-runtime.css",
-      "sha256": "fc154a959bcbbd22e4e5f7c40509c57929771e5811cbe88f79229360af3703e8"
+      "sha256": "a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977"
     },
     {
       "component": "core",
       "path": "templates/browser/respondent.html",
-      "sha256": "e8b74ab98fc1910c7c41e339366bc7cb45ce84f97470e25c6df77c661fc26a9a"
+      "sha256": "9ae2b42264baaa6bea9b6b2a0ea207ed8117d2ae57e8f08c27f2b504324bf503"
     },
     {
       "component": "core",
       "path": "templates/browser/preview.html",
-      "sha256": "57125b4f9c891b9085c7cec551aef0bc87b07bfb924180b256cdec5242cbf006"
+      "sha256": "e06cfa365372bfd7ef5555e243561bdd8267354b8f1dff46cf96cee37b6aa0b4"
     },
     {
       "component": "core",
       "path": "templates/browser/studio.html",
-      "sha256": "b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8"
+      "sha256": "da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a"
     },
     {
       "component": "core",
@@ -109,18 +204,38 @@
     },
     {
       "component": "core",
+      "path": "templates/supabase/004_randomization.sql",
+      "sha256": "959fcffdb0df4f753ff81e9733e72a925a357522aa0e5fc1dd125ced9718f519"
+    },
+    {
+      "component": "core",
+      "path": "templates/supabase/005_prolific.sql",
+      "sha256": "cf67178ae3a6503b208e471686f043227a1c20d62e3d81060d76af71863bb52e"
+    },
+    {
+      "component": "core",
+      "path": "templates/supabase/006_withdrawal_preview.sql",
+      "sha256": "b60808de5814f0a852db44a444d6d1b1e042ef6635860de2aaebdf642b9fc4b1"
+    },
+    {
+      "component": "core",
+      "path": "templates/supabase/007_answer_snapshot.sql",
+      "sha256": "6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2"
+    },
+    {
+      "component": "core",
       "path": "templates/supabase/connection-test.html",
-      "sha256": "daecc5c383fc340f272daa63a31323f62a38a37868874819de524e34cc930993"
+      "sha256": "43755636b67096e6db68978684413c89d67e62508106664aaebb811d5aa3c0de"
     },
     {
       "component": "core",
       "path": "greedyq/__init__.py",
-      "sha256": "ff451a22ace10011e7a2bca49f7df92566a97e40a03db2eb3b204267d636a13a"
+      "sha256": "acb3cd483efa5c40e2a82720686dee7914670ea1bef98555c08fd2c55df84a17"
     },
     {
       "component": "core",
       "path": "greedyq/__main__.py",
-      "sha256": "ecce8e61e424d19dc427ce5a8c3c8c9b2263c1c4c578624211d9edff7b473f21"
+      "sha256": "dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f"
     },
     {
       "component": "core",
@@ -130,52 +245,77 @@
     {
       "component": "core",
       "path": "greedyq/parser.py",
-      "sha256": "0fa67b62667f99d8bab44b0cd8a3e03dd0c8160bf3b8a58f139ff6fc4fa26777"
+      "sha256": "aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803"
     },
     {
       "component": "core",
       "path": "greedyq/validator.py",
-      "sha256": "f7927ea8bf2a477daa882af9268148e26eb6e156c93f4fea24ab32b2c3bf3b2a"
+      "sha256": "d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3"
     },
     {
       "component": "core",
       "path": "greedyq/compiler.py",
-      "sha256": "ad280733d6e5d82dca7a76dd7248aa96cf732743cae6ca1273a5e72019dc373f"
+      "sha256": "5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb"
     },
     {
       "component": "core",
       "path": "greedyq/build.py",
-      "sha256": "07f3a7b89d13e13c2214bbe4eb468b36236a33baa7539858600564c1c3a62a33"
+      "sha256": "6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f"
     },
     {
       "component": "core",
       "path": "greedyq/runtime.py",
-      "sha256": "a8f1910c617eace17d88a5ae8b3cbec1b46b611aa8df5a144cf4d1ad119fa110"
+      "sha256": "0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/randomization.py",
+      "sha256": "fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee"
     },
     {
       "component": "core",
       "path": "greedyq/server.py",
-      "sha256": "9942f06cb2b9faa359608b36c71d7373138cc9baa7c5df7f906a776dd9b09746"
+      "sha256": "73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65"
     },
     {
       "component": "core",
       "path": "greedyq/prolific.py",
-      "sha256": "2a3900fe8e1158fa16392588b922b5275749adc1641a80807eed43a6768a01fe"
+      "sha256": "ba134506dfcce5c3bd126d3cba10bd29df449e260ea8ecf37f40abfc369747b7"
     },
     {
       "component": "core",
       "path": "greedyq/preregistration.py",
-      "sha256": "c4974141a8bfd692bcab8c3071f877165f76ec01a30de191439cca00f77af7ae"
+      "sha256": "2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c"
     },
     {
       "component": "core",
       "path": "greedyq/exporter.py",
-      "sha256": "5e0cdea5bec8dca37e7bb151c5031144421d00f8705761a396ee8a24630e90cc"
+      "sha256": "acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0"
     },
     {
       "component": "core",
       "path": "greedyq/deployment.py",
-      "sha256": "0f563b07702268cdec6d6ee260f0c3fbdd664e57f904f362946cfb22617829d8"
+      "sha256": "9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/scaffold.py",
+      "sha256": "f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec"
+    },
+    {
+      "component": "core",
+      "path": "templates/supabase/001_initial.sql",
+      "sha256": "e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635"
+    },
+    {
+      "component": "core",
+      "path": "templates/vercel/vercel.json",
+      "sha256": "78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f"
+    },
+    {
+      "component": "core",
+      "path": "templates/vercel/.env.example",
+      "sha256": "2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d"
     },
     {
       "component": "simple",
