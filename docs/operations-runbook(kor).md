@@ -23,10 +23,12 @@
 
 - `is_test`로 test와 production 응답을 분리하고 test를 연구 데이터로 바꾸지 않습니다.
 - Backup, retention 기간, deletion 일정은 연구자 결정입니다. Fielding 전에 기록합니다.
-- 철회·삭제 test에서는 비식별 lifecycle event만 남기고 answer, assignment, external identifier가 하나의 작업으로 삭제되는지 확인합니다.
+- 철회·삭제 시험에서는 답변·배정·동의 기록·데이터 처리 요청·이전 lifecycle 내용이 하나의 작업으로 삭제되는지 확인합니다. 반환·중복 방지에 필요한 최소 세션 상태와 패널 식별자는 남으며 새 결과·CSV에 연구 답변이 없는지 확인합니다. 과거 다운로드와 서비스 백업은 별도입니다.
 - CSV는 특정 시점의 snapshot입니다. 분석 파일과 함께 study release, filter, export time, data dictionary를 기록합니다.
 - 실제 database 상태와 researcher dashboard를 확인하지 않고 복구나 삭제 성공을 주장하지 않습니다.
 
 ## 연결 준비 증거
 
-자동 test 통과, 생성 artifact와 manifest 일치, 두 golden study preflight 통과, browser artifact의 secret 부재를 확인하고, 남은 항목이 live Vercel, Supabase, Prolific, OSF 또는 native Surveydown 실행을 실제로 요구할 때만 외부 연결을 요청할 준비가 된 것입니다.
+자동 test 통과, 생성 artifact와 manifest 일치, 두 golden study preflight 통과, browser artifact의 secret 부재를 확인하고, 남은 항목이 live Vercel, Supabase, Prolific 또는 native Surveydown 실행을 실제로 요구할 때만 외부 연결을 요청할 준비가 된 것입니다. OSF 제출은 범위 밖이며 초안 파일만 제공합니다. 007의 전체 답변 상태 반영은 로컬 PostgreSQL·브라우저로 검증했고 기존 클라우드 데이터베이스에는 별도로 검토한 업그레이드가 필요합니다.
+
+브라우저·DB·결과·아카이빙 연결 여정과 외부 검증 범위는 [초보 연구자 사용성 점검](./first-user-usability-2026-10-25(kor).md)을 참고하세요.

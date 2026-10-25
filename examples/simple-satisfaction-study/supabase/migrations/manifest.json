@@ -24,6 +24,10 @@
     {
       "name": "006_withdrawal_preview.sql",
       "sha256": "b60808de5814f0a852db44a444d6d1b1e042ef6635860de2aaebdf642b9fc4b1"
+    },
+    {
+      "name": "007_answer_snapshot.sql",
+      "sha256": "6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2"
     }
   ]
 }

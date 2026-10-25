@@ -21,7 +21,7 @@ async function databaseClient(Client, connectionString, fetcher = fetch) {
 
 async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
-  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql'])) throw new Error('Complete ordered migration set required');
+  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql'])) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');

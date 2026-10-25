@@ -239,10 +239,10 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `release.json` | `d0f9e38ac8f514027124e7c9f3c412338b253fc570021e05938781b10e456393` | `no` |
-| `PROLIFIC-SETUP.md` | `7b1764d12f3446c6ab0c755519aeb0b4741609a7b0d3fb71fadbbef28852ca16` | `no` |
+| `PROLIFIC-SETUP.md` | `cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
-| `greedyq/locale-messages.json` | `5d6d67e84ec8cd452a0640d7d0afad51bcd4981ddaff7cc5ffd0f85a973cf1bd` | `no` |
+| `greedyq/locale-messages.json` | `ed29d149342e812bcc33749485ec8da80a875335f76fe84ab18145b01a77a472` | `no` |
 | `docs/surveydown-compatibility-audit.md` | `8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47` | `no` |
 | `EXTERNAL-RETURNS.md` | `a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e` | `no` |
 | `greedyq/formatting.py` | `b3ca2fb98e96812361567037d3436345fbe55dee6c330b7b05c95577364aabd7` | `no` |
@@ -252,25 +252,26 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/redirects.py` | `7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce` | `no` |
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
 | `tools/resolve_guide.py` | `9c3cfca5943dd7f3ad7bfd34aa054755e13beb448b61c19fb9ed10e69f70f39c` | `no` |
-| `RANDOMIZATION.md` | `97334f270499210fa9b21870505e0fdc7f22da9122d411cfe992c341b44bad40` | `no` |
+| `RANDOMIZATION.md` | `7c360eea381105c502cf00165bcaf86388587994d34f4d481f92e8e5ef0203cc` | `no` |
 | `docs/repeat-user-acceptance.md` | `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1` | `no` |
-| `ARCHIVING.md` | `f8b24dd2ac536d9f52836abb9cb87f6f72dbf55b27365c799a268fce59602634` | `no` |
-| `docs/cloud-lifecycle.md` | `9533971dabccfe53991dda536cd08b43c779856d0eb41121bf2ecdb9b9536bb3` | `no` |
-| `tools/cloud_lifecycle.cjs` | `f93cfc4bdb450c0c078c9308b23e02bdd3b26b4d3b0ab908f7e38d82c1fff587` | `no` |
+| `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
+| `docs/cloud-lifecycle.md` | `b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9` | `no` |
+| `tools/cloud_lifecycle.cjs` | `2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06` | `no` |
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f` | `no` |
+| `web/greedyq-core.js` | `8329d491da980bd59cd093f04c113fae59f93e5e79975419d127d2cc39840e12` | `no` |
 | `web/greedyq-runtime.css` | `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b` | `no` |
-| `templates/browser/respondent.html` | `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de` | `no` |
+| `templates/browser/respondent.html` | `b2a9a04056c1d713b1e6dcd4e143090bab74ed7b2601d57ebc3b614f4b0f13ab` | `no` |
 | `templates/browser/preview.html` | `6b899e078ad9ad013a1366e7da1c64f17e87fd7f1748a02af6709452693af670` | `no` |
-| `templates/browser/studio.html` | `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8` | `no` |
-| `templates/browser/results.html` | `5bec540198ad694cb63ef0da15b6e7ad533bbacf08fb9841a00501767b3d4f80` | `no` |
+| `templates/browser/studio.html` | `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a` | `no` |
+| `templates/browser/results.html` | `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
 | `templates/supabase/003_results_dashboard.sql` | `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51` | `no` |
 | `templates/supabase/004_randomization.sql` | `959fcffdb0df4f753ff81e9733e72a925a357522aa0e5fc1dd125ced9718f519` | `no` |
 | `templates/supabase/005_prolific.sql` | `cf67178ae3a6503b208e471686f043227a1c20d62e3d81060d76af71863bb52e` | `no` |
 | `templates/supabase/006_withdrawal_preview.sql` | `b60808de5814f0a852db44a444d6d1b1e042ef6635860de2aaebdf642b9fc4b1` | `no` |
+| `templates/supabase/007_answer_snapshot.sql` | `6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2` | `no` |
 | `tools/prolific_status.cjs` | `6f0dcbd48f76f477a6ac8d85cfaf35e3ca2b4de7eea5e37c68d9d14e0d684866` | `no` |
 | `templates/vercel/api/results.js` | `474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
@@ -286,14 +287,14 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
 | `greedyq/validator.py` | `e2369bbcc5b6cbf51fcbb788ca4147aa1bf08ccfac083c55d12c689af888b314` | `no` |
 | `greedyq/compiler.py` | `bbb4509a24ffa69ec70b24d2582c895f2a073e0ca4938435d2421de4e9666bd3` | `no` |
-| `greedyq/build.py` | `d0280eedc168a8513d86f3875d08cc99907f08850f450a04ecc84c44d0e98146` | `no` |
+| `greedyq/build.py` | `dba9794e7019cada7adc830be57b1220a5eacbd499e965e2abe3b7cc63a92974` | `no` |
 | `greedyq/runtime.py` | `14373435001867fdeed71116816bc7b32c6973cf3e0bb327332d162bb9156a3e` | `no` |
 | `greedyq/randomization.py` | `fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee` | `no` |
 | `greedyq/server.py` | `73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65` | `no` |
 | `greedyq/prolific.py` | `ba134506dfcce5c3bd126d3cba10bd29df449e260ea8ecf37f40abfc369747b7` | `no` |
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
 | `greedyq/exporter.py` | `a88f7cd5b323558e352af5c88541b0778806d325a834a170aebe68c94bb41e98` | `no` |
-| `greedyq/deployment.py` | `d7233bf8a07e902e346ea85a0fdc35cba7c76f98046c095da5e020fa767d0a87` | `no` |
+| `greedyq/deployment.py` | `7169b48b81e6e737f9c62bc46755d450adcef1c76957fe1642faeeb7bca0a643` | `no` |
 
 ### FILE: `release.json`
 
@@ -314,7 +315,7 @@ SHA-256: `d0f9e38ac8f514027124e7c9f3c412338b253fc570021e05938781b10e456393`
 
 ### FILE: `PROLIFIC-SETUP.md`
 
-SHA-256: `7b1764d12f3446c6ab0c755519aeb0b4741609a7b0d3fb71fadbbef28852ca16`
+SHA-256: `cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f`
 
 ```markdown
 # Connect a study to Prolific
@@ -336,7 +337,7 @@ greedyQ collects the survey responses; Prolific recruits participants and handle
 5. If screening is needed, distinguish validating Prolific's existing prescreeners from custom screening. Custom screening can require a separate screen-out reward. Do not treat refusal of consent as a rejection or invent a screening/payment policy.
 6. Give the AI the Prolific study ID and confirm the path mapping. IDs and completion codes are configuration; passwords, login codes and API tokens must not be pasted into chat.
 
-The agent records the expected study ID, builds the survey, applies migrations **001–006** in order and registers the exact reviewed model. Existing installations add **006** without rewriting 001–005 or deleting existing responses. Do not apply migrations to an active shared database without the existing maintenance/review process.
+The agent records the expected study ID, builds the survey, applies migrations **001–007** in order and registers the exact reviewed model. Existing installations add missing **006/007** files without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; the current paid pilot is not upgraded by this local audit. Do not apply migrations to an active shared database without the existing maintenance/review process.
 
 ## Test before recruiting
 
@@ -481,68 +482,310 @@ def translate(language, message):
 
 ### FILE: `greedyq/locale-messages.json`
 
-SHA-256: `5d6d67e84ec8cd452a0640d7d0afad51bcd4981ddaff7cc5ffd0f85a973cf1bd`
+SHA-256: `ed29d149342e812bcc33749485ec8da80a875335f76fe84ab18145b01a77a472`
 
 ```json
 {
-  "Survey link incomplete": ["설문 링크를 확인해 주세요", "请检查问卷链接", "請檢查問卷連結"],
-  "Please return to Prolific and open the study from your task page.": ["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.", "请返回 Prolific，从任务页面打开本研究。", "請返回 Prolific，從任務頁面開啟本研究。"],
-  "Survey unavailable": ["설문을 열 수 없습니다", "无法打开问卷", "無法開啟問卷"],
-  "The secure data connection could not be started.": ["안전한 데이터 연결을 시작하지 못했습니다.", "无法建立安全的数据连接。", "無法建立安全的資料連線。"],
-  "Your response could not be saved. Please check your connection before continuing.": ["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.", "无法保存您的回答，请检查网络连接后继续。", "無法儲存您的回答，請檢查網路連線後繼續。"],
-  "Choose one": ["하나를 선택하세요", "请选择一项", "請選擇一項"],
-  "Transcript": ["대본", "文字稿", "文字稿"],
-  "Research team": ["연구팀", "研究团队", "研究團隊"],
-  "greedyQ Survey": ["greedyQ 설문", "greedyQ 问卷", "greedyQ 問卷"],
-  "Option": ["선택지", "选项", "選項"],
-  "Your browser does not support audio playback.": ["이 브라우저는 오디오 재생을 지원하지 않습니다.", "您的浏览器不支持音频播放。", "您的瀏覽器不支援音訊播放。"],
-  "Your browser does not support video playback.": ["이 브라우저는 비디오 재생을 지원하지 않습니다.", "您的浏览器不支持视频播放。", "您的瀏覽器不支援影片播放。"],
-  "Previous": ["이전", "上一页", "上一頁"],
-  "Continue": ["계속하기", "继续", "繼續"],
-  "Please answer the required questions before continuing.": ["필수 문항에 응답해 주세요.", "请回答必答题后继续。", "請回答必答題後繼續。"],
-  "Select all that apply.": ["해당되는 모든 것을 선택하세요.", "请选择所有适用的选项。", "請選擇所有適用的選項。"],
-  "Complete": ["종료", "已结束", "已結束"],
-  "completed": ["응답 완료", "作答完成", "作答完成"],
-  "screened_out": ["참여 대상이 아닙니다", "不符合参与条件", "不符合參與條件"],
-  "consent_declined": ["참여하지 않음", "未同意参与", "未同意參與"],
-  "consent_refused": ["참여하지 않음", "未同意参与", "未同意參與"],
-  "technical_error": ["설문을 계속할 수 없습니다", "无法继续问卷", "無法繼續問卷"],
-  "withdrawn": ["참여 철회", "已退出参与", "已退出參與"],
-  "Rank": ["순위", "排序", "排序"],
-  "Choose": ["선택하세요", "请选择", "請選擇"],
-  "Group": ["그룹", "分组", "分組"],
-  "Level": ["단계", "层级", "層級"],
-  "Start": ["시작일", "开始日期", "開始日期"],
-  "End": ["종료일", "结束日期", "結束日期"],
-  "s": ["초", "秒", "秒"],
-  "minimum": ["최솟값", "最小值", "最小值"],
-  "maximum": ["최댓값", "最大值", "最大值"],
-  "required": ["필수", "必答", "必答"],
-  "Not at all likely": ["전혀 의향 없음", "完全不可能", "完全不可能"],
-  "Extremely likely": ["매우 의향 있음", "非常可能", "非常可能"],
-  "Use each rank only once.": ["각 순위는 한 번만 사용하세요.", "每个名次只能使用一次。", "每個名次只能使用一次。"],
-  "Rank every item.": ["모든 항목의 순위를 정해 주세요.", "请为所有项目排序。", "請為所有項目排序。"],
-  "The allocation must total {total}.": ["합계가 {total}이 되도록 입력해 주세요.", "分配总和必须为 {total}。", "分配總和必須為 {total}。"],
-  "Answer every row in every column.": ["모든 열의 각 행에 응답하세요.", "请回答每一列中的每一行。", "請回答每一欄中的每一列。"],
-  "Place every item in a group.": ["모든 항목을 그룹에 배치하세요.", "请将每个项目放入一个组。", "請將每個項目放入一個組。"],
-  "Use each rank only once within {group}.": ["{group} 내에서 각 순위를 한 번만 사용하세요.", "在 {group} 中，每个名次只能使用一次。", "在 {group} 中，每個名次只能使用一次。"],
-  "Complete every level of the selection.": ["모든 단계에서 선택해 주세요.", "请完成所有层级的选择。", "請完成所有層級的選擇。"],
-  "Please enter a value within the allowed range and format.": ["허용된 범위와 형식에 맞게 입력해 주세요.", "请按允许的范围和格式输入。", "請按允許的範圍和格式輸入。"],
-  "Route error": ["설문 경로 오류", "问卷路径错误", "問卷路徑錯誤"],
-  "The next page is unavailable.": ["다음 페이지를 열 수 없습니다.", "无法打开下一页。", "無法開啟下一頁。"],
-  "Your response could not be saved. Please try again.": ["응답을 저장하지 못했습니다. 다시 시도해 주세요.", "无法保存您的回答，请重试。", "無法儲存您的回答，請重試。"],
-  "Response not saved. Please retry before leaving.": ["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.", "回答尚未保存，请在离开前重试。", "回答尚未儲存，請在離開前重試。"],
-  "Please confirm consent before random assignment.": ["무작위 배정 전에 참여 동의를 확인해 주세요.", "随机分配前请确认参与同意。", "隨機分配前請確認參與同意。"],
-  "Random assignment could not be completed. Please try again.": ["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.", "无法完成随机分配，请重试。", "無法完成隨機分配，請重試。"],
-  "Participation withdrawn": ["참여를 철회했습니다", "已退出参与", "已退出參與"],
-  "(Timer running in the background; nothing is shown to participants.)": ["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)", "（计时器正在后台运行，参与者不会看到任何内容。）", "（計時器正在背景執行，參與者不會看到任何內容。）"],
-  "Continue to the next website": ["다음 웹사이트로 이동", "前往下一个网站", "前往下一個網站"],
-  "Return": ["돌아가기", "返回", "返回"],
-  "Completion code": ["완료 코드", "完成代码", "完成代碼"],
-  "A response already exists. Reopen this study in the browser where you started, or contact the researcher.": ["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.", "已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。", "已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],
-  "Return link unavailable.": ["반환 링크를 사용할 수 없습니다.", "返回链接不可用。", "返回連結無法使用。"],
-  " (preview: no external navigation)": [" (미리보기: 외부 이동 안 함)", "（预览：不会跳转到外部页面）", "（預覽：不會跳轉至外部頁面）"],
-  "Please review this answer.": ["이 응답을 확인해 주세요.", "请检查此回答。", "請檢查此回答。"]
+  "Survey link incomplete": [
+    "설문 링크를 확인해 주세요",
+    "请检查问卷链接",
+    "請檢查問卷連結"
+  ],
+  "Please return to Prolific and open the study from your task page.": [
+    "Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.",
+    "请返回 Prolific，从任务页面打开本研究。",
+    "請返回 Prolific，從任務頁面開啟本研究。"
+  ],
+  "Survey unavailable": [
+    "설문을 열 수 없습니다",
+    "无法打开问卷",
+    "無法開啟問卷"
+  ],
+  "The secure data connection could not be started.": [
+    "안전한 데이터 연결을 시작하지 못했습니다.",
+    "无法建立安全的数据连接。",
+    "無法建立安全的資料連線。"
+  ],
+  "Your response could not be saved. Please check your connection before continuing.": [
+    "응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.",
+    "无法保存您的回答，请检查网络连接后继续。",
+    "無法儲存您的回答，請檢查網路連線後繼續。"
+  ],
+  "Choose one": [
+    "하나를 선택하세요",
+    "请选择一项",
+    "請選擇一項"
+  ],
+  "Transcript": [
+    "대본",
+    "文字稿",
+    "文字稿"
+  ],
+  "Research team": [
+    "연구팀",
+    "研究团队",
+    "研究團隊"
+  ],
+  "greedyQ Survey": [
+    "greedyQ 설문",
+    "greedyQ 问卷",
+    "greedyQ 問卷"
+  ],
+  "Option": [
+    "선택지",
+    "选项",
+    "選項"
+  ],
+  "Your browser does not support audio playback.": [
+    "이 브라우저는 오디오 재생을 지원하지 않습니다.",
+    "您的浏览器不支持音频播放。",
+    "您的瀏覽器不支援音訊播放。"
+  ],
+  "Your browser does not support video playback.": [
+    "이 브라우저는 비디오 재생을 지원하지 않습니다.",
+    "您的浏览器不支持视频播放。",
+    "您的瀏覽器不支援影片播放。"
+  ],
+  "Previous": [
+    "이전",
+    "上一页",
+    "上一頁"
+  ],
+  "Continue": [
+    "계속하기",
+    "继续",
+    "繼續"
+  ],
+  "Please answer the required questions before continuing.": [
+    "필수 문항에 응답해 주세요.",
+    "请回答必答题后继续。",
+    "請回答必答題後繼續。"
+  ],
+  "Select all that apply.": [
+    "해당되는 모든 것을 선택하세요.",
+    "请选择所有适用的选项。",
+    "請選擇所有適用的選項。"
+  ],
+  "Complete": [
+    "종료",
+    "已结束",
+    "已結束"
+  ],
+  "completed": [
+    "응답 완료",
+    "作答完成",
+    "作答完成"
+  ],
+  "screened_out": [
+    "참여 대상이 아닙니다",
+    "不符合参与条件",
+    "不符合參與條件"
+  ],
+  "consent_declined": [
+    "참여하지 않음",
+    "未同意参与",
+    "未同意參與"
+  ],
+  "consent_refused": [
+    "참여하지 않음",
+    "未同意参与",
+    "未同意參與"
+  ],
+  "technical_error": [
+    "설문을 계속할 수 없습니다",
+    "无法继续问卷",
+    "無法繼續問卷"
+  ],
+  "withdrawn": [
+    "참여 철회",
+    "已退出参与",
+    "已退出參與"
+  ],
+  "Rank": [
+    "순위",
+    "排序",
+    "排序"
+  ],
+  "Choose": [
+    "선택하세요",
+    "请选择",
+    "請選擇"
+  ],
+  "Group": [
+    "그룹",
+    "分组",
+    "分組"
+  ],
+  "Level": [
+    "단계",
+    "层级",
+    "層級"
+  ],
+  "Start": [
+    "시작일",
+    "开始日期",
+    "開始日期"
+  ],
+  "End": [
+    "종료일",
+    "结束日期",
+    "結束日期"
+  ],
+  "s": [
+    "초",
+    "秒",
+    "秒"
+  ],
+  "minimum": [
+    "최솟값",
+    "最小值",
+    "最小值"
+  ],
+  "maximum": [
+    "최댓값",
+    "最大值",
+    "最大值"
+  ],
+  "required": [
+    "필수",
+    "必答",
+    "必答"
+  ],
+  "Not at all likely": [
+    "전혀 의향 없음",
+    "完全不可能",
+    "完全不可能"
+  ],
+  "Extremely likely": [
+    "매우 의향 있음",
+    "非常可能",
+    "非常可能"
+  ],
+  "Use each rank only once.": [
+    "각 순위는 한 번만 사용하세요.",
+    "每个名次只能使用一次。",
+    "每個名次只能使用一次。"
+  ],
+  "Rank every item.": [
+    "모든 항목의 순위를 정해 주세요.",
+    "请为所有项目排序。",
+    "請為所有項目排序。"
+  ],
+  "The allocation must total {total}.": [
+    "합계가 {total}이 되도록 입력해 주세요.",
+    "分配总和必须为 {total}。",
+    "分配總和必須為 {total}。"
+  ],
+  "Answer every row in every column.": [
+    "모든 열의 각 행에 응답하세요.",
+    "请回答每一列中的每一行。",
+    "請回答每一欄中的每一列。"
+  ],
+  "Place every item in a group.": [
+    "모든 항목을 그룹에 배치하세요.",
+    "请将每个项目放入一个组。",
+    "請將每個項目放入一個組。"
+  ],
+  "Use each rank only once within {group}.": [
+    "{group} 내에서 각 순위를 한 번만 사용하세요.",
+    "在 {group} 中，每个名次只能使用一次。",
+    "在 {group} 中，每個名次只能使用一次。"
+  ],
+  "Complete every level of the selection.": [
+    "모든 단계에서 선택해 주세요.",
+    "请完成所有层级的选择。",
+    "請完成所有層級的選擇。"
+  ],
+  "Please enter a value within the allowed range and format.": [
+    "허용된 범위와 형식에 맞게 입력해 주세요.",
+    "请按允许的范围和格式输入。",
+    "請按允許的範圍和格式輸入。"
+  ],
+  "Route error": [
+    "설문 경로 오류",
+    "问卷路径错误",
+    "問卷路徑錯誤"
+  ],
+  "The next page is unavailable.": [
+    "다음 페이지를 열 수 없습니다.",
+    "无法打开下一页。",
+    "無法開啟下一頁。"
+  ],
+  "Your response could not be saved. Please try again.": [
+    "응답을 저장하지 못했습니다. 다시 시도해 주세요.",
+    "无法保存您的回答，请重试。",
+    "無法儲存您的回答，請重試。"
+  ],
+  "Response not saved. Please retry before leaving.": [
+    "응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.",
+    "回答尚未保存，请在离开前重试。",
+    "回答尚未儲存，請在離開前重試。"
+  ],
+  "Please confirm consent before random assignment.": [
+    "무작위 배정 전에 참여 동의를 확인해 주세요.",
+    "随机分配前请确认参与同意。",
+    "隨機分配前請確認參與同意。"
+  ],
+  "Random assignment could not be completed. Please try again.": [
+    "무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.",
+    "无法完成随机分配，请重试。",
+    "無法完成隨機分配，請重試。"
+  ],
+  "Participation withdrawn": [
+    "참여를 철회했습니다",
+    "已退出参与",
+    "已退出參與"
+  ],
+  "(Timer running in the background; nothing is shown to participants.)": [
+    "(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)",
+    "（计时器正在后台运行，参与者不会看到任何内容。）",
+    "（計時器正在背景執行，參與者不會看到任何內容。）"
+  ],
+  "Continue to the next website": [
+    "다음 웹사이트로 이동",
+    "前往下一个网站",
+    "前往下一個網站"
+  ],
+  "Return": [
+    "돌아가기",
+    "返回",
+    "返回"
+  ],
+  "Completion code": [
+    "완료 코드",
+    "完成代码",
+    "完成代碼"
+  ],
+  "A response already exists. Reopen this study in the browser where you started, or contact the researcher.": [
+    "이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.",
+    "已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。",
+    "已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"
+  ],
+  "Return link unavailable.": [
+    "반환 링크를 사용할 수 없습니다.",
+    "返回链接不可用。",
+    "返回連結無法使用。"
+  ],
+  " (preview: no external navigation)": [
+    " (미리보기: 외부 이동 안 함)",
+    "（预览：不会跳转到外部页面）",
+    "（預覽：不會跳轉至外部頁面）"
+  ],
+  "Please review this answer.": [
+    "이 응답을 확인해 주세요.",
+    "请检查此回答。",
+    "請檢查此回答。"
+  ],
+  "Survey closed": [
+    "설문이 종료되었습니다",
+    "问卷已关闭",
+    "問卷已關閉"
+  ],
+  "This study is no longer accepting responses. Please contact the research team if you need help.": [
+    "이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.",
+    "本研究已停止接收回答。如需帮助，请联系研究团队。",
+    "本研究已停止接收回答。如需協助，請聯絡研究團隊。"
+  ]
 }
 ```
 
@@ -985,7 +1228,7 @@ if __name__ == "__main__":
 
 ### FILE: `RANDOMIZATION.md`
 
-SHA-256: `97334f270499210fa9b21870505e0fdc7f22da9122d411cfe992c341b44bad40`
+SHA-256: `7c360eea381105c502cf00165bcaf86388587994d34f4d481f92e8e5ef0203cc`
 
 ```markdown
 # Random assignment and question order
@@ -1055,7 +1298,7 @@ Question orders are stored as ordered question IDs in `question_orders`, retaine
 
 ## Deployment and upgrade
 
-The agent applies migrations **001–006** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
+The agent applies migrations **001–007** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
 
 Do not modify already-applied 001–003. Existing databases without an applied-migration ledger need explicit reconciliation. Existing experimental studies with legacy assignments require a **new study ID**; never relabel old least-count assignments as random. Applying 004 changes the save boundary for the database: register all studies that must remain usable in that database and deploy the matching runtime during an approved maintenance window. Otherwise saves fail closed. Test the migration on a separate test database first.
 
@@ -1074,6 +1317,8 @@ In the `survey.qmd` header, `survey-settings.shuffled` accepts a question ID or 
 For independent pages, use `page_order: [topics, preferences, experience]` in `greedyq.yml`. They must be one contiguous middle group in source order, without explicit next-page links or show/skip rules. Opening, consent, assignment, treatment and ending pages stay fixed. The validator rejects unsupported combinations instead of guessing what a branch should do. This is a greedyQ extension, not a documented Surveydown page-shuffle setting.
 
 The browser saves `option_orders` and `page_order` per session, including across refresh. Raw/CSV exports retain them. Native export preserves official choice-shuffle settings but reports question/page shuffling as unsupported. See the [compatibility audit](./docs/surveydown-compatibility-audit.md).
+
+Migration 007 prunes answers omitted from a newly accepted complete browser snapshot in the same session. When a conditional answer is cleared on hide, it must also disappear from results and CSV. Other sessions and historical records are not bulk rewritten. Existing installations require the missing 007 migration through the reviewed upgrade process; this local audit does not change the paid pilot under review.
 ```
 
 ### FILE: `docs/repeat-user-acceptance.md`
@@ -1118,7 +1363,7 @@ Supabase Marketplace provisioning did not grant management pause/resume permissi
 
 ### FILE: `ARCHIVING.md`
 
-SHA-256: `f8b24dd2ac536d9f52836abb9cb87f6f72dbf55b27365c799a268fce59602634`
+SHA-256: `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7`
 
 ```markdown
 # Finish a survey and archive it
@@ -1132,13 +1377,13 @@ When a survey is finished, tell your AI:
 ## What happens
 
 1. **Confirm the survey.** The AI names the study and account, checks for other studies sharing its services, asks whether recruitment has ended and whether participants still responding should finish first. Ending collection requires your approval.
-2. **Close response collection.** The AI closes database writes for that study before taking the final copy. Already-open survey tabs cannot add or change responses afterward. The current respondent UI may show its generic save failure message; this is not a graceful “study closed” page yet. Stop distributing the link first.
+2. **Close response collection.** The AI closes database writes for that study before taking the final copy. Already-open survey tabs cannot add or change responses afterward. When the running survey detects the database closure, it shows “Survey closed” and removes questionnaire navigation. A paused hosting service can instead show its own unavailable page. Stop distributing the link first.
 3. **Download your files.** Receive `responses.csv` (all real responses, including incomplete ones), `test-responses.csv`, and `study-archive.zip`. The ZIP also contains the full question list, exact structured answers, study model, response-source information, consent records and data-request records. Do not assume that “archived” means every response is complete or eligible for analysis.
 4. **Confirm safe storage.** Open the CSV, check the row count, and save the ZIP somewhere you control. Keep a second secure copy. The AI waits until you confirm the download; generating a file is not confirmation that you have saved it.
 5. **Pause online services.** After your confirmation, the AI pauses both Vercel projects and the dedicated free Supabase project. This does not delete them. The survey and online results page will no longer be usable while paused. Your downloaded data remains available.
 6. **Start another study.** Give the AI the repository again or your existing greedyQ folder. Ask for a new study with a new study ID; never overwrite the old responses. Existing authentication may be reusable, but a new resource or permission may still require approval.
 
-The CSV retains every question, even unanswered ones. Structured controls are stored as JSON within a CSV cell in this archive export; the dashboard's flattened-column CSV is a different view. Potential spreadsheet formulas are escaped in CSV, while `data.json` retains exact values. External participant identifiers are excluded from the response CSV but can be present in the private ZIP. Do not upload these files to a public repository or public Vercel folder. You may need institutional permission before giving identifiable response files to an AI service.
+The CSV retains every question, even unanswered ones. Structured controls are stored as JSON within a CSV cell in this archive export; the dashboard's flattened-column CSV is a different view. Potential spreadsheet formulas are escaped in CSV, while `data.json` retains exact values. For Prolific records, `PROLIFIC_PID`, `STUDY_ID` and `SESSION_ID` are included in both archive CSV files and the private ZIP; Direct records leave them blank. These are private research files, not anonymized public exports. Do not upload these files to a public repository or public Vercel folder. You may need institutional permission before giving identifiable response files to an AI service.
 
 ## Free accounts and retention
 
@@ -1165,7 +1410,7 @@ ZIP-to-database restoration is explicitly outside the required product scope. Th
 
 ### FILE: `docs/cloud-lifecycle.md`
 
-SHA-256: `9533971dabccfe53991dda536cd08b43c779856d0eb41121bf2ecdb9b9536bb3`
+SHA-256: `b9e4589346b269a67517a2fdcf127d26d340a1e77a33d206fe93f411bfcc6ac9`
 
 ```markdown
 # Cloud setup and archive operator contract
@@ -1184,7 +1429,7 @@ Connect the Supabase resource only to the results project, which receives server
 
 ## Archive execution
 
-Before using a new runtime, apply 001–006 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
+Before using a new runtime, apply 001–007 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
 
 The agent needs Node, the `pg` package, and Python for the archive writer in its own environment. No extra software is required on the researcher's machine. Tests can use injected provider/database adapters without external accounts.
 
@@ -1243,7 +1488,7 @@ Sources: [Vercel pause](https://vercel.com/docs/projects/managing-projects), [Su
 
 ### FILE: `tools/cloud_lifecycle.cjs`
 
-SHA-256: `f93cfc4bdb450c0c078c9308b23e02bdd3b26b4d3b0ab908f7e38d82c1fff587`
+SHA-256: `2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06`
 
 ```javascript
 /* Agent-side operations. Never ship this module or its environment to respondents. */
@@ -1269,7 +1514,7 @@ async function databaseClient(Client, connectionString, fetcher = fetch) {
 
 async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
-  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql'])) throw new Error('Complete ordered migration set required');
+  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql'])) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -1784,7 +2029,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f`
+SHA-256: `8329d491da980bd59cd093f04c113fae59f93e5e79975419d127d2cc39840e12`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -1797,7 +2042,7 @@ SHA-256: `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f`
   const VERSION = "0.2.0-draft.1";
   const RELEASE = "0.2_2026-10-25_0af2387";
   // Generated from greedyq/locale-messages.json; parity is tested.
-  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"]};
+  const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"]};
   const LANGUAGES = ['en','ko','zh-CN','zh-TW'];
   function translate(language, message, values={}) {
     if(!LANGUAGES.includes(language))throw new Error('Choose en, ko, zh-CN or zh-TW for greedyq.language.');
@@ -3471,6 +3716,7 @@ SHA-256: `6219f6e8256a7f41e82108c87268e7b615d7dbc781af448dffdcda2465f91f7f`
         if (!response.ok) {
           const detail=await response.json().catch(()=>({}));
           const error=new Error(`Supabase RPC ${name} failed (${response.status}).`);
+          if(detail.message==='This study is closed for archiving')error.kind='study_closed';
           if(name==='greedyq_start_prolific' && /duplicate Prolific/.test(detail.message || ''))error.kind='prolific_duplicate';
           throw error;
         }
@@ -4840,7 +5086,7 @@ SHA-256: `d77bbef8f51363c9e7463d2473f8ab1c664cbec072a8932b562139dbe44fe42b`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de`
+SHA-256: `b2a9a04056c1d713b1e6dcd4e143090bab74ed7b2601d57ebc3b614f4b0f13ab`
 
 ```html
 <!doctype html>
@@ -4946,6 +5192,10 @@ SHA-256: `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de`
             externalIdentifiers,
             previewToken,
             onError: (error) => {
+              if(error.kind==='study_closed'){
+                root.innerHTML=`<main class="gq-card"><h1>${ui('Survey closed')}</h1><p>${ui('This study is no longer accepting responses. Please contact the research team if you need help.')}</p></main>`;
+                return;
+              }
               if (!root.querySelector("[data-save-error]"))
                 root.insertAdjacentHTML(
                   "afterbegin",
@@ -4964,6 +5214,10 @@ SHA-256: `6e6886a6b1e39a7bdff3899b79c2aae7ba19df32fdf193405add2823f71de1de`
           });
         }
       })().catch((error) => {
+        if(error.kind==='study_closed'){
+          document.getElementById('survey').innerHTML=`<main class="gq-card"><h1>${ui('Survey closed')}</h1><p>${ui('This study is no longer accepting responses. Please contact the research team if you need help.')}</p></main>`;
+          return;
+        }
         document.getElementById("survey").innerHTML =
           `<main class="gq-card"><h1>${ui('Survey unavailable')}</h1><p>${ui(error.kind==='prolific_duplicate'?'A response already exists. Reopen this study in the browser where you started, or contact the researcher.':'The secure data connection could not be started.')}</p></main>`;
         console.error(error);
@@ -5357,7 +5611,7 @@ SHA-256: `6b899e078ad9ad013a1366e7da1c64f17e87fd7f1748a02af6709452693af670`
 
 ### FILE: `templates/browser/studio.html`
 
-SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
+SHA-256: `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a`
 
 ```html
 <!doctype html>
@@ -5365,6 +5619,7 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data: https:; media-src 'self' https:; base-uri 'none'" />
     <title>greedyQ browser studio</title>
     <link rel="stylesheet" href="greedyq-runtime.css" />
     <style>
@@ -5375,10 +5630,11 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
         color: #172033;
       }
       .studio {
+        box-sizing: border-box;
         max-width: 900px;
         margin: 40px auto;
         background: #fff;
-        padding: 32px;
+        padding: clamp(16px, 4vw, 32px);
         border-radius: 16px;
       }
       .inputs {
@@ -5387,10 +5643,12 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
         gap: 16px;
       }
       .drop {
+        min-width: 0;
         border: 2px dashed #98a2b3;
         border-radius: 12px;
         padding: 20px;
       }
+      .drop input { display: block; max-width: 100%; }
       .status {
         white-space: pre-wrap;
         background: #101828;
@@ -5404,8 +5662,16 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
       }
       .preview-grid {
         display: grid;
-        grid-template-columns: minmax(560px, 1fr) 390px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 390px);
         gap: 18px;
+        min-width: 0;
+      }
+      .desktop-scroll {
+        min-width: 0;
+        overflow-x: auto;
+      }
+      .desktop-scroll .viewport {
+        width: max(900px, 100%);
       }
       .viewport {
         border: 1px solid #d0d5dd;
@@ -5427,10 +5693,11 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
   </head>
   <body>
     <main class="studio">
-      <h1>greedyQ browser studio</h1>
+      <h1>Open your questionnaire preview</h1>
       <p>
-        Select the two study source files. Parsing, validation, compilation,
-        mock storage, and rendering occur only in this browser.
+        Choose survey.qmd and greedyq.yml from your study folder, then select
+        Preview. No installation or service account is needed. Answers here
+        are imaginary and are not sent to a database.
       </p>
       <div class="inputs">
         <label class="drop"
@@ -5442,12 +5709,13 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
           >greedyq.yml<input id="yml" type="file" accept=".yml,.yaml,text/yaml"
         /></label>
       </div>
-      <p><button id="build">Validate and preview</button></p>
-      <pre id="status" class="status">Waiting for files.</pre>
+      <p><button id="build">Preview questionnaire</button></p>
+      <p id="status" role="status" aria-live="polite">Choose both files to begin.</p>
+      <details><summary>Technical details</summary><pre id="diagnostics" class="status"></pre></details>
       <section id="preview" class="preview">
         <h2>Responsive preview</h2>
         <div class="preview-grid">
-          <div class="viewport"><div id="desktop"></div></div>
+          <div class="desktop-scroll"><div class="viewport"><div id="desktop"></div></div></div>
           <div class="viewport mobile"><div id="mobile"></div></div>
         </div>
       </section>
@@ -5470,14 +5738,18 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
         });
       document.getElementById("build").onclick = async () => {
         const status = document.getElementById("status");
+        const button = document.getElementById("build");
+        button.disabled = true;
+        document.getElementById("preview").style.display = "none";
+        document.getElementById("diagnostics").textContent = "";
         try {
           const [qmd, yml] = await Promise.all([read("qmd"), read("yml")]),
             parsed = greedyQ.parseSurvey(qmd),
             config = greedyQ.parseYaml(yml),
             report = greedyQ.validateSurvey(parsed, config);
-          status.textContent = JSON.stringify(report, null, 2);
+          document.getElementById("diagnostics").textContent = JSON.stringify(report, null, 2);
           if (report.status !== "passed") {
-            document.getElementById("preview").style.display = "none";
+            status.textContent = "Ask your AI to correct these items: " + report.issues.map(issue => issue.message).join(" ");
             return;
           }
           const model = greedyQ.compileSurvey(parsed, config),
@@ -5486,17 +5758,22 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
             document.getElementById(id).innerHTML = "";
           greedyQ.mountRespondent(document.getElementById("desktop"), model, {
             mode: "desktop",
+            preview: true,
             backend,
             sessionId: "studio-desktop",
           });
           greedyQ.mountRespondent(document.getElementById("mobile"), model, {
             mode: "mobile",
+            preview: true,
             backend,
             sessionId: "studio-mobile",
           });
           document.getElementById("preview").style.display = "block";
+          status.textContent = "Your preview is ready. Try the computer and phone views independently. Rebuilding starts fresh imaginary responses.";
         } catch (error) {
           status.textContent = `Could not build preview:\n${error.message}`;
+        } finally {
+          button.disabled = false;
         }
       };
     </script>
@@ -5506,15 +5783,16 @@ SHA-256: `b2c562d1de4d944608e628c923d05e3b439f6603ff8397957f38356641cd42e8`
 
 ### FILE: `templates/browser/results.html`
 
-SHA-256: `5bec540198ad694cb63ef0da15b6e7ad533bbacf08fb9841a00501767b3d4f80`
+SHA-256: `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4`
 
 ```html
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>greedyQ results</title><style>
 :root{color-scheme:light;--ink:#172033;--muted:#667085;--line:#e4e7ec;--blue:#245f94;--bg:#f5f7fb;--green:#16794b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,sans-serif}header{background:#fff;border-bottom:1px solid var(--line);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}header b{font-size:19px}.wrap{max-width:1280px;margin:auto;padding:28px}.intro,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:14px}.intro{padding:24px;margin-bottom:18px;display:flex;gap:20px;justify-content:space-between;align-items:end}.intro h1{margin:0 0 6px;font-size:28px}.muted{color:var(--muted)}.filters{display:flex;gap:10px;flex-wrap:wrap}label{font-weight:650}select,button{font:inherit;border:1px solid #98a2b3;border-radius:8px;background:#fff;padding:9px 12px}button{cursor:pointer}button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card{padding:18px}.metric{font-size:30px;font-weight:750;margin-top:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{padding:20px;margin-bottom:18px}.panel h2{font-size:18px;margin:0 0 14px}.bar-row{display:grid;grid-template-columns:minmax(110px,1fr) 3fr 42px;gap:10px;align-items:center;margin:9px 0}.bar{height:11px;background:#edf2f7;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{font-size:12px;text-transform:uppercase;color:var(--muted)}.status{color:var(--green);font-weight:650}.empty{padding:30px;text-align:center;color:var(--muted)}@media(max-width:850px){.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.intro{display:block}.filters{margin-top:16px}}@media(max-width:480px){.wrap{padding:14px}.cards{grid-template-columns:1fr 1fr}header{padding:14px}}
-</style></head><body><header><b>greedyQ results</b><span class="status" id="status">Connecting…</span></header><main class="wrap">
-<section class="intro"><div><h1>Survey responses</h1><div class="muted">Review progress, response sources, experiment balance, and collected answers.</div></div><div class="filters"><label>Responses <select id="scope"><option value="production">Real responses</option><option value="test">Test responses</option><option value="all">All responses</option></select></label><label>Source <select id="source"><option value="all">All sources</option><option value="direct">Direct</option><option value="prolific">Prolific</option></select></label><button id="refresh">Refresh</button><button class="primary" id="download">Download CSV</button></div></section>
+</style></head><body><header><b>greedyQ results</b><span class="status" id="status" role="status" aria-live="polite">Connecting…</span></header><main class="wrap">
+<section class="intro"><div><h1 id="study-title">Survey responses</h1><p id="study-details" class="muted"></p><div class="muted">Review progress, response sources, experiment balance, and collected answers.</div></div><div class="filters"><label>Responses <select id="scope"><option value="production">Real responses</option><option value="test">Test responses</option><option value="all">All responses</option></select></label><label>Source <select id="source"><option value="all">All sources</option><option value="direct">Direct</option><option value="prolific">Prolific</option></select></label><button id="refresh">Refresh</button><button class="primary" id="download" disabled>Download CSV</button></div></section>
+<p id="view-note" role="status" class="muted"></p>
 <section class="cards"><div class="card"><div class="muted">Started</div><div class="metric" id="started">–</div></div><div class="card"><div class="muted">Completed</div><div class="metric" id="completed">–</div></div><div class="card"><div class="muted">Completion rate</div><div class="metric" id="rate">–</div></div><div class="card"><div class="muted">In progress</div><div class="metric" id="active">–</div></div></section>
 <div class="grid"><section class="panel"><h2>Where participants stopped</h2><div id="dropoff"></div></section><section class="panel"><h2>Conditions</h2><div id="conditions"></div></section></div>
 <section class="panel"><h2>Answer summary</h2><div id="answers"></div></section>
@@ -5522,15 +5800,30 @@ SHA-256: `5bec540198ad694cb63ef0da15b6e7ad533bbacf08fb9841a00501767b3d4f80`
 <section class="panel"><h2>Response records</h2><div class="table-wrap"><table><thead><tr><th>Started</th><th>Status</th><th>Source</th><th>Prolific ID</th><th>Mode</th><th>Current page</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div></section>
 <section class="panel" id="preview-panel" hidden><h2>Repeat Prolific preview</h2><p>Test mode only. Create a temporary link, use it as the survey URL in your Prolific draft, and keep URL parameter recording enabled. In the survey, “Start a new test” preserves earlier test responses and opens a fresh attempt. The link expires in 24 hours; do not share it with participants.</p><label>Deployed survey URL <input id="preview-survey-url" type="url" placeholder="https://your-survey.vercel.app/" style="width:100%;padding:10px"></label><p><button id="preview-create">Create repeat-test link</button></p><label>Copy this URL into the Prolific draft <textarea id="preview-link" readonly style="width:100%;height:80px"></textarea></label><p id="preview-status" role="status"></p></section>
 </main><script id="greedyq-model" type="application/json">{}</script><script>
-const studyModel=JSON.parse(document.getElementById("greedyq-model").textContent);let current=null;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const studyModel=JSON.parse(document.getElementById("greedyq-model").textContent);let current=null,loadRevision=0;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function bars(target,items){const max=Math.max(1,...items.map(x=>x[1]));$(target).innerHTML=items.length?items.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><span class="bar"><i style="width:${100*v/max}%"></i></span><b>${v}</b></div>`).join(""):'<div class="empty">No data in this view.</div>'}
 function counts(values){const m=new Map;values.forEach(v=>m.set(v,(m.get(v)||0)+1));return [...m].sort((a,b)=>b[1]-a[1])}
+const pageTitle=id=>studyModel.pages.find(p=>p.id===id)?.title||id;
 const questions=studyModel.pages.flatMap(p=>p.questions||[]);
-function questionColumns(q){const scalar=[{name:q.id,meaning:"Answer"}],items=(q.options||[]),rows=(q.rows||[]),columns=(q.columns||[]);if(["audio","video"].includes(q.type))return[];if(["matrix","matrix_multiple"].includes(q.type))return rows.map(r=>({name:`${q.id}.${r.value}`,meaning:r.label}));if(q.type==="daterange")return[{name:`${q.id}.start`,meaning:"Start date"},{name:`${q.id}.end`,meaning:"End date"}];if(["rank_order","constant_sum"].includes(q.type))return items.map(o=>({name:`${q.id}.${o.value}`,meaning:`${o.label} — ${q.type==="rank_order"?"rank":"allocated amount"}`}));if(q.type==="side_by_side")return columns.flatMap(c=>rows.map(r=>({name:`${q.id}.${c.value}.${r.value}`,meaning:`${c.label} — ${r.label}`})));if(q.type==="pick_group_rank")return items.flatMap(o=>[{name:`${q.id}.${o.value}.group`,meaning:`${o.label} — group`},{name:`${q.id}.${o.value}.rank`,meaning:`${o.label} — rank`}]);if(q.type==="drill_down"){const sep=q.path_separator||" > ",levels=Math.max(0,...items.map(o=>String(o.label).split(sep).length));return[...Array.from({length:levels},(_,i)=>({name:`${q.id}.level_${i+1}`,meaning:`Selected level ${i+1}`})),{name:`${q.id}.path`,meaning:"Complete selected path"}]};if(q.type==="timing")return[{name:`${q.id}.seconds_on_page`,meaning:"Seconds spent on page"}];return scalar}
-function flattenQuestion(q,value){const out={};if(value==null)return out;if(["matrix","matrix_multiple","rank_order","constant_sum"].includes(q.type)){for(const item of questionColumns(q))out[item.name]=value[item.name.split(".").at(-1)]??""}else if(q.type==="side_by_side"){for(const item of questionColumns(q)){const[,column,row]=item.name.split(".");out[item.name]=value?.[column]?.[row]??""}}else if(q.type==="pick_group_rank"){for(const item of questionColumns(q)){const parts=item.name.split("."),field=parts.pop(),option=parts.pop();out[item.name]=value?.[option]?.[field]??""}}else if(q.type==="drill_down"){const path=Array.isArray(value)?value:[];path.forEach((part,i)=>out[`${q.id}.level_${i+1}`]=part);out[`${q.id}.path`]=path.join(q.path_separator||" > ")}else if(q.type==="daterange"){out[`${q.id}.start`]=value?.[0]??"";out[`${q.id}.end`]=value?.[1]??""}else if(q.type==="timing")out[`${q.id}.seconds_on_page`]=value?.seconds_on_page??value??"";else out[q.id]=Array.isArray(value)?value.join(" | "):value;return out}
+function rawQuestionColumns(q){if(q.type==="custom")q={...q,type:q.base_type||"text"};const scalar=[{name:q.id,meaning:"Answer"}],items=(q.options||[]),rows=(q.rows||[]),columns=(q.columns||[]);if(["audio","video"].includes(q.type))return[];if(["matrix","matrix_multiple"].includes(q.type))return rows.map(r=>({name:`${q.id}.${r.value}`,meaning:r.label}));if(q.type==="daterange")return[{name:`${q.id}.start`,meaning:"Start date"},{name:`${q.id}.end`,meaning:"End date"}];if(["rank_order","constant_sum"].includes(q.type))return items.map(o=>({name:`${q.id}.${o.value}`,meaning:`${o.label} — ${q.type==="rank_order"?"rank":"allocated amount"}`}));if(q.type==="side_by_side")return columns.flatMap(c=>rows.map(r=>({name:`${q.id}.${c.value}.${r.value}`,meaning:`${c.label} — ${r.label}`})));if(q.type==="pick_group_rank")return items.flatMap(o=>[{name:`${q.id}.${o.value}.group`,meaning:`${o.label} — group`},{name:`${q.id}.${o.value}.rank`,meaning:`${o.label} — rank`}]);if(q.type==="drill_down"){const sep=q.path_separator||" > ",levels=Math.max(0,...items.map(o=>String(o.label).split(sep).length));return[...Array.from({length:levels},(_,i)=>({name:`${q.id}.level_${i+1}`,meaning:`Selected level ${i+1}`})),{name:`${q.id}.path`,meaning:"Complete selected path"}]};if(q.type==="timing")return[{name:`${q.id}.seconds_on_page`,meaning:"Seconds spent on page"}];return scalar}
+const reservedColumns=new Set(["PROLIFIC_PID","STUDY_ID","SESSION_ID","session_id","started_at","completed_at","status","source","is_test","condition","current_page","randomization_method","block_id","draw_id","assignment_at","question_orders","option_orders","page_order"]);
+const analysisColumn=name=>reservedColumns.has(name)?`answer.${name}`:name;
+function questionColumns(q){return rawQuestionColumns(q).map(column=>({...column,name:analysisColumn(column.name)}));}
+function flattenQuestion(q,value){if(q.type==="custom")q={...q,type:q.base_type||"text"};const out={};if(value==null)return out;if(["matrix","matrix_multiple","rank_order","constant_sum"].includes(q.type)){for(const item of rawQuestionColumns(q))out[item.name]=value[item.name.split(".").at(-1)]??""}else if(q.type==="side_by_side"){for(const item of rawQuestionColumns(q)){const[,column,row]=item.name.split(".");out[item.name]=value?.[column]?.[row]??""}}else if(q.type==="pick_group_rank"){for(const item of rawQuestionColumns(q)){const parts=item.name.split("."),field=parts.pop(),option=parts.pop();out[item.name]=value?.[option]?.[field]??""}}else if(q.type==="drill_down"){const path=Array.isArray(value)?value:[];path.forEach((part,i)=>out[`${q.id}.level_${i+1}`]=part);out[`${q.id}.path`]=path.join(q.path_separator||" > ")}else if(q.type==="daterange"){out[`${q.id}.start`]=value?.[0]??"";out[`${q.id}.end`]=value?.[1]??""}else if(q.type==="timing")out[`${q.id}.seconds_on_page`]=value?.seconds_on_page??value??"";else out[q.id]=Array.isArray(value)?value.join(" | "):value;return Object.fromEntries(Object.entries(out).map(([name,value])=>[analysisColumn(name),value]))}
 function readable(value){if(Array.isArray(value))return value.join(" › ");if(value&&typeof value==="object")return Object.entries(value).map(([k,v])=>`${k}: ${typeof v==="object"?JSON.stringify(v):v}`).join("; ");return String(value)}
-function render(data){current=data;const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>readable(x.value));summary.push(`<h3>${esc(q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const external=Object.fromEntries((data.external_identifiers || []).filter(x=>x.provider==="prolific").map(x=>[x.session_id,x]));const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${esc(external[x.id]?.participant_id || "")}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(x.current_page)}</td><td>${byId[x.id]||0}</td></tr>`).join("");$("dictionary").innerHTML=questions.flatMap(q=>questionColumns(q).map(c=>`<tr><td><code>${esc(c.name)}</code></td><td>${esc(q.label||q.id)}</td><td>${esc(c.meaning)}</td></tr>`)).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
-async function load(){$("status").textContent="Updating…";try{const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}&study=${encodeURIComponent(studyModel.study_id)}`,{cache:"no-store"}),d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load results");render(d)}catch(e){$("status").textContent=e.message}}
+$("study-title").textContent=studyModel.title||"Survey responses";
+$("study-details").textContent=[studyModel.organization,studyModel.study_id,studyModel.greedyq_version].filter(Boolean).join(" · ");
+function render(data){current=data;$("download").disabled=false;
+$("view-note").textContent=!data.sessions.length?(data.scope==='production'?"No real responses in this view. Trial submissions appear under Test responses.":"No responses match these filters. Check Responses and Source, or submit a trial response and Refresh."):"Download CSV includes only the responses in this view.";const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)).map(([id,n])=>[pageTitle(id),n]));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>readable(x.value));summary.push(`<h3>${esc(questions.find(question=>question.id===q)?.label||q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const external=Object.fromEntries((data.external_identifiers || []).filter(x=>x.provider==="prolific").map(x=>[x.session_id,x]));const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${esc(external[x.id]?.participant_id || "")}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(pageTitle(x.current_page))}</td><td>${byId[x.id]||0}</td></tr>`).join("")||'<tr><td colspan="7">No responses in this view.</td></tr>';$("dictionary").innerHTML=questions.flatMap(q=>questionColumns(q).map(c=>`<tr><td><code>${esc(c.name)}</code></td><td>${esc(q.label||q.id)}</td><td>${esc(c.meaning)}</td></tr>`)).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
+async function load(){
+ const revision=++loadRevision;
+ current=null;$("download").disabled=true;$("status").textContent="Updating…";$("view-note").textContent="Updating the selected view…";
+ try{
+  const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}&study=${encodeURIComponent(studyModel.study_id)}`,{cache:"no-store"}),d=await r.json();
+  if(revision!==loadRevision)return;
+  if(!r.ok)throw new Error(d.error||"Could not load results");render(d);
+ }catch(e){if(revision!==loadRevision)return;$("status").textContent=e.message;$("view-note").textContent="Could not update this view. Previous figures may be out of date. Select Refresh to retry; CSV is unavailable until the selected view loads.";}
+}
 function csv(){
  if(!current)return;
  const by=new Map;
@@ -5539,7 +5832,7 @@ function csv(){
  const external=Object.fromEntries((current.external_identifiers || []).filter(x=>x.provider==="prolific").map(x=>[x.session_id,x]));
  const head=["PROLIFIC_PID","STUDY_ID","SESSION_ID","session_id","started_at","completed_at","status","source","is_test","condition","current_page","randomization_method","block_id","draw_id","assignment_at","question_orders","option_orders","page_order",...fields];
  const rows=current.sessions.map(s=>{const a=assignments[s.id]||{};const p=external[s.id]||{};return[p.participant_id||"",p.external_study_id||"",p.external_session_id||"",s.id,s.created_at,s.terminal_at||"",s.lifecycle_state,s.respondent_source,s.is_test,a.condition||"",s.current_page,a.method||"",a.block_id||"",a.draw_id||"",a.assigned_at||"",JSON.stringify(s.question_orders||{}),JSON.stringify(s.option_orders||{}),JSON.stringify(s.page_order||[]),...fields.map(field=>by.get(s.id)?.[field]??"")]});
- const quote=x=>`"${String(x).replaceAll('"','""')}"`,blob=new Blob([[head,...rows].map(r=>r.map(quote).join(",")).join("\n")],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${$("scope").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)
+ const quote=x=>{let value=String(x??"");if(typeof x==="string"&&(/^[\t\r]/.test(value)||/^\s*[=+\-@]/.test(value)))value="'"+value;return `"${value.replaceAll('"','""')}"`;},blob=new Blob(["\ufeff",[head,...rows].map(r=>r.map(quote).join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${studyModel.study_id}-${$("scope").value}-${$("source").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)
 }
 if(studyModel.runtime_policy?.mode==='test' && studyModel.runtime_policy?.respondent_source==='prolific'){
  $('preview-panel').hidden=false;
@@ -6026,6 +6319,33 @@ begin
 end;$$;
 revoke all on function public.greedyq_start_prolific_preview(uuid,text,text,text,text,text,boolean,text,text,text,text) from public;
 grant execute on function public.greedyq_start_prolific_preview(uuid,text,text,text,text,text,boolean,text,text,text,text) to anon,authenticated;
+```
+
+### FILE: `templates/supabase/007_answer_snapshot.sql`
+
+SHA-256: `6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2`
+
+```sql
+-- Accepted browser answers are a complete snapshot, not a partial patch.
+-- Preserve migrations 001–006; change only future authenticated session saves.
+create or replace function public.greedyq_save_session(
+  p_session_id uuid,p_access_token text,p_state jsonb,p_consent_question text
+) returns void language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+  if p_state->>'lifecycle'='withdrawn' then
+    perform public.greedyq_withdraw_session(p_session_id,p_access_token);
+  else
+    -- This validates capability, consent, identity, ordering and assignment and
+    -- locks the session until this entire transaction (including pruning) ends.
+    perform public.gq_save_session_validated(p_session_id,p_access_token,p_state,p_consent_question);
+    if jsonb_typeof(p_state->'answers')='object' then
+      delete from public.gq_answers
+        where session_id=p_session_id and not (p_state->'answers' ? question_id);
+    end if;
+  end if;
+end;$$;
+revoke all on function public.greedyq_save_session(uuid,text,jsonb,text) from public;
+grant execute on function public.greedyq_save_session(uuid,text,jsonb,text) to anon,authenticated;
 ```
 
 ### FILE: `tools/prolific_status.cjs`
@@ -7850,7 +8170,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `d0280eedc168a8513d86f3875d08cc99907f08850f450a04ecc84c44d0e98146`
+SHA-256: `dba9794e7019cada7adc830be57b1220a5eacbd499e965e2abe3b7cc63a92974`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -7909,6 +8229,7 @@ def build(study_dir, write=True):
         (migrations / "004_randomization.sql").write_bytes((ROOT / "templates/supabase/004_randomization.sql").read_bytes())
         (migrations / "005_prolific.sql").write_bytes((ROOT / "templates/supabase/005_prolific.sql").read_bytes())
         (migrations / "006_withdrawal_preview.sql").write_bytes((ROOT / "templates/supabase/006_withdrawal_preview.sql").read_bytes())
+        (migrations / "007_answer_snapshot.sql").write_bytes((ROOT / "templates/supabase/007_answer_snapshot.sql").read_bytes())
         migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
         migration_manifest = {
             "schema_version": "0.2",
@@ -9003,7 +9324,7 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `d7233bf8a07e902e346ea85a0fdc35cba7c76f98046c095da5e020fa767d0a87`
+SHA-256: `7169b48b81e6e737f9c62bc46755d450adcef1c76957fe1642faeeb7bca0a643`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -9030,8 +9351,8 @@ def preflight(study_dir):
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
     migration_paths = sorted((root / "supabase/migrations").glob("[0-9][0-9][0-9]_*.sql"))
     numbers = [int(re.match(r"(\d{3})_", path.name).group(1)) for path in migration_paths]
-    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql"]:
-        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–006 is required."})
+    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql"]:
+        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–007 is required."})
     if numbers != sorted(set(numbers)):
         issues.append({"code": "GQ013", "message": "Supabase migration numbers must be unique and ordered."})
     manifest_path = root / "supabase/migrations/manifest.json"

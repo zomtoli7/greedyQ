@@ -45,6 +45,7 @@
     "templates/supabase/004_randomization.sql",
     "templates/supabase/005_prolific.sql",
     "templates/supabase/006_withdrawal_preview.sql",
+    "templates/supabase/007_answer_snapshot.sql",
     "templates/supabase/connection-test.html",
     "greedyq/__init__.py",
     "greedyq/__main__.py",

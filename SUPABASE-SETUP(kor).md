@@ -11,7 +11,7 @@
 
 ## 미리 준비된 것
 
-- `001_initial.sql`부터 `006_withdrawal_preview.sql`까지 여섯 파일을 순서대로 적용합니다. 이미 적용한 파일은 바꾸지 않습니다.
+- `001_initial.sql`부터 `007_answer_snapshot.sql`까지 일곱 파일을 순서대로 적용합니다. 이미 적용한 파일은 바꾸지 않습니다.
 - 안전한 session 생성, 저장, 재접속, 고정 배정, Prolific 중복 감지, 철회 삭제 browser code
 - 가상 데이터만 사용하는 browser-native connection tester
 - Project URL과 publishable/anon key만 필요한 static deployment bundle
@@ -23,7 +23,7 @@
 2. 승인된 데이터 위치 정책에 따라 region을 선택합니다. IRB 또는 기관 정책에서 정하지 않았다면 추측하지 않습니다.
 3. SQL editor에서 [`001_initial.sql`](./examples/complete-study/supabase/migrations/001_initial.sql)을 한 번 실행합니다.
 4. 이어서 [`002_browser_rpc.sql`](./examples/complete-study/supabase/migrations/002_browser_rpc.sql)을 실행합니다.
-   그다음 [`003_results_dashboard.sql`](./templates/supabase/003_results_dashboard.sql), [`004_randomization.sql`](./templates/supabase/004_randomization.sql), [`005_prolific.sql`](./templates/supabase/005_prolific.sql), [`006_withdrawal_preview.sql`](./templates/supabase/006_withdrawal_preview.sql)을 순서대로 실행합니다. 연결된 에이전트가 검토한 연구 모델을 `registerStudy(client, model)`로 등록해야 합니다. 이 관리자 작업은 공개 브라우저 키로 수행할 수 없습니다. [업그레이드 제한](./RANDOMIZATION(kor).md)을 확인하십시오. 별도의 가상 연결 테스트 모델은 004가 자동 등록합니다. 006은 새 철회의 답변 삭제와 비공개 반복 시험 권한을 처리하며 과거 응답은 삭제하지 않습니다.
+   그다음 [`003_results_dashboard.sql`](./templates/supabase/003_results_dashboard.sql), [`004_randomization.sql`](./templates/supabase/004_randomization.sql), [`005_prolific.sql`](./templates/supabase/005_prolific.sql), [`006_withdrawal_preview.sql`](./templates/supabase/006_withdrawal_preview.sql), [`007_answer_snapshot.sql`](./templates/supabase/007_answer_snapshot.sql)을 순서대로 실행합니다. 연결된 에이전트가 검토한 연구 모델을 `registerStudy(client, model)`로 등록해야 합니다. 이 관리자 작업은 공개 브라우저 키로 수행할 수 없습니다. [업그레이드 제한](./RANDOMIZATION(kor).md)을 확인하십시오. 별도의 가상 연결 테스트 모델은 004가 자동 등록합니다. 006은 새 철회의 답변 삭제와 비공개 반복 시험 권한을 처리하며 과거 응답은 삭제하지 않습니다.
 5. Project URL과 **publishable key** 또는 legacy `anon` key를 복사합니다. Service-role key나 database password는 복사하지 않습니다.
 6. 이 두 public browser value를 AI에 전달하고 test survey의 `index.html` 안 `greedyq-deployment` block에 넣는 작업을 승인합니다.
 7. `supabase-connection-test.html`을 열어 두 값을 입력하고 **Run all connection tests**를 누릅니다.
@@ -46,3 +46,5 @@ Migration 또는 connection test 실패, region 미승인, privileged key 노출
 ```text
 Supabase 테스트 프로젝트를 만들었어. SUPABASE-SETUP.md에 따라 연결을 도와줘. test mode를 유지하고 가상 participant data만 사용하며, project URL이나 publishable key를 전송하기 전에 확인받아. Vercel 배포나 participant 모집은 하지 마.
 ```
+
+007 migration은 앞으로 저장되는 전체 답변 상태에서 빠진 답변을 같은 세션의 데이터베이스에서도 제거합니다. 조건부 문항이 숨겨져 답을 지운 경우 결과·CSV에도 남지 않아야 합니다. 다른 세션이나 과거 응답을 일괄 변경하지 않습니다. 기존 설치에는 누락된 007을 검토 후 적용하며, 검토 중인 유료 시험은 이번 로컬 점검으로 변경하지 않습니다.

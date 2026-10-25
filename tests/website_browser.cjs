@@ -17,3 +17,28 @@ test('website Collect order, previous/next, three languages, mobile menu and ful
  const helper=await browser.newPage();await helper.goto(`http://localhost:${server.address().port}/copy-embed.html`);await helper.waitForFunction(()=>!document.getElementById('copy').disabled);assert.equal(await helper.locator('#source').inputValue(),fs.readFileSync(path.join(root,'google-sites-embed.html'),'utf8'));
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 });
+
+test('first-use prompts and manual copy fallback work inside a restricted embed at phone width',async()=>{
+ const embed=fs.readFileSync(path.resolve(__dirname,'../website/google-sites-embed.html'),'utf8');
+ const host='<iframe title="greedyQ guide" sandbox="allow-scripts" style="width:100%;height:850px;border:0" srcdoc="'+embed.replaceAll('&','&amp;').replaceAll('"','&quot;')+'"></iframe>';
+ const server=http.createServer((req,res)=>{res.setHeader('content-type','text/html; charset=utf-8');res.end(host)});await new Promise(r=>server.listen(0,'localhost',r));
+ const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+ try{
+  const page=await browser.newPage({viewport:{width:320,height:900}});
+  await page.addInitScript(()=>{document.execCommand=()=>false;Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw Error('Embedding policy denies clipboard')}}});});
+  await page.goto(`http://localhost:${server.address().port}/`);
+  const frame=page.frameLocator('iframe');
+  for(const language of ['en','ko','zh']){
+   await frame.locator('#language').selectOption(language);
+   await frame.locator('.brand').click();await frame.locator('main .primary[data-page=start]').click();
+   const prompt=await frame.locator('.prompt pre').first().textContent();assert(prompt.includes('START-HERE.md'));
+   await frame.locator('.prompt .copy').first().click();assert((await frame.locator('.prompt-status').first().textContent()).length>0);
+   assert.equal(await frame.locator('.prompt pre').first().evaluate(()=>getSelection().toString()),prompt);
+   await frame.locator('main .primary[data-page=guide]').click();await frame.locator('.side-link.active[data-topic=first]').waitFor({state:'attached'});
+   for(const topic of ['preview','deploy','results','archive']){
+    await frame.locator('.toc-toggle').click();await frame.locator(`.side-link[data-topic=${topic}]`).click();await frame.locator(`.side-link.active[data-topic=${topic}]`).waitFor({state:'attached'});
+    assert(await frame.locator('main h1').isVisible());
+   }
+  }
+ }finally{await browser.close();await new Promise(r=>server.close(r));}
+});

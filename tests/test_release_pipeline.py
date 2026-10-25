@@ -172,7 +172,7 @@ class ReleasePipelineTests(unittest.TestCase):
             study = self.copy_study(tmp)
             build(study)
             manifest = json.loads((study / "supabase/migrations/manifest.json").read_text())
-            self.assertEqual(["001_initial.sql", "002_browser_rpc.sql", "003_results_dashboard.sql", "004_randomization.sql", "005_prolific.sql", "006_withdrawal_preview.sql"], [item["name"] for item in manifest["migrations"]])
+            self.assertEqual(["001_initial.sql", "002_browser_rpc.sql", "003_results_dashboard.sql", "004_randomization.sql", "005_prolific.sql", "006_withdrawal_preview.sql", "007_answer_snapshot.sql"], [item["name"] for item in manifest["migrations"]])
             self.assertEqual("passed", preflight(study)["status"])
             migration = study / "supabase/migrations/003_results_dashboard.sql"
             migration.write_text(migration.read_text() + "\n-- changed after build\n")

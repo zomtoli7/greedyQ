@@ -67,7 +67,7 @@ test('results CSV joins Prolific identifiers to the matching response only',asyn
   await page.route('https://results.example.test/api/results**',r=>r.fulfill({json:{generated_at:new Date().toISOString(),sessions:[{id:'one',created_at:new Date().toISOString(),respondent_source:'prolific',lifecycle_state:'completed',is_test:true},{id:'two',created_at:new Date().toISOString(),respondent_source:'direct',lifecycle_state:'completed',is_test:true}],answers:[],assignments:[],external_identifiers:[{session_id:'one',provider:'prolific',participant_id:'a'.repeat(24),external_study_id:'b'.repeat(24),external_session_id:'c'.repeat(24)}]}}));
   await page.goto('https://results.example.test/');await page.getByText('a'.repeat(24),{exact:true}).waitFor();
   const pending=page.waitForEvent('download');await page.getByRole('button',{name:'Download CSV',exact:true}).click();const download=await pending,stream=await download.createReadStream(),chunks=[];for await(const chunk of stream)chunks.push(chunk);const csv=Buffer.concat(chunks).toString();
-  assert(csv.startsWith('"PROLIFIC_PID","STUDY_ID","SESSION_ID"'));assert(csv.split('\n')[1].includes('a'.repeat(24)));assert(csv.split('\n')[2].startsWith('"","",""'));
+  assert(csv.startsWith('\ufeff'));assert(csv.slice(1).startsWith('"PROLIFIC_PID","STUDY_ID","SESSION_ID"'));assert(csv.split('\n')[1].includes('a'.repeat(24)));assert(csv.split('\n')[2].startsWith('"","",""'));
   assert.equal(new URL(requests[0]).searchParams.get('study'),'digital_service_info_001');
  }finally{await browser.close();}
 });

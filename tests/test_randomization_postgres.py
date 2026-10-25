@@ -15,6 +15,27 @@ BIN=Path(os.environ.get("GREEDYQ_PG_BIN", "/opt/homebrew/opt/postgresql@17/bin")
 
 @unittest.skipUnless((BIN/"initdb").is_file(), "Set GREEDYQ_PG_BIN to local PostgreSQL tools")
 class PostgresRandomizationTests(unittest.TestCase):
+    def test_first_researcher_browser_results_and_archive_journey(self):
+        """Synthetic local study only; never contact Vercel, Supabase or Prolific."""
+        from greedyq.build import build
+        node = Path('/Users/dongsookim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node')
+        modules = node.parent.parent / 'node_modules'
+        pg = Path(os.environ.get('GREEDYQ_PG_MODULE', '/Users/dongsookim/.npm/_npx/ff3a78d6668cab0a/node_modules/pg'))
+        if not node.is_file() or not pg.is_dir() or not (modules/'playwright').is_dir():
+            self.skipTest('Local Node, Playwright and pg are required for this browser journey')
+        with tempfile.TemporaryDirectory(prefix='greedyq-first-user-') as tmp:
+            study=Path(tmp)/'study'
+            shutil.copytree(ROOT/'tests/fixtures/first-user-study', study)
+            report,_=build(study)
+            self.assertEqual('passed',report['status'],report)
+            result=subprocess.run([str(node),str(ROOT/'tests/first_user_journey.cjs'),str(study)],cwd=ROOT,
+                env={**os.environ,'NODE_PATH':str(modules),'GREEDYQ_PG_MODULE':str(pg),
+                     'PGHOST':str(self.root),'PGPORT':'55439'},text=True,capture_output=True,timeout=180)
+            self.assertEqual(0,result.returncode,result.stderr)
+            evidence=json.loads(result.stdout.strip().splitlines()[-1])
+            self.assertEqual(6,evidence['archive_sessions'])
+            self.assertEqual(0,evidence['cloud_calls'])
+
     @classmethod
     def setUpClass(cls):
         cls.tmp=tempfile.TemporaryDirectory(prefix="greedyq-random-pg-")
@@ -23,8 +44,22 @@ class PostgresRandomizationTests(unittest.TestCase):
         subprocess.run([str(BIN/"pg_ctl"),"-D",str(cls.data),"-l",str(cls.root/"server.log"),"-o",f"-h '' -k {cls.root} -p 55439","-w","start"],check=True,capture_output=True)
         cls.addClassCleanup(cls.cleanup_server)
         cls.sql("create role anon; create role authenticated; create role service_role; create schema extensions; create extension pgcrypto with schema extensions;")
-        for source in [ROOT/"examples/complete-study/supabase/migrations/001_initial.sql",*[ROOT/"templates/supabase"/name for name in ("002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql")]]:
+        for source in [ROOT/"examples/complete-study/supabase/migrations/001_initial.sql",*[ROOT/"templates/supabase"/name for name in ("002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql")]]:
             cls.sql(source.read_text())
+
+    def test_accepted_answer_snapshot_prunes_only_removed_session_answers(self):
+        sid=self.participant(); other=self.participant()
+        def save(state,token='abcdefghijklmnopqrstuvwx'):
+            self.sql(f"set role anon; select greedyq_save_session('{sid}','{token}','{json.dumps(state)}','consent');")
+        original={'page':'baseline','answers':{'consent':'yes','q1':'keep','q2':'hidden later'}}
+        save(original)
+        reduced={'page':'baseline','answers':{'consent':'yes','q1':'keep'}}
+        with self.assertRaisesRegex(RuntimeError,'invalid session capability'):save(reduced,'wrong')
+        self.assertEqual('3',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
+        save(reduced)
+        self.assertEqual('2',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
+        self.assertEqual('0',self.sql(f"select count(*) from gq_answers where session_id='{sid}' and question_id='q2'"))
+        self.assertEqual('1',self.sql(f"select count(*) from gq_answers where session_id='{other}'"))
 
     @classmethod
     def cleanup_server(cls):

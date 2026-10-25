@@ -1,0 +1,106 @@
+---
+title: "First researcher usability test"
+greedyq:
+  spec_version: "0.2"
+  version: "0.2_2026-10-25_0af2387"
+  organization: "Example Research Team"
+survey-settings:
+  start-page: welcome
+  show-previous: true
+  required:
+    - consent_choice
+    - used_service
+    - rating
+    - had_problem
+    - withdraw_now
+---
+
+--- welcome
+
+# Welcome
+
+This is an imaginary service feedback study for testing greedyQ. No real participants are recruited.
+
+```{r}
+sd_nav(show_previous = FALSE, label_next = "Start")
+```
+
+--- consent
+
+# Participation information
+
+This local software test uses imaginary answers only. Participation is voluntary. Choosing Withdraw deletes the test answers. No personal information is requested. This text is not an approved consent form for real research.
+
+```{r}
+sd_question(id = "consent_choice", type = "mc", label = "Do you agree?", option = c("Yes" = "yes", "No" = "no"))
+```
+
+```{r}
+sd_nav(show_previous = FALSE)
+```
+
+--- eligibility
+
+# Your experience
+
+```{r}
+sd_question(id = "used_service", type = "mc_buttons", label = "Have you used the service?", option = c("Yes" = "yes", "No" = "no"))
+```
+
+--- feedback
+
+# Feedback
+
+```{r}
+sd_question(id = "rating", type = "mc", label = "Overall satisfaction", option = c("Very dissatisfied" = 1, "Dissatisfied" = 2, "Neutral" = 3, "Satisfied" = 4, "Very satisfied" = 5))
+```
+
+```{r}
+sd_question(id = "had_problem", type = "mc", label = "Did you experience a problem?", option = c("Yes" = "yes", "No" = "no"))
+```
+
+```{r}
+sd_question(id = "problem_detail", type = "text", label = "Describe the problem")
+```
+
+```{r}
+sd_question(id = "comment", type = "textarea", label = "Any other comments?")
+```
+
+--- review
+
+# Finish your participation
+
+```{r}
+sd_question(id = "withdraw_now", type = "mc", label = "What would you like to do?", option = c("Submit my answers" = "submit", "Withdraw and delete my answers" = "withdraw"))
+```
+
+--- complete
+
+# Thank you
+
+Your test answers have been saved.
+
+--- consent_refused
+
+# Participation declined
+
+Thank you for considering the study.
+
+--- screened_out
+
+# Not eligible
+
+This study is for people who have used the service.
+
+--- withdrawn
+
+# Participation withdrawn
+
+Your test answers have been deleted.
+
+--- technical_error
+
+# Unable to continue
+
+Please contact the research team.

@@ -54,13 +54,13 @@
     {
       "id": "consent",
       "title": "Participant information and consent",
-      "body": "Please read the versioned participant information and consent. The study is voluntary, and you may stop at any time.",
+      "body": "**Document ID:** `consent_main`\n**Version:** `1.1.0`\n**Effective date:** 2026-10-25\n\n**Study purpose**\n\nThis fictional study examines how descriptions of a hypothetical municipal digital-assistance program affect opinions about the program.\n\n**What you will do**\n\nYou will answer background questions, read one short program description selected at random, and answer questions about it. Participation should take about five minutes.\n\n**Risks and benefits**\n\nThe study is designed to present no more than minimal risk. You may skip optional questions or stop at any time. There is no guaranteed direct benefit.\n\n**Data and confidentiality**\n\nThe study records your panel participant identifier, responses, assigned condition, consent version, and operational timestamps. It does not collect your name, IP address, or browser fingerprint by default. The fictional research team controls the study database.\n\n**Voluntary participation and withdrawal**\n\nParticipation is voluntary. Refusing or stopping does not create a penalty from the research team. Saving a withdrawal during the survey deletes this session's research answers and assignment from the active greedyQ database. Minimal panel identifiers and the withdrawal status remain for returning the submission and preventing duplicate participation. Previously downloaded files, provider backups and Prolific's own records are outside this automatic deletion.\n\n**Contacts**\n\n- Principal investigator: `researcher@example.edu`\n- Data or withdrawal requests: `data@example.edu`\n- Research-review office: `irb@example.edu`\n\nThese addresses and all institutional details are placeholders for fixture use only.",
       "questions": [
         {
           "id": "consent_choice",
           "type": "mc",
           "label": "Do you consent to participate in this study?",
-          "_line": 53,
+          "_line": 83,
           "options": [
             {
               "label": "Yes, I consent",
@@ -87,7 +87,7 @@
           "id": "age",
           "type": "numeric",
           "label": "What is your age in years?",
-          "_line": 73,
+          "_line": 103,
           "placeholder": "Age"
         }
       ]
@@ -101,7 +101,7 @@
           "id": "support_pre",
           "type": "slider",
           "label": "Before seeing details, how much would you support a city program that helps residents use online public services?",
-          "_line": 88,
+          "_line": 118,
           "options": [
             {
               "label": "Strongly oppose",
@@ -137,7 +137,7 @@
           "id": "familiarity",
           "type": "select",
           "label": "Before today, how familiar were you with municipal digital-assistance programs?",
-          "_line": 106,
+          "_line": 136,
           "options": [
             {
               "label": "Not at all familiar",
@@ -189,7 +189,7 @@
           "id": "comprehension",
           "type": "mc",
           "label": "At how many libraries would the proposed program operate?",
-          "_line": 145,
+          "_line": 175,
           "options": [
             {
               "label": "One library",
@@ -213,7 +213,7 @@
           "id": "frame_perception",
           "type": "slider",
           "label": "How strongly did the description emphasize practical benefits to residents?",
-          "_line": 160,
+          "_line": 190,
           "options": [
             {
               "label": "Not at all",
@@ -249,7 +249,7 @@
           "id": "attention_check",
           "type": "mc",
           "label": "For data-quality purposes, please select ‘Somewhat agree.’",
-          "_line": 178,
+          "_line": 208,
           "options": [
             {
               "label": "Strongly disagree",
@@ -292,7 +292,7 @@
           "id": "support_post",
           "type": "slider",
           "label": "After reading the description, how much do you support the proposed program?",
-          "_line": 199,
+          "_line": 229,
           "options": [
             {
               "label": "Strongly oppose",
@@ -328,7 +328,7 @@
           "id": "usefulness",
           "type": "matrix",
           "label": "Please indicate your agreement with each statement.",
-          "_line": 217,
+          "_line": 247,
           "options": [
             {
               "label": "Strongly disagree",
@@ -366,14 +366,14 @@
           "id": "opposition_reason",
           "type": "textarea",
           "label": "What is the main reason you do not support the proposed program?",
-          "_line": 237,
+          "_line": 267,
           "placeholder": "Optional additional detail"
         },
         {
           "id": "comments",
           "type": "textarea",
           "label": "Is there anything else you would like the research team to know?",
-          "_line": 247,
+          "_line": 277,
           "placeholder": "Optional"
         }
       ]
@@ -387,7 +387,7 @@
           "id": "education",
           "type": "select",
           "label": "What is the highest level of education you have completed?",
-          "_line": 260,
+          "_line": 290,
           "options": [
             {
               "label": "Less than secondary school",
@@ -420,7 +420,7 @@
           "id": "gender",
           "type": "mc",
           "label": "How do you describe your gender?",
-          "_line": 278,
+          "_line": 308,
           "options": [
             {
               "label": "Woman",
@@ -448,7 +448,7 @@
           "id": "gender_self_description",
           "type": "text",
           "label": "How would you like to describe your gender?",
-          "_line": 294,
+          "_line": 324,
           "placeholder": "Self-description"
         }
       ]
@@ -462,7 +462,7 @@
           "id": "withdraw_now",
           "type": "mc",
           "label": "What would you like to do?",
-          "_line": 309,
+          "_line": 339,
           "options": [
             {
               "label": "Submit my responses",
@@ -478,7 +478,7 @@
           "id": "deletion_request",
           "type": "mc",
           "label": "Withdrawing deletes the answers collected in this session. Please confirm before continuing.",
-          "_line": 322,
+          "_line": 352,
           "options": [
             {
               "label": "I understand that my answers will be deleted",

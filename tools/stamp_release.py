@@ -13,7 +13,9 @@ ROOT=Path(__file__).resolve().parents[1]
 def command(*args):
     subprocess.run([sys.executable,*args],cwd=ROOT,check=True)
 
-def stamp(source_commit,date):
+def stamp(source_commit,date,notes=None):
+    if notes is not None and (set(notes)!={"en","ko"} or any(not isinstance(lines,list) or not lines or any(not isinstance(line,str) or not line.strip() for line in lines) for lines in notes.values())):
+        raise ValueError("Supply nonempty English and Korean summary lists before stamping.")
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',date):raise ValueError('Use the approved release date YYYY-MM-DD.')
     commit=subprocess.check_output(['git','rev-parse','--verify',source_commit+'^{commit}'],cwd=ROOT,text=True).strip()
     metadata=json.loads((ROOT/'release.json').read_text());old=metadata['release'];short=commit[:7]
@@ -42,9 +44,9 @@ def stamp(source_commit,date):
     if 'VERSION, RELEASE,' not in text:text=text.replace('VERSION, inlineMarkdown','VERSION, RELEASE, inlineMarkdown')
     core.write_text(text)
     source=ROOT/'registry/guide-index.source.json';data=json.loads(source.read_text());data['release']=release;source.write_text(json.dumps(data,indent=2)+'\n')
-    notes={
-        'en':['Complete standard Prolific ID capture, isolated repeat Preview, atomic withdrawal erasure, protected results/CSV and routine-review evidence handling.','Document verified draft Preview paths and the paid pilot awaiting Prolific review; payment remains unverified.','Add the standalone Collect → Connect to Prolific page, adjacent-page guidance and synchronized website version/history.','Consolidate earlier runtime, randomization, archive, localization and preregistration work into the v0.2 source.'],
-        'ko':['기본 Prolific ID 기록·분리된 반복 Preview·원자적 철회 답변 삭제·보호된 결과/CSV·내부 검토 상태 처리를 정리했습니다.','검증된 초안 Preview와 Prolific 검토 대기 중인 유료 시험을 기록했으며 지급은 아직 미검증입니다.','Collect → Prolific 연결하기 독립 페이지·앞뒤 안내·웹사이트 버전/이력을 동기화했습니다.','기존 runtime·무작위화·아카이빙·다국어·사전등록 작업을 v0.2 소스에 함께 정리했습니다.']}
+    notes=notes or {
+        'en':['Update the canonical v0.2 implementation and guides; see the source commit for the exact changes.'],
+        'ko':['v0.2 기본 구현과 가이드를 갱신했습니다. 정확한 변경 내용은 소스 커밋을 참고하세요.']}
     for language,suffix,other in (('en','','(kor)'),('ko','(kor)','')):
         path=ROOT/f'updates/0.2/{release}{suffix}.md'
         opposite='한국어' if language=='en' else 'English'
@@ -81,4 +83,10 @@ def stamp(source_commit,date):
     print('Stamped '+release+' from '+commit)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--source-commit',required=True);parser.add_argument('--date',required=True);args=parser.parse_args();stamp(args.source_commit,args.date)
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--source-commit',required=True);parser.add_argument('--date',required=True)
+    parser.add_argument('--notes-en',type=Path);parser.add_argument('--notes-ko',type=Path)
+    args=parser.parse_args()
+    if bool(args.notes_en)!=bool(args.notes_ko):parser.error('Provide both --notes-en and --notes-ko.')
+    notes=None if not args.notes_en else {language:[line.removeprefix('- ').strip() for line in file.read_text().splitlines() if line.strip()] for language,file in [('en',args.notes_en),('ko',args.notes_ko)]}
+    stamp(args.source_commit,args.date,notes)

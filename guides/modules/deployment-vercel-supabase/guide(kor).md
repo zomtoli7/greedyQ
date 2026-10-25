@@ -2,7 +2,7 @@
 
 [English](./guide.md)
 
-001–006 migration 전체를 적용한 후 `tools/cloud_lifecycle.cjs`의 `registerStudy(client, model)`로 검토한 모델을 각각 등록합니다. [RANDOMIZATION(kor).md](../../../RANDOMIZATION(kor).md)의 기존 데이터베이스 제한을 따릅니다. 계속 사용할 모든 연구의 등록을 계획하지 않은 채 운영 중인 공유 데이터베이스를 변경하면 안 됩니다. 과거 연결 검증은 새 실행 코드나 migration을 검증하지 않습니다.
+001–007 migration 전체를 적용한 후 `tools/cloud_lifecycle.cjs`의 `registerStudy(client, model)`로 검토한 모델을 각각 등록합니다. [RANDOMIZATION(kor).md](../../../RANDOMIZATION(kor).md)의 기존 데이터베이스 제한을 따릅니다. 계속 사용할 모든 연구의 등록을 계획하지 않은 채 운영 중인 공유 데이터베이스를 변경하면 안 됩니다. 과거 연결 검증은 새 실행 코드나 migration을 검증하지 않습니다.
 
 Application configuration과 database policy에는 registry에 등록된 canonical template을 사용합니다. Secret은 provider environment setting에 두고, browser access에는 최소 권한을 사용하며, privileged operation은 server-side에 유지하고 service-role credential을 노출하지 않습니다.
 
@@ -11,3 +11,5 @@ Application configuration과 database policy에는 registry에 등록된 canonic
 기본 연구자 여정에서는 Vercel 로그인과 Vercel-native Supabase 리소스 승인 한 번만 요청합니다. Agent는 모든 migration과 환경 연결, 공개 설문 배포, Vercel Authentication으로 보호되는 별도 결과 배포를 구성합니다. Survey와 Results 링크를 명확히 제공하고 일반 연구자에게 Supabase 조작을 요구하지 않습니다.
 
 Account access를 요청하기 전에 study를 build하고 `supabase-connection-test.html`과 `003_results_dashboard.sql`을 포함한 모든 등록 migration을 제공합니다. 연결된 browser runtime은 첫 save 전에 capability-protected session을 만들고 정확한 `greedyq_version`을 저장하며, Prolific external `SESSION_ID`를 internal UUID와 분리하고 세션·ID를 원자적 `greedyq_start_prolific`으로 등록해야 합니다. 일반 시작을 생성·등록 두 요청으로 나눠 구현하지 않습니다. `greedyq_start_prolific_preview`는 서버에서 검증된 Test 권한이 있을 때만 사용합니다. `is_test`와 `respondent_source`를 독립적으로 저장합니다. Fielding 전에 일반 테스트 응답을 만들고 결과 대시보드의 Test/Direct에서 보이는 동시에 Real responses가 변하지 않는지 확인합니다. 연구자 workflow에는 [RESULTS-DASHBOARD(kor).md](../../../RESULTS-DASHBOARD(kor).md)를 사용하며 [SUPABASE-SETUP(kor).md](../../../SUPABASE-SETUP(kor).md)는 복구 안내서로 취급합니다.
+
+007 migration은 앞으로 저장되는 전체 답변 상태에서 빠진 답변을 같은 세션의 데이터베이스에서도 제거합니다. 조건부 문항이 숨겨져 답을 지운 경우 결과·CSV에도 남지 않아야 합니다. 다른 세션이나 과거 응답을 일괄 변경하지 않습니다. 기존 설치에는 누락된 007을 검토 후 적용하며, 검토 중인 유료 시험은 이번 로컬 점검으로 변경하지 않습니다.

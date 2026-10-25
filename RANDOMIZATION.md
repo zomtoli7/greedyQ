@@ -65,7 +65,7 @@ Question orders are stored as ordered question IDs in `question_orders`, retaine
 
 ## Deployment and upgrade
 
-The agent applies migrations **001–006** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
+The agent applies migrations **001–007** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
 
 Do not modify already-applied 001–003. Existing databases without an applied-migration ledger need explicit reconciliation. Existing experimental studies with legacy assignments require a **new study ID**; never relabel old least-count assignments as random. Applying 004 changes the save boundary for the database: register all studies that must remain usable in that database and deploy the matching runtime during an approved maintenance window. Otherwise saves fail closed. Test the migration on a separate test database first.
 
@@ -84,3 +84,5 @@ In the `survey.qmd` header, `survey-settings.shuffled` accepts a question ID or 
 For independent pages, use `page_order: [topics, preferences, experience]` in `greedyq.yml`. They must be one contiguous middle group in source order, without explicit next-page links or show/skip rules. Opening, consent, assignment, treatment and ending pages stay fixed. The validator rejects unsupported combinations instead of guessing what a branch should do. This is a greedyQ extension, not a documented Surveydown page-shuffle setting.
 
 The browser saves `option_orders` and `page_order` per session, including across refresh. Raw/CSV exports retain them. Native export preserves official choice-shuffle settings but reports question/page shuffling as unsupported. See the [compatibility audit](./docs/surveydown-compatibility-audit.md).
+
+Migration 007 prunes answers omitted from a newly accepted complete browser snapshot in the same session. When a conditional answer is cleared on hide, it must also disappear from results and CSV. Other sessions and historical records are not bulk rewritten. Existing installations require the missing 007 migration through the reviewed upgrade process; this local audit does not change the paid pilot under review.

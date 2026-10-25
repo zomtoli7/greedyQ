@@ -2,7 +2,7 @@
 
 [한국어](./external-connection-readiness(kor).md)
 
-**Randomization upgrade:** the new runtime requires migrations 001–006 and registration of every reviewed model. The runtime checks the server contract and refuses an old or mismatched setup. Follow [RANDOMIZATION.md](../RANDOMIZATION.md); earlier account tests do not establish acceptance of this upgrade.
+**Randomization upgrade:** the new runtime requires migrations 001–007 and registration of every reviewed model. The runtime checks the server contract and refuses an old or mismatched setup. Follow [RANDOMIZATION.md](../RANDOMIZATION.md); earlier account tests do not establish acceptance of this upgrade.
 
 **Release:** `0.2_2026-10-25_0af2387`
 **Status:** local and connected test verification complete; paid Prolific pilot paused for platform review. Payment remains unverified.

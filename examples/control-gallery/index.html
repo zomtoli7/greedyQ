@@ -77,6 +77,10 @@
             externalIdentifiers,
             previewToken,
             onError: (error) => {
+              if(error.kind==='study_closed'){
+                root.innerHTML=`<main class="gq-card"><h1>${ui('Survey closed')}</h1><p>${ui('This study is no longer accepting responses. Please contact the research team if you need help.')}</p></main>`;
+                return;
+              }
               if (!root.querySelector("[data-save-error]"))
                 root.insertAdjacentHTML(
                   "afterbegin",
@@ -95,6 +99,10 @@
           });
         }
       })().catch((error) => {
+        if(error.kind==='study_closed'){
+          document.getElementById('survey').innerHTML=`<main class="gq-card"><h1>${ui('Survey closed')}</h1><p>${ui('This study is no longer accepting responses. Please contact the research team if you need help.')}</p></main>`;
+          return;
+        }
         document.getElementById("survey").innerHTML =
           `<main class="gq-card"><h1>${ui('Survey unavailable')}</h1><p>${ui(error.kind==='prolific_duplicate'?'A response already exists. Reopen this study in the browser where you started, or contact the researcher.':'The secure data connection could not be started.')}</p></main>`;
         console.error(error);

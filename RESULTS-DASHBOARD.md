@@ -23,7 +23,7 @@ The survey and dashboard are built from the same versioned study bundle and read
 
 The initial dashboard follows the useful parts of the sdstudio Responses view: headline response statistics, response summaries, a data-sheet view, and CSV download. greedyQ adds research-operation information that is needed before and during fielding:
 
-- started, completed, active, screened-out, consent-refused, withdrawn, and technical-error counts;
+- started, completed, completion-rate and in-progress metrics, plus each record’s completion, screening, refusal, withdrawal or technical-error status;
 - completion rate and current-page drop-off distribution;
 - direct versus Prolific recruitment source;
 - test versus real fielding mode;
@@ -33,7 +33,7 @@ The initial dashboard follows the useful parts of the sdstudio Responses view: h
 - a response-record table; and
 - a CSV export of the currently filtered records.
 
-External participant identifiers are deliberately absent from ordinary results. They require a separate, more restricted workflow.
+The protected response table shows the Prolific participant ID. Its CSV includes `PROLIFIC_PID`, `STUDY_ID` and `SESSION_ID`; these are blank for Direct responses. Results and downloaded files are private research records, not anonymous public data.
 
 ## Test responses are never analysis responses
 
@@ -96,3 +96,11 @@ The **Variable guide** shows each column beside its participant-facing question 
 Before fielding, greedyQ must create at least one direct test response, save answers, refresh the dashboard, and confirm that the counts and answer summary change. It must then repeat the check through a complete Prolific test URL when that module is enabled. Real-response mode must remain empty during these tests. Database rows alone are not sufficient evidence; the researcher-facing dashboard must show the update.
 
 The current v0.2 dashboard is an operational review surface, not a statistical analysis package. Researchers should use the filtered CSV export with their approved analysis workflow.
+
+## Recognize the study and the current view
+
+The heading shows your study title, research-team name, study ID and greedyQ release. Questions and page summaries use the words from your questionnaire. A blank **Real responses** view is expected after trial submissions: choose **Test responses**, then **Direct** or **Prolific** and select **Refresh**. If that view is still empty, ask your AI to verify the matching survey/results links and database record before recruiting.
+
+CSV download is disabled while updating or after a failed update. When a request fails, previous figures may remain visible with an explicit warning; retry with **Refresh**. The filename records the study and selected mode/source. CSV uses UTF-8 for multilingual text and escapes text that spreadsheet software could otherwise execute as a formula. Numeric answers remain numeric; the raw archive JSON retains exact original text.
+
+If a question ID overlaps a metadata column such as `source`, its analysis column becomes `answer.source` to keep both values distinct. The Variable guide shows the exported name.

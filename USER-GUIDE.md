@@ -1,15 +1,5 @@
 # greedyQ User Guide
 
-## Returning to a study and preparing to share
-
-- Resume a downloaded draft: “Compare this study with the current greedyQ release. Upgrade a separate copy and show me the changes.” See [safe upgrades](./UPGRADING.md). Your original remains unchanged and your research decisions need not change.
-- Shuffle choices: “Shuffle the first four options, but keep Other last.” See [ordering settings](./RANDOMIZATION.md). Page shuffling is available only for independent linear page groups; the AI must explain restrictions before changing your design.
-- Prepare registration text: “Give me the OSF draft, with undecided fields clearly marked.” See [draft files](./PREREGISTRATION.md). No OSF login or submission is involved.
-- Add a return link: “Save the response before enabling the return button; don't navigate away in preview.” See [external returns](./EXTERNAL-RETURNS.md).
-- Ask about compatibility: “Which of my features differ in native Surveydown export?” Read the [current audit](./docs/surveydown-compatibility-audit.md). Not every Surveydown setting or reactive R expression is implemented.
-
-For experiments and randomized question presentation, see [Random assignment and question order](./RANDOMIZATION.md). It explains simple versus fixed-block assignment, includes copyable requests, and describes which questions can be shuffled while preserving their order on resume. Your AI must ask before choosing these settings. The results CSV records both assignment details and presented question order. Existing deployed studies are not automatically upgraded by a repository update.
-
 [한국어](./USER-GUIDE(kor).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
@@ -82,6 +72,16 @@ The new version should differ in this way: [your change].
 
 Confirm that the AI created a separate copy and did not overwrite the original.
 
+## Returning to a study and preparing to share
+
+- Resume a downloaded draft: “Compare this study with the current greedyQ release. Upgrade a separate copy and show me the changes.” See [safe upgrades](./UPGRADING.md). Your original remains unchanged and your research decisions need not change.
+- Shuffle choices: “Shuffle the first four options, but keep Other last.” See [ordering settings](./RANDOMIZATION.md). Page shuffling is available only for independent linear page groups; the AI must explain restrictions before changing your design.
+- Prepare registration text: “Give me the OSF draft, with undecided fields clearly marked.” See [draft files](./PREREGISTRATION.md). No OSF login or submission is involved.
+- Add a return link: “Save the response before enabling the return button; don't navigate away in preview.” See [external returns](./EXTERNAL-RETURNS.md).
+- Ask about compatibility: “Which of my features differ in native Surveydown export?” Read the [current audit](./docs/surveydown-compatibility-audit.md). Not every Surveydown setting or reactive R expression is implemented.
+
+For experiments and randomized question presentation, see [Random assignment and question order](./RANDOMIZATION.md). It explains simple versus fixed-block assignment, includes copyable requests, and describes which questions can be shuffled while preserving their order on resume. Your AI must ask before choosing these settings. The results CSV records both assignment details and presented question order. Existing deployed studies are not automatically upgraded by a repository update.
+
 ## 3. Have the guided conversation
 
 The AI should act like a research assistant, not a software engineer. It will ask about the research purpose, intended participants, design, main outcome, recruitment, questionnaire, survey flow, consent and privacy, analysis, and preregistration.
@@ -121,7 +121,7 @@ greedyq-core.js
 greedyq-runtime.css
 ```
 
-The AI may open the preview, show an interactive artifact, or give you a folder to download. If you receive a folder, keep its files together and open `preview.html` in a modern browser.
+The AI may open the preview, show an interactive artifact, or give you a folder to download. If you receive a ZIP, extract it first. Keep the extracted files together and open `preview.html` in a modern browser. Do not open the HTML from inside the ZIP. If your AI supplies `studio.html` instead, open it, choose `survey.qmd` and `greedyq.yml` from that same folder, and select **Preview questionnaire**. No installation or external service is needed; rebuilding starts fresh imaginary responses.
 
 Preview mode shows desktop and mobile versions, uses imaginary participants, and keeps test responses local. It must not send responses to an external service.
 
@@ -178,13 +178,15 @@ When you are ready to create the first test database, follow [Connect a Supabase
 
 ## 7. Connect once and receive two links
 
+A connected AI agent needs file and account-operation tools to complete this stage. A chat-only AI can help design the questionnaire and prepare a handoff, but must say when it cannot deploy or verify the links. Preview needs no service account.
+
 The normal deployment flow does not ask you to operate Supabase. Sign in to Vercel, approve the Supabase resource presented inside Vercel, and allow the connected AI agent to finish setup. It must install the database migrations, connect environment variables, deploy the public survey, deploy a Vercel-authenticated results application, and verify both links.
 
 The completion message must contain a **survey link** to share with participants and a **results link** for researchers authorized through the Vercel team. Instructions to copy database keys, paste SQL, find Supabase tables, or manually connect environment variables are recovery instructions, not the normal greedyQ experience.
 
 ## 8. Check test responses in the dashboard
 
-The results link opens on **Real responses**, which excludes every test submission. Select **Test responses**, leave **Source** set to **Direct**, and submit the ordinary test survey once. Select **Refresh** and confirm that the counts, current-page distribution, answer summaries, and response table update.
+The results link identifies the study and opens on **Real responses**, which excludes every test submission. An empty real-response view after a trial is expected. If Test responses is also empty after Refresh, ask the AI to check the two links and saved record before recruiting. Select **Test responses**, leave **Source** set to **Direct**, and submit the ordinary test survey once. Select **Refresh** and confirm that the counts, current-page distribution, answer summaries, and response table update.
 
 For a Prolific test, keep **Test responses** selected and change **Source** to **Prolific**. A valid panel identifier never turns a test into an analysis response.
 
@@ -196,6 +198,18 @@ For a Prolific test, keep **Test responses** selected and change **Source** to *
 | Real | Prolific | Live Prolific recruitment |
 
 **Download CSV** follows the visible filters. Every survey variable remains a column even when the current records did not answer it; missing answers are blank. Matrix rows and advanced structured controls are expanded into stable analysis columns, and **Variable guide** explains those names. See the [detailed Results Dashboard guide](./RESULTS-DASHBOARD.md).
+
+## 9. Finish collection and keep your data
+
+When collection has ended, ask:
+
+```text
+Help me finish this study and archive its responses. Check for participants still responding and any shared projects. Confirm which study to close, then give me the real-response CSV, test-response CSV and archive ZIP. Wait until I confirm that I downloaded and safely saved them before pausing services. Do not delete projects.
+```
+
+The dashboard CSV contains only its selected filters; it is not the complete archive. Check the archive’s row counts, keep a secure second copy, and retain your original study folder and media separately. After you confirm safe storage, the AI may pause dedicated services under your approval. Shared services stay running. A local practice run tests this sequence without actually pausing Vercel or Supabase. See [the detailed archive guide](./ARCHIVING.md).
+
+To create another survey, give the AI the repository link and request a new study or an independent fork with a new study ID. To continue collecting the same survey later, ask to resume the existing project and reopen collection separately. A downloaded archive is for analysis, not automatic database restoration.
 
 ## Common problems
 

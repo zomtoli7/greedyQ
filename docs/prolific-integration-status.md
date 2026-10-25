@@ -23,7 +23,7 @@ Checked 2026-10-25. The current source release is recorded in [`release.json`](.
 ## Operational sequence
 
 1. Finish the questionnaire, governance and account-free desktop/mobile review.
-2. Connect Vercel/Supabase, apply 001–006 and register the exact model; verify public survey and protected results separately.
+2. Connect Vercel/Supabase, apply 001–007 and register the exact model; verify public survey and protected results separately.
 3. Create an unpublished Prolific draft, confirm study binding, all endings, eligibility, costs and processing actions.
 4. Use a private expiring grant for repeated connected Test previews. Check storage, return, erasure, filtered results and CSV.
 5. Confirm a real participant-facing paid task, count/duration/reward/total, retention operator/deadline and the publication decision. Use an ordinary Production URL; keep synthetic review separate.

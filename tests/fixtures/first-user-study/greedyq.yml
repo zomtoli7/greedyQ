@@ -1,0 +1,48 @@
+spec_version: "0.2"
+study:
+  id: first_user_usability
+  title: First researcher usability test
+  version: 1-test
+  status: fixture_only
+respondents:
+  source: direct_link
+  mode: test
+consent:
+  confirmation_question: consent_choice
+  accept_value: "yes"
+  refusal_outcome: consent_refused
+  collect_research_data_only_after_acceptance: true
+logic:
+  hidden_answer_policy: clear_on_hide
+  show:
+    - question: problem_detail
+      if: had_problem == "yes"
+  skip:
+    - from: consent
+      if: consent_choice == "no"
+      to: consent_refused
+    - from: eligibility
+      if: used_service == "no"
+      to: screened_out
+    - from: review
+      if: withdraw_now == "withdraw"
+      to: withdrawn
+    - from: review
+      if: withdraw_now == "submit"
+      to: complete
+outcomes:
+  complete:
+    page: complete
+    lifecycle_state: completed
+  consent_refused:
+    page: consent_refused
+    lifecycle_state: consent_refused
+  screened_out:
+    page: screened_out
+    lifecycle_state: screened_out
+  withdrawn:
+    page: withdrawn
+    lifecycle_state: withdrawn
+  technical_error:
+    page: technical_error
+    lifecycle_state: technical_error

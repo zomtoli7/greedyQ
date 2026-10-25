@@ -14,7 +14,7 @@ Connect the Supabase resource only to the results project, which receives server
 
 ## Archive execution
 
-Before using a new runtime, apply 001–006 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
+Before using a new runtime, apply 001–007 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
 
 The agent needs Node, the `pg` package, and Python for the archive writer in its own environment. No extra software is required on the researcher's machine. Tests can use injected provider/database adapters without external accounts.
 

@@ -23,10 +23,12 @@ This runbook covers every check that greedyQ can complete before an external acc
 
 - Keep test and production responses separated by `is_test`; never relabel tests as research data.
 - Backups, retention length, and deletion schedules are researcher decisions. Record them before fielding.
-- A withdrawal/deletion test must show that answers, assignments, and external identifiers are removed atomically while a non-identifying lifecycle event remains.
+- A withdrawal/deletion test must show that answers, assignments, consent events, data requests and prior lifecycle payloads are removed atomically. Minimal session/outcome and panel identifiers remain for platform return and duplicate prevention; verify that no research answers remain in new results/CSV. Older downloads and provider backups are separate.
 - Exported CSV files are snapshots. Record the study release, filter, export time, and data dictionary with analysis files.
 - Never claim restoration or deletion succeeded without checking the resulting database state and researcher dashboard.
 
 ## Connection-ready evidence
 
-The local package is ready to request external connection only when automated tests pass, generated artifacts match their manifests, both golden studies pass preflight, no secret appears in browser artifacts, and the remaining items explicitly require live Vercel, Supabase, Prolific, OSF, or native Surveydown execution.
+The local package is ready to request external connection only when automated tests pass, generated artifacts match their manifests, both golden studies pass preflight, no secret appears in browser artifacts, and the remaining items explicitly require live Vercel, Supabase, Prolific, or native Surveydown execution. OSF submission is outside scope; deliver draft files only. Migration 007 answer-snapshot pruning has local PostgreSQL/browser evidence and requires a separately reviewed upgrade on existing cloud databases.
+
+See the [first-researcher usability audit](./first-user-usability-2026-10-25.md) for the local browser/database/results/archive journey and its external-test boundary.
