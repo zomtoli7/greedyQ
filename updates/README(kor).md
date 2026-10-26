@@ -8,6 +8,8 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-10-26_ed1dc2b`](./0.2/0.2_2026-10-26_ed1dc2b(kor).md) — 영어 시작 페이지를 영어로 맞추고 3개 언어에서 고정된 GitHub INITIALIZE 주소 전체를 보이게 했습니다. 전체 초기화 규약은 GitHub에 있으며 START-HERE Markdown과 HTML은 같은 원문을 사용합니다.
+
 - [`0.2_2026-10-26_df6d737`](./0.2/0.2_2026-10-26_df6d737(kor).md) — 전체 초기화 절차를 INITIALIZE.md로 옮겼습니다. START-HERE.md는 짧은 공개 입구이며 같은 영어·한국어·중국어 Markdown에서 HTML을 생성합니다. 기존 링크와 저장된 연구의 잠금 버전 재개를 유지합니다.
 
 - [`0.2_2026-10-26_fa94594`](./0.2/0.2_2026-10-26_fa94594(kor).md) — v0.2 문서를 마감 정리했습니다. 첫 앱 확인·중단 지침과 이용 가능한 AI 에이전트 호환성 페이지를 포함합니다. 현재 필요한 기능이 있는 ChatGPT·Claude 데스크톱을 지원하고 Gemini는 향후 검토, Meta AI·Grok·DeepSeek는 추가 후보입니다. 옛 Chat 모드·유료 시험 상태·제품 단계·SQL 수 설명을 언어별로 맞췄습니다.

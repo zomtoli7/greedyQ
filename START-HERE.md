@@ -2,20 +2,26 @@
 
 [English](./START-HERE.md) · [Korean](./START-HERE(kor).md) · [Simplified Chinese](./START-HERE(zh-CN).md)
 
-This is the short public start page. Reading check: `greedyq-start-bootstrap-1`. greedyQ is an agent-executable application specification; greedyQ itself is not an agent.
+## 0. Communication language
+
+You MUST follow the rules below and communicate with the user in the user's language. The language of this specification MUST NOT override the user's language. Confirm the participant-facing survey language separately under INITIALIZE.md.
+
+## 1. Unsupported environment: inform and STOP
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
-Study creation supports only **ChatGPT and Claude desktop apps** with the required agent tools. Gemini and AI web apps are unsupported. In an unsupported host, say **“Currently, only the ChatGPT and Claude desktop apps are supported.”** and stop. If the actual app is unknown, ask which app is being used and whether it is installed on the computer, then wait. Reading this page alone does not establish app or tool support. Participants still answer in a normal browser.
+Only installed **ChatGPT desktop or Claude Desktop with the required agent tools** are supported for study authoring. Gemini and AI web apps are unsupported. If unsupported, tell the user in their language that only ChatGPT and Claude desktop apps are currently supported, then **STOP**. Do NOT begin research questions, generate study files or request attachments as a workaround. If the actual app is unknown, ask which app they use and whether it is installed on the computer, then wait. Participants may still answer in a normal browser.
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
-## Continue with the full instructions
+## 2. Supported environment: read and obey INITIALIZE.md
 
-Supported desktop agents must read [https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE.md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE.md) and its required files from the same pinned snapshot before starting. All study-authoring, capability, approval, version and deployment rules belong there. If the required guide cannot be read, stop rather than improvise a survey. See [GUIDE-ACCESS.md](./GUIDE-ACCESS.md) for access help inside supported desktop agents.
+You MUST open the initialization URL below, read the complete file and follow its instructions exactly. Read every required guide from the same pinned snapshot. A link title, search snippet or prior model knowledge is NOT a substitute. If access fails, you MUST read and follow GUIDE-ACCESS.md at the access-recovery URL below. Do NOT proceed until the required instructions are accessible and read.
 
-Open the initialization URL above and read the complete file, not just the link title or a search snippet. Do not say it was loaded until its contents and required guides have actually been read.
+Initialization: [https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE.md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE.md)
 
-## Resume a saved study
+Access recovery: [https://github.com/zomtoli7/greedyQ/blob/main/GUIDE-ACCESS.md](https://github.com/zomtoli7/greedyQ/blob/main/GUIDE-ACCESS.md)
 
-Provide the saved authoring folder or its ZIP and follow INITIALIZE.md. Preserve its locked version and decisions; the latest start page does not automatically upgrade it. An analysis/data archive ZIP is not a resumable authoring package or service-restoration package.
+## 3. Saved study: use the supplied folder or ZIP
 
-Project contact: [greedyq.contact@gmail.com](mailto:greedyq.contact@gmail.com). Individual studies need their own contact. v0.2 covers supported surveys/experiments; CBC is v0.3 development.
+For a saved study, you MUST use the authoring folder or ZIP supplied by the user and follow INITIALIZE.md's resume procedure. Preserve its locked version and confirmed decisions. Do NOT invent missing files or silently upgrade. An analysis/data archive ZIP is not a resumable authoring package.
+
+Reading check: `greedyq-start-bootstrap-1`. greedyQ is an agent-executable application specification; greedyQ itself is not an agent. Project contact: [greedyq.contact@gmail.com](mailto:greedyq.contact@gmail.com). v0.2 covers supported surveys/experiments; CBC is v0.3 development.

@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_ed1dc2b`](./0.2/0.2_2026-10-26_ed1dc2b.md) — Keep the English public start page in English and show the complete pinned GitHub INITIALIZE address visibly in all three languages. The full initialization remains on GitHub; START-HERE Markdown and HTML share one source.
+
 - [`0.2_2026-10-26_df6d737`](./0.2/0.2_2026-10-26_df6d737.md) — Move the complete initialization workflow to INITIALIZE.md. Keep START-HERE.md as the short public front door and render its English/Korean/Chinese HTML directly from the same Markdown source; preserve existing links and pinned-study resume behavior.
 
 - [`0.2_2026-10-26_fa94594`](./0.2/0.2_2026-10-26_fa94594.md) — Finalize v0.2 documentation with the desktop-host first-action gate and the available AI agents compatibility page. Current support is capable ChatGPT/Claude desktop apps; Gemini is for future review and Meta AI, Grok, DeepSeek are evaluation candidates only. Reconcile obsolete Chat-mode, paid-pilot, product-stage and migration descriptions across languages.

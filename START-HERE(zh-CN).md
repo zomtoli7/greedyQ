@@ -2,20 +2,26 @@
 
 [English](./START-HERE.md) · [한국어](./START-HERE(kor).md) · [简体中文](./START-HERE(zh-CN).md)
 
-这是简短公开入口。读取检查标记：`greedyq-start-bootstrap-1`。greedyQ 是 agent-executable application specification，greedyQ 本身不是代理。
+## 0. 使用用户的语言沟通
+
+必须遵循以下规范，但与用户的所有沟通必须使用用户的语言。规范的编写语言不得覆盖用户语言。按 INITIALIZE.md 单独确认参与者看到的问卷语言。
+
+## 1. 不支持的环境：告知并停止
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
-研究制作仅支持具备所需工具的 **ChatGPT 与 Claude 桌面应用**。Gemini 和 AI 网页应用不受支持；不支持时告知目前仅支持上述桌面应用并停止。实际应用未知时先询问应用及是否安装在电脑上，然后等待。读取本页不表示应用或工具已验证。参与者仍用普通浏览器回答。
+研究制作仅支持具备所需代理工具的已安装 **ChatGPT／Claude 桌面应用**。Gemini 和 AI 网页应用不受支持。环境不支持时，用用户的语言告知目前仅支持上述桌面应用，然后立即停止。不得开始研究提问、生成文件或请求附件绕过限制。实际应用未知时，先询问应用及是否安装在电脑上并等待。参与者仍可用普通浏览器回答。
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
-## 继续读取完整规范
+## 2. 支持的环境：读取并严格遵循 INITIALIZE.md
 
-支持的桌面代理须在开始研究前从同一固定快照读取 [https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md) 及必需文件。完整制作、功能检查、批准、版本和部署规范在其中。无法读取时应停止，不猜测问卷。支持的桌面代理访问问题见 [GUIDE-ACCESS.md](./GUIDE-ACCESS(zh-CN).md)。
+必须打开下列初始化 URL，完整读取文件并严格执行，读取同一固定快照内的全部必需指南。链接标题、搜索摘要或模型知识不能代替正文。访问失败时必须读取下列恢复 URL 的 GUIDE-ACCESS.md 并按其流程处理。完整访问并读完必需指南前不得继续。
 
-打开上述初始化地址并完整读取文件，不以链接标题或搜索摘要代替正文。实际读取正文和必需指南后才能声称已加载。
+初始化：[https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md)
 
-## 继续保存的研究
+访问恢复：[https://github.com/zomtoli7/greedyQ/blob/main/GUIDE-ACCESS(zh-CN).md](https://github.com/zomtoli7/greedyQ/blob/main/GUIDE-ACCESS(zh-CN).md)
 
-提供保存的编写目录或 ZIP，遵循 INITIALIZE.md，保留锁定版本和决定，不因最新入口而自动升级。分析／数据归档 ZIP 不等同于可继续编写或恢复服务的包。
+## 3. 已保存研究：使用用户提供的目录或 ZIP
 
-项目联系：[greedyq.contact@gmail.com](mailto:greedyq.contact@gmail.com)。具体研究须有自己的联系方式。v0.2 提供受支持的问卷／实验范围，CBC 属于 v0.3 开发。
+必须使用用户提供的编写目录／ZIP，按 INITIALIZE.md 的继续流程处理。保留锁定版本和已确认决定，不虚构缺失文件或静默升级。分析／数据归档 ZIP 不等同于可继续编写的研究包。
+
+读取检查：`greedyq-start-bootstrap-1`。greedyQ 是 agent-executable application specification，本身不是代理。项目联系：[greedyq.contact@gmail.com](mailto:greedyq.contact@gmail.com)。v0.2 提供受支持的问卷／实验范围，CBC 属于 v0.3 开发。

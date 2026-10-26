@@ -66,7 +66,7 @@ def build(output, root=ROOT):
     for suffix, language in LANGUAGES:
         name = 'START-HERE' + suffix
         markdown = (root / (name + '.md')).read_text(encoding='utf-8')
-        markdown = markdown.replace(BASE + 'main/INITIALIZE', BASE + commit + '/INITIALIZE')
+        markdown = markdown.replace(BASE + 'main/', BASE + commit + '/')
         markdown = re.sub(r'\]\(\./([^\n]*?\.md)\)',
                           lambda m: '](' + ('./' + m[1].replace('.md', '.html') if m[1].startswith('START-HERE') else BASE + commit + '/' + m[1]) + ')', markdown)
         files[name + '.md'] = markdown

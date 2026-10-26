@@ -1,6 +1,8 @@
 # Start greedyQ
 
 <!-- GREEDYQ_HOST_FILTER_START -->
+
+Communicate with the user in the user's language, regardless of the language of this specification. Confirm participant-facing language separately.
 ## First action: check the AI app and stop unsupported hosts
 
 Apply this gate before loading further guides, asking research questions, requesting attachments or generating study files. This is the first operational instruction for new, modify, fork and resume workflows.
