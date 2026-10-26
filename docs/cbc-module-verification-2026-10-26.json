@@ -44,8 +44,8 @@
     "native surveydown CBC export",
     "statistical inference/design efficiency"
   ],
-  "release": "0.3_2026-10-26_678e6bb",
-  "verification_source_commit": "678e6bb911ae2e0a7a084e7bd0a1e1bfa4f0c1bf",
+  "release": "0.3_2026-10-26_58f974f",
+  "verification_source_commit": "58f974fe9ffc084c96dfc0cf017cc3f6aae42dca",
   "registered_cloud_test_model_release": "0.3_2026-10-26_e0167e7",
   "registered_models_preserved_without_metadata_rewrite": true,
   "local_regression": {

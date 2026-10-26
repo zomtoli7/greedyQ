@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_e3958de",
-  "registry_sha256": "6781cff0405f334247b7e751082bf6fab7ff3bc322cd6eede052ad4ef6b739c8",
+  "registry_sha256": "9272d4b25b1397249d0c9bafdfa2cf2969b397cb911d0ceb645da81b00fe8ea4",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -30,7 +30,7 @@
     {
       "component": "core",
       "path": "release.json",
-      "sha256": "526176da2064697313c457b42ec6a2290a54bcbf4f5ba0de88652f0677de27b3"
+      "sha256": "0c08c844e5f63e798a8c2b1cf37c7ffdb68f21763a363d5338edf92d716841bd"
     },
     {
       "component": "core",
@@ -125,7 +125,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "eb0598960202b99ea027155bec280ec7d5418a03ac7a22d08fb324173aa8d330"
+      "sha256": "8740adc26ba89b5ffa3146efe77be66911057d9fd0123c42180df914bb37b3e1"
     },
     {
       "component": "core",
@@ -385,7 +385,7 @@
     {
       "component": "core",
       "path": "CBC-COLLECT.md",
-      "sha256": "919084824c6d7b6a70a6bf77dd439069dd3273c4fb5d7372dd1125d9c918eb64"
+      "sha256": "ed3c1b032651e47426839e5fc66f53915c4c6f47d06574e68faf5664e78320fb"
     },
     {
       "component": "core",

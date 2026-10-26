@@ -83,7 +83,7 @@ v0.3 cbc 기능 모듈을 일반 선형 QMD 문항 사이에 삽입할 수 있�
 
 공개된 [surveydown 버튼형](https://surveydown.org/templates/conjoint_buttons)과 [표형](https://surveydown.org/templates/conjoint_tables)을 표시 유형의 참고로 삼았으며 코드는 복사하지 않고 독립 구현했습니다. 이는 greedyQ CBC 설정이며 native surveydown 컨조인트 코드와 서로 바꿔 쓸 수 있다는 뜻은 아닙니다.
 
-CBC 개발 검증 버전: `0.3_2026-10-26_678e6bb`.
+CBC 개발 검증 버전: `0.3_2026-10-26_58f974f`.
 
 
 ## 설문에 삽입하는 CBC 모듈

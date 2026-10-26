@@ -1,7 +1,7 @@
 ---
 title: "Survey with a CBC module"
 greedyq:
-  version: "0.3_2026-10-26_678e6bb"
+  version: "0.3_2026-10-26_58f974f"
   language: en
 survey-settings:
   required: [experience, interest]

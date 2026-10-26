@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.3 development
 
+- [`0.3_2026-10-26_58f974f`](./0.3/0.3_2026-10-26_58f974f.md) — Verified actual Supabase pause/resume through the authorized official connection: INACTIVE then ACTIVE_HEALTHY. Preserved all ten table counts/checksums and 35 prior sessions; the post-resume desktop/mobile storage, withdrawal, protected Results and CSV journey passed, adding only five synthetic Test sessions. Updated guides and acceptance records; paid/Real CBC and fresh-account acceptance remain separate.
+
 - [`0.3_2026-10-26_678e6bb`](./0.3/0.3_2026-10-26_678e6bb.md) — Added CBC as a module among ordinary QMD questions, with three design routes, integrated desktop/mobile preview, editable ZIP resume/fork and explicit copied upgrades. Verified two mixed Test/Direct cloud studies, ordinary/CBC withdrawal, protected Results, exact CSV/archive data, collection closure/reopening and Vercel pause/resume; preserved earlier records. 257 Python and 37 additional Node/browser checks passed. Physical Supabase pause/resume remains pending management connection; no human CBC recruitment or payment was approved.
 
 - [`0.3_2026-10-26_e0167e7`](./0.3/0.3_2026-10-26_e0167e7.md) — Verified the dedicated v0.3 CBC Test/Direct journey on existing Vercel/Supabase accounts: consent, assignment, persistent choices, completion timestamp, protected results, withdrawal and CSV. Three repeated journeys passed; all 21 retained sessions are synthetic Test records, with six completions and 81 long CSV rows.

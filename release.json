@@ -18,7 +18,7 @@
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "insertable_module_authoring_and_mixed_cloud_verified_db_pause_pending",
+    "status": "insertable_module_authoring_cloud_and_authorized_pause_resume_verified",
     "preview_schema": "0.3-preview.1",
     "live_collection": false,
     "collection_implemented": true,
@@ -31,15 +31,16 @@
     "fresh_account_cbc_verified": false,
     "production_fielding_approved": false,
     "cloud_verification_record": "docs/cbc-module-verification-2026-10-26.json",
-    "release": "0.3_2026-10-26_678e6bb",
-    "source_commit": "678e6bb911ae2e0a7a084e7bd0a1e1bfa4f0c1bf",
+    "release": "0.3_2026-10-26_58f974f",
+    "source_commit": "58f974fe9ffc084c96dfc0cf017cc3f6aae42dca",
     "verification_date": "2026-10-26",
     "module_contract": "cbc-module-1",
     "module_cloud_verified": true,
     "authoring_source_resume_fork_verified": true,
     "vercel_module_pause_resume_verified": true,
-    "supabase_physical_pause_resume_verified": false,
-    "shared_database_interruption_approved": true
+    "supabase_physical_pause_resume_verified": true,
+    "shared_database_interruption_approved": true,
+    "supabase_management_route": "authorized_official_connection"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
