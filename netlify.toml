@@ -1,5 +1,5 @@
 [build]
-  command = "python3 tools/build_bootstrap.py --output dist/bootstrap"
+  command = "python3 tools/build_bootstrap.py --netlify"
   publish = "dist/bootstrap"
 
 [build.environment]

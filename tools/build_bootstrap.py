@@ -7,7 +7,9 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://github.com/zomtoli7/greedyQ/blob/'
@@ -86,9 +88,57 @@ def build(output, root=ROOT):
     return manifest
 
 
+def build_managed(root=ROOT):
+    """Replace only the dedicated ignored publish directory from a fresh stage.
+
+    Cached/partial/provider-added output is preserved beside the publish folder,
+    never copied into the new site. The generic build() remains conservative.
+    """
+    root = Path(root).resolve()
+    parent = root / 'dist'
+    output = parent / 'bootstrap'
+    if parent.is_symlink() or output.is_symlink():
+        raise ValueError('The managed publish path must not be a symbolic link.')
+    if output.resolve() != root / 'dist/bootstrap':
+        raise ValueError('The managed publish path must stay inside this checkout.')
+    tracked = subprocess.check_output(['git', 'ls-files', '--', 'dist/bootstrap'],
+                                      cwd=root, text=True)
+    if tracked.strip():
+        raise ValueError('Refuse to replace tracked source files in the publish directory.')
+    if output.exists() and not output.is_dir():
+        raise ValueError('The managed publish path must be a directory.')
+    parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(tempfile.mkdtemp(prefix='.bootstrap-build-', dir=parent))
+    backup = None
+    try:
+        manifest = build(stage, root=root)
+        # Validate every staged byte before moving the existing output at all.
+        for name, digest in manifest['files'].items():
+            if hashlib.sha256((stage / name).read_bytes()).hexdigest() != digest:
+                raise ValueError('Staged public-file checksum mismatch.')
+        if output.exists():
+            backup = Path(tempfile.mkdtemp(prefix='.bootstrap-previous-', dir=parent))
+            backup.rmdir()  # Reserved empty name, not an existing data directory.
+            os.replace(output, backup)
+        try:
+            os.replace(stage, output)
+        except BaseException:
+            if backup is not None:
+                os.replace(backup, output)
+            raise
+        return manifest
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=ROOT / 'dist/bootstrap')
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--netlify', action='store_true',
+                        help='Build fresh and atomically replace only dist/bootstrap; preserve old output.')
     args = parser.parse_args()
-    result = build(args.output)
+    if args.netlify and args.output is not None:
+        parser.error('--netlify uses the fixed dist/bootstrap directory; do not combine with --output.')
+    result = build_managed() if args.netlify else build(args.output or ROOT / 'dist/bootstrap')
     print('Prepared static start page for ' + result['release'] + '; deployment not verified.')

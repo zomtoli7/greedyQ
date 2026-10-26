@@ -14,7 +14,7 @@
 | Production branch | `main` |
 | Framework preset | Other / 프레임워크 없음 |
 | Base directory | 빈칸, 저장소 최상위 |
-| Build command | `python3 tools/build_bootstrap.py --output dist/bootstrap` |
+| Build command | `python3 tools/build_bootstrap.py --netlify` |
 | Publish directory | `dist/bootstrap` |
 | 비밀 환경 변수 | 없음 |
 
@@ -43,3 +43,8 @@ Gemini에게 연구를 만들지 말고 읽기 확인 문구와 지원 앱만 �
 
 
 `https://greedyq.netlify.app/`의 첫 공개 HTTP 검사에서 로그인 없이 3개 언어와 manifest가 모두 200이었습니다. Netlify의 Pretty URLs가 언어 링크를 바꿔 HTML 해시가 빌드 기록과 달랐으므로 `netlify.toml`에서 자동 주소 변환을 명시적으로 껐습니다. 영어 입구의 본문은 영어로 쓰고 변경되지 않는 GitHub INITIALIZE 주소 전체를 눈에 보이게 표시합니다. 초기화 규약은 Netlify 사본이 아닌 GitHub에 둡니다. 자동 재배포 뒤 실제 파일 해시를 다시 확인해야 합니다. HTTP 성공이 Gemini 탐색 도구의 읽기 성공을 입증하지는 않습니다.
+
+
+## 출력 캐시 때문에 발생한 빌드 오류와 수정
+
+제공된 로그에서 기존 폴더의 목록 일치 검사가 `Refuse an output folder containing unrelated files.`로 실패했습니다. 실제 캐시 내용은 조회하지 않았으며 추가 파일이나 일부 파일이 빠진 캐시 모두 이 검사에 걸릴 수 있습니다. Netlify 빌드는 이제 `--netlify`를 사용합니다. 새 임시 폴더를 생성·검증하고 기존 출력은 게시 폴더 밖에 보존한 뒤, Git에서 제외된 전용 `dist/bootstrap`만 교체합니다. 생성 실패 시 기존 출력은 그대로 두고 교체 실패 시 복구합니다. 추적 중인 원본 파일과 심볼릭 링크 대상은 거부합니다. 임의 로컬 폴더의 일반 `--output` 검사는 계속 엄격하게 유지합니다. 이 수정에 계정·공개 설정 변경은 필요 없습니다.

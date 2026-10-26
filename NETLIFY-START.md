@@ -14,7 +14,7 @@ In the signed-in Netlify team, choose **Add new project → Import an existing p
 | Production branch | `main` |
 | Framework preset | Other / no framework |
 | Base directory | Empty, repository root |
-| Build command | `python3 tools/build_bootstrap.py --output dist/bootstrap` |
+| Build command | `python3 tools/build_bootstrap.py --netlify` |
 | Publish directory | `dist/bootstrap` |
 | Environment secrets | None |
 
@@ -43,3 +43,8 @@ Local preparation verification: 241 Python tests passed. The website navigation/
 
 
 The first public HTTP check at `https://greedyq.netlify.app/` returned 200 without login for all three languages and the manifest. Netlify Pretty URLs rewrote language links, so served HTML hashes initially differed from the build manifest. `netlify.toml` now explicitly disables Pretty URLs. The English front door uses English body text and prints the full immutable GitHub INITIALIZE URL visibly; initialization remains on GitHub, not a Netlify mirror. Recheck the actual served hashes after automatic redeployment. This HTTP evidence does not establish Gemini browsing-tool success.
+
+
+## Cached-output build failure and recovery
+
+The provider log showed the old output-folder equality check raised `Refuse an output folder containing unrelated files.` Exact cached contents were not inspected; either extra files or a partial cache can violate that equality. The Netlify build now uses `--netlify`: generate and checksum a fresh stage, preserve the old output outside the publish directory, then replace only the ignored `dist/bootstrap` directory. Build failure leaves the old output untouched; replacement failure restores it. Tracked source paths and symbolic-link destinations are refused. The generic `--output` command remains conservative for arbitrary local folders. No site visibility or account setting needs to change for this fix.
