@@ -22,7 +22,11 @@
     "unsupported_host_families": [
       "gemini"
     ],
-    "gemini_status": "not_supported_pending_end_to_end_validation"
+    "gemini_status": "not_supported_pending_end_to_end_validation",
+    "gate_order": "before_guide_loading_and_study_interview",
+    "unsupported_host_message_ko": "ChatGPT, Claude 데스크톱 앱만 현재 지원됩니다.",
+    "unsupported_host_action": "show_support_message_then_stop_without_attachment_request",
+    "unknown_host_action": "ask_app_and_desktop_status_then_wait"
   },
   "browser_supported_for": [
     "participant_survey",

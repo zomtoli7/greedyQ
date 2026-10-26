@@ -6,6 +6,18 @@ from jsonschema import Draft202012Validator
 ROOT=Path(__file__).resolve().parents[1]
 
 class GuideAccessTests(unittest.TestCase):
+    def test_entry_host_filter_is_first_and_does_not_offer_attachments_to_unsupported_hosts(self):
+        for suffix in ['', '(kor)', '(zh-CN)']:
+            entry=(ROOT/f'START-HERE{suffix}.md').read_text()
+            self.assertTrue(entry.splitlines()[2].startswith('<!-- GREEDYQ_HOST_FILTER_START -->'))
+            self.assertLess(entry.index('GREEDYQ_HOST_FILTER_START'),entry.index('GREEDYQ_DESKTOP_POLICY'))
+            self.assertIn('GREEDYQ_HOST_FILTER_END',entry)
+        policy=json.loads((ROOT/'schemas/authoring-support-policy.json').read_text())['researcher_authoring']
+        self.assertEqual(policy['gate_order'],'before_guide_loading_and_study_interview')
+        self.assertEqual(policy['unsupported_host_action'],'show_support_message_then_stop_without_attachment_request')
+        self.assertEqual(policy['unknown_host_action'],'ask_app_and_desktop_status_then_wait')
+
+
     def test_desktop_support_is_required_even_when_a_web_host_can_read_the_guide(self):
         policy=json.loads((ROOT/'schemas/authoring-support-policy.json').read_text())
         authoring=policy['researcher_authoring']

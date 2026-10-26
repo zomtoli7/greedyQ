@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_ecadf63",
-  "registry_sha256": "e8a7b732113493f24e40f930a8a2ec9e37e474faab7420eb98a693b6462e24ba",
+  "registry_sha256": "1f6410190c674c93b887abced0b6487b83dd938fd108d129f68e797d1caff2e8",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -395,7 +395,7 @@
     {
       "component": "core",
       "path": "schemas/authoring-support-policy.json",
-      "sha256": "e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97"
+      "sha256": "1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658"
     },
     {
       "component": "simple",

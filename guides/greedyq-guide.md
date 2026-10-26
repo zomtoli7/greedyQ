@@ -1,5 +1,19 @@
 # greedyQ AI Study Builder Guide
 
+<!-- GREEDYQ_HOST_FILTER_START -->
+## First action: check the AI app and stop unsupported hosts
+
+Apply this gate before loading further guides, asking research questions, requesting attachments or generating study files. This is the first operational instruction for new, modify, fork and resume workflows.
+
+- Continue only in an installed ChatGPT desktop app (Work/Codex with the required tools) or Claude Desktop with agent tools.
+- If the host is an AI website, Gemini (including desktop), a mobile AI app, another provider, or a browser-installed website shortcut/PWA, tell the researcher: **“Currently, only the ChatGPT and Claude desktop apps are supported.”** For Korean conversation use exactly: **“ChatGPT, Claude 데스크톱 앱만 현재 지원됩니다.”** Then stop study authoring. Do not offer to continue anyway, request a ZIP/full-guide attachment, start an interview or generate questions. A successful guide read does not waive this gate.
+- If the actual application is unknown, ask only which app they are using and whether it is the installed desktop app. Do not infer desktop use from a model name, paid subscription, screenshot or the fact that a link can be read. Wait for the answer before starting the study. Use trustworthy host context when available; do not invent automatic detection.
+- Once the supported desktop app is established, verify its real file and preview tools under SUPPORTED-ENVIRONMENTS.md. Desktop installation alone is insufficient. Missing tools also stop authoring and require a capable desktop-agent handoff.
+
+This authoring gate does not restrict participants answering in a web browser or researchers viewing previews/results.
+<!-- GREEDYQ_HOST_FILTER_END -->
+
+
 <!-- GREEDYQ_DESKTOP_POLICY -->
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../SUPPORTED-ENVIRONMENTS.md).
 <!-- /GREEDYQ_DESKTOP_POLICY -->
@@ -255,7 +269,7 @@ See [guide access and Gemini repository import](../GUIDE-ACCESS.md). The plain t
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `SUPPORTED-ENVIRONMENTS.md` | `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c` | `no` |
-| `schemas/authoring-support-policy.json` | `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97` | `no` |
+| `schemas/authoring-support-policy.json` | `1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
 | `CBC-COLLECT.md` | `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57` | `no` |
@@ -379,7 +393,7 @@ Meta AI, Grok and DeepSeek are additional evaluation candidates only, not suppor
 
 ### FILE: `schemas/authoring-support-policy.json`
 
-SHA-256: `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97`
+SHA-256: `1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658`
 
 ```json
 {
@@ -406,7 +420,11 @@ SHA-256: `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97`
     "unsupported_host_families": [
       "gemini"
     ],
-    "gemini_status": "not_supported_pending_end_to_end_validation"
+    "gemini_status": "not_supported_pending_end_to_end_validation",
+    "gate_order": "before_guide_loading_and_study_interview",
+    "unsupported_host_message_ko": "ChatGPT, Claude 데스크톱 앱만 현재 지원됩니다.",
+    "unsupported_host_action": "show_support_message_then_stop_without_attachment_request",
+    "unknown_host_action": "ask_app_and_desktop_status_then_wait"
   },
   "browser_supported_for": [
     "participant_survey",

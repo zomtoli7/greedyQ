@@ -1,5 +1,19 @@
 # greedyQ AI 研究构建完整备用指南
 
+<!-- GREEDYQ_HOST_FILTER_START -->
+## 第一步：检查 AI 应用，不支持的环境必须停止
+
+在读取其他指南、研究提问、请求附件或生成研究文件之前执行。新建、修改、分叉和继续研究均以此为第一条操作指令。
+
+- 仅在已安装且具有所需工具的 ChatGPT 桌面应用（Work/Codex）或具有代理工具的 Claude Desktop 中继续。
+- 若为 AI 网站、Gemini（包括桌面版）、移动 AI 应用、其他提供方或浏览器安装的网站快捷方式/PWA，告知：**“目前仅支持 ChatGPT 和 Claude 桌面应用。”** 然后停止制作。不得建议直接继续、请求 ZIP／完整指南附件、开始研究访谈或生成问题。能读取指南也不构成例外。
+- 不知道实际应用时，只先询问使用哪个应用以及是否为已安装桌面应用。等待回答后再开始研究。不得根据模型名称、付费订阅、截图或链接读取成功推断桌面环境；可利用可信环境信息，但不虚构自动检测。
+- 确认支持的桌面应用后，遵循 SUPPORTED-ENVIRONMENTS.md 验证真实文件与预览工具。仅安装应用不够；缺少工具也应停止并转交具备所需功能的桌面代理。
+
+此制作门槛不限制参与者用浏览器回答，也不限制研究者查看预览或结果。
+<!-- GREEDYQ_HOST_FILTER_END -->
+
+
 <!-- GREEDYQ_DESKTOP_POLICY -->
 **使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](../SUPPORTED-ENVIRONMENTS(zh-CN).md).
 <!-- /GREEDYQ_DESKTOP_POLICY -->
@@ -198,7 +212,7 @@ preview.html
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `SUPPORTED-ENVIRONMENTS.md` | `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c` | `no` |
-| `schemas/authoring-support-policy.json` | `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97` | `no` |
+| `schemas/authoring-support-policy.json` | `1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
 | `CBC-COLLECT.md` | `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57` | `no` |
@@ -322,7 +336,7 @@ Meta AI, Grok and DeepSeek are additional evaluation candidates only, not suppor
 
 ### FILE: `schemas/authoring-support-policy.json`
 
-SHA-256: `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97`
+SHA-256: `1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658`
 
 ```json
 {
@@ -349,7 +363,11 @@ SHA-256: `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97`
     "unsupported_host_families": [
       "gemini"
     ],
-    "gemini_status": "not_supported_pending_end_to_end_validation"
+    "gemini_status": "not_supported_pending_end_to_end_validation",
+    "gate_order": "before_guide_loading_and_study_interview",
+    "unsupported_host_message_ko": "ChatGPT, Claude 데스크톱 앱만 현재 지원됩니다.",
+    "unsupported_host_action": "show_support_message_then_stop_without_attachment_request",
+    "unknown_host_action": "ask_app_and_desktop_status_then_wait"
   },
   "browser_supported_for": [
     "participant_survey",
