@@ -10,7 +10,9 @@
 
 ## 继续读取完整规范
 
-支持的桌面代理须在开始研究前从同一固定快照读取 [INITIALIZE.md](./INITIALIZE(zh-CN).md) 及必需文件。完整制作、功能检查、批准、版本和部署规范在其中。无法读取时应停止，不猜测问卷。支持的桌面代理访问问题见 [GUIDE-ACCESS.md](./GUIDE-ACCESS(zh-CN).md)。
+支持的桌面代理须在开始研究前从同一固定快照读取 [https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(zh-CN).md) 及必需文件。完整制作、功能检查、批准、版本和部署规范在其中。无法读取时应停止，不猜测问卷。支持的桌面代理访问问题见 [GUIDE-ACCESS.md](./GUIDE-ACCESS(zh-CN).md)。
+
+打开上述初始化地址并完整读取文件，不以链接标题或搜索摘要代替正文。实际读取正文和必需指南后才能声称已加载。
 
 ## 继续保存的研究
 

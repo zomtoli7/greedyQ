@@ -49,6 +49,9 @@ class BootstrapTests(unittest.TestCase):
                 self.assertNotIn('form', p.tags)
                 self.assertIn('greedyq-start-bootstrap-1', ''.join(p.text))
                 self.assertIn('INITIALIZE', ''.join(p.text))
+                if not suffix:
+                    self.assertFalse(re.search(r'[\uac00-\ud7a3\u4e00-\u9fff]', ''.join(p.text)))
+                self.assertIn(m['repository_snapshot'] + '/INITIALIZE', ''.join(p.text))
                 self.assertTrue(any(m['repository_snapshot'] + '/INITIALIZE' in x for x in p.links))
                 self.assertIn('./START-HERE', markdown)
                 self.assertNotIn('/blob/main/', markdown)

@@ -40,3 +40,6 @@ References: [Netlify repository deployment](https://docs.netlify.com/start/quick
 
 
 Local preparation verification: 241 Python tests passed. The website navigation/copy checks passed (4 tests), and the static start page was readable with JavaScript disabled in all three languages at 320/1280px, with working language links and no page overflow. A source-document language-pair check now scopes to tracked Markdown; generated public Markdown/HTML have separate direct parity/link tests. Live Netlify setup, assigned URL, Gemini reading and homepage prompt replacement are still pending.
+
+
+The first public HTTP check at `https://greedyq.netlify.app/` returned 200 without login for all three languages and the manifest. Netlify Pretty URLs rewrote language links, so served HTML hashes initially differed from the build manifest. `netlify.toml` now explicitly disables Pretty URLs. The English front door uses English body text and prints the full immutable GitHub INITIALIZE URL visibly; initialization remains on GitHub, not a Netlify mirror. Recheck the actual served hashes after automatic redeployment. This HTTP evidence does not establish Gemini browsing-tool success.

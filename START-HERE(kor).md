@@ -10,7 +10,9 @@
 
 ## 전체 규약으로 이어가기
 
-지원되는 데스크톱 에이전트는 연구를 시작하기 전에 같은 저장소 사본의 [INITIALIZE.md](./INITIALIZE(kor).md)와 필수 파일을 모두 읽습니다. 제작·기능 확인·승인·버전·배포에 관한 전체 규약은 그쪽에 있습니다. 필요한 가이드를 못 읽으면 임의로 설문을 만들지 않고 멈춥니다. 지원 앱의 접근 문제는 [GUIDE-ACCESS.md](./GUIDE-ACCESS(kor).md)를 참고합니다.
+지원되는 데스크톱 에이전트는 연구를 시작하기 전에 같은 저장소 사본의 [https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(kor).md](https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE(kor).md)와 필수 파일을 모두 읽습니다. 제작·기능 확인·승인·버전·배포에 관한 전체 규약은 그쪽에 있습니다. 필요한 가이드를 못 읽으면 임의로 설문을 만들지 않고 멈춥니다. 지원 앱의 접근 문제는 [GUIDE-ACCESS.md](./GUIDE-ACCESS(kor).md)를 참고합니다.
+
+위 초기화 주소를 열고 파일 전체를 읽습니다. 링크 제목이나 검색 요약만 보고 내용을 읽었다고 판단하지 않습니다. 실제 본문과 필수 가이드를 확인한 뒤에만 로딩 완료를 알립니다.
 
 ## 저장한 연구 이어가기
 

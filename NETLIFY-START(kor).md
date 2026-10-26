@@ -40,3 +40,6 @@ Gemini에게 연구를 만들지 말고 읽기 확인 문구와 지원 앱만 �
 
 
 로컬 준비 검증: Python 241개가 통과했습니다. 홈페이지 이동·복사 검사 4개와 JavaScript를 끈 3개 언어·320/1280px 읽기, 언어 링크, 페이지 가로 넘침 없음을 확인했습니다. 원문 문서의 언어 짝 검사는 추적 중인 Markdown으로 범위를 명확히 하고, 생성된 공개 Markdown·HTML은 별도 직접 일치·링크 검사로 확인합니다. 실제 Netlify 설정·배정 주소·Gemini 읽기·홈페이지 프롬프트 교체는 아직 대기입니다.
+
+
+`https://greedyq.netlify.app/`의 첫 공개 HTTP 검사에서 로그인 없이 3개 언어와 manifest가 모두 200이었습니다. Netlify의 Pretty URLs가 언어 링크를 바꿔 HTML 해시가 빌드 기록과 달랐으므로 `netlify.toml`에서 자동 주소 변환을 명시적으로 껐습니다. 영어 입구의 본문은 영어로 쓰고 변경되지 않는 GitHub INITIALIZE 주소 전체를 눈에 보이게 표시합니다. 초기화 규약은 Netlify 사본이 아닌 GitHub에 둡니다. 자동 재배포 뒤 실제 파일 해시를 다시 확인해야 합니다. HTTP 성공이 Gemini 탐색 도구의 읽기 성공을 입증하지는 않습니다.
