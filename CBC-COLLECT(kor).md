@@ -67,7 +67,7 @@ CBC RPC 계약은 `cbc-1`이며 시작·재개, 동의, 서버 배정·노출, r
 
 ## 현재 경계
 
-별도의 CBC 준비 흐름이며 v0.2 `sd_cbc` 문항이나 임의 QMD에 일반 문항과 CBC를 섞는 흐름은 아직 아닙니다. surveydown CBC 내보내기·자동 설계 최적화/추론·새 계정의 CBC 클라우드 승인 시험·CBC 유료 모집은 [수집 검증 기록](./docs/cbc-collection-verification-2026-10-26(kor).md)에 미구현·미검증으로 구분합니다. 객관식으로 바꾸고 동등한 내보내기라고 주장하면 안 됩니다. 기존 v0.2 설문·Prolific 검증이 CBC 모집 검증을 대신하지 않습니다.
+v0.3 cbc 기능 모듈을 일반 선형 QMD 문항 사이에 삽입할 수 있습니다. v0.2 문항이나 제한 없는 페이지 분기·복수 CBC 시스템을 뜻하지 않습니다. surveydown CBC 내보내기·자동 설계 최적화/추론·새 계정의 CBC 클라우드 승인 시험·CBC 유료 모집은 [수집 검증 기록](./docs/cbc-collection-verification-2026-10-26(kor).md)에 미구현·미검증으로 구분합니다. 객관식으로 바꾸고 동등한 내보내기라고 주장하면 안 됩니다. 기존 v0.2 설문·Prolific 검증이 CBC 모집 검증을 대신하지 않습니다.
 
 ## CBC 화면 표시 방식
 
@@ -84,3 +84,8 @@ CBC RPC 계약은 `cbc-1`이며 시작·재개, 동의, 서버 배정·노출, r
 공개된 [surveydown 버튼형](https://surveydown.org/templates/conjoint_buttons)과 [표형](https://surveydown.org/templates/conjoint_tables)을 표시 유형의 참고로 삼았으며 코드는 복사하지 않고 독립 구현했습니다. 이는 greedyQ CBC 설정이며 native surveydown 컨조인트 코드와 서로 바꿔 쓸 수 있다는 뜻은 아닙니다.
 
 CBC 개발 검증 버전: `0.3_2026-10-26_e0167e7`.
+
+
+## 설문에 삽입하는 CBC 모듈
+
+[CBC 모듈 안내](./CBC-MODULE(kor).md)를 사용합니다. 일반 문항은 survey.qmd에 유지하고 연구자가 요청한 위치에 CBC를 넣습니다. 사전/사후 설문을 따로 작성하도록 요구하지 않습니다. 현재 규약은 선형 CBC 시퀀스 하나를 지원합니다.

@@ -430,3 +430,8 @@ Prolific 试验保留 Test，仅把来源改为 Prolific。有平台 ID 不会�
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
 参见[支持的桌面代理指南访问](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`。工具缺失不能视为指南已加载。
+
+
+## 问卷中的 CBC 模块
+
+请使用 [CBC 模块指南](./CBC-MODULE(zh-CN).md)。普通问题保留在 survey.qmd，按研究者要求的位置插入 CBC，无需另写前测／后测问卷。当前支持线性问卷中的一个 CBC 序列。

@@ -23,7 +23,7 @@ async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
   const expected=['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'];
   const names=manifest.migrations.map(e=>e.name);
-  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
+  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql']),JSON.stringify([...expected,'009_cbc.sql','010_cbc_module.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -76,8 +76,8 @@ async function closeAndSnapshot(client, studyId, approvedStudyId) {
     }
     await client.query('INSERT INTO public.gq_closed_studies(study_id) VALUES ($1) ON CONFLICT DO NOTHING',[studyId]);
     const data = {};
-    data.sessions=(await client.query('SELECT * FROM public.gq_sessions WHERE study_id=$1 ORDER BY id',[studyId])).rows;
-    for (const table of tables.slice(1)) data[table]=(await client.query(`SELECT t.* FROM public.gq_${table} t JOIN public.gq_sessions s ON s.id=t.session_id WHERE s.study_id=$1`,[studyId])).rows;
+    data.sessions=(await client.query('SELECT to_jsonb(s) AS record FROM public.gq_sessions s WHERE study_id=$1 ORDER BY id',[studyId])).rows.map(row=>row.record);
+    for (const table of tables.slice(1)) data[table]=(await client.query(`SELECT to_jsonb(t) AS record FROM public.gq_${table} t JOIN public.gq_sessions s ON s.id=t.session_id WHERE s.study_id=$1`,[studyId])).rows.map(row=>row.record);
     for (const s of data.sessions) { delete s.access_token_hash; delete s.browser_state; }
     const otherStudies=(await client.query('SELECT DISTINCT study_id FROM public.gq_sessions WHERE study_id<>$1',[studyId])).rows.map(r=>r.study_id);
     await client.query('COMMIT');
@@ -111,6 +111,19 @@ async function pauseServices({archivePath,expectedHash,downloadConfirmed,exclusi
   return {status:'archived'};
 }
 
+async function resumeServices({approveResume,targets,provider,record}) {
+  if(approveResume!==true)throw new Error('Explicit service-resume approval required');
+  await provider.preflight(targets);
+  // Database health precedes either publication; reopening collection is a separate gate.
+  for(const[kind,id]of [['supabase',targets.supabase],['vercel',targets.results],['vercel',targets.survey]]){
+    if(await provider.isAvailable(kind,id)){await record({kind,id,status:'available'});continue;}
+    if(await provider.isPaused(kind,id)){await record({kind,id,status:'resume_requested'});await provider.resume(kind,id);}
+    if(!await provider.isAvailable(kind,id)){await record({kind,id,status:'pending_verification'});return{status:'pending_verification',kind,id};}
+    await record({kind,id,status:'available'});
+  }
+  return{status:'services_available',collection_reopened:false};
+}
+
 function managementProvider({vercelToken,supabaseToken,review,fetcher=fetch}) {
   let binding;
   const request=async(kind,endpoint,method='GET')=>{
@@ -137,7 +150,9 @@ function managementProvider({vercelToken,supabaseToken,review,fetcher=fetch}) {
       const p=await request(kind,kind==='vercel'?`/v9/projects/${id}?teamId=${binding.team}`:`/v1/projects/${id}`);
       return kind==='vercel'?p.paused===true:p.status==='INACTIVE';
     },
-    pause(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/pause?teamId=${binding.team}`:`/v1/projects/${id}/pause`,'POST');}
+    pause(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/pause?teamId=${binding.team}`:`/v1/projects/${id}/pause`,'POST');},
+    async isAvailable(kind,id){const p=await request(kind,kind==='vercel'?`/v9/projects/${id}?teamId=${binding.team}`:`/v1/projects/${id}`);return kind==='vercel'?p.paused!==true:p.status==='ACTIVE_HEALTHY';},
+    resume(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/unpause?teamId=${binding.team}`:`/v1/projects/${id}/restore`,'POST');}
   };
 }
 async function reopenCollection(client, studyId, approvedStudyId) {
@@ -181,6 +196,7 @@ async function registerStudy(client, model) {
   } catch(error) {await client.query('ROLLBACK');throw error;}
 }
 function prepareDeployments({repo,model,directory,url,publishableKey}) {
+  if(model.kind==='cbc_study'||model.pages?.some(p=>p.cbc_module))throw Error('CBC modules require prepareCBCDeployments; do not deploy the ordinary renderer.');
   if (new URL(url).protocol!=='https:' || !publishableKey || !model.study_id) throw new Error('Public deployment configuration required');
   if (!publishableKey.startsWith('sb_publishable_')) throw new Error('Use a public publishable key, never a server secret');
   // Separate directories prevent accidentally publishing results APIs or private study records.
@@ -198,4 +214,4 @@ function prepareDeployments({repo,model,directory,url,publishableKey}) {
   }
   return {resultsProtection:{ssoProtection:{deploymentType:'all'}},surveyProtection:{ssoProtection:null}};
 }
-module.exports={hash,databaseClient,migrate,registerStudy,closeAndSnapshot,reopenCollection,pauseServices,managementProvider,onboardingCommands,prepareDeployments};
+module.exports={hash,databaseClient,migrate,registerStudy,closeAndSnapshot,reopenCollection,pauseServices,resumeServices,managementProvider,onboardingCommands,prepareDeployments};

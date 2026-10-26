@@ -2,7 +2,7 @@
 
 [한국어](./README(kor).md)
 
-**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. Server-backed consent, allocation, choice/exposure storage, protected results and archive CSV now exist in the dedicated [CBC collection package](../../../CBC-COLLECT.md), verified locally. Fresh-account CBC acceptance, paid CBC fielding, mixed QMD authoring and native export remain separate gates. See [the working instructions](../../../CBC.md).
+**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. Server-backed consent, allocation, choice/exposure storage, protected results and archive CSV now exist in the dedicated [CBC collection package](../../../CBC-COLLECT.md), verified locally. Fresh-account CBC acceptance, paid CBC fielding, advanced module branching and native export remain separate gates. See [the working instructions](../../../CBC.md).
 
 Start with the [draft specification](./spec.md), [golden research design](./golden-reference/README.md), and [blank table instructions](./templates/README.md).
 
@@ -22,14 +22,14 @@ The generic [blank workbook](./templates/cbc-design-template.xlsx) has `Attribut
 
 ## Delivery sequence
 
-Steps 1–5 now have local implementation and verification. Step 6 still includes cloud acceptance, mixed authoring and native export before public profile activation.
+Steps 1–5 now have local implementation and verification. Step 6 still includes fresh-account acceptance, advanced branching and native export. CBC is registered as a capability module, not a profile.
 
 1. Confirm v0.3 contracts and the golden fixture; review unresolved study choices.
 2. Implement an independently tested Python reference importer and validator.
 3. Port deterministic import/validation to the browser core; handle XLSX in fixed bundled code without macros or formula execution.
 4. Implement the shared CBC renderer, independent desktop/mobile preview, and structural summary.
 5. Add server-persisted block/task/alternative orders, consent/withdrawal handling and long-format export.
-6. Exercise new study, paused-table return, resume, modification/fork, deployment/results and negative cases before enabling `cbc` in the public registry.
+6. Verify new study, paused-table return, resume, modification/fork, deployment/results and negative cases under the registered v0.3 capability; retain separate fielding gates.
 
 The existing [reference checker](../../../tools/check_cbc_reference.py) checks only this draft's tables and expected synthetic export. It is not the production importer and makes no design-efficiency or statistical-estimation claim.
 

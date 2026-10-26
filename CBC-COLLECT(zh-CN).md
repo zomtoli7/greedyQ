@@ -67,7 +67,7 @@ RPC 合同 `cbc-1` 包含开始/恢复、同意、服务器分配/展示、revis
 
 ## 当前边界
 
-这是独立 CBC 包流程，尚非 v0.2 `sd_cbc` 控件或任意 QMD 混合普通问题的流程。原生 surveydown CBC 导出、自动设计优化/推断、新账户 CBC 云验收、付费 CBC 招募仍按[验证记录](./docs/cbc-collection-verification-2026-10-26.md)区分未实现/未验证。不得退化为选择题后声称等价导出；旧 v0.2/Prolific 验证不能代替 CBC 招募验证。
+v0.3 cbc 模块可插入普通线性 QMD 页面，但不是 v0.2 控件或无限制分支／多个 CBC 序列系统。原生 surveydown CBC 导出、自动设计优化/推断、新账户 CBC 云验收、付费 CBC 招募仍按[验证记录](./docs/cbc-collection-verification-2026-10-26.md)区分未实现/未验证。不得退化为选择题后声称等价导出；旧 v0.2/Prolific 验证不能代替 CBC 招募验证。
 
 ## CBC 显示方式
 
@@ -84,3 +84,8 @@ RPC 合同 `cbc-1` 包含开始/恢复、同意、服务器分配/展示、revis
 显示类别参考公开的 [surveydown 按钮式](https://surveydown.org/templates/conjoint_buttons)与[表格式](https://surveydown.org/templates/conjoint_tables)，代码独立实现，没有复制其源码。这是 greedyQ CBC 设置，并不表示可与原生 surveydown 联合分析代码互换。
 
 CBC 开发验证版本: `0.3_2026-10-26_e0167e7`.
+
+
+## 问卷中的 CBC 模块
+
+请使用 [CBC 模块指南](./CBC-MODULE(zh-CN).md)。普通问题保留在 survey.qmd，按研究者要求的位置插入 CBC，无需另写前测／后测问卷。当前支持线性问卷中的一个 CBC 序列。

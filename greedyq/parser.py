@@ -8,7 +8,7 @@ from .yaml_min import loads as load_yaml
 
 PAGE_RE = re.compile(r"^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$", re.M)
 FENCE_RE = re.compile(r"```\{r\}\s*\n(.*?)```", re.S)
-CALL_RE = re.compile(r"\b(sd_question|sd_nav)\s*\(")
+CALL_RE = re.compile(r"\b(sd_question|sd_nav|sd_cbc)\s*\(")
 
 
 class ParseError(ValueError):
@@ -187,6 +187,9 @@ def parse_qmd(path):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)
+            elif name == "sd_cbc":
+                if set(args)!={"name","design"} or page.get("cbc_module"): raise ParseError("CBC needs one name and design reference per page.",line)
+                page["cbc_module"]=args
             elif name == "sd_nav":
                 page["nav"] = args; page["_nav_line"] = line
             elif fence.group(1).strip():

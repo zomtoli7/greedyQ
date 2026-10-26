@@ -17,7 +17,7 @@
   }
   const PAGE_RE = /^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$/gm;
   const FENCE_RE = /```\{r\}\s*\n([\s\S]*?)```/g;
-  const CALL_RE = /\b(sd_question|sd_nav)\s*\(/;
+  const CALL_RE = /\b(sd_question|sd_nav|sd_cbc)\s*\(/;
   const TYPES = new Set([
     "text",
     "textarea",
@@ -496,6 +496,9 @@
           if (Object.keys(args).length)
             q.unsupported_arguments = Object.keys(args).sort();
           page.questions.push(q);
+        } else if (name === "sd_cbc") {
+          if(Object.keys(args).sort().join(",")!=="design,name"||page.cbc_module)throw new ParseError("CBC needs one name and design reference per page.",line);
+          page.cbc_module=args;
         } else if (name === "sd_nav") {
           page.nav = args;
           page._nav_line = line;
@@ -1203,6 +1206,7 @@
       );
     const pages = parsed.pages.map((source, index) => {
       const page = {
+        ...(source.cbc_module?{cbc_module:source.cbc_module}:{}),
         id: source.id,
         title: source.title,
         body: source.body,
@@ -2458,6 +2462,7 @@
     };
   }
   function mountRespondentSafe(root, model, options = {}) {
+    if(model.pages.some(p=>p.cbc_module))throw new Error("Use the CBC module collection/preview renderer; ordinary runtime cannot skip a CBC module.");
     const source = options.backend || createMemoryBackend();
     const controller = mountRespondent(root, model, {
       ...options,

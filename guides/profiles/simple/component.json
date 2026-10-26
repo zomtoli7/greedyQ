@@ -3,8 +3,12 @@
   "kind": "profile",
   "version": "0.2.0-draft.1",
   "object_name": "greedyQSimple",
-  "dependencies": ["core"],
-  "conflicts": ["experiment", "cbc"],
+  "dependencies": [
+    "core"
+  ],
+  "conflicts": [
+    "experiment"
+  ],
   "normative_files": [
     "guides/profiles/simple/guide.md",
     "guides/profiles/simple/checkpoints.json"

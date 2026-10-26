@@ -10,7 +10,7 @@ function python(code,args){
 }
 async function main(){
  const [command,configFile]=process.argv.slice(2);
- if(!['snapshot','pause','reopen'].includes(command)||!configFile)throw new Error('Usage: node tools/archive_study.cjs snapshot|pause|reopen PRIVATE_CONFIG.json');
+ if(!['snapshot','pause','reopen','resume'].includes(command)||!configFile)throw new Error('Usage: node tools/archive_study.cjs snapshot|pause|reopen|resume PRIVATE_CONFIG.json');
  const config=JSON.parse(fs.readFileSync(configFile));
  if(command==='snapshot'||command==='reopen'){
   if(config.approvedStudyId!==config.studyId)throw new Error('Researcher closure approval required');
@@ -42,8 +42,9 @@ async function main(){
   const verifyArchive=async file=>JSON.parse(python('import sys,json; from greedyq.archive import verify_archive; print(json.dumps(verify_archive(sys.argv[1])))',[file]));
   const provider=ops.managementProvider({vercelToken:process.env.VERCEL_TOKEN,supabaseToken:process.env.SUPABASE_ACCESS_TOKEN,
     review:async()=>config.resourceOwnershipReviewed===true && config.freePlanReviewed===true && config.linkedProjectsReviewed===true});
-  const journal=path.join(path.dirname(config.archivePath),'pause-events.jsonl');
-  const result=await ops.pauseServices({...config,provider,verifyArchive,record:async event=>fs.appendFileSync(journal,JSON.stringify({...event,at:new Date().toISOString()})+'\n',{mode:0o600})});
+  const journal=path.join(config.archivePath?path.dirname(config.archivePath):path.dirname(configFile),'service-events.jsonl');
+  const record=async event=>fs.appendFileSync(journal,JSON.stringify({...event,at:new Date().toISOString()})+'\n',{mode:0o600});
+  const result=command==='resume'?await ops.resumeServices({...config,provider,record}):await ops.pauseServices({...config,provider,verifyArchive,record});
   console.log(JSON.stringify(result));
  }
 }

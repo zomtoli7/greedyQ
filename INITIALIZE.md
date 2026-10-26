@@ -84,3 +84,8 @@ See [guide access in supported desktop agents](GUIDE-ACCESS.md). The plain text 
 ## Supported authoring environment — required gate
 
 Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.

@@ -1,0 +1,13 @@
+attribute_id,attribute_label,level_id,level_label
+monthly_price,Monthly fee,p10,GBP 10 per month
+monthly_price,Monthly fee,p20,GBP 20 per month
+monthly_price,Monthly fee,p30,GBP 30 per month
+content_format,Course format,video,Recorded video
+content_format,Course format,text,Written lessons
+content_format,Course format,live,Live online class
+tutor_support,Tutor support,none,No tutor support
+tutor_support,Tutor support,email,Email support
+tutor_support,Tutor support,chat,Live chat support
+access_period,Access after subscription,m1,1 month
+access_period,Access after subscription,m3,3 months
+access_period,Access after subscription,m12,12 months

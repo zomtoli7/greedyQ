@@ -294,6 +294,8 @@ def _output_binding(question):
 
 
 def generate(study_dir, parsed, config):
+    if any(page.get("cbc_module") for page in parsed["pages"]):
+        raise ValueError("Native surveydown export of the CBC module is not yet verified. Keep the greedyQ module; do not flatten it into ordinary questions.")
     study_dir = Path(study_dir)
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)

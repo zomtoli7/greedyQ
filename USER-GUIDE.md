@@ -454,3 +454,8 @@ For choice-based conjoint tables, see [CBC import and computer/mobile preview](C
 If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
 See [guide access in supported desktop agents](GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`. Do not treat tool absence as guide access success.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.

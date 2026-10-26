@@ -1,0 +1,17 @@
+block_id,task_id,alternative_id,monthly_price,content_format,tutor_support,access_period
+block_a,task_1,a,p10,video,none,m1
+block_a,task_1,b,p20,text,email,m3
+block_a,task_2,a,p20,live,email,m1
+block_a,task_2,b,p30,video,chat,m3
+block_a,task_3,a,p30,text,none,m12
+block_a,task_3,b,p10,live,chat,m3
+block_a,task_4,a,p10,video,chat,m12
+block_a,task_4,b,p30,text,email,m1
+block_b,task_1,a,p20,text,chat,m3
+block_b,task_1,b,p10,live,none,m12
+block_b,task_2,a,p30,live,email,m12
+block_b,task_2,b,p20,video,none,m1
+block_b,task_3,a,p10,text,email,m3
+block_b,task_3,b,p30,video,chat,m1
+block_b,task_4,a,p20,live,none,m3
+block_b,task_4,b,p10,video,email,m12

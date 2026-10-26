@@ -33,6 +33,17 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
+    for name in ('cbc-new','cbc-route','cbc-insert','cbc-pack-source','cbc-resume','cbc-fork','cbc-upgrade','cbc-blank','cbc-preflight'):
+        item=sub.add_parser(name);item.add_argument('study_dir')
+        if name in ('cbc-new','cbc-fork'):item.add_argument('--id',required=True)
+        if name in ('cbc-new','cbc-route'):item.add_argument('--route',choices=['ai','blank_table','existing_design'],required=name=='cbc-route')
+        if name=='cbc-new':item.add_argument('--language',default='en',choices=['en','ko','zh-CN','zh-TW'])
+        if name=='cbc-insert':item.add_argument('--before',required=True);item.add_argument('--name',default='choice_tasks')
+        if name in ('cbc-pack-source','cbc-fork'):item.add_argument('--output',required=True)
+        if name=='cbc-resume':item.add_argument('--output')
+        if name=='cbc-upgrade':item.add_argument('--approve-upgrade',action='store_true');item.add_argument('--output')
+        if name=='cbc-preflight':item.add_argument('--stage',choices=['package','fielding'],default='package')
+        if name=='cbc-blank':item.add_argument('--attribute',action='append',required=True)
     for name in ('cbc-validate','cbc-build','cbc-package'):
         item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
         item.add_argument('study_dir');item.add_argument('--workbook')
@@ -47,6 +58,19 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command in ('cbc-new','cbc-route','cbc-insert','cbc-pack-source','cbc-resume','cbc-fork','cbc-upgrade','cbc-blank','cbc-preflight'):
+            from . import cbc_authoring as a
+            if args.command=='cbc-new':result=a.initialize(args.study_dir,args.id,args.route,args.language)
+            elif args.command=='cbc-route':result=a.set_route(args.study_dir,args.route)
+            elif args.command=='cbc-insert':result=a.insert(args.study_dir,args.before,args.name)
+            elif args.command=='cbc-pack-source':result=a.pack(args.study_dir,args.output)
+            elif args.command=='cbc-resume':result=a.resume(args.study_dir,args.output)
+            elif args.command=='cbc-fork':result=a.fork(args.study_dir,args.output,args.id)
+            elif args.command=='cbc-upgrade':result=a.upgrade(args.study_dir,args.approve_upgrade,args.output)
+            elif args.command=='cbc-preflight':
+                result=a.preflight(args.study_dir,args.stage);print(json.dumps(result,ensure_ascii=False,indent=2));return 0 if result['status']=='passed' else 1
+            else:result=a.blank_tables(args.study_dir,args.attribute)
+            print(json.dumps(result,ensure_ascii=False,indent=2) if isinstance(result,dict) else str(result or 'Authoring state updated.'));return 0
         if args.command=='cbc-package':
             from .cbc import build_collection
             target,model=build_collection(args.study_dir,args.collection,args.output,args.workbook)
@@ -70,7 +94,10 @@ def main(argv=None):
             print("Draft created. Open %s and review the opening and ending pages. No questions or approvals were invented." % (root/"preview.html"));return 0
         if args.command == "validate":
             study, parsed, config = load_study(args.study_dir)
-            report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
+            if any(p.get("cbc_module") for p in parsed["pages"]):
+                from .cbc_flow import build_module_study
+                report,_=build_module_study(study,False)
+            else:report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
         if args.command == "preflight":
             report = preflight(args.study_dir,stage=args.stage,deployment_index=args.deployment_index); show_report(report,"deployment"); return 0 if report["status"] == "passed" else 1

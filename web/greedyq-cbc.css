@@ -35,3 +35,5 @@
 .presentation-tools select{max-width:100%;min-width:0}
 
 .presentation-tools{min-width:0;max-width:100%;flex-basis:100%}.presentation-tools label{min-width:0;flex-wrap:wrap}.presentation-tools select{width:min(100%,340px)}
+
+.cbc-survey-form .gq-top{display:none}.cbc-survey-form .gq-card{min-height:0}.cbc-survey-form .gq-app{min-height:0}

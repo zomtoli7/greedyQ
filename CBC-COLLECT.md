@@ -67,7 +67,7 @@ Agents with browser/JavaScript tools can call `greedyQCBC.importDesign` and `gre
 
 ## Current boundaries
 
-This is the dedicated CBC package workflow, not yet a registered v0.2 `sd_cbc` control or an arbitrary QMD mixed-question CBC authoring path. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
+The v0.3 cbc capability now inserts an sd_cbc module into ordinary linear QMD pages. It is not a v0.2 control or an unrestricted page-branching/multiple-sequence CBC system. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
 
 ## CBC presentation styles
 
@@ -84,3 +84,8 @@ The agent writes an optional field in `study.design.json`:
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 
 CBC development verification: `0.3_2026-10-26_e0167e7`.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.

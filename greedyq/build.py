@@ -62,6 +62,9 @@ def refresh_manifest(study_dir):
 
 def build(study_dir, write=True):
     study_dir, parsed, config = load_study(study_dir)
+    if any(page.get("cbc_module") for page in parsed["pages"]):
+        from .cbc_flow import build_module_study
+        return build_module_study(study_dir,write)
     report = validate(parsed, config, "survey.qmd", "greedyq.yml")
     if report["status"] != "passed": return report, None
     model = compile_preview(parsed, config)

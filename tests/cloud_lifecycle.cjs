@@ -79,3 +79,15 @@ test('reviewed model registration is idempotent and refuses changed or legacy as
  await assert.rejects(ops.registerStudy(client,{...model,randomization:{id:'arm',unit:'respondent',persistence_key:'session_id',method:'simple',conditions:{a:1,b:1}}}),/Legacy/);
  assert.equal(calls.at(-1),'ROLLBACK');
 });
+
+test('archive snapshot retains PostgreSQL microseconds while removing session capabilities',async()=>{
+ const timestamp='2026-10-26T10:12:13.123456+00:00';const client={query:async sql=>({rows:sql.startsWith('SELECT to_jsonb(s)')?[{record:{id:'synthetic',study_id:'a',created_at:timestamp,terminal_at:timestamp,access_token_hash:'must-not-export',browser_state:{answers:{}}}}]:[]})};
+ const result=await ops.closeAndSnapshot(client,'a','a');assert.equal(result.tables.sessions[0].created_at,timestamp);assert.equal(result.tables.sessions[0].terminal_at,timestamp);assert(!('access_token_hash' in result.tables.sessions[0]));assert(!('browser_state' in result.tables.sessions[0]));
+});
+
+test('resume waits for database health and never reopens collection automatically',async()=>{
+ const targets={team:'t',supabase:'db',results:'r',survey:'s'},available=new Set(),paused=new Set(['db','r','s']),calls=[];
+ const provider={preflight:async()=>{},isAvailable:async(k,id)=>available.has(id),isPaused:async(k,id)=>paused.has(id),resume:async(k,id)=>{calls.push(id);paused.delete(id);if(id!=='db')available.add(id)}};
+ const args={targets,provider,record:async()=>{},approveResume:false};await assert.rejects(ops.resumeServices(args));assert.deepEqual(calls,[]);
+ args.approveResume=true;assert.equal((await ops.resumeServices(args)).status,'pending_verification');assert.deepEqual(calls,['db']);assert.equal((await ops.resumeServices(args)).status,'pending_verification');assert.deepEqual(calls,['db']);available.add('db');const r=await ops.resumeServices(args);assert.equal(r.status,'services_available');assert.equal(r.collection_reopened,false);assert.deepEqual(calls,['db','r','s']);
+});

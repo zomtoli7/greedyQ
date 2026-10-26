@@ -211,22 +211,29 @@ preview.html
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `INITIALIZE.md` | `67501acb6e750cbc50bffc021e1abccf1acba617953ff315c53aa375845c3d27` | `no` |
+| `INITIALIZE.md` | `06eccfa030a4080bed8e0ebe84a4a088809af74caab8e48aff37b527cac496e0` | `no` |
 | `SUPPORTED-ENVIRONMENTS.md` | `3cc6b7c1cabf115914d57b83c7cf521d3e9902fd53a6958f62ff839ee73bd6b4` | `no` |
 | `schemas/authoring-support-policy.json` | `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff` | `no` |
-| `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
+| `schemas/cbc-collection.schema.json` | `df032add7ebf7fb96da337a769de65cfa7de2a3218019cb9a197b204213f4321` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa` | `no` |
+| `CBC-COLLECT.md` | `b61a7de49343bc131ed35d8d543fdfaf9673f591beef27a82b41ae5a8a9e1f01` | `no` |
+| `CBC-MODULE.md` | `78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446` | `no` |
+| `guides/modules/cbc/guide.md` | `42bfd4e6940ed8c997766cb581eaa8726730a19b0d310bbde96a3a45aa8f981a` | `no` |
+| `greedyq/cbc_flow.py` | `e80e5aeae410b3c4d060ee3fb9a52c2f0d3717192f2db2c9dbbb097bf64a05aa` | `no` |
+| `greedyq/cbc_authoring.py` | `fabc768cb131c6f934bf7601ee0ca1b74adc6568851fb2b9a2f790257733f519` | `no` |
+| `web/greedyq-cbc-preview-session.js` | `9d71839761c706f7a2ccc4cf7633269360ca96dfa02fa1b89802763c6a59afa7` | `no` |
+| `templates/browser/cbc-module-preview.html` | `537d33584f5dcb5e394e96b30c9b84002cc0c9569cff1d47fce599a6b49d9c8c` | `no` |
+| `templates/supabase/010_cbc_module.sql` | `7c65289e440e5c25745ee7e02a1dbea4cf89277ddd1d978833360f9fd4cdcf78` | `no` |
 | `GUIDE-ACCESS.md` | `25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9` | `no` |
-| `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
-| `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
-| `templates/browser/cbc-respondent.html` | `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde` | `no` |
+| `web/greedyq-cbc-collection.js` | `ffbefe34e30dfd06e99b829de941583c09babff5ca39889ec65e955067c7d720` | `no` |
+| `web/greedyq-cbc.css` | `8836d82ba52a4e46d5185faef1ed00438c18d1a9f62408e160097d243c81f65d` | `no` |
+| `templates/browser/cbc-respondent.html` | `be9747870a2bfa8a5ae3f132e805574df3837356ea71a3ce85c8eaf2d6a6377b` | `no` |
 | `templates/supabase/009_cbc.sql` | `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2` | `no` |
-| `tools/cbc_cloud.cjs` | `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9` | `no` |
+| `tools/cbc_cloud.cjs` | `df57d05da2e64ae37633bbb2dbd371a023810131da54985574fc5006d9bb2a0f` | `no` |
 | `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
-| `CBC.md` | `950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485` | `no` |
-| `greedyq/cbc.py` | `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031` | `no` |
-| `web/greedyq-cbc.js` | `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db` | `no` |
+| `CBC.md` | `4724348b7aa50774f2009a2c1a9a5b54a565eacedb9e940105c2ef72a0975af3` | `no` |
+| `greedyq/cbc.py` | `9267ea7afe6e8dbc33acc4d431be55584a89de3e7ba847a609014769b4c940f1` | `no` |
+| `web/greedyq-cbc.js` | `77100668127fe38be4ed9af57bd05724f8030d3e5cda19fdc594a57f191a96a7` | `no` |
 | `templates/browser/cbc-preview.html` | `8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7` | `no` |
 | `greedyq/scaffold.py` | `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec` | `no` |
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
@@ -250,11 +257,11 @@ preview.html
 | `docs/repeat-user-acceptance.md` | `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6` | `no` |
 | `ARCHIVING.md` | `03dd772785d2ee7a5196445f37f33f3a6eba70a398f866ea2062d4cf71b33951` | `no` |
 | `docs/cloud-lifecycle.md` | `503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0` | `no` |
-| `tools/cloud_lifecycle.cjs` | `93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7` | `no` |
-| `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
+| `tools/cloud_lifecycle.cjs` | `367564acc6fcb00642e355639521cc50ca7b8d0d62d1bfd0a31e2afbb774b91c` | `no` |
+| `tools/archive_study.cjs` | `b666fcfe6ba89598f105afde4a4b8d38b0c569aa6be8c24ea33f88ac800c2ba0` | `no` |
 | `greedyq/archive.py` | `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3` | `no` |
+| `web/greedyq-core.js` | `13c45d850a5aad6255343179ddba19d457bb4073297cdd0f215dfaebe99ca539` | `no` |
 | `web/greedyq-runtime.css` | `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977` | `no` |
 | `templates/browser/respondent.html` | `a8d1baa4eb6348f1dc3859c89939d9a63c879acc54f75f328f5032f0c4c0fa4f` | `no` |
 | `templates/browser/preview.html` | `857707a4b17aa94179477bd8c6991d02cfc60ee6d32acb77770cd0108db517f3` | `no` |
@@ -277,23 +284,23 @@ preview.html
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3` | `no` |
 | `greedyq/__init__.py` | `70df199a58478c5d0ecb8cb4e95929017ddd943fa276d9973586a33417d4fdda` | `no` |
-| `greedyq/__main__.py` | `b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4` | `no` |
+| `greedyq/__main__.py` | `dcce6357d4da74c6fb01325b855e06800b8fa5bcb5e851e73019583ce6659b89` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
-| `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
+| `greedyq/parser.py` | `120c7efd3a55f4ffd18387bc655026ba0368eafd5e0a596f1fc7aec4985949eb` | `no` |
 | `greedyq/validator.py` | `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3` | `no` |
-| `greedyq/compiler.py` | `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb` | `no` |
-| `greedyq/build.py` | `113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7` | `no` |
+| `greedyq/compiler.py` | `489d03ec2755f57442807800440b18bffc407bd7c9f64306a075b44a2a36e2ea` | `no` |
+| `greedyq/build.py` | `6e109311ff7de4a1b7c80689237985a31a656fdbb8c6ef3c5321b234420d6025` | `no` |
 | `greedyq/runtime.py` | `0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9` | `no` |
 | `greedyq/randomization.py` | `fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee` | `no` |
 | `greedyq/server.py` | `73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65` | `no` |
 | `greedyq/prolific.py` | `ba134506dfcce5c3bd126d3cba10bd29df449e260ea8ecf37f40abfc369747b7` | `no` |
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
-| `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
+| `greedyq/exporter.py` | `e3de8b63044e25ba90e5188bb1f89d4731bf148a541b725548662f8de5c034c4` | `no` |
 | `greedyq/deployment.py` | `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524` | `no` |
 
 ### FILE: `INITIALIZE.md`
 
-SHA-256: `67501acb6e750cbc50bffc021e1abccf1acba617953ff315c53aa375845c3d27`
+SHA-256: `06eccfa030a4080bed8e0ebe84a4a088809af74caab8e48aff37b527cac496e0`
 
 ```markdown
 # Start greedyQ
@@ -382,6 +389,11 @@ See [guide access in supported desktop agents](GUIDE-ACCESS.md). The plain text 
 ## Supported authoring environment — required gate
 
 Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.
 ```
 
 ### FILE: `SUPPORTED-ENVIRONMENTS.md`
@@ -502,7 +514,7 @@ SHA-256: `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff`
 
 ### FILE: `schemas/cbc-collection.schema.json`
 
-SHA-256: `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709`
+SHA-256: `df032add7ebf7fb96da337a769de65cfa7de2a3218019cb9a197b204213f4321`
 
 ```json
 {
@@ -649,6 +661,30 @@ SHA-256: `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709`
           }
         }
       }
+    },
+    "flow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "after"
+      ],
+      "properties": {
+        "before": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "type": "object"
+          }
+        },
+        "after": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "type": "object"
+          }
+        }
+      }
     }
   },
   "allOf": [
@@ -740,7 +776,7 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa`
+SHA-256: `b61a7de49343bc131ed35d8d543fdfaf9673f591beef27a82b41ae5a8a9e1f01`
 
 ```markdown
 # Collect CBC responses and review results
@@ -812,7 +848,7 @@ Agents with browser/JavaScript tools can call `greedyQCBC.importDesign` and `gre
 
 ## Current boundaries
 
-This is the dedicated CBC package workflow, not yet a registered v0.2 `sd_cbc` control or an arbitrary QMD mixed-question CBC authoring path. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
+The v0.3 cbc capability now inserts an sd_cbc module into ordinary linear QMD pages. It is not a v0.2 control or an unrestricted page-branching/multiple-sequence CBC system. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
 
 ## CBC presentation styles
 
@@ -829,6 +865,720 @@ The agent writes an optional field in `study.design.json`:
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 
 CBC development verification: `0.3_2026-10-26_e0167e7`.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.
+```
+
+### FILE: `CBC-MODULE.md`
+
+SHA-256: `78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446`
+
+```markdown
+# Add CBC tasks to your survey
+
+[한국어](./CBC-MODULE(kor).md) · [简体中文](./CBC-MODULE(zh-CN).md)
+
+CBC is a **v0.3 module**, not a separate survey you must start over to create. Keep writing questions with your AI. When you reach the desired position, ask it to insert CBC tasks; you can continue with ordinary questions afterwards.
+
+## Start or insert a module
+
+Use <https://greedyq.netlify.app/> in a supported desktop agent. For example:
+
+```text
+Read and follow <https://greedyq.netlify.app/>.
+Continue the attached study. Keep its existing questions. Insert a CBC module after the background questions, then let me add ordinary questions afterwards. Ask one central question at a time before deciding the design.
+```
+
+The AI first asks which design route you prefer:
+
+- **Design together:** explain your research goal and discuss attributes and levels. Review the proposed design table; an AI draft does not establish statistical efficiency or research validity.
+- **Fill a blank table:** receive CSV files or an Excel workbook with attribute columns matching your confirmed choices. Save the editable study ZIP as well. Return the filled workbook, or both CSVs, when ready.
+- **Use an existing design:** attach your design. The AI checks its codes and structure and explains any changes before asking you to approve them.
+
+You confirm attributes, level wording/units, alternatives per task, tasks per person, blocks, neither and order rules. Choose button profiles or comparison tables and their computer/phone layout. These are research decisions; the AI must not fill them silently.
+
+## Review the complete experience
+
+The integrated preview has independent computer and mobile respondents and a structure dialog. It shows participant information, the ordinary questions, the CBC module and the remaining questions in one continuous session. It stores only local virtual responses. The desktop comparison remains horizontal when the preview is opened on a narrow device; responsive mobile comparisons stack vertically.
+
+Try missing answers, neither, Previous, refresh, completion and withdrawal. Completion time is recorded only after the final ordinary page; finishing the CBC tasks alone is not survey completion. When connected to the database, withdrawal removes ordinary and CBC answers together, including CBC exposures and orders.
+
+The first module contract supports **one CBC sequence in a linear survey**. The module gets its own page; your AI handles splitting an existing page when needed. Conditional question visibility and supported ordinary controls work within surrounding pages. A separate experimental assignment, page branching across the module, page/question/ordinary-option shuffling or several CBC sequences must not be silently approximated. The agent must explain a requested unsupported combination before altering the study. CBC's own block/task/alternative randomization remains available. Native surveydown CBC export is explicitly blocked until an equivalent implementation is verified.
+
+## Save and return later
+
+Ask for an **editable study ZIP** when stopping. It contains questionnaire sources, design files, collection settings, decisions and the locked guide version. It excludes response downloads, cloud keys, deployment credentials and generated publication folders.
+
+```text
+Read and follow <https://greedyq.netlify.app/>.
+Resume the attached editable study ZIP at its saved step. Preserve the confirmed questions and CBC design. Tell me if the greedyQ version changed; ask before upgrading, and preserve the original if I approve a new copy.
+```
+
+If waiting for a design table, the AI remembers which files are expected. Resuming does not redraw or approve the design. A version upgrade uses a separate copy, keeps the original, refreshes the guide lock and requires review before fielding.
+
+An **analysis archive ZIP** is different: it preserves collected data, CSVs and the registered model for analysis. It is not offered as a database-restore or survey-editing route. Keep the editable study ZIP too.
+
+## Modify or duplicate
+
+Ask to change only the parts you name. A fork gets a new study identity, keeps the original, and starts in Test mode with collection approvals reset. Existing stored responses and immutable registered designs are not rewritten. For a materially changed deployed design, publish a new reviewed study rather than changing the plan underneath existing participants.
+
+## Connect, collect and finish
+
+The existing Vercel/Supabase journey remains: the AI reuses an approved account connection, prepares separate Survey and protected Results links, and verifies synthetic Test data first. In Results, choose **Test responses** to inspect trials; **Real responses** remains the default and excludes those trials. Overview CSV contains ordinary answers; CBC choice CSV contains alternative-level choice/exposure rows. Withdrawn answers are absent from both kinds of response data.
+
+Ending a study first stops collection and creates a verified seven-table archive, ordinary-response CSV and CBC choice CSV. For real research, the researcher must confirm saving the download before services are paused. A shared database stays active unless every affected study/service has been reviewed and the temporary interruption is explicitly approved. Service resume waits for database health; reopening collection is a separate deliberate action. Reusing an existing account does not require a fresh account or a new database for every logical study.
+
+Small paid-participant testing is the next acceptance step after the researcher approves the actual instrument, consent/contact, data plan, recruitment route, return paths, time and compensation. Synthetic checks do not authorize recruitment or payment. See [collection](./CBC-COLLECT.md) and [cloud evidence](./docs/cbc-cloud-verification-2026-10-26.md).
+
+## Agent implementation notes
+
+The researcher does not need these commands. Use the ordinary study profile plus the `cbc` capability module. `sd_cbc(name = "course_choices", design = "study.design.json")` is the fixed marker inside an R-style fenced block on a QMD page; it is parsed as data, not executed as R. Normal `build` detects it and produces the mixed preview/private CBC package. Publish only folders produced by `prepareCBCDeployments`.
+
+- `cbc-new`, `cbc-route`, `cbc-insert`, `cbc-blank`: record the design route, insertion point and attribute-specific CSV/XLSX handoff without inventing decisions.
+- `cbc-pack-source`, `cbc-resume`, `cbc-fork`, `cbc-upgrade --approve-upgrade`: source-only ZIP, safe extraction, isolated identity and explicit copied upgrades.
+- `cbc-preflight --stage package` / `--stage fielding`: distinguish a valid Test package from unresolved real-fielding approvals. The fielding check does not itself prove a deployment or paid test.
+- `010_cbc_module.sql`: additive sequence and ordinary-answer validation. Keep applied 001–010 bytes unchanged. Do not use the generic v0.2 writer to bypass the CBC module contract.
+- `tools/archive_study.cjs snapshot|pause|resume|reopen`: keep collection closure, service state and reopening separate. Management authorization is different from a database/service key; account-specific permissions may still require owner action.
+
+Current module journey evidence: [verified and pending checks](./docs/cbc-module-verification-2026-10-26.md).
+```
+
+### FILE: `guides/modules/cbc/guide.md`
+
+SHA-256: `42bfd4e6940ed8c997766cb581eaa8726730a19b0d310bbde96a3a45aa8f981a`
+
+```markdown
+# CBC capability module — v0.3
+
+[한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
+
+CBC is an insertable module in an ordinary greedyQ survey, not a separate kind of survey. Keep existing ordinary questions in survey.qmd. When the researcher says “put CBC tasks here,” add one module page at that position. Ordinary questions before and after it continue to use the fixed question parser and renderer. Do not require the researcher to prepare separate pre/post questionnaires or learn internal before/after arrays.
+
+Ask whether to collaborate with the AI on design, fill a blank CSV/XLSX table, or import an existing design. Persist that choice and wait for confirmation of attributes, levels, alternatives, tasks, blocks, neither and ordering. Never invent methodological approvals. For blank-table handoff, record expected files and the next question; preserve the pinned version when the researcher returns.
+
+The first mixed-module contract supports one CBC sequence in a linear survey. Put the module on its own page; split a page at the insertion point if necessary. Do not silently approximate multiple CBC sequences, page branching across the module or a separate experimental randomization plan; explain these boundaries before changing a design. Question-level conditional visibility and ordinary supported controls remain available.
+
+```r
+sd_cbc(name = "course_choices", design = "study.design.json")
+```
+
+Use greedyq/cbc_authoring.py for source-only authoring handoffs, resume, fork and explicit version upgrades; use greedyq/cbc_flow.py to compile ordinary QMD pages around the module. collection.json records consent and explicit deployment/fielding approvals separately. It is not a second questionnaire. The canonical collection renderer, additive 010_cbc_module.sql and guarded CBC RPCs handle sequencing, acknowledged saves, completion and withdrawal. Do not write replacement control HTML or call the generic v0.2 writer for module sessions.
+
+A normal build detects sd_cbc and produces the integrated dual preview and private preparation package. Native surveydown CBC export remains explicitly unsupported; never remove the module and export an apparently complete questionnaire. Actual recruitment still requires approved participant information, research-team contact, data plan and fielding decisions. Local and cloud synthetic tests do not provide these approvals.
+```
+
+### FILE: `greedyq/cbc_flow.py`
+
+SHA-256: `e80e5aeae410b3c4d060ee3fb9a52c2f0d3717192f2db2c9dbbb097bf64a05aa`
+
+```python
+"""Linear ordinary-question pages around one CBC sequence; no executable survey code."""
+import copy
+import re
+from pathlib import Path
+
+TYPES = {'text','textarea','numeric','mc','mc_buttons','mc_image','mc_multiple','mc_multiple_buttons','mc_multiple_image','select','slider','slider_numeric','date','daterange','matrix','matrix_multiple','audio','video','timing','nps','rank_order','constant_sum','side_by_side','pick_group_rank','drill_down','custom'}
+
+def normalize_flow(flow):
+    from .cbc import fail
+    if not isinstance(flow,dict) or set(flow)!={'before','after'}: fail('CBC030','Provide before/after question-page lists.')
+    ids=set();questions=set();result=copy.deepcopy(flow)
+    for phase,pages in result.items():
+        if not isinstance(pages,list) or len(pages)>50:fail('CBC030','Use at most 50 ordinary pages per stage.')
+        for p in pages:
+            if not isinstance(p,dict) or set(p)-{'id','title','body','questions','show_previous','previous_mode','next_mode','next_delay_seconds','next_label','checks','messages'}:fail('CBC030','Mixed CBC pages are linear; branching, checks and page shuffling require separate support.')
+            if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,79}',str(p.get('id',''))) or p['id'] in ids or p['id'] in {'consent','completed','withdrawn','consent_refused','cbc_tasks'}:fail('CBC030','Use distinct ordinary page IDs.')
+            ids.add(p['id'])
+            if not isinstance(p.get('title',''),str) or not isinstance(p.get('body',''),str) or not isinstance(p.get('questions'),list):fail('CBC030','Provide page title, body and questions.')
+            for q in p['questions']:
+                if not isinstance(q,dict) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,79}',str(q.get('id',''))) or q['id'] in questions or q.get('type') not in TYPES or not isinstance(q.get('label'),str):fail('CBC030','Use supported, distinct ordinary questions; CBC tasks stay separate.')
+                questions.add(q['id'])
+                if q.get('shuffle_items'):fail('CBC030','Ordinary option shuffling requires durable module presentation support; do not silently reshuffle it on resume.')
+                if q['type']=='custom' and q.get('base_type') not in TYPES-{'custom'}:fail('CBC030','Custom questions must use a supported base control.')
+                if type(q.get('required',False)) is not bool:fail('CBC030','Required must be true or false.')
+    return result
+
+def import_questions(path):
+    """Use the fixed QMD parser/compiler; cbc_tasks is a single sequence marker."""
+    from .parser import parse_qmd
+    from .compiler import compile_preview
+    from .cbc import fail
+    parsed=parse_qmd(Path(path))
+    from .yaml_min import loads
+    config_path=Path(path).parent/'greedyq.yml'
+    config=loads(config_path.read_text()) if config_path.is_file() else {'study':{'id':'cbc_flow','title':'CBC questions'},'respondents':{'source':'direct_link','mode':'test'}}
+    if config.get('randomization') or config.get('logic',{}).get('skip') or parsed['front_matter'].get('survey-settings',{}).get('shuffle-pages'):fail('CBC030','The first CBC module contract is linear; do not discard page branches or a separate experimental assignment.')
+    compiled=compile_preview(parsed,config);pages=compiled['pages']
+    for p in pages:p['messages']=compiled['messages']
+    for index,p in enumerate(parsed['pages']):
+        next_page=p.get('nav',{}).get('next_page') or p.get('nav',{}).get('next')
+        if next_page and next_page!=(parsed['pages'][index+1]['id'] if index+1<len(parsed['pages']) else None):fail('CBC030','Keep ordinary pages linear around this CBC module.')
+    for p in parsed['pages']:
+        if any(q.get('unsupported_arguments') for q in p['questions']):fail('CBC030','Remove unsupported ordinary-question arguments before adding CBC.')
+    markers=[i for i,p in enumerate(parsed['pages']) if p.get('cbc_module') or p['id']=='cbc_tasks']
+    if len(markers)!=1 or pages[markers[0]]['questions']:fail('CBC030','Add exactly one empty --- cbc_tasks marker page.')
+    marker=parsed['pages'][markers[0]]
+    if marker.get('cbc_module'):
+        design=Path(path).parent/marker['cbc_module']['design']
+        if design.resolve()!= (Path(path).parent/'study.design.json').resolve():fail('CBC030','The CBC module must reference this study design: study.design.json.')
+    def clean(p):return {k:v for k,v in p.items() if k not in {'next','terminal'}}
+    i=markers[0]
+    return normalize_flow({'before':[clean(p) for p in pages[:i]],'after':[clean(p) for p in pages[i+1:] if not p.get('terminal')]})
+
+
+def build_module_preview(model,destination):
+    import json
+    root=Path(__file__).resolve().parents[1]
+    html=(root/'templates/browser/cbc-module-preview.html').read_text()
+    libraries='\n'.join((root/'web'/n).read_text() for n in ['greedyq-core.js','greedyq-cbc.js','greedyq-cbc-collection.js','greedyq-cbc-preview-session.js'])
+    styles='\n'.join((root/'web'/n).read_text() for n in ['greedyq-runtime.css','greedyq-cbc.css'])
+    html=html.replace('__STYLES__',styles).replace('__LIBRARIES__',libraries.replace('</script','<\\/script')).replace('__MODEL__',json.dumps(model,ensure_ascii=False).replace('<','\\u003c'))
+    Path(destination).write_text(html)
+    return Path(destination)
+
+
+def build_module_study(folder,write=True):
+    """Normal survey build dispatches the module without replacing ordinary source pages."""
+    import json
+    import tempfile
+    import shutil
+    from .cbc import build_collection
+    root=Path(folder)
+    settings=root/'collection.json'
+    if (root/'authoring.json').is_file():
+        from .cbc_authoring import inspect
+        if inspect(root)['upgrade_available']:raise ValueError('This authoring package is pinned to another greedyQ version. Keep that snapshot or approve an upgrade into a separate copy.')
+    if not settings.is_file():
+        return {'status':'failed','summary':'The CBC module needs its reviewed design and collection.json before a complete preview can be built.','issues':[]},None
+    with tempfile.TemporaryDirectory(prefix='greedyq-module-build-') as tmp:
+        package,model=build_collection(root,settings,Path(tmp)/'package')
+        if write:
+            for name in ['preview.html','index.html','results.html','greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc.css','greedyq-cbc-collection.js']:
+                (root/name).write_bytes((package/name).read_bytes())
+            # This source folder is not a participant publication folder.
+            runtime=root/'cbc-package'
+            if runtime.exists():
+                backup=root/'.greedyq'/'previous-builds';backup.mkdir(parents=True,exist_ok=True)
+                runtime.rename(backup/('cbc-package-'+__import__('uuid').uuid4().hex))
+            shutil.copytree(package,runtime)
+            internal=root/'.greedyq';internal.mkdir(exist_ok=True)
+            (internal/'normalized-survey.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
+    return {'status':'passed','summary':'Ordinary pages and the CBC module passed validation; open preview.html.','issues':[]},model
+```
+
+### FILE: `greedyq/cbc_authoring.py`
+
+SHA-256: `fabc768cb131c6f934bf7601ee0ca1b74adc6568851fb2b9a2f790257733f519`
+
+```python
+"""Researcher-owned CBC module authoring, handoff and explicit version migration."""
+import copy
+import csv
+import hashlib
+import io
+import json
+from pathlib import Path
+import re
+import shutil
+import stat
+import zipfile
+
+ROUTES={'ai','blank_table','existing_design'}
+SOURCE_NAMES={'survey.qmd','greedyq.yml','study.design.json','collection.json','authoring.json','study-plan.md','study-plan(kor).md','consent.md','consent(kor).md','greedyq.study.json'}
+PRIVATE_NAMES={'guide-lock.json','study-state.json','decision-log.json','unresolved-decisions.json','generation-manifest.json','validation-report.json'}
+
+def release():
+    from . import __release__
+    p=Path(__file__).resolve().parents[1]/'release.json'
+    return json.loads(p.read_text()).get('next_line',{}).get('release',__release__)
+
+def write(path,data):Path(path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
+def stamp_version(path):
+    """Update only the greedyQ provenance of an explicitly created/upgraded source."""
+    path=Path(path);text=path.read_text();parts=text.split('---',2)
+    if len(parts)!=3 or parts[0].strip():raise ValueError('QMD front matter is required for version provenance.')
+    header=parts[1]
+    block=re.search(r'(?m)^greedyq:\s*\n(?:[ \t]+[^\n]*\n|\n)*',header)
+    if block:
+        value=block[0]
+        line='  version: "'+release()+'"\n'
+        value=re.sub(r'(?m)^  version:.*\n',lambda _:line,value) if re.search(r'(?m)^  version:',value) else value.replace('greedyq:\n','greedyq:\n'+line,1)
+        header=header[:block.start()]+value+header[block.end():]
+    else:header+='greedyq:\n  version: "'+release()+'"\n'
+    path.write_text('---'+header+'---'+parts[2])
+
+def record_lock(root):
+    from tools.resolve_guide import resolve
+    root=Path(root);descriptor=root/'greedyq.study.json'
+    d=json.loads(descriptor.read_text()) if descriptor.is_file() else {'profile':'simple','modules':[]}
+    lock=resolve(d.get('profile','simple'),list(set(d.get('modules',[]))|{'cbc'}))
+    private=root/'.greedyq';private.mkdir(exist_ok=True);write(private/'guide-lock.json',lock)
+    if descriptor.is_file():d['modules']=lock['modules'];write(descriptor,d)
+    return lock
+
+def inspect(folder):
+    root=Path(folder);s=json.loads((root/'authoring.json').read_text())
+    required=['survey.qmd','authoring.json']
+    missing=[n for n in required if not (root/n).is_file()]
+    return {'study_id':s['study_id'],'route':s.get('route'),'phase':s['phase'],'pinned_version':s['greedyq_version'],'current_version':release(),'upgrade_available':s['greedyq_version']!=release(),'missing_files':missing,'next_question':s['next_question'],'approval_required_for_upgrade':True}
+
+def initialize(folder,study_id,route=None,language='en'):
+    if route is not None and route not in ROUTES:raise ValueError('Choose AI collaboration, blank table or existing design.')
+    if not re.fullmatch(r'[a-z][a-z0-9_]{1,63}',study_id):raise ValueError('Use a distinct study ID.')
+    root=Path(folder)
+    if root.exists():raise FileExistsError('Choose a new folder.')
+    root.mkdir(parents=True)
+    text='What would you like to ask first? You can ask to insert a CBC module at any point.'
+    (root/'survey.qmd').write_text('---\ntitle: "Research draft"\ngreedyq:\n  language: '+language+'\n---\n\n--- welcome\n# Welcome\n\n--- complete\n# Thank you\n')
+    stamp_version(root/'survey.qmd')
+    write(root/'authoring.json',{'format':'greedyq-module-authoring/1','study_id':study_id,'greedyq_version':release(),'route':route,'phase':'questions' if route else 'cbc_route','decisions':[],'approvals':{},'next_question':text if route else 'Would you like AI help with the CBC design, a blank design table, or to import your existing design?','expected_files':[]})
+    record_lock(root)
+    return root
+
+def set_route(folder,route):
+    if route not in ROUTES:raise ValueError('Unknown design route.')
+    root=Path(folder);s=json.loads((root/'authoring.json').read_text());s.update(route=route,phase='attributes',next_question='Which attributes and levels do you want to compare?');s['decisions'].append({'topic':'cbc_design_route','confirmed_value':route});write(root/'authoring.json',s)
+
+def insert(folder,before_page,module_id='choice_tasks'):
+    from .parser import parse_qmd
+    root=Path(folder);path=root/'survey.qmd';parsed=parse_qmd(path)
+    if any(p.get('cbc_module') for p in parsed['pages']):raise ValueError('One CBC module sequence is supported per study; preserve existing module.')
+    if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,79}',module_id) or any(p['id']==module_id for p in parsed['pages']):raise ValueError('Use a new module page ID.')
+    if before_page not in [p['id'] for p in parsed['pages']]:raise ValueError('Select an existing insertion page.')
+    body='--- '+module_id+'\n# Choice tasks\n\n```{r}\nsd_cbc(name = "'+module_id+'", design = "study.design.json")\n```\n\n'
+    text=path.read_text();text=re.sub(r'^--- '+re.escape(before_page)+r'\s*$',lambda m:body+m[0],text,count=1,flags=re.M);path.write_text(text)
+    state=root/'authoring.json'
+    if state.is_file():s=json.loads(state.read_text())
+    else:
+        from .yaml_min import loads
+        descriptor=root/'greedyq.study.json';config=root/'greedyq.yml'
+        sid=json.loads(descriptor.read_text())['study_id'] if descriptor.is_file() else loads(config.read_text())['study']['id']
+        s={'format':'greedyq-module-authoring/1','study_id':sid,'greedyq_version':release(),'route':None,'decisions':[],'approvals':{}}
+    s.update(phase='attributes' if s.get('route') else 'cbc_route',module_id=module_id,next_question='Which CBC attributes and levels have you confirmed?' if s.get('route') else 'Would you like AI design help, a blank CSV/XLSX table, or to import an existing design?');s['approvals']={};write(state,s)
+    record_lock(root)
+
+def blank_tables(folder,attributes):
+    root=Path(folder);dest=root/'design'
+    if (dest/'attributes.csv').exists() or (dest/'design.csv').exists():raise FileExistsError('Keep existing design tables; choose a new draft before replacing them.')
+    if not isinstance(attributes,list) or not attributes or len(attributes)>20 or any(not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,79}',a) for a in attributes) or len(set(attributes))!=len(attributes):raise ValueError('Provide distinct confirmed attribute IDs.')
+    dest.mkdir(exist_ok=True)
+    for name,header in [('attributes.csv',['attribute_id','attribute_label','level_id','level_label']),('design.csv',['block_id','task_id','alternative_id',*attributes])]:
+        with (dest/name).open('w',newline='') as f:csv.writer(f).writerow(header)
+    # A dependency-free, editable workbook with the same confirmed headings.
+    from xml.sax.saxutils import escape
+    headers=[['attribute_id','attribute_label','level_id','level_label'],['block_id','task_id','alternative_id',*attributes]]
+    with zipfile.ZipFile(dest/'design-template.xlsx','w',zipfile.ZIP_DEFLATED) as z:
+        z.writestr('[Content_Types].xml','<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'+''.join('<Override PartName="/xl/worksheets/sheet'+str(i)+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>' for i in [1,2])+'</Types>')
+        z.writestr('_rels/.rels','<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')
+        z.writestr('xl/workbook.xml','<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Attributes" sheetId="1" r:id="rId1"/><sheet name="Design" sheetId="2" r:id="rId2"/></sheets></workbook>')
+        z.writestr('xl/_rels/workbook.xml.rels','<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+''.join('<Relationship Id="rId'+str(i)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+str(i)+'.xml"/>' for i in [1,2])+'</Relationships>')
+        for i,header in enumerate(headers,1):
+            cells=''.join('<c r="'+chr(65+j)+'1" t="inlineStr"><is><t>'+escape(value)+'</t></is></c>' for j,value in enumerate(header))
+            z.writestr('xl/worksheets/sheet'+str(i)+'.xml','<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData><row r="1">'+cells+'</row></sheetData></worksheet>')
+    s=json.loads((root/'authoring.json').read_text());s.update(phase='awaiting_design_table',expected_files=['design/attributes.csv','design/design.csv'],next_question='Please return the filled design tables when ready.');write(root/'authoring.json',s)
+    return dest
+
+def source_files(root):
+    for p in root.rglob('*'):
+        if not p.is_file() or p.is_symlink():continue
+        rel=p.relative_to(root);name=rel.as_posix()
+        if any(x in {'.vercel','node_modules','runtime','export','responses','archive'} for x in rel.parts) or p.name.startswith('.env'):continue
+        if name in SOURCE_NAMES or (len(rel.parts)==2 and rel.parts[0]=='.greedyq' and p.name in PRIVATE_NAMES) or (rel.parts[0] in {'design','assets','media'} and p.suffix.lower() in {'.csv','.xlsx','.png','.jpg','.jpeg','.svg','.webp','.mp3','.mp4','.wav','.ogg','.webm'}):yield p
+
+def pack(folder,destination):
+    root=Path(folder).resolve();target=Path(destination).resolve()
+    if target.exists():raise FileExistsError('Keep the previous handoff package.')
+    if not (root/'authoring.json').is_file():raise ValueError('An authoring folder is required; an analysis archive is not a resumable study.')
+    files=list(source_files(root));manifest={'kind':'greedyq-authoring-package','files':{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
+    with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as z:
+        for p in files:z.write(p,p.relative_to(root).as_posix())
+        z.writestr('authoring-package.json',json.dumps(manifest,indent=2))
+    return target
+
+def resume(source,destination=None):
+    source=Path(source)
+    if source.is_dir():return inspect(source)
+    if destination is None:raise ValueError('Choose a new folder for the authoring ZIP.')
+    target=Path(destination)
+    if target.exists():raise FileExistsError('Never overwrite an existing study.')
+    with zipfile.ZipFile(source) as z:
+        entries=z.infolist()
+        if len(entries)>1000 or sum(i.file_size for i in entries)>64*1024*1024:raise ValueError('Authoring package is too large.')
+        names=[i.filename for i in entries]
+        if len(set(names))!=len(names) or 'authoring-package.json' not in names or 'authoring.json' not in names:raise ValueError('A complete authoring package is required; data archives are not restored.')
+        for i in entries:
+            p=Path(i.filename)
+            if p.is_absolute() or '..' in p.parts or '\\' in i.filename or stat.S_ISLNK(i.external_attr>>16):raise ValueError('Unsafe ZIP member.')
+        manifest=json.loads(z.read('authoring-package.json'))
+        if manifest.get('kind')!='greedyq-authoring-package' or set(names)!=set(manifest['files'])|{'authoring-package.json'}:raise ValueError('Authoring manifest mismatch.')
+        for name,digest in manifest['files'].items():
+            if hashlib.sha256(z.read(name)).hexdigest()!=digest:raise ValueError('Authoring source changed in transit.')
+        target.mkdir(parents=True)
+        for name in manifest['files']:
+            p=target/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(z.read(name))
+    return inspect(target)
+
+def fork(folder,destination,new_id):
+    if not re.fullmatch(r'[a-z][a-z0-9_]{1,63}',new_id):raise ValueError('Use a distinct new study ID.')
+    root=Path(folder);target=Path(destination)
+    if target.exists():raise FileExistsError('Never overwrite the original study.')
+    state=json.loads((root/'authoring.json').read_text())
+    if new_id==state['study_id']:raise ValueError('A fork needs its own study ID.')
+    target.mkdir(parents=True)
+    for p in source_files(root):
+        rel=p.relative_to(root);q=target/rel;q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,q)
+    state.update(study_id=new_id,origin={'mode':'fork','study_id':state['study_id']},phase='review',approvals={},next_question='What would you like to change in this independent copy?');write(target/'authoring.json',state)
+    design=target/'study.design.json'
+    if design.is_file():
+        c=json.loads(design.read_text());c['study_id']=new_id;c['fielding_approval']=False;write(design,c)
+    settings=target/'collection.json'
+    if settings.is_file():
+        c=json.loads(settings.read_text());c['mode']='test';c['study_version']='draft-1';c['approvals']={k:False for k in c['approvals']};write(settings,c)
+    descriptor=target/'greedyq.study.json'
+    if descriptor.is_file():
+        c=json.loads(descriptor.read_text());c.update(study_id=new_id,study_version='draft-1',origin={'mode':'fork','study_id':state['origin']['study_id']});write(descriptor,c)
+    config=target/'greedyq.yml'
+    if config.is_file():
+        text=config.read_text();text=re.sub(r'(?m)^(  id:)\s*.*$',r'\1 '+new_id,text,count=1);text=re.sub(r'(?m)^(  version:)\s*.*$',r'\1 draft-1',text,count=1);config.write_text(text)
+    for name in PRIVATE_NAMES:
+        p=target/'.greedyq'/name
+        if not p.is_file():continue
+        try:c=json.loads(p.read_text())
+        except ValueError:continue
+        if 'study_id' in c:c['study_id']=new_id
+        if 'study_version' in c:c['study_version']='draft-1'
+        for gate in c.get('gates',{}):c['gates'][gate]={'status':'pending'}
+        write(p,c)
+    manifest=target/'.greedyq/generation-manifest.json'
+    if manifest.is_file():
+        c=json.loads(manifest.read_text());c['artifacts']=[entry for entry in c.get('artifacts',[]) if (target/entry['path']).is_file()]
+        for entry in c['artifacts']:
+            entry['sha256']=hashlib.sha256((target/entry['path']).read_bytes()).hexdigest();entry['status']='generated'
+        write(manifest,c)
+    return target
+
+def upgrade(folder,approved=False,destination=None):
+    if not approved:raise ValueError('Researcher approval is required; the pinned version remains unchanged.')
+    original=Path(folder);root=Path(destination) if destination else original.with_name(original.name+'-upgraded-'+release())
+    if root.exists():raise FileExistsError('Choose a new upgrade folder; preserve the original.')
+    root.mkdir(parents=True)
+    for p in source_files(original):
+        target=root/p.relative_to(original);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,target)
+    s=json.loads((root/'authoring.json').read_text());s['previous_version']=s['greedyq_version'];s['greedyq_version']=release();s['approvals']={};s['phase']='review';write(root/'authoring.json',s)
+    stamp_version(root/'survey.qmd')
+    settings=root/'collection.json'
+    if settings.is_file():
+        c=json.loads(settings.read_text());c['mode']='test';c['approvals']={k:False for k in c['approvals']};write(settings,c)
+    record_lock(root)
+    result=inspect(root);result['output_path']=str(root);return result
+
+
+def preflight(folder,stage='package'):
+    from .cbc import collection_model
+    from .cbc_flow import import_questions
+    root=Path(folder);settings=json.loads((root/'collection.json').read_text())
+    original=copy.deepcopy(settings);settings['mode']='test'
+    if (root/'survey.qmd').is_file():
+        if 'flow' in settings:raise ValueError('Use ordinary survey.qmd or an explicit flow, not both.')
+        settings['flow']=import_questions(root/'survey.qmd')
+    model=collection_model(root,settings)
+    gates=original.get('approvals',{});blockers=[k for k in ['instrument','consent','data_plan','deployment','fielding'] if gates.get(k) is not True]
+    if original.get('mode')!='production':blockers.append('production_mode')
+    if model['consent']['researcher_contact'].lower().endswith(('.invalid','@example.com','@example.org','@example.net')):blockers.append('real_researcher_contact')
+    if stage=='fielding' and not blockers:
+        # Re-run the production guard without changing any source file.
+        production=copy.deepcopy(original)
+        if 'flow' in settings:production['flow']=settings['flow']
+        collection_model(root,production)
+    return {'status':'failed' if stage=='fielding' and blockers else 'passed','stage':stage,'study_id':model['study_id'],'module_contract':model.get('module_contract'),'technical_package_valid':True,'fielding_ready':not blockers,'blocking_approvals':blockers,'live_deployment_verified_by_this_check':False,'paid_participant_test_verified':False,'summary':'Package checks passed. Review unresolved approvals before real collection.' if blockers else 'Local fielding approvals recorded. Verify this exact deployed instrument before recruitment.'}
+```
+
+### FILE: `web/greedyq-cbc-preview-session.js`
+
+SHA-256: `9d71839761c706f7a2ccc4cf7633269360ca96dfa02fa1b89802763c6a59afa7`
+
+```javascript
+/* Local-only module preview transport. Never used by the Supabase respondent page. */
+(function(scope){
+'use strict';
+function transport(model,storage,key){
+ const C=scope.greedyQCBC;let data;try{data=JSON.parse(storage.getItem(key));}catch{}
+ if(!data||data.hash!==model.cbc.design_sha256)data={hash:model.cbc.design_sha256,state:{phase:'consent',revision:0,lifecycle:'created'}};
+ const persist=()=>storage.setItem(key,JSON.stringify(data));
+ function envelope(){const st=data.state,b=model.cbc.blocks.find(b=>b.id===st.block_id);return{runtime_contract:'cbc-1',module_contract:model.module_contract,study_id:model.study_id,design_sha256:model.cbc.design_sha256,state:JSON.parse(JSON.stringify(st)),is_test:true,source:'direct',consent:model.consent,title:model.title,organization:model.organization,language:model.language,has_before:!!model.flow?.before.length,model:st.phase==='tasks'&&b?{...model.cbc,blocks:[b]}:null,form_page:model.flow?.[st.phase]?.[st.form_index],form_answers:st.survey_answers||{},terminal_at:data.terminal_at||null};}
+ return async(_,options)=>{try{const name=_.split('/').pop(),p=JSON.parse(options.body),s=data.state;let changed=true;
+  if(name==='greedyq_cbc_start'||name==='greedyq_cbc_resume'||name==='greedyq_cbc_ack')changed=false;
+  else if(name==='greedyq_cbc_withdraw'){data.state={phase:'withdrawn',lifecycle:'withdrawn',revision:s.revision+1,withdrawn:true};data.terminal_at||=new Date().toISOString();}
+  else if(name==='greedyq_cbc_consent'){
+   if(s.phase!=='consent')throw Error('Consent already decided');
+   if(p.p_decision==='refused'){s.phase='consent_refused';s.lifecycle='consent_refused';}
+   else{data.state={...C.freshSession(model.cbc),revision:1,lifecycle:'in_progress',phase:model.flow?.before.length?'before':'tasks',form_index:0,survey_answers:{}};if(data.state.phase==='tasks')data.state.visited=[data.state.task_order[0]];}
+  }else{
+   if(s.last_request_id===p.p_request_id)return {ok:true,status:200,json:async()=>envelope()};
+   if(p.p_revision!==s.revision)throw Error('Revision conflict');
+   if(name==='greedyq_cbc_form_step'){
+    const page=model.flow?.[s.phase]?.[s.form_index];if(!page||page.id!==p.p_page_id)throw Error('Wrong question page');Object.assign(s.survey_answers,p.p_answers);
+    if(p.p_direction==='previous'){if(s.form_index)s.form_index--;else if(s.phase==='after'){s.phase='tasks';s.index=s.task_order.length-1;}else throw Error('First page');}
+    else if(s.form_index+1<model.flow[s.phase].length)s.form_index++;
+    else if(s.phase==='before'){s.phase='tasks';s.index=0;if(!s.visited.includes(s.task_order[0]))s.visited.push(s.task_order[0]);}else{s.phase='completed';s.completed=true;s.lifecycle='completed';}
+   }else if(name==='greedyq_cbc_step'){
+    if(s.phase!=='tasks'||p.p_task_id!==s.task_order[s.index])throw Error('Wrong CBC task');if(p.p_choice!==null)s.answers[p.p_task_id]=p.p_choice;
+    if(p.p_direction==='previous'){if(s.index)s.index--;else if(model.flow?.before.length){s.phase='before';s.form_index=model.flow.before.length-1;}else throw Error('First task');}
+    else{if(!s.answers[p.p_task_id])throw Error('Choose an alternative');if(s.index+1<s.task_order.length)s.index++;else if(model.flow?.after.length){s.phase='after';s.form_index=0;}else{s.phase='completed';s.completed=true;s.lifecycle='completed';}}
+    if(s.phase==='tasks'&&!s.visited.includes(s.task_order[s.index]))s.visited.push(s.task_order[s.index]);
+   }else throw Error('Unknown preview operation');s.revision++;s.last_request_id=p.p_request_id;
+  }
+  if(['completed','consent_refused','withdrawn'].includes(data.state.phase))data.terminal_at||=new Date().toISOString();if(changed)persist();return{ok:true,status:200,json:async()=>envelope()};
+ }catch(error){return{ok:false,status:400,json:async()=>({message:error.message})};}};
+}
+scope.greedyQCBCPreview={transport};
+})(globalThis);
+```
+
+### FILE: `templates/browser/cbc-module-preview.html`
+
+SHA-256: `537d33584f5dcb5e394e96b30c9b84002cc0c9569cff1d47fce599a6b49d9c8c`
+
+```html
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>greedyQ module preview</title><style>__STYLES__
+body{margin:0;background:#f4f6fa}header{padding:16px;background:white}.preview-grid{display:grid;grid-template-columns:minmax(700px,1fr) 390px;gap:20px;padding:20px;align-items:start}.preview-pane{min-width:0;background:white;border:1px solid #ccd2dc;border-radius:12px;overflow:hidden}.screen{height:780px;overflow:auto}.mobile-pane{width:390px;max-width:100%;justify-self:center}.desktop-pane .participant{min-width:700px}dialog{max-width:760px;width:85%;max-height:80vh;overflow:auto}dialog::backdrop{background:#0006}@media(max-width:1150px){.preview-grid{grid-template-columns:1fr}.desktop-pane{overflow:auto}}.pane-title{padding:12px;font-weight:bold}</style></head><body><header><strong>greedyQ · Survey with CBC module</strong><p>Local virtual respondents only. No responses are sent to Vercel or Supabase.</p><button id="structure">View structure</button> <button id="reset">Start new virtual respondents</button></header><div class="preview-grid"><section class="preview-pane desktop-pane"><div class="pane-title">Computer</div><div class="screen"><div id="desktop" class="participant" tabindex="-1"></div></div></section><section class="preview-pane mobile-pane"><div class="pane-title">Mobile · 390px</div><div class="screen"><div id="mobile" class="participant" tabindex="-1"></div></div></section></div><dialog id="structure-dialog"><button id="close-structure">Close</button><h2>Survey structure</h2><ol id="structure-list"></ol></dialog><script>__LIBRARIES__</script><script id="study-model" type="application/json">__MODEL__</script><script>
+const model=JSON.parse(document.getElementById('study-model').textContent),controllers={};
+for(const mode of ['desktop','mobile']){const root=document.getElementById(mode),key='cbc-module-preview:'+model.study_id+':'+model.cbc.design_sha256+':'+mode,storage={getItem:k=>localStorage.getItem(key+':'+k),setItem:(k,v)=>localStorage.setItem(key+':'+k,v),removeItem:k=>localStorage.removeItem(key+':'+k)};greedyQCBCCollection.mount(root,{model:{...model,design_sha256:model.cbc.design_sha256},url:'https://local-preview.invalid',anonKey:'local-only',storage,deviceMode:mode,fetcher:greedyQCBCPreview.transport(model,storage,'state')}).then(c=>controllers[mode]=c);}
+const list=document.getElementById('structure-list');for(const title of ['Participant information and consent',...(model.flow?.before||[]).map(p=>p.title),'CBC module · '+model.cbc.tasks_per_block+' tasks per participant',...(model.flow?.after||[]).map(p=>p.title),'Completion']){const li=document.createElement('li');li.textContent=title;list.append(li);}document.getElementById('structure').onclick=()=>document.getElementById('structure-dialog').showModal();document.getElementById('close-structure').onclick=()=>document.getElementById('structure-dialog').close();document.getElementById('reset').onclick=()=>{const prefix='cbc-module-preview:'+model.study_id+':'+model.cbc.design_sha256;for(const k of Object.keys(localStorage))if(k.startsWith(prefix))localStorage.removeItem(k);location.reload();};
+</script></body></html>
+```
+
+### FILE: `templates/supabase/010_cbc_module.sql`
+
+SHA-256: `7c65289e440e5c25745ee7e02a1dbea4cf89277ddd1d978833360f9fd4cdcf78`
+
+```sql
+-- CBC as one module in a normal linear survey. Preserve every applied migration.
+-- The dedicated before/after arrays are generated from ordinary QMD pages;
+-- researchers insert sd_cbc, rather than authoring a second survey.
+alter function public.greedyq_cbc_resume(uuid,text) rename to gq_cbc_resume_v1;
+revoke all on function public.gq_cbc_resume_v1(uuid,text) from public,anon,authenticated;
+create function public.greedyq_cbc_resume(p_session_id uuid,p_access_token text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare r jsonb;m jsonb;st jsonb;pages jsonb;phase text;
+begin
+ r:=public.gq_cbc_resume_v1(p_session_id,p_access_token);m:=public.gq_cbc_context(p_session_id,p_access_token);if m ? 'flow' then r:=r||jsonb_build_object('module_contract','cbc-module-1');end if;st:=r->'state';phase:=st->>'phase';r:=r||jsonb_build_object('has_before',jsonb_array_length(coalesce(m->'flow'->'before','[]'))>0);
+ if phase in ('before','after') then
+  pages:=m->'flow'->phase;
+  r:=r||jsonb_build_object('model',null,'form_page',pages->((st->>'form_index')::int),'form_answers',coalesce(st->'survey_answers','{}'::jsonb));
+ end if;
+ return r;
+end;$$;
+revoke all on function public.greedyq_cbc_resume(uuid,text) from public;
+grant execute on function public.greedyq_cbc_resume(uuid,text) to anon,authenticated;
+
+alter function public.greedyq_cbc_consent(uuid,text,text) rename to gq_cbc_consent_v1;
+revoke all on function public.gq_cbc_consent_v1(uuid,text,text) from public,anon,authenticated;
+create function public.greedyq_cbc_consent(p_session_id uuid,p_access_token text,p_decision text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb;first_accept boolean;st jsonb;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);
+ select lifecycle_state='created' into first_accept from public.gq_sessions where id=p_session_id;
+ perform public.gq_cbc_consent_v1(p_session_id,p_access_token,p_decision);
+ if first_accept and p_decision='accepted' and jsonb_array_length(coalesce(m->'flow'->'before','[]'))>0 then
+  select browser_state into st from public.gq_sessions where id=p_session_id;
+  -- No unvisited stimulus exposure is committed before the ordinary pages.
+  delete from public.gq_answers where session_id=p_session_id and question_id like 'cbc:%';
+  st:=st||jsonb_build_object('phase','before','form_index',0,'survey_answers','{}'::jsonb,'visited','[]'::jsonb);
+  update public.gq_sessions set browser_state=st,current_page=m->'flow'->'before'->0->>'id' where id=p_session_id;
+ end if;
+ return public.greedyq_cbc_resume(p_session_id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_consent(uuid,text,text) from public;
+grant execute on function public.greedyq_cbc_consent(uuid,text,text) to anon,authenticated;
+
+create function public.gq_cbc_question_visible(rule jsonb,answers jsonb) returns boolean
+language plpgsql immutable set search_path=public,pg_temp as $$
+declare item jsonb;v jsonb;
+begin
+ if rule is null or rule='null'::jsonb then return true;end if;
+ if rule ? 'all' then for item in select value from jsonb_array_elements(rule->'all') loop if not public.gq_cbc_question_visible(item,answers) then return false;end if;end loop;return true;end if;
+ if rule ? 'any' then for item in select value from jsonb_array_elements(rule->'any') loop if public.gq_cbc_question_visible(item,answers) then return true;end if;end loop;return false;end if;
+ if rule ? 'not' then return not public.gq_cbc_question_visible(rule->'not',answers);end if;
+ v:=answers->(rule->>'field');
+ if rule ? 'answered' then return (v is not null and v not in ('null'::jsonb,'""'::jsonb,'[]'::jsonb,'{}'::jsonb))=(rule->>'answered')::boolean;end if;
+ if rule ? 'length' then
+  if jsonb_typeof(v) not in ('string','array') then return false;end if;
+  return public.gq_cbc_question_visible((rule->'length')||jsonb_build_object('field','length_value'),jsonb_build_object('length_value',case when jsonb_typeof(v)='array' then jsonb_array_length(v) else length(v#>>'{}') end));
+ end if;
+ if rule ? 'equals' then return case when jsonb_typeof(v) in ('array','object') then false else coalesce(v,'null'::jsonb)=rule->'equals' end;end if;
+ if rule ? 'not_equals' then return v is not null and v<>'null'::jsonb and rule->'not_equals'<>'null'::jsonb and v is distinct from rule->'not_equals';end if;
+ if rule ? 'in' then return coalesce(rule->'in' @> jsonb_build_array(v),false);end if;
+ if rule ? 'contains' then return coalesce(v @> jsonb_build_array(rule->'contains'),false);end if;
+ if jsonb_typeof(v)='number' then
+  if rule ? 'gte' then return v::numeric >= (rule->>'gte')::numeric;end if;
+  if rule ? 'lte' then return v::numeric <= (rule->>'lte')::numeric;end if;
+  if rule ? 'gt' then return v::numeric > (rule->>'gt')::numeric;end if;
+  if rule ? 'lt' then return v::numeric < (rule->>'lt')::numeric;end if;
+ end if;
+ return false;
+end;$$;
+revoke all on function public.gq_cbc_question_visible(jsonb,jsonb) from public,anon,authenticated;
+
+-- Validate ordinary controls without executing survey-authored code.
+create function public.gq_cbc_check_answer(q jsonb,v jsonb,enforce_required boolean) returns void
+language plpgsql set search_path=public,pg_temp as $$
+declare t text:=case when q->>'type'='custom' then q->>'base_type' else q->>'type' end;missing boolean;item jsonb;r jsonb;pair record;n numeric;total numeric:=0;
+begin
+ missing:=v is null or v='null'::jsonb or v='""'::jsonb or v='[]'::jsonb or v='{}'::jsonb;
+ if t in ('audio','video') then return;end if;
+ if missing then if enforce_required and coalesce((q->>'required')::boolean,false) then raise exception 'required question: %',q->>'id';end if;return;end if;
+ if pg_column_size(v)>65536 then raise exception 'answer too large';end if;
+ if t in ('text','textarea','date') and jsonb_typeof(v)<>'string' then raise exception 'text answer required';end if;
+ if t='slider_numeric' and jsonb_typeof(v)='array' then
+  if jsonb_array_length(v)<>2 then raise exception 'two slider endpoints required';end if;
+  for item in select value from jsonb_array_elements(v) loop perform public.gq_cbc_check_answer(q||jsonb_build_object('type','numeric'),item,enforce_required);end loop;
+  if (v->>0)::numeric>(v->>1)::numeric then raise exception 'ordered slider range required';end if;return;
+ end if;
+ if t in ('numeric','nps','slider_numeric','timing') then
+  if jsonb_typeof(v)<>'number' then raise exception 'numeric answer required';end if;n:=v::numeric;
+  if (q ? 'min' and n<(q->>'min')::numeric) or (q ? 'max' and n>(q->>'max')::numeric) or (t='nps' and (n<0 or n>10 or trunc(n)<>n)) or (t='timing' and n<0) then raise exception 'numeric bound violation';end if;
+ end if;
+ if t in ('mc','mc_buttons','mc_image','select','slider') and not exists(select 1 from jsonb_array_elements(q->'options') a where a->'value'=v) then raise exception 'unknown option';end if;
+ if t in ('mc_multiple','mc_multiple_buttons','mc_multiple_image') then
+  if jsonb_typeof(v)<>'array' or jsonb_array_length(v)<>(select count(distinct value) from jsonb_array_elements(v)) then raise exception 'multiple choice array required';end if;
+  for item in select value from jsonb_array_elements(v) loop if not exists(select 1 from jsonb_array_elements(q->'options') a where a->'value'=item) then raise exception 'unknown option';end if;end loop;
+ end if;
+ if t in ('matrix','matrix_multiple') then
+  if jsonb_typeof(v)<>'object' then raise exception 'matrix object required';end if;
+  for pair in select * from jsonb_each(v) loop
+   if not exists(select 1 from jsonb_array_elements(q->'rows') a where a->>'value'=pair.key) then raise exception 'unknown matrix row';end if;
+   perform public.gq_cbc_check_answer(jsonb_build_object('id',q->>'id','type',case when t='matrix' then 'mc' else 'mc_multiple' end,'options',q->'options','required',true),pair.value,true);
+  end loop;
+  if enforce_required and coalesce((q->>'required')::boolean,false) and exists(select 1 from jsonb_array_elements(q->'rows') a where not v ? (a->>'value')) then raise exception 'matrix row required';end if;
+ end if;
+ if t in ('constant_sum','rank_order','side_by_side','pick_group_rank') then
+  if jsonb_typeof(v)<>'object' then raise exception 'structured answer required';end if;
+  if t in ('constant_sum','rank_order') then
+   for pair in select * from jsonb_each(v) loop
+    if not exists(select 1 from jsonb_array_elements(q->'options') a where a->>'value'=pair.key) or jsonb_typeof(pair.value)<>'number' or pair.value::numeric<0 then raise exception 'invalid item allocation';end if;
+    total:=total+pair.value::numeric;
+   end loop;
+   if t='constant_sum' and enforce_required and total<>coalesce((q->>'total')::numeric,100) then raise exception 'constant sum mismatch';end if;
+   if t='rank_order' and enforce_required and coalesce((q->>'required')::boolean,false) and (select count(*) from jsonb_each(v))<>jsonb_array_length(q->'options') then raise exception 'rank every item';end if;
+   if t='rank_order' and ((select count(distinct value) from jsonb_each(v))<>(select count(*) from jsonb_each(v)) or exists(select 1 from jsonb_each(v) where value::numeric<1 or trunc(value::numeric)<>value::numeric or value::numeric>jsonb_array_length(q->'options'))) then raise exception 'invalid ranking';end if;
+  end if;
+ end if;
+ if t in ('daterange','drill_down') and jsonb_typeof(v)<>'array' then raise exception 'ordered answer required';end if;
+
+ if t='side_by_side' then
+  for pair in select * from jsonb_each(v) loop
+   if not exists(select 1 from jsonb_array_elements(q->'columns') a where a->>'value'=pair.key) then raise exception 'unknown rating column';end if;
+   perform public.gq_cbc_check_answer(jsonb_build_object('id',q->>'id','type','matrix','options',q->'options','rows',q->'rows','required',q->'required'),pair.value,enforce_required);
+  end loop;
+  if enforce_required and coalesce((q->>'required')::boolean,false) and (select count(*) from jsonb_each(v))<>jsonb_array_length(q->'columns') then raise exception 'complete all rating columns';end if;
+ end if;
+ if t='pick_group_rank' then
+  for pair in select * from jsonb_each(v) loop
+   if not exists(select 1 from jsonb_array_elements(q->'options') a where a->>'value'=pair.key) or not exists(select 1 from jsonb_array_elements(q->'groups') a where a->'value'=pair.value->'group') then raise exception 'unknown group item';end if;
+   if pair.value->>'rank' is not null and (jsonb_typeof(pair.value->'rank')<>'number' or (pair.value->>'rank')::numeric<1 or trunc((pair.value->>'rank')::numeric)<>(pair.value->>'rank')::numeric) then raise exception 'invalid group rank';end if;
+  end loop;
+  if enforce_required and coalesce((q->>'required')::boolean,false) and (select count(*) from jsonb_each(v))<>jsonb_array_length(q->'options') then raise exception 'place every group item';end if;
+  if exists(select 1 from jsonb_each(v) where value->>'rank' is not null group by value->'group',value->'rank' having count(*)>1) then raise exception 'duplicate group rank';end if;
+ end if;
+ if t='drill_down' then
+  if not exists(select 1 from jsonb_array_elements(q->'options') a where (string_to_array(a->>'label',coalesce(q->>'path_separator',' > ')))[1:jsonb_array_length(v)]=array(select jsonb_array_elements_text(v))) then raise exception 'invalid drill down path';end if;
+  if enforce_required and coalesce((q->>'required')::boolean,false) and not exists(select 1 from jsonb_array_elements(q->'options') a where to_jsonb(string_to_array(a->>'label',coalesce(q->>'path_separator',' > ')))=v) then raise exception 'complete drill down path';end if;
+ end if;
+ if t='date' then perform (v#>>'{}')::date;end if;
+ if t='date' and (v#>>'{}') !~ '^\d{4}-\d{2}-\d{2}$' then raise exception 'ISO date required';end if;
+ if t='daterange' then
+  perform (v->>0)::date;perform (v->>1)::date;
+  if jsonb_array_length(v)<>2 or (v->>0) !~ '^\d{4}-\d{2}-\d{2}$' or (v->>1) !~ '^\d{4}-\d{2}-\d{2}$' or (v->>0)>(v->>1) then raise exception 'ordered ISO date range required';end if;
+ end if;
+
+end;$$;
+revoke all on function public.gq_cbc_check_answer(jsonb,jsonb,boolean) from public,anon,authenticated;
+
+create function public.greedyq_cbc_form_step(p_session_id uuid,p_access_token text,p_page_id text,p_answers jsonb,p_direction text,p_revision integer,p_request_id uuid) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb;s public.gq_sessions;st jsonb;phase text;idx integer;pages jsonb;page jsonb;q jsonb;answers jsonb;pair record;tid text;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);select * into s from public.gq_sessions where id=p_session_id;st:=s.browser_state;phase:=st->>'phase';
+ if st->>'last_request_id'=p_request_id::text then return public.greedyq_cbc_resume(s.id,p_access_token);end if;
+ if s.lifecycle_state<>'in_progress' or phase not in ('before','after') or p_revision is distinct from (st->>'revision')::integer or p_request_id is null or p_direction not in ('next','previous') or p_direction is null then raise exception 'invalid form step';end if;
+ pages:=m->'flow'->phase;idx:=(st->>'form_index')::integer;page:=pages->idx;
+ if p_page_id is distinct from page->>'id' or jsonb_typeof(p_answers)<>'object' or p_answers is null then raise exception 'form page mismatch';end if;
+ for pair in select * from jsonb_each(p_answers) loop
+  if not exists(select 1 from jsonb_array_elements(page->'questions') element where element.value->>'id'=pair.key) then raise exception 'unknown question';end if;
+ end loop;
+ answers:=coalesce(st->'survey_answers','{}'::jsonb)||p_answers;
+ for q in select value from jsonb_array_elements(page->'questions') loop
+  if public.gq_cbc_question_visible(q->'show_if',answers) then
+   perform public.gq_cbc_check_answer(q,p_answers->(q->>'id'),p_direction='next');
+   if p_answers ? (q->>'id') then
+    insert into public.gq_answers(session_id,question_id,value) values(s.id,q->>'id',p_answers->(q->>'id')) on conflict(session_id,question_id) do update set value=excluded.value,answered_at=now();
+   else answers:=answers-(q->>'id');delete from public.gq_answers where session_id=s.id and question_id=q->>'id';end if;
+  else answers:=answers-(q->>'id');delete from public.gq_answers where session_id=s.id and question_id=q->>'id';end if;
+ end loop;
+ if p_direction='next' then
+  for q in select value from jsonb_array_elements(coalesce(page->'checks','[]'::jsonb)) loop
+   if public.gq_cbc_question_visible(q->'when',answers) then raise exception '%',q->>'message';end if;
+  end loop;
+ end if;
+ st:=st||jsonb_build_object('survey_answers',answers,'revision',p_revision+1,'last_request_id',p_request_id);
+ if p_direction='previous' then
+  if idx>0 then idx:=idx-1;
+  elsif phase='after' then phase:='tasks';st:=st||jsonb_build_object('index',jsonb_array_length(st->'task_order')-1);
+  else raise exception 'first survey page';end if;
+ elsif idx+1<jsonb_array_length(pages) then idx:=idx+1;
+ elsif phase='before' then
+  phase:='tasks';tid:=st->'task_order'->>0;st:=st||jsonb_build_object('index',0);if not st->'visited' ? tid then st:=jsonb_set(st,'{visited}',st->'visited'||jsonb_build_array(tid));end if;perform public.gq_cbc_present(s.id,m,st);
+ else phase:='completed';st:=st||jsonb_build_object('completed',true,'lifecycle','completed');end if;
+ st:=st||jsonb_build_object('phase',phase,'form_index',idx);
+ update public.gq_sessions set browser_state=st,current_page=case when phase='tasks' then 'cbc:'||(st->'task_order'->>((st->>'index')::int)) when phase='completed' then 'completed' else m->'flow'->phase->idx->>'id' end,lifecycle_state=st->>'lifecycle',updated_at=now() where id=s.id;
+ return public.greedyq_cbc_resume(s.id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_form_step(uuid,text,text,jsonb,text,integer,uuid) from public;
+grant execute on function public.greedyq_cbc_form_step(uuid,text,text,jsonb,text,integer,uuid) to anon,authenticated;
+
+create or replace function public.greedyq_cbc_step(p_session_id uuid,p_access_token text,p_task_id text,p_choice text,p_direction text,p_revision integer,p_request_id uuid) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb; s public.gq_sessions; st jsonb; v jsonb; idx integer; tid text; next_tid text; selected boolean;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);select * into s from public.gq_sessions where id=p_session_id;st:=s.browser_state;
+ if st->>'last_request_id'=p_request_id::text then return public.greedyq_cbc_resume(s.id,p_access_token);end if;
+ if s.lifecycle_state<>'in_progress' then raise exception 'session ended';end if;
+ if p_request_id is null or p_revision is distinct from (st->>'revision')::integer then raise exception 'CBC revision conflict';end if;
+ idx:=(st->>'index')::integer;tid:=st->'task_order'->>idx;
+ if p_task_id is distinct from tid or p_direction not in ('next','previous') or p_direction is null then raise exception 'invalid CBC step';end if;
+ select value into v from public.gq_answers where session_id=s.id and question_id='cbc:'||tid;
+ if v is null then raise exception 'task was not presented';end if;
+ if p_choice is not null then
+  if not exists(select 1 from jsonb_array_elements(v->'alternatives') a where a->>'id'=p_choice) then raise exception 'unknown alternative';end if;
+  v:=v||jsonb_build_object('choice',p_choice,'presented_at',coalesce((v->>'presented_at')::timestamptz,clock_timestamp()),'answered_at',clock_timestamp());
+  update public.gq_answers set value=v,answered_at=clock_timestamp() where session_id=s.id and question_id='cbc:'||tid;
+  st:=jsonb_set(st,array['answers',tid],to_jsonb(p_choice));
+ end if;
+ if p_direction='next' and v->>'choice' is null then raise exception 'choice required';end if;
+ if p_direction='previous' then if idx=0 then
+   if jsonb_array_length(coalesce(m->'flow'->'before','[]'))=0 then raise exception 'first task';end if;
+   st:=st||jsonb_build_object('phase','before','form_index',jsonb_array_length(m->'flow'->'before')-1);
+  else idx:=idx-1;end if;
+ elsif idx+1=jsonb_array_length(st->'task_order') then
+  if exists(select 1 from jsonb_array_elements_text(st->'task_order') t where not exists(select 1 from public.gq_answers a where a.session_id=s.id and a.question_id='cbc:'||t and a.value->>'choice' is not null)) then raise exception 'unanswered task';end if;
+  if jsonb_array_length(coalesce(m->'flow'->'after','[]'))>0 then st:=st||jsonb_build_object('phase','after','form_index',0);
+  else st:=st||'{"completed":true,"phase":"completed","lifecycle":"completed"}'::jsonb;end if;
+ else idx:=idx+1;end if;
+ st:=st||jsonb_build_object('index',idx,'revision',p_revision+1,'last_request_id',p_request_id);
+ if st->>'phase'='tasks' then
+  next_tid:=st->'task_order'->>idx;
+  if not st->'visited' ? next_tid then st:=jsonb_set(st,'{visited}',st->'visited'||jsonb_build_array(next_tid));end if;
+  perform public.gq_cbc_present(s.id,m,st);
+ end if;
+ update public.gq_sessions set browser_state=st,current_page=case when st->>'phase'='completed' then 'completed' when st->>'phase' in ('before','after') then m->'flow'->(st->>'phase')->((st->>'form_index')::int)->>'id' else 'cbc:'||next_tid end,lifecycle_state=st->>'lifecycle',updated_at=now() where id=s.id;
+ return public.greedyq_cbc_resume(s.id,p_access_token);
+end;$$;
 ```
 
 ### FILE: `GUIDE-ACCESS.md`
@@ -901,7 +1651,7 @@ Before the first study question, verify that this is an installed desktop AI app
 
 ### FILE: `web/greedyq-cbc-collection.js`
 
-SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
+SHA-256: `ffbefe34e30dfd06e99b829de941583c09babff5ca39889ec65e955067c7d720`
 
 ```javascript
 /* Fixed CBC collection protocol. No service key or survey-authored code. */
@@ -915,9 +1665,9 @@ SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
  'Participant information and consent':['연구 안내와 참여 동의','研究说明与参与同意','研究說明與參與同意'],'I agree to participate':['참여에 동의합니다','我同意参与','我同意參與'],'I do not agree':['참여하지 않겠습니다','我不同意参与','我不同意參與'],'Withdraw participation':['참여 철회','退出研究','退出研究'],'Your answers have been removed.':['응답을 삭제했습니다.','已删除您的回答。','已刪除您的回答。'],'Participation declined':['참여하지 않으셨습니다','您未同意参与','您未同意參與'],'Thank you. Your answers have been saved.':['감사합니다. 응답을 저장했습니다.','感谢您，回答已保存。','感謝您，回答已儲存。'],'Test response — not real study data.':['시험 응답입니다. 실제 연구 응답으로 기록하지 않습니다.','这是测试回答，不计入真实研究数据。','這是測試回答，不計入真實研究資料。'],'Return to Prolific':['Prolific으로 돌아가기','返回 Prolific','返回 Prolific'],'Start another test':['새 시험 시작','重新测试','重新測試'],
  'Next':['다음','下一题','下一題'],'Previous':['이전','上一题','上一題'],'Submit preview':['응답 제출','提交回答','提交回答'],'Task':['과제','题目','題目'],'Which option would you choose?':['어느 대안을 선택하시겠습니까?','您会选择哪一个？','您會選擇哪一個？'],'Choose one option before continuing.':['대안 하나를 선택한 뒤 다음으로 이동해 주세요.','请选择一个选项后继续。','請選擇一個選項後繼續。'],'Choose':['선택','选择','選擇'],'Option':['대안','选项','選項'],'Attribute':['속성','属性','屬性']};
  function messages(language){const i=({ko:0,'zh-CN':1,'zh-TW':2})[language];return s=>translations[s]?.[i]??(s==='Submit preview'?'Submit answers':s);}
- async function mount(root,{model,url,anonKey,search='',storage=scope.localStorage,fetcher=scope.fetch.bind(scope)}){
+ async function mount(root,{model,url,anonKey,search='',deviceMode=null,storage=scope.localStorage,fetcher=scope.fetch.bind(scope)}){
   if(!/^https:\/\//.test(url||'')||!anonKey)throw Error('Public connection required');
-  const t=messages(model.language),params=new URLSearchParams(search),previewToken=params.get('gq_preview'),key='greedyq-cbc-capability:'+JSON.stringify([model.study_id,model.design_sha256,previewToken]),mode=()=>innerWidth<=700?'mobile':'desktop';
+  const t=messages(model.language),params=new URLSearchParams(search),previewToken=params.get('gq_preview'),key='greedyq-cbc-capability:'+JSON.stringify([model.study_id,model.design_sha256,previewToken]),mode=()=>deviceMode||(innerWidth<=700?'mobile':'desktop');
   let credential;try{credential=JSON.parse(storage.getItem(key));}catch{}
   if(!credential?.id||!credential?.token){credential={id:crypto.randomUUID(),token:[...crypto.getRandomValues(new Uint8Array(32))].map(x=>x.toString(16).padStart(2,'0')).join('')};storage.setItem(key,JSON.stringify(credential));}
   const rpc=async(name,body={})=>{const response=await fetcher(url.replace(/\/$/,'')+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:anonKey,authorization:'Bearer '+anonKey,'content-type':'application/json'},body:JSON.stringify({p_session_id:credential.id,p_access_token:credential.token,...body})});if(!response.ok){const detail=await response.json().catch(()=>({})),error=Error('CBC request failed ('+response.status+')');if(detail.message==='This study is closed for archiving')error.kind='study_closed';if(/duplicate Prolific/.test(detail.message||''))error.kind='prolific_duplicate';if(detail.message==='invalid or expired preview grant')error.kind='preview_expired';throw error;}return response.status===204?null:response.json();};
@@ -930,18 +1680,36 @@ SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
   const errorBox=document.getElementById('collection-error'),note=document.getElementById('collection-note');
   const clearError=()=>{if(errorBox){errorBox.hidden=true;errorBox.textContent='';}};
   function report(){if(errorBox){errorBox.hidden=false;errorBox.textContent=t('Save failed. Check your connection and retry. Your last confirmed answer is preserved.');errorBox.scrollIntoView({block:'nearest'});}}
-  const acceptEnvelope=next=>{if(next.runtime_contract!=='cbc-1'||next.study_id!==model.study_id||next.design_sha256!==model.design_sha256)throw Error('CBC contract mismatch');envelope=next;};acceptEnvelope(envelope);
-  async function send(name,body){if(busy)return;busy=true;root.querySelectorAll('button,input').forEach(b=>b.disabled=true);clearError();try{acceptEnvelope(await rpc(name,body));pending=null;withdrawArmed=false;render();root.focus({preventScroll:true});root.scrollIntoView({block:'start'});}catch(e){report();root.querySelectorAll('button,input').forEach(b=>b.disabled=false);}finally{busy=false;}}
+  const acceptEnvelope=next=>{if((model.module_contract&&next.module_contract!==model.module_contract)||next.runtime_contract!=='cbc-1'||next.study_id!==model.study_id||next.design_sha256!==model.design_sha256)throw Error('CBC contract mismatch');envelope=next;};acceptEnvelope(envelope);
+  async function send(name,body,propagate=false){if(busy)return;busy=true;root.querySelectorAll('button,input,select,textarea').forEach(b=>b.disabled=true);clearError();try{acceptEnvelope(await rpc(name,body));pending=null;withdrawArmed=false;render();root.focus({preventScroll:true});const scroller=root.closest('.screen');if(scroller)scroller.scrollTo({top:0,left:0,behavior:'auto'});else root.scrollIntoView({block:'start'});}catch(e){report();root.querySelectorAll('button,input,select,textarea').forEach(b=>b.disabled=false);if(propagate)throw e;}finally{busy=false;}}
   function ending(phase){const text=phase==='withdrawn'?'Your answers have been removed.':phase==='consent_refused'?'Participation declined':'Thank you. Your answers have been saved.';root.innerHTML='<h2>'+escape(t(text))+'</h2>';const returnURL=model.runtime_policy.prolific?.returns?.[phase];if(returnURL){const a=document.createElement('a');a.textContent=t('Return to Prolific');a.href=returnURL;root.append(a);}if(phase==='completed')withdrawButton();if(envelope.is_test&&previewToken){const b=document.createElement('button');b.className='secondary';b.textContent=t('Start another test');b.onclick=()=>{storage.removeItem(key);location.reload();};root.append(b);}}
   function withdrawButton(){const b=document.createElement('button');b.className='secondary';b.style.marginTop='20px';b.textContent=t('Withdraw participation');b.onclick=()=>{if(busy)return;if(!withdrawArmed){withdrawArmed=true;b.textContent=model.language==='ko'?'응답을 지우고 철회하기':model.language==='zh-CN'?'删除回答并退出':model.language==='zh-TW'?'刪除回答並退出':'Confirm withdrawal and delete answers';return;}send('greedyq_cbc_withdraw',{});};root.append(b);}
+  function renderSurveyPage(){
+   const st=envelope.state,page=envelope.form_page;
+   if(!page)throw Error('Missing ordinary survey page');
+   root.innerHTML='<div class="cbc-survey-form"></div>';
+   const target=root.firstElementChild,answers=JSON.parse(JSON.stringify(envelope.form_answers||{}));
+   const local={page:page.id,answers,history:[],condition:'default',lifecycle:'active',visited:[page.id]};
+   const values=()=>Object.fromEntries(page.questions.filter(q=>Object.hasOwn(local.answers,q.id)).map(q=>[q.id,local.answers[q.id]]));
+   const previousAllowed=!(st.phase==='before'&&st.form_index===0)&&page.show_previous!==false&&page.previous_mode!=='hide';
+   let controller;
+   const wire=()=>{if(!target.isConnected||!previousAllowed)return;const actions=target.querySelector('.gq-actions');if(!actions||actions.querySelector('[data-form-back]'))return;const b=document.createElement('button');b.dataset.formBack='';b.textContent=t('Previous');b.disabled=page.previous_mode==='disable';b.onclick=()=>{if(!pending)pending={p_page_id:page.id,p_answers:values(),p_direction:'previous',p_revision:st.revision,p_request_id:crypto.randomUUID()};send('greedyq_cbc_form_step',pending);};actions.prepend(b);};
+   const backend={load:()=>local,save:(_,state)=>{if(!target.isConnected)return;Object.assign(local,state);if(state.page==='__cbc_continue'){
+     if(!pending)pending={p_page_id:page.id,p_answers:values(),p_direction:'next',p_revision:st.revision,p_request_id:crypto.randomUUID()};
+     return send('greedyq_cbc_form_step',pending,true);
+    }requestAnimationFrame(wire);},clear:()=>{throw Error('Use the CBC withdrawal action');}};
+   controller=scope.greedyQ.mountRespondent(target,{study_id:model.study_id,title:model.title,organization:model.organization,language:model.language,start_page:page.id,conditions:['default'],messages:{previous:t('Previous'),next:t('Next'),required:scope.greedyQ.translate(model.language||'en','Please answer the required questions before continuing.'),...(page.messages||{})},pages:[{...page,previous_mode:'hide',next:'__cbc_continue'},{id:'__cbc_continue',title:'',questions:[],terminal:'completed'}]}, {backend,sessionId:credential.id,mode:mode()});wire();withdrawButton();
+  }
   function render(required=false){const st=envelope.state,phase=st.phase||st.lifecycle;document.getElementById('cbc-shell')?.classList.toggle('mobile',mode()==='mobile');document.getElementById('cbc-shell')?.classList.toggle('desktop',mode()==='desktop');if(note)note.textContent=envelope.is_test?t('Test response — not real study data.'):'';
    if(['withdrawn','completed','consent_refused'].includes(phase)){ending(phase);return;}
+   if(['before','after'].includes(phase)){renderSurveyPage();return;}
    if(phase==='consent'){root.innerHTML='<h2>'+escape(t('Participant information and consent'))+'</h2><div class="consent-copy"></div><p class="researcher-contact"></p><div class="actions"><button data-consent="refused" class="secondary">'+escape(t('I do not agree'))+'</button><button data-consent="accepted">'+escape(t('I agree to participate'))+'</button></div>';root.querySelector('.consent-copy').textContent=envelope.consent.text;root.querySelector('.researcher-contact').textContent=envelope.consent.researcher_contact;root.querySelectorAll('[data-consent]').forEach(b=>b.onclick=()=>send('greedyq_cbc_consent',{p_decision:b.dataset.consent}));return;}
    if(phase!=='tasks'||!envelope.model||!C.validateSession(envelope.model,st))throw Error('Invalid CBC state');
    root.innerHTML=C.taskHTML(envelope.model,st,mode(),t,required);const tid=st.task_order[st.index];
    root.querySelectorAll('input[type=radio]').forEach(input=>input.onchange=()=>{root.querySelector('.question-error')?.remove();pending=null;});
    function step(direction){if(busy)return;const choice=root.querySelector('input:checked')?.value??null;if(direction==='next'&&!choice){render(true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(!pending)pending={p_task_id:tid,p_choice:choice,p_direction:direction,p_revision:st.revision,p_request_id:crypto.randomUUID()};send('greedyq_cbc_step',pending);}
    rpc('greedyq_cbc_ack',{p_task_id:tid}).catch(()=>{if(envelope.state.phase==='tasks'&&envelope.state.task_order[envelope.state.index]===tid)report();});
+   if(st.index===0&&envelope.has_before){const b=document.createElement('button');b.className='secondary';b.dataset.back='';b.textContent=t('Previous');root.querySelector('.actions').prepend(b);}
    root.querySelector('[data-next]').onclick=()=>step('next');root.querySelector('[data-back]')?.addEventListener('click',()=>step('previous'));withdrawButton();
   }
   render();return{get state(){return envelope;},async refresh(){acceptEnvelope(await rpc('greedyq_cbc_resume'));render();},sessionId:credential.id};
@@ -952,7 +1720,7 @@ SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
 
 ### FILE: `web/greedyq-cbc.css`
 
-SHA-256: `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b`
+SHA-256: `8836d82ba52a4e46d5185faef1ed00438c18d1a9f62408e160097d243c81f65d`
 
 ```css
 
@@ -992,14 +1760,16 @@ SHA-256: `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b`
 .presentation-tools select{max-width:100%;min-width:0}
 
 .presentation-tools{min-width:0;max-width:100%;flex-basis:100%}.presentation-tools label{min-width:0;flex-wrap:wrap}.presentation-tools select{width:min(100%,340px)}
+
+.cbc-survey-form .gq-top{display:none}.cbc-survey-form .gq-card{min-height:0}.cbc-survey-form .gq-app{min-height:0}
 ```
 
 ### FILE: `templates/browser/cbc-respondent.html`
 
-SHA-256: `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde`
+SHA-256: `be9747870a2bfa8a5ae3f132e805574df3837356ea71a3ce85c8eaf2d6a6377b`
 
 ```html
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; img-src 'self' data:; base-uri 'none'; form-action 'none'"><title>greedyQ choice study</title><link rel="stylesheet" href="greedyq-cbc.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; img-src 'self' data:; base-uri 'none'; form-action 'none'"><title>greedyQ choice study</title><link rel="stylesheet" href="greedyq-runtime.css"><link rel="stylesheet" href="greedyq-cbc.css"></head><body>
 <header><h1 id="team"></h1><p id="study-title"></p></header><p id="collection-note" class="connection-note"></p><section id="collection-error" role="alert" hidden></section><main id="cbc-shell" class="respondent"><div id="respondent" class="participant" tabindex="-1"></div></main>
 <script src="greedyq-core.js"></script><script src="greedyq-cbc.js"></script><script src="greedyq-cbc-collection.js"></script>
 <script id="greedyq-model" type="application/json">{}</script><script id="greedyq-deployment" type="application/json">{"mode":"unconnected"}</script>
@@ -1248,7 +2018,7 @@ grant execute on function public.greedyq_resume_session(uuid,text) to anon,authe
 
 ### FILE: `tools/cbc_cloud.cjs`
 
-SHA-256: `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9`
+SHA-256: `df57d05da2e64ae37633bbb2dbd371a023810131da54985574fc5006d9bb2a0f`
 
 ```javascript
 /* Agent-only CBC provisioning. No account sign-in or upload is performed here. */
@@ -1270,8 +2040,10 @@ async function registerCBCStudy(client,model){
  if(c.presentation)config.presentation=c.presentation;
  const checked=await C.importDesign({config,attributesText:csv(attrs),designText:csv(rows)});if(checked.design_sha256!==c.design_sha256||model.study_id!==c.study_id)throw Error('CBC design contract mismatch');
  const settings={schema_version:'0.3-collection.1',study_version:model.study_version,title:model.title,organization:model.organization,mode:model.runtime_policy.mode,source:model.runtime_policy.respondent_source,consent:model.consent,approvals:model.approvals};
+ if(model.flow)settings.flow=model.flow;
  if(settings.source==='prolific')settings.prolific=model.runtime_policy.prolific;
  const verified=await C.collectionModel(c,settings,model.greedyq_version);if(C.canonical(verified)!==C.canonical(model))throw Error('CBC collection contract mismatch');
+ if(model.flow){const applied=await client.query("SELECT sha256 FROM public.gq_migration_history WHERE name='010_cbc_module.sql'");const expected=crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'../templates/supabase/010_cbc_module.sql'))).digest('hex');if(applied.rows[0]?.sha256!==expected)throw Error('Apply the unchanged CBC module migration before registering mixed questions.');}
  return require('./cloud_lifecycle.cjs').registerStudy(client,model);
 }
 function prepareCBCDeployments({repo,packageDirectory,model:providedModel,directory,url,publishableKey}){
@@ -1282,7 +2054,7 @@ function prepareCBCDeployments({repo,packageDirectory,model:providedModel,direct
  for(const kind of ['survey','results']){
   const dest=path.join(directory,kind);fs.mkdirSync(dest);
   for(const asset of ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc.css','greedyq-cbc-collection.js'])fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
-  const descriptor=Object.fromEntries(['study_id','study_version','greedyq_version','title','organization','language','runtime_policy'].map(k=>[k,model[k]]));descriptor.design_sha256=model.cbc.design_sha256;
+  const descriptor=Object.fromEntries(['study_id','study_version','greedyq_version','title','organization','language','runtime_policy'].map(k=>[k,model[k]]));descriptor.design_sha256=model.cbc.design_sha256;if(model.module_contract)descriptor.module_contract=model.module_contract;
   const resultsModel=Object.fromEntries(Object.entries(model).filter(([k])=>!['cbc','consent','approvals'].includes(k)));resultsModel.cbc_attributes=model.cbc.attributes;
   let html=embed(fs.readFileSync(path.join(repo,'templates/browser',kind==='survey'?'cbc-respondent.html':'results.html'),'utf8'),'greedyq-model',kind==='survey'?descriptor:resultsModel);
   if(kind==='survey')html=embed(html,'greedyq-deployment',{mode:'supabase',supabase_url:url,supabase_anon_key:publishableKey});
@@ -1313,7 +2085,7 @@ When reporting a problem, include your greedyQ version, what you tried, what you
 
 ### FILE: `CBC.md`
 
-SHA-256: `950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485`
+SHA-256: `4724348b7aa50774f2009a2c1a9a5b54a565eacedb9e940105c2ef72a0975af3`
 
 ```markdown
 # Preview a choice-based conjoint design
@@ -1357,7 +2129,7 @@ Structure details include level frequencies, unused levels and within-task overl
 
 ## Collecting responses
 
-The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Linear mixed QMD authoring is available through the CBC module; advanced branching, native CBC export and statistical inference remain separate.
 
 ## Fixed implementation for agents
 
@@ -1389,11 +2161,16 @@ The agent writes an optional field in `study.design.json`:
 `type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
 
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.
 ```
 
 ### FILE: `greedyq/cbc.py`
 
-SHA-256: `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031`
+SHA-256: `9267ea7afe6e8dbc33acc4d431be55584a89de3e7ba847a609014769b4c940f1`
 
 ```python
 """Deterministic CBC CSV/XLSX import and account-free preview reference.
@@ -1695,7 +2472,7 @@ def collection_model(folder, settings, workbook=None):
     from . import __release__
     model=import_design(json.loads((Path(folder)/'study.design.json').read_text()),workbook=Path(workbook).read_bytes()) if workbook else load_design(folder)
     required={'schema_version','study_version','title','organization','mode','source','consent','approvals'}
-    if not isinstance(settings,dict) or set(settings)-required-{'prolific'} or required-set(settings):
+    if not isinstance(settings,dict) or set(settings)-required-{'prolific','flow'} or required-set(settings):
         fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.')
     if settings['schema_version']!='0.3-collection.1' or settings['mode'] not in ('test','production') or settings['source'] not in ('direct','prolific'):
         fail('CBC020','Choose a supported collection version, mode and source.')
@@ -1727,7 +2504,16 @@ def collection_model(folder, settings, workbook=None):
     elif 'prolific' in settings:fail('CBC020','Remove panel settings from a direct study.')
     task_ids=list(dict.fromkeys(t['id'] for b in model['blocks'] for t in b['tasks']))
     pages=[{'id':'consent','title':'Participant information and consent','questions':[]},*[{'id':'cbc:'+tid,'title':'Choice task '+tid,'questions':[{'id':'cbc:'+tid,'type':'cbc','label':'Choice task '+tid}]} for tid in task_ids],*[{'id':s,'title':s,'questions':[],'terminal':s} for s in ['completed','consent_refused','withdrawn']]]
-    return {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+    flow=None
+    if 'flow' in settings:
+        from .cbc_flow import normalize_flow
+        flow=normalize_flow(settings['flow'])
+        pages=pages[:1]+flow['before']+pages[1:-3]+flow['after']+pages[-3:]
+    result = {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+    if flow is not None:
+        metadata=json.loads((Path(__file__).resolve().parents[1]/'release.json').read_text())
+        result.update(flow=flow,module_contract='cbc-module-1',greedyq_version=metadata.get('next_line',{}).get('release',__release__))
+    return result
 
 
 def build_collection(folder, settings_path, destination, workbook=None):
@@ -1735,6 +2521,10 @@ def build_collection(folder, settings_path, destination, workbook=None):
     import shutil
     source=Path(__file__).resolve().parents[1]
     settings=json.loads(Path(settings_path).read_text())
+    if (Path(folder)/'survey.qmd').is_file():
+        from .cbc_flow import import_questions
+        if 'flow' in settings:fail('CBC030','Use ordinary survey.qmd pages around the CBC module, not a second flow definition.')
+        settings['flow']=import_questions(Path(folder)/'survey.qmd')
     model=collection_model(folder,settings,workbook)
     dest=Path(destination)
     if dest.exists():fail('CBC020','Choose a new output folder to preserve existing files.')
@@ -1745,12 +2535,16 @@ def build_collection(folder, settings_path, destination, workbook=None):
     # The participant page deliberately contains no choice design or server credential.
     descriptor={k:model[k] for k in ['study_id','study_version','greedyq_version','title','organization','language','runtime_policy']}
     descriptor['design_sha256']=model['cbc']['design_sha256']
+    if model.get('module_contract'):descriptor['module_contract']=model['module_contract']
     (dest/'index.html').write_text(embed((source/'templates/browser/cbc-respondent.html').read_text(),descriptor,'greedyq-model'))
     results_model={k:v for k,v in model.items() if k not in ('cbc','consent','approvals')}
     results_model['cbc_attributes']=model['cbc']['attributes']
     (dest/'results.html').write_text(embed((source/'templates/browser/results.html').read_text(),results_model,'greedyq-model'))
     (dest/'registered-model.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
-    build_preview(folder,dest/'preview.html',workbook)
+    if model.get('flow'):
+        from .cbc_flow import build_module_preview
+        build_module_preview(model,dest/'preview.html')
+    else:build_preview(folder,dest/'preview.html',workbook)
     for name in ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc-collection.js','greedyq-cbc.css']:
         shutil.copyfile(source/'web'/name,dest/name)
     migrations=dest/'supabase/migrations';migrations.mkdir(parents=True)
@@ -1778,7 +2572,7 @@ def stored_rows(snapshot):
 
 ### FILE: `web/greedyq-cbc.js`
 
-SHA-256: `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db`
+SHA-256: `77100668127fe38be4ed9af57bd05724f8030d3e5cda19fdc594a57f191a96a7`
 
 ```javascript
 /* Fixed browser-native CBC import/validation and local preview helpers. */
@@ -2041,7 +2835,7 @@ SHA-256: `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db`
   }
   async function collectionModel(cbc,settings,release){
     const required=['schema_version','study_version','title','organization','mode','source','consent','approvals'];
-    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
+    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific','flow'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
     if(settings.schema_version!=='0.3-collection.1'||!['test','production'].includes(settings.mode)||!['direct','prolific'].includes(settings.source))fail('CBC020','Choose a supported collection version, mode and source.');
     for(const k of ['study_version','title','organization'])if(typeof settings[k]!=='string'||[...settings[k]].length<1||[...settings[k]].length>500)fail('CBC020','Provide the study version, title and research team name.');
     const consent=settings.consent,keys=['id','version','text','document_sha256','researcher_contact'];
@@ -2063,9 +2857,24 @@ SHA-256: `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db`
       }policy.prolific=panel;
     }else if(Object.hasOwn(settings,'prolific'))fail('CBC020','Remove panel settings from a direct study.');
     const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
-    return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
+    const flow=Object.hasOwn(settings,'flow')?normalizeFlow(settings.flow):null;if(flow)pages.splice(1,0,...flow.before);if(flow)pages.splice(pages.length-3,0,...flow.after);
+    const result={kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};if(flow){result.flow=flow;result.module_contract='cbc-module-1';}return result;
   }
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
+
+  function normalizeFlow(flow){
+    if(!flow||Array.isArray(flow)||Object.keys(flow).sort().join(',')!=='after,before')fail('CBC030','Provide before/after question-page lists.');
+    const types=new Set('text textarea numeric mc mc_buttons mc_image mc_multiple mc_multiple_buttons mc_multiple_image select slider slider_numeric date daterange matrix matrix_multiple audio video timing nps rank_order constant_sum side_by_side pick_group_rank drill_down custom'.split(' ')),ids=new Set(),questions=new Set(),result=JSON.parse(JSON.stringify(flow));
+    for(const pages of Object.values(result)){
+      if(!Array.isArray(pages)||pages.length>50)fail('CBC030','Use at most 50 ordinary pages per stage.');
+      for(const p of pages){
+        if(!p||Object.keys(p).some(k=>!['id','title','body','questions','show_previous','previous_mode','next_mode','next_delay_seconds','next_label','checks','messages'].includes(k)))fail('CBC030','Mixed CBC pages must be linear.');
+        if(!/^[A-Za-z][A-Za-z0-9_-]{0,79}$/.test(p.id||'')||ids.has(p.id)||['consent','completed','withdrawn','consent_refused','cbc_tasks'].includes(p.id))fail('CBC030','Use distinct ordinary page IDs.');ids.add(p.id);
+        if(typeof(p.title??'')!=='string'||typeof(p.body??'')!=='string'||!Array.isArray(p.questions))fail('CBC030','Provide page title, body and questions.');
+        for(const q of p.questions){if(!q||!/^[A-Za-z][A-Za-z0-9_]{0,79}$/.test(q.id||'')||questions.has(q.id)||!types.has(q.type)||typeof q.label!=='string'||typeof(q.required??false)!=='boolean')fail('CBC030','Use supported, distinct ordinary questions.');questions.add(q.id);if(q.shuffle_items)fail('CBC030','Ordinary option shuffling needs durable presentation support.');if(q.type==='custom'&&(!types.has(q.base_type)||q.base_type==='custom'))fail('CBC030','Custom questions require a supported base type.');}
+      }
+    }return result;
+  }
+  const api={normalizeFlow,CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 ```
@@ -3795,7 +4604,7 @@ The established CLI operations route remains supported. Prefer an authorized off
 
 ### FILE: `tools/cloud_lifecycle.cjs`
 
-SHA-256: `93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7`
+SHA-256: `367564acc6fcb00642e355639521cc50ca7b8d0d62d1bfd0a31e2afbb774b91c`
 
 ```javascript
 /* Agent-side operations. Never ship this module or its environment to respondents. */
@@ -3823,7 +4632,7 @@ async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
   const expected=['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'];
   const names=manifest.migrations.map(e=>e.name);
-  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
+  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql']),JSON.stringify([...expected,'009_cbc.sql','010_cbc_module.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -3876,8 +4685,8 @@ async function closeAndSnapshot(client, studyId, approvedStudyId) {
     }
     await client.query('INSERT INTO public.gq_closed_studies(study_id) VALUES ($1) ON CONFLICT DO NOTHING',[studyId]);
     const data = {};
-    data.sessions=(await client.query('SELECT * FROM public.gq_sessions WHERE study_id=$1 ORDER BY id',[studyId])).rows;
-    for (const table of tables.slice(1)) data[table]=(await client.query(`SELECT t.* FROM public.gq_${table} t JOIN public.gq_sessions s ON s.id=t.session_id WHERE s.study_id=$1`,[studyId])).rows;
+    data.sessions=(await client.query('SELECT to_jsonb(s) AS record FROM public.gq_sessions s WHERE study_id=$1 ORDER BY id',[studyId])).rows.map(row=>row.record);
+    for (const table of tables.slice(1)) data[table]=(await client.query(`SELECT to_jsonb(t) AS record FROM public.gq_${table} t JOIN public.gq_sessions s ON s.id=t.session_id WHERE s.study_id=$1`,[studyId])).rows.map(row=>row.record);
     for (const s of data.sessions) { delete s.access_token_hash; delete s.browser_state; }
     const otherStudies=(await client.query('SELECT DISTINCT study_id FROM public.gq_sessions WHERE study_id<>$1',[studyId])).rows.map(r=>r.study_id);
     await client.query('COMMIT');
@@ -3911,6 +4720,19 @@ async function pauseServices({archivePath,expectedHash,downloadConfirmed,exclusi
   return {status:'archived'};
 }
 
+async function resumeServices({approveResume,targets,provider,record}) {
+  if(approveResume!==true)throw new Error('Explicit service-resume approval required');
+  await provider.preflight(targets);
+  // Database health precedes either publication; reopening collection is a separate gate.
+  for(const[kind,id]of [['supabase',targets.supabase],['vercel',targets.results],['vercel',targets.survey]]){
+    if(await provider.isAvailable(kind,id)){await record({kind,id,status:'available'});continue;}
+    if(await provider.isPaused(kind,id)){await record({kind,id,status:'resume_requested'});await provider.resume(kind,id);}
+    if(!await provider.isAvailable(kind,id)){await record({kind,id,status:'pending_verification'});return{status:'pending_verification',kind,id};}
+    await record({kind,id,status:'available'});
+  }
+  return{status:'services_available',collection_reopened:false};
+}
+
 function managementProvider({vercelToken,supabaseToken,review,fetcher=fetch}) {
   let binding;
   const request=async(kind,endpoint,method='GET')=>{
@@ -3937,7 +4759,9 @@ function managementProvider({vercelToken,supabaseToken,review,fetcher=fetch}) {
       const p=await request(kind,kind==='vercel'?`/v9/projects/${id}?teamId=${binding.team}`:`/v1/projects/${id}`);
       return kind==='vercel'?p.paused===true:p.status==='INACTIVE';
     },
-    pause(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/pause?teamId=${binding.team}`:`/v1/projects/${id}/pause`,'POST');}
+    pause(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/pause?teamId=${binding.team}`:`/v1/projects/${id}/pause`,'POST');},
+    async isAvailable(kind,id){const p=await request(kind,kind==='vercel'?`/v9/projects/${id}?teamId=${binding.team}`:`/v1/projects/${id}`);return kind==='vercel'?p.paused!==true:p.status==='ACTIVE_HEALTHY';},
+    resume(kind,id){return request(kind,kind==='vercel'?`/v1/projects/${id}/unpause?teamId=${binding.team}`:`/v1/projects/${id}/restore`,'POST');}
   };
 }
 async function reopenCollection(client, studyId, approvedStudyId) {
@@ -3981,6 +4805,7 @@ async function registerStudy(client, model) {
   } catch(error) {await client.query('ROLLBACK');throw error;}
 }
 function prepareDeployments({repo,model,directory,url,publishableKey}) {
+  if(model.kind==='cbc_study'||model.pages?.some(p=>p.cbc_module))throw Error('CBC modules require prepareCBCDeployments; do not deploy the ordinary renderer.');
   if (new URL(url).protocol!=='https:' || !publishableKey || !model.study_id) throw new Error('Public deployment configuration required');
   if (!publishableKey.startsWith('sb_publishable_')) throw new Error('Use a public publishable key, never a server secret');
   // Separate directories prevent accidentally publishing results APIs or private study records.
@@ -3998,12 +4823,12 @@ function prepareDeployments({repo,model,directory,url,publishableKey}) {
   }
   return {resultsProtection:{ssoProtection:{deploymentType:'all'}},surveyProtection:{ssoProtection:null}};
 }
-module.exports={hash,databaseClient,migrate,registerStudy,closeAndSnapshot,reopenCollection,pauseServices,managementProvider,onboardingCommands,prepareDeployments};
+module.exports={hash,databaseClient,migrate,registerStudy,closeAndSnapshot,reopenCollection,pauseServices,resumeServices,managementProvider,onboardingCommands,prepareDeployments};
 ```
 
 ### FILE: `tools/archive_study.cjs`
 
-SHA-256: `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117`
+SHA-256: `b666fcfe6ba89598f105afde4a4b8d38b0c569aa6be8c24ea33f88ac800c2ba0`
 
 ```javascript
 #!/usr/bin/env node
@@ -4018,7 +4843,7 @@ function python(code,args){
 }
 async function main(){
  const [command,configFile]=process.argv.slice(2);
- if(!['snapshot','pause','reopen'].includes(command)||!configFile)throw new Error('Usage: node tools/archive_study.cjs snapshot|pause|reopen PRIVATE_CONFIG.json');
+ if(!['snapshot','pause','reopen','resume'].includes(command)||!configFile)throw new Error('Usage: node tools/archive_study.cjs snapshot|pause|reopen|resume PRIVATE_CONFIG.json');
  const config=JSON.parse(fs.readFileSync(configFile));
  if(command==='snapshot'||command==='reopen'){
   if(config.approvedStudyId!==config.studyId)throw new Error('Researcher closure approval required');
@@ -4050,8 +4875,9 @@ async function main(){
   const verifyArchive=async file=>JSON.parse(python('import sys,json; from greedyq.archive import verify_archive; print(json.dumps(verify_archive(sys.argv[1])))',[file]));
   const provider=ops.managementProvider({vercelToken:process.env.VERCEL_TOKEN,supabaseToken:process.env.SUPABASE_ACCESS_TOKEN,
     review:async()=>config.resourceOwnershipReviewed===true && config.freePlanReviewed===true && config.linkedProjectsReviewed===true});
-  const journal=path.join(path.dirname(config.archivePath),'pause-events.jsonl');
-  const result=await ops.pauseServices({...config,provider,verifyArchive,record:async event=>fs.appendFileSync(journal,JSON.stringify({...event,at:new Date().toISOString()})+'\n',{mode:0o600})});
+  const journal=path.join(config.archivePath?path.dirname(config.archivePath):path.dirname(configFile),'service-events.jsonl');
+  const record=async event=>fs.appendFileSync(journal,JSON.stringify({...event,at:new Date().toISOString()})+'\n',{mode:0o600});
+  const result=command==='resume'?await ops.resumeServices({...config,provider,record}):await ops.pauseServices({...config,provider,verifyArchive,record});
   console.log(JSON.stringify(result));
  }
 }
@@ -4348,7 +5174,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3`
+SHA-256: `13c45d850a5aad6255343179ddba19d457bb4073297cdd0f215dfaebe99ca539`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -4370,7 +5196,7 @@ SHA-256: `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3`
   }
   const PAGE_RE = /^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$/gm;
   const FENCE_RE = /```\{r\}\s*\n([\s\S]*?)```/g;
-  const CALL_RE = /\b(sd_question|sd_nav)\s*\(/;
+  const CALL_RE = /\b(sd_question|sd_nav|sd_cbc)\s*\(/;
   const TYPES = new Set([
     "text",
     "textarea",
@@ -4849,6 +5675,9 @@ SHA-256: `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3`
           if (Object.keys(args).length)
             q.unsupported_arguments = Object.keys(args).sort();
           page.questions.push(q);
+        } else if (name === "sd_cbc") {
+          if(Object.keys(args).sort().join(",")!=="design,name"||page.cbc_module)throw new ParseError("CBC needs one name and design reference per page.",line);
+          page.cbc_module=args;
         } else if (name === "sd_nav") {
           page.nav = args;
           page._nav_line = line;
@@ -5556,6 +6385,7 @@ SHA-256: `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3`
       );
     const pages = parsed.pages.map((source, index) => {
       const page = {
+        ...(source.cbc_module?{cbc_module:source.cbc_module}:{}),
         id: source.id,
         title: source.title,
         body: source.body,
@@ -6811,6 +7641,7 @@ SHA-256: `ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3`
     };
   }
   function mountRespondentSafe(root, model, options = {}) {
+    if(model.pages.some(p=>p.cbc_module))throw new Error("Use the CBC module collection/preview renderer; ordinary runtime cannot skip a CBC module.");
     const source = options.backend || createMemoryBackend();
     const controller = mountRespondent(root, model, {
       ...options,
@@ -10187,7 +11018,7 @@ __release__ = "0.2_2026-10-26_e3958de"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4`
+SHA-256: `dcce6357d4da74c6fb01325b855e06800b8fa5bcb5e851e73019583ce6659b89`
 
 ```python
 """CLI for greedyQ's dependency-light Python reference implementation."""
@@ -10225,6 +11056,17 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
+    for name in ('cbc-new','cbc-route','cbc-insert','cbc-pack-source','cbc-resume','cbc-fork','cbc-upgrade','cbc-blank','cbc-preflight'):
+        item=sub.add_parser(name);item.add_argument('study_dir')
+        if name in ('cbc-new','cbc-fork'):item.add_argument('--id',required=True)
+        if name in ('cbc-new','cbc-route'):item.add_argument('--route',choices=['ai','blank_table','existing_design'],required=name=='cbc-route')
+        if name=='cbc-new':item.add_argument('--language',default='en',choices=['en','ko','zh-CN','zh-TW'])
+        if name=='cbc-insert':item.add_argument('--before',required=True);item.add_argument('--name',default='choice_tasks')
+        if name in ('cbc-pack-source','cbc-fork'):item.add_argument('--output',required=True)
+        if name=='cbc-resume':item.add_argument('--output')
+        if name=='cbc-upgrade':item.add_argument('--approve-upgrade',action='store_true');item.add_argument('--output')
+        if name=='cbc-preflight':item.add_argument('--stage',choices=['package','fielding'],default='package')
+        if name=='cbc-blank':item.add_argument('--attribute',action='append',required=True)
     for name in ('cbc-validate','cbc-build','cbc-package'):
         item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
         item.add_argument('study_dir');item.add_argument('--workbook')
@@ -10239,6 +11081,19 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command in ('cbc-new','cbc-route','cbc-insert','cbc-pack-source','cbc-resume','cbc-fork','cbc-upgrade','cbc-blank','cbc-preflight'):
+            from . import cbc_authoring as a
+            if args.command=='cbc-new':result=a.initialize(args.study_dir,args.id,args.route,args.language)
+            elif args.command=='cbc-route':result=a.set_route(args.study_dir,args.route)
+            elif args.command=='cbc-insert':result=a.insert(args.study_dir,args.before,args.name)
+            elif args.command=='cbc-pack-source':result=a.pack(args.study_dir,args.output)
+            elif args.command=='cbc-resume':result=a.resume(args.study_dir,args.output)
+            elif args.command=='cbc-fork':result=a.fork(args.study_dir,args.output,args.id)
+            elif args.command=='cbc-upgrade':result=a.upgrade(args.study_dir,args.approve_upgrade,args.output)
+            elif args.command=='cbc-preflight':
+                result=a.preflight(args.study_dir,args.stage);print(json.dumps(result,ensure_ascii=False,indent=2));return 0 if result['status']=='passed' else 1
+            else:result=a.blank_tables(args.study_dir,args.attribute)
+            print(json.dumps(result,ensure_ascii=False,indent=2) if isinstance(result,dict) else str(result or 'Authoring state updated.'));return 0
         if args.command=='cbc-package':
             from .cbc import build_collection
             target,model=build_collection(args.study_dir,args.collection,args.output,args.workbook)
@@ -10262,7 +11117,10 @@ def main(argv=None):
             print("Draft created. Open %s and review the opening and ending pages. No questions or approvals were invented." % (root/"preview.html"));return 0
         if args.command == "validate":
             study, parsed, config = load_study(args.study_dir)
-            report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
+            if any(p.get("cbc_module") for p in parsed["pages"]):
+                from .cbc_flow import build_module_study
+                report,_=build_module_study(study,False)
+            else:report = validate(parsed, config, study / "survey.qmd", study / "greedyq.yml")
             show_report(report); return 0 if report["status"] == "passed" else 1
         if args.command == "preflight":
             report = preflight(args.study_dir,stage=args.stage,deployment_index=args.deployment_index); show_report(report,"deployment"); return 0 if report["status"] == "passed" else 1
@@ -10431,7 +11289,7 @@ def loads(text):
 
 ### FILE: `greedyq/parser.py`
 
-SHA-256: `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803`
+SHA-256: `120c7efd3a55f4ffd18387bc655026ba0368eafd5e0a596f1fc7aec4985949eb`
 
 ```python
 """Parse the supported surveydown-style QMD subset into a normalized model."""
@@ -10444,7 +11302,7 @@ from .yaml_min import loads as load_yaml
 
 PAGE_RE = re.compile(r"^---\s+([A-Za-z][A-Za-z0-9_-]*)\s*$", re.M)
 FENCE_RE = re.compile(r"```\{r\}\s*\n(.*?)```", re.S)
-CALL_RE = re.compile(r"\b(sd_question|sd_nav)\s*\(")
+CALL_RE = re.compile(r"\b(sd_question|sd_nav|sd_cbc)\s*\(")
 
 
 class ParseError(ValueError):
@@ -10623,6 +11481,9 @@ def parse_qmd(path):
                     if key in args: q[key] = args.pop(key)
                 if args: q["unsupported_arguments"] = sorted(args)
                 page["questions"].append(q)
+            elif name == "sd_cbc":
+                if set(args)!={"name","design"} or page.get("cbc_module"): raise ParseError("CBC needs one name and design reference per page.",line)
+                page["cbc_module"]=args
             elif name == "sd_nav":
                 page["nav"] = args; page["_nav_line"] = line
             elif fence.group(1).strip():
@@ -10935,7 +11796,7 @@ def validate_state_artifacts(study_dir):
 
 ### FILE: `greedyq/compiler.py`
 
-SHA-256: `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb`
+SHA-256: `489d03ec2755f57442807800440b18bffc407bd7c9f64306a075b44a2a36e2ea`
 
 ```python
 """Compile parsed QMD and greedyq.yml into the browser preview model."""
@@ -11047,6 +11908,7 @@ def compile_preview(parsed, config):
         page = {key: source[key] for key in ("id", "title", "body")}
         for rule in shows:
             if rule.get("page")==page["id"]: page["show_if"]=predicate(rule.get("if",""))
+        if source.get("cbc_module"):page["cbc_module"]=source["cbc_module"]
         page["questions"] = []
         for source_question in source["questions"]:
             q = {key: value for key, value in source_question.items() if not key.startswith("_") and key != "unsupported_arguments"}
@@ -11152,7 +12014,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7`
+SHA-256: `6e109311ff7de4a1b7c80689237985a31a656fdbb8c6ef3c5321b234420d6025`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -11219,6 +12081,9 @@ def refresh_manifest(study_dir):
 
 def build(study_dir, write=True):
     study_dir, parsed, config = load_study(study_dir)
+    if any(page.get("cbc_module") for page in parsed["pages"]):
+        from .cbc_flow import build_module_study
+        return build_module_study(study_dir,write)
     report = validate(parsed, config, "survey.qmd", "greedyq.yml")
     if report["status"] != "passed": return report, None
     model = compile_preview(parsed, config)
@@ -11971,7 +12836,7 @@ def generate(study_dir, config):
 
 ### FILE: `greedyq/exporter.py`
 
-SHA-256: `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0`
+SHA-256: `e3de8b63044e25ba90e5188bb1f89d4731bf148a541b725548662f8de5c034c4`
 
 ```python
 """Generate an independent native surveydown project and compatibility report."""
@@ -12270,6 +13135,8 @@ def _output_binding(question):
 
 
 def generate(study_dir, parsed, config):
+    if any(page.get("cbc_module") for page in parsed["pages"]):
+        raise ValueError("Native surveydown export of the CBC module is not yet verified. Keep the greedyQ module; do not flatten it into ordinary questions.")
     study_dir = Path(study_dir)
     output = study_dir / "export/surveydown"
     output.mkdir(parents=True, exist_ok=True)

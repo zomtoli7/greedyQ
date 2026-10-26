@@ -32,7 +32,7 @@ class CBCCollectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp);f=p/'collection.json';f.write_text(json.dumps(settings()));dest,m=build_collection(GOLD,f,p/'package')
             html=(dest/'index.html').read_text();self.assertNotIn('block_a',html);self.assertNotIn('monthly_price',html);self.assertIn('"mode":"unconnected"',html)
-            self.assertEqual(9,len(json.loads((dest/'supabase/migrations/manifest.json').read_text())['migrations']))
+            self.assertEqual(10,len(json.loads((dest/'supabase/migrations/manifest.json').read_text())['migrations']))
             self.assertEqual(m,json.loads((dest/'registered-model.json').read_text()))
             from test_cbc_import import workbook
             xlsx=p/'input.xlsx';xlsx.write_bytes(workbook((GOLD/'design/attributes.csv').read_text(),(GOLD/'design/design.csv').read_text()))
@@ -53,6 +53,8 @@ class CBCPostgresTests(unittest.TestCase):
         cls.addClassCleanup(cls.cleanup)
         cls.sql('create role anon;create role authenticated;create role service_role;create schema extensions;create extension pgcrypto with schema extensions;')
         for p in sorted((ROOT/'templates/supabase').glob('[0-9][0-9][0-9]_*.sql')):cls.sql(p.read_text())
+        cls.sql('create table gq_migration_history(name text primary key,sha256 text not null)')
+        for p in sorted((ROOT/'templates/supabase').glob('[0-9][0-9][0-9]_*.sql')):cls.sql("insert into gq_migration_history values ("+literal(p.name)+","+literal(hashlib.sha256(p.read_bytes()).hexdigest())+")")
 
     @classmethod
     def cleanup(cls):
@@ -64,8 +66,9 @@ class CBCPostgresTests(unittest.TestCase):
         if p.returncode:raise RuntimeError(p.stderr)
         return p.stdout.strip()
 
-    def plan(self,mode='test',source='direct'):
+    def plan(self,mode='test',source='direct',flow=None):
         s=settings(mode,source)
+        if flow is not None:s['flow']=flow
         if mode=='production':s['approvals']=dict.fromkeys(s['approvals'],True);s['consent']['researcher_contact']='synthetic-team@greedyq.org'
         if source=='prolific':s['prolific']={'study_id':'b'*24,'returns':{k:'https://app.prolific.com/submissions/complete?cc=SYNTHETIC' for k in ['completed','consent_refused','withdrawn']}}
         m=collection_model(GOLD,s);m['study_id']=m['cbc']['study_id']='cbc_'+uuid.uuid4().hex
@@ -84,6 +87,41 @@ class CBCPostgresTests(unittest.TestCase):
 
     def step(self,sid,r,choice='none',direction='next',request=None):
         s=r['state'];return self.rpc('greedyq_cbc_step',sid,TOKEN,s['task_order'][s['index']],choice,direction,s['revision'],request or str(uuid.uuid4()))
+
+
+    def test_module_ordinary_controls_and_visibility_reject_invalid_answers(self):
+        gallery=json.loads((ROOT/'examples/control-gallery/preview-model.json').read_text());questions={q['type']:q for p in gallery['pages'] for q in p['questions']}
+        cases=[('constant_sum',{'design':101},False),('rank_order',{'speed':1,'trust':1},False),('matrix',{'injected':1},False),('nps',11,False),('daterange',['2026-12-01','2026-01-01'],False),('drill_down',['Asia','Korea','Seoul'],True),('numeric',20,True)]
+        # Use the actual declared option codes for allocation/rank checks.
+        q=questions['constant_sum'];good={o['value']:0 for o in q['options']};good[q['options'][0]['value']]=q.get('total',100)
+        cases.append(('constant_sum',good,True))
+        for kind,value,ok in cases:
+            q=questions[kind]
+            call='select gq_cbc_check_answer('+literal(json.dumps(q))+'::jsonb,'+literal(json.dumps(value))+'::jsonb,true)'
+            if ok:self.sql(call)
+            else:
+                with self.assertRaises(RuntimeError,msg=kind):self.sql(call)
+        for rule,answers,expected in [({'field':'a','not_equals':'x'},{},False),({'field':'a','answered':False},{},True),({'field':'a','length':{'gte':2}},{'a':'中文'},True)]:
+            result=self.sql('select gq_cbc_question_visible('+literal(json.dumps(rule))+'::jsonb,'+literal(json.dumps(answers))+'::jsonb)')
+            self.assertEqual('t' if expected else 'f',result)
+
+    def test_module_pages_gate_exposure_completion_and_erase_withdrawal(self):
+        s=settings();s['flow']={'before':[{'id':'background','title':'Background','body':'','questions':[{'id':'experience','type':'numeric','label':'Experience','min':0,'max':10,'required':True}]}],'after':[{'id':'feedback','title':'Feedback','body':'','questions':[{'id':'rating','type':'nps','label':'Rating','required':True}]}]}
+        m=collection_model(GOLD,s);m['study_id']=m['cbc']['study_id']='module_'+uuid.uuid4().hex
+        self.sql(f"insert into gq_study_plans values({literal(m['study_id'])},{literal(json.dumps(m))}::jsonb,now())")
+        sid,_=self.start(m);r=self.consent(sid);self.assertEqual('before',r['state']['phase']);self.assertIsNone(r['model']);self.assertEqual('0',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
+        def form(r,page,answers,direction='next',request=None):return self.rpc('greedyq_cbc_form_step',sid,TOKEN,page,answers,direction,r['state']['revision'],request or str(uuid.uuid4()))
+        with self.assertRaisesRegex(RuntimeError,'required question'):form(r,'background',{})
+        with self.assertRaisesRegex(RuntimeError,'numeric bound'):form(r,'background',{'experience':11})
+        with self.assertRaisesRegex(RuntimeError,'unknown question'):form(r,'background',{'experience':2,'injected':'bad'})
+        rid=str(uuid.uuid4());r=form(r,'background',{'experience':2},request=rid);self.assertEqual('tasks',r['state']['phase']);self.assertEqual(r,self.rpc('greedyq_cbc_form_step',sid,TOKEN,'background',{'experience':2},'next',1,rid))
+        r=self.step(sid,r,None,'previous');self.assertEqual('before',r['state']['phase']);r=form(r,'background',{'experience':3})
+        while r['state']['phase']=='tasks':r=self.step(sid,r)
+        self.assertEqual('after',r['state']['phase']);self.assertIsNone(r['terminal_at']);self.assertEqual('in_progress',self.sql(f"select lifecycle_state from gq_sessions where id='{sid}'"))
+        with self.assertRaisesRegex(RuntimeError,'required question'):form(r,'feedback',{})
+        r=form(r,'feedback',{'rating':8});self.assertEqual('completed',r['state']['phase']);self.assertTrue(r['terminal_at'])
+        self.assertEqual('3',self.sql(f"select value from gq_answers where session_id='{sid}' and question_id='experience'"))
+        self.rpc('greedyq_cbc_withdraw',sid,TOKEN);self.assertEqual('0',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
 
     def test_consent_gates_assignment_and_exposure_and_refusal_is_terminal(self):
         m=self.plan();sid,r=self.start(m);self.assertIsNone(r['model']);self.assertEqual('consent',r['state']['phase'])
@@ -136,6 +174,14 @@ class CBCPostgresTests(unittest.TestCase):
         self.assertNotIn('alternative_orders',r['state']);self.assertEqual(r,self.rpc('greedyq_cbc_withdraw',sid,TOKEN))
         with self.assertRaisesRegex(RuntimeError,'session ended'):self.consent(sid)
 
+    def test_mixed_prolific_real_and_preview_keep_identity_and_scope(self):
+        flow={'before':[{'id':'intro_question','title':'Intro','body':'','questions':[{'id':'ready','type':'mc','label':'Ready?','options':[{'label':'Yes','value':'yes'}],'required':True}]}],'after':[]}
+        m=self.plan('production','prolific',flow);ids={'PROLIFIC_PID':'d'*24,'STUDY_ID':'b'*24,'SESSION_ID':'e'*24}
+        sid,r=self.start(m,external=ids);self.assertFalse(r['is_test']);r=self.consent(sid);self.assertEqual('before',r['state']['phase'])
+        r=self.rpc('greedyq_cbc_form_step',sid,TOKEN,'intro_question',{'ready':'yes'},'next',r['state']['revision'],str(uuid.uuid4()));self.assertEqual('tasks',r['state']['phase'])
+        grant=self.sql(f"set role service_role;select greedyq_issue_cbc_preview({literal(m['study_id'])})").splitlines()[-1]
+        sid2,r2=self.start(m,grant,ids);self.assertTrue(r2['is_test']);self.assertEqual('before',self.consent(sid2)['state']['phase']);self.assertNotEqual(sid,sid2)
+
     def test_real_and_authorized_test_share_study_but_cannot_spoof_scope(self):
         m=self.plan('production');sid,real=self.start(m);self.assertFalse(real['is_test']);self.assertEqual('direct',real['source'])
         grant=self.sql(f"set role service_role;select greedyq_issue_cbc_preview({literal(m['study_id'])})").splitlines()[-1]
@@ -164,3 +210,10 @@ class CBCPostgresTests(unittest.TestCase):
             node=Path('/Users/dongsookim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node');mods=node.parent.parent/'node_modules'
             result=subprocess.run([str(node),str(ROOT/'tests/cbc_collection_journey.cjs'),str(package)],cwd=ROOT,env={**os.environ,'NODE_PATH':str(mods),'GREEDYQ_PG_MODULE':'/Users/dongsookim/.npm/_npx/ff3a78d6668cab0a/node_modules/pg','PGHOST':str(self.root),'PGPORT':'55440'},capture_output=True,text=True,timeout=180)
             self.assertEqual(0,result.returncode,result.stderr);e=json.loads(result.stdout.strip().splitlines()[-1]);self.assertEqual(0,e['external_cloud_calls']);self.assertGreaterEqual(e['completed'],2)
+
+    def test_mixed_module_browser_saves_every_stage_and_withdraws_together(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source=ROOT/'drafts/v0.3/cbc/module-reference';package,m=build_collection(source,source/'collection.json',Path(tmp)/'package')
+            node=Path('/Users/dongsookim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node');mods=node.parent.parent/'node_modules'
+            result=subprocess.run([str(node),str(ROOT/'tests/cbc_module_journey.cjs'),str(package)],cwd=ROOT,env={**os.environ,'NODE_PATH':str(mods),'GREEDYQ_PG_MODULE':'/Users/dongsookim/.npm/_npx/ff3a78d6668cab0a/node_modules/pg','PGHOST':str(self.root),'PGPORT':'55440'},capture_output=True,text=True,timeout=180)
+            self.assertEqual(0,result.returncode,result.stdout+'\n'+result.stderr)

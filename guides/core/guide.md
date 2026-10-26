@@ -85,7 +85,7 @@ Keep survey review, Vercel sign-in, required Supabase connection approval, and d
 
 Migration 008 records `terminal_at` when a session first enters completed, screened-out, consent-refused, withdrawn or technical-error state. It preserves an existing end time across retries and never backfills historical ended sessions. CSV `completed_at` comes from this value; keep a legacy blank rather than substituting `updated_at` or the upgrade time. Applying 008 requires no participant-page redeployment. Preserve applied migration hashes and verify existing response rows before and after an upgrade.
 
-CBC is planned for v0.3 in drafts/v0.3/cbc. It is not a supported v0.2 control/profile. The fixed importer/local preview and dedicated collection package are documented in CBC.md and CBC-COLLECT.md. Collection has local server/browser verification, existing-account synthetic cloud acceptance, but not fresh-account acceptance or automatic fielding approval; CBC is not enabled as a general v0.2 QMD profile. Do not bypass the registry with custom runtime code.
+CBC is a v0.3 capability module inserted into ordinary survey.qmd pages with sd_cbc. Resolve the ordinary study profile plus --module cbc and follow CBC-MODULE.md. It is not a separate profile or a v0.2 feature. Local server/browser and existing-account synthetic cloud verification are distinct from fresh-account or paid acceptance and fielding approval. Keep unsupported page-branch/shuffle combinations explicit; do not write replacement runtime code.
 
 ## CBC preview and project contact
 
@@ -109,3 +109,8 @@ Before the first study question, verify that this is an installed desktop AI app
 The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](../../docs/cbc-cloud-verification-2026-10-26.md).
 
 CBC development verification: `0.3_2026-10-26_e0167e7`.
+
+
+## CBC as a survey module
+
+CBC is implemented as an optional capability module, not a separate study profile. Use the [CBC module guide](../../CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.

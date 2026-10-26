@@ -297,7 +297,7 @@ def collection_model(folder, settings, workbook=None):
     from . import __release__
     model=import_design(json.loads((Path(folder)/'study.design.json').read_text()),workbook=Path(workbook).read_bytes()) if workbook else load_design(folder)
     required={'schema_version','study_version','title','organization','mode','source','consent','approvals'}
-    if not isinstance(settings,dict) or set(settings)-required-{'prolific'} or required-set(settings):
+    if not isinstance(settings,dict) or set(settings)-required-{'prolific','flow'} or required-set(settings):
         fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.')
     if settings['schema_version']!='0.3-collection.1' or settings['mode'] not in ('test','production') or settings['source'] not in ('direct','prolific'):
         fail('CBC020','Choose a supported collection version, mode and source.')
@@ -329,7 +329,16 @@ def collection_model(folder, settings, workbook=None):
     elif 'prolific' in settings:fail('CBC020','Remove panel settings from a direct study.')
     task_ids=list(dict.fromkeys(t['id'] for b in model['blocks'] for t in b['tasks']))
     pages=[{'id':'consent','title':'Participant information and consent','questions':[]},*[{'id':'cbc:'+tid,'title':'Choice task '+tid,'questions':[{'id':'cbc:'+tid,'type':'cbc','label':'Choice task '+tid}]} for tid in task_ids],*[{'id':s,'title':s,'questions':[],'terminal':s} for s in ['completed','consent_refused','withdrawn']]]
-    return {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+    flow=None
+    if 'flow' in settings:
+        from .cbc_flow import normalize_flow
+        flow=normalize_flow(settings['flow'])
+        pages=pages[:1]+flow['before']+pages[1:-3]+flow['after']+pages[-3:]
+    result = {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+    if flow is not None:
+        metadata=json.loads((Path(__file__).resolve().parents[1]/'release.json').read_text())
+        result.update(flow=flow,module_contract='cbc-module-1',greedyq_version=metadata.get('next_line',{}).get('release',__release__))
+    return result
 
 
 def build_collection(folder, settings_path, destination, workbook=None):
@@ -337,6 +346,10 @@ def build_collection(folder, settings_path, destination, workbook=None):
     import shutil
     source=Path(__file__).resolve().parents[1]
     settings=json.loads(Path(settings_path).read_text())
+    if (Path(folder)/'survey.qmd').is_file():
+        from .cbc_flow import import_questions
+        if 'flow' in settings:fail('CBC030','Use ordinary survey.qmd pages around the CBC module, not a second flow definition.')
+        settings['flow']=import_questions(Path(folder)/'survey.qmd')
     model=collection_model(folder,settings,workbook)
     dest=Path(destination)
     if dest.exists():fail('CBC020','Choose a new output folder to preserve existing files.')
@@ -347,12 +360,16 @@ def build_collection(folder, settings_path, destination, workbook=None):
     # The participant page deliberately contains no choice design or server credential.
     descriptor={k:model[k] for k in ['study_id','study_version','greedyq_version','title','organization','language','runtime_policy']}
     descriptor['design_sha256']=model['cbc']['design_sha256']
+    if model.get('module_contract'):descriptor['module_contract']=model['module_contract']
     (dest/'index.html').write_text(embed((source/'templates/browser/cbc-respondent.html').read_text(),descriptor,'greedyq-model'))
     results_model={k:v for k,v in model.items() if k not in ('cbc','consent','approvals')}
     results_model['cbc_attributes']=model['cbc']['attributes']
     (dest/'results.html').write_text(embed((source/'templates/browser/results.html').read_text(),results_model,'greedyq-model'))
     (dest/'registered-model.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
-    build_preview(folder,dest/'preview.html',workbook)
+    if model.get('flow'):
+        from .cbc_flow import build_module_preview
+        build_module_preview(model,dest/'preview.html')
+    else:build_preview(folder,dest/'preview.html',workbook)
     for name in ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc-collection.js','greedyq-cbc.css']:
         shutil.copyfile(source/'web'/name,dest/name)
     migrations=dest/'supabase/migrations';migrations.mkdir(parents=True)

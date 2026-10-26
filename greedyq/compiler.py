@@ -107,6 +107,7 @@ def compile_preview(parsed, config):
         page = {key: source[key] for key in ("id", "title", "body")}
         for rule in shows:
             if rule.get("page")==page["id"]: page["show_if"]=predicate(rule.get("if",""))
+        if source.get("cbc_module"):page["cbc_module"]=source["cbc_module"]
         page["questions"] = []
         for source_question in source["questions"]:
             q = {key: value for key, value in source_question.items() if not key.startswith("_") and key != "unsupported_arguments"}

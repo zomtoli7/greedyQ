@@ -1,0 +1,40 @@
+---
+title: "Survey with a CBC module"
+greedyq:
+  version: "0.3_2026-10-26_e0167e7"
+  language: en
+survey-settings:
+  required: [experience, interest]
+---
+
+--- background
+# A few questions before the choices
+
+```{r}
+sd_question(type = "numeric", id = "experience", label = "How many online courses have you tried?", min = 0, max = 100)
+```
+
+--- preferences
+# Your usual preference
+
+```{r}
+sd_question(type = "mc", id = "format", label = "Which format do you usually prefer?", options = c("Text" = "text", "Video" = "video"))
+```
+
+--- course_choices
+# Choose between course plans
+
+```{r}
+sd_cbc(name = "course_choices", design = "study.design.json")
+```
+
+--- impressions
+# After the choices
+
+```{r}
+sd_question(type = "nps", id = "interest", label = "How interested are you in these plans?", min = 0, max = 10)
+```
+
+```{r}
+sd_question(type = "textarea", id = "comment", label = "Any comments?")
+```

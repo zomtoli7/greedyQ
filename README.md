@@ -179,7 +179,7 @@ The main journey is survey review → Vercel sign-in and required Supabase conne
 
 Entry, user and AI guides also have Simplified Chinese `(zh-CN).md` copies. This does not imply that every developer document is translated.
 
-Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.md) — CSV/XLSX import and local browser preview now work; live collection remains on v0.2.
+Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.md) — CSV/XLSX import and local browser preview now work; CBC remains a v0.3 development feature with separate fielding approval.
 
 ## CBC preview and project contact
 
@@ -191,3 +191,5 @@ For choice-based conjoint tables, see [CBC import and computer/mobile preview](C
 The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](./docs/cbc-cloud-verification-2026-10-26.md).
 
 CBC development verification: `0.3_2026-10-26_e0167e7`.
+
+CBC can now be inserted among ordinary survey questions. The [module guide](./CBC-MODULE.md) covers design routes, integrated previews, editable ZIP resume/fork and collection. See [current module acceptance](./docs/cbc-module-verification-2026-10-26.md) for completed and pending checks.

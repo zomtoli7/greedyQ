@@ -1,0 +1,19 @@
+{
+  "id": "cbc",
+  "kind": "module",
+  "version": "0.3-module.1",
+  "dependencies": [
+    "core",
+    "consent"
+  ],
+  "conflicts": [],
+  "normative_files": [
+    "guides/modules/cbc/guide.md",
+    "greedyq/cbc_flow.py",
+    "greedyq/cbc_authoring.py",
+    "web/greedyq-cbc-preview-session.js",
+    "templates/supabase/010_cbc_module.sql",
+    "CBC-MODULE.md",
+    "templates/browser/cbc-module-preview.html"
+  ]
+}

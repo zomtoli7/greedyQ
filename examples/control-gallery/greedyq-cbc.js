@@ -258,7 +258,7 @@
   }
   async function collectionModel(cbc,settings,release){
     const required=['schema_version','study_version','title','organization','mode','source','consent','approvals'];
-    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
+    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific','flow'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
     if(settings.schema_version!=='0.3-collection.1'||!['test','production'].includes(settings.mode)||!['direct','prolific'].includes(settings.source))fail('CBC020','Choose a supported collection version, mode and source.');
     for(const k of ['study_version','title','organization'])if(typeof settings[k]!=='string'||[...settings[k]].length<1||[...settings[k]].length>500)fail('CBC020','Provide the study version, title and research team name.');
     const consent=settings.consent,keys=['id','version','text','document_sha256','researcher_contact'];
@@ -280,8 +280,23 @@
       }policy.prolific=panel;
     }else if(Object.hasOwn(settings,'prolific'))fail('CBC020','Remove panel settings from a direct study.');
     const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
-    return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
+    const flow=Object.hasOwn(settings,'flow')?normalizeFlow(settings.flow):null;if(flow)pages.splice(1,0,...flow.before);if(flow)pages.splice(pages.length-3,0,...flow.after);
+    const result={kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};if(flow){result.flow=flow;result.module_contract='cbc-module-1';}return result;
   }
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
+
+  function normalizeFlow(flow){
+    if(!flow||Array.isArray(flow)||Object.keys(flow).sort().join(',')!=='after,before')fail('CBC030','Provide before/after question-page lists.');
+    const types=new Set('text textarea numeric mc mc_buttons mc_image mc_multiple mc_multiple_buttons mc_multiple_image select slider slider_numeric date daterange matrix matrix_multiple audio video timing nps rank_order constant_sum side_by_side pick_group_rank drill_down custom'.split(' ')),ids=new Set(),questions=new Set(),result=JSON.parse(JSON.stringify(flow));
+    for(const pages of Object.values(result)){
+      if(!Array.isArray(pages)||pages.length>50)fail('CBC030','Use at most 50 ordinary pages per stage.');
+      for(const p of pages){
+        if(!p||Object.keys(p).some(k=>!['id','title','body','questions','show_previous','previous_mode','next_mode','next_delay_seconds','next_label','checks','messages'].includes(k)))fail('CBC030','Mixed CBC pages must be linear.');
+        if(!/^[A-Za-z][A-Za-z0-9_-]{0,79}$/.test(p.id||'')||ids.has(p.id)||['consent','completed','withdrawn','consent_refused','cbc_tasks'].includes(p.id))fail('CBC030','Use distinct ordinary page IDs.');ids.add(p.id);
+        if(typeof(p.title??'')!=='string'||typeof(p.body??'')!=='string'||!Array.isArray(p.questions))fail('CBC030','Provide page title, body and questions.');
+        for(const q of p.questions){if(!q||!/^[A-Za-z][A-Za-z0-9_]{0,79}$/.test(q.id||'')||questions.has(q.id)||!types.has(q.type)||typeof q.label!=='string'||typeof(q.required??false)!=='boolean')fail('CBC030','Use supported, distinct ordinary questions.');questions.add(q.id);if(q.shuffle_items)fail('CBC030','Ordinary option shuffling needs durable presentation support.');if(q.type==='custom'&&(!types.has(q.base_type)||q.base_type==='custom'))fail('CBC030','Custom questions require a supported base type.');}
+      }
+    }return result;
+  }
+  const api={normalizeFlow,CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

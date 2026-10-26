@@ -17,8 +17,10 @@ async function registerCBCStudy(client,model){
  if(c.presentation)config.presentation=c.presentation;
  const checked=await C.importDesign({config,attributesText:csv(attrs),designText:csv(rows)});if(checked.design_sha256!==c.design_sha256||model.study_id!==c.study_id)throw Error('CBC design contract mismatch');
  const settings={schema_version:'0.3-collection.1',study_version:model.study_version,title:model.title,organization:model.organization,mode:model.runtime_policy.mode,source:model.runtime_policy.respondent_source,consent:model.consent,approvals:model.approvals};
+ if(model.flow)settings.flow=model.flow;
  if(settings.source==='prolific')settings.prolific=model.runtime_policy.prolific;
  const verified=await C.collectionModel(c,settings,model.greedyq_version);if(C.canonical(verified)!==C.canonical(model))throw Error('CBC collection contract mismatch');
+ if(model.flow){const applied=await client.query("SELECT sha256 FROM public.gq_migration_history WHERE name='010_cbc_module.sql'");const expected=crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'../templates/supabase/010_cbc_module.sql'))).digest('hex');if(applied.rows[0]?.sha256!==expected)throw Error('Apply the unchanged CBC module migration before registering mixed questions.');}
  return require('./cloud_lifecycle.cjs').registerStudy(client,model);
 }
 function prepareCBCDeployments({repo,packageDirectory,model:providedModel,directory,url,publishableKey}){
@@ -29,7 +31,7 @@ function prepareCBCDeployments({repo,packageDirectory,model:providedModel,direct
  for(const kind of ['survey','results']){
   const dest=path.join(directory,kind);fs.mkdirSync(dest);
   for(const asset of ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc.css','greedyq-cbc-collection.js'])fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
-  const descriptor=Object.fromEntries(['study_id','study_version','greedyq_version','title','organization','language','runtime_policy'].map(k=>[k,model[k]]));descriptor.design_sha256=model.cbc.design_sha256;
+  const descriptor=Object.fromEntries(['study_id','study_version','greedyq_version','title','organization','language','runtime_policy'].map(k=>[k,model[k]]));descriptor.design_sha256=model.cbc.design_sha256;if(model.module_contract)descriptor.module_contract=model.module_contract;
   const resultsModel=Object.fromEntries(Object.entries(model).filter(([k])=>!['cbc','consent','approvals'].includes(k)));resultsModel.cbc_attributes=model.cbc.attributes;
   let html=embed(fs.readFileSync(path.join(repo,'templates/browser',kind==='survey'?'cbc-respondent.html':'results.html'),'utf8'),'greedyq-model',kind==='survey'?descriptor:resultsModel);
   if(kind==='survey')html=embed(html,'greedyq-deployment',{mode:'supabase',supabase_url:url,supabase_anon_key:publishableKey});

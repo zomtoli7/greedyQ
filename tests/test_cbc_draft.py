@@ -98,8 +98,9 @@ class CBCDraftTests(unittest.TestCase):
                     if int(row.attrib['r'])>1:
                         self.assertEqual([],row.findall('s:c/s:v',ns))
 
-    def test_cbc_is_not_activated_in_v02_registry(self):
+    def test_cbc_is_a_v03_module_not_a_v02_profile(self):
         registry=json.loads((ROOT/'registry/guide-index.json').read_text())
-        self.assertNotIn('cbc',registry['components'])
+        self.assertEqual('module',registry['components']['cbc']['kind'])
+        self.assertTrue(registry['components']['cbc']['version'].startswith('0.3'))
         result=subprocess.run([sys.executable,'tools/resolve_guide.py','--profile','cbc'],cwd=ROOT,capture_output=True)
         self.assertNotEqual(0,result.returncode)

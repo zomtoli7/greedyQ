@@ -39,7 +39,7 @@ Structure details include level frequencies, unused levels and within-task overl
 
 ## Collecting responses
 
-The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Linear mixed QMD authoring is available through the CBC module; advanced branching, native CBC export and statistical inference remain separate.
 
 ## Fixed implementation for agents
 
@@ -71,3 +71,8 @@ The agent writes an optional field in `study.design.json`:
 `type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
 
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
+
+
+## CBC as a survey module
+
+Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.qmd and insert CBC where the researcher requests it; do not make the researcher create separate pre/post questionnaires. One linear CBC sequence is the current module contract.

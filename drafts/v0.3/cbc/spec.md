@@ -6,7 +6,7 @@
 
 ## Object and scope
 
-`greedyQCBC` is a proposed direct child of `greedyQObject`, parallel to Simple and Experiment. Reuse the core interview, governance, approval, versioning, preview, deployment and results contracts. A choice task is a structured control, not an agent-generated HTML widget. Do not activate the CBC profile in the public registry until parser, validator, runtime, storage and export conformance pass.
+`greedyQCBC` is the normalized design payload inside an optional CBC capability module. The study keeps its ordinary profile; one sd_cbc marker inserts the task sequence into survey.qmd. Ordinary questions remain ordinary pages. Do not require separate pre/post questionnaires.
 
 First scope: full-profile, unlabeled, single-choice tasks; a fixed number of ordinary alternatives; optional “none”; imported finite task tables; one assigned block per respondent; optional once-per-session task and alternative shuffling; analysis-ready long export. Ordinary questions may appear before and after the task sequence.
 

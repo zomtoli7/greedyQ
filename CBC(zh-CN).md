@@ -39,7 +39,7 @@ CBC 让参与者在特征组合之间作选择，例如价格、支持方式不�
 
 ## 收集回答
 
-单文件预览仍不发送回答。独立 [CBC 收集流程](./CBC-COLLECT(zh-CN).md)已实现服务器存储、同意、退出、受保护结果及真实/测试长 CSV，并通过本地 PostgreSQL/浏览器验证。现有账户的虚拟回答云端存储、结果、退出及 CSV 已通过测试；新账户连接、付费 CBC 验收仍待完成，尚未启用混合 QMD、原生 CBC 导出或统计推断。
+单文件预览仍不发送回答。独立 [CBC 收集流程](./CBC-COLLECT(zh-CN).md)已实现服务器存储、同意、退出、受保护结果及真实/测试长 CSV，并通过本地 PostgreSQL/浏览器验证。现有账户的虚拟回答云端存储、结果、退出及 CSV 已通过测试；新账户连接、付费 CBC 验收仍待完成，线性普通 QMD 可通过 CBC 模块连接；高级分支、原生导出及统计推断仍为独立范围。
 
 ## 供代理使用的固定实现
 
@@ -71,3 +71,8 @@ python3 -m greedyq cbc-build path/to/study --workbook path/to/design.xlsx
 `type` 为 `buttons` 或 `table`；`orientation` 为 `horizontal`、`vertical` 或 `responsive`。预览双屏上方也提供相同选择。更改会生成不同的设计哈希及独立虚拟会话，须重新审阅参与体验，部署前重建并注册已审阅收集计划。已注册计划不能静默修改。省略设置则保留原布局与哈希。小屏幕明确选择横向时比较区域可内部横向滚动；纵向及手机响应式无需页面横向滚动。预览选择不会修改已部署问卷。
 
 显示类别参考公开的 [surveydown 按钮式](https://surveydown.org/templates/conjoint_buttons)与[表格式](https://surveydown.org/templates/conjoint_tables)，代码独立实现，没有复制其源码。这是 greedyQ CBC 设置，并不表示可与原生 surveydown 联合分析代码互换。
+
+
+## 问卷中的 CBC 模块
+
+请使用 [CBC 模块指南](./CBC-MODULE(zh-CN).md)。普通问题保留在 survey.qmd，按研究者要求的位置插入 CBC，无需另写前测／后测问卷。当前支持线性问卷中的一个 CBC 序列。

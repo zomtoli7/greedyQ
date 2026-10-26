@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-26",
+  "development_line": "0.3",
+  "module_contract": "cbc-module-1",
+  "scope": "existing_account_synthetic_test_direct",
+  "production_fielding_approved": false,
+  "paid_cbc_verified": false,
+  "module_cloud_verified": true,
+  "ordinary_questions_before_and_after": true,
+  "source_zip_resume_fork_verified": true,
+  "archive_exact_seven_table_fidelity_verified": true,
+  "vercel_pause_and_resume_verified": true,
+  "supabase_physical_pause_and_resume_verified": false,
+  "supabase_pause_scope_approved_by_owner": true,
+  "supabase_management_connection_available": false,
+  "existing_records_preserved": true,
+  "first_run": {
+    "sessions": 7,
+    "completed": 2,
+    "cbc_long_rows": 24,
+    "collection_closed": true
+  },
+  "repeat_fork_run": {
+    "study_id": "cbc_module_reuse_20261026",
+    "status": "passed",
+    "sessions": 7,
+    "completed": 2,
+    "cbc_long_rows": 24,
+    "ordinary_csv_matches": true,
+    "cbc_csv_matches": true
+  },
+  "survey_url": "https://greedyq-cbc-module-survey.vercel.app/",
+  "results_url": "https://greedyq-cbc-module-results.vercel.app/",
+  "results_all_routes_protected": true,
+  "anonymous_page_and_api_denied": true,
+  "operator_archive_verified": true,
+  "researcher_archive_download_confirmed": false,
+  "physical_mobile_tested": false,
+  "remaining": [
+    "Supabase management-authorized physical pause/resume",
+    "review actual human instrument, consent, contact, retention, recruitment and compensation",
+    "paid CBC acceptance",
+    "fresh-account CBC acceptance",
+    "advanced page branching, multiple CBC sequences and ordinary shuffling around CBC",
+    "native surveydown CBC export",
+    "statistical inference/design efficiency"
+  ]
+}

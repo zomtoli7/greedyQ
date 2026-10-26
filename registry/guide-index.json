@@ -6,6 +6,48 @@
   "bootstrap": "INITIALIZE.md",
   "fallback_bundle": "guides/greedyq-guide.md",
   "components": {
+    "cbc": {
+      "id": "cbc",
+      "kind": "module",
+      "version": "0.3-module.1",
+      "manifest": "guides/modules/cbc/component.json",
+      "manifest_sha256": "63c530f057c2bbddc9c1fa2fd15b6d486757f96f4715b055d46cea3567b6bd29",
+      "dependencies": [
+        "core",
+        "consent"
+      ],
+      "conflicts": [],
+      "files": [
+        {
+          "path": "guides/modules/cbc/guide.md",
+          "sha256": "42bfd4e6940ed8c997766cb581eaa8726730a19b0d310bbde96a3a45aa8f981a"
+        },
+        {
+          "path": "greedyq/cbc_flow.py",
+          "sha256": "e80e5aeae410b3c4d060ee3fb9a52c2f0d3717192f2db2c9dbbb097bf64a05aa"
+        },
+        {
+          "path": "greedyq/cbc_authoring.py",
+          "sha256": "fabc768cb131c6f934bf7601ee0ca1b74adc6568851fb2b9a2f790257733f519"
+        },
+        {
+          "path": "web/greedyq-cbc-preview-session.js",
+          "sha256": "9d71839761c706f7a2ccc4cf7633269360ca96dfa02fa1b89802763c6a59afa7"
+        },
+        {
+          "path": "templates/supabase/010_cbc_module.sql",
+          "sha256": "7c65289e440e5c25745ee7e02a1dbea4cf89277ddd1d978833360f9fd4cdcf78"
+        },
+        {
+          "path": "CBC-MODULE.md",
+          "sha256": "78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446"
+        },
+        {
+          "path": "templates/browser/cbc-module-preview.html",
+          "sha256": "537d33584f5dcb5e394e96b30c9b84002cc0c9569cff1d47fce599a6b49d9c8c"
+        }
+      ]
+    },
     "consent": {
       "id": "consent",
       "kind": "module",
@@ -40,7 +82,7 @@
       "files": [
         {
           "path": "INITIALIZE.md",
-          "sha256": "67501acb6e750cbc50bffc021e1abccf1acba617953ff315c53aa375845c3d27"
+          "sha256": "06eccfa030a4080bed8e0ebe84a4a088809af74caab8e48aff37b527cac496e0"
         },
         {
           "path": "release.json",
@@ -108,11 +150,11 @@
         },
         {
           "path": "tools/cloud_lifecycle.cjs",
-          "sha256": "93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7"
+          "sha256": "367564acc6fcb00642e355639521cc50ca7b8d0d62d1bfd0a31e2afbb774b91c"
         },
         {
           "path": "tools/archive_study.cjs",
-          "sha256": "420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117"
+          "sha256": "b666fcfe6ba89598f105afde4a4b8d38b0c569aa6be8c24ea33f88ac800c2ba0"
         },
         {
           "path": "greedyq/archive.py",
@@ -120,7 +162,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "8bd4cf40c9a9af688e3f2ea067675a2d6a898f54bc92b56df0fb89b4ade90f3e"
+          "sha256": "b181d510d8a6ccdf46dff9914107952424bee3690951dcac0e68e6fc7bb990cf"
         },
         {
           "path": "guides/core/communication.md",
@@ -164,7 +206,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "ecb81f249de08e156369a5fe080314a180409587ebbd1b2ca3a8158a0d3652f3"
+          "sha256": "13c45d850a5aad6255343179ddba19d457bb4073297cdd0f215dfaebe99ca539"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -216,7 +258,7 @@
         },
         {
           "path": "greedyq/__main__.py",
-          "sha256": "b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4"
+          "sha256": "dcce6357d4da74c6fb01325b855e06800b8fa5bcb5e851e73019583ce6659b89"
         },
         {
           "path": "greedyq/yaml_min.py",
@@ -224,7 +266,7 @@
         },
         {
           "path": "greedyq/parser.py",
-          "sha256": "aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803"
+          "sha256": "120c7efd3a55f4ffd18387bc655026ba0368eafd5e0a596f1fc7aec4985949eb"
         },
         {
           "path": "greedyq/validator.py",
@@ -232,11 +274,11 @@
         },
         {
           "path": "greedyq/compiler.py",
-          "sha256": "5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb"
+          "sha256": "489d03ec2755f57442807800440b18bffc407bd7c9f64306a075b44a2a36e2ea"
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7"
+          "sha256": "6e109311ff7de4a1b7c80689237985a31a656fdbb8c6ef3c5321b234420d6025"
         },
         {
           "path": "greedyq/runtime.py",
@@ -260,7 +302,7 @@
         },
         {
           "path": "greedyq/exporter.py",
-          "sha256": "acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0"
+          "sha256": "e3de8b63044e25ba90e5188bb1f89d4731bf148a541b725548662f8de5c034c4"
         },
         {
           "path": "greedyq/deployment.py",
@@ -288,15 +330,15 @@
         },
         {
           "path": "CBC.md",
-          "sha256": "950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485"
+          "sha256": "4724348b7aa50774f2009a2c1a9a5b54a565eacedb9e940105c2ef72a0975af3"
         },
         {
           "path": "greedyq/cbc.py",
-          "sha256": "4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031"
+          "sha256": "9267ea7afe6e8dbc33acc4d431be55584a89de3e7ba847a609014769b4c940f1"
         },
         {
           "path": "web/greedyq-cbc.js",
-          "sha256": "f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db"
+          "sha256": "77100668127fe38be4ed9af57bd05724f8030d3e5cda19fdc594a57f191a96a7"
         },
         {
           "path": "templates/browser/cbc-preview.html",
@@ -308,15 +350,15 @@
         },
         {
           "path": "web/greedyq-cbc-collection.js",
-          "sha256": "c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986"
+          "sha256": "ffbefe34e30dfd06e99b829de941583c09babff5ca39889ec65e955067c7d720"
         },
         {
           "path": "web/greedyq-cbc.css",
-          "sha256": "6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b"
+          "sha256": "8836d82ba52a4e46d5185faef1ed00438c18d1a9f62408e160097d243c81f65d"
         },
         {
           "path": "templates/browser/cbc-respondent.html",
-          "sha256": "1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde"
+          "sha256": "be9747870a2bfa8a5ae3f132e805574df3837356ea71a3ce85c8eaf2d6a6377b"
         },
         {
           "path": "templates/supabase/009_cbc.sql",
@@ -324,15 +366,15 @@
         },
         {
           "path": "tools/cbc_cloud.cjs",
-          "sha256": "384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9"
+          "sha256": "df57d05da2e64ae37633bbb2dbd371a023810131da54985574fc5006d9bb2a0f"
         },
         {
           "path": "CBC-COLLECT.md",
-          "sha256": "d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa"
+          "sha256": "b61a7de49343bc131ed35d8d543fdfaf9673f591beef27a82b41ae5a8a9e1f01"
         },
         {
           "path": "schemas/cbc-collection.schema.json",
-          "sha256": "b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709"
+          "sha256": "df032add7ebf7fb96da337a769de65cfa7de2a3218019cb9a197b204213f4321"
         },
         {
           "path": "SUPPORTED-ENVIRONMENTS.md",
@@ -399,13 +441,12 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQExperiment",
       "manifest": "guides/profiles/experiment/component.json",
-      "manifest_sha256": "32b673998c323b2bbcdbf245353d8d71f011c9cb5ff48afd5d8d2c9791f160d7",
+      "manifest_sha256": "d5e41aad59f64e04f603bc5e6b42d1dde4e305a93714aaeaccd5b18d065303e3",
       "dependencies": [
         "core"
       ],
       "conflicts": [
-        "simple",
-        "cbc"
+        "simple"
       ],
       "files": [
         {
@@ -529,13 +570,12 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQSimple",
       "manifest": "guides/profiles/simple/component.json",
-      "manifest_sha256": "72d6d49d6b1af8954958dca83db2863e565a287d5d1fc2ffc56043adf62a4eba",
+      "manifest_sha256": "b9c27662a5fc5c1b0022d5e0e9fb41b3c0d79bca5d2bc1f65be0befca5e15efa",
       "dependencies": [
         "core"
       ],
       "conflicts": [
-        "experiment",
-        "cbc"
+        "experiment"
       ],
       "files": [
         {

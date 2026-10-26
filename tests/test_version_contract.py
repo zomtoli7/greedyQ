@@ -43,8 +43,8 @@ class VersionContractTests(unittest.TestCase):
         registry = json.loads((ROOT / "registry/guide-index.json").read_text())
         current=json.loads((ROOT / "release.json").read_text())["release"]
         self.assertEqual(current, registry["release"])
-        for component in registry["components"].values():
-            self.assertEqual(COMPONENT_VERSION, component["version"])
+        for name, component in registry["components"].items():
+            self.assertEqual("0.3-module.1" if name == "cbc" else COMPONENT_VERSION, component["version"])
 
     def test_active_tree_contains_no_legacy_version_reference(self):
         excluded_roots = {
