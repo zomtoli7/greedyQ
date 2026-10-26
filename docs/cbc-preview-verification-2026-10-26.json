@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-26",
+  "release": "0.2_2026-10-26_a4ad99e",
+  "source_commit": "a4ad99ec89f941dc5127388243d56e77cafb3d07",
+  "scope": "cbc_import_and_local_preview",
+  "model_schema": "0.3-preview.1",
+  "design_sha256": "1ebf1ff0ac5890af59a46987099f7b8e58934e9ae868b1dee21ac2d4ae3990bc",
+  "python_tests": {
+    "passed": 221,
+    "failed": 0,
+    "skipped": 0
+  },
+  "node_browser_tests": {
+    "passed": 50,
+    "failed": 0,
+    "skipped": 0
+  },
+  "dedicated_cbc_tests": {
+    "python": 16,
+    "browser": 8
+  },
+  "project_contact_tests": 3,
+  "browser_test_engine": "Installed Google Chrome, headless, macOS",
+  "viewport_widths": [
+    320,
+    390,
+    900,
+    1280
+  ],
+  "inspection": {
+    "blocks": 2,
+    "tasks": 8,
+    "profiles": 16,
+    "level_frequencies": {
+      "monthly_price": {
+        "p10": 6,
+        "p20": 5,
+        "p30": 5
+      },
+      "content_format": {
+        "video": 6,
+        "text": 5,
+        "live": 5
+      },
+      "tutor_support": {
+        "none": 5,
+        "email": 6,
+        "chat": 5
+      },
+      "access_period": {
+        "m1": 5,
+        "m3": 6,
+        "m12": 5
+      }
+    },
+    "within_task_overlap": {
+      "monthly_price": 0,
+      "content_format": 0,
+      "tutor_support": 0,
+      "access_period": 0
+    },
+    "unused_levels": [],
+    "statistical_efficiency_established": false
+  },
+  "live_cbc_collection_verified": false,
+  "live_external_services_modified": false,
+  "google_sites_published_by_this_work": false,
+  "project_contact": "greedyq.contact@gmail.com"
+}

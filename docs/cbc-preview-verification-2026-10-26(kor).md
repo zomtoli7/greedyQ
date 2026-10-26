@@ -27,3 +27,6 @@ Python 기준 구현(`greedyq/cbc.py`)을 먼저 만든 뒤 동일 계약의 브
 ## 프로젝트 연락처 동기화
 
 `greedyq.contact@gmail.com`을 `https://sites.google.com/view/greedyq`(greedyq.org 연결 대상)의 About → Project → Contact에서 확인했습니다. 영문·한글·중문 문의 및 가이드에 연결했고 기존 홈페이지 문의 내용은 유지했습니다. 이번 작업은 저장소 소스 준비이며 Google Sites 재게시 완료를 주장하지 않습니다. 개별 연구의 참여자·윤리 문의처를 프로젝트 주소로 대체하지 않습니다.
+
+
+최종 릴리스 재생성 후 **Python 221개 + Node/브라우저 50개, 총 271개가 통과했으며 실패·생략은 0개**입니다. CBC 전용 검사는 Python 16개·브라우저 8개, 프로젝트 연락처 검사는 3개입니다. [기계 판독용 기록](./cbc-preview-verification-2026-10-26.json)에 릴리스와 소스 커밋을 남겼습니다.

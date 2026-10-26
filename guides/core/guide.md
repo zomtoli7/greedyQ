@@ -4,7 +4,7 @@
 
 **Component:** `core`
 **Specification version:** `0.2`
-**Current release identifier:** `0.2_2026-10-26_b3edd07`
+**Current release identifier:** `0.2_2026-10-26_a4ad99e`
 
 This guide is part of the greedyQ agent-executable application specification and applies to every `greedyQObject`. greedyQ itself is not an agent. A capable host GenAI that resolves and follows the specification instantiates the greedyQ research agent.
 

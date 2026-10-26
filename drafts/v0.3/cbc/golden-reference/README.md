@@ -52,3 +52,6 @@ Python reference import and the matching fixed browser importer/renderer are imp
 
 
 The import/rendering checkpoint is now covered by automated Python/browser tests. Next: server persistence, real/test isolation, consent-aware live collection and protected results/export; this preview does not implement those.
+
+
+`preview.manifest.json` separately records current preview/model provenance and file hashes. The earlier `design.manifest.json` and draft expected CSV remain planning fixtures; their hash describes the earlier draft structure, not the normalized preview model.

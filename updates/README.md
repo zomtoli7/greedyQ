@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_a4ad99e`](./0.2/0.2_2026-10-26_a4ad99e.md) — Implemented CBC CSV/Excel import, Python/browser parity, descriptive design checks and a standalone computer/mobile preview for the v0.3 preview line; live CBC collection remains disabled.
+
 - [`0.2_2026-10-26_b3edd07`](./0.2/0.2_2026-10-26_b3edd07.md) — Close the supported v0.2 scope, correct stale verification/randomization guidance, and recheck the existing closed-study screen in four languages.
 
 - [`0.2_2026-10-26_e10197b`](./0.2/0.2_2026-10-26_e10197b.md) — Complete the basic one-person Prolific paid connection test; approval and reward payment are explicitly researcher-confirmed.

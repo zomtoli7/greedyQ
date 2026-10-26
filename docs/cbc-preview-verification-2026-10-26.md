@@ -27,3 +27,6 @@ No live CBC schema/RPC, consent pipeline, cloud results integration, real/test a
 ## Project contact synchronization
 
 `greedyq.contact@gmail.com` was checked against the public site's About → Project → Contact content at `https://sites.google.com/view/greedyq` (greedyq.org destination). English/Korean/Chinese contact and guide sources now point to it. Existing website contact content was retained. This work prepares repository sources only and does not claim Google Sites was republished. Individual study participant/ethics contacts are not replaced by this project address.
+
+
+Final regenerated-release result: **221 Python + 50 Node/browser tests passed (271 total), zero failures and zero skips**. Dedicated CBC coverage is 16 Python and 8 browser tests, plus 3 project-contact checks. The [machine-readable record](./cbc-preview-verification-2026-10-26.json) records the release and source commit.
