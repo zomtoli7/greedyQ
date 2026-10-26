@@ -2,25 +2,25 @@
   "release": "0.2_2026-10-26_e3958de",
   "source_commit": "e3958de21c69e658316c06e5ad1baf902e7d6ace",
   "prepared_on": "2026-10-26",
-  "status": "prepared_pending_browser_enabled_work",
+  "status": "published_and_verified",
   "html_path": "website/google-sites-embed.html",
   "html_url": "https://raw.githubusercontent.com/zomtoli7/greedyQ/main/website/google-sites-embed.html",
   "bytes": 763948,
   "sha256": "d13329ce9a5cf84428967492e3eff73acb95a7978604e9df55d0480cc1327773",
   "editor_url": "https://sites.google.com/d/1TWcKQwyFBV90GZbkVsVBUvFlfuOTLvKn/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/edit",
   "public_url": "https://sites.google.com/view/greedyq",
-  "google_sites_publication_verified_by_this_work": false,
+  "google_sites_publication_verified_by_this_work": true,
   "approval_and_payment_evidence": "researcher_confirmation_2026-10-26",
   "independent_payment_receipt_checked": false,
   "website_revision": "canonical-netlify-start-all-guides-and-user-confirmed-gemini-read",
   "verified_on": "2026-10-26",
   "verification_method": "in_app_browser_complete_decoded_data_code_exact_match",
-  "published_bytes": 802158,
-  "published_sha256": "879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048",
+  "published_bytes": 763948,
+  "published_sha256": "d13329ce9a5cf84428967492e3eff73acb95a7978604e9df55d0480cc1327773",
   "previous_publication_record": {
     "release": "0.2_2026-10-26_fa94594",
-    "published_bytes": 802483,
-    "published_sha256": "0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d",
+    "published_bytes": 802158,
+    "published_sha256": "879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048",
     "verified_on": "2026-10-26"
   },
   "last_observed_public_embed": {
@@ -28,22 +28,29 @@
     "method": "in_app_browser_complete_decoded_data_code_read",
     "embeds": [
       {
-        "bytes": 802158,
-        "sha256": "879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048",
+        "bytes": 763948,
+        "sha256": "d13329ce9a5cf84428967492e3eff73acb95a7978604e9df55d0480cc1327773",
         "contains_new_agents_page": true,
         "contains_current_release": true
       }
     ],
-    "matches_prepared_html": false
+    "matches_prepared_html": true
   },
-  "published_release": "0.2_2026-10-26_fa94594",
+  "published_release": "0.2_2026-10-26_e3958de",
   "public_ui_verification": {
     "languages": [
       "en",
       "ko",
       "zh"
     ],
-    "home_and_start_exact_text_all_six": true,
+    "desktop_and_390px_mobile_start_checked": true,
+    "canonical_netlify_url_and_flattened_boundaries": true,
+    "release_history_checked": true,
+    "contact_preserved": true,
+    "copy_button_success_indicator": true,
+    "clipboard_readback_verified": false,
+    "manual_copy_verified": false,
+    "external_ai_account_retested": false,
     "complete_source_match": true
   }
 }

@@ -16,7 +16,7 @@ Fetch the public complete decoded `data-code` embed and compare its bytes and SH
 
 ## Current observed state
 
-This newly prepared HTML has not been published or checked on Google Sites by this work. Earlier publication evidence in the manifest applies only to its recorded historical snapshot. The browser-enabled homepage work must publish and verify the current bytes and hash above.
+Published through the in-app Browser on 2026-10-26 and verified the complete decoded public `data-code` embed against the source: `0.2_2026-10-26_e3958de`, 763948 UTF-8 bytes, SHA-256 `d13329ce9a5cf84428967492e3eff73acb95a7978604e9df55d0480cc1327773`. All three Start languages use `<https://greedyq.netlify.app/>`; their URL boundaries remain separate without line breaks. Desktop and 390px mobile Start screens, release history and contact were checked. The copy button displayed success; clipboard readback and manual copying were not verified. No external AI account was retested. Other pages, sharing, domains, survey/results deployments, databases, Prolific and payments were not changed. Safari and the desktop mouse were not used.
 
 
 All current researcher start links must use https://greedyq.netlify.app/, including new studies and resuming supplied authoring folders or ZIPs. Keep INITIALIZE.md and GUIDE-ACCESS.md on GitHub. The researcher confirmed Gemini could read the public page on 26 October 2026; this is user-reported access verification, not official authoring support. Publish the current prepared HTML and verify its exact hash; do not reuse older publication evidence.

@@ -64,3 +64,7 @@ Replaced the Korean home notice and Start introduction with the owner's requeste
 ## Aligned home and Start translations — 2026-10-26
 
 Aligned the English and Chinese home notices and Start introductions with the owner-approved Korean revision. The public site was checked for exact home and Start wording in all three languages (six checks). The complete decoded public embed matched the source exactly: 802158 UTF-8 bytes, SHA-256 `879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048`. The release identifier remains `0.2_2026-10-26_fa94594`. The three website unit tests passed.
+
+## Canonical Netlify start publication — 2026-10-26
+
+Published through the in-app Browser on 2026-10-26 and verified the complete decoded public `data-code` embed against the source: `0.2_2026-10-26_e3958de`, 763948 UTF-8 bytes, SHA-256 `d13329ce9a5cf84428967492e3eff73acb95a7978604e9df55d0480cc1327773`. All three Start languages use `<https://greedyq.netlify.app/>`; their URL boundaries remain separate without line breaks. Desktop and 390px mobile Start screens, release history and contact were checked. The copy button displayed success; clipboard readback and manual copying were not verified. No external AI account was retested. Other pages, sharing, domains, survey/results deployments, databases, Prolific and payments were not changed. Safari and the desktop mouse were not used.
