@@ -166,7 +166,8 @@
         "Project",
         [
           "identity",
-          "principles"
+          "principles",
+          "contact"
         ]
       ],
       [
@@ -197,6 +198,12 @@
         "title": "Researcher control",
         "lead": "Keep decisions explicit and studies reproducible.",
         "body": "<ul><li>Ask before changing meaningful research decisions.</li><li>Record unresolved questions instead of inventing answers.</li><li>Review the actual participant experience, not only a technical report.</li><li>Keep study files and the exact software version.</li><li>Separate preview, account connection and recruitment approvals.</li><li>Keep respondent data under researcher control.</li></ul><p>The primary path uses a browser survey with Vercel and Supabase. Direct source editing and native Surveydown export remain options for advanced work.</p>"
+      },
+      {
+        "id": "contact",
+        "title": "Contact",
+        "lead": "We welcome bug reports, questions and suggestions.",
+        "body": "<p>If you have a bug report, question or suggestion, don’t hesitate to email us at <a href=\"mailto:greedyq.contact@gmail.com\">greedyq.contact@gmail.com</a>.</p>"
       },
       {
         "id": "support",
@@ -448,7 +455,8 @@
         "프로젝트",
         [
           "identity",
-          "principles"
+          "principles",
+          "contact"
         ]
       ],
       [
@@ -479,6 +487,12 @@
         "title": "연구자의 결정권",
         "lead": "중요한 결정을 명시하고 연구를 재현 가능하게 유지합니다.",
         "body": "<ul><li>중요한 연구 결정은 바꾸기 전에 묻습니다.</li><li>모르는 답은 만들지 않고 미정으로 기록합니다.</li><li>기술 보고서보다 실제 참여자 화면을 검토합니다.</li><li>연구 파일과 정확한 소프트웨어 버전을 보관합니다.</li><li>미리보기·계정 연결·모집 승인을 구분합니다.</li><li>응답 데이터는 연구자가 관리합니다.</li></ul><p>기본 경로는 Vercel·Supabase를 사용하는 브라우저 설문입니다. 고급 작업에는 원본 직접 편집과 native Surveydown 내보내기를 사용할 수 있습니다.</p>"
+      },
+      {
+        "id": "contact",
+        "title": "연락처",
+        "lead": "버그 제보, 문의, 제안을 환영합니다.",
+        "body": "<p>버그를 발견했거나 문의 또는 제안이 있다면 주저하지 말고 다음 주소로 이메일을 보내주세요: <a href=\"mailto:greedyq.contact@gmail.com\">greedyq.contact@gmail.com</a>.</p>"
       },
       {
         "id": "support",
@@ -730,7 +744,8 @@
         "项目",
         [
           "identity",
-          "principles"
+          "principles",
+          "contact"
         ]
       ],
       [
@@ -761,6 +776,12 @@
         "title": "研究者的控制权",
         "lead": "明确决策，保留研究的可复现性。",
         "body": "<ul><li>修改重要研究决策前先询问。</li><li>记录待定事项，不编造答案。</li><li>审阅真实参与者界面，而非仅看技术报告。</li><li>保留研究文件和确切软件版本。</li><li>区分预览、账户连接和招募批准。</li><li>回答数据由研究者管理。</li></ul><p>主要路径是使用 Vercel 和 Supabase 的浏览器问卷。高级用户也可直接编辑源文件或导出 native Surveydown 项目。</p>"
+      },
+      {
+        "id": "contact",
+        "title": "联系我们",
+        "lead": "欢迎反馈错误、提问和提出建议。",
+        "body": "<p>如果您发现错误、有疑问或建议，请随时发送邮件至 <a href=\"mailto:greedyq.contact@gmail.com\">greedyq.contact@gmail.com</a>.</p>"
       },
       {
         "id": "support",

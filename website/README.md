@@ -23,3 +23,18 @@ The Claude review and AI-assisted allocation guidance release `0.2_2026-10-25_15
 ## Current publication handoff
 
 Use [the publication request](./publication-request.md) and the generated `publication-manifest.json` for the latest prepared embed. The manifest identifies the release, byte length and SHA-256. The homepage-update Work must separately save, publish and verify the public site; this source update does not claim publication. The current Prolific page distinguishes the completed basic paid pilot, researcher-confirmed approval/payment and remaining checks.
+
+## Verified publication history — 2026-10-26
+
+The existing homepage was saved and published using the in-app Browser. The complete decoded public `data-code` embed at https://sites.google.com/view/greedyq matched the verified source exactly:
+
+| Website revision | Release | UTF-8 bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| Paid-trial guidance | `0.2_2026-10-26_e10197b` | 710863 | `df215e941e0844a0a4c335479872753b8cce9132d2cf792281bbc22fadda85c2` |
+| Contact information | `0.2_2026-10-26_e10197b` | 711794 | `c0295255f6a03c8ed417da926011da7d6c0ce918b583df492c5382f5022b7700` |
+
+English, Korean and Chinese Prolific guidance distinguishes the completed one-person paid trial, agent-checked response/CSV matching, researcher-confirmed approval/payment, and remaining completion-time, screening and cleanup checks. No separate payment receipt was inspected. Results guidance, previous/next navigation, the mobile contents menu at 390 px, and About → Version and updates were checked on the public site. Other pages, layout, sharing and domain settings were preserved. Safari and the desktop mouse were not used; participant/results deployments, databases and Prolific settings/payments were not changed.
+
+The contact-information revision adds About → Project → Contact in all three website languages, with `mailto:greedyq.contact@gmail.com` for bug reports, questions and suggestions. It retains the same release identifier; its distinct website revision and file hash identify this content-only change.
+
+The contact-information revision was also saved and published through the in-app Browser on 2026-10-26. The complete decoded public HTML matched the generated source exactly, with the byte length and SHA-256 recorded above. The public Contact page displayed the invitation and email link. `publication-manifest.json` records `published_and_verified` for this contact revision. Any later file change requires a fresh build, publication and verification.
