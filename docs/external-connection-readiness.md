@@ -4,7 +4,7 @@
 
 **Randomization upgrade:** the new runtime requires migrations 001–008 and registration of every reviewed model. The runtime checks the server contract and refuses an old or mismatched setup. Follow [RANDOMIZATION.md](../RANDOMIZATION.md); earlier account tests do not establish acceptance of this upgrade.
 
-**Release:** `0.2_2026-10-26_4373f4f`
+**Release:** `0.2_2026-10-26_1fbfcfd`
 **Status:** v0.2 supported-scope verification complete. The basic paid Prolific route is complete with researcher-confirmed approval/payment; trial data cleanup was explicitly requested and completed on 2026-10-26. New accounts and untested capabilities retain separate acceptance requirements.
 
 greedyQ prepares and tests the survey application before any Vercel, Supabase, or Prolific account is connected. This boundary keeps ordinary questionnaire review local and makes the final external step a configuration and verification task rather than a new implementation task.

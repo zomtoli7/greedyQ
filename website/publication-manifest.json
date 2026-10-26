@@ -1,12 +1,12 @@
 {
-  "release": "0.2_2026-10-26_4373f4f",
-  "source_commit": "4373f4ff7aa6ff167011291f2888672788a5f37d",
+  "release": "0.2_2026-10-26_1fbfcfd",
+  "source_commit": "1fbfcfd988aa75481b6ea4595afc368986f13b26",
   "prepared_on": "2026-10-26",
   "status": "prepared_pending_browser_enabled_work",
   "html_path": "website/google-sites-embed.html",
   "html_url": "https://raw.githubusercontent.com/zomtoli7/greedyQ/main/website/google-sites-embed.html",
-  "bytes": 760547,
-  "sha256": "c7ed36b9e1bd5504a7291ea3f3de1343cfbfa485cbc98f80bc7a381e4a51047a",
+  "bytes": 762238,
+  "sha256": "d508dc96055b508a5645e15e69063213295e4bf1700f9ebb95f5476453097926",
   "editor_url": "https://sites.google.com/d/1TWcKQwyFBV90GZbkVsVBUvFlfuOTLvKn/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/edit",
   "public_url": "https://sites.google.com/view/greedyq",
   "google_sites_publication_verified_by_this_work": false,
@@ -34,7 +34,7 @@
         "contains_current_release": true
       }
     ],
-    "matches_prepared_html": true
+    "matches_prepared_html": false
   },
   "published_release": "0.2_2026-10-26_fa94594",
   "public_ui_verification": {

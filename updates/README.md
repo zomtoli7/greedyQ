@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_1fbfcfd`](./0.2/0.2_2026-10-26_1fbfcfd.md) — Fix repeat Netlify builds that failed when cached output did not exactly match its old manifest. Generate and verify a fresh staging folder, preserve previous output outside the public directory and replace only the dedicated ignored publish path; restore it if replacement fails. Keep generic local output checks strict and reject tracked/symlink destinations.
+
 - [`0.2_2026-10-26_4373f4f`](./0.2/0.2_2026-10-26_4373f4f.md) — Make the public start entry an explicit four-step protocol: communicate in the user's language; unsupported hosts inform and stop; supported hosts must read and obey GitHub INITIALIZE.md and use GUIDE-ACCESS.md for access failures; saved studies use the supplied authoring folder/ZIP and the initialization resume procedure.
 
 - [`0.2_2026-10-26_ed1dc2b`](./0.2/0.2_2026-10-26_ed1dc2b.md) — Keep the English public start page in English and show the complete pinned GitHub INITIALIZE address visibly in all three languages. The full initialization remains on GitHub; START-HERE Markdown and HTML share one source.

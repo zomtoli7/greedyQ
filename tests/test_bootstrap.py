@@ -63,6 +63,14 @@ class BootstrapTests(unittest.TestCase):
             with patch.dict(os.environ, {'COMMIT_REF': '0' * 40}):
                 with self.assertRaises(ValueError): build_managed(root)
             self.assertEqual(before, (output / 'index.html').read_bytes())
+            real_replace = os.replace
+            def fail_new_publish(source, destination):
+                if Path(source).name.startswith('.bootstrap-build-') and Path(destination).resolve() == output.resolve():
+                    raise OSError('Synthetic publish swap failure')
+                return real_replace(source, destination)
+            with patch('tools.build_bootstrap.os.replace', side_effect=fail_new_publish):
+                with self.assertRaises(OSError): build_managed(root)
+            self.assertEqual(before, (output / 'index.html').read_bytes())
 
     def test_managed_build_refuses_tracked_files_and_symlink_destinations(self):
         with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as elsewhere:
