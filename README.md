@@ -1,8 +1,8 @@
 # greedyQ
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-26_4e977e4`
-- **Release source commit:** [`4e977e4`](https://github.com/zomtoli7/greedyQ/commit/4e977e4e0e4244674b4425933e3e5ff60758680d) · [Update history](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_e10197b`
+- **Release source commit:** [`e10197b`](https://github.com/zomtoli7/greedyQ/commit/e10197b90b796526e8feba39279ae248dd303fd9) · [Update history](./updates/README.md)
 
 [Compatibility audit](./docs/surveydown-compatibility-audit.md) · [Preregistration drafts](./PREREGISTRATION.md) · [Resume and upgrade](./UPGRADING.md) · [External returns](./EXTERNAL-RETURNS.md) · [Google Sites plan](./docs/google-sites-plan.md)
 

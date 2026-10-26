@@ -33,6 +33,10 @@ Actual draft Preview covered normal completion, refusal, withdrawal and starting
 
 No further paid test is required merely to re-confirm the already completed basic route. Do not enlarge the sample, change reward settings, recruit, approve or pay without the researcher's separate decision.
 
+## Release validation
+
+After release stamping, all 194 Python tests and 41 JavaScript/browser tests passed without skips. The generated homepage matches its release, byte length and SHA-256 in `website/publication-manifest.json`. English, Korean and Chinese navigation, history and restricted mobile prompt copying passed browser checks. This records local/source validation, not Google Sites publication or another external payment check.
+
 ## Related records
 
 - [Timestamp fix and matched CSV evidence](./terminal-timestamp-fix-2026-10-26.md)

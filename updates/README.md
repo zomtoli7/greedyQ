@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_e10197b`](./0.2/0.2_2026-10-26_e10197b.md) — Complete the basic one-person Prolific paid connection test; approval and reward payment are explicitly researcher-confirmed.
+
 - [`0.2_2026-10-26_4e977e4`](./0.2/0.2_2026-10-26_4e977e4.md) — Record the first server-side survey end time and preserve it across retries; leave historical timestamps and answers unchanged.
 
 - [`0.2_2026-10-25_f2afa11`](./0.2/0.2_2026-10-25_f2afa11.md) — Keep the established Vercel/Supabase journey, prefer existing authorized official connections, and make Onboard your agent optional.
