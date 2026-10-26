@@ -38,13 +38,13 @@ async function databaseFetch(input) {
   const columns=url.searchParams.get('select').split(',');columns.forEach(c=>assert.match(c,/^[a-z_]+$/));
   const values=[], where=[];
   for(const [key,value] of url.searchParams) {
-    if(['select','order'].includes(key))continue;
+    if(['select','order','limit','offset'].includes(key))continue;
     assert(['study_id','is_test','respondent_source','session_id'].includes(key));
     if(value.startsWith('eq.')) { values.push(value.slice(3)); where.push(`${key}=$${values.length}`); }
     else { assert(value.startsWith('in.(')&&value.endsWith(')'));const ids=value.slice(4,-1).split(',');where.push('session_id IN ('+ids.map(id=>{values.push(id);return '$'+values.length;}).join(',')+')'); }
   }
   const rows=(await client.query(`SELECT ${columns.join(',')} FROM public.${table}${where.length?' WHERE '+where.join(' AND '):''}`,values)).rows;
-  return {ok:true,json:async()=>rows};
+  return {ok:true,json:async()=>rows.slice(Number(url.searchParams.get('offset')||0),Number(url.searchParams.get('offset')||0)+Number(url.searchParams.get('limit')||1000))};
 }
 async function main() {
   await client.connect();

@@ -65,3 +65,9 @@ test('long export joins both blocks to the independently authored golden choice 
  const expected=fixture.expected_rows.map(row=>Object.fromEntries(Object.entries(row).filter(([k])=>!['design_version','design_sha256'].includes(k))));assert.deepEqual(actual,expected);
  }finally{await browser.close();}
 });
+test('browser CBC collection settings produce the exact Python plan without requiring Python on the researcher device',async()=>{
+ const expected=JSON.parse(execFileSync('python3',['-c',`import json\nfrom pathlib import Path\nfrom greedyq.cbc import collection_model\np=Path('drafts/v0.3/cbc/golden-reference')\ns=json.loads((p/'collection.test.example.json').read_text())\nprint(json.dumps(dict(settings=s,plan=collection_model(p,s))))`],{cwd:root,encoding:'utf8'}));
+ const browser=await launch();try{const p=await browser.newPage();await p.goto('file://'+path.join(gold,'cbc-preview.html'));await p.addScriptTag({path:path.join(root,'web/greedyq-cbc.js')});
+ const result=await p.evaluate(async({f,e})=>{const C=greedyQCBC,cbc=await C.importDesign({config:f.config,attributesText:f.a,designText:f.d}),plan=await C.collectionModel(cbc,e.settings,e.plan.greedyq_version),errors=[];for(const s of [{...e.settings,mode:'production'},{...e.settings,consent:{...e.settings.consent,document_sha256:'0'.repeat(64)}}]){try{await C.collectionModel(cbc,s,e.plan.greedyq_version);errors.push('accepted');}catch(error){errors.push(error.code);}}return{plan,errors};},{f:fixture,e:expected});assert.deepEqual(result.plan,expected.plan);assert.deepEqual(result.errors,['CBC020','CBC020']);
+ }finally{await browser.close();}
+});

@@ -70,6 +70,14 @@
     "CBC.md",
     "greedyq/cbc.py",
     "web/greedyq-cbc.js",
-    "templates/browser/cbc-preview.html"
+    "templates/browser/cbc-preview.html",
+    "GUIDE-ACCESS.md",
+    "web/greedyq-cbc-collection.js",
+    "web/greedyq-cbc.css",
+    "templates/browser/cbc-respondent.html",
+    "templates/supabase/009_cbc.sql",
+    "tools/cbc_cloud.cjs",
+    "CBC-COLLECT.md",
+    "schemas/cbc-collection.schema.json"
   ]
 }

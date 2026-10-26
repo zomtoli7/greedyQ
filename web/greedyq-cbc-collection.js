@@ -1,0 +1,44 @@
+/* Fixed CBC collection protocol. No service key or survey-authored code. */
+(function(scope){
+ 'use strict';
+ const C=scope.greedyQCBC,escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const translations={
+ 'Test link unavailable':['시험 링크가 만료됐거나 사용할 수 없습니다. 연구자에게 새 시험 링크를 요청해 주세요.','测试链接已失效，请向研究者索取新链接。','測試連結已失效，請向研究者索取新連結。'],
+ 'Connection unavailable':['설문 연결을 확인하지 못했습니다. 연구팀에 문의해 주세요.','无法连接问卷，请联系研究团队。','無法連接問卷，請聯絡研究團隊。'],
+ 'Save failed. Check your connection and retry. Your last confirmed answer is preserved.':['저장하지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요. 마지막으로 저장한 답은 유지됩니다.','保存失败，请检查网络后重试。上次已保存的回答仍然保留。','儲存失敗，請檢查網路後重試。上次已儲存的回答仍然保留。'],
+ 'Participant information and consent':['연구 안내와 참여 동의','研究说明与参与同意','研究說明與參與同意'],'I agree to participate':['참여에 동의합니다','我同意参与','我同意參與'],'I do not agree':['참여하지 않겠습니다','我不同意参与','我不同意參與'],'Withdraw participation':['참여 철회','退出研究','退出研究'],'Your answers have been removed.':['응답을 삭제했습니다.','已删除您的回答。','已刪除您的回答。'],'Participation declined':['참여하지 않으셨습니다','您未同意参与','您未同意參與'],'Thank you. Your answers have been saved.':['감사합니다. 응답을 저장했습니다.','感谢您，回答已保存。','感謝您，回答已儲存。'],'Test response — not real study data.':['시험 응답입니다. 실제 연구 응답으로 기록하지 않습니다.','这是测试回答，不计入真实研究数据。','這是測試回答，不計入真實研究資料。'],'Return to Prolific':['Prolific으로 돌아가기','返回 Prolific','返回 Prolific'],'Start another test':['새 시험 시작','重新测试','重新測試'],
+ 'Next':['다음','下一题','下一題'],'Previous':['이전','上一题','上一題'],'Submit preview':['응답 제출','提交回答','提交回答'],'Task':['과제','题目','題目'],'Which option would you choose?':['어느 대안을 선택하시겠습니까?','您会选择哪一个？','您會選擇哪一個？'],'Choose one option before continuing.':['대안 하나를 선택한 뒤 다음으로 이동해 주세요.','请选择一个选项后继续。','請選擇一個選項後繼續。'],'Choose':['선택','选择','選擇'],'Option':['대안','选项','選項'],'Attribute':['속성','属性','屬性']};
+ function messages(language){const i=({ko:0,'zh-CN':1,'zh-TW':2})[language];return s=>translations[s]?.[i]??(s==='Submit preview'?'Submit answers':s);}
+ async function mount(root,{model,url,anonKey,search='',storage=scope.localStorage,fetcher=scope.fetch.bind(scope)}){
+  if(!/^https:\/\//.test(url||'')||!anonKey)throw Error('Public connection required');
+  const t=messages(model.language),params=new URLSearchParams(search),previewToken=params.get('gq_preview'),key='greedyq-cbc-capability:'+JSON.stringify([model.study_id,model.design_sha256,previewToken]),mode=()=>innerWidth<=700?'mobile':'desktop';
+  let credential;try{credential=JSON.parse(storage.getItem(key));}catch{}
+  if(!credential?.id||!credential?.token){credential={id:crypto.randomUUID(),token:[...crypto.getRandomValues(new Uint8Array(32))].map(x=>x.toString(16).padStart(2,'0')).join('')};storage.setItem(key,JSON.stringify(credential));}
+  const rpc=async(name,body={})=>{const response=await fetcher(url.replace(/\/$/,'')+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:anonKey,authorization:'Bearer '+anonKey,'content-type':'application/json'},body:JSON.stringify({p_session_id:credential.id,p_access_token:credential.token,...body})});if(!response.ok){const detail=await response.json().catch(()=>({})),error=Error('CBC request failed ('+response.status+')');if(detail.message==='This study is closed for archiving')error.kind='study_closed';if(/duplicate Prolific/.test(detail.message||''))error.kind='prolific_duplicate';if(detail.message==='invalid or expired preview grant')error.kind='preview_expired';throw error;}return response.status===204?null:response.json();};
+  let external=null;
+  if(model.runtime_policy.respondent_source==='prolific'){
+   const launch=scope.greedyQ.resolveProlificLaunch(search,previewToken?'test':model.runtime_policy.mode,model.runtime_policy.prolific.study_id);
+   if(launch.status!=='passed'){const error=Error('Invalid Prolific launch');error.kind='invalid_prolific_link';throw error;}external=launch.identifiers;
+  }else if(['PROLIFIC_PID','STUDY_ID','SESSION_ID'].some(k=>params.has(k)))throw Error('Unexpected panel identifiers');
+  let envelope=await rpc('greedyq_cbc_start',{p_study_id:model.study_id,p_design_sha256:model.design_sha256,p_preview_token:previewToken,p_external:external}),busy=false,pending=null,withdrawArmed=false;
+  const errorBox=document.getElementById('collection-error'),note=document.getElementById('collection-note');
+  const clearError=()=>{if(errorBox){errorBox.hidden=true;errorBox.textContent='';}};
+  function report(){if(errorBox){errorBox.hidden=false;errorBox.textContent=t('Save failed. Check your connection and retry. Your last confirmed answer is preserved.');errorBox.scrollIntoView({block:'nearest'});}}
+  const acceptEnvelope=next=>{if(next.runtime_contract!=='cbc-1'||next.study_id!==model.study_id||next.design_sha256!==model.design_sha256)throw Error('CBC contract mismatch');envelope=next;};acceptEnvelope(envelope);
+  async function send(name,body){if(busy)return;busy=true;root.querySelectorAll('button,input').forEach(b=>b.disabled=true);clearError();try{acceptEnvelope(await rpc(name,body));pending=null;withdrawArmed=false;render();root.focus({preventScroll:true});root.scrollIntoView({block:'start'});}catch(e){report();root.querySelectorAll('button,input').forEach(b=>b.disabled=false);}finally{busy=false;}}
+  function ending(phase){const text=phase==='withdrawn'?'Your answers have been removed.':phase==='consent_refused'?'Participation declined':'Thank you. Your answers have been saved.';root.innerHTML='<h2>'+escape(t(text))+'</h2>';const returnURL=model.runtime_policy.prolific?.returns?.[phase];if(returnURL){const a=document.createElement('a');a.textContent=t('Return to Prolific');a.href=returnURL;root.append(a);}if(phase==='completed')withdrawButton();if(envelope.is_test&&previewToken){const b=document.createElement('button');b.className='secondary';b.textContent=t('Start another test');b.onclick=()=>{storage.removeItem(key);location.reload();};root.append(b);}}
+  function withdrawButton(){const b=document.createElement('button');b.className='secondary';b.style.marginTop='20px';b.textContent=t('Withdraw participation');b.onclick=()=>{if(busy)return;if(!withdrawArmed){withdrawArmed=true;b.textContent=model.language==='ko'?'응답을 지우고 철회하기':model.language==='zh-CN'?'删除回答并退出':model.language==='zh-TW'?'刪除回答並退出':'Confirm withdrawal and delete answers';return;}send('greedyq_cbc_withdraw',{});};root.append(b);}
+  function render(required=false){const st=envelope.state,phase=st.phase||st.lifecycle;document.getElementById('cbc-shell')?.classList.toggle('mobile',mode()==='mobile');document.getElementById('cbc-shell')?.classList.toggle('desktop',mode()==='desktop');if(note)note.textContent=envelope.is_test?t('Test response — not real study data.'):'';
+   if(['withdrawn','completed','consent_refused'].includes(phase)){ending(phase);return;}
+   if(phase==='consent'){root.innerHTML='<h2>'+escape(t('Participant information and consent'))+'</h2><div class="consent-copy"></div><p class="researcher-contact"></p><div class="actions"><button data-consent="refused" class="secondary">'+escape(t('I do not agree'))+'</button><button data-consent="accepted">'+escape(t('I agree to participate'))+'</button></div>';root.querySelector('.consent-copy').textContent=envelope.consent.text;root.querySelector('.researcher-contact').textContent=envelope.consent.researcher_contact;root.querySelectorAll('[data-consent]').forEach(b=>b.onclick=()=>send('greedyq_cbc_consent',{p_decision:b.dataset.consent}));return;}
+   if(phase!=='tasks'||!envelope.model||!C.validateSession(envelope.model,st))throw Error('Invalid CBC state');
+   root.innerHTML=C.taskHTML(envelope.model,st,mode(),t,required);const tid=st.task_order[st.index];
+   root.querySelectorAll('input[type=radio]').forEach(input=>input.onchange=()=>{root.querySelector('.question-error')?.remove();pending=null;});
+   function step(direction){if(busy)return;const choice=root.querySelector('input:checked')?.value??null;if(direction==='next'&&!choice){render(true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(!pending)pending={p_task_id:tid,p_choice:choice,p_direction:direction,p_revision:st.revision,p_request_id:crypto.randomUUID()};send('greedyq_cbc_step',pending);}
+   rpc('greedyq_cbc_ack',{p_task_id:tid}).catch(()=>{if(envelope.state.phase==='tasks'&&envelope.state.task_order[envelope.state.index]===tid)report();});
+   root.querySelector('[data-next]').onclick=()=>step('next');root.querySelector('[data-back]')?.addEventListener('click',()=>step('previous'));withdrawButton();
+  }
+  render();return{get state(){return envelope;},async refresh(){acceptEnvelope(await rpc('greedyq_cbc_resume'));render();},sessionId:credential.id};
+ }
+ const api={mount,messages};if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBCCollection=api;
+})(typeof globalThis!=='undefined'?globalThis:this);

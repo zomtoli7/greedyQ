@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.3-collection.1",
+  "study_version": "synthetic-1",
+  "title": "Synthetic course choice study",
+  "organization": "Fictional test team",
+  "mode": "test",
+  "source": "direct",
+  "consent": {
+    "id": "cbc_consent",
+    "version": "test-1",
+    "text": "Synthetic software test. Participation is voluntary. You may decline or withdraw; withdrawal deletes choices and presentation records. No real recruitment is approved. Contact the fictional test team at researcher@example.invalid.",
+    "document_sha256": "5750b7025a3af6178cc81148280b4b1aa91d1a90b93e039f55962bf1708a159c",
+    "researcher_contact": "researcher@example.invalid"
+  },
+  "approvals": {
+    "instrument": false,
+    "consent": false,
+    "data_plan": false,
+    "deployment": false,
+    "fielding": false
+  }
+}

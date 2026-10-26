@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "6f78f8e531f602db0ab35a47d869dbcc349a28ccfe3b6a0b836da82e2e72d80b",
+      "sha256": "6ba90e9643fc948067d29458bfa64179bc624ce69aa92e3d0278c2868940a1cb",
       "status": "validated",
       "based_on_decision_ids": []
     },
@@ -204,7 +204,7 @@
     {
       "path": "results.html",
       "kind": "derived",
-      "sha256": "edb8d0d9bc8b8465d3b460d95fb403d1d39992a764814ab605ba14d3dc343d78",
+      "sha256": "b9ed3eb3433905b242d092abc01ebb6b836384314d076284f2f6efa319e680bc",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -213,7 +213,7 @@
     {
       "path": "api/results.js",
       "kind": "source",
-      "sha256": "474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8",
+      "sha256": "399a5a60546817b6e69db56b19b5ed3c42429b0665981eed7f71a55477464faf",
       "status": "validated",
       "based_on_decision_ids": [
         "dec_deployment_fixture"
@@ -240,6 +240,13 @@
       "kind": "derived",
       "sha256": "4019e66238bac825f49e7609cadb0c732eef7edfaff99db9b098b43473d02ea6",
       "status": "validated",
+      "based_on_decision_ids": []
+    },
+    {
+      "path": "greedyq-cbc.js",
+      "kind": "derived",
+      "sha256": "5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f",
+      "status": "generated",
       "based_on_decision_ids": []
     }
   ],

@@ -2,7 +2,7 @@
 
 [한국어](./CBC(kor).md) · [简体中文](./CBC(zh-CN).md)
 
-CBC lets people choose between combinations of features, such as two course subscriptions with different prices and support. **The v0.3 preview can now read a design table, check it, and show working computer and mobile screens. Actual CBC response collection is not enabled yet.** Existing v0.2 surveys remain supported.
+CBC lets people choose between combinations of features, such as two course subscriptions with different prices and support. **The v0.3 preview can now read a design table, check it, and show working computer and mobile screens. This standalone file sends no responses; the separate [CBC collection path](./CBC-COLLECT.md) supplies server-backed storage and results.** Existing v0.2 surveys remain supported.
 
 ## Start with your AI
 
@@ -31,9 +31,9 @@ For your own table, choose `study.design.json` plus either one XLSX or both CSV 
 
 Structure details include level frequencies, unused levels and within-task overlaps. These are descriptive counts, not statistical approval. Attribute IDs must not reuse export metadata names such as `chosen`, `block_id` or `design_sha256`.
 
-## What still comes later
+## Collecting responses
 
-Consent-aware live CBC persistence, server-side block/presentation allocation, results dashboard integration, protected real/test exports, Prolific fielding and native surveydown CBC export need separate implementation and acceptance testing. `sd_cbc` in the draft QMD is a proposal, not accepted v0.2 syntax. No arbitrary agent-generated scripts should replace these missing functions. No utility estimation, WTP, automatic sample-size advice, adaptive conjoint or D-efficient design generation is claimed.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification; fresh cloud deployment and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
 
 ## Fixed implementation for agents
 

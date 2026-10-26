@@ -2,6 +2,8 @@
 
 [English](./cbc-preview-verification-2026-10-26.md)
 
+이전 미리보기 전용 관문의 기록입니다. 이후 [CBC 수집 검증](./cbc-collection-verification-2026-10-26(kor).md)에서 구현 공백 목록을 갱신했습니다. 이 문서는 당시 검사를 보존합니다.
+
 ## 구현 범위
 
 Python 기준 구현(`greedyq/cbc.py`)을 먼저 만든 뒤 동일 계약의 브라우저 JavaScript(`web/greedyq-cbc.js`)와 고정 단일 파일 컴퓨터·모바일 미리보기를 구현했습니다. CSV·값만 담은 XLSX를 읽어 `0.3-preview.1`로 정규화합니다. 실제 수집용 공개 프로파일·설문 형식은 v0.2를 유지합니다. 별도의 v0.3 미리보기이며 실제 CBC 수집 출시는 아닙니다.

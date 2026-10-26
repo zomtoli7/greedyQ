@@ -21,7 +21,9 @@ async function databaseClient(Client, connectionString, fetcher = fetch) {
 
 async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
-  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'])) throw new Error('Complete ordered migration set required');
+  const expected=['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'];
+  const names=manifest.migrations.map(e=>e.name);
+  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -186,7 +188,7 @@ function prepareDeployments({repo,model,directory,url,publishableKey}) {
   const embed=(html,id,value)=>html.replace(new RegExp('(<script id="'+id+'"[^>]*>)[\\s\\S]*?(</script>)'),(_,a,b)=>a+JSON.stringify(value).replace(/</g,'\\u003c')+b);
   for(const type of ['survey','results']) {
     const dest=path.join(directory,type);fs.mkdirSync(dest);
-    for(const asset of ['greedyq-core.js','greedyq-runtime.css']) fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
+    for(const asset of ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js']) fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
     const template=type==='survey'?'respondent.html':'results.html';
     let html=embed(fs.readFileSync(path.join(repo,'templates/browser',template),'utf8'),'greedyq-model',model);
     if(type==='survey') html=embed(html,'greedyq-deployment',{mode:'supabase',supabase_url:url,supabase_anon_key:publishableKey});

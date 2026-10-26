@@ -34,13 +34,13 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "2ccf979fcc6eb52d93f8db16878bca0664d0cb93ad96e09642189f21be48d58a",
+      "manifest_sha256": "842c46a803b3147b339875416874272e3ee0eae480581fe6ca6b5db376660cd9",
       "dependencies": [],
       "conflicts": [],
       "files": [
         {
           "path": "release.json",
-          "sha256": "60845db755cd08e77396725680fba1064dc9c4b8f8513f18abdd5d4e428fef8a"
+          "sha256": "2844af9121fb8f2d3ce051fcf84e1a75ba8bb345700547324c21510811eb3a72"
         },
         {
           "path": "greedyq/localization.py",
@@ -104,7 +104,7 @@
         },
         {
           "path": "tools/cloud_lifecycle.cjs",
-          "sha256": "58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30"
+          "sha256": "93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7"
         },
         {
           "path": "tools/archive_study.cjs",
@@ -112,11 +112,11 @@
         },
         {
           "path": "greedyq/archive.py",
-          "sha256": "eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e"
+          "sha256": "dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a"
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "913aef4470155c0c57cbddbf53aeedbc067978774c2c7e0abce790907c1ea16a"
+          "sha256": "07acc6f16aec074afdf39186b100ba0a779266dd357dc6d2f86844183227513f"
         },
         {
           "path": "guides/core/communication.md",
@@ -212,7 +212,7 @@
         },
         {
           "path": "greedyq/__main__.py",
-          "sha256": "3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6"
+          "sha256": "b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4"
         },
         {
           "path": "greedyq/yaml_min.py",
@@ -232,7 +232,7 @@
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4"
+          "sha256": "113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7"
         },
         {
           "path": "greedyq/runtime.py",
@@ -284,19 +284,51 @@
         },
         {
           "path": "CBC.md",
-          "sha256": "fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db"
+          "sha256": "23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f"
         },
         {
           "path": "greedyq/cbc.py",
-          "sha256": "f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b"
+          "sha256": "06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a"
         },
         {
           "path": "web/greedyq-cbc.js",
-          "sha256": "befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf"
+          "sha256": "5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f"
         },
         {
           "path": "templates/browser/cbc-preview.html",
-          "sha256": "13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68"
+          "sha256": "27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6"
+        },
+        {
+          "path": "GUIDE-ACCESS.md",
+          "sha256": "4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b"
+        },
+        {
+          "path": "web/greedyq-cbc-collection.js",
+          "sha256": "c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986"
+        },
+        {
+          "path": "web/greedyq-cbc.css",
+          "sha256": "d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b"
+        },
+        {
+          "path": "templates/browser/cbc-respondent.html",
+          "sha256": "1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde"
+        },
+        {
+          "path": "templates/supabase/009_cbc.sql",
+          "sha256": "327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2"
+        },
+        {
+          "path": "tools/cbc_cloud.cjs",
+          "sha256": "c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8"
+        },
+        {
+          "path": "CBC-COLLECT.md",
+          "sha256": "c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d"
+        },
+        {
+          "path": "schemas/cbc-collection.schema.json",
+          "sha256": "b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709"
         }
       ]
     },
@@ -333,11 +365,11 @@
         },
         {
           "path": "templates/browser/results.html",
-          "sha256": "1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4"
+          "sha256": "87b2849feb800574c13ae1a18e7f2b18760a414eb35611a81d154cb95ea8fb36"
         },
         {
           "path": "templates/vercel/api/results.js",
-          "sha256": "474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8"
+          "sha256": "399a5a60546817b6e69db56b19b5ed3c42429b0665981eed7f71a55477464faf"
         },
         {
           "path": "examples/complete-study/vercel.json",

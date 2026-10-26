@@ -33,10 +33,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
-    for name in ('cbc-validate','cbc-build'):
+    for name in ('cbc-validate','cbc-build','cbc-package'):
         item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
         item.add_argument('study_dir');item.add_argument('--workbook')
         if name=='cbc-build':item.add_argument('--output')
+        if name=='cbc-package':
+            item.add_argument('--output',required=True);item.add_argument('--collection',required=True)
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
         if name=="preflight":
@@ -45,6 +47,10 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command=='cbc-package':
+            from .cbc import build_collection
+            target,model=build_collection(args.study_dir,args.collection,args.output,args.workbook)
+            print('CBC package prepared: %s. Register the reviewed model and publish separated survey/results folders only.' % target);return 0
         if args.command in ('cbc-validate','cbc-build'):
             from .cbc import load_design,import_design,build_preview,inspect_design,MAX_FILE
             if args.command=='cbc-build':

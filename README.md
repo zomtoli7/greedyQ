@@ -180,4 +180,4 @@ Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.
 
 ## CBC preview and project contact
 
-For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). The preview itself does not collect responses; use the separate [CBC collection package](CBC-COLLECT.md) for the server-backed CBC workflow. Its local verification is distinct from cloud fielding approval. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.

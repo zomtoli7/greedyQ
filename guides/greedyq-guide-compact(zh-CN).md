@@ -55,4 +55,11 @@ greedyQ 是规范驱动的 AI 原生研究应用，不是独立代理。通用 A
 
 ## CBC 预览与项目联系
 
-选择型联合分析请参见 [CBC 导入及电脑/手机预览](../CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](../CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](../CBC(zh-CN).md)。预览本身不收集回答；服务器 CBC 使用独立的 [CBC 收集包](../CBC-COLLECT(zh-CN).md)，本地验证与云端招募批准分开。项目问题或错误报告：[greedyq.contact@gmail.com](../CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+
+
+## 开始前：确认指南访问
+
+如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
+
+参见[指南访问及 Gemini 仓库导入](../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。

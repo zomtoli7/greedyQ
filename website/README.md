@@ -43,3 +43,8 @@ The contact-information revision was also saved and published through the in-app
 ## CBC preview and contact handoff — 26 October 2026
 
 The current source includes a separate local CBC importer/preview; follow `CBC.md`. Do not describe CBC as ready for live collection. The public Contact email `greedyq.contact@gmail.com` was confirmed and kept in all three website language sources. Any newly generated HTML is prepared for the homepage Work; this task does not publish it or replace the historical public-verification hashes.
+
+
+## Current copy/collection handoff
+
+The current template fixes every prose prompt’s URL/line boundary and all copy paths; BibTeX is unchanged code. See `docs/website-prompt-copy-audit-2026-10-26.md`. CBC collection code is locally verified, but a website publication does not deploy the CBC backend. The prepared HTML must be applied and independently verified by the homepage Work; this task does not claim a new public Google Sites version.

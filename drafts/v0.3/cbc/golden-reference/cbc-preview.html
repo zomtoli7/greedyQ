@@ -218,7 +218,63 @@
       unused_levels:model.attributes.flatMap(a=>a.levels.filter(l=>!profiles.some(p=>p.levels[a.id]===l.id)).map(l=>({attribute_id:a.id,level_id:l.id}))),statistical_efficiency_established:false};
   }
   function csv(rows){if(!rows.length)return'';const fields=Object.keys(rows[0]);const q=v=>{let s=String(v??'');if(typeof v==='string'&&/^[\t\r\n]|^\s*[=+\-@]/.test(s))s="'"+s;return'"'+s.replaceAll('"','""')+'"';};return'\ufeff'+[fields,...rows.map(r=>fields.map(k=>r[k]))].map(row=>row.map(q).join(',')).join('\r\n');}
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv};
+
+  function taskHTML(model,s,mode,t=x=>x,error=false){
+    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);
+ const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
+ let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
+ if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
+ const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
+ html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
+ if(mode==='mobile'&&alts.length>2){
+   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
+ }else{
+   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
+   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
+   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
+ }
+ if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
+ html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;return html;
+  }
+  function storedRows(data){
+    const sessions=new Map(data.sessions.map(s=>[s.id,s])),rows=[];
+    for(const answer of data.answers){const s=sessions.get(answer.session_id),v=answer.value;if(!s||['withdrawn','consent_refused'].includes(s.lifecycle_state)||v?.kind!=='cbc')continue;
+      for(const a of v.alternatives)rows.push({session_id:s.id,study_id:s.study_id,study_version:s.study_version??'',started_at:s.created_at??'',completed_at:s.terminal_at??'',status:s.lifecycle_state,source:s.respondent_source,is_test:s.is_test,block_id:v.block_id,task_id:v.task_id,task_position:v.task_position,alternative_id:a.id,display_position:a.display_position,is_none:a.is_none,chosen:v.choice===null?null:Number(v.choice===a.id),...Object.fromEntries(Object.entries(a.levels).map(([k,v])=>['attribute.'+k,v])),design_version:v.design_version,design_sha256:v.design_sha256,presentation_state:v.choice===null?(v.presented_at?'presented':'available'):'answered',served_at:v.served_at??'',presented_at:v.presented_at??'',answered_at:v.answered_at??''});
+    }return rows;
+  }
+  function storedCSV(data,attributes=[]){
+    const rows=storedRows(data),names=[...new Set(attributes.map(a=>'attribute.'+a.id).concat(rows.flatMap(r=>Object.keys(r).filter(k=>k.startsWith('attribute.')))))];
+    const fields=['session_id','study_id','study_version','started_at','completed_at','status','source','is_test','block_id','task_id','task_position','alternative_id','display_position','is_none','chosen',...names,'design_version','design_sha256','presentation_state','served_at','presented_at','answered_at'];
+    const normalized=rows.map(r=>Object.fromEntries(fields.map(k=>[k,r[k]??''])));if(normalized.length)return csv(normalized);return '\ufeff'+fields.map(k=>'"'+k+'"').join(',')+'\r\n';
+  }
+  async function collectionModel(cbc,settings,release){
+    const required=['schema_version','study_version','title','organization','mode','source','consent','approvals'];
+    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
+    if(settings.schema_version!=='0.3-collection.1'||!['test','production'].includes(settings.mode)||!['direct','prolific'].includes(settings.source))fail('CBC020','Choose a supported collection version, mode and source.');
+    for(const k of ['study_version','title','organization'])if(typeof settings[k]!=='string'||[...settings[k]].length<1||[...settings[k]].length>500)fail('CBC020','Provide the study version, title and research team name.');
+    const consent=settings.consent,keys=['id','version','text','document_sha256','researcher_contact'];
+    if(!exactKeys(consent,keys)||keys.some(k=>typeof consent[k]!=='string'||!consent[k]))fail('CBC020','Provide the approved participant information, consent version and researcher contact.');
+    identifier(consent.id);
+    if([...consent.text].length>50000||consent.document_sha256!==await digest(consent.text))fail('CBC020','The consent text hash does not match; review the actual displayed text.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(consent.researcher_contact))fail('CBC020','Provide a research-team email contact.');
+    const approvals=settings.approvals,gates=['instrument','consent','data_plan','deployment','fielding'];
+    if(!exactKeys(approvals,gates)||Object.values(approvals).some(x=>typeof x!=='boolean'))fail('CBC020','Record each researcher approval explicitly.');
+    if(settings.mode==='production'&&(!Object.values(approvals).every(x=>x)||['.invalid','@example.com','@example.org','@example.net'].some(s=>consent.researcher_contact.toLowerCase().endsWith(s))))fail('CBC020','Actual collection requires every approval and the real research-team contact.');
+    const policy={mode:settings.mode,respondent_source:settings.source};
+    if(settings.source==='prolific'){
+      const panel=settings.prolific;
+      if(!exactKeys(panel,['study_id','returns'])||!/^[a-fA-F0-9]{24}$/.test(panel.study_id??''))fail('CBC020','Confirm the Prolific study ID and return paths.');
+      if(!exactKeys(panel.returns,['completed','consent_refused','withdrawn']))fail('CBC020','Confirm all Prolific return paths.');
+      for(const text of Object.values(panel.returns)){
+        let u;try{u=new URL(text);}catch{fail('CBC020','Use reviewed Prolific completion URLs.');}
+        if(typeof text!=='string'||!text.startsWith('https://app.prolific.com/submissions/complete?')||u.origin!=='https://app.prolific.com'||u.pathname!=='/submissions/complete'||u.hash||[...u.searchParams].length!==1||!u.searchParams.has('cc')||!/^[A-Za-z0-9_-]{1,100}$/.test(u.searchParams.get('cc')))fail('CBC020','Use reviewed Prolific completion URLs.');
+      }policy.prolific=panel;
+    }else if(Object.hasOwn(settings,'prolific'))fail('CBC020','Remove panel settings from a direct study.');
+    const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
+    return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
+  }
+  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 </script>
@@ -246,20 +302,7 @@ function render(mode,error=false){
  if(s.withdrawn){root.innerHTML=`<h2>${esc(t('Preview withdrawn'))}</h2><p>${esc(t('The local answers and presentation orders were removed.'))}</p>`;tools(mode);return;}
  if(s.completed){root.innerHTML=`<div class="receipt"><h2>${esc(t('Preview complete'))}</h2><p>${esc(t('No response was sent outside this browser.'))}</p></div>`;tools(mode);return;}
  const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);if(!s.visited.includes(task.id))s.visited.push(task.id);persist(mode);
- const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
- let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
- if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
- const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
- html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
- if(mode==='mobile'&&alts.length>2){
-   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
- }else{
-   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
-   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
-   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
- }
- if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
- html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;root.innerHTML=html;
+ root.innerHTML=C.taskHTML(model,s,mode,t,error);
  root.onchange=event=>{if(event.target.type==='radio'){s.answers[task.id]=event.target.value;persist(mode);root.querySelector('.question-error')?.remove();}};
  root.querySelector('[data-back]')?.addEventListener('click',()=>{s.index--;persist(mode);render(mode);root.closest('.screen').scrollTop=0;});
  root.querySelector('[data-next]').onclick=()=>{if(!Object.hasOwn(s.answers,task.id)){render(mode,true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(s.index===s.task_order.length-1)s.completed=true;else s.index++;persist(mode);render(mode);root.closest('.screen').scrollTop=0;};tools(mode);

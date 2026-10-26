@@ -128,4 +128,4 @@ greedyQ 使用 [MIT License](./LICENSE)。
 
 ## CBC 预览与项目联系
 
-选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。预览本身不收集回答；服务器 CBC 使用独立的 [CBC 收集包](CBC-COLLECT(zh-CN).md)，本地验证与云端招募批准分开。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。

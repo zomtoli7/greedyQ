@@ -74,8 +74,15 @@
 
 当前随机化支持：一次受访者级简单/固定区组分配及确认的整数权重、指定题目/受支持选项/指定整页洗牌，遵循 RANDOMIZATION.md 的固定位置与依赖限制。恢复时保留所有顺序；多阶段或分层分配仍不支持，原生导出的顺序限制单独报告。
 
-CBC 在 drafts/v0.3/cbc 中规划为 v0.3，尚非 v0.2 支持的控件/配置。CBC.md 提供固定导入器和本地预览，但不授权正式收集，也不激活公开 profile registry 中的 CBC。不得用任意运行代码绕过 registry。
+CBC 在 drafts/v0.3/cbc 中规划为 v0.3，尚非 v0.2 支持的控件/配置。CBC.md 与 CBC-COLLECT.md 提供固定导入、预览和独立收集包；已本地验证服务器/浏览器，但不是新云验收或自动招募批准，也不激活通用 v0.2 QMD profile。不得用任意运行代码绕过 registry。
 
 ## CBC 预览与项目联系
 
-选择型联合分析请参见 [CBC 导入及电脑/手机预览](../../CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](../../CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](../../CBC(zh-CN).md)。预览本身不收集回答；服务器 CBC 使用独立的 [CBC 收集包](../../CBC-COLLECT(zh-CN).md)，本地验证与云端招募批准分开。项目问题或错误报告：[greedyq.contact@gmail.com](../../CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+
+
+## 开始前：确认指南访问
+
+如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
+
+参见[指南访问及 Gemini 仓库导入](../../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。

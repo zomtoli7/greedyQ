@@ -19,7 +19,9 @@
 打开[开始指南](./START-HERE(zh-CN).md)，或向 AI 提供：
 
 ```text
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 ```
 
 AI 应读取该文件及同一版本的关联文件，不需要您逐一上传所有模板。中文指南帮助理解，程序和英文规范保持原样。阅读中文指南不代表参与者语言已经选定。
@@ -32,7 +34,9 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 
 ```text
 请读取并遵循当前 greedyQ 指南：
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
 创建新的 greedyQ 研究。把我视为没有技术背景的研究者，一次只问一个核心问题，并带我做到可以实际作答的电脑和手机预览。
 
@@ -410,4 +414,11 @@ Prolific 试验保留 Test，仅把来源改为 Prolific。有平台 ID 不会�
 
 ## CBC 预览与项目联系
 
-选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。预览本身不收集回答；服务器 CBC 使用独立的 [CBC 收集包](CBC-COLLECT(zh-CN).md)，本地验证与云端招募批准分开。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+
+
+## 开始前：确认指南访问
+
+如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
+
+参见[指南访问及 Gemini 仓库导入](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。

@@ -48,10 +48,13 @@ No automatic sample-size or model choice is frozen. A future preregistration dra
 
 ## Next implementation checkpoint
 
-Python reference import and the matching fixed browser importer/renderer are implemented and tested. The next checkpoint is live storage and results; do not present the local preview as a fieldable conjoint study.
+Python reference import and the matching fixed browser importer/renderer are implemented and tested. The dedicated collection protocol is also locally verified; next checkpoints are cloud acceptance, mixed QMD and native CBC export. Do not present the local preview alone as a fieldable conjoint study.
 
 
-The import/rendering checkpoint is now covered by automated Python/browser tests. Next: server persistence, real/test isolation, consent-aware live collection and protected results/export; this preview does not implement those.
+The import/rendering checkpoint is now covered by automated Python/browser tests. The separate collection path now implements server persistence, real/test isolation, consent, withdrawal and protected results/CSV. The standalone preview remains local; actual cloud CBC acceptance is still pending.
 
 
 `preview.manifest.json` separately records current preview/model provenance and file hashes. The earlier `design.manifest.json` and draft expected CSV remain planning fixtures; their hash describes the earlier draft structure, not the normalized preview model.
+
+
+The dedicated [collection path](../../../../CBC-COLLECT.md) now adds server storage, consent, withdrawal, protected results and archive exports. `collection.test.example.json` is explicitly fictional Test configuration with every approval false, not an approved participant study. Local end-to-end evidence is separate from cloud/paid CBC verification.

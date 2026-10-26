@@ -2,7 +2,7 @@
 
 [한국어](./spec(kor).md)
 
-**Draft contract `0.3-draft.1`; import and local preview model `0.3-preview.1` are implemented separately from the v0.2 survey runtime.** MUST/SHOULD below still include future server, fielding and export requirements. Current scope and commands: [CBC preview](../../../CBC.md).
+**Draft contract `0.3-draft.1`; import and local preview model `0.3-preview.1` are implemented separately from the v0.2 survey runtime.** A dedicated `0.3-collection.1` package and `cbc-1` server protocol now implement consent, allocation, storage, withdrawal, results and archival, with local verification. MUST/SHOULD below still include mixed authoring, cloud acceptance, fielding and native export requirements. Current scope and commands: [CBC preview](../../../CBC.md).
 
 ## Object and scope
 
@@ -55,7 +55,7 @@ Separate design rows, assigned presentation and chosen values. Proposed exposure
 
 Long export has one row per alternative of each actually presented task, including a none row if offered. Include stable keys, observed display positions, level codes/labels or a versioned dictionary, design hash and `chosen`. One answered task has exactly one `chosen=1`; other alternatives are `0`. An unanswered task has missing choice values, never an inferred none choice. Do not output unshown tasks as observed responses. Include separate export metadata for consent/refusal/withdrawal and preserve test/real/source filtering.
 
-Withdrawals must erase CBC choices and respondent-specific presentation/order records under the core policy, while retaining only disclosed administrative identifiers. Proposed server tables/RPCs require a new additive migration and conformance tests; no CBC table is installed by v0.2 closure. An imported table cannot authorize collection or satisfy unresolved ethics/sample/analysis choices.
+Withdrawals must erase CBC choices and respondent-specific presentation/order records under the core policy, while retaining only disclosed administrative identifiers. Additive 009 supplies CBC RPCs and reuses the existing seven participant-data tables; no separate exposure table is omitted from archives. An imported table cannot authorize collection or satisfy unresolved ethics/sample/analysis choices.
 
 ## Golden fixture and release gates
 

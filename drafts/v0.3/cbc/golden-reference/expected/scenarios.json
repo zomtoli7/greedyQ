@@ -1,5 +1,5 @@
 {
-  "status": "local_import_and_preview_tested_live_acceptance_pending",
+  "status": "collection_implemented_local_end_to_end_verified_cloud_pending",
   "scenarios": [
     "both_blocks",
     "task_and_alternative_order_persist_after_refresh",
@@ -13,12 +13,20 @@
     "native_export_reports_unimplemented_cbc"
   ],
   "unimplemented": [
-    "live_cbc_storage",
+    "mixed_qmd_cbc_authoring",
+    "native_cbc_export",
     "cbc_design_generator",
     "inference"
   ],
   "implemented_test_files": [
     "tests/test_cbc_import.py",
-    "tests/cbc_browser.cjs"
+    "tests/cbc_browser.cjs",
+    "tests/test_cbc_collection.py",
+    "tests/cbc_collection_journey.cjs",
+    "tests/cbc_results_api.cjs"
+  ],
+  "unverified": [
+    "fresh_account_cbc_cloud_deployment",
+    "paid_cbc_recruitment"
   ]
 }

@@ -21,7 +21,9 @@
 [greedyQ 시작 페이지](./START-HERE(kor).md)를 열거나 AI에게 다음 URL을 줍니다.
 
 ```text
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 ```
 
 AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니다. Guide와 template을 하나씩 모두 첨부할 필요는 없습니다.
@@ -34,7 +36,9 @@ AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니
 
 ```text
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
 새로운 greedyQ 연구를 만들어줘. 나를 비기술 연구자로 대하고 한 번에 하나의 핵심 질문만 하면서 실제로 작동하는 컴퓨터·모바일 preview까지 안내해줘.
 
@@ -48,7 +52,9 @@ AI가 기존 greedyQ study folder에 접근할 수 있게 한 다음 복사합�
 
 ```text
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
 이것은 기존 greedyQ 연구야. 쉬운 말로 요약하고 수정을 도와줘. 내가 upgrade를 승인하지 않으면 기존 기록과 현재 greedyQ version을 유지해줘. 한 번에 하나의 핵심 질문만 해줘.
 
@@ -63,7 +69,9 @@ AI가 기존 study folder에 접근할 수 있게 한 다음 복사합니다.
 
 ```text
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
 이 greedyQ 연구를 포크해줘. 원본은 보존하고 새로운 study identity를 가진 독립적인 사본을 만든 다음 사본만 수정하도록 도와줘. 한 번에 하나의 핵심 질문만 해줘.
 
@@ -428,4 +436,11 @@ AI에게 원하는 배정 절차를 설명할 수 있습니다. 예를 들어 �
 
 ## CBC 미리보기와 프로젝트 문의
 
-선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. v0.3 미리보기는 실제 CBC 수집을 지원하지 않습니다. 수집에는 지원 중인 v0.2 Simple/Experiment 흐름을 사용합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.
+선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. 미리보기 자체는 응답을 수집하지 않습니다. 서버를 사용하는 CBC는 별도의 [CBC 수집 묶음](CBC-COLLECT(kor).md)을 사용하며 로컬 검증과 클라우드 모집 승인을 구분합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.
+
+
+## 시작 전: 가이드 읽기 확인
+
+필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
+
+[가이드 읽기·제미나이 저장소 가져오기](GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.

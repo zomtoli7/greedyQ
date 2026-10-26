@@ -26,8 +26,9 @@ class CBCDraftTests(unittest.TestCase):
     def test_golden_tables_and_expected_choices_match(self):
         report = check_reference()
         self.assertEqual((4,2,8,16,24),tuple(report[k] for k in ['attributes','blocks','tasks','profiles','synthetic_export_rows']))
-        self.assertFalse(report['cbc_live_runtime_implemented'])
+        self.assertFalse(report['cbc_cloud_verified'])
         self.assertFalse(report['statistical_efficiency_established'])
+        self.assertTrue(report['cbc_collection_implemented'])
 
     def test_draft_schema_accepts_fixture_but_not_fielding_or_unsupported_modes(self):
         schema=json.loads((REFERENCE.parent/'design.schema.json').read_text())

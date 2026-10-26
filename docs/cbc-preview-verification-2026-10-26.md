@@ -2,6 +2,8 @@
 
 [한국어](./cbc-preview-verification-2026-10-26(kor).md)
 
+Historical preview-only checkpoint. Subsequent [CBC collection verification](./cbc-collection-verification-2026-10-26.md) supersedes its implementation-gap list; this record preserves the earlier checks.
+
 ## Implemented scope
 
 Python reference (`greedyq/cbc.py`) first, then matching browser-native JavaScript (`web/greedyq-cbc.js`) and the fixed single-file computer/mobile preview. CSV and values-only XLSX import produce normalized `0.3-preview.1` models. Public live profiles and the stable survey format remain v0.2; this is an isolated v0.3 preview implementation, not a live CBC rollout.

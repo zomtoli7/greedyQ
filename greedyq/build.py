@@ -38,7 +38,7 @@ def refresh_manifest(study_dir):
         if entry.get('kind')=='source' and digest!=entry.get('sha256'):changed=True
         entry['sha256']=digest
     names={entry['path'] for entry in entries}
-    for name in ('index.html','preview.html','studio.html','results.html','greedyq-core.js','greedyq-runtime.css','preview-model.json'):
+    for name in ('index.html','preview.html','studio.html','results.html','greedyq-core.js','greedyq-cbc.js','greedyq-runtime.css','preview-model.json'):
         if name not in names:entries.append({'path':name,'kind':'derived','sha256':hashlib.sha256((study_dir/name).read_bytes()).hexdigest(),'status':'generated','based_on_decision_ids':[]})
     if changed:
         for entry in entries:
@@ -46,15 +46,18 @@ def refresh_manifest(study_dir):
     data['artifacts']=entries
     path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     state_path=internal/'study-state.json'
-    if changed and state_path.is_file():
+    if state_path.is_file():
         state=json.loads(state_path.read_text())
-        for gate in ('instrument','deployment','fielding'):
-            state.setdefault('gates',{})[gate]={'status':'pending','reason':'The source changed; review this version again.'}
-        state.update(checkpoint='validated',status='awaiting_approval')
+        if changed:
+            for gate in ('instrument','deployment','fielding'):
+                state.setdefault('gates',{})[gate]={'status':'pending','reason':'The source changed; review this version again.'}
+            state.update(checkpoint='validated',status='awaiting_approval')
+        state['artifact_paths']=list(dict.fromkeys(entry['path'] for entry in entries))
         state_path.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
         for entry in entries:
             if entry.get('path')=='.greedyq/study-state.json':entry['sha256']=hashlib.sha256(state_path.read_bytes()).hexdigest()
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
 
 
 def build(study_dir, write=True):
@@ -78,6 +81,7 @@ def build(study_dir, write=True):
             (study_dir / destination).write_text(html)
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
+        (study_dir / "greedyq-cbc.js").write_bytes((ROOT / "web/greedyq-cbc.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())
         for name in ("vercel.json", ".env.example"):

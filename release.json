@@ -18,9 +18,13 @@
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "import_validation_and_local_browser_preview",
+    "status": "collection_storage_results_implemented_local_verification",
     "preview_schema": "0.3-preview.1",
-    "live_collection": false
+    "live_collection": false,
+    "collection_implemented": true,
+    "cloud_cbc_verified": false,
+    "paid_cbc_verified": false,
+    "rpc_contract": "cbc-1"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",

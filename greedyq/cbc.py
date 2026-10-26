@@ -285,3 +285,89 @@ def build_preview(directory,output=None,workbook=None):
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(template)
     return target,model
+
+
+def collection_model(folder, settings, workbook=None):
+    """Reviewed collection settings are separate from unapproved design-table inputs."""
+    from . import __release__
+    model=import_design(json.loads((Path(folder)/'study.design.json').read_text()),workbook=Path(workbook).read_bytes()) if workbook else load_design(folder)
+    required={'schema_version','study_version','title','organization','mode','source','consent','approvals'}
+    if not isinstance(settings,dict) or set(settings)-required-{'prolific'} or required-set(settings):
+        fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.')
+    if settings['schema_version']!='0.3-collection.1' or settings['mode'] not in ('test','production') or settings['source'] not in ('direct','prolific'):
+        fail('CBC020','Choose a supported collection version, mode and source.')
+    for key in ['study_version','title','organization']:
+        if not isinstance(settings[key],str) or not 1<=len(settings[key])<=500:fail('CBC020','Provide the study version, title and research team name.')
+    consent=settings['consent']
+    keys={'id','version','text','document_sha256','researcher_contact'}
+    if not isinstance(consent,dict) or set(consent)!=keys or any(not isinstance(consent[k],str) or not consent[k] for k in keys):
+        fail('CBC020','Provide the approved participant information, consent version and researcher contact.')
+    identifier(consent['id'])
+    if len(consent['text'])>50000 or consent['document_sha256']!=digest(consent['text']):fail('CBC020','The consent text hash does not match; review the actual displayed text.')
+    if not re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+',consent['researcher_contact']):fail('CBC020','Provide a research-team email contact.')
+    approvals=settings['approvals'];gates={'instrument','consent','data_plan','deployment','fielding'}
+    if not isinstance(approvals,dict) or set(approvals)!=gates or any(type(x) is not bool for x in approvals.values()):fail('CBC020','Record each researcher approval explicitly.')
+    if settings['mode']=='production':
+        if not all(approvals.values()) or consent['researcher_contact'].lower().endswith(('.invalid','@example.com','@example.org','@example.net')):
+            fail('CBC020','Actual collection requires every approval and the real research-team contact.')
+    policy={'mode':settings['mode'],'respondent_source':settings['source']}
+    if settings['source']=='prolific':
+        panel=settings.get('prolific')
+        from urllib.parse import urlsplit,parse_qs
+        if not isinstance(panel,dict) or set(panel)!={'study_id','returns'} or not re.fullmatch(r'[a-fA-F0-9]{24}',str(panel.get('study_id',''))):fail('CBC020','Confirm the Prolific study ID and return paths.')
+        if not isinstance(panel['returns'],dict) or set(panel['returns'])!={'completed','consent_refused','withdrawn'}:fail('CBC020','Confirm all Prolific return paths.')
+        for url in panel['returns'].values():
+            if not isinstance(url,str):fail('CBC020','Use reviewed Prolific completion URLs.')
+            p=urlsplit(url)
+            if p.scheme!='https' or p.netloc!='app.prolific.com' or p.path!='/submissions/complete' or p.fragment or set(parse_qs(p.query))!={'cc'} or len(parse_qs(p.query)['cc'])!=1 or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}',parse_qs(p.query)['cc'][0]):fail('CBC020','Use reviewed Prolific completion URLs.')
+        policy['prolific']=panel
+    elif 'prolific' in settings:fail('CBC020','Remove panel settings from a direct study.')
+    task_ids=list(dict.fromkeys(t['id'] for b in model['blocks'] for t in b['tasks']))
+    pages=[{'id':'consent','title':'Participant information and consent','questions':[]},*[{'id':'cbc:'+tid,'title':'Choice task '+tid,'questions':[{'id':'cbc:'+tid,'type':'cbc','label':'Choice task '+tid}]} for tid in task_ids],*[{'id':s,'title':s,'questions':[],'terminal':s} for s in ['completed','consent_refused','withdrawn']]]
+    return {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+
+
+def build_collection(folder, settings_path, destination, workbook=None):
+    """Fixed deployable files; no account connection, registration or upload occurs here."""
+    import shutil
+    source=Path(__file__).resolve().parents[1]
+    settings=json.loads(Path(settings_path).read_text())
+    model=collection_model(folder,settings,workbook)
+    dest=Path(destination)
+    if dest.exists():fail('CBC020','Choose a new output folder to preserve existing files.')
+    dest.mkdir(parents=True)
+    def embed(template,payload,id):
+        encoded=json.dumps(payload,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
+        return re.sub(r'(<script id="'+id+r'"[^>]*>).*?(</script>)',lambda m:m[1]+encoded+m[2],template,flags=re.S)
+    # The participant page deliberately contains no choice design or server credential.
+    descriptor={k:model[k] for k in ['study_id','study_version','greedyq_version','title','organization','language','runtime_policy']}
+    descriptor['design_sha256']=model['cbc']['design_sha256']
+    (dest/'index.html').write_text(embed((source/'templates/browser/cbc-respondent.html').read_text(),descriptor,'greedyq-model'))
+    results_model={k:v for k,v in model.items() if k not in ('cbc','consent','approvals')}
+    results_model['cbc_attributes']=model['cbc']['attributes']
+    (dest/'results.html').write_text(embed((source/'templates/browser/results.html').read_text(),results_model,'greedyq-model'))
+    (dest/'registered-model.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
+    build_preview(folder,dest/'preview.html',workbook)
+    for name in ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc-collection.js','greedyq-cbc.css']:
+        shutil.copyfile(source/'web'/name,dest/name)
+    migrations=dest/'supabase/migrations';migrations.mkdir(parents=True)
+    for p in sorted((source/'templates/supabase').glob('[0-9][0-9][0-9]_*.sql')):shutil.copyfile(p,migrations/p.name)
+    (migrations/'manifest.json').write_text(json.dumps({'schema_version':'0.3','migrations':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(migrations.glob('*.sql'))]},indent=2)+'\n')
+    (dest/'api').mkdir();shutil.copyfile(source/'templates/vercel/api/results.js',dest/'api/results.js')
+    # Not a publish directory: registered model and migrations are private agent inputs.
+    (dest/'package.json').write_text(json.dumps({'private':True,'description':'Preparation package; publish only the separated survey/results directories'})+'\n')
+    (dest/'.vercelignore').write_text('*\n')
+    package_manifest={'format':'greedyq-cbc-package/1','greedyq_version':model['greedyq_version'],'study_id':model['study_id'],'design_sha256':model['cbc']['design_sha256'],'collection_mode':model['runtime_policy']['mode'],'publish_only_separated_directories':True,'files':{str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(dest.rglob('*')) if p.is_file()}}
+    (dest/'cbc-package.manifest.json').write_text(json.dumps(package_manifest,indent=2)+'\n')
+    return dest,model
+
+
+def stored_rows(snapshot):
+    """Long-form CBC analysis rows from the existing seven-table archive snapshot."""
+    sessions={s['id']:s for s in snapshot['sessions']};rows=[]
+    for answer in snapshot['answers']:
+        s=sessions.get(answer['session_id']);v=answer.get('value')
+        if not s or s.get('lifecycle_state') in ('withdrawn','consent_refused') or not isinstance(v,dict) or v.get('kind')!='cbc':continue
+        for a in v['alternatives']:
+            rows.append({'session_id':s['id'],'study_id':s['study_id'],'study_version':s.get('study_version',''),'started_at':s.get('created_at',''),'completed_at':s.get('terminal_at') or '', 'status':s['lifecycle_state'],'source':s['respondent_source'],'is_test':s['is_test'],'block_id':v['block_id'],'task_id':v['task_id'],'task_position':v['task_position'],'alternative_id':a['id'],'display_position':a['display_position'],'is_none':a['is_none'],'chosen':None if v['choice'] is None else int(v['choice']==a['id']),**{'attribute.'+k:x for k,x in a['levels'].items()},'design_version':v['design_version'],'design_sha256':v['design_sha256'],'presentation_state':('presented' if v.get('presented_at') else 'available') if v['choice'] is None else 'answered','served_at':v.get('served_at') or '','presented_at':v.get('presented_at') or '','answered_at':v['answered_at'] or ''})
+    return rows

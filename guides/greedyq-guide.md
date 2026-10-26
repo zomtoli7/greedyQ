@@ -236,22 +236,39 @@ When the study is ready, provide both runtime paths: greedyQ on Vercel/Supabase 
 
 This full guide is the default single-file attachment for GPT, Claude, and other capable agents. The files below are embedded literally so the researcher does not have to attach a template directory. Extract each block to its declared `FILE` path, preserve the bytes unless a block explicitly identifies replaceable study data, and verify its SHA-256 before claiming successful extraction. The compact guide is not a standalone generation bundle.
 
+
+
+## Before starting: verify guide access
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+
+See [guide access and Gemini repository import](../GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`. Do not treat tool absence as guide access success.
+
 <!-- GREEDYQ_BUNDLE_START -->
 
 ### Canonical file manifest
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
+| `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
+| `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
+| `CBC-COLLECT.md` | `c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d` | `no` |
+| `GUIDE-ACCESS.md` | `4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b` | `no` |
+| `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
+| `web/greedyq-cbc.css` | `d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b` | `no` |
+| `templates/browser/cbc-respondent.html` | `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde` | `no` |
+| `templates/supabase/009_cbc.sql` | `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2` | `no` |
+| `tools/cbc_cloud.cjs` | `c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8` | `no` |
 | `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
-| `CBC.md` | `fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db` | `no` |
-| `greedyq/cbc.py` | `f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b` | `no` |
-| `web/greedyq-cbc.js` | `befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf` | `no` |
-| `templates/browser/cbc-preview.html` | `13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68` | `no` |
+| `CBC.md` | `23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f` | `no` |
+| `greedyq/cbc.py` | `06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a` | `no` |
+| `web/greedyq-cbc.js` | `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f` | `no` |
+| `templates/browser/cbc-preview.html` | `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6` | `no` |
 | `greedyq/scaffold.py` | `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec` | `no` |
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `60845db755cd08e77396725680fba1064dc9c4b8f8513f18abdd5d4e428fef8a` | `no` |
+| `release.json` | `2844af9121fb8f2d3ce051fcf84e1a75ba8bb345700547324c21510811eb3a72` | `no` |
 | `PROLIFIC-SETUP.md` | `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -269,16 +286,16 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `docs/repeat-user-acceptance.md` | `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6` | `no` |
 | `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
 | `docs/cloud-lifecycle.md` | `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81` | `no` |
-| `tools/cloud_lifecycle.cjs` | `58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30` | `no` |
+| `tools/cloud_lifecycle.cjs` | `93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7` | `no` |
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
-| `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
+| `greedyq/archive.py` | `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
 | `web/greedyq-core.js` | `8601d1e63fc1e28a213ec04af61eab798c6595ba70c4d9792c8fa98c8d76e80a` | `no` |
 | `web/greedyq-runtime.css` | `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977` | `no` |
 | `templates/browser/respondent.html` | `566a9a10ae45a6aa9054485903ab0f3c48dc81a93d5aa4eeae95aa730ed21567` | `no` |
 | `templates/browser/preview.html` | `99c520dce58ef69f09e7b9a0d66d7b3b8a06785a8794cbc4c94d61af02a3cf40` | `no` |
 | `templates/browser/studio.html` | `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a` | `no` |
-| `templates/browser/results.html` | `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4` | `no` |
+| `templates/browser/results.html` | `87b2849feb800574c13ae1a18e7f2b18760a414eb35611a81d154cb95ea8fb36` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
 | `templates/supabase/003_results_dashboard.sql` | `db51c65cb24f0f8990d62001437300ad2b8f70a4f19465db7f5fba7d7f3afd51` | `no` |
 | `templates/supabase/004_randomization.sql` | `959fcffdb0df4f753ff81e9733e72a925a357522aa0e5fc1dd125ced9718f519` | `no` |
@@ -287,7 +304,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/supabase/007_answer_snapshot.sql` | `6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2` | `no` |
 | `templates/supabase/008_terminal_timestamp.sql` | `329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b` | `no` |
 | `tools/prolific_status.cjs` | `6f0dcbd48f76f477a6ac8d85cfaf35e3ca2b4de7eea5e37c68d9d14e0d684866` | `no` |
-| `templates/vercel/api/results.js` | `474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8` | `no` |
+| `templates/vercel/api/results.js` | `399a5a60546817b6e69db56b19b5ed3c42429b0665981eed7f71a55477464faf` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `examples/complete-study/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `schemas/ai/study-state.schema.json` | `0a75be2a29e382030d2c500dcc3144c91574fce235673904004ef999791e5ea5` | `no` |
@@ -296,12 +313,12 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3` | `no` |
 | `greedyq/__init__.py` | `e29c8575069652430360fe62346f783fdce563e7f83617dc645dc71c3b491741` | `no` |
-| `greedyq/__main__.py` | `3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6` | `no` |
+| `greedyq/__main__.py` | `b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
 | `greedyq/validator.py` | `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3` | `no` |
 | `greedyq/compiler.py` | `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb` | `no` |
-| `greedyq/build.py` | `a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4` | `no` |
+| `greedyq/build.py` | `113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7` | `no` |
 | `greedyq/runtime.py` | `0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9` | `no` |
 | `greedyq/randomization.py` | `fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee` | `no` |
 | `greedyq/server.py` | `73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65` | `no` |
@@ -309,6 +326,721 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
 | `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
 | `greedyq/deployment.py` | `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524` | `no` |
+
+### FILE: `schemas/cbc-collection.schema.json`
+
+SHA-256: `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CBC reviewed collection settings, separate from design import",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "study_version",
+    "title",
+    "organization",
+    "mode",
+    "source",
+    "consent",
+    "approvals"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.3-collection.1"
+    },
+    "study_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "mode": {
+      "enum": [
+        "test",
+        "production"
+      ]
+    },
+    "source": {
+      "enum": [
+        "direct",
+        "prolific"
+      ]
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "text",
+        "document_sha256",
+        "researcher_contact"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "document_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "researcher_contact": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "approvals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instrument",
+        "consent",
+        "data_plan",
+        "deployment",
+        "fielding"
+      ],
+      "properties": {
+        "instrument": {
+          "type": "boolean"
+        },
+        "consent": {
+          "type": "boolean"
+        },
+        "data_plan": {
+          "type": "boolean"
+        },
+        "deployment": {
+          "type": "boolean"
+        },
+        "fielding": {
+          "type": "boolean"
+        }
+      }
+    },
+    "prolific": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "study_id",
+        "returns"
+      ],
+      "properties": {
+        "study_id": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{24}$"
+        },
+        "returns": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "completed",
+            "consent_refused",
+            "withdrawn"
+          ],
+          "properties": {
+            "completed": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            },
+            "consent_refused": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            },
+            "withdrawn": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "production"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approvals": {
+            "properties": {
+              "instrument": {
+                "const": true
+              },
+              "consent": {
+                "const": true
+              },
+              "data_plan": {
+                "const": true
+              },
+              "deployment": {
+                "const": true
+              },
+              "fielding": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "prolific"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "prolific"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "prolific"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### FILE: `drafts/v0.3/cbc/golden-reference/collection.test.example.json`
+
+SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
+
+```json
+{
+  "schema_version": "0.3-collection.1",
+  "study_version": "synthetic-1",
+  "title": "Synthetic course choice study",
+  "organization": "Fictional test team",
+  "mode": "test",
+  "source": "direct",
+  "consent": {
+    "id": "cbc_consent",
+    "version": "test-1",
+    "text": "Synthetic software test. Participation is voluntary. You may decline or withdraw; withdrawal deletes choices and presentation records. No real recruitment is approved. Contact the fictional test team at researcher@example.invalid.",
+    "document_sha256": "5750b7025a3af6178cc81148280b4b1aa91d1a90b93e039f55962bf1708a159c",
+    "researcher_contact": "researcher@example.invalid"
+  },
+  "approvals": {
+    "instrument": false,
+    "consent": false,
+    "data_plan": false,
+    "deployment": false,
+    "fielding": false
+  }
+}
+```
+
+### FILE: `CBC-COLLECT.md`
+
+SHA-256: `c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d`
+
+```markdown
+# Collect CBC responses and review results
+
+[한국어](./CBC-COLLECT(kor).md) · [简体中文](./CBC-COLLECT(zh-CN).md)
+
+The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. This does not mean a CBC study has been deployed to your accounts or approved for recruitment.
+
+## What the researcher does
+
+1. Prepare and review the design with your AI using [CBC table import and preview](./CBC.md). You may collaborate with the AI, fill a blank Excel/CSV table, or bring an existing design. Confirm attributes, levels, opt-out, blocks and ordering yourself.
+2. Provide the research-team name, study title, actual participation information, contact, consent version and data plan. The AI must show the full consent text on the actual participant page. The project support email is not inserted as your study's contact automatically.
+3. Tell the AI when the instrument, consent, data plan, deployment and fielding are approved. A template, working preview or a passing parser does not supply these approvals. The AI records them separately; production packaging is blocked until all five are explicitly true and a real researcher contact is supplied.
+4. Sign in to Vercel and approve any missing Supabase integration access when requested. An existing authorized connection is preferred; “Onboard your agent” remains optional. The AI prepares two separate sites: the public “Survey link”, where participants answer, and the protected “Results link”, where only the researcher reviews data.
+5. Open an authorized Test link from the Results page and try agreeing, declining, selecting “neither”, returning to a previous task, refreshing and withdrawing on computer and phone. Ask the AI to compare stored records and downloaded CSV. Test data must remain marked Test even when the actual study accepts real responses.
+6. Start recruitment only after approving it. Existing Direct and Prolific rules still apply; Prolific study setup, completion paths, compensation and paid CBC acceptance remain distinct checks. No payment or recruitment is automated by this feature.
+
+## What the participant sees
+
+The opening shows the approved participant information and consent choice. Before consent, no block assignment, task order or CBC exposure is stored or returned. Refusing ends the session and does not show CBC tasks. Agreeing records the consent version and exact text hash, then the server assigns one block and fixes task/alternative orders. Only that block is returned. Refresh or Previous does not draw a new block or order.
+
+The computer and phone use the same fixed renderer as preview. A missing choice gives a message above the task and moves focus there. Next waits for confirmed server storage. When storage fails, the last confirmed state remains; retry uses the same request ID, preventing duplicate advances if the server saved but the acknowledgement was lost. Reload restores confirmed progress. Do not repeatedly change answers or navigate elsewhere during an unresolved connection failure.
+
+“Withdraw participation” first asks for a confirming click. Only a successful server deletion displays the withdrawal receipt. It erases CBC choices, exposures, orders, assignments and participant consent records; the disclosed minimum session/platform administration record can remain. Already downloaded copies are not remotely erased. After archiving/pausing, contact the research team to handle withdrawal requests under its data plan. Completion records the first server end time and preserves it on retries.
+
+## Results and download choices
+
+The Results page starts on **Real responses**. “Test responses” shows trials; “All” deliberately combines them. Source separately selects Direct, Prolific or both. A caller cannot turn a real response into Test with `?test=true` or a participant-supplied flag. On a production study, the protected Results page issues a private 24-hour test grant; valid grants start Test sessions. “Start another test” uses a new virtual identity so repeated checks do not block each other. Do not distribute test links for recruitment.
+
+- **Response overview CSV**: one row per session, including incomplete, declined and withdrawn session metadata in the selected view. Structured task values are preserved as JSON. This is useful for administration, not the main conjoint analysis table.
+- **CBC choice CSV**: one row per alternative in each server-served task, with its display-confirmation state. It includes ordinary alternatives and opt-out, selected value, block, actual positions, design version/hash, server presentation/answer times, source, test flag and session completion time. Use this table for analysis preparation. Unanswered is blank, never “neither”; opt-out feature columns are blank. Unvisited tasks do not create fabricated observations. Rows from withdrawn/refused sessions do not contain choices or exposures.
+- **Archive ZIP**: after closure and download confirmation, the existing archive contains raw structured records and separate real/test CBC long CSVs, with checksums. Keep the approved design and media too. CSV downloads are private research data and may include platform identifiers in the response overview.
+
+Descriptive task/none counts are shown. They are not utility estimates, WTP, model fit, statistical efficiency or sample-size advice. Filters apply to both figures and downloads. On a failed/stale refresh, downloads are disabled until the selected view loads; empty CSVs retain their headings.
+
+
+Server preparation and display are distinct: `served_at` records the server making a task available; `presented_at` is recorded after browser render acknowledgement (or an explicit answer). `presentation_state=available` means display is unconfirmed, `presented` means acknowledged but unanswered, and `answered` means a recorded choice. A lost next-page response is never evidence that the participant saw that next task. Long CSV retains available rows for auditing; exclude them when analysing confirmed exposures. Even a render acknowledgement does not prove human attention.
+
+## Fixed implementation for agents
+
+Use `greedyq/cbc.py`, `web/greedyq-cbc.js`, `web/greedyq-cbc-collection.js`, the fixed browser templates and `tools/cbc_cloud.cjs`; do not author a replacement runtime. `study.design.json` remains an unapproved import contract. Store collection decisions separately in `collection.json` using `0.3-collection.1`. See the explicitly synthetic [test settings](./drafts/v0.3/cbc/golden-reference/collection.test.example.json). Its fictional contact and approvals are not suitable for a real study.
+
+```sh
+python3 -m greedyq cbc-package path/to/study --collection path/to/collection.json --output path/to/new-package
+```
+
+This is a **preparation package**, not a folder to upload wholesale. It includes the private `registered-model.json` and migrations. The participant HTML contains only the public study descriptor, not the full choice design. Register the reviewed immutable model with `registerCBCStudy`, then use `prepareCBCDeployments` to make separate allowlisted `survey/` and `results/` folders. Only the results site receives a server Supabase key, in its server environment; the participant site receives the publishable key. Enforce Vercel Authentication on **all deployments/routes of the results project**, including `/api/results`. Check signed-out rejection after deployment.
+
+Apply unchanged migrations 001–008 followed by additive **009_cbc.sql** through the migration ledger. Existing v0.2 installations do not need 009 unless enabling CBC. Never rewrite applied migrations or alter an existing approved study model. Use a new study ID for a materially different registered design, consent or collection mode. `migrate` accepts exactly the original ordered set or that set followed by 009. `gq_study_plans` stores the immutable reviewed CBC plan; session, consent, assignment, lifecycle and structured exposure/choice records stay in the existing seven-table archive boundary. No extra participant-data table is omitted by archival.
+
+The canonical CBC RPC protocol is `cbc-1`: start/resume, consent, server allocation/presentation, revision-checked idempotent steps and withdrawal. General v0.2 writer/creator/resumer routes cannot bypass the CBC checks or reveal all blocks. Stable server rows use question IDs `cbc:<task_id>` with a structured `kind=cbc` value. Code IDs remain strings. Design changes invalidate the hash and require review. Production approvals are researcher attestations, not evidence of ethics-board approval or guaranteed scientific validity.
+
+
+Agents with browser/JavaScript tools can call `greedyQCBC.importDesign` and `greedyQCBC.collectionModel(cbc, settings, release)` directly; the latter is checked against the Python reference. Pass that reviewed model as `model` to `prepareCBCDeployments`, or use a Python preparation package. This does not require installing Python on the researcher’s Windows or Mac device. For an Excel-backed package the CLI also accepts `--workbook path/to/design.xlsx`. The preparation root contains `.vercelignore` excluding all files and a checksummed package manifest; only the explicitly separated publication directories are deployable outputs.
+
+## Current boundaries
+
+This is the dedicated CBC package workflow, not yet a registered v0.2 `sd_cbc` control or an arbitrary QMD mixed-question CBC authoring path. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
+```
+
+### FILE: `GUIDE-ACCESS.md`
+
+SHA-256: `4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b`
+
+```markdown
+# When your AI cannot open the guide
+
+[한국어](./GUIDE-ACCESS(kor).md) · [简体中文](./GUIDE-ACCESS(zh-CN).md)
+
+## Confirmed copy/paste failure
+
+The researcher subsequently reproduced the failed paste: line breaks disappeared and the Korean sentence attached to the address as `START-HERE.md새`. This malformed address, rather than the canonical repository URL, explains that observed failed attempt. The exact clipboard/rich-text behavior in the destination app was not instrumented; do not generalize it to a Gemini-wide browsing limitation.
+
+The website copy blocks now use text/plain first, an explicit plain-text legacy copy handler and plain-text manual-selection handling. URLs are enclosed in `<...>` and lines have literal ASCII separators, so removing line breaks cannot turn `.md` plus the next Korean/Chinese sentence into a different address. BibTeX remains unchanged code. Use a fresh copy from the updated website after it is published, or wrap the correct URL in `<...>` with a real space before following text. The alternative raw/import/attachment paths below still apply to genuine guide access failures.
+
+A link in a message does not prove the AI has read it. If it says “I cannot access the website” and then starts drafting a survey, stop that attempt: the result has not followed verified greedyQ instructions. Model names or a paid subscription alone do not establish browsing, file creation, browser preview or deployment capabilities.
+
+## First try the plain text link
+
+Ask it to read:
+
+```text
+https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
+```
+
+This avoids the surrounding GitHub interface. It does not overcome a host that cannot fetch links. The entry guide alone is not enough: the AI must load the same release's registry, resolved guides and fixed source files, or a complete full bundle. It must not infer the missing rules from the project name, search snippets or the first interview question.
+
+## In the Gemini web app
+
+Google documents a separate repository import route: Add files → More Uploads → Import Code → enter `https://github.com/zomtoli7/greedyQ`. If that route is shown for your account, use it and then ask the AI to read `START-HERE.md` and its required files. Availability and menu wording can differ. Attaching a repository is different from pasting a URL into the conversation. [Google's file/import instructions](https://support.google.com/gemini/answer/14903178?hl=en)
+
+For custom Gemini API applications, URL Context is an explicitly supplied tool; a link alone is not an assertion that the client enabled it. This does not diagnose a particular Gemini Apps conversation. [Google's URL Context documentation](https://ai.google.dev/gemini-api/docs/url-context)
+
+## If import or browsing is unavailable
+
+Download the [complete English guide](./guides/greedyq-guide.md), [Korean guide](./guides/greedyq-guide(kor).md), or [Chinese guide](./guides/greedyq-guide(zh-CN).md) from GitHub and attach the saved file. Use the download button, not a screenshot or a copy of only the first page. If the host rejects `.md`, save the same complete UTF-8 content as `.txt`; do not remove the embedded fixed code. The compact guide and `START-HERE.md` alone are not substitutes for the full bundle. If the file is too large or truncated, use repository import or a host that can read the complete bundle.
+
+After the complete guide is available, the AI should confirm briefly that it loaded the guide and state its actual capabilities. A host with no file-generation or execution tools may help with research discussion, but cannot truthfully claim it built or tested a working greedyQ runtime. It should offer an agent-enabled handoff before artifact generation. No account login or payment is needed just to resolve guide access.
+
+## Prompt that handles this safely
+
+```text
+Read the current greedyQ guide and all required files from the same release:
+https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+If you cannot read them, do not start the study interview, draft questions or claim to follow greedyQ. First try the raw text URL, repository import, or ask me to attach the complete guide. Continue only after the complete required guide is available; explain your actual file, preview and deployment capabilities briefly.
+```
+
+## What the reported screenshot establishes
+
+On 26 October 2026 the public GitHub page and raw text link both returned HTTP 200 without login from our check. The screenshot shows the AI reported access failure and continued. It does not establish the original failure's cause, the app's enabled tools or a platform-wide Gemini limitation. We changed the copied starter prompt because a guard contained only inside an unread page cannot help. Gemini Apps itself was not retested under the reporter's account.
+```
+
+### FILE: `web/greedyq-cbc-collection.js`
+
+SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
+
+```javascript
+/* Fixed CBC collection protocol. No service key or survey-authored code. */
+(function(scope){
+ 'use strict';
+ const C=scope.greedyQCBC,escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const translations={
+ 'Test link unavailable':['시험 링크가 만료됐거나 사용할 수 없습니다. 연구자에게 새 시험 링크를 요청해 주세요.','测试链接已失效，请向研究者索取新链接。','測試連結已失效，請向研究者索取新連結。'],
+ 'Connection unavailable':['설문 연결을 확인하지 못했습니다. 연구팀에 문의해 주세요.','无法连接问卷，请联系研究团队。','無法連接問卷，請聯絡研究團隊。'],
+ 'Save failed. Check your connection and retry. Your last confirmed answer is preserved.':['저장하지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요. 마지막으로 저장한 답은 유지됩니다.','保存失败，请检查网络后重试。上次已保存的回答仍然保留。','儲存失敗，請檢查網路後重試。上次已儲存的回答仍然保留。'],
+ 'Participant information and consent':['연구 안내와 참여 동의','研究说明与参与同意','研究說明與參與同意'],'I agree to participate':['참여에 동의합니다','我同意参与','我同意參與'],'I do not agree':['참여하지 않겠습니다','我不同意参与','我不同意參與'],'Withdraw participation':['참여 철회','退出研究','退出研究'],'Your answers have been removed.':['응답을 삭제했습니다.','已删除您的回答。','已刪除您的回答。'],'Participation declined':['참여하지 않으셨습니다','您未同意参与','您未同意參與'],'Thank you. Your answers have been saved.':['감사합니다. 응답을 저장했습니다.','感谢您，回答已保存。','感謝您，回答已儲存。'],'Test response — not real study data.':['시험 응답입니다. 실제 연구 응답으로 기록하지 않습니다.','这是测试回答，不计入真实研究数据。','這是測試回答，不計入真實研究資料。'],'Return to Prolific':['Prolific으로 돌아가기','返回 Prolific','返回 Prolific'],'Start another test':['새 시험 시작','重新测试','重新測試'],
+ 'Next':['다음','下一题','下一題'],'Previous':['이전','上一题','上一題'],'Submit preview':['응답 제출','提交回答','提交回答'],'Task':['과제','题目','題目'],'Which option would you choose?':['어느 대안을 선택하시겠습니까?','您会选择哪一个？','您會選擇哪一個？'],'Choose one option before continuing.':['대안 하나를 선택한 뒤 다음으로 이동해 주세요.','请选择一个选项后继续。','請選擇一個選項後繼續。'],'Choose':['선택','选择','選擇'],'Option':['대안','选项','選項'],'Attribute':['속성','属性','屬性']};
+ function messages(language){const i=({ko:0,'zh-CN':1,'zh-TW':2})[language];return s=>translations[s]?.[i]??(s==='Submit preview'?'Submit answers':s);}
+ async function mount(root,{model,url,anonKey,search='',storage=scope.localStorage,fetcher=scope.fetch.bind(scope)}){
+  if(!/^https:\/\//.test(url||'')||!anonKey)throw Error('Public connection required');
+  const t=messages(model.language),params=new URLSearchParams(search),previewToken=params.get('gq_preview'),key='greedyq-cbc-capability:'+JSON.stringify([model.study_id,model.design_sha256,previewToken]),mode=()=>innerWidth<=700?'mobile':'desktop';
+  let credential;try{credential=JSON.parse(storage.getItem(key));}catch{}
+  if(!credential?.id||!credential?.token){credential={id:crypto.randomUUID(),token:[...crypto.getRandomValues(new Uint8Array(32))].map(x=>x.toString(16).padStart(2,'0')).join('')};storage.setItem(key,JSON.stringify(credential));}
+  const rpc=async(name,body={})=>{const response=await fetcher(url.replace(/\/$/,'')+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:anonKey,authorization:'Bearer '+anonKey,'content-type':'application/json'},body:JSON.stringify({p_session_id:credential.id,p_access_token:credential.token,...body})});if(!response.ok){const detail=await response.json().catch(()=>({})),error=Error('CBC request failed ('+response.status+')');if(detail.message==='This study is closed for archiving')error.kind='study_closed';if(/duplicate Prolific/.test(detail.message||''))error.kind='prolific_duplicate';if(detail.message==='invalid or expired preview grant')error.kind='preview_expired';throw error;}return response.status===204?null:response.json();};
+  let external=null;
+  if(model.runtime_policy.respondent_source==='prolific'){
+   const launch=scope.greedyQ.resolveProlificLaunch(search,previewToken?'test':model.runtime_policy.mode,model.runtime_policy.prolific.study_id);
+   if(launch.status!=='passed'){const error=Error('Invalid Prolific launch');error.kind='invalid_prolific_link';throw error;}external=launch.identifiers;
+  }else if(['PROLIFIC_PID','STUDY_ID','SESSION_ID'].some(k=>params.has(k)))throw Error('Unexpected panel identifiers');
+  let envelope=await rpc('greedyq_cbc_start',{p_study_id:model.study_id,p_design_sha256:model.design_sha256,p_preview_token:previewToken,p_external:external}),busy=false,pending=null,withdrawArmed=false;
+  const errorBox=document.getElementById('collection-error'),note=document.getElementById('collection-note');
+  const clearError=()=>{if(errorBox){errorBox.hidden=true;errorBox.textContent='';}};
+  function report(){if(errorBox){errorBox.hidden=false;errorBox.textContent=t('Save failed. Check your connection and retry. Your last confirmed answer is preserved.');errorBox.scrollIntoView({block:'nearest'});}}
+  const acceptEnvelope=next=>{if(next.runtime_contract!=='cbc-1'||next.study_id!==model.study_id||next.design_sha256!==model.design_sha256)throw Error('CBC contract mismatch');envelope=next;};acceptEnvelope(envelope);
+  async function send(name,body){if(busy)return;busy=true;root.querySelectorAll('button,input').forEach(b=>b.disabled=true);clearError();try{acceptEnvelope(await rpc(name,body));pending=null;withdrawArmed=false;render();root.focus({preventScroll:true});root.scrollIntoView({block:'start'});}catch(e){report();root.querySelectorAll('button,input').forEach(b=>b.disabled=false);}finally{busy=false;}}
+  function ending(phase){const text=phase==='withdrawn'?'Your answers have been removed.':phase==='consent_refused'?'Participation declined':'Thank you. Your answers have been saved.';root.innerHTML='<h2>'+escape(t(text))+'</h2>';const returnURL=model.runtime_policy.prolific?.returns?.[phase];if(returnURL){const a=document.createElement('a');a.textContent=t('Return to Prolific');a.href=returnURL;root.append(a);}if(phase==='completed')withdrawButton();if(envelope.is_test&&previewToken){const b=document.createElement('button');b.className='secondary';b.textContent=t('Start another test');b.onclick=()=>{storage.removeItem(key);location.reload();};root.append(b);}}
+  function withdrawButton(){const b=document.createElement('button');b.className='secondary';b.style.marginTop='20px';b.textContent=t('Withdraw participation');b.onclick=()=>{if(busy)return;if(!withdrawArmed){withdrawArmed=true;b.textContent=model.language==='ko'?'응답을 지우고 철회하기':model.language==='zh-CN'?'删除回答并退出':model.language==='zh-TW'?'刪除回答並退出':'Confirm withdrawal and delete answers';return;}send('greedyq_cbc_withdraw',{});};root.append(b);}
+  function render(required=false){const st=envelope.state,phase=st.phase||st.lifecycle;document.getElementById('cbc-shell')?.classList.toggle('mobile',mode()==='mobile');document.getElementById('cbc-shell')?.classList.toggle('desktop',mode()==='desktop');if(note)note.textContent=envelope.is_test?t('Test response — not real study data.'):'';
+   if(['withdrawn','completed','consent_refused'].includes(phase)){ending(phase);return;}
+   if(phase==='consent'){root.innerHTML='<h2>'+escape(t('Participant information and consent'))+'</h2><div class="consent-copy"></div><p class="researcher-contact"></p><div class="actions"><button data-consent="refused" class="secondary">'+escape(t('I do not agree'))+'</button><button data-consent="accepted">'+escape(t('I agree to participate'))+'</button></div>';root.querySelector('.consent-copy').textContent=envelope.consent.text;root.querySelector('.researcher-contact').textContent=envelope.consent.researcher_contact;root.querySelectorAll('[data-consent]').forEach(b=>b.onclick=()=>send('greedyq_cbc_consent',{p_decision:b.dataset.consent}));return;}
+   if(phase!=='tasks'||!envelope.model||!C.validateSession(envelope.model,st))throw Error('Invalid CBC state');
+   root.innerHTML=C.taskHTML(envelope.model,st,mode(),t,required);const tid=st.task_order[st.index];
+   root.querySelectorAll('input[type=radio]').forEach(input=>input.onchange=()=>{root.querySelector('.question-error')?.remove();pending=null;});
+   function step(direction){if(busy)return;const choice=root.querySelector('input:checked')?.value??null;if(direction==='next'&&!choice){render(true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(!pending)pending={p_task_id:tid,p_choice:choice,p_direction:direction,p_revision:st.revision,p_request_id:crypto.randomUUID()};send('greedyq_cbc_step',pending);}
+   rpc('greedyq_cbc_ack',{p_task_id:tid}).catch(()=>{if(envelope.state.phase==='tasks'&&envelope.state.task_order[envelope.state.index]===tid)report();});
+   root.querySelector('[data-next]').onclick=()=>step('next');root.querySelector('[data-back]')?.addEventListener('click',()=>step('previous'));withdrawButton();
+  }
+  render();return{get state(){return envelope;},async refresh(){acceptEnvelope(await rpc('greedyq_cbc_resume'));render();},sessionId:credential.id};
+ }
+ const api={mount,messages};if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBCCollection=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+```
+
+### FILE: `web/greedyq-cbc.css`
+
+SHA-256: `d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b`
+
+```css
+
+*{box-sizing:border-box}body{margin:0;background:#f3f6f9;color:#172033;font:16px/1.5 system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#235c76;color:white;border:1px solid #235c76;border-radius:8px;padding:10px 16px;min-height:44px}button.secondary{background:white;color:#21465c;border-color:#b4c5cf}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #dd9800;outline-offset:3px}header,.importer{background:white;border-bottom:1px solid #d6e0e7;padding:16px 24px}header h1{font-size:25px;margin:0 0 6px}header p{margin:0}.note{color:#526578}.importer{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.importer label{display:grid;gap:4px;max-width:250px;min-width:0}.importer label>*{min-width:0;width:100%}.importer input{max-width:100%}.wide{flex-basis:100%}#status{margin:12px 24px}#error{margin:12px 24px;border-left:4px solid #ba3327;padding:12px;background:#fff0ed}#error[hidden],#preview[hidden]{display:none}.preview-grid{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;padding:18px 24px;align-items:start}.viewport{min-width:0;border:1px solid #cbd8e2;border-radius:14px;background:white;overflow:hidden}.viewport-title{padding:10px 14px;background:#e6eef3;font-weight:650}.screen{height:680px;overflow:auto}.participant{padding:22px}.desktop .participant{min-width:900px}.mobile{width:390px;max-width:100%;justify-self:center}.participant h2{font-size:23px;line-height:1.3;margin:8px 0 16px}.participant .progress{color:#526578;font-size:14px}.choice-grid{display:grid;grid-template-columns:minmax(130px,.9fr) repeat(var(--alternatives),minmax(130px,1fr));width:100%;border-top:1px solid #becdd7;border-left:1px solid #e0e7eb}.cell{padding:12px;border-bottom:1px solid #e0e7eb;border-right:1px solid #e0e7eb;overflow-wrap:anywhere;min-width:0}.cell.heading{font-weight:650;background:#eff4f7}.choice-pick{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:44px}.choice-pick input{width:20px;height:20px;flex-shrink:0;accent-color:#235c76}.cell:has(input:checked){background:#e0f0f8;box-shadow:inset 0 0 0 2px #235c76}.none-pick{display:flex;align-items:center;gap:8px;border:1px solid #cbd8e2;padding:12px;margin-top:16px;border-radius:8px;min-height:48px;cursor:pointer}.none-pick:has(input:checked){background:#e0f0f8;border-color:#235c76}.none-pick input{width:20px;height:20px}.actions{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #d6e0e7;margin-top:22px;padding-top:16px}.participant fieldset{border:0;margin:0;padding:0;min-width:0}.participant legend{font-size:18px;font-weight:650;margin-bottom:16px}.question-error{color:#9c281f;background:#fff0ed;padding:12px;border-radius:6px}.mobile .participant{padding:16px}.mobile .choice-grid{grid-template-columns:minmax(88px,.8fr) repeat(var(--alternatives),minmax(0,1fr))}.mobile .cell{padding:9px 6px;font-size:14px}.pane-tools{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid #d6e0e7}.pane-tools select{max-width:130px}.pane-tools button{font-size:14px;padding:7px 10px}.structure{display:flex;gap:12px;margin:0 24px 16px;flex-wrap:wrap}dialog{max-width:min(800px,92vw);max-height:85vh;overflow:auto;border:1px solid #bccbd6;border-radius:12px;padding:24px}dialog::backdrop{background:#10202d88}dialog table{border-collapse:collapse;width:100%;margin:12px 0}dialog th,dialog td{border:1px solid #cbd8e2;padding:8px;text-align:left}details{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}.receipt{padding:24px 0}a{color:#235c76}@media(max-width:1050px){.preview-grid{grid-template-columns:minmax(0,1fr)}.mobile{width:390px;max-width:100%}}@media(max-width:430px){header,.importer{padding:14px}.preview-grid{padding:12px;gap:18px}.structure{margin:0 12px 12px}#status,#error{margin:12px}.mobile{width:100%;max-width:390px}}
+
+.respondent{margin:24px auto;max-width:1100px;background:white;border:1px solid #cbd8e2;border-radius:12px;overflow:auto}.respondent.desktop .participant{min-width:0}.respondent.mobile{width:100%;max-width:700px}.consent-copy{white-space:pre-wrap;overflow-wrap:anywhere}.connection-note{padding:12px 24px;color:#526578}#collection-error{background:#fff0ed;color:#9c281f;padding:16px}#collection-error[hidden]{display:none}.participant:focus{outline:0}
+```
+
+### FILE: `templates/browser/cbc-respondent.html`
+
+SHA-256: `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde`
+
+```html
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; img-src 'self' data:; base-uri 'none'; form-action 'none'"><title>greedyQ choice study</title><link rel="stylesheet" href="greedyq-cbc.css"></head><body>
+<header><h1 id="team"></h1><p id="study-title"></p></header><p id="collection-note" class="connection-note"></p><section id="collection-error" role="alert" hidden></section><main id="cbc-shell" class="respondent"><div id="respondent" class="participant" tabindex="-1"></div></main>
+<script src="greedyq-core.js"></script><script src="greedyq-cbc.js"></script><script src="greedyq-cbc-collection.js"></script>
+<script id="greedyq-model" type="application/json">{}</script><script id="greedyq-deployment" type="application/json">{"mode":"unconnected"}</script>
+<script>
+(async()=>{const model=JSON.parse(document.getElementById('greedyq-model').textContent),deployment=JSON.parse(document.getElementById('greedyq-deployment').textContent);document.documentElement.lang=model.language||'en';document.title=model.title;document.getElementById('team').textContent=model.organization;document.getElementById('study-title').textContent=model.title;const ui=greedyQCBCCollection.messages(model.language);try{if(deployment.mode!=='supabase')throw new Error(ui('Connection unavailable'));window.cbcController=await greedyQCBCCollection.mount(document.getElementById('respondent'),{model,url:deployment.supabase_url,anonKey:deployment.supabase_anon_key,search:location.search});}catch(error){const el=document.getElementById('collection-error');el.hidden=false;el.textContent=error.kind==='study_closed'?greedyQ.translate(model.language,'Survey closed')+' — '+greedyQ.translate(model.language,'This study is no longer accepting responses. Please contact the research team if you need help.'):error.kind==='invalid_prolific_link'?greedyQ.translate(model.language,'Survey link incomplete'):error.kind==='prolific_duplicate'?greedyQ.translate(model.language,'A response already exists. Reopen this study in the browser where you started, or contact the researcher.'):error.kind==='preview_expired'?ui('Test link unavailable'):ui('Connection unavailable');console.error(error);}})();
+</script></body></html>
+```
+
+### FILE: `templates/supabase/009_cbc.sql`
+
+SHA-256: `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2`
+
+```sql
+-- Additive CBC protocol. Existing 001–008 bytes and existing records stay unchanged.
+-- Reviewed immutable CBC plans share the protected study registry and seven data tables.
+create function public.gq_cbc_context(p_session_id uuid,p_access_token text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare s public.gq_sessions; m jsonb;
+begin
+ select * into s from public.gq_sessions where id=p_session_id for update;
+ if not found or not public.greedyq_token_ok(s.id,p_access_token) then raise exception 'invalid session capability'; end if;
+ select model into m from public.gq_study_plans where study_id=s.study_id;
+ if m->>'kind' is distinct from 'cbc_study' then raise exception 'CBC study required'; end if;
+ return m;
+end;$$;
+revoke all on function public.gq_cbc_context(uuid,text) from public,anon,authenticated;
+
+-- Return only the assigned block, never the other blocks or the full private plan.
+create function public.greedyq_cbc_resume(p_session_id uuid,p_access_token text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb; s public.gq_sessions; c jsonb; b jsonb;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);
+ select * into s from public.gq_sessions where id=p_session_id;
+ c:=m->'cbc';
+ if s.browser_state->>'block_id' is not null and s.lifecycle_state<>'withdrawn' then
+  select value into b from jsonb_array_elements(c->'blocks') where value->>'id'=s.browser_state->>'block_id';
+ end if;
+ return jsonb_build_object('runtime_contract','cbc-1','study_id',s.study_id,'design_sha256',c->>'design_sha256',
+  'state',s.browser_state,'is_test',s.is_test,'source',s.respondent_source,'consent',m->'consent',
+  'title',m->>'title','organization',m->>'organization','language',m->>'language',
+  'model',case when b is null then null else jsonb_set(c,'{blocks}',jsonb_build_array(b)) end,
+  'terminal_at',s.terminal_at);
+end;$$;
+revoke all on function public.greedyq_cbc_resume(uuid,text) from public;
+grant execute on function public.greedyq_cbc_resume(uuid,text) to anon,authenticated;
+
+create function public.greedyq_cbc_start(p_session_id uuid,p_access_token text,p_study_id text,p_design_sha256 text,p_preview_token text default null,p_external jsonb default null) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb; s public.gq_sessions; test boolean; expected text;
+begin
+ select model into m from public.gq_study_plans where study_id=p_study_id;
+ if m->>'kind' is distinct from 'cbc_study' or m->'cbc'->>'design_sha256' is distinct from p_design_sha256 then raise exception 'CBC design mismatch'; end if;
+ if length(coalesce(p_access_token,''))<32 or length(p_access_token)>256 then raise exception 'invalid session capability'; end if;
+ if m->'runtime_policy'->>'mode' not in ('test','production') then raise exception 'CBC mode required'; end if;
+ test:=m->'runtime_policy'->>'mode'='test';
+ if p_preview_token is not null then
+  if not exists(select 1 from public.gq_preview_grants where token_hash=encode(extensions.digest(p_preview_token,'sha256'),'hex') and study_id=p_study_id and expires_at>now()) then raise exception 'invalid or expired preview grant'; end if;
+  test:=true;
+ end if;
+ if not test and (m->>'fielding_approved') is distinct from 'true' then raise exception 'CBC fielding approval required'; end if;
+ if m->'runtime_policy'->>'respondent_source'='direct' and p_external is not null then raise exception 'unexpected panel identifiers'; end if;
+ insert into public.gq_sessions(id,study_id,study_version,spec_version,greedyq_version,is_test,access_token_hash,browser_state,current_page)
+ values(p_session_id,p_study_id,m->>'study_version','0.3',m->>'greedyq_version',test,encode(extensions.digest(p_access_token,'sha256'),'hex'),jsonb_build_object('phase','consent','revision',0,'lifecycle','created','design_sha256',p_design_sha256),'consent') on conflict(id) do nothing;
+ perform public.gq_cbc_context(p_session_id,p_access_token);
+ select * into s from public.gq_sessions where id=p_session_id;
+ if s.study_id<>p_study_id or s.is_test<>test or s.study_version is distinct from m->>'study_version' then raise exception 'session study mismatch'; end if;
+ if s.lifecycle_state='withdrawn' then return public.greedyq_cbc_resume(s.id,p_access_token); end if;
+ if m->'runtime_policy'->>'respondent_source'='prolific' then
+  if p_external is null then raise exception 'Prolific identifiers required'; end if;
+  if test and p_preview_token is not null then
+   if s.preview_run_id='' and exists(select 1 from public.gq_external_identifiers where session_id=s.id) then raise exception 'existing panel response'; end if;
+   update public.gq_sessions set preview_run_id=s.id::text where id=s.id;
+  end if;
+  perform public.greedyq_register_external(s.id,p_access_token,'prolific',p_external->>'PROLIFIC_PID',p_external->>'STUDY_ID',p_external->>'SESSION_ID');
+ end if;
+ return public.greedyq_cbc_resume(s.id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_start(uuid,text,text,text,text,jsonb) from public;
+grant execute on function public.greedyq_cbc_start(uuid,text,text,text,text,jsonb) to anon,authenticated;
+
+create function public.gq_cbc_permute(items text[],enabled boolean) returns text[] language plpgsql volatile set search_path=public,pg_temp as $$
+declare i integer; j integer; t text;
+begin
+ if enabled then for i in reverse cardinality(items)..2 loop j:=public.gq_random_below(i)+1;t:=items[i];items[i]:=items[j];items[j]:=t;end loop;end if;
+ return items;
+end;$$;
+revoke all on function public.gq_cbc_permute(text[],boolean) from public,anon,authenticated;
+
+-- Exposure/choice values contain all actual positions and feature codes for lossless archives.
+create function public.gq_cbc_present(p_session_id uuid,m jsonb,state jsonb) returns void
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare b jsonb; task jsonb; tid text; alternatives jsonb:='[]'; aid text; a jsonb; pos integer:=0; v jsonb;
+begin
+ tid:=state->'task_order'->>((state->>'index')::integer);
+ select value into b from jsonb_array_elements(m->'cbc'->'blocks') where value->>'id'=state->>'block_id';
+ select value into task from jsonb_array_elements(b->'tasks') where value->>'id'=tid;
+ for aid in select jsonb_array_elements_text(state->'alternative_orders'->tid) loop
+  pos:=pos+1; select value into a from jsonb_array_elements(task->'alternatives') where value->>'id'=aid;
+  alternatives:=alternatives||jsonb_build_array(jsonb_build_object('id',aid,'display_position',pos,'is_none',false,'levels',a->'levels'));
+ end loop;
+ if (m->'cbc'->'none'->>'enabled')::boolean then alternatives:=alternatives||jsonb_build_array(jsonb_build_object('id','none','display_position',pos+1,'is_none',true,'levels','{}'::jsonb));end if;
+ v:=jsonb_build_object('kind','cbc','design_version',m->'cbc'->>'schema_version','design_sha256',m->'cbc'->>'design_sha256','block_id',b->>'id','task_id',tid,'task_position',(state->>'index')::integer+1,'alternatives',alternatives,'choice',null,'served_at',clock_timestamp(),'presented_at',null,'answered_at',null);
+ insert into public.gq_answers(session_id,question_id,value) values(p_session_id,'cbc:'||tid,v) on conflict(session_id,question_id) do nothing;
+end;$$;
+revoke all on function public.gq_cbc_present(uuid,jsonb,jsonb) from public,anon,authenticated;
+
+create function public.greedyq_cbc_consent(p_session_id uuid,p_access_token text,p_decision text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb; s public.gq_sessions; state jsonb; chosen jsonb; item jsonb; task jsonb; orders jsonb:='{}'; tids text[]; aids text[]; total integer; draw integer;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);select * into s from public.gq_sessions where id=p_session_id;
+ if p_decision not in ('accepted','refused') or p_decision is null then raise exception 'invalid consent decision';end if;
+ if s.lifecycle_state<>'created' then
+  if (s.lifecycle_state='consent_refused' and p_decision='refused') or (s.lifecycle_state in ('in_progress','completed') and p_decision='accepted') then return public.greedyq_cbc_resume(s.id,p_access_token);end if;
+  raise exception 'session ended';
+ end if;
+ insert into public.gq_consent_events(session_id,consent_id,consent_version,document_sha256,decision) values(s.id,m->'consent'->>'id',m->'consent'->>'version',m->'consent'->>'document_sha256',p_decision);
+ if p_decision='refused' then
+  update public.gq_sessions set lifecycle_state='consent_refused',current_page='consent_refused',browser_state=jsonb_build_object('phase','consent_refused','lifecycle','consent_refused','revision',1,'design_sha256',m->'cbc'->>'design_sha256'),updated_at=now() where id=s.id;
+ else
+  select sum((value->>'weight')::integer) into total from jsonb_array_elements(m->'cbc'->'blocks');draw:=public.gq_random_below(total);
+  for item in select value from jsonb_array_elements(m->'cbc'->'blocks') loop draw:=draw-(item->>'weight')::integer;if draw<0 then chosen:=item;exit;end if;end loop;
+  select array_agg(value->>'id' order by ordinal) into tids from jsonb_array_elements(chosen->'tasks') with ordinality t(value,ordinal);
+  tids:=public.gq_cbc_permute(tids,m->'cbc'->>'task_order'='randomized_once_per_respondent');
+  for task in select value from jsonb_array_elements(chosen->'tasks') loop
+   select array_agg(value->>'id' order by ordinal) into aids from jsonb_array_elements(task->'alternatives') with ordinality a(value,ordinal);
+   aids:=public.gq_cbc_permute(aids,m->'cbc'->>'alternative_order'='randomized_once_per_task');orders:=orders||jsonb_build_object(task->>'id',to_jsonb(aids));
+  end loop;
+  state:=jsonb_build_object('phase','tasks','lifecycle','in_progress','design_sha256',m->'cbc'->>'design_sha256','block_id',chosen->>'id','task_order',to_jsonb(tids),'alternative_orders',orders,'index',0,'answers','{}'::jsonb,'visited',jsonb_build_array(tids[1]),'completed',false,'withdrawn',false,'revision',1);
+  insert into public.gq_assignments(session_id,randomization_id,condition,method,block_id,draw_id,spec_version) values(s.id,'cbc',chosen->>'id','simple',chosen->>'id',gen_random_uuid()::text,'0.3');
+  update public.gq_sessions set browser_state=state,current_page='cbc:'||tids[1],lifecycle_state='in_progress',page_order=to_jsonb(tids),option_orders=orders,updated_at=now() where id=s.id;
+  perform public.gq_cbc_present(s.id,m,state);
+ end if;
+ return public.greedyq_cbc_resume(s.id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_consent(uuid,text,text) from public;
+grant execute on function public.greedyq_cbc_consent(uuid,text,text) to anon,authenticated;
+
+-- Browser-render acknowledgement is distinct from a server-prepared next task.
+-- An answer also acknowledges its own task; a lost next-page response never invents a viewed task.
+create function public.greedyq_cbc_ack(p_session_id uuid,p_access_token text,p_task_id text) returns void
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb;s public.gq_sessions;v jsonb;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);select * into s from public.gq_sessions where id=p_session_id;
+ if s.lifecycle_state in ('withdrawn','consent_refused','created') or not coalesce(s.browser_state->'visited' ? p_task_id,false) then raise exception 'task was not served';end if;
+ select value into v from public.gq_answers where session_id=s.id and question_id='cbc:'||p_task_id;
+ if v is null then raise exception 'task was not served';end if;
+ if v->>'presented_at' is null then
+  update public.gq_answers set value=v||jsonb_build_object('presented_at',clock_timestamp()) where session_id=s.id and question_id='cbc:'||p_task_id;
+ end if;
+end;$$;
+revoke all on function public.greedyq_cbc_ack(uuid,text,text) from public;
+grant execute on function public.greedyq_cbc_ack(uuid,text,text) to anon,authenticated;
+
+create function public.greedyq_cbc_step(p_session_id uuid,p_access_token text,p_task_id text,p_choice text,p_direction text,p_revision integer,p_request_id uuid) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare m jsonb; s public.gq_sessions; st jsonb; v jsonb; idx integer; tid text; next_tid text; selected boolean;
+begin
+ m:=public.gq_cbc_context(p_session_id,p_access_token);select * into s from public.gq_sessions where id=p_session_id;st:=s.browser_state;
+ if st->>'last_request_id'=p_request_id::text then return public.greedyq_cbc_resume(s.id,p_access_token);end if;
+ if s.lifecycle_state<>'in_progress' then raise exception 'session ended';end if;
+ if p_request_id is null or p_revision is distinct from (st->>'revision')::integer then raise exception 'CBC revision conflict';end if;
+ idx:=(st->>'index')::integer;tid:=st->'task_order'->>idx;
+ if p_task_id is distinct from tid or p_direction not in ('next','previous') or p_direction is null then raise exception 'invalid CBC step';end if;
+ select value into v from public.gq_answers where session_id=s.id and question_id='cbc:'||tid;
+ if v is null then raise exception 'task was not presented';end if;
+ if p_choice is not null then
+  if not exists(select 1 from jsonb_array_elements(v->'alternatives') a where a->>'id'=p_choice) then raise exception 'unknown alternative';end if;
+  v:=v||jsonb_build_object('choice',p_choice,'presented_at',coalesce((v->>'presented_at')::timestamptz,clock_timestamp()),'answered_at',clock_timestamp());
+  update public.gq_answers set value=v,answered_at=clock_timestamp() where session_id=s.id and question_id='cbc:'||tid;
+  st:=jsonb_set(st,array['answers',tid],to_jsonb(p_choice));
+ end if;
+ if p_direction='next' and v->>'choice' is null then raise exception 'choice required';end if;
+ if p_direction='previous' then if idx=0 then raise exception 'first task';end if;idx:=idx-1;
+ elsif idx+1=jsonb_array_length(st->'task_order') then
+  if exists(select 1 from jsonb_array_elements_text(st->'task_order') t where not exists(select 1 from public.gq_answers a where a.session_id=s.id and a.question_id='cbc:'||t and a.value->>'choice' is not null)) then raise exception 'unanswered task';end if;
+  st:=st||'{"completed":true,"phase":"completed","lifecycle":"completed"}'::jsonb;
+ else idx:=idx+1;end if;
+ st:=st||jsonb_build_object('index',idx,'revision',p_revision+1,'last_request_id',p_request_id);
+ if st->>'phase'='tasks' then
+  next_tid:=st->'task_order'->>idx;
+  if not st->'visited' ? next_tid then st:=jsonb_set(st,'{visited}',st->'visited'||jsonb_build_array(next_tid));end if;
+  perform public.gq_cbc_present(s.id,m,st);
+ end if;
+ update public.gq_sessions set browser_state=st,current_page=case when st->>'phase'='completed' then 'completed' else 'cbc:'||next_tid end,lifecycle_state=st->>'lifecycle',updated_at=now() where id=s.id;
+ return public.greedyq_cbc_resume(s.id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_step(uuid,text,text,text,text,integer,uuid) from public;
+grant execute on function public.greedyq_cbc_step(uuid,text,text,text,text,integer,uuid) to anon,authenticated;
+
+create function public.greedyq_cbc_withdraw(p_session_id uuid,p_access_token text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+ perform public.gq_cbc_context(p_session_id,p_access_token);
+ perform public.greedyq_withdraw_session(p_session_id,p_access_token);
+ return public.greedyq_cbc_resume(p_session_id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_cbc_withdraw(uuid,text) from public;
+grant execute on function public.greedyq_cbc_withdraw(uuid,text) to anon,authenticated;
+
+create function public.greedyq_issue_cbc_preview(p_study_id text) returns text
+language plpgsql security definer set search_path=public,pg_temp as $$
+declare token text;
+begin
+ if not exists(select 1 from public.gq_study_plans where study_id=p_study_id and model->>'kind'='cbc_study') then raise exception 'CBC study required';end if;
+ token:=encode(extensions.gen_random_bytes(32),'hex');
+ insert into public.gq_preview_grants values(encode(extensions.digest(token,'sha256'),'hex'),p_study_id,now()+interval '24 hours');return token;
+end;$$;
+revoke all on function public.greedyq_issue_cbc_preview(text) from public,anon,authenticated;
+grant execute on function public.greedyq_issue_cbc_preview(text) to service_role;
+
+-- The older general writer/creator/resumer must not bypass the CBC boundary.
+alter function public.greedyq_create_session(uuid,text,text,text,text,text,boolean) rename to gq_create_session_before_cbc;
+revoke all on function public.gq_create_session_before_cbc(uuid,text,text,text,text,text,boolean) from public,anon,authenticated;
+create function public.greedyq_create_session(p_session_id uuid,p_access_token text,p_study_id text,p_study_version text,p_spec_version text,p_greedyq_version text,p_is_test boolean) returns void
+language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+ if exists(select 1 from public.gq_study_plans where study_id=p_study_id and model->>'kind'='cbc_study') then raise exception 'use CBC protocol';end if;
+ perform public.gq_create_session_before_cbc(p_session_id,p_access_token,p_study_id,p_study_version,p_spec_version,p_greedyq_version,p_is_test);
+end;$$;
+revoke all on function public.greedyq_create_session(uuid,text,text,text,text,text,boolean) from public;
+grant execute on function public.greedyq_create_session(uuid,text,text,text,text,text,boolean) to anon,authenticated;
+alter function public.greedyq_save_session(uuid,text,jsonb,text) rename to gq_save_session_before_cbc;
+revoke all on function public.gq_save_session_before_cbc(uuid,text,jsonb,text) from public,anon,authenticated;
+create function public.greedyq_save_session(p_session_id uuid,p_access_token text,p_state jsonb,p_consent_question text) returns void
+language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+ if exists(select 1 from public.gq_sessions s join public.gq_study_plans p on s.study_id=p.study_id where s.id=p_session_id and p.model->>'kind'='cbc_study') then raise exception 'use CBC protocol';end if;
+ perform public.gq_save_session_before_cbc(p_session_id,p_access_token,p_state,p_consent_question);
+end;$$;
+revoke all on function public.greedyq_save_session(uuid,text,jsonb,text) from public;
+grant execute on function public.greedyq_save_session(uuid,text,jsonb,text) to anon,authenticated;
+alter function public.greedyq_resume_session(uuid,text) rename to gq_resume_session_before_cbc;
+revoke all on function public.gq_resume_session_before_cbc(uuid,text) from public,anon,authenticated;
+create function public.greedyq_resume_session(p_session_id uuid,p_access_token text) returns jsonb
+language plpgsql security definer set search_path=public,pg_temp as $$
+begin
+ if exists(select 1 from public.gq_sessions s join public.gq_study_plans p on s.study_id=p.study_id where s.id=p_session_id and p.model->>'kind'='cbc_study') then return public.greedyq_cbc_resume(p_session_id,p_access_token);end if;
+ return public.gq_resume_session_before_cbc(p_session_id,p_access_token);
+end;$$;
+revoke all on function public.greedyq_resume_session(uuid,text) from public;
+grant execute on function public.greedyq_resume_session(uuid,text) to anon,authenticated;
+```
+
+### FILE: `tools/cbc_cloud.cjs`
+
+SHA-256: `c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8`
+
+```javascript
+/* Agent-only CBC provisioning. No account sign-in or upload is performed here. */
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+async function registerCBCStudy(client,model){
+ const C=require('../web/greedyq-cbc.js');
+ if(model.kind!=='cbc_study'||!model.pages?.length||!model.cbc||!model.consent?.text)throw Error('Reviewed CBC collection model required');
+ const c=model.cbc,base=Object.fromEntries(Object.entries(c).filter(([k])=>!['design_sha256','warnings'].includes(k)));
+ if(await C.digest(C.canonical(base))!==c.design_sha256)throw Error('CBC design hash mismatch');
+ if(crypto.createHash('sha256').update(model.consent.text).digest('hex')!==model.consent.document_sha256)throw Error('Consent hash mismatch');
+ if(!['direct','prolific'].includes(model.runtime_policy?.respondent_source)||!['test','production'].includes(model.runtime_policy?.mode))throw Error('Collection mode and source required');
+ if(model.runtime_policy.mode==='production'&&(!model.fielding_approved||!['instrument','consent','data_plan','deployment','fielding'].every(k=>model.approvals?.[k]===true)))throw Error('CBC fielding approval required');
+ // Reconstruct the canonical input to validate every code/count/order rule, not only the hash.
+ const csv=rows=>rows.map(r=>r.map(x=>'"'+String(x).replaceAll('"','""')+'"').join(',')).join('\n');
+ const aids=c.attributes.map(a=>a.id),attrs=[['attribute_id','attribute_label','level_id','level_label'],...c.attributes.flatMap(a=>a.levels.map(l=>[a.id,a.label,l.id,l.label]))];
+ const rows=[['block_id','task_id','alternative_id',...aids],...c.blocks.flatMap(b=>b.tasks.flatMap(t=>t.alternatives.map(a=>[b.id,t.id,a.id,...aids.map(k=>a.levels[k])]))) ];
+ const config={schema_version:'0.3-draft.1',status:'design_only',object:'greedyQCBC',study_id:c.study_id,research_question:c.research_question,attributes_source:'design/attributes.csv',design_source:'design/design.csv',alternatives_per_task:c.alternatives_per_task,tasks_per_block:c.tasks_per_block,block_assignment:{method:'simple',unit:'respondent',weights:Object.fromEntries(c.blocks.map(b=>[b.id,b.weight]))},task_order:c.task_order,alternative_order:c.alternative_order,none:c.none,design_origin:'reviewed_import',statistical_efficiency:'not_established',fielding_approval:false,proposed_estimator:'not_committed',attribute_ids:aids,prohibitions:c.prohibitions,language:c.language};
+ const checked=await C.importDesign({config,attributesText:csv(attrs),designText:csv(rows)});if(checked.design_sha256!==c.design_sha256||model.study_id!==c.study_id)throw Error('CBC design contract mismatch');
+ const settings={schema_version:'0.3-collection.1',study_version:model.study_version,title:model.title,organization:model.organization,mode:model.runtime_policy.mode,source:model.runtime_policy.respondent_source,consent:model.consent,approvals:model.approvals};
+ if(settings.source==='prolific')settings.prolific=model.runtime_policy.prolific;
+ const verified=await C.collectionModel(c,settings,model.greedyq_version);if(C.canonical(verified)!==C.canonical(model))throw Error('CBC collection contract mismatch');
+ return require('./cloud_lifecycle.cjs').registerStudy(client,model);
+}
+function prepareCBCDeployments({repo,packageDirectory,model:providedModel,directory,url,publishableKey}){
+ if(new URL(url).protocol!=='https:'||!publishableKey?.startsWith('sb_publishable_'))throw Error('Public Supabase URL and publishable key required');
+ const model=providedModel||JSON.parse(fs.readFileSync(path.join(packageDirectory,'registered-model.json')));if(model.kind!=='cbc_study')throw Error('CBC package required');
+ fs.mkdirSync(directory,{recursive:false,mode:0o700});
+ const embed=(html,id,value)=>html.replace(new RegExp('(<script id="'+id+'"[^>]*>)[\\s\\S]*?(</script>)'),(_,a,b)=>a+JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')+b);
+ for(const kind of ['survey','results']){
+  const dest=path.join(directory,kind);fs.mkdirSync(dest);
+  for(const asset of ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc.css','greedyq-cbc-collection.js'])fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
+  const descriptor=Object.fromEntries(['study_id','study_version','greedyq_version','title','organization','language','runtime_policy'].map(k=>[k,model[k]]));descriptor.design_sha256=model.cbc.design_sha256;
+  const resultsModel=Object.fromEntries(Object.entries(model).filter(([k])=>!['cbc','consent','approvals'].includes(k)));resultsModel.cbc_attributes=model.cbc.attributes;
+  let html=embed(fs.readFileSync(path.join(repo,'templates/browser',kind==='survey'?'cbc-respondent.html':'results.html'),'utf8'),'greedyq-model',kind==='survey'?descriptor:resultsModel);
+  if(kind==='survey')html=embed(html,'greedyq-deployment',{mode:'supabase',supabase_url:url,supabase_anon_key:publishableKey});
+  fs.writeFileSync(path.join(dest,'index.html'),html);fs.writeFileSync(path.join(dest,'vercel.json'),JSON.stringify({cleanUrls:false}));
+  if(kind==='results'){fs.mkdirSync(path.join(dest,'api'));fs.copyFileSync(path.join(repo,'templates/vercel/api/results.js'),path.join(dest,'api/results.js'));}
+ }
+
+ return {resultsProtection:{ssoProtection:{deploymentType:'all'}},surveyProtection:{ssoProtection:null}};
+}
+module.exports={registerCBCStudy,prepareCBCDeployments};
+```
 
 ### FILE: `CONTACT.md`
 
@@ -328,14 +1060,14 @@ When reporting a problem, include your greedyQ version, what you tried, what you
 
 ### FILE: `CBC.md`
 
-SHA-256: `fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db`
+SHA-256: `23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f`
 
 ```markdown
 # Preview a choice-based conjoint design
 
 [한국어](./CBC(kor).md) · [简体中文](./CBC(zh-CN).md)
 
-CBC lets people choose between combinations of features, such as two course subscriptions with different prices and support. **The v0.3 preview can now read a design table, check it, and show working computer and mobile screens. Actual CBC response collection is not enabled yet.** Existing v0.2 surveys remain supported.
+CBC lets people choose between combinations of features, such as two course subscriptions with different prices and support. **The v0.3 preview can now read a design table, check it, and show working computer and mobile screens. This standalone file sends no responses; the separate [CBC collection path](./CBC-COLLECT.md) supplies server-backed storage and results.** Existing v0.2 surveys remain supported.
 
 ## Start with your AI
 
@@ -364,9 +1096,9 @@ For your own table, choose `study.design.json` plus either one XLSX or both CSV 
 
 Structure details include level frequencies, unused levels and within-task overlaps. These are descriptive counts, not statistical approval. Attribute IDs must not reuse export metadata names such as `chosen`, `block_id` or `design_sha256`.
 
-## What still comes later
+## Collecting responses
 
-Consent-aware live CBC persistence, server-side block/presentation allocation, results dashboard integration, protected real/test exports, Prolific fielding and native surveydown CBC export need separate implementation and acceptance testing. `sd_cbc` in the draft QMD is a proposal, not accepted v0.2 syntax. No arbitrary agent-generated scripts should replace these missing functions. No utility estimation, WTP, automatic sample-size advice, adaptive conjoint or D-efficient design generation is claimed.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification; fresh cloud deployment and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
 
 ## Fixed implementation for agents
 
@@ -388,7 +1120,7 @@ Questions or bug reports: [greedyQ project contact](./CONTACT.md). Study partici
 
 ### FILE: `greedyq/cbc.py`
 
-SHA-256: `f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b`
+SHA-256: `06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a`
 
 ```python
 """Deterministic CBC CSV/XLSX import and account-free preview reference.
@@ -678,11 +1410,97 @@ def build_preview(directory,output=None,workbook=None):
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(template)
     return target,model
+
+
+def collection_model(folder, settings, workbook=None):
+    """Reviewed collection settings are separate from unapproved design-table inputs."""
+    from . import __release__
+    model=import_design(json.loads((Path(folder)/'study.design.json').read_text()),workbook=Path(workbook).read_bytes()) if workbook else load_design(folder)
+    required={'schema_version','study_version','title','organization','mode','source','consent','approvals'}
+    if not isinstance(settings,dict) or set(settings)-required-{'prolific'} or required-set(settings):
+        fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.')
+    if settings['schema_version']!='0.3-collection.1' or settings['mode'] not in ('test','production') or settings['source'] not in ('direct','prolific'):
+        fail('CBC020','Choose a supported collection version, mode and source.')
+    for key in ['study_version','title','organization']:
+        if not isinstance(settings[key],str) or not 1<=len(settings[key])<=500:fail('CBC020','Provide the study version, title and research team name.')
+    consent=settings['consent']
+    keys={'id','version','text','document_sha256','researcher_contact'}
+    if not isinstance(consent,dict) or set(consent)!=keys or any(not isinstance(consent[k],str) or not consent[k] for k in keys):
+        fail('CBC020','Provide the approved participant information, consent version and researcher contact.')
+    identifier(consent['id'])
+    if len(consent['text'])>50000 or consent['document_sha256']!=digest(consent['text']):fail('CBC020','The consent text hash does not match; review the actual displayed text.')
+    if not re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+',consent['researcher_contact']):fail('CBC020','Provide a research-team email contact.')
+    approvals=settings['approvals'];gates={'instrument','consent','data_plan','deployment','fielding'}
+    if not isinstance(approvals,dict) or set(approvals)!=gates or any(type(x) is not bool for x in approvals.values()):fail('CBC020','Record each researcher approval explicitly.')
+    if settings['mode']=='production':
+        if not all(approvals.values()) or consent['researcher_contact'].lower().endswith(('.invalid','@example.com','@example.org','@example.net')):
+            fail('CBC020','Actual collection requires every approval and the real research-team contact.')
+    policy={'mode':settings['mode'],'respondent_source':settings['source']}
+    if settings['source']=='prolific':
+        panel=settings.get('prolific')
+        from urllib.parse import urlsplit,parse_qs
+        if not isinstance(panel,dict) or set(panel)!={'study_id','returns'} or not re.fullmatch(r'[a-fA-F0-9]{24}',str(panel.get('study_id',''))):fail('CBC020','Confirm the Prolific study ID and return paths.')
+        if not isinstance(panel['returns'],dict) or set(panel['returns'])!={'completed','consent_refused','withdrawn'}:fail('CBC020','Confirm all Prolific return paths.')
+        for url in panel['returns'].values():
+            if not isinstance(url,str):fail('CBC020','Use reviewed Prolific completion URLs.')
+            p=urlsplit(url)
+            if p.scheme!='https' or p.netloc!='app.prolific.com' or p.path!='/submissions/complete' or p.fragment or set(parse_qs(p.query))!={'cc'} or len(parse_qs(p.query)['cc'])!=1 or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}',parse_qs(p.query)['cc'][0]):fail('CBC020','Use reviewed Prolific completion URLs.')
+        policy['prolific']=panel
+    elif 'prolific' in settings:fail('CBC020','Remove panel settings from a direct study.')
+    task_ids=list(dict.fromkeys(t['id'] for b in model['blocks'] for t in b['tasks']))
+    pages=[{'id':'consent','title':'Participant information and consent','questions':[]},*[{'id':'cbc:'+tid,'title':'Choice task '+tid,'questions':[{'id':'cbc:'+tid,'type':'cbc','label':'Choice task '+tid}]} for tid in task_ids],*[{'id':s,'title':s,'questions':[],'terminal':s} for s in ['completed','consent_refused','withdrawn']]]
+    return {'kind':'cbc_study','schema_version':'0.3-collection.1','study_id':model['study_id'],'study_version':settings['study_version'],'greedyq_version':__release__,'title':settings['title'],'organization':settings['organization'],'language':model['language'],'runtime_policy':policy,'consent':consent,'approvals':approvals,'fielding_approved':settings['mode']=='production' and all(approvals.values()),'cbc':model,'pages':pages}
+
+
+def build_collection(folder, settings_path, destination, workbook=None):
+    """Fixed deployable files; no account connection, registration or upload occurs here."""
+    import shutil
+    source=Path(__file__).resolve().parents[1]
+    settings=json.loads(Path(settings_path).read_text())
+    model=collection_model(folder,settings,workbook)
+    dest=Path(destination)
+    if dest.exists():fail('CBC020','Choose a new output folder to preserve existing files.')
+    dest.mkdir(parents=True)
+    def embed(template,payload,id):
+        encoded=json.dumps(payload,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
+        return re.sub(r'(<script id="'+id+r'"[^>]*>).*?(</script>)',lambda m:m[1]+encoded+m[2],template,flags=re.S)
+    # The participant page deliberately contains no choice design or server credential.
+    descriptor={k:model[k] for k in ['study_id','study_version','greedyq_version','title','organization','language','runtime_policy']}
+    descriptor['design_sha256']=model['cbc']['design_sha256']
+    (dest/'index.html').write_text(embed((source/'templates/browser/cbc-respondent.html').read_text(),descriptor,'greedyq-model'))
+    results_model={k:v for k,v in model.items() if k not in ('cbc','consent','approvals')}
+    results_model['cbc_attributes']=model['cbc']['attributes']
+    (dest/'results.html').write_text(embed((source/'templates/browser/results.html').read_text(),results_model,'greedyq-model'))
+    (dest/'registered-model.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
+    build_preview(folder,dest/'preview.html',workbook)
+    for name in ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js','greedyq-cbc-collection.js','greedyq-cbc.css']:
+        shutil.copyfile(source/'web'/name,dest/name)
+    migrations=dest/'supabase/migrations';migrations.mkdir(parents=True)
+    for p in sorted((source/'templates/supabase').glob('[0-9][0-9][0-9]_*.sql')):shutil.copyfile(p,migrations/p.name)
+    (migrations/'manifest.json').write_text(json.dumps({'schema_version':'0.3','migrations':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(migrations.glob('*.sql'))]},indent=2)+'\n')
+    (dest/'api').mkdir();shutil.copyfile(source/'templates/vercel/api/results.js',dest/'api/results.js')
+    # Not a publish directory: registered model and migrations are private agent inputs.
+    (dest/'package.json').write_text(json.dumps({'private':True,'description':'Preparation package; publish only the separated survey/results directories'})+'\n')
+    (dest/'.vercelignore').write_text('*\n')
+    package_manifest={'format':'greedyq-cbc-package/1','greedyq_version':model['greedyq_version'],'study_id':model['study_id'],'design_sha256':model['cbc']['design_sha256'],'collection_mode':model['runtime_policy']['mode'],'publish_only_separated_directories':True,'files':{str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(dest.rglob('*')) if p.is_file()}}
+    (dest/'cbc-package.manifest.json').write_text(json.dumps(package_manifest,indent=2)+'\n')
+    return dest,model
+
+
+def stored_rows(snapshot):
+    """Long-form CBC analysis rows from the existing seven-table archive snapshot."""
+    sessions={s['id']:s for s in snapshot['sessions']};rows=[]
+    for answer in snapshot['answers']:
+        s=sessions.get(answer['session_id']);v=answer.get('value')
+        if not s or s.get('lifecycle_state') in ('withdrawn','consent_refused') or not isinstance(v,dict) or v.get('kind')!='cbc':continue
+        for a in v['alternatives']:
+            rows.append({'session_id':s['id'],'study_id':s['study_id'],'study_version':s.get('study_version',''),'started_at':s.get('created_at',''),'completed_at':s.get('terminal_at') or '', 'status':s['lifecycle_state'],'source':s['respondent_source'],'is_test':s['is_test'],'block_id':v['block_id'],'task_id':v['task_id'],'task_position':v['task_position'],'alternative_id':a['id'],'display_position':a['display_position'],'is_none':a['is_none'],'chosen':None if v['choice'] is None else int(v['choice']==a['id']),**{'attribute.'+k:x for k,x in a['levels'].items()},'design_version':v['design_version'],'design_sha256':v['design_sha256'],'presentation_state':('presented' if v.get('presented_at') else 'available') if v['choice'] is None else 'answered','served_at':v.get('served_at') or '','presented_at':v.get('presented_at') or '','answered_at':v['answered_at'] or ''})
+    return rows
 ```
 
 ### FILE: `web/greedyq-cbc.js`
 
-SHA-256: `befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf`
+SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
 
 ```javascript
 /* Fixed browser-native CBC import/validation and local preview helpers. */
@@ -883,14 +1701,70 @@ SHA-256: `befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf`
       unused_levels:model.attributes.flatMap(a=>a.levels.filter(l=>!profiles.some(p=>p.levels[a.id]===l.id)).map(l=>({attribute_id:a.id,level_id:l.id}))),statistical_efficiency_established:false};
   }
   function csv(rows){if(!rows.length)return'';const fields=Object.keys(rows[0]);const q=v=>{let s=String(v??'');if(typeof v==='string'&&/^[\t\r\n]|^\s*[=+\-@]/.test(s))s="'"+s;return'"'+s.replaceAll('"','""')+'"';};return'\ufeff'+[fields,...rows.map(r=>fields.map(k=>r[k]))].map(row=>row.map(q).join(',')).join('\r\n');}
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv};
+
+  function taskHTML(model,s,mode,t=x=>x,error=false){
+    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);
+ const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
+ let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
+ if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
+ const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
+ html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
+ if(mode==='mobile'&&alts.length>2){
+   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
+ }else{
+   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
+   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
+   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
+ }
+ if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
+ html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;return html;
+  }
+  function storedRows(data){
+    const sessions=new Map(data.sessions.map(s=>[s.id,s])),rows=[];
+    for(const answer of data.answers){const s=sessions.get(answer.session_id),v=answer.value;if(!s||['withdrawn','consent_refused'].includes(s.lifecycle_state)||v?.kind!=='cbc')continue;
+      for(const a of v.alternatives)rows.push({session_id:s.id,study_id:s.study_id,study_version:s.study_version??'',started_at:s.created_at??'',completed_at:s.terminal_at??'',status:s.lifecycle_state,source:s.respondent_source,is_test:s.is_test,block_id:v.block_id,task_id:v.task_id,task_position:v.task_position,alternative_id:a.id,display_position:a.display_position,is_none:a.is_none,chosen:v.choice===null?null:Number(v.choice===a.id),...Object.fromEntries(Object.entries(a.levels).map(([k,v])=>['attribute.'+k,v])),design_version:v.design_version,design_sha256:v.design_sha256,presentation_state:v.choice===null?(v.presented_at?'presented':'available'):'answered',served_at:v.served_at??'',presented_at:v.presented_at??'',answered_at:v.answered_at??''});
+    }return rows;
+  }
+  function storedCSV(data,attributes=[]){
+    const rows=storedRows(data),names=[...new Set(attributes.map(a=>'attribute.'+a.id).concat(rows.flatMap(r=>Object.keys(r).filter(k=>k.startsWith('attribute.')))))];
+    const fields=['session_id','study_id','study_version','started_at','completed_at','status','source','is_test','block_id','task_id','task_position','alternative_id','display_position','is_none','chosen',...names,'design_version','design_sha256','presentation_state','served_at','presented_at','answered_at'];
+    const normalized=rows.map(r=>Object.fromEntries(fields.map(k=>[k,r[k]??''])));if(normalized.length)return csv(normalized);return '\ufeff'+fields.map(k=>'"'+k+'"').join(',')+'\r\n';
+  }
+  async function collectionModel(cbc,settings,release){
+    const required=['schema_version','study_version','title','organization','mode','source','consent','approvals'];
+    if(!object(settings)||Object.keys(settings).some(k=>![...required,'prolific'].includes(k))||required.some(k=>!Object.hasOwn(settings,k)))fail('CBC020','Provide complete CBC collection settings; ask the researcher before filling missing decisions.');
+    if(settings.schema_version!=='0.3-collection.1'||!['test','production'].includes(settings.mode)||!['direct','prolific'].includes(settings.source))fail('CBC020','Choose a supported collection version, mode and source.');
+    for(const k of ['study_version','title','organization'])if(typeof settings[k]!=='string'||[...settings[k]].length<1||[...settings[k]].length>500)fail('CBC020','Provide the study version, title and research team name.');
+    const consent=settings.consent,keys=['id','version','text','document_sha256','researcher_contact'];
+    if(!exactKeys(consent,keys)||keys.some(k=>typeof consent[k]!=='string'||!consent[k]))fail('CBC020','Provide the approved participant information, consent version and researcher contact.');
+    identifier(consent.id);
+    if([...consent.text].length>50000||consent.document_sha256!==await digest(consent.text))fail('CBC020','The consent text hash does not match; review the actual displayed text.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(consent.researcher_contact))fail('CBC020','Provide a research-team email contact.');
+    const approvals=settings.approvals,gates=['instrument','consent','data_plan','deployment','fielding'];
+    if(!exactKeys(approvals,gates)||Object.values(approvals).some(x=>typeof x!=='boolean'))fail('CBC020','Record each researcher approval explicitly.');
+    if(settings.mode==='production'&&(!Object.values(approvals).every(x=>x)||['.invalid','@example.com','@example.org','@example.net'].some(s=>consent.researcher_contact.toLowerCase().endsWith(s))))fail('CBC020','Actual collection requires every approval and the real research-team contact.');
+    const policy={mode:settings.mode,respondent_source:settings.source};
+    if(settings.source==='prolific'){
+      const panel=settings.prolific;
+      if(!exactKeys(panel,['study_id','returns'])||!/^[a-fA-F0-9]{24}$/.test(panel.study_id??''))fail('CBC020','Confirm the Prolific study ID and return paths.');
+      if(!exactKeys(panel.returns,['completed','consent_refused','withdrawn']))fail('CBC020','Confirm all Prolific return paths.');
+      for(const text of Object.values(panel.returns)){
+        let u;try{u=new URL(text);}catch{fail('CBC020','Use reviewed Prolific completion URLs.');}
+        if(typeof text!=='string'||!text.startsWith('https://app.prolific.com/submissions/complete?')||u.origin!=='https://app.prolific.com'||u.pathname!=='/submissions/complete'||u.hash||[...u.searchParams].length!==1||!u.searchParams.has('cc')||!/^[A-Za-z0-9_-]{1,100}$/.test(u.searchParams.get('cc')))fail('CBC020','Use reviewed Prolific completion URLs.');
+      }policy.prolific=panel;
+    }else if(Object.hasOwn(settings,'prolific'))fail('CBC020','Remove panel settings from a direct study.');
+    const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
+    return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
+  }
+  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 ```
 
 ### FILE: `templates/browser/cbc-preview.html`
 
-SHA-256: `13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68`
+SHA-256: `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6`
 
 ```html
 <!doctype html>
@@ -940,20 +1814,7 @@ function render(mode,error=false){
  if(s.withdrawn){root.innerHTML=`<h2>${esc(t('Preview withdrawn'))}</h2><p>${esc(t('The local answers and presentation orders were removed.'))}</p>`;tools(mode);return;}
  if(s.completed){root.innerHTML=`<div class="receipt"><h2>${esc(t('Preview complete'))}</h2><p>${esc(t('No response was sent outside this browser.'))}</p></div>`;tools(mode);return;}
  const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);if(!s.visited.includes(task.id))s.visited.push(task.id);persist(mode);
- const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
- let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
- if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
- const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
- html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
- if(mode==='mobile'&&alts.length>2){
-   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
- }else{
-   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
-   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
-   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
- }
- if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
- html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;root.innerHTML=html;
+ root.innerHTML=C.taskHTML(model,s,mode,t,error);
  root.onchange=event=>{if(event.target.type==='radio'){s.answers[task.id]=event.target.value;persist(mode);root.querySelector('.question-error')?.remove();}};
  root.querySelector('[data-back]')?.addEventListener('click',()=>{s.index--;persist(mode);render(mode);root.closest('.screen').scrollTop=0;});
  root.querySelector('[data-next]').onclick=()=>{if(!Object.hasOwn(s.answers,task.id)){render(mode,true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(s.index===s.task_order.length-1)s.completed=true;else s.index++;persist(mode);render(mode);root.closest('.screen').scrollTop=0;};tools(mode);
@@ -1287,7 +2148,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `60845db755cd08e77396725680fba1064dc9c4b8f8513f18abdd5d4e428fef8a`
+SHA-256: `2844af9121fb8f2d3ce051fcf84e1a75ba8bb345700547324c21510811eb3a72`
 
 ```json
 {
@@ -1310,9 +2171,13 @@ SHA-256: `60845db755cd08e77396725680fba1064dc9c4b8f8513f18abdd5d4e428fef8a`
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "import_validation_and_local_browser_preview",
+    "status": "collection_storage_results_implemented_local_verification",
     "preview_schema": "0.3-preview.1",
-    "live_collection": false
+    "live_collection": false,
+    "collection_implemented": true,
+    "cloud_cbc_verified": false,
+    "paid_cbc_verified": false,
+    "rpc_contract": "cbc-1"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
@@ -2540,7 +3405,7 @@ The established CLI operations route remains supported. Prefer an authorized off
 
 ### FILE: `tools/cloud_lifecycle.cjs`
 
-SHA-256: `58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30`
+SHA-256: `93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7`
 
 ```javascript
 /* Agent-side operations. Never ship this module or its environment to respondents. */
@@ -2566,7 +3431,9 @@ async function databaseClient(Client, connectionString, fetcher = fetch) {
 
 async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
-  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'])) throw new Error('Complete ordered migration set required');
+  const expected=['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'];
+  const names=manifest.migrations.map(e=>e.name);
+  if (![JSON.stringify(expected),JSON.stringify([...expected,'009_cbc.sql'])].includes(JSON.stringify(names))) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -2731,7 +3598,7 @@ function prepareDeployments({repo,model,directory,url,publishableKey}) {
   const embed=(html,id,value)=>html.replace(new RegExp('(<script id="'+id+'"[^>]*>)[\\s\\S]*?(</script>)'),(_,a,b)=>a+JSON.stringify(value).replace(/</g,'\\u003c')+b);
   for(const type of ['survey','results']) {
     const dest=path.join(directory,type);fs.mkdirSync(dest);
-    for(const asset of ['greedyq-core.js','greedyq-runtime.css']) fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
+    for(const asset of ['greedyq-core.js','greedyq-runtime.css','greedyq-cbc.js']) fs.copyFileSync(path.join(repo,'web',asset),path.join(dest,asset));
     const template=type==='survey'?'respondent.html':'results.html';
     let html=embed(fs.readFileSync(path.join(repo,'templates/browser',template),'utf8'),'greedyq-model',model);
     if(type==='survey') html=embed(html,'greedyq-deployment',{mode:'supabase',supabase_url:url,supabase_anon_key:publishableKey});
@@ -2803,7 +3670,7 @@ main().catch(()=>{console.error('Archive operation stopped. Inspect private oper
 
 ### FILE: `greedyq/archive.py`
 
-SHA-256: `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e`
+SHA-256: `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a`
 
 ```python
 """Private, lossless study-data archive. No cloud mutations or credentials."""
@@ -2878,6 +3745,16 @@ def make_archive(snapshot, model, destination):
              'variables.json': encode({'columns': header, 'questions': questions,
                  'structured_answers': 'Lossless JSON in CSV cells; exact values in data.json',
                  'spreadsheet_safety': 'Potential formulas are prefixed with an apostrophe in CSV only'})}
+    if model.get('kind')=='cbc_study':
+        from .cbc import stored_rows
+        cbc_rows=stored_rows(tables)
+        attributes=['attribute.'+a['id'] for a in model['cbc']['attributes']]
+        columns=['session_id','study_id','study_version','started_at','completed_at','status','source','is_test','block_id','task_id','task_position','alternative_id','display_position','is_none','chosen',*attributes,'design_version','design_sha256','presentation_state','served_at','presented_at','answered_at']
+        for test,name in [(False,'cbc-choices.csv'),(True,'cbc-test-choices.csv')]:
+            stream=io.StringIO(newline='');writer=csv.writer(stream);writer.writerow(columns)
+            for row in cbc_rows:
+                if row['is_test'] is test:writer.writerow([cell(str(row[k]).lower() if isinstance(row.get(k),bool) else row.get(k)) for k in columns])
+            files[name]=('\ufeff'+stream.getvalue()).encode('utf-8')
     manifest = {'format': 'greedyq-data-archive/1', 'study_id': model['study_id'],
                 'collection_closed': True, 'created_at': snapshot['created_at'],
                 'other_studies': snapshot.get('other_studies', []),
@@ -6854,7 +7731,7 @@ SHA-256: `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a`
 
 ### FILE: `templates/browser/results.html`
 
-SHA-256: `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4`
+SHA-256: `87b2849feb800574c13ae1a18e7f2b18760a414eb35611a81d154cb95ea8fb36`
 
 ```html
 <!doctype html>
@@ -6870,7 +7747,7 @@ SHA-256: `1cd5b53d4e86ec062a19615a3e83b2817db1fa81af41188cfb8c89694948c4f4`
 <section class="panel"><h2>Variable guide</h2><div class="muted">The CSV uses one analysis-ready column for each scalar answer or structured sub-answer.</div><div class="table-wrap"><table><thead><tr><th>Column</th><th>Question</th><th>Stored meaning</th></tr></thead><tbody id="dictionary"></tbody></table></div></section>
 <section class="panel"><h2>Response records</h2><div class="table-wrap"><table><thead><tr><th>Started</th><th>Status</th><th>Source</th><th>Prolific ID</th><th>Mode</th><th>Current page</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div></section>
 <section class="panel" id="preview-panel" hidden><h2>Repeat Prolific preview</h2><p>Test mode only. Create a temporary link, use it as the survey URL in your Prolific draft, and keep URL parameter recording enabled. In the survey, “Start a new test” preserves earlier test responses and opens a fresh attempt. The link expires in 24 hours; do not share it with participants.</p><label>Deployed survey URL <input id="preview-survey-url" type="url" placeholder="https://your-survey.vercel.app/" style="width:100%;padding:10px"></label><p><button id="preview-create">Create repeat-test link</button></p><label>Copy this URL into the Prolific draft <textarea id="preview-link" readonly style="width:100%;height:80px"></textarea></label><p id="preview-status" role="status"></p></section>
-</main><script id="greedyq-model" type="application/json">{}</script><script>
+</main><script src="greedyq-cbc.js"></script><script id="greedyq-model" type="application/json">{}</script><script>
 const studyModel=JSON.parse(document.getElementById("greedyq-model").textContent);let current=null,loadRevision=0;const $=id=>document.getElementById(id),esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function bars(target,items){const max=Math.max(1,...items.map(x=>x[1]));$(target).innerHTML=items.length?items.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><span class="bar"><i style="width:${100*v/max}%"></i></span><b>${v}</b></div>`).join(""):'<div class="empty">No data in this view.</div>'}
 function counts(values){const m=new Map;values.forEach(v=>m.set(v,(m.get(v)||0)+1));return [...m].sort((a,b)=>b[1]-a[1])}
@@ -6880,15 +7757,23 @@ function rawQuestionColumns(q){if(q.type==="custom")q={...q,type:q.base_type||"t
 const reservedColumns=new Set(["PROLIFIC_PID","STUDY_ID","SESSION_ID","session_id","started_at","completed_at","status","source","is_test","condition","current_page","randomization_method","block_id","draw_id","assignment_at","question_orders","option_orders","page_order"]);
 const analysisColumn=name=>reservedColumns.has(name)?`answer.${name}`:name;
 function questionColumns(q){return rawQuestionColumns(q).map(column=>({...column,name:analysisColumn(column.name)}));}
-function flattenQuestion(q,value){if(q.type==="custom")q={...q,type:q.base_type||"text"};const out={};if(value==null)return out;if(["matrix","matrix_multiple","rank_order","constant_sum"].includes(q.type)){for(const item of rawQuestionColumns(q))out[item.name]=value[item.name.split(".").at(-1)]??""}else if(q.type==="side_by_side"){for(const item of rawQuestionColumns(q)){const[,column,row]=item.name.split(".");out[item.name]=value?.[column]?.[row]??""}}else if(q.type==="pick_group_rank"){for(const item of rawQuestionColumns(q)){const parts=item.name.split("."),field=parts.pop(),option=parts.pop();out[item.name]=value?.[option]?.[field]??""}}else if(q.type==="drill_down"){const path=Array.isArray(value)?value:[];path.forEach((part,i)=>out[`${q.id}.level_${i+1}`]=part);out[`${q.id}.path`]=path.join(q.path_separator||" > ")}else if(q.type==="daterange"){out[`${q.id}.start`]=value?.[0]??"";out[`${q.id}.end`]=value?.[1]??""}else if(q.type==="timing")out[`${q.id}.seconds_on_page`]=value?.seconds_on_page??value??"";else out[q.id]=Array.isArray(value)?value.join(" | "):value;return Object.fromEntries(Object.entries(out).map(([name,value])=>[analysisColumn(name),value]))}
+function flattenQuestion(q,value){if(q.type==="custom")q={...q,type:q.base_type||"text"};const out={};if(value==null)return out;if(["matrix","matrix_multiple","rank_order","constant_sum"].includes(q.type)){for(const item of rawQuestionColumns(q))out[item.name]=value[item.name.split(".").at(-1)]??""}else if(q.type==="side_by_side"){for(const item of rawQuestionColumns(q)){const[,column,row]=item.name.split(".");out[item.name]=value?.[column]?.[row]??""}}else if(q.type==="pick_group_rank"){for(const item of rawQuestionColumns(q)){const parts=item.name.split("."),field=parts.pop(),option=parts.pop();out[item.name]=value?.[option]?.[field]??""}}else if(q.type==="drill_down"){const path=Array.isArray(value)?value:[];path.forEach((part,i)=>out[`${q.id}.level_${i+1}`]=part);out[`${q.id}.path`]=path.join(q.path_separator||" > ")}else if(q.type==="daterange"){out[`${q.id}.start`]=value?.[0]??"";out[`${q.id}.end`]=value?.[1]??""}else if(q.type==="timing")out[`${q.id}.seconds_on_page`]=value?.seconds_on_page??value??"";else out[q.id]=q.type==="cbc"?JSON.stringify(value):Array.isArray(value)?value.join(" | "):value;return Object.fromEntries(Object.entries(out).map(([name,value])=>[analysisColumn(name),value]))}
 function readable(value){if(Array.isArray(value))return value.join(" › ");if(value&&typeof value==="object")return Object.entries(value).map(([k,v])=>`${k}: ${typeof v==="object"?JSON.stringify(v):v}`).join("; ");return String(value)}
+if(studyModel.kind==='cbc_study')$('download').textContent='Download response overview CSV';
 $("study-title").textContent=studyModel.title||"Survey responses";
 $("study-details").textContent=[studyModel.organization,studyModel.study_id,studyModel.greedyq_version].filter(Boolean).join(" · ");
-function render(data){current=data;$("download").disabled=false;
-$("view-note").textContent=!data.sessions.length?(data.scope==='production'?"No real responses in this view. Trial submissions appear under Test responses.":"No responses match these filters. Check Responses and Source, or submit a trial response and Refresh."):"Download CSV includes only the responses in this view.";const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)).map(([id,n])=>[pageTitle(id),n]));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){const vals=a.filter(x=>x.question_id===q).map(x=>readable(x.value));summary.push(`<h3>${esc(questions.find(question=>question.id===q)?.label||q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||'<div class="empty">No answers in this view.</div>';const external=Object.fromEntries((data.external_identifiers || []).filter(x=>x.provider==="prolific").map(x=>[x.session_id,x]));const answerCounts=counts(a.map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${esc(external[x.id]?.participant_id || "")}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(pageTitle(x.current_page))}</td><td>${byId[x.id]||0}</td></tr>`).join("")||'<tr><td colspan="7">No responses in this view.</td></tr>';$("dictionary").innerHTML=questions.flatMap(q=>questionColumns(q).map(c=>`<tr><td><code>${esc(c.name)}</code></td><td>${esc(q.label||q.id)}</td><td>${esc(c.meaning)}</td></tr>`)).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
+function renderCBC(data){
+ let section=document.getElementById('cbc-results');if(studyModel.kind!=='cbc_study')return;
+ if(!section){section=document.createElement('section');section.id='cbc-results';section.className='card';document.getElementById('view-note').after(section);}
+ const rows=greedyQCBC.storedRows(data),chosen=rows.filter(r=>r.chosen===1),answered=chosen.length,shown=data.answers.filter(a=>a.value?.kind==='cbc'&&a.value.presented_at).length,available=data.answers.filter(a=>a.value?.kind==='cbc'&&!a.value.presented_at).length;
+ section.innerHTML='<h2>CBC choices</h2><p>'+answered+' answered tasks · '+shown+' display-acknowledged tasks · '+available+' tasks with unconfirmed display · '+chosen.filter(r=>r.is_none).length+' neither choices.</p><p>Descriptive counts for this view only. These figures do not estimate utilities or willingness to pay. Unanswered tasks are not neither choices.</p><button id="cbc-download">Download CBC choice CSV</button>';
+ document.getElementById('cbc-download').onclick=()=>{if(!current)return;const blob=new Blob([greedyQCBC.storedCSV(current,studyModel.cbc_attributes||[])],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='greedyq-'+studyModel.study_id+'-'+document.getElementById('scope').value+'-cbc-choices.csv';a.click();URL.revokeObjectURL(a.href);};
+}
+function render(data){current=data;renderCBC(data);$("download").disabled=false;
+$("view-note").textContent=!data.sessions.length?(data.scope==='production'?"No real responses in this view. Trial submissions appear under Test responses.":"No responses match these filters. Check Responses and Source, or submit a trial response and Refresh."):"Download CSV includes only the responses in this view.";const s=data.sessions,a=data.answers;const done=s.filter(x=>x.lifecycle_state==="completed").length,active=s.filter(x=>!["completed","screened_out","consent_refused","withdrawn","technical_error"].includes(x.lifecycle_state)).length;$("started").textContent=s.length;$("completed").textContent=done;$("rate").textContent=s.length?`${Math.round(done*100/s.length)}%`:'–';$("active").textContent=active;bars("dropoff",counts(s.map(x=>x.current_page)).map(([id,n])=>[pageTitle(id),n]));bars("conditions",counts(data.assignments.map(x=>x.condition)));const summary=[];for(const q of [...new Set(a.map(x=>x.question_id))]){if(studyModel.kind==="cbc_study")continue;const vals=a.filter(x=>x.question_id===q).map(x=>readable(x.value));summary.push(`<h3>${esc(questions.find(question=>question.id===q)?.label||q)}</h3>`);summary.push(counts(vals).slice(0,10).map(([v,n])=>`<div class="bar-row"><span>${esc(v)}</span><span class="bar"><i style="width:${100*n/Math.max(1,vals.length)}%"></i></span><b>${n}</b></div>`).join(""))}$("answers").innerHTML=summary.join("")||(studyModel.kind==='cbc_study'?'<p>Use CBC choices below to review choices and download the analysis table.</p>':'<div class="empty">No answers in this view.</div>');const external=Object.fromEntries((data.external_identifiers || []).filter(x=>x.provider==="prolific").map(x=>[x.session_id,x]));const answerCounts=counts(a.filter(x=>x.value?.kind!=="cbc"||x.value.choice!==null).map(x=>x.session_id));const byId=Object.fromEntries(answerCounts);$("rows").innerHTML=s.map(x=>`<tr><td>${esc(new Date(x.created_at).toLocaleString())}</td><td>${esc(x.lifecycle_state)}</td><td>${esc(x.respondent_source)}</td><td>${esc(external[x.id]?.participant_id || "")}</td><td>${x.is_test?"Test":"Real"}</td><td>${esc(pageTitle(x.current_page))}</td><td>${byId[x.id]||0}</td></tr>`).join("")||'<tr><td colspan="7">No responses in this view.</td></tr>';$("dictionary").innerHTML=questions.flatMap(q=>questionColumns(q).map(c=>`<tr><td><code>${esc(c.name)}</code></td><td>${esc(q.label||q.id)}</td><td>${esc(c.meaning)}</td></tr>`)).join("");$("status").textContent=`Updated ${new Date(data.generated_at).toLocaleTimeString()}`}
 async function load(){
  const revision=++loadRevision;
- current=null;$("download").disabled=true;$("status").textContent="Updating…";$("view-note").textContent="Updating the selected view…";
+ current=null;document.getElementById("cbc-download")?.setAttribute("disabled","");$("download").disabled=true;$("status").textContent="Updating…";$("view-note").textContent="Updating the selected view…";
  try{
   const r=await fetch(`/api/results?scope=${$("scope").value}&source=${$("source").value}&study=${encodeURIComponent(studyModel.study_id)}`,{cache:"no-store"}),d=await r.json();
   if(revision!==loadRevision)return;
@@ -6905,14 +7790,15 @@ function csv(){
  const rows=current.sessions.map(s=>{const a=assignments[s.id]||{};const p=external[s.id]||{};return[p.participant_id||"",p.external_study_id||"",p.external_session_id||"",s.id,s.created_at,s.terminal_at||"",s.lifecycle_state,s.respondent_source,s.is_test,a.condition||"",s.current_page,a.method||"",a.block_id||"",a.draw_id||"",a.assigned_at||"",JSON.stringify(s.question_orders||{}),JSON.stringify(s.option_orders||{}),JSON.stringify(s.page_order||[]),...fields.map(field=>by.get(s.id)?.[field]??"")]});
  const quote=x=>{let value=String(x??"");if(typeof x==="string"&&(/^[\t\r]/.test(value)||/^\s*[=+\-@]/.test(value)))value="'"+value;return `"${value.replaceAll('"','""')}"`;},blob=new Blob(["\ufeff",[head,...rows].map(r=>r.map(quote).join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`greedyq-${studyModel.study_id}-${$("scope").value}-${$("source").value}-responses.csv`;a.click();URL.revokeObjectURL(a.href)
 }
-if(studyModel.runtime_policy?.mode==='test' && studyModel.runtime_policy?.respondent_source==='prolific'){
+if(studyModel.kind==='cbc_study'||(studyModel.runtime_policy?.mode==='test' && studyModel.runtime_policy?.respondent_source==='prolific')){
  $('preview-panel').hidden=false;
+ if(studyModel.kind==='cbc_study'){const panel=$('preview-panel');panel.querySelector('h2').textContent='Create a CBC test link';panel.querySelector('p').textContent='This private 24-hour link records Test responses separately from real study data. Try consent, choices, completion and withdrawal; Start another test opens a fresh attempt. Do not distribute it for recruitment.';$('preview-link').parentElement.firstChild.textContent=studyModel.runtime_policy.respondent_source==='prolific'?'Copy this private test URL into the Prolific draft ':'Open this private link to test the study ';}
  $('preview-create').onclick=async()=>{
   $('preview-link').value='';$('preview-status').textContent='Creating…';
   try{
    const url=new URL($('preview-survey-url').value);
    if(url.protocol!=='https:' || url.username || url.password || url.search || url.hash)throw new Error('Enter the HTTPS survey address without query parameters.');
-   const response=await fetch('/api/results',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'preview',study:studyModel.study_id})}),body=await response.json();
+   const response=await fetch('/api/results',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'preview',study:studyModel.study_id,kind:studyModel.kind==='cbc_study'?'cbc':undefined})}),body=await response.json();
    if(!response.ok)throw new Error(body.error || 'Could not create the link.');
    url.searchParams.set('gq_preview',body.preview_token);$('preview-link').value=url.href;$('preview-status').textContent='Ready. Expires in 24 hours. Keep this test link private.';
   }catch(error){$('preview-status').textContent=error.message;}
@@ -7497,7 +8383,7 @@ module.exports={assessStatus};
 
 ### FILE: `templates/vercel/api/results.js`
 
-SHA-256: `474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8`
+SHA-256: `399a5a60546817b6e69db56b19b5ed3c42429b0665981eed7f71a55477464faf`
 
 ```javascript
 /* Server-only greedyQ results API. Deploy behind Vercel Authentication. */
@@ -7509,12 +8395,26 @@ const send = (res, status, body, type = "application/json; charset=utf-8") => {
 };
 
 const allowed = (value, values, fallback) => values.includes(value) ? value : fallback;
+// Read every page or fail explicitly; never silently cap a CBC export at 1,000 rows.
 const query = async (path, secret) => {
-  const response = await fetch(`${process.env.SUPABASE_URL}/rest/v1/${path}`, {
-    headers: { apikey: secret, authorization: `Bearer ${secret}` },
-  });
-  if (!response.ok) throw new Error(`Database request failed (${response.status}).`);
-  return response.json();
+  const all=[];
+  for(let offset=0;offset<1000000;){
+    const response = await fetch(`${process.env.SUPABASE_URL}/rest/v1/${path}&limit=1000&offset=${offset}`, {
+      headers: { apikey: secret, authorization: `Bearer ${secret}`, Prefer: "count=exact" },
+    });
+    if (!response.ok) throw new Error(`Database request failed (${response.status}).`);
+    const rows=await response.json();if(!Array.isArray(rows))throw Error('Invalid results response.');all.push(...rows);
+    const range=response.headers?.get?.('content-range'),total=range&&/\/(\d+)$/.exec(range);
+    if(total){if(all.length>=Number(total[1]))return all;if(!rows.length)throw Error('Incomplete results page.');}
+    else if(rows.length<1000)return all;
+    offset+=rows.length;
+  }
+  throw Error('This export is too large for the results page. Use the complete archive.');
+};
+const related = async (table,columns,ids,secret) => {
+  const all=[];
+  for(let i=0;i<ids.length;i+=100){const subset=ids.slice(i,i+100);all.push(...await query(`${table}?select=${columns}&session_id=in.(${subset.join(',')})&order=session_id.asc${table==='gq_answers'?',question_id.asc':table==='gq_assignments'?',randomization_id.asc':',provider.asc'}`,secret));}
+  return all;
 };
 
 module.exports = async (req, res) => {
@@ -7528,8 +8428,8 @@ module.exports = async (req, res) => {
     try{
       const body=typeof req.body==='string'?JSON.parse(req.body):req.body;
       if(body?.action!=='preview' || !/^[A-Za-z0-9_-]{1,120}$/.test(body.study || ''))return send(res,400,{error:'Choose a registered test study.'});
-      const response=await fetch(`${process.env.SUPABASE_URL}/rest/v1/rpc/greedyq_issue_preview`,{method:'POST',headers:{apikey:secret,authorization:`Bearer ${secret}`,'content-type':'application/json'},body:JSON.stringify({p_study_id:body.study})});
-      if(!response.ok)return send(res,400,{error:'A preview link requires an upgraded database and a registered Prolific study in Test mode.'});
+      const response=await fetch(`${process.env.SUPABASE_URL}/rest/v1/rpc/${body.kind==='cbc'?'greedyq_issue_cbc_preview':'greedyq_issue_preview'}`,{method:'POST',headers:{apikey:secret,authorization:`Bearer ${secret}`,'content-type':'application/json'},body:JSON.stringify({p_study_id:body.study})});
+      if(!response.ok)return send(res,400,{error:'A test link requires the matching upgraded database and a registered study.'});
       return send(res,200,{preview_token:await response.json(),expires_in_hours:24});
     }catch{return send(res,400,{error:'Could not create the test link.'});}
   }
@@ -7542,13 +8442,12 @@ module.exports = async (req, res) => {
   if (study) filters.push(`study_id=eq.${encodeURIComponent(study)}`);
   try {
     const suffix = filters.length ? `&${filters.join("&")}` : "";
-    const sessions = await query(`gq_sessions?select=id,study_id,study_version,current_page,is_test,respondent_source,lifecycle_state,created_at,updated_at,terminal_at,question_orders,option_orders,page_order&order=created_at.desc${suffix}`, secret);
+    const sessions = await query(`gq_sessions?select=id,study_id,study_version,current_page,is_test,respondent_source,lifecycle_state,created_at,updated_at,terminal_at,question_orders,option_orders,page_order&order=created_at.desc,id.asc${suffix}`, secret);
     const ids = sessions.map(x => x.id);
-    const idFilter = ids.length ? `in.(${ids.join(",")})` : "eq.00000000-0000-0000-0000-000000000000";
     const [answers, assignments, external_identifiers] = await Promise.all([
-      query(`gq_answers?select=session_id,question_id,value,answered_at&session_id=${idFilter}&order=answered_at.asc`, secret),
-      query(`gq_assignments?select=session_id,randomization_id,condition,method,block_id,draw_id,assigned_at&session_id=${idFilter}`, secret),
-      query(`gq_external_identifiers?select=session_id,provider,participant_id,external_study_id,external_session_id&session_id=${idFilter}`,secret),
+      related('gq_answers','session_id,question_id,value,answered_at',ids,secret),
+      related('gq_assignments','session_id,randomization_id,condition,method,block_id,draw_id,assigned_at',ids,secret),
+      related('gq_external_identifiers','session_id,provider,participant_id,external_study_id,external_session_id',ids,secret),
     ]);
     return send(res, 200, { generated_at: new Date().toISOString(), scope, source, sessions, answers, assignments, external_identifiers });
   } catch (error) {
@@ -8898,7 +9797,7 @@ __release__ = "0.2_2026-10-26_a4ad99e"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6`
+SHA-256: `b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4`
 
 ```python
 """CLI for greedyQ's dependency-light Python reference implementation."""
@@ -8936,10 +9835,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
-    for name in ('cbc-validate','cbc-build'):
+    for name in ('cbc-validate','cbc-build','cbc-package'):
         item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
         item.add_argument('study_dir');item.add_argument('--workbook')
         if name=='cbc-build':item.add_argument('--output')
+        if name=='cbc-package':
+            item.add_argument('--output',required=True);item.add_argument('--collection',required=True)
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
         if name=="preflight":
@@ -8948,6 +9849,10 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command=='cbc-package':
+            from .cbc import build_collection
+            target,model=build_collection(args.study_dir,args.collection,args.output,args.workbook)
+            print('CBC package prepared: %s. Register the reviewed model and publish separated survey/results folders only.' % target);return 0
         if args.command in ('cbc-validate','cbc-build'):
             from .cbc import load_design,import_design,build_preview,inspect_design,MAX_FILE
             if args.command=='cbc-build':
@@ -9857,7 +10762,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4`
+SHA-256: `113aa448e421da7374dcee1ea87087ee88051b6a0db9217b679a64b4afe115c7`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -9900,7 +10805,7 @@ def refresh_manifest(study_dir):
         if entry.get('kind')=='source' and digest!=entry.get('sha256'):changed=True
         entry['sha256']=digest
     names={entry['path'] for entry in entries}
-    for name in ('index.html','preview.html','studio.html','results.html','greedyq-core.js','greedyq-runtime.css','preview-model.json'):
+    for name in ('index.html','preview.html','studio.html','results.html','greedyq-core.js','greedyq-cbc.js','greedyq-runtime.css','preview-model.json'):
         if name not in names:entries.append({'path':name,'kind':'derived','sha256':hashlib.sha256((study_dir/name).read_bytes()).hexdigest(),'status':'generated','based_on_decision_ids':[]})
     if changed:
         for entry in entries:
@@ -9908,15 +10813,18 @@ def refresh_manifest(study_dir):
     data['artifacts']=entries
     path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     state_path=internal/'study-state.json'
-    if changed and state_path.is_file():
+    if state_path.is_file():
         state=json.loads(state_path.read_text())
-        for gate in ('instrument','deployment','fielding'):
-            state.setdefault('gates',{})[gate]={'status':'pending','reason':'The source changed; review this version again.'}
-        state.update(checkpoint='validated',status='awaiting_approval')
+        if changed:
+            for gate in ('instrument','deployment','fielding'):
+                state.setdefault('gates',{})[gate]={'status':'pending','reason':'The source changed; review this version again.'}
+            state.update(checkpoint='validated',status='awaiting_approval')
+        state['artifact_paths']=list(dict.fromkeys(entry['path'] for entry in entries))
         state_path.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
         for entry in entries:
             if entry.get('path')=='.greedyq/study-state.json':entry['sha256']=hashlib.sha256(state_path.read_bytes()).hexdigest()
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
 
 
 def build(study_dir, write=True):
@@ -9940,6 +10848,7 @@ def build(study_dir, write=True):
             (study_dir / destination).write_text(html)
         (study_dir / "studio.html").write_bytes((browser / "studio.html").read_bytes())
         (study_dir / "greedyq-core.js").write_bytes((ROOT / "web/greedyq-core.js").read_bytes())
+        (study_dir / "greedyq-cbc.js").write_bytes((ROOT / "web/greedyq-cbc.js").read_bytes())
         (study_dir / "greedyq-runtime.css").write_bytes((ROOT / "web/greedyq-runtime.css").read_bytes())
         (study_dir / "supabase-connection-test.html").write_bytes((ROOT / "templates/supabase/connection-test.html").read_bytes())
         for name in ("vercel.json", ".env.example"):

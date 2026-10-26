@@ -84,6 +84,14 @@ def stamp(source_commit,date,notes=None):
             if file.is_file():entry['sha256']=hashlib.sha256(file.read_bytes()).hexdigest()
         manifest.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     command('-m','greedyq','cbc-build','drafts/v0.3/cbc/golden-reference')
+    cbc_root=ROOT/'drafts/v0.3/cbc/golden-reference'
+    cbc_manifest=cbc_root/'preview.manifest.json'
+    if cbc_manifest.exists():
+        preview_metadata=json.loads(cbc_manifest.read_text())
+        preview_metadata.update(release=release,source_commit=commit,preview_html_sha256=hashlib.sha256((cbc_root/'cbc-preview.html').read_bytes()).hexdigest())
+        for path in preview_metadata.get('source_files',{}):preview_metadata['source_files'][path]=hashlib.sha256((cbc_root/path).read_bytes()).hexdigest()
+        cbc_manifest.write_text(json.dumps(preview_metadata,indent=2)+'\n')
+
     command('tools/sync_guide_bundle.py');command('tools/build_website_embed.py')
     print('Stamped '+release+' from '+commit)
 

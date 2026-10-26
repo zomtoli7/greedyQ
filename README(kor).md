@@ -180,4 +180,4 @@ greedyQ는 [MIT License](./LICENSE)로 배포합니다.
 
 ## CBC 미리보기와 프로젝트 문의
 
-선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. v0.3 미리보기는 실제 CBC 수집을 지원하지 않습니다. 수집에는 지원 중인 v0.2 Simple/Experiment 흐름을 사용합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.
+선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. 미리보기 자체는 응답을 수집하지 않습니다. 서버를 사용하는 CBC는 별도의 [CBC 수집 묶음](CBC-COLLECT(kor).md)을 사용하며 로컬 검증과 클라우드 모집 승인을 구분합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.

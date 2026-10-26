@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CBC reviewed collection settings, separate from design import",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "study_version",
+    "title",
+    "organization",
+    "mode",
+    "source",
+    "consent",
+    "approvals"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.3-collection.1"
+    },
+    "study_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "mode": {
+      "enum": [
+        "test",
+        "production"
+      ]
+    },
+    "source": {
+      "enum": [
+        "direct",
+        "prolific"
+      ]
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "text",
+        "document_sha256",
+        "researcher_contact"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "document_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "researcher_contact": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "approvals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instrument",
+        "consent",
+        "data_plan",
+        "deployment",
+        "fielding"
+      ],
+      "properties": {
+        "instrument": {
+          "type": "boolean"
+        },
+        "consent": {
+          "type": "boolean"
+        },
+        "data_plan": {
+          "type": "boolean"
+        },
+        "deployment": {
+          "type": "boolean"
+        },
+        "fielding": {
+          "type": "boolean"
+        }
+      }
+    },
+    "prolific": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "study_id",
+        "returns"
+      ],
+      "properties": {
+        "study_id": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{24}$"
+        },
+        "returns": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "completed",
+            "consent_refused",
+            "withdrawn"
+          ],
+          "properties": {
+            "completed": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            },
+            "consent_refused": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            },
+            "withdrawn": {
+              "type": "string",
+              "pattern": "^https://app[.]prolific[.]com/submissions/complete[?]cc=[A-Za-z0-9_-]+$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "production"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approvals": {
+            "properties": {
+              "instrument": {
+                "const": true
+              },
+              "consent": {
+                "const": true
+              },
+              "data_plan": {
+                "const": true
+              },
+              "deployment": {
+                "const": true
+              },
+              "fielding": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "prolific"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "prolific"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "prolific"
+          ]
+        }
+      }
+    }
+  ]
+}

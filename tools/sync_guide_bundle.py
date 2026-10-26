@@ -9,6 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
+    ("schemas/cbc-collection.schema.json", "json", False),
+    ("drafts/v0.3/cbc/golden-reference/collection.test.example.json", "json", False),
+    ("CBC-COLLECT.md", "markdown", False),
+    ("GUIDE-ACCESS.md", "markdown", False),
+    ("web/greedyq-cbc-collection.js", "javascript", False),
+    ("web/greedyq-cbc.css", "css", False),
+    ("templates/browser/cbc-respondent.html", "html", False),
+    ("templates/supabase/009_cbc.sql", "sql", False),
+    ("tools/cbc_cloud.cjs", "javascript", False),
     ("CONTACT.md", "markdown", False),
     ("CBC.md", "markdown", False),
     ("greedyq/cbc.py", "python", False),

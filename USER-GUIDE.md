@@ -21,7 +21,9 @@ You do not need to know programming, Markdown, databases, or deployment tools.
 Open the [greedyQ start page](./START-HERE.md), or give your AI this URL:
 
 ```text
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 ```
 
 The AI should read that file and the linked files in the same repository. You do not need to attach every guide and template separately.
@@ -34,7 +36,9 @@ Copy this message:
 
 ```text
 Read and follow the current greedyQ instructions at:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
 Create a new greedyQ study. Treat me as a nontechnical researcher, ask one focused question at a time, and take me through a working desktop-and-mobile preview.
 
@@ -48,7 +52,9 @@ Give the AI access to your existing greedyQ study folder, then copy:
 
 ```text
 Read and follow the current greedyQ instructions at:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
 This is an existing greedyQ study. Summarize it in plain language and help me modify it. Preserve its history and current greedyQ version unless I approve an upgrade. Ask one focused question at a time.
 
@@ -63,7 +69,9 @@ Give the AI access to the existing study folder, then copy:
 
 ```text
 Read and follow the current greedyQ instructions at:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
 Fork this greedyQ study. Preserve the original, create an independent copy with a new study identity, and help me change only the copy. Ask one focused question at a time.
 
@@ -438,4 +446,11 @@ Describe the procedure you want to your AI. For example: “Randomly assign part
 
 ## CBC preview and project contact
 
-For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). The preview itself does not collect responses; use the separate [CBC collection package](CBC-COLLECT.md) for the server-backed CBC workflow. Its local verification is distinct from cloud fielding approval. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.
+
+
+## Before starting: verify guide access
+
+If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+
+See [guide access and Gemini repository import](GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`. Do not treat tool absence as guide access success.

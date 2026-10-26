@@ -45,20 +45,7 @@ function render(mode,error=false){
  if(s.withdrawn){root.innerHTML=`<h2>${esc(t('Preview withdrawn'))}</h2><p>${esc(t('The local answers and presentation orders were removed.'))}</p>`;tools(mode);return;}
  if(s.completed){root.innerHTML=`<div class="receipt"><h2>${esc(t('Preview complete'))}</h2><p>${esc(t('No response was sent outside this browser.'))}</p></div>`;tools(mode);return;}
  const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);if(!s.visited.includes(task.id))s.visited.push(task.id);persist(mode);
- const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
- let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
- if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
- const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
- html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
- if(mode==='mobile'&&alts.length>2){
-   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
- }else{
-   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
-   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
-   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
- }
- if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
- html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;root.innerHTML=html;
+ root.innerHTML=C.taskHTML(model,s,mode,t,error);
  root.onchange=event=>{if(event.target.type==='radio'){s.answers[task.id]=event.target.value;persist(mode);root.querySelector('.question-error')?.remove();}};
  root.querySelector('[data-back]')?.addEventListener('click',()=>{s.index--;persist(mode);render(mode);root.closest('.screen').scrollTop=0;});
  root.querySelector('[data-next]').onclick=()=>{if(!Object.hasOwn(s.answers,task.id)){render(mode,true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(s.index===s.task_order.length-1)s.completed=true;else s.index++;persist(mode);render(mode);root.closest('.screen').scrollTop=0;};tools(mode);

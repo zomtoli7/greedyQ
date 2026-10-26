@@ -2,7 +2,7 @@
 
 [한국어](./README(kor).md)
 
-**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. CBC server storage, live fielding and native export remain pending. See [the working instructions](../../../CBC.md).
+**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. Server-backed consent, allocation, choice/exposure storage, protected results and archive CSV now exist in the dedicated [CBC collection package](../../../CBC-COLLECT.md), verified locally. Cloud CBC acceptance, paid CBC fielding, mixed QMD authoring and native export remain separate gates. See [the working instructions](../../../CBC.md).
 
 Start with the [draft specification](./spec.md), [golden research design](./golden-reference/README.md), and [blank table instructions](./templates/README.md).
 
@@ -20,7 +20,7 @@ The generic [blank workbook](./templates/cbc-design-template.xlsx) has `Attribut
 
 ## Delivery sequence
 
-Steps 1–4 are complete for the local preview. Steps 5–6 remain release gates for live CBC.
+Steps 1–5 now have local implementation and verification. Step 6 still includes cloud acceptance, mixed authoring and native export before public profile activation.
 
 1. Confirm v0.3 contracts and the golden fixture; review unresolved study choices.
 2. Implement an independently tested Python reference importer and validator.

@@ -70,6 +70,16 @@ def make_archive(snapshot, model, destination):
              'variables.json': encode({'columns': header, 'questions': questions,
                  'structured_answers': 'Lossless JSON in CSV cells; exact values in data.json',
                  'spreadsheet_safety': 'Potential formulas are prefixed with an apostrophe in CSV only'})}
+    if model.get('kind')=='cbc_study':
+        from .cbc import stored_rows
+        cbc_rows=stored_rows(tables)
+        attributes=['attribute.'+a['id'] for a in model['cbc']['attributes']]
+        columns=['session_id','study_id','study_version','started_at','completed_at','status','source','is_test','block_id','task_id','task_position','alternative_id','display_position','is_none','chosen',*attributes,'design_version','design_sha256','presentation_state','served_at','presented_at','answered_at']
+        for test,name in [(False,'cbc-choices.csv'),(True,'cbc-test-choices.csv')]:
+            stream=io.StringIO(newline='');writer=csv.writer(stream);writer.writerow(columns)
+            for row in cbc_rows:
+                if row['is_test'] is test:writer.writerow([cell(str(row[k]).lower() if isinstance(row.get(k),bool) else row.get(k)) for k in columns])
+            files[name]=('\ufeff'+stream.getvalue()).encode('utf-8')
     manifest = {'format': 'greedyq-data-archive/1', 'study_id': model['study_id'],
                 'collection_closed': True, 'created_at': snapshot['created_at'],
                 'other_studies': snapshot.get('other_studies', []),
