@@ -1,5 +1,7 @@
 # Minimal paid Prolific pilot — preparation
 
+**Historical snapshot.** This report records the scope/evidence at its original source commit. For the final v0.2 documentation reconciliation and the v0.3 CBC boundary, use [the final audit](./v0.2-final-documentation-audit-2026-10-26.md). The later [paid completion record](./prolific-paid-test-completion-2026-10-26.md) supersedes any earlier pending-review/payment status; do not reinterpret earlier test counts as current runs.
+
 [한국어](./prolific-paid-pilot-2026-10-25(kor).md)
 
 The researcher confirmed one participant, two minutes, £0.30 reward and a Prolific-displayed total of £0.42. English wording, manual completion review, existing no-consent/withdrawal paths, and operator deletion of answers plus administrative IDs within 30 days after test verification were confirmed. No automatic scheduled deletion has been claimed; record the deadline when verification is completed and remove retained operator downloads too.

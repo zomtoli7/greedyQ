@@ -1,5 +1,7 @@
 # Preview a choice-based conjoint design
 
+**Development line: v0.3.** CBC is not part of the supported v0.2 release. The existing shared-source release identifier records provenance, not CBC feature availability. Local synthetic verification is distinct from cloud/paid acceptance.
+
 <!-- GREEDYQ_DESKTOP_POLICY -->
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
 <!-- /GREEDYQ_DESKTOP_POLICY -->

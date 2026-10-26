@@ -495,7 +495,7 @@ Surveydown compatibility는 주요 대화형 경험 아래에 있는 implementat
 5. 생성된 survey artifact와 별도로 구조화된 decision log를 보존합니다.
 6. Limitation에 대응하여 중요한 연구 결정을 바꾸기 전에 연구자 확인을 요구합니다.
 7. LLM이 correction loop에서 사용할 수 있는 안정적인 diagnostic code와 location을 생성합니다.
-8. Repository, database, deployment, panel operation을 약속하기 전에 Chat mode와 Agent mode를 구분합니다.
+8. 지원 데스크톱 앱 확인과 실제 파일·미리보기 도구 검증을 먼저 수행합니다. 외부 연결에는 도구·승인을 별도로 확인합니다.
 9. 모든 external mutation을 완료했다고 보고하기 전에 검증합니다.
 10. 생성 artifact를 model-independent하게 유지하여 원래 대화 없이도 검사·편집·검증·재현할 수 있게 합니다.
 11. Native surveydown export를 요청하면 `survey.qmd`, `app.R`, 보조 파일, 호환성 보고서를 생성합니다.

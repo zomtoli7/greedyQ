@@ -2,7 +2,7 @@
 
 [한국어](./publication-request(kor).md)
 
-Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/website-prompt-copy-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_ecadf63`. Expected HTML SHA-256: `e18bc0982e22dc5a9ff4809a4a858c893f48d6217ae155ae8e4d820450b048ea` (790505 bytes). `source_commit` identifies the substantive code commit; the stamped HTML is in the subsequent metadata commit. Do not fetch an older HTML solely from `source_commit`.
+Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/website-prompt-copy-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_beac897`. Expected HTML SHA-256: `78ae3e7f7662c659076c1636f5d80aee3d46f378811a1795abe1f37eac627605` (801385 bytes). `source_commit` identifies the substantive code commit; the stamped HTML is in the subsequent metadata commit. Do not fetch an older HTML solely from `source_commit`.
 
 Open the existing Google Sites editor, compare the current public/editor content for unrelated changes, preserve the site/page/domain/navigation/gallery/images/contact and replace only the existing full-page custom embed with the complete prepared HTML. Save and publish under the owner's existing authorization and the active browser tool's policy. This is a homepage update, not permission to deploy CBC, change survey/results accounts, edit responses, recruit or pay participants.
 
@@ -15,3 +15,6 @@ Apply the new official support policy in all three languages: researcher authori
 
 
 Confirm the Start page shows the support note immediately below its introduction and above the copyable prompt. Gemini is unsupported; do not replace this with an unverified claim about Google blocking GitHub.
+
+
+Verify About > Compatibility > Available AI agents (`about/agents`) in all three languages. Current support: capable ChatGPT/Claude desktop apps. Future support review: Gemini. Additional evaluation candidates only: Meta AI, Grok, DeepSeek. START-HERE now gates the app before any study interview and stops unsupported hosts; do not offer attachments as an exception.

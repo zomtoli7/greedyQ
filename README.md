@@ -5,8 +5,8 @@
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-26_ecadf63`
-- **Release source commit:** [`ecadf63`](https://github.com/zomtoli7/greedyQ/commit/ecadf63394f1c35bbf7873f8ef4aa64e25486e51) · [Update history](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_beac897`
+- **Release source commit:** [`beac897`](https://github.com/zomtoli7/greedyQ/commit/beac897e3204936574e8cb498179c09ea19c6d00) · [Update history](./updates/README.md)
 
 [Compatibility audit](./docs/surveydown-compatibility-audit.md) · [Preregistration drafts](./PREREGISTRATION.md) · [Resume and upgrade](./UPGRADING.md) · [External returns](./EXTERNAL-RETURNS.md) · [Google Sites plan](./docs/google-sites-plan.md)
 
@@ -22,7 +22,7 @@
 
 greedyQ is a specification-driven, AI-native application for online academic research. Rather than implementing the application itself in conventional source code, greedyQ specifies how a general-purpose generative AI agent should instantiate and operate the application.
 
-Its portable Markdown, schemas, checkpoints, and exact templates form an **agent-executable application specification**. A researcher points GPT, Claude, or another capable general-purpose AI to the versioned greedyQ repository and starts with an ordinary request such as “Let's build a survey.” The instantiated research agent then conducts the guided research workflow and produces both research-design artifacts and executable respondent-facing survey software.
+Its portable Markdown, schemas, checkpoints, and exact templates form an **agent-executable application specification**. A researcher opens a supported ChatGPT or Claude desktop agent and points it to the versioned greedyQ repository and starts with an ordinary request such as “Let's build a survey.” The instantiated research agent then conducts the guided research workflow and produces both research-design artifacts and executable respondent-facing survey software.
 
 ## greedyQ as an AI-native application
 
@@ -121,10 +121,7 @@ The target onboarding experience is:
 
 ## Interaction modes and alternative paths
 
-The guide supports two capability-dependent modes:
-
-- **Chat mode:** The AI conducts the interview, creates the project files, validates its reasoning against the guide, and gives the user deployment instructions.
-- **Agent mode:** A connected agent can additionally edit the repository, run validation, configure services, deploy, and verify the live survey.
+Study authoring requires a supported installed ChatGPT or Claude desktop agent with working file and preview tools. A tool-less Chat mode is not supported. Account tools and researcher authorization are checked separately before deployment; local preview needs no service account. See [supported AI environments](./SUPPORTED-ENVIRONMENTS.md).
 
 Expert users may still author `survey.qmd` and `greedyq.yml` directly. Researchers who need unrestricted R, Shiny, or Quarto customization can continue from the generated native surveydown project. A later PPTX importer will turn existing slide-based drafts into editable study artifacts that enter the same guided review workflow.
 
@@ -138,9 +135,11 @@ Until a greedyQ paper is available, scholarly work using greedyQ should cite bot
 
 ## Project status
 
-greedyQ provides a browser-native v0.2 runtime candidate with account-free local preview. The fixed JavaScript core parses QMD/YAML, validates and compiles supported syntax, renders adaptive desktop/mobile surveys and dual previews, and conforms to the Python reference on the golden studies, control gallery and negative fixtures. Vercel/Supabase deployment, protected results, canonical migrations 001–008, Prolific identifier capture, preregistration drafts, native surveydown export and offline preflight are implemented.
+greedyQ provides a browser-native v0.2 runtime with account-free local preview. The fixed JavaScript core parses QMD/YAML, validates and compiles supported syntax, renders adaptive desktop/mobile surveys and dual previews, and conforms to the Python reference on the golden studies, control gallery and negative fixtures. Vercel/Supabase deployment, protected results, canonical migrations 001–008, Prolific identifier capture, preregistration drafts, native surveydown export and offline preflight are implemented.
 
-On 2026-10-25, the connected test environment verified Prolific draft Preview for normal completion, no consent, withdrawal and repeated attempts. New withdrawals erase answers before return, while disclosed administrative identifiers remain for duplicate prevention. Protected results/CSV and server-side test/production separation were checked. The one-person paid pilot was published by the researcher and then temporarily paused for routine Prolific review; no paid submission, approval or payment is verified. Signed Prolific URLs and repeated production submissions remain unsupported. See [Prolific setup](./PROLIFIC-SETUP.md), [verification evidence](./docs/prolific-cloud-test-2026-10-25.md), [paid-pilot status](./docs/prolific-paid-pilot-2026-10-25.md) and [external readiness](./docs/external-connection-readiness.md). The release records this verified scope; existing deployed studies retain their recorded version until a reviewed upgrade.
+On 2026-10-26, the one-person Prolific paid pilot was matched to saved responses and exported CSV. The researcher confirmed participant approval and payment; a separate provider payment receipt was not independently inspected. The previously paused review is historical, not the current pilot status. The test data were deleted at the researcher's request during closeout; provider payment records were preserved. Normal completion, refusal, withdrawal, repeat draft previews, protected results and real/test separation have recorded evidence. Signed links, repeated production submissions and a paid screened-out path remain outside verified scope. See [paid completion](./docs/prolific-paid-test-completion-2026-10-26.md), [closeout](./docs/v0.2-closeout-2026-10-26.md), and [current Prolific status](./docs/prolific-integration-status.md).
+
+CBC is the **v0.3 development line**, not a supported v0.2 profile or control. Its opt-in draft code and local fixtures may exist in this repository; that does not make CBC a completed v0.2 feature. Cloud and paid CBC acceptance remain pending.
 
 ## Try the responsive preview
 

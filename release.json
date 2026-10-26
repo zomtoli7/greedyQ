@@ -1,7 +1,7 @@
 {
   "spec_version": "0.2",
-  "release": "0.2_2026-10-26_ecadf63",
-  "source_commit": "ecadf63394f1c35bbf7873f8ef4aa64e25486e51",
+  "release": "0.2_2026-10-26_beac897",
+  "source_commit": "beac897e3204936574e8cb498179c09ea19c6d00",
   "release_date": "2026-10-26",
   "documentation_updated": "2026-10-26",
   "prolific_paid_pilot": "completed",
@@ -24,7 +24,8 @@
     "collection_implemented": true,
     "cloud_cbc_verified": false,
     "paid_cbc_verified": false,
-    "rpc_contract": "cbc-1"
+    "rpc_contract": "cbc-1",
+    "release_status": "development_not_v02_supported_scope"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
@@ -40,5 +41,8 @@
     "verified_on": "2026-10-26",
     "source": "https://sites.google.com/view/greedyq",
     "individual_study_contact": false
-  }
+  },
+  "v02_excluded_features": [
+    "cbc"
+  ]
 }

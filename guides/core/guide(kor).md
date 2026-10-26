@@ -16,7 +16,7 @@ Gemini는 데스크톱도 공식 지원하지 않습니다. 가이드·파일 �
 다운로드한 초안을 재개할 때 기존 릴리스·런타임 해시와 현재 규약을 비교하고 업그레이드를 제안합니다. [UPGRADING(kor).md](../../UPGRADING(kor).md)에 따라 별도 복사본에서 이전 결정을 보존하고 영향을 받는 승인을 재검토하며 미리보기를 다시 확인합니다. 운영 연구를 자동 업그레이드하지 않습니다.
 
 사전등록은 초안 파일만 제공합니다. [PREREGISTRATION(kor).md](../../PREREGISTRATION(kor).md)에 따라 OSF 로그인, 제출, 등록 설정 관리를 수행하지 않습니다.
-**Current release identifier:** `0.2_2026-10-26_ecadf63`
+**Current release identifier:** `0.2_2026-10-26_beac897`
 
 이 guide는 greedyQ agent-executable application specification의 일부이며 모든 `greedyQObject`에 적용됩니다. greedyQ 자체는 agent가 아닙니다. Specification을 해석하고 따르는 capable host GenAI가 greedyQ research agent를 instantiate합니다.
 
@@ -98,7 +98,7 @@ CBC는 drafts/v0.3/cbc에서 v0.3으로 기획하며 v0.2의 지원 문항·프�
 
 필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
-[가이드 읽기·제미나이 저장소 가져오기](../../GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.
+[지원 데스크톱 앱의 가이드 읽기](../../GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.
 
 
 ## 설문 제작에 사용할 앱 — required gate

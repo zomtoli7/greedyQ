@@ -124,4 +124,4 @@ Current phase, confirmed decision, unresolved blocker, changed file, validation 
 
 필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
-[가이드 읽기·제미나이 저장소 가져오기](../GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.
+[지원 데스크톱 앱의 가이드 읽기](../GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.

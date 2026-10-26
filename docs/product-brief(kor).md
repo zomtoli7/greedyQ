@@ -8,7 +8,7 @@
 
 **상태:** 초안
 
-**제품 단계:** 구현 전 스펙 정의
+**제품 단계:** v0.2 지원 범위 안정화; CBC는 v0.3 개발 기능
 
 **문서 역할:** 제품 방향 및 의사결정 기준
 
@@ -81,7 +81,7 @@ greedyQ는 MIT License를 사용하는 독립 구현입니다. 주 제품은 자
 10. **연구 governance를 명시해야 합니다.** 법적 또는 기관 compliance를 보증하지 않으면서 ethics-review metadata, consent, respondent-source 기록을 구조화하고 버전 관리하며 감사할 수 있어야 합니다.
 11. **LLM이 연구 지능을 제공합니다.** greedyQ는 모델의 발전하는 방법론 지식을 중복 구현하지 않고 review 시점, 확인이 필요한 결정, 결정 기록 방식을 정의합니다.
 12. **연구자의 권한을 보존합니다.** AI는 문제를 설명하고 대안을 제시하지만 중요한 연구 결정을 조용히 변경하지 않습니다.
-13. **Capability를 정직하게 다룹니다.** Chat mode는 artifact와 handoff instruction을 만들고, agent mode는 필요한 도구와 권한이 있을 때만 외부 서비스를 설정하고 검증합니다.
+13. **기능 보고는 정확해야 합니다.** 파일·미리보기 도구를 확인한 지원 데스크톱 에이전트만 제작을 진행하며 외부 연결은 필요한 도구와 승인을 별도로 확인합니다.
 14. **Web-native runtime이 우선입니다.** Vercel과 Supabase가 주 실행 경로이며 native surveydown export는 greedyQ runtime이 아닌 핵심 병렬 출력입니다.
 15. **고급 사용자 정의에는 escape hatch가 있습니다.** 제한 없는 R, Shiny, Quarto가 필요할 때 연구자가 surveydown에서 직접 이어갈 수 있도록 `app.R`과 관련 native 프로젝트 파일을 생성합니다.
 16. **사전등록 초안은 핵심 출력입니다.** 공식 항목 목록과 확정된 연구 결정으로 검토 가능한 버전별 초안 파일을 만듭니다. OSF 로그인·제출·등록 관리 연동은 제공하지 않습니다. 필요하면 연구자가 별도로 등록하며 초안 생성이 모집 승인을 뜻하지 않습니다.
@@ -303,14 +303,9 @@ START-HERE.md + registry + resolved specification
 
 Interview는 한 번에 하나의 집중된 질문을 하고, 확인된 결정을 구조적으로 기록하며, 안정된 checkpoint에서 artifact를 갱신합니다. Fielding 전에 hypothesis, design, sampling, exclusion, variable, analysis를 다루는 preregistration package를 생성합니다. LLM은 자체 연구 지식을 이용해 방법론적 위험을 발견하고 설명하며 대안을 제시할 수 있지만 해결되지 않은 preregistration commitment를 지어내면 안 됩니다. Guide는 설문 방법론 백과사전을 유지하려 하지 않습니다. Review workflow를 정의하고 중요한 결정이 바뀌기 전에 연구자의 확인을 요구합니다.
 
-### 11.2 Chat mode 및 agent mode
+### 11.2 지원 데스크톱 에이전트와 실제 기능 확인
 
-Guide는 먼저 사용 가능한 capability를 감지합니다.
-
-- **Chat mode:** 인터뷰를 수행하고 모든 project artifact를 생성하며 guide 기반 self-check를 실행하고 정확한 validation/deployment handoff instruction을 제공합니다.
-- **Agent mode:** 도구와 권한이 허용할 때 repository 편집, validator 실행, Supabase 및 Vercel provision/연결, environment variable 설정, 배포, live survey 검증까지 수행합니다.
-
-Workflow는 실제 operation을 수행하고 검증하지 않은 repository, database, deployment 또는 external panel을 설정했다고 주장해서는 안 됩니다.
+START-HERE.md의 첫 앱 확인을 적용합니다. 필요한 기능이 있는 설치된 ChatGPT·Claude 데스크톱 에이전트만 설문을 제작합니다. Gemini와 AI 웹 앱은 미지원입니다. 환경이 불분명하면 연구 대화 전에 앱을 확인하고, 미지원이면 첨부 우회 없이 멈춥니다. 파일 생성·정해진 미리보기 도구를 먼저 확인하고 배포 시 계정 도구와 연구자의 승인을 별도로 확인합니다. 실제 수행하고 검증하지 않은 외부 작업을 완료로 보고하지 않습니다.
 
 ### 11.3 책임 구분
 

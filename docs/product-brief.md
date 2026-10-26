@@ -8,7 +8,7 @@
 
 **Status:** Draft
 
-**Product stage:** Pre-implementation specification
+**Product stage:** v0.2 supported-scope stabilization; CBC is v0.3 development
 
 **Document role:** Product direction and decision framework
 
@@ -81,7 +81,7 @@ Users whose primary requirement is a drag-and-drop visual survey editor are not 
 10. **Research governance must be explicit.** Ethics-review metadata, consent, and respondent-source records should be structured, versioned, and auditable without claiming legal or institutional compliance.
 11. **The LLM provides research intelligence.** greedyQ should not duplicate a model's evolving methodological knowledge; it should define when review occurs, which decisions require confirmation, and how decisions are recorded.
 12. **Researcher authority is preserved.** The AI explains concerns and proposes alternatives but never silently changes a material research decision.
-13. **Capabilities must be honest.** Chat mode creates artifacts and handoff instructions; agent mode may configure and verify external services only when the required tools and authorization exist.
+13. **Capabilities must be honest.** Only supported desktop agents with verified file/preview tools author studies; external services additionally require appropriate tools and authorization.
 14. **The web-native runtime comes first.** Vercel and Supabase are the primary execution path; native surveydown export is a first-class parallel output, not the greedyQ runtime.
 15. **Advanced customization has an escape hatch.** Generate `app.R` and related native project files so researchers can continue directly in surveydown when unrestricted R, Shiny, or Quarto is required.
 16. **Preregistration drafts are a first-class output.** Generate reviewable, versioned draft files from confirmed research decisions using the official field inventory. No OSF login, submission or registry-management integration is provided. Researchers independently register if needed; draft creation never authorizes recruitment.
@@ -303,14 +303,9 @@ START-HERE.md + registry + resolved specification
 
 The interview asks one focused question at a time, keeps a structured record of confirmed decisions, and updates artifacts at stable checkpoints. Before fielding, it generates a preregistration package covering hypotheses, design, sampling, exclusions, variables, and analysis. The LLM may detect methodological risks, explain them, and suggest alternatives using its own research knowledge, but it must not invent unresolved preregistration commitments. The guide does not attempt to maintain an encyclopedia of survey methodology. It defines the review workflow and requires researcher confirmation before material decisions change.
 
-### 11.2 Chat mode and agent mode
+### 11.2 Supported desktop agents and verified capabilities
 
-The guide begins by detecting available capabilities.
-
-- **Chat mode:** Conduct the interview, create all project artifacts, run guide-based self-checks, and provide precise validation/deployment handoff instructions.
-- **Agent mode:** Additionally edit the repository, execute the validator, provision or connect Supabase and Vercel, configure environment variables, deploy, and verify the live survey when tools and authorization permit.
-
-The workflow must never claim that a repository, database, deployment, or external panel was configured unless the operation was performed and verified.
+Apply the first-action host filter in START-HERE.md. Only capable installed ChatGPT/Claude desktop agents may author studies. Gemini and AI web apps are unsupported. Unknown app context must be clarified before the interview; unsupported hosts stop without attachment workarounds. Verify file generation and canonical preview tools before authoring, then check account tools and researcher authorization separately at deployment. Never describe unperformed external operations as completed.
 
 ### 11.3 Division of responsibility
 

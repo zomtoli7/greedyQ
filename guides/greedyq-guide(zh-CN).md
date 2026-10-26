@@ -15,12 +15,12 @@
 
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
-**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](../SUPPORTED-ENVIRONMENTS(zh-CN).md).
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内。请启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](../SUPPORTED-ENVIRONMENTS(zh-CN).md).
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [English](./greedyq-guide.md) · [한국어](./greedyq-guide(kor).md)
 
-**Guide version:** `0.2_2026-10-26_ecadf63`
+**Guide version:** `0.2_2026-10-26_beac897`
 **Compatible specification:** `greedyQ 0.2`
 **Role:** 供具备相应能力的通用 AI 或代理遵循的操作规范
 
@@ -164,7 +164,7 @@ Vercel/Supabase 浏览器运行时为主要路径；请求或最终导出时另�
 
 QMD 命名向量必须 `"Displayed label" = "stored_value"`。交叉核对同意、路径、检查、派生、字典与分析。值缺失或倒置是阻断 `GQ011`，不是可忽略警告。方法风险另向研究者说明，不悄悄重设计。
 
-逐字节复制固定运行代码。部署文件用全部 001–007；保留原子退出、RLS、标识排除和分析边界，不依据文字临时编造安全/删除实现。研究扩展另行检验及批准。使用 `init` 生成完整新草稿。`preflight` 检查本地包；部署阶段加 `--stage deployment`，有独立候选文件时加 `--deployment-index PREPARED_SURVEY/index.html`。通过不等于已在线保存。
+逐字节复制固定运行代码。v0.2 部署文件使用全部 001–008（CBC v0.3 另加 009）；保留原子退出、RLS、标识排除和分析边界，不依据文字临时编造安全/删除实现。研究扩展另行检验及批准。使用 `init` 生成完整新草稿。`preflight` 检查本地包；部署阶段加 `--stage deployment`，有独立候选文件时加 `--deployment-index PREPARED_SURVEY/index.html`。通过不等于已在线保存。
 
 ## 11. 输出
 
@@ -203,7 +203,7 @@ preview.html
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
-参见[指南访问及 Gemini 仓库导入](../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+参见[支持的桌面代理指南访问](../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
 
 <!-- GREEDYQ_BUNDLE_START -->
 
@@ -215,7 +215,7 @@ preview.html
 | `schemas/authoring-support-policy.json` | `1d08f5903cd24dc3b17f2a99ed6521008be29c0cc58af3ae65e83c7ca1daf658` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57` | `no` |
+| `CBC-COLLECT.md` | `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121` | `no` |
 | `GUIDE-ACCESS.md` | `0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf` | `no` |
 | `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
 | `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
@@ -223,7 +223,7 @@ preview.html
 | `templates/supabase/009_cbc.sql` | `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2` | `no` |
 | `tools/cbc_cloud.cjs` | `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9` | `no` |
 | `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
-| `CBC.md` | `54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2` | `no` |
+| `CBC.md` | `34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf` | `no` |
 | `greedyq/cbc.py` | `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031` | `no` |
 | `web/greedyq-cbc.js` | `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db` | `no` |
 | `templates/browser/cbc-preview.html` | `8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7` | `no` |
@@ -231,8 +231,8 @@ preview.html
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `44e070d831815e2caa56d6d6b982e44bdcbf381342a425742bd2dbaa591594ed` | `no` |
-| `PROLIFIC-SETUP.md` | `e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4` | `no` |
+| `release.json` | `561f94a52e8707f1647f1067dd29e5d9cff59abf1bde0856d9afa72cdc6c9423` | `no` |
+| `PROLIFIC-SETUP.md` | `0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
 | `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
@@ -253,10 +253,10 @@ preview.html
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
-| `web/greedyq-core.js` | `8cfc6aafba4a7e9892758457a695d6db598d30dfce37ed67e2535c75e51e9537` | `no` |
+| `web/greedyq-core.js` | `42035e896e008c81bf0885154d0bae0dcf0bb2253d208486ddd914cd8d641ffd` | `no` |
 | `web/greedyq-runtime.css` | `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977` | `no` |
-| `templates/browser/respondent.html` | `2880f318ccde071dfb2ad0f6a1fde1d6725f8c328c2237d595520dcd9fa77720` | `no` |
-| `templates/browser/preview.html` | `afc2e01047faa506b30a979676fdb8799e619d489b569fef8fffd05f22a93c1a` | `no` |
+| `templates/browser/respondent.html` | `8528294395250e3fa9d996ad23edd159bc9313ebb3fea5d84431cefaa39787a7` | `no` |
+| `templates/browser/preview.html` | `efcaccd91c8920feabcd9ef2abe6d564c280d5115bc75f8ca5c3f3f500b2fd5b` | `no` |
 | `templates/browser/studio.html` | `da427b818db268ab20c6967174e73dc14537ecdabf710192eb3e3410ac60504a` | `no` |
 | `templates/browser/results.html` | `87b2849feb800574c13ae1a18e7f2b18760a414eb35611a81d154cb95ea8fb36` | `no` |
 | `templates/supabase/002_browser_rpc.sql` | `56ba87cf87a92e714b408648f4b64579a6d5a7ee1bae8bb79b390e8435249514` | `no` |
@@ -275,7 +275,7 @@ preview.html
 | `schemas/ai/unresolved-decisions.schema.json` | `8876e4eb598a0e727fbe5df77c7aa0b3f68678a102942c585c7126c126307a3c` | `no` |
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3` | `no` |
-| `greedyq/__init__.py` | `b47c8afdac8347f0bcee5ccda25565a18219895bb2598b628a850eef466fdc8c` | `no` |
+| `greedyq/__init__.py` | `39effc755d9014ee05619bd505a881212cad83a9f084db560d3e8012a0ae2c03` | `no` |
 | `greedyq/__main__.py` | `b4a1e90970d7f11b9609bc9fb00760c1cc87a169cd43ecba697832e5e53829a4` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
@@ -641,10 +641,12 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57`
+SHA-256: `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121`
 
 ```markdown
 # Collect CBC responses and review results
+
+**Development line: v0.3.** CBC is not part of the supported v0.2 release. The existing shared-source release identifier records provenance, not CBC feature availability. Local synthetic verification is distinct from cloud/paid acceptance.
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
@@ -1197,10 +1199,12 @@ When reporting a problem, include your greedyQ version, what you tried, what you
 
 ### FILE: `CBC.md`
 
-SHA-256: `54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2`
+SHA-256: `34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf`
 
 ```markdown
 # Preview a choice-based conjoint design
+
+**Development line: v0.3.** CBC is not part of the supported v0.2 release. The existing shared-source release identifier records provenance, not CBC feature availability. Local synthetic verification is distinct from cloud/paid acceptance.
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
@@ -2380,13 +2384,13 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `44e070d831815e2caa56d6d6b982e44bdcbf381342a425742bd2dbaa591594ed`
+SHA-256: `561f94a52e8707f1647f1067dd29e5d9cff59abf1bde0856d9afa72cdc6c9423`
 
 ```json
 {
   "spec_version": "0.2",
-  "release": "0.2_2026-10-26_ecadf63",
-  "source_commit": "ecadf63394f1c35bbf7873f8ef4aa64e25486e51",
+  "release": "0.2_2026-10-26_beac897",
+  "source_commit": "beac897e3204936574e8cb498179c09ea19c6d00",
   "release_date": "2026-10-26",
   "documentation_updated": "2026-10-26",
   "prolific_paid_pilot": "completed",
@@ -2409,7 +2413,8 @@ SHA-256: `44e070d831815e2caa56d6d6b982e44bdcbf381342a425742bd2dbaa591594ed`
     "collection_implemented": true,
     "cloud_cbc_verified": false,
     "paid_cbc_verified": false,
-    "rpc_contract": "cbc-1"
+    "rpc_contract": "cbc-1",
+    "release_status": "development_not_v02_supported_scope"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
@@ -2425,13 +2430,16 @@ SHA-256: `44e070d831815e2caa56d6d6b982e44bdcbf381342a425742bd2dbaa591594ed`
     "verified_on": "2026-10-26",
     "source": "https://sites.google.com/view/greedyq",
     "individual_study_contact": false
-  }
+  },
+  "v02_excluded_features": [
+    "cbc"
+  ]
 }
 ```
 
 ### FILE: `PROLIFIC-SETUP.md`
 
-SHA-256: `e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4`
+SHA-256: `0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940`
 
 ```markdown
 # Connect a study to Prolific
@@ -2457,7 +2465,7 @@ greedyQ collects the survey responses; Prolific recruits participants and handle
 5. If screening is needed, distinguish validating Prolific's existing prescreeners from custom screening. Custom screening can require a separate screen-out reward. Do not treat refusal of consent as a rejection or invent a screening/payment policy.
 6. Give the AI the Prolific study ID and confirm the path mapping. IDs and completion codes are configuration; passwords, login codes and API tokens must not be pasted into chat.
 
-The agent records the expected study ID, builds the survey, applies migrations **001–008** in order and registers the exact reviewed model. Existing installations add missing **006/007** files without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; the current paid pilot is not upgraded by this local audit. Do not apply migrations to an active shared database without the existing maintenance/review process.
+The agent records the expected study ID, builds the survey, applies migrations **001–008** in order and registers the exact reviewed model. Existing installations apply any missing migrations through **008** without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; this documentation review does not mutate existing installations or invent historical completion timestamps. Do not apply migrations to an active shared database without the existing maintenance/review process.
 
 ## Test before recruiting
 
@@ -4218,7 +4226,7 @@ Every complete reference study must exercise:
 
 ### FILE: `web/greedyq-core.js`
 
-SHA-256: `8cfc6aafba4a7e9892758457a695d6db598d30dfce37ed67e2535c75e51e9537`
+SHA-256: `42035e896e008c81bf0885154d0bae0dcf0bb2253d208486ddd914cd8d641ffd`
 
 ```javascript
 /* greedyQ browser core v0.2.0-draft.1. Copy byte-for-byte; do not customize. */
@@ -4229,7 +4237,7 @@ SHA-256: `8cfc6aafba4a7e9892758457a695d6db598d30dfce37ed67e2535c75e51e9537`
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   const VERSION = "0.2.0-draft.1";
-  const RELEASE = "0.2_2026-10-26_ecadf63";
+  const RELEASE = "0.2_2026-10-26_beac897";
   // Generated from greedyq/locale-messages.json; parity is tested.
   const LOCALE_MESSAGES = {"Survey link incomplete":["설문 링크를 확인해 주세요","请检查问卷链接","請檢查問卷連結"],"Please return to Prolific and open the study from your task page.":["Prolific으로 돌아가 과제 페이지에서 연구를 열어 주세요.","请返回 Prolific，从任务页面打开本研究。","請返回 Prolific，從任務頁面開啟本研究。"],"Survey unavailable":["설문을 열 수 없습니다","无法打开问卷","無法開啟問卷"],"The secure data connection could not be started.":["안전한 데이터 연결을 시작하지 못했습니다.","无法建立安全的数据连接。","無法建立安全的資料連線。"],"Your response could not be saved. Please check your connection before continuing.":["응답을 저장하지 못했습니다. 연결을 확인한 뒤 계속해 주세요.","无法保存您的回答，请检查网络连接后继续。","無法儲存您的回答，請檢查網路連線後繼續。"],"Choose one":["하나를 선택하세요","请选择一项","請選擇一項"],"Transcript":["대본","文字稿","文字稿"],"Research team":["연구팀","研究团队","研究團隊"],"greedyQ Survey":["greedyQ 설문","greedyQ 问卷","greedyQ 問卷"],"Option":["선택지","选项","選項"],"Your browser does not support audio playback.":["이 브라우저는 오디오 재생을 지원하지 않습니다.","您的浏览器不支持音频播放。","您的瀏覽器不支援音訊播放。"],"Your browser does not support video playback.":["이 브라우저는 비디오 재생을 지원하지 않습니다.","您的浏览器不支持视频播放。","您的瀏覽器不支援影片播放。"],"Previous":["이전","上一页","上一頁"],"Continue":["계속하기","继续","繼續"],"Please answer the required questions before continuing.":["필수 문항에 응답해 주세요.","请回答必答题后继续。","請回答必答題後繼續。"],"Select all that apply.":["해당되는 모든 것을 선택하세요.","请选择所有适用的选项。","請選擇所有適用的選項。"],"Complete":["종료","已结束","已結束"],"completed":["응답 완료","作答完成","作答完成"],"screened_out":["참여 대상이 아닙니다","不符合参与条件","不符合參與條件"],"consent_declined":["참여하지 않음","未同意参与","未同意參與"],"consent_refused":["참여하지 않음","未同意参与","未同意參與"],"technical_error":["설문을 계속할 수 없습니다","无法继续问卷","無法繼續問卷"],"withdrawn":["참여 철회","已退出参与","已退出參與"],"Rank":["순위","排序","排序"],"Choose":["선택하세요","请选择","請選擇"],"Group":["그룹","分组","分組"],"Level":["단계","层级","層級"],"Start":["시작일","开始日期","開始日期"],"End":["종료일","结束日期","結束日期"],"s":["초","秒","秒"],"minimum":["최솟값","最小值","最小值"],"maximum":["최댓값","最大值","最大值"],"required":["필수","必答","必答"],"Not at all likely":["전혀 의향 없음","完全不可能","完全不可能"],"Extremely likely":["매우 의향 있음","非常可能","非常可能"],"Use each rank only once.":["각 순위는 한 번만 사용하세요.","每个名次只能使用一次。","每個名次只能使用一次。"],"Rank every item.":["모든 항목의 순위를 정해 주세요.","请为所有项目排序。","請為所有項目排序。"],"The allocation must total {total}.":["합계가 {total}이 되도록 입력해 주세요.","分配总和必须为 {total}。","分配總和必須為 {total}。"],"Answer every row in every column.":["모든 열의 각 행에 응답하세요.","请回答每一列中的每一行。","請回答每一欄中的每一列。"],"Place every item in a group.":["모든 항목을 그룹에 배치하세요.","请将每个项目放入一个组。","請將每個項目放入一個組。"],"Use each rank only once within {group}.":["{group} 내에서 각 순위를 한 번만 사용하세요.","在 {group} 中，每个名次只能使用一次。","在 {group} 中，每個名次只能使用一次。"],"Complete every level of the selection.":["모든 단계에서 선택해 주세요.","请完成所有层级的选择。","請完成所有層級的選擇。"],"Please enter a value within the allowed range and format.":["허용된 범위와 형식에 맞게 입력해 주세요.","请按允许的范围和格式输入。","請按允許的範圍和格式輸入。"],"Route error":["설문 경로 오류","问卷路径错误","問卷路徑錯誤"],"The next page is unavailable.":["다음 페이지를 열 수 없습니다.","无法打开下一页。","無法開啟下一頁。"],"Your response could not be saved. Please try again.":["응답을 저장하지 못했습니다. 다시 시도해 주세요.","无法保存您的回答，请重试。","無法儲存您的回答，請重試。"],"Response not saved. Please retry before leaving.":["응답이 저장되지 않았습니다. 나가기 전에 다시 시도하세요.","回答尚未保存，请在离开前重试。","回答尚未儲存，請在離開前重試。"],"Please confirm consent before random assignment.":["무작위 배정 전에 참여 동의를 확인해 주세요.","随机分配前请确认参与同意。","隨機分配前請確認參與同意。"],"Random assignment could not be completed. Please try again.":["무작위 배정을 완료하지 못했습니다. 다시 시도해 주세요.","无法完成随机分配，请重试。","無法完成隨機分配，請重試。"],"Participation withdrawn":["참여를 철회했습니다","已退出参与","已退出參與"],"(Timer running in the background; nothing is shown to participants.)":["(백그라운드에서 타이머가 돌아가고 있음, 실제 화면엔 아무것도 나타나지 않음)","（计时器正在后台运行，参与者不会看到任何内容。）","（計時器正在背景執行，參與者不會看到任何內容。）"],"Continue to the next website":["다음 웹사이트로 이동","前往下一个网站","前往下一個網站"],"Return":["돌아가기","返回","返回"],"Completion code":["완료 코드","完成代码","完成代碼"],"A response already exists. Reopen this study in the browser where you started, or contact the researcher.":["이미 참여 기록이 있습니다. 처음 참여한 브라우저에서 연구를 다시 열거나 연구자에게 문의해 주세요.","已有参与记录。请在最初参与的浏览器中重新打开研究，或联系研究者。","已有參與紀錄。請在最初參與的瀏覽器中重新開啟研究，或聯絡研究者。"],"Return link unavailable.":["반환 링크를 사용할 수 없습니다.","返回链接不可用。","返回連結無法使用。"]," (preview: no external navigation)":[" (미리보기: 외부 이동 안 함)","（预览：不会跳转到外部页面）","（預覽：不會跳轉至外部頁面）"],"Please review this answer.":["이 응답을 확인해 주세요.","请检查此回答。","請檢查此回答。"],"Survey closed":["설문이 종료되었습니다","问卷已关闭","問卷已關閉"],"This study is no longer accepting responses. Please contact the research team if you need help.":["이 연구는 더 이상 응답을 받지 않습니다. 도움이 필요하면 연구팀에 연락해 주세요.","本研究已停止接收回答。如需帮助，请联系研究团队。","本研究已停止接收回答。如需協助，請聯絡研究團隊。"],"Move the slider to answer.":["슬라이더를 움직여 응답해 주세요.","请移动滑块作答。","請移動滑桿作答。"],"Local preview only. Answers stay in this browser and are not sent to the researcher.":["로컬 미리보기입니다. 응답은 이 브라우저에만 남으며 연구자에게 전달되지 않습니다.","仅供本地预览。回答只保存在此浏览器，不会发送给研究者。","僅供本地預覽。回答只保存在此瀏覽器，不會傳送給研究者。"]};
   const LANGUAGES = ['en','ko','zh-CN','zh-TW'];
@@ -7281,7 +7289,7 @@ SHA-256: `a01301059304092c7b219c52e8c3d34900aa3430f07606bf9a673901e027a977`
 
 ### FILE: `templates/browser/respondent.html`
 
-SHA-256: `2880f318ccde071dfb2ad0f6a1fde1d6725f8c328c2237d595520dcd9fa77720`
+SHA-256: `8528294395250e3fa9d996ad23edd159bc9313ebb3fea5d84431cefaa39787a7`
 
 ```html
 <!doctype html>
@@ -7314,7 +7322,7 @@ SHA-256: `2880f318ccde071dfb2ad0f6a1fde1d6725f8c328c2237d595520dcd9fa77720`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-10-26_ecadf63",
+        "greedyq_version": "0.2_2026-10-26_beac897",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -7429,7 +7437,7 @@ SHA-256: `2880f318ccde071dfb2ad0f6a1fde1d6725f8c328c2237d595520dcd9fa77720`
 
 ### FILE: `templates/browser/preview.html`
 
-SHA-256: `afc2e01047faa506b30a979676fdb8799e619d489b569fef8fffd05f22a93c1a`
+SHA-256: `efcaccd91c8920feabcd9ef2abe6d564c280d5115bc75f8ca5c3f3f500b2fd5b`
 
 ```html
 <!doctype html>
@@ -7670,7 +7678,7 @@ SHA-256: `afc2e01047faa506b30a979676fdb8799e619d489b569fef8fffd05f22a93c1a`
       {
         "study_id": "replace_me",
         "study_version": "unknown",
-        "greedyq_version": "0.2_2026-10-26_ecadf63",
+        "greedyq_version": "0.2_2026-10-26_beac897",
         "title": "Replace me",
         "start_page": "welcome",
         "conditions": ["default"],
@@ -10046,13 +10054,13 @@ SHA-256: `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3`
 
 ### FILE: `greedyq/__init__.py`
 
-SHA-256: `b47c8afdac8347f0bcee5ccda25565a18219895bb2598b628a850eef466fdc8c`
+SHA-256: `39effc755d9014ee05619bd505a881212cad83a9f084db560d3e8012a0ae2c03`
 
 ```python
 """greedyQ v0.2 reference parser, validator, and preview builder."""
 
 __version__ = "0.2.0-draft.1"
-__release__ = "0.2_2026-10-26_ecadf63"
+__release__ = "0.2_2026-10-26_beac897"
 ```
 
 ### FILE: `greedyq/__main__.py`

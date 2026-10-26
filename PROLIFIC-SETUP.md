@@ -21,7 +21,7 @@ greedyQ collects the survey responses; Prolific recruits participants and handle
 5. If screening is needed, distinguish validating Prolific's existing prescreeners from custom screening. Custom screening can require a separate screen-out reward. Do not treat refusal of consent as a rejection or invent a screening/payment policy.
 6. Give the AI the Prolific study ID and confirm the path mapping. IDs and completion codes are configuration; passwords, login codes and API tokens must not be pasted into chat.
 
-The agent records the expected study ID, builds the survey, applies migrations **001–008** in order and registers the exact reviewed model. Existing installations add missing **006/007** files without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; the current paid pilot is not upgraded by this local audit. Do not apply migrations to an active shared database without the existing maintenance/review process.
+The agent records the expected study ID, builds the survey, applies migrations **001–008** in order and registers the exact reviewed model. Existing installations apply any missing migrations through **008** without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; this documentation review does not mutate existing installations or invent historical completion timestamps. Do not apply migrations to an active shared database without the existing maintenance/review process.
 
 ## Test before recruiting
 

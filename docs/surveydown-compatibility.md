@@ -495,7 +495,7 @@ The versioned guide and validator should therefore:
 5. Preserve a structured decision log separately from generated survey artifacts.
 6. Require researcher confirmation before changing a material research decision in response to a limitation.
 7. Produce stable diagnostic codes and locations that an LLM can use in a correction loop.
-8. Detect Chat mode versus Agent mode before promising repository, database, deployment, or panel operations.
+8. Apply the supported desktop-host gate and verify actual file/preview tools first; separately verify external tools and authorization before promising repository, database, deployment or panel operations.
 9. Verify every external mutation before reporting it as complete.
 10. Keep generated artifacts model-independent so they can be inspected, edited, validated, and reproduced without the originating conversation.
 11. Generate `survey.qmd`, `app.R`, supporting files, and a compatibility report whenever native surveydown export is requested.

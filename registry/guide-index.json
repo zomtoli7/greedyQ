@@ -1,6 +1,6 @@
 {
   "schema_version": "0.2",
-  "release": "0.2_2026-10-26_ecadf63",
+  "release": "0.2_2026-10-26_beac897",
   "status": "compatibility",
   "default_language": "en",
   "bootstrap": "START-HERE.md",
@@ -40,7 +40,7 @@
       "files": [
         {
           "path": "release.json",
-          "sha256": "44e070d831815e2caa56d6d6b982e44bdcbf381342a425742bd2dbaa591594ed"
+          "sha256": "561f94a52e8707f1647f1067dd29e5d9cff59abf1bde0856d9afa72cdc6c9423"
         },
         {
           "path": "greedyq/localization.py",
@@ -116,7 +116,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "ee2100557a28627327ca922aca71381c95c4a2a06d774d254588c102e4bcd331"
+          "sha256": "b64175049db83e14c4f00d35cc70ec2418a301cf2fdd8f495f99335c14ad4910"
         },
         {
           "path": "guides/core/communication.md",
@@ -128,7 +128,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "026d6206983806540bd3eec8c88bc074b9c3829c475e071de59ca48d64d2037e"
+          "sha256": "5e1702080cc300433f0218de5c1fdae049c303934f2724156387e6076c33c79a"
         },
         {
           "path": "docs/preview-ui-spec.md",
@@ -160,7 +160,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "8cfc6aafba4a7e9892758457a695d6db598d30dfce37ed67e2535c75e51e9537"
+          "sha256": "42035e896e008c81bf0885154d0bae0dcf0bb2253d208486ddd914cd8d641ffd"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -168,11 +168,11 @@
         },
         {
           "path": "templates/browser/respondent.html",
-          "sha256": "2880f318ccde071dfb2ad0f6a1fde1d6725f8c328c2237d595520dcd9fa77720"
+          "sha256": "8528294395250e3fa9d996ad23edd159bc9313ebb3fea5d84431cefaa39787a7"
         },
         {
           "path": "templates/browser/preview.html",
-          "sha256": "afc2e01047faa506b30a979676fdb8799e619d489b569fef8fffd05f22a93c1a"
+          "sha256": "efcaccd91c8920feabcd9ef2abe6d564c280d5115bc75f8ca5c3f3f500b2fd5b"
         },
         {
           "path": "templates/browser/studio.html",
@@ -204,11 +204,11 @@
         },
         {
           "path": "templates/supabase/connection-test.html",
-          "sha256": "18b1664679497d9a1ce04d02ddc6d47d62572eab818390afc6ba6698bf1aae8a"
+          "sha256": "10734b79d09655b32373b67f8f98a83d39202233e093c7814351a8f9fac00343"
         },
         {
           "path": "greedyq/__init__.py",
-          "sha256": "b47c8afdac8347f0bcee5ccda25565a18219895bb2598b628a850eef466fdc8c"
+          "sha256": "39effc755d9014ee05619bd505a881212cad83a9f084db560d3e8012a0ae2c03"
         },
         {
           "path": "greedyq/__main__.py",
@@ -284,7 +284,7 @@
         },
         {
           "path": "CBC.md",
-          "sha256": "54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2"
+          "sha256": "34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf"
         },
         {
           "path": "greedyq/cbc.py",
@@ -324,7 +324,7 @@
         },
         {
           "path": "CBC-COLLECT.md",
-          "sha256": "129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57"
+          "sha256": "667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121"
         },
         {
           "path": "schemas/cbc-collection.schema.json",
@@ -435,7 +435,7 @@
         },
         {
           "path": "docs/surveydown-compatibility.md",
-          "sha256": "5a149e1dac9a43cb28abe885eea0494e4a3a1609ac5ed7b928ea149262501c5b"
+          "sha256": "deb54980af6cb610b393e4ed5dcb42a6dcad8aed65a83ace29cecd0f137b207b"
         }
       ]
     },
@@ -503,7 +503,7 @@
         },
         {
           "path": "PROLIFIC-SETUP.md",
-          "sha256": "e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4"
+          "sha256": "0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940"
         },
         {
           "path": "greedyq/prolific.py",

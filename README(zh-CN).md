@@ -1,12 +1,12 @@
 # greedyQ
 
 <!-- GREEDYQ_DESKTOP_POLICY -->
-**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内。请启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-26_ecadf63`
-- **Release source commit:** [`ecadf63`](https://github.com/zomtoli7/greedyQ/commit/ecadf63394f1c35bbf7873f8ef4aa64e25486e51) · [更新记录](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_beac897`
+- **Release source commit:** [`beac897`](https://github.com/zomtoli7/greedyQ/commit/beac897e3204936574e8cb498179c09ea19c6d00) · [更新记录](./updates/README.md)
 
 [English](./README.md) · [한국어](./README(kor).md)
 
@@ -37,7 +37,7 @@ greedyQ 可由代理执行的应用规范
 2. **领域：** 在线学术研究，包括设计、同意、问卷、实验、分配、招募、数据、预注册和实际收集。
 3. **实现：** greedyQ 将这一架构用于可重复的在线研究。
 
-不同模型可以有不同界面和能力，但必须遵守相同研究规范。因此跨 GPT、Claude、Gemini 等模型的可移植性需要共同的适配检查。AI 提供研究推理与自然语言协作；greedyQ 提供访谈顺序、批准检查点、文件约定、验证、预注册、固定运行代码和重复性边界。
+不同模型可以有不同界面和能力，但必须遵守相同研究规范。可移植性是须经共同适合性检查评估的架构目标，不扩展目前仅支持 ChatGPT／Claude 桌面代理的范围。AI 提供研究推理与自然语言协作；greedyQ 提供访谈顺序、批准检查点、文件约定、验证、预注册、固定运行代码和重复性边界。
 
 ## 为什么使用 greedyQ
 
@@ -85,7 +85,9 @@ greedyQ 可由代理执行的应用规范
 
 ## 对话方式与其他路径
 
-**Chat mode** 的 AI 负责访谈、文件与交接；**Agent mode** 还可在有工具和批准的情况下编辑仓库、验证、配置服务、上线和检查实际结果。专家也能直接编辑 `survey.qmd`、`greedyq.yml`。需要完全自由定制时可使用原生 surveydown 导出。PPTX 导入仍是后续方向，不应声称已支持。
+制作研究须使用具备文件与预览工具的 ChatGPT／Claude 桌面代理，不支持没有工具的普通 Chat。部署前另核对账户工具与研究者授权；本地预览不需要服务账户。参见[支持环境](./SUPPORTED-ENVIRONMENTS(zh-CN).md)。
+
+专家也能直接编辑 `survey.qmd`、`greedyq.yml`。需要完全自由定制时可使用原生 surveydown 导出。PPTX 导入仍是后续方向，不应声称已支持。
 
 ## 与 surveydown 的关系
 
@@ -99,7 +101,7 @@ greedyQ 论文发表前，学术使用应同时引用 [greedyQ GitHub 仓库](ht
 
 v0.2 提供无需账户的浏览器预览。固定 JavaScript 核心解析 QMD/YAML、检查和编译支持语法、显示电脑/手机与双预览，并通过标准研究、题型示例和错误样例与 Python 核对。Vercel/Supabase 部署、受保护结果、001–008 迁移、Prolific ID、预注册草稿、原生导出和离线准备检查均已实现。
 
-2026-10-25 已验证 Prolific 草稿 Preview 的完成、拒绝、退出与重复尝试；新退出先删除回答，保留已告知的最少管理标识；也核对结果/CSV 与测试/正式分离。首次付费试验由研究者发布后，等待 Prolific 常规审查，真实付费提交、批准及付款仍未验证。签名 URL 与正式重复提交尚不支持。见[连接状态](./docs/prolific-integration-status.md)、[云端证据](./docs/prolific-cloud-test-2026-10-25.md)、[付费状态](./docs/prolific-paid-pilot-2026-10-25.md)。仓库更新不会自动修改已上线研究。
+2026-10-26，单人 Prolific 付费提交与存储回答及 CSV 核对，研究者确认批准与付款；未独立核对支付凭证。此前常规审查暂停是历史状态。按要求清理试验回答并保留提供方付款记录。签名链接、正式重复提交与付费筛除仍不在已验证范围；参见[当前状态](./docs/prolific-integration-status.md)与[完成记录](./docs/prolific-paid-test-completion-2026-10-26.md)。仓库更新不会自动修改已上线研究。
 
 ## 试用电脑与手机预览
 
@@ -133,3 +135,8 @@ greedyQ 使用 [MIT License](./LICENSE)。
 ## CBC 预览与项目联系
 
 选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。预览本身不收集回答；服务器 CBC 使用独立的 [CBC 收集包](CBC-COLLECT(zh-CN).md)，本地验证与云端招募批准分开。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。
+
+
+## v0.2 完成范围与 v0.3 边界
+
+2026-10-26，单人 Prolific 付费试验与已保存回答及 CSV 对照，研究者确认批准与付款；未独立核对提供方支付凭证。此前暂停审核是历史状态。按研究者要求清理试验数据，保留提供方付款记录。签名链接、正式重复提交及付费筛除路径不在已验证范围。参见[完成记录](./docs/prolific-paid-test-completion-2026-10-26.md)。CBC 是 v0.3 开发功能，不是受支持的 v0.2 profile／control。仓库中的可选草稿与本地示例不表示 v0.2 已完成 CBC；CBC 云端与付费验收仍待验证。

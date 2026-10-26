@@ -5,8 +5,8 @@
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **현재 specification:** `0.2`
-- **현재 release:** `0.2_2026-10-26_ecadf63`
-- **Release source commit:** [`ecadf63`](https://github.com/zomtoli7/greedyQ/commit/ecadf63394f1c35bbf7873f8ef4aa64e25486e51) · [업데이트 히스토리](./updates/README(kor).md)
+- **현재 release:** `0.2_2026-10-26_beac897`
+- **Release source commit:** [`beac897`](https://github.com/zomtoli7/greedyQ/commit/beac897e3204936574e8cb498179c09ea19c6d00) · [업데이트 히스토리](./updates/README(kor).md)
 
 [호환성 점검](./docs/surveydown-compatibility-audit(kor).md) · [사전등록 초안](./PREREGISTRATION(kor).md) · [재개·업그레이드](./UPGRADING(kor).md) · [외부 반환](./EXTERNAL-RETURNS(kor).md) · [Google Sites 구성안](./docs/google-sites-plan(kor).md)
 
@@ -45,7 +45,7 @@ Architecture는 세 층으로 구성됩니다.
 2. **Domain — online academic research.** 범위는 survey에 한정되지 않고 연구설계, consent, questionnaire, experiment, randomization, respondent panel, data plan, preregistration, deployment, fielding을 포함합니다.
 3. **Implementation — greedyQ.** greedyQ는 이 architecture를 재현 가능한 online academic research에 적용한 concrete application입니다.
 
-Host model은 서로 다른 interface나 native capability를 사용할 수 있지만 같은 normative research specification을 적용해야 합니다. 따라서 portability란 GPT, Claude, Gemini 또는 다른 유능한 범용 AI가 greedyQ를 instantiate하면서 공통 conformance requirement로 검증 가능하다는 뜻입니다.
+Host model은 서로 다른 interface나 native capability를 사용할 수 있지만 같은 normative research specification을 적용해야 합니다. 이식성은 공통 적합성 검사로 평가할 구조적 목표이며 현재 지원 앱 목록을 넓힌다는 뜻은 아닙니다. 현재 지원은 필요한 도구가 있는 ChatGPT·Claude 데스크톱 에이전트로 제한됩니다.
 
 AI는 연구 reasoning과 자연어 협업을 제공합니다. greedyQ specification은 interview protocol, 승인 checkpoint, artifact contract, validation requirement, preregistration workflow, runtime template, deployment contract, reproducibility boundary를 제공합니다.
 
@@ -121,10 +121,7 @@ Versioned greedyQ repository + 연구자의 연구 아이디어
 
 ## Interaction mode 및 대안 경로
 
-Guide는 capability에 따라 두 mode를 지원합니다.
-
-- **Chat mode:** AI가 인터뷰하고 프로젝트 파일을 만들며 guide에 따라 reasoning을 검증하고 사용자에게 배포 방법을 안내합니다.
-- **Agent mode:** 연결된 agent가 추가로 repository 편집, validation 실행, 서비스 설정, 배포, live survey 검증까지 수행합니다.
+설문 제작은 필요한 파일·미리보기 도구가 있는 ChatGPT·Claude 데스크톱 에이전트를 사용합니다. 도구 없는 일반 Chat 모드는 지원하지 않습니다. 계정 도구와 연구자의 배포 승인은 별도로 확인하며 로컬 미리보기에는 외부 계정이 필요 없습니다. [지원 환경](./SUPPORTED-ENVIRONMENTS(kor).md)을 참고하세요.
 
 Expert user는 계속 `survey.qmd`와 `greedyq.yml`을 직접 작성할 수 있습니다. 제한 없는 R, Shiny, Quarto 사용자 정의가 필요한 연구자는 생성된 native surveydown 프로젝트에서 작업을 이어갈 수 있습니다. 향후 PPTX importer는 기존 slide 기반 초안을 편집 가능한 study artifact로 바꾸고 동일한 안내형 review workflow에 넣습니다.
 
@@ -140,7 +137,9 @@ greedyQ 논문이 나오기 전까지 greedyQ를 사용한 학술 연구는 `sur
 
 greedyQ는 계정 없이 로컬 미리보기를 할 수 있는 브라우저 기반 v0.2 실행 후보를 제공합니다. 고정 JavaScript core가 지원 QMD/YAML을 파싱·검증·컴파일하고 컴퓨터·모바일 설문과 동시 미리보기를 표시합니다. 골든 예제·컨트롤 갤러리·잘못된 입력에서 Python reference와 일치합니다. Vercel/Supabase 배포·보호된 결과·기본 001–008·Prolific ID 기록·사전등록 초안·native surveydown export·배포 전 점검을 구현했습니다.
 
-2026-10-25에 연결된 시험 환경에서 정상 완료·동의 거부·철회·반복 시작을 실제 Prolific 초안 Preview로 확인했습니다. 새 철회는 반환 전에 답변을 삭제하고 사전에 설명한 관리용 식별자만 중복 방지를 위해 남깁니다. 보호된 결과·CSV와 서버의 시험/실제 수집 분리도 검사했습니다. 연구자가 게시한 1명 유료 시험은 Prolific의 일반 내부 검토로 일시 중지됐으며 유료 제출·승인·지급은 미검증입니다. 서명 Prolific URL과 실제 반복 제출 연구는 미지원입니다. [Prolific 연결](./PROLIFIC-SETUP(kor).md), [검증 근거](./docs/prolific-cloud-test-2026-10-25(kor).md), [유료 시험 상태](./docs/prolific-paid-pilot-2026-10-25(kor).md), [외부 연결 준비](./docs/external-connection-readiness(kor).md)를 참고하세요. 릴리스는 이 검증 범위를 기록하며 기존 배포 연구는 검토한 업그레이드 전까지 기존 버전을 유지합니다.
+2026-10-26 Prolific 1인 유료 시험 응답을 저장 데이터와 CSV에 대조했습니다. 연구자가 참여자 승인과 보상 지급을 확인했으며 별도 지급 영수증을 독립 확인한 것은 아닙니다. 이전 검토 대기는 과거 기록입니다. 마감 중 요청에 따라 시험 데이터를 삭제했고 제공업체의 지급 기록은 보존했습니다. 정상 완료·거부·철회·반복 초안 시험·보호된 결과·실제/시험 구분의 검증 기록이 있습니다. 서명 링크, 실제 수집 반복 제출, 유료 선별 탈락 경로는 검증 범위 밖입니다. [유료 시험 완료](./docs/prolific-paid-test-completion-2026-10-26(kor).md), [마감](./docs/v0.2-closeout-2026-10-26(kor).md), [현재 Prolific 상태](./docs/prolific-integration-status(kor).md)를 참고하세요.
+
+CBC는 **v0.3 개발 기능**이며 지원되는 v0.2 프로필·컨트롤이 아닙니다. 저장소의 선택적 초안 코드와 로컬 예제가 v0.2 정식 완료 기능을 뜻하지 않습니다. CBC 클라우드·유료 시험은 아직 별도 검증이 필요합니다.
 
 ## Responsive preview 사용하기
 
