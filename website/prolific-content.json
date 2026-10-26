@@ -16,7 +16,7 @@
       "prompt": "Show my Test/Direct and Test/Prolific responses separately, refresh the results, and explain the filtered CSV. Confirm that a withdrawn test has no answers and that another response is unchanged. For a paid submission, compare the actual Prolific identifiers and completion before asking me to approve payment."
     },
     "home_note": "Make and try your questionnaire first. Sign in and approve the required service access when you choose to collect real responses.",
-    "update_summary": "Require capable ChatGPT or Claude desktop agents for researcher authoring; Gemini and AI web apps are officially unsupported. Add independently implemented CBC button/table layouts with horizontal, vertical and responsive previews. Verify 237 Python and 57 Node/browser checks locally; cloud CBC and Google Sites publication remain separate.",
+    "update_summary": "Show desktop app support directly below the Start introduction: ChatGPT/Claude desktop with agent tools; Gemini currently unsupported. No unsupported provider-policy diagnosis.",
     "version_intro": "<p>These guides and examples use <strong>{release}</strong>, updated {date}. The version identifies which greedyQ release made a study. You need not memorize it; the AI records it in the study files. To use new features, provide your saved study and ask what an update would change before approving it.</p>",
     "history_footer": "<p><a href=\"https://github.com/zomtoli7/greedyQ/blob/main/updates/README.md\" target=\"_blank\" rel=\"noopener\">Full update history</a> · <a href=\"https://github.com/zomtoli7/greedyQ/blob/main/PROLIFIC-SETUP.md\" target=\"_blank\" rel=\"noopener\">Prolific setup and verification limits</a></p>"
   },
@@ -37,7 +37,7 @@
       "prompt": "내 “결과 보기 링크”에서 시험 응답부터 함께 확인해줘. 직접 시험한 답과 Prolific에서 시험한 답을 따로 보여주고, 내가 넣은 답이 맞게 저장됐는지 설명해줘. 내려받는 CSV에 어떤 응답이 포함되는지와 각 열의 뜻도 쉬운 말로 알려줘. 실제 유료 제출이나 지급은 따로 확인해야 한다는 점을 구분해줘."
     },
     "home_note": "먼저 AI와 설문을 만들고 직접 응답해 보세요. 실제 참여자를 받기로 결정한 뒤에 필요한 계정 로그인과 연결을 승인하면 됩니다.",
-    "update_summary": "설문 제작은 필요한 도구가 있는 ChatGPT·Claude 데스크톱 에이전트를 사용하며 Gemini와 AI 웹 앱은 공식 지원하지 않습니다. CBC 버튼·표형의 가로·세로·반응형을 추가하고 Python 237개·Node/브라우저 57개를 로컬 검증했습니다. CBC 클라우드 시험과 홈페이지 게시는 별도입니다.",
+    "update_summary": "시작하기 설명 바로 아래에 ChatGPT·Claude 데스크톱 앱 지원 및 Gemini 현재 미지원 안내를 추가했습니다. 확인되지 않은 제공업체 정책을 원인으로 단정하지 않습니다.",
     "version_intro": "<p>현재 안내와 예제의 버전은 <strong>{release}</strong>이며, 마지막 반영일은 {date}입니다. 버전 번호는 어떤 시점의 greedyQ로 설문을 만들었는지 구분하는 표시입니다. 외울 필요는 없고, AI가 연구 파일에 기록해 두어야 합니다. 새 기능을 쓰고 싶다면 저장한 연구를 보여주고 업데이트할 부분을 먼저 설명해 달라고 요청하세요.</p>",
     "history_footer": "<p><a href=\"https://github.com/zomtoli7/greedyQ/blob/main/updates/README(kor).md\" target=\"_blank\" rel=\"noopener\">전체 업데이트 이력</a> · <a href=\"https://github.com/zomtoli7/greedyQ/blob/main/PROLIFIC-SETUP(kor).md\" target=\"_blank\" rel=\"noopener\">Prolific 연결·검증 한계</a></p>"
   },
@@ -58,7 +58,7 @@
       "prompt": "分别显示 Test/Direct 和 Test/Prolific，刷新结果并解释 CSV。确认退出测试无答案且其他回答未改变。对付费提交，先核对真实 Prolific ID 和完成结果，再请我批准付款。"
     },
     "home_note": "先与 AI 制作并亲自试问卷，决定接收真实参与者后再登录账户、批准所需连接。",
-    "update_summary": "研究制作须使用具备所需工具的 ChatGPT 或 Claude 桌面代理；Gemini 与 AI 网页应用不受官方支持。新增独立实现的 CBC 按钮／表格横向、纵向及响应式预览，本地通过 237 项 Python 和 57 项 Node／浏览器检查。CBC 云端测试及 Google Sites 发布另行进行。",
+    "update_summary": "开始页面说明下方新增桌面支持提示：使用具备代理工具的 ChatGPT／Claude 桌面应用；目前不支持 Gemini，不臆测提供方政策。",
     "version_intro": "<p>当前指南与示例版本为 <strong>{release}</strong>，更新日 {date}。版本用于区分研究由哪个时期的 greedyQ 制作，不需要记住，AI 应写入研究文件。想使用新功能时，提供保存的研究，先了解升级变化再批准。</p>",
     "history_footer": "<p><a href=\"https://github.com/zomtoli7/greedyQ/blob/main/updates/README.md\" target=\"_blank\" rel=\"noopener\">完整更新记录</a> · <a href=\"https://github.com/zomtoli7/greedyQ/blob/main/PROLIFIC-SETUP.md\" target=\"_blank\" rel=\"noopener\">Prolific 配置与验证范围</a></p>"
   }

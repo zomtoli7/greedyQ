@@ -2,7 +2,7 @@
 
 [English](./publication-request.md)
 
-현재 main의 `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html`, `docs/website-prompt-copy-audit-2026-10-26(kor).md`를 함께 읽으세요. 준비 릴리스는 `0.2_2026-10-26_2b581a3`이며 HTML SHA-256은 `5be4a89ae35b8a9daf7699332619be96b421177c67282fd682327bd4478cc218`, 크기는 788650바이트입니다. `source_commit`은 실질 코드 커밋이며 버전을 찍은 HTML은 뒤의 메타데이터 커밋에 있습니다. `source_commit`만 보고 이전 HTML을 가져오면 안 됩니다.
+현재 main의 `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html`, `docs/website-prompt-copy-audit-2026-10-26(kor).md`를 함께 읽으세요. 준비 릴리스는 `0.2_2026-10-26_ecadf63`이며 HTML SHA-256은 `e18bc0982e22dc5a9ff4809a4a858c893f48d6217ae155ae8e4d820450b048ea`, 크기는 790505바이트입니다. `source_commit`은 실질 코드 커밋이며 버전을 찍은 HTML은 뒤의 메타데이터 커밋에 있습니다. `source_commit`만 보고 이전 HTML을 가져오면 안 됩니다.
 
 기존 Google Sites 편집기에서 현재 공개/편집 내용을 비교해 무관한 변경을 보존하고, 사이트·페이지·도메인·메뉴·갤러리·이미지·연락처를 유지한 채 기존 전체 페이지 custom embed만 준비 HTML 전문으로 교체하세요. 사용자의 기존 승인과 현재 브라우저 도구 정책에 따라 저장·게시합니다. 홈페이지 갱신이지 CBC 배포·계정 변경·응답 편집·모집·지급 승인이 아닙니다.
 
@@ -12,3 +12,6 @@
 
 
 Gemini는 데스크톱도 공식 지원하지 않습니다. 가이드·파일 확인 전에 앱 종류를 확인하고 ChatGPT 데스크톱 Work/Codex 또는 Claude Desktop으로 안내합니다. Gemini 저장소 가져오기나 첨부는 예외가 아닙니다.
+
+
+시작하기 설명 바로 아래, 복사 프롬프트 위에 지원 안내가 표시되는지 확인하세요. Gemini 미지원 이유를 확인되지 않은 Google의 GitHub 차단 정책으로 바꾸지 마세요.

@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_ecadf63`](./0.2/0.2_2026-10-26_ecadf63.md) — Add a clearly visible support note immediately below the Start introduction in English, Korean and Chinese: use capable ChatGPT or Claude desktop apps; Gemini is currently unsupported. Describe unverified guide/execution support without inventing a Google GitHub-blocking policy. Website navigation and copy checks passed (4 tests).
+
 - [`0.2_2026-10-26_2b581a3`](./0.2/0.2_2026-10-26_2b581a3.md) — Require ChatGPT desktop Work/Codex or Claude Desktop with working file and preview tools; Gemini (including desktop) and AI web apps are officially unsupported. Synchronize English, Korean and Chinese guides, website prompts, and the required host-readiness gate.
 
 - [`0.2_2026-10-26_ac2c85a`](./0.2/0.2_2026-10-26_ac2c85a.md) — Implemented dedicated CBC server consent, block/order persistence, exposure/choice storage, withdrawal, protected results, real/test CSV and archives through additive migration 009; verified with synthetic participants in real local PostgreSQL and desktop/mobile browsers.
