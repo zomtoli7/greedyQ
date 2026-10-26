@@ -29,3 +29,9 @@ The malformed `.md새` clipboard address and a later correctly separated URL wit
 - [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
 - [Claude Desktop](https://claude.com/download)
 
+
+## Future support review
+
+Gemini is the first planned support-review target; it is currently unsupported, including desktop, and no support date is promised. Evaluate complete guide/fixed-file access, artifact creation, canonical preview execution, authorized deployment, results and archiving before changing its status. An access workaround alone is insufficient.
+
+Meta AI, Grok and DeepSeek are additional evaluation candidates only, not supported hosts or committed releases. Evaluate the actual application and enabled tools, not just the model brand or origin country. Future support requires the same full-journey conformance evidence; do not imply that every app using a given model has the same capabilities.

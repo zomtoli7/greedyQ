@@ -29,3 +29,9 @@ ChatGPT 데스크톱에서는 제공되는 경우 Work 또는 Codex를 선택하
 - [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
 - [Claude Desktop](https://claude.com/download)
 
+
+## 향후 지원 검토
+
+Gemini는 향후 지원 여부를 가장 먼저 검토할 대상입니다. 데스크톱도 현재 미지원이며 지원 날짜를 약속하지 않습니다. 전체 가이드·고정 파일 접근, 실제 결과물 생성, 정해진 미리보기 실행, 승인된 배포, 결과 확인과 아카이빙까지 검증한 뒤 상태를 바꿉니다. 주소 접근 우회만으로는 충분하지 않습니다.
+
+Meta AI, Grok, DeepSeek는 추가 검토 후보일 뿐 지원 대상이나 출시 약속이 아닙니다. 모델 이름이나 개발 국가보다 실제 앱과 활성화된 도구를 평가합니다. 동일한 전체 사용 과정의 검증 자료가 있어야 지원하며, 같은 모델을 사용하는 모든 앱에 같은 기능이 있다고 암시하지 않습니다.

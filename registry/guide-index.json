@@ -332,11 +332,11 @@
         },
         {
           "path": "SUPPORTED-ENVIRONMENTS.md",
-          "sha256": "2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36"
+          "sha256": "f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c"
         },
         {
           "path": "schemas/authoring-support-policy.json",
-          "sha256": "328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e"
+          "sha256": "e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97"
         }
       ]
     },

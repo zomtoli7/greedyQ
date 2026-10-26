@@ -197,8 +197,8 @@ preview.html
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
-| `SUPPORTED-ENVIRONMENTS.md` | `2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36` | `no` |
-| `schemas/authoring-support-policy.json` | `328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e` | `no` |
+| `SUPPORTED-ENVIRONMENTS.md` | `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c` | `no` |
+| `schemas/authoring-support-policy.json` | `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
 | `CBC-COLLECT.md` | `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57` | `no` |
@@ -278,7 +278,7 @@ preview.html
 
 ### FILE: `SUPPORTED-ENVIRONMENTS.md`
 
-SHA-256: `2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36`
+SHA-256: `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c`
 
 ```markdown
 # Supported authoring environment
@@ -311,11 +311,18 @@ The malformed `.md새` clipboard address and a later correctly separated URL wit
 
 - [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
 - [Claude Desktop](https://claude.com/download)
+
+
+## Future support review
+
+Gemini is the first planned support-review target; it is currently unsupported, including desktop, and no support date is promised. Evaluate complete guide/fixed-file access, artifact creation, canonical preview execution, authorized deployment, results and archiving before changing its status. An access workaround alone is insufficient.
+
+Meta AI, Grok and DeepSeek are additional evaluation candidates only, not supported hosts or committed releases. Evaluate the actual application and enabled tools, not just the model brand or origin country. Future support requires the same full-journey conformance evidence; do not imply that every app using a given model has the same capabilities.
 ```
 
 ### FILE: `schemas/authoring-support-policy.json`
 
-SHA-256: `328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e`
+SHA-256: `e87a685a77831e634fd9545363eb67f6b010fbf0debf023e77cfe7f8d6604e97`
 
 ```json
 {
@@ -352,7 +359,27 @@ SHA-256: `328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e`
     "service_login_approval"
   ],
   "deployment_authorization_checked_separately": true,
-  "documentation": "SUPPORTED-ENVIRONMENTS.md"
+  "documentation": "SUPPORTED-ENVIRONMENTS.md",
+  "future_support_review": {
+    "priority": [
+      "gemini"
+    ],
+    "additional_candidates": [
+      "meta_ai",
+      "grok",
+      "deepseek"
+    ],
+    "status": "evaluation_only_not_supported",
+    "availability_date": null,
+    "required_journey": [
+      "guide_and_fixed_files",
+      "artifact_creation",
+      "canonical_preview",
+      "authorized_deployment",
+      "results",
+      "archiving"
+    ]
+  }
 }
 ```
 

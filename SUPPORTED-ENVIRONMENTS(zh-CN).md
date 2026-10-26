@@ -29,3 +29,9 @@ ChatGPT 桌面版可在提供时选择 Work 或 Codex，并检查实际工具；
 - [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
 - [Claude Desktop](https://claude.com/download)
 
+
+## 未来支持评估
+
+Gemini 是未来优先评估对象，包括桌面版在内目前均不支持，也没有承诺支持日期。更改状态前须验证完整指南／固定文件访问、实际产物创建、固定预览执行、获准部署、结果和归档。仅解决链接访问不足以获得支持。
+
+Meta AI、Grok 和 DeepSeek只是其他评估候选，并非支持对象或承诺发布。评估真实应用及已启用工具，而非只看模型品牌或来源国家。未来支持需要相同的全流程适合性证据；不得暗示使用同一模型的所有应用具有同样能力。

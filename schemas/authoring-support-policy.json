@@ -32,5 +32,25 @@
     "service_login_approval"
   ],
   "deployment_authorization_checked_separately": true,
-  "documentation": "SUPPORTED-ENVIRONMENTS.md"
+  "documentation": "SUPPORTED-ENVIRONMENTS.md",
+  "future_support_review": {
+    "priority": [
+      "gemini"
+    ],
+    "additional_candidates": [
+      "meta_ai",
+      "grok",
+      "deepseek"
+    ],
+    "status": "evaluation_only_not_supported",
+    "availability_date": null,
+    "required_journey": [
+      "guide_and_fixed_files",
+      "artifact_creation",
+      "canonical_preview",
+      "authorized_deployment",
+      "results",
+      "archiving"
+    ]
+  }
 }
