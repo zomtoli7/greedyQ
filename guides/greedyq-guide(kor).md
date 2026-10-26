@@ -269,7 +269,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `schemas/authoring-support-policy.json` | `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff` | `no` |
 | `schemas/cbc-collection.schema.json` | `df032add7ebf7fb96da337a769de65cfa7de2a3218019cb9a197b204213f4321` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `b61a7de49343bc131ed35d8d543fdfaf9673f591beef27a82b41ae5a8a9e1f01` | `no` |
+| `CBC-COLLECT.md` | `919084824c6d7b6a70a6bf77dd439069dd3273c4fb5d7372dd1125d9c918eb64` | `no` |
 | `CBC-MODULE.md` | `78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446` | `no` |
 | `guides/modules/cbc/guide.md` | `42bfd4e6940ed8c997766cb581eaa8726730a19b0d310bbde96a3a45aa8f981a` | `no` |
 | `greedyq/cbc_flow.py` | `e80e5aeae410b3c4d060ee3fb9a52c2f0d3717192f2db2c9dbbb097bf64a05aa` | `no` |
@@ -292,7 +292,7 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9` | `no` |
+| `release.json` | `526176da2064697313c457b42ec6a2290a54bcbf4f5ba0de88652f0677de27b3` | `no` |
 | `PROLIFIC-SETUP.md` | `0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -829,7 +829,7 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `b61a7de49343bc131ed35d8d543fdfaf9673f591beef27a82b41ae5a8a9e1f01`
+SHA-256: `919084824c6d7b6a70a6bf77dd439069dd3273c4fb5d7372dd1125d9c918eb64`
 
 ```markdown
 # Collect CBC responses and review results
@@ -917,7 +917,7 @@ The agent writes an optional field in `study.design.json`:
 
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 
-CBC development verification: `0.3_2026-10-26_e0167e7`.
+CBC development verification: `0.3_2026-10-26_678e6bb`.
 
 
 ## CBC as a survey module
@@ -3360,7 +3360,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9`
+SHA-256: `526176da2064697313c457b42ec6a2290a54bcbf4f5ba0de88652f0677de27b3`
 
 ```json
 {
@@ -3383,7 +3383,7 @@ SHA-256: `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9`
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "collection_storage_results_existing_account_cloud_test_verified",
+    "status": "insertable_module_authoring_and_mixed_cloud_verified_db_pause_pending",
     "preview_schema": "0.3-preview.1",
     "live_collection": false,
     "collection_implemented": true,
@@ -3395,10 +3395,16 @@ SHA-256: `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9`
     "cloud_cbc_test_deployed": true,
     "fresh_account_cbc_verified": false,
     "production_fielding_approved": false,
-    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json",
-    "release": "0.3_2026-10-26_e0167e7",
-    "source_commit": "e0167e7e0f5e7fc0a77c23c971217842efe10ab1",
-    "verification_date": "2026-10-26"
+    "cloud_verification_record": "docs/cbc-module-verification-2026-10-26.json",
+    "release": "0.3_2026-10-26_678e6bb",
+    "source_commit": "678e6bb911ae2e0a7a084e7bd0a1e1bfa4f0c1bf",
+    "verification_date": "2026-10-26",
+    "module_contract": "cbc-module-1",
+    "module_cloud_verified": true,
+    "authoring_source_resume_fork_verified": true,
+    "vercel_module_pause_resume_verified": true,
+    "supabase_physical_pause_resume_verified": false,
+    "shared_database_interruption_approved": true
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",

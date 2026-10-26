@@ -83,7 +83,7 @@ The agent writes an optional field in `study.design.json`:
 
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 
-CBC development verification: `0.3_2026-10-26_e0167e7`.
+CBC development verification: `0.3_2026-10-26_678e6bb`.
 
 
 ## CBC as a survey module

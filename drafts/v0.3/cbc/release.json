@@ -1,10 +1,11 @@
 {
   "version": "0.3",
-  "release": "0.3_2026-10-26_e0167e7",
-  "source_commit": "e0167e7e0f5e7fc0a77c23c971217842efe10ab1",
+  "release": "0.3_2026-10-26_678e6bb",
+  "source_commit": "678e6bb911ae2e0a7a084e7bd0a1e1bfa4f0c1bf",
   "date": "2026-10-26",
-  "status": "development_existing_account_synthetic_cloud_acceptance",
+  "status": "development_insertable_module_cloud_verified_db_pause_pending",
   "supported_v02_feature": false,
   "production_fielding_approved": false,
-  "verification": "docs/cbc-cloud-verification-2026-10-26.json"
+  "verification": "docs/cbc-module-verification-2026-10-26.json",
+  "module_contract": "cbc-module-1"
 }

@@ -44,5 +44,14 @@
     "advanced page branching, multiple CBC sequences and ordinary shuffling around CBC",
     "native surveydown CBC export",
     "statistical inference/design efficiency"
-  ]
+  ],
+  "release": "0.3_2026-10-26_678e6bb",
+  "verification_source_commit": "678e6bb911ae2e0a7a084e7bd0a1e1bfa4f0c1bf",
+  "registered_cloud_test_model_release": "0.3_2026-10-26_e0167e7",
+  "registered_models_preserved_without_metadata_rewrite": true,
+  "local_regression": {
+    "python_passed": 257,
+    "additional_node_browser_passed": 37,
+    "failed": 0
+  }
 }

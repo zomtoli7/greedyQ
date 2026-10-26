@@ -83,7 +83,7 @@ v0.3 cbc 模块可插入普通线性 QMD 页面，但不是 v0.2 控件或无限
 
 显示类别参考公开的 [surveydown 按钮式](https://surveydown.org/templates/conjoint_buttons)与[表格式](https://surveydown.org/templates/conjoint_tables)，代码独立实现，没有复制其源码。这是 greedyQ CBC 设置，并不表示可与原生 surveydown 联合分析代码互换。
 
-CBC 开发验证版本: `0.3_2026-10-26_e0167e7`.
+CBC 开发验证版本: `0.3_2026-10-26_678e6bb`.
 
 
 ## 问卷中的 CBC 模块
