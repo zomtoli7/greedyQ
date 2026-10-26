@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-26",
+  "release": "0.2_2026-10-26_ac2c85a",
+  "source_commit": "ac2c85ada5762a02bc626b0cb1d16c02e050d7f9",
+  "collection_schema": "0.3-collection.1",
+  "rpc_contract": "cbc-1",
+  "python": {
+    "passed": 236,
+    "failed": 0,
+    "skipped": 0
+  },
+  "node_browser": {
+    "passed": 56,
+    "failed": 0,
+    "skipped": 0
+  },
+  "total_passed": 292,
+  "dedicated_cbc_collection_python": 12,
+  "cbc_browser_tests": 9,
+  "cbc_results_api_tests": 3,
+  "guide_access_schema_tests": 3,
+  "website_prompt_copy_tests": 2,
+  "local_postgresql_real_rpc_execution": true,
+  "browser_test_engine": "Installed headless Google Chrome on macOS",
+  "synthetic_collection_journey": {
+    "sessions": 5,
+    "completed": 2,
+    "real_scope_long_rows": 15,
+    "test_scope_long_rows": 12,
+    "production_scope_is_synthetic": true,
+    "external_cloud_calls": 0,
+    "actual_downloads_and_archive_verified": true
+  },
+  "website_copy_audit": {
+    "languages": [
+      "en",
+      "ko",
+      "zh"
+    ],
+    "widths": [
+      320,
+      1280
+    ],
+    "distinct_rendered_blocks": 135,
+    "exact_copy_checks": 270,
+    "width_specific_bibtex_checks": 6,
+    "normal_and_legacy_and_manual_copy": true,
+    "urls_survive_line_break_removal": true,
+    "live_gemini_retested": false
+  },
+  "cloud_cbc_deployed_by_this_work": false,
+  "google_sites_published_by_this_work": false,
+  "real_participant_data_read_or_changed": false,
+  "paid_cbc_verified": false
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "0.2",
-  "release": "0.2_2026-10-26_a4ad99e",
+  "release": "0.2_2026-10-26_ac2c85a",
   "status": "compatibility",
   "default_language": "en",
   "bootstrap": "START-HERE.md",
@@ -40,7 +40,7 @@
       "files": [
         {
           "path": "release.json",
-          "sha256": "2844af9121fb8f2d3ce051fcf84e1a75ba8bb345700547324c21510811eb3a72"
+          "sha256": "3f9c734b0937ad53846b800537c983c4921f0a4608ab2abc7cbf500dac41f264"
         },
         {
           "path": "greedyq/localization.py",
@@ -116,7 +116,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "07acc6f16aec074afdf39186b100ba0a779266dd357dc6d2f86844183227513f"
+          "sha256": "04421abba045a1751147a376522e264b37f0140579a796c3b7b0a1aaed911d61"
         },
         {
           "path": "guides/core/communication.md",
@@ -128,7 +128,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "0ac5b3c31c77931807763a1d7b3e7a1399b6d46c039b45c2840b5e3d2fb3f1e2"
+          "sha256": "84b67f2bcecf2999e2c287e3805f3863ccff6c25f139af4f3e0f07f5a5b75faa"
         },
         {
           "path": "docs/preview-ui-spec.md",
@@ -160,7 +160,7 @@
         },
         {
           "path": "web/greedyq-core.js",
-          "sha256": "8601d1e63fc1e28a213ec04af61eab798c6595ba70c4d9792c8fa98c8d76e80a"
+          "sha256": "273b7b17b10aa6bd971f802572adeef93a53b960cece3d0ba3b191b98527831b"
         },
         {
           "path": "web/greedyq-runtime.css",
@@ -168,11 +168,11 @@
         },
         {
           "path": "templates/browser/respondent.html",
-          "sha256": "566a9a10ae45a6aa9054485903ab0f3c48dc81a93d5aa4eeae95aa730ed21567"
+          "sha256": "c34e5f3e2ac4a70ce50ff4bc59f258a4649a1ea6c043b2f6067e32e3b5c0768e"
         },
         {
           "path": "templates/browser/preview.html",
-          "sha256": "99c520dce58ef69f09e7b9a0d66d7b3b8a06785a8794cbc4c94d61af02a3cf40"
+          "sha256": "307e2807d79482006ee49eb5878ac375b6cbb99671466e6cff7ab7342c5d822e"
         },
         {
           "path": "templates/browser/studio.html",
@@ -204,11 +204,11 @@
         },
         {
           "path": "templates/supabase/connection-test.html",
-          "sha256": "5f64663b3255ffc2ac83809b19b58a3e6a82efd924b6d373b21ba7c594c2c60e"
+          "sha256": "96d2e2ce4c58ea6a4802eafb9c19409f21c94cde660823cb007953619644a26e"
         },
         {
           "path": "greedyq/__init__.py",
-          "sha256": "e29c8575069652430360fe62346f783fdce563e7f83617dc645dc71c3b491741"
+          "sha256": "bfbc8af7b4a1ad42bdda7f9c93e693d17b0b78ff2d7b08e7cd30b9e486d58bbe"
         },
         {
           "path": "greedyq/__main__.py",

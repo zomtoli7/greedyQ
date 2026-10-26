@@ -1,7 +1,7 @@
 {
   "status": "local_preview_only",
-  "release": "0.2_2026-10-26_a4ad99e",
-  "source_commit": "a4ad99ec89f941dc5127388243d56e77cafb3d07",
+  "release": "0.2_2026-10-26_ac2c85a",
+  "source_commit": "ac2c85ada5762a02bc626b0cb1d16c02e050d7f9",
   "model_schema": "0.3-preview.1",
   "design_sha256": "1ebf1ff0ac5890af59a46987099f7b8e58934e9ae868b1dee21ac2d4ae3990bc",
   "source_files": {
@@ -9,7 +9,7 @@
     "design/attributes.csv": "1096dabd9372207262e0bf167d49a664e0b064dc466e2dae2606c9057f0695f0",
     "design/design.csv": "58fe69a84f7f03c4948befa1d4cb7c176fb6695c9b79f3351165ede4b1d4630e"
   },
-  "preview_html_sha256": "f8e00d6802ccbd2b11c595102644d6adab395fb3b6206d01e98311c26f11cf4b",
+  "preview_html_sha256": "2761f630deba234c1971b1ac4928ceedf774ef78442af063cda4ac2bec77a448",
   "fielding_approval": false,
   "statistical_efficiency_established": false,
   "public_profile_activated": false

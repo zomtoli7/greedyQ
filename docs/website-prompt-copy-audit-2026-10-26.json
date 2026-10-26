@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-26",
+  "release": "0.2_2026-10-26_ac2c85a",
+  "source_commit": "ac2c85ada5762a02bc626b0cb1d16c02e050d7f9",
+  "languages": [
+    "en",
+    "ko",
+    "zh"
+  ],
+  "widths": [
+    320,
+    1280
+  ],
+  "distinct_rendered_blocks": 135,
+  "exact_copy_checks": 270,
+  "width_specific_bibtex_checks": 6,
+  "normal_and_legacy_and_manual_copy": true,
+  "urls_survive_line_break_removal": true,
+  "live_gemini_retested": false,
+  "new_public_site_verified": false,
+  "prepared_html_sha256": "f795b27bcc5eb65ba08605f671b54aeb2733dfa7bd0533a1bd7faa6d9c438aed"
+}

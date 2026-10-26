@@ -35,3 +35,6 @@ Python에서 실행하는 `tests/cbc_collection_journey.cjs`는 실제 고정 �
 
 
 이후 연구자의 재현으로 구체적 실패를 확인했습니다. 줄바꿈이 사라져 `START-HERE.md`에 뒤의 한국어 문장이 붙었습니다. 해당 시도의 원인은 일반적인 접근 장애 설명 대신 [복사 전수 검사](./website-prompt-copy-audit-2026-10-26(kor).md)를 따릅니다. 정상 주소는 계속 200으로 열렸습니다.
+
+
+최종 릴리스 재생성 뒤 **Python 236개 + Node/브라우저 56개, 총 292개가 실패·생략 없이 통과**했습니다. [기계 판독 기록](./cbc-collection-verification-2026-10-26.json)을 참고하세요. 브라우저 수집 모델 생성도 Python 기준과 같으며 연구자 기기에 Python이 필요하지 않습니다.

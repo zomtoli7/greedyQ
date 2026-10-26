@@ -35,3 +35,6 @@ See [CBC collection guide](../CBC-COLLECT.md) and [guide access help](../GUIDE-A
 
 
 Subsequent researcher reproduction identified the concrete failed paste: loss of line breaks joined `START-HERE.md` to the following Korean sentence. The [full copy audit](./website-prompt-copy-audit-2026-10-26.md) supersedes a generic access-failure diagnosis for that attempt. The canonical URL still returned 200.
+
+
+Final regenerated-release verification: **236 Python + 56 Node/browser checks passed (292 total), with zero failures/skips**. See the [machine-readable record](./cbc-collection-verification-2026-10-26.json). The browser collection-plan generator also matches the Python reference; researcher devices do not require Python.

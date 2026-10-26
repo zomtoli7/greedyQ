@@ -1,9 +1,11 @@
-# 준비된 greedyQ 홈페이지 게시하기
+# 홈페이지 워크: 현재 검증된 소스 게시
 
 [English](./publication-request.md)
 
-홈페이지 업데이트 Work에 아래 요청을 전달합니다. 설문 배포·모집·보상 지급·데이터 삭제를 요청하는 문서가 아닙니다. 별도로 연결된 Browser와 소유자의 기존 Google Sites 편집기를 사용하며 Safari나 데스크톱 마우스를 가져오지 않습니다.
+현재 main의 `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html`, `docs/website-prompt-copy-audit-2026-10-26(kor).md`를 함께 읽으세요. 준비 릴리스는 `0.2_2026-10-26_ac2c85a`이며 HTML SHA-256은 `f795b27bcc5eb65ba08605f671b54aeb2733dfa7bd0533a1bd7faa6d9c438aed`, 크기는 720084바이트입니다. `source_commit`은 실질 코드 커밋이며 버전을 찍은 HTML은 뒤의 메타데이터 커밋에 있습니다. `source_commit`만 보고 이전 HTML을 가져오면 안 됩니다.
 
-> Browser로 기존 greedyQ Google Sites 홈페이지를 업데이트하고 게시해줘. https://github.com/zomtoli7/greedyQ 의 현재 `release.json`과 `website/publication-manifest.json`을 먼저 읽어. 같은 최신 작업본의 `website/google-sites-embed.html` 전체를 사용하거나 https://raw.githubusercontent.com/zomtoli7/greedyQ/main/website/google-sites-embed.html 에서 받아. 편집 전 버전·바이트 수·SHA-256이 manifest와 일치하는지 확인하고, 다르면 일치하는 파일 묶음을 확보할 때까지 멈춰. 기존 편집 주소 https://sites.google.com/d/1TWcKQwyFBV90GZbkVsVBUvFlfuOTLvKn/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/edit 를 열고 홈페이지의 기존 사용자 HTML 임베드를 확인한 파일 전체로 교체·저장한 뒤 게시해줘. 다른 페이지·레이아웃·공유 설정·도메인 포워딩은 유지해. 한국어·영어·중국어의 Guide → Collect → Prolific 연결하기에서 기본 1명 유료 시험 완료, 에이전트의 응답·CSV 대조, 연구자의 승인·보상 지급 확인이 구분되는지 확인해. 별도 지급 영수증을 직접 검사했다고 표현하지 마. 수정 후 첫 실제 완료 시각, 유료 선별, 자료 정리 등 남은 확인도 그대로 표시해. 결과 안내, 이전/다음 이동, 모바일 메뉴와 About → 버전·업데이트가 현재 버전·히스토리와 맞는지 확인해. 게시 후 https://sites.google.com/view/greedyq 의 전체 HTML 임베드를 해석해 원본 및 SHA-256과 대조하고 실제 게시된 버전과 결과를 알려줘. 초안 저장이나 파일 생성만으로 게시 완료라고 하지 마. 참가자·결과 서비스 배포, 데이터베이스, Prolific 설정·지급은 건드리지 마. Browser에서 편집기에 접근할 수 없으면 Safari나 마우스 조작으로 바꾸지 말고 그 상태를 알려줘.
+기존 Google Sites 편집기에서 현재 공개/편집 내용을 비교해 무관한 변경을 보존하고, 사이트·페이지·도메인·메뉴·갤러리·이미지·연락처를 유지한 채 기존 전체 페이지 custom embed만 준비 HTML 전문으로 교체하세요. 사용자의 기존 승인과 현재 브라우저 도구 정책에 따라 저장·게시합니다. 홈페이지 갱신이지 CBC 배포·계정 변경·응답 편집·모집·지급 승인이 아닙니다.
 
-`publication-manifest.json`은 버전 정리 후 생성합니다. `ready_for_publication`은 파일이 준비됐다는 뜻이며 공개 사이트 상태가 아닙니다. 게시 여부를 따로 확인하고, 확인하지 않은 성공으로 기존 게시 이력을 바꾸지 않습니다.
+영문·한글·중문에서 버전·업데이트 기록을 확인하세요. About → Project → Contact는 `greedyq.contact@gmail.com`을 유지합니다. 한국어·중국어 시작 프롬프트를 복사해 URL이 `<...>`로 감싸지고 줄바꿈을 모두 지워도 별도 주소로 남는지 확인하세요. 복사 버튼과 클립보드 거부 후 수동 선택을 확인하고 BibTeX 문법을 보존하세요. 로컬 전수 검사는 블록 135개를 두 폭에서 270회 대조했습니다. 이 자동 시험만으로 실제 Gemini/Claude 성공을 추정하지 마세요.
+
+공개 사이트의 전체 `data-code` embed를 가져와 복호화하고 manifest의 바이트·SHA-256과 완전히 일치한 뒤에만 게시 완료로 기록하세요. 제공업체 정규화나 차이가 있으면 명시하고, 편집기 저장을 공개 증거로 삼지 마세요. CBC 수집은 로컬 PostgreSQL/브라우저 검증이며 새 클라우드·유료 CBC 승인 시험이 아닙니다. 접근할 수 없으면 pending을 유지하고 정확히 보고하세요.

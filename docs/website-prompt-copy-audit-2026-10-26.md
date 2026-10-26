@@ -25,3 +25,6 @@ Separate checks force modern clipboard success, modern rejection with legacy fal
 ## Publication boundary
 
 `website/google-sites-template.html`, language content, generated `google-sites-embed.html`, copy helper and release/history source are prepared together. Google Sites still needs the new embed saved and published by the homepage Work. A source commit or a generated HTML file is not evidence that the old public site's copy blocks changed. Verify the public site's decoded embed against the prepared SHA-256 after publication, then paste a freshly copied Korean/Chinese prompt and confirm the exact URL separately from the next sentence.
+
+
+The [audit JSON](./website-prompt-copy-audit-2026-10-26.json) records the release/source, block counts and prepared HTML hash. It deliberately marks public-site verification and live Gemini retesting false until performed.

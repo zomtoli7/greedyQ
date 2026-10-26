@@ -1,8 +1,8 @@
 # greedyQ
 
 - **현재 specification:** `0.2`
-- **현재 release:** `0.2_2026-10-26_a4ad99e`
-- **Release source commit:** [`a4ad99e`](https://github.com/zomtoli7/greedyQ/commit/a4ad99ec89f941dc5127388243d56e77cafb3d07) · [업데이트 히스토리](./updates/README(kor).md)
+- **현재 release:** `0.2_2026-10-26_ac2c85a`
+- **Release source commit:** [`ac2c85a`](https://github.com/zomtoli7/greedyQ/commit/ac2c85ada5762a02bc626b0cb1d16c02e050d7f9) · [업데이트 히스토리](./updates/README(kor).md)
 
 [호환성 점검](./docs/surveydown-compatibility-audit(kor).md) · [사전등록 초안](./PREREGISTRATION(kor).md) · [재개·업그레이드](./UPGRADING(kor).md) · [외부 반환](./EXTERNAL-RETURNS(kor).md) · [Google Sites 구성안](./docs/google-sites-plan(kor).md)
 
