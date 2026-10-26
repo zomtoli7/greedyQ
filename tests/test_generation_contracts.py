@@ -372,9 +372,11 @@ class GenerationContractTests(unittest.TestCase):
             self.assertIn(heading, spec)
 
     def test_markdown_documents_have_language_pairs(self):
-        for path in ROOT.rglob("*.md"):
-            if ".git" in path.parts:
-                continue
+        # Generated publish folders have their own render/link checks.
+        # Source language pairing must never traverse private/untracked workspaces.
+        tracked = subprocess.check_output(["git", "ls-files", "*.md"], cwd=ROOT, text=True).splitlines()
+        for relative in tracked:
+            path = ROOT / relative
             if path.name.endswith("(zh-CN).md"):
                 source = path.with_name(path.name.replace("(zh-CN).md", ".md"))
                 peers = (source, source.with_name(source.stem + "(kor).md"))

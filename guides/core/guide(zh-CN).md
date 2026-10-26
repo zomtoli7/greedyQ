@@ -10,7 +10,7 @@ Gemini（包括桌面版）不受官方支持。在指南和文件检查前核�
 
 **Component:** `core`
 **Specification version:** `0.2`
-**Current release identifier:** `0.2_2026-10-26_fa94594`
+**Current release identifier:** `0.2_2026-10-26_df6d737`
 
 本指南是 greedyQ 可由 AI 代理执行的应用规范的一部分，适用于所有 `greedyQObject`。greedyQ 本身不是代理；能读取并遵循规范的通用生成式 AI 才构成 greedyQ 研究助手。英文已锁定规范为权威来源，中文帮助理解，不改变代码、字段或研究决定。
 

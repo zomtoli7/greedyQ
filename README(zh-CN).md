@@ -5,8 +5,8 @@
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-26_fa94594`
-- **Release source commit:** [`fa94594`](https://github.com/zomtoli7/greedyQ/commit/fa945942d69bf5bbf0c9cf425d3e352171b32968) · [更新记录](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_df6d737`
+- **Release source commit:** [`df6d737`](https://github.com/zomtoli7/greedyQ/commit/df6d7375a20141a46e5b3bb13eed3dd51ea694b7) · [更新记录](./updates/README.md)
 
 [English](./README.md) · [한국어](./README(kor).md)
 

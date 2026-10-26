@@ -37,3 +37,6 @@ The public entry routes the researcher; it does not replace a study's saved lock
 After committing the source, run `python3 tools/build_bootstrap.py`. Only the dedicated `dist/bootstrap` directory is public output. The builder refuses unrelated nonempty output folders and a `COMMIT_REF` different from the checked-out commit. It copies no survey responses, private study records, credentials or full repository. `robots.txt` permits crawling but cannot guarantee any AI provider will read the page.
 
 References: [Netlify repository deployment](https://docs.netlify.com/start/quickstarts/deploy-from-repository/), [build/publish configuration](https://docs.netlify.com/build/configure-builds/overview/).
+
+
+Local preparation verification: 241 Python tests passed. The website navigation/copy checks passed (4 tests), and the static start page was readable with JavaScript disabled in all three languages at 320/1280px, with working language links and no page overflow. A source-document language-pair check now scopes to tracked Markdown; generated public Markdown/HTML have separate direct parity/link tests. Live Netlify setup, assigned URL, Gemini reading and homepage prompt replacement are still pending.

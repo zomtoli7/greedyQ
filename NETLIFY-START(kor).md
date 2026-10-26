@@ -37,3 +37,6 @@ Gemini에게 연구를 만들지 말고 읽기 확인 문구와 지원 앱만 �
 소스를 커밋한 뒤 `python3 tools/build_bootstrap.py`를 실행합니다. 공개 출력은 전용 `dist/bootstrap` 폴더뿐입니다. 생성기는 관계없는 파일이 있는 출력 폴더나 체크아웃과 다른 `COMMIT_REF`를 거부합니다. 설문 응답·비공개 연구 기록·인증 정보·저장소 전체를 복사하지 않습니다. `robots.txt`가 수집을 허용해도 특정 AI가 읽는다고 보장할 수는 없습니다.
 
 참고: [Netlify 저장소 배포](https://docs.netlify.com/start/quickstarts/deploy-from-repository/), [빌드·게시 설정](https://docs.netlify.com/build/configure-builds/overview/).
+
+
+로컬 준비 검증: Python 241개가 통과했습니다. 홈페이지 이동·복사 검사 4개와 JavaScript를 끈 3개 언어·320/1280px 읽기, 언어 링크, 페이지 가로 넘침 없음을 확인했습니다. 원문 문서의 언어 짝 검사는 추적 중인 Markdown으로 범위를 명확히 하고, 생성된 공개 Markdown·HTML은 별도 직접 일치·링크 검사로 확인합니다. 실제 Netlify 설정·배정 주소·Gemini 읽기·홈페이지 프롬프트 교체는 아직 대기입니다.
