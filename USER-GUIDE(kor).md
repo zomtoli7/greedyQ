@@ -1,5 +1,9 @@
 # greedyQ 사용자 설명서
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./USER-GUIDE.md) · [简体中文](./USER-GUIDE(zh-CN).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
@@ -10,7 +14,7 @@
 
 반복 사용자는 [중지·재개·다음 설문 시작](./docs/repeat-user-acceptance(kor).md)을 참고하세요. 잠시 중단한 연구는 기존 프로젝트를 Resume하고 다음 설문은 새 연구 ID로 시작합니다. 보관 ZIP은 분석용이며 온라인 서비스 재구축용이 아닙니다.
 
-- 공개 GitHub repository를 읽을 수 있는 GPT, Claude 또는 다른 capable AI
+- 파일 읽기·생성·실행 도구가 있는 ChatGPT 또는 Claude 데스크톱 앱 (AI 웹 앱은 공식 미지원)
 - 무엇을 알고 싶은지, 누구의 의견을 듣고 싶은지에 대한 짧은 설명
 - 질문에 답하고 결과를 직접 시험할 시간
 
@@ -21,6 +25,8 @@
 [greedyQ 시작 페이지](./START-HERE(kor).md)를 열거나 AI에게 다음 URL을 줍니다.
 
 ```text
+먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
+
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
 필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
@@ -35,6 +41,8 @@ AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니
 다음 메시지를 복사합니다.
 
 ```text
+먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
+
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -51,6 +59,8 @@ AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니
 AI가 기존 greedyQ study folder에 접근할 수 있게 한 다음 복사합니다.
 
 ```text
+먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
+
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -68,6 +78,8 @@ AI가 기존 greedyQ study folder에 접근할 수 있게 한 다음 복사합�
 AI가 기존 study folder에 접근할 수 있게 한 다음 복사합니다.
 
 ```text
+먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
+
 다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 

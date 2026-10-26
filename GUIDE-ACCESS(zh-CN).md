@@ -1,5 +1,11 @@
 # AI 无法打开指南链接时
 
+Gemini（包括桌面版）不受官方支持。请使用已确认具备所需代理工具的 ChatGPT 桌面 Work/Codex 或 Claude Desktop。
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./GUIDE-ACCESS.md) · [한국어](./GUIDE-ACCESS(kor).md)
 
 ## 已确认的复制粘贴问题
@@ -13,16 +19,16 @@
 ## 先试纯文本链接
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
 ```
 
 它去掉 GitHub 界面的外围内容，但不能突破客户端本身无法读取链接的限制。仅阅读入口文件不够：还须读取同一版本的 registry、所需指南及固定源码，或完整指南包。不得根据项目名、搜索摘要或第一个访谈问题猜测其余规范。
 
-## Gemini 网页应用
+## 如果使用 Gemini 网页应用
 
-Google 提供独立的仓库导入路径：Add files → More Uploads → Import Code，输入 `https://github.com/zomtoli7/greedyQ`，然后要求 AI 阅读 `START-HERE.md` 及其依赖。菜单和可用性因账户或环境而异。导入仓库与在聊天中粘贴 URL 不同。[Google 官方导入说明](https://support.google.com/gemini/answer/14903178?hl=en)
-
-自建 Gemini API 应用可显式启用 URL Context 工具；提供链接并不证明客户端启用了工具。这不能诊断某次 Gemini Apps 对话的具体故障。[URL Context 文档](https://ai.google.dev/gemini-api/docs/url-context)
+停止此次制作，在官方桌面应用完成支持政策的能力检查。网页应用中导入仓库或添加附件不构成例外。
 
 ## 导入或网页读取不可用时
 
@@ -33,6 +39,8 @@ Google 提供独立的仓库导入路径：Add files → More Uploads → Import
 ## 安全的起始提示
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 请阅读同一版本的 greedyQ 指南和所有必需文件：
 https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
 如果无法读取，不要开始研究访谈、起草问卷或声称遵循 greedyQ。先尝试纯文本链接、仓库导入或让我附上完整指南。完整加载后才开始，并简要说明实际文件、预览与部署能力。
@@ -41,3 +49,6 @@ https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
 ## 此次报告能证明什么
 
 2026 年 10 月 26 日，我们无需登录即可打开 GitHub 页面及纯文本链接，均返回 HTTP 200。截图证明 AI 声称读取失败却继续工作，不能证明当时的原因、工具配置或 Gemini 整个平台的限制。因此修改了复制的起始提示，而非只修改无法读取的网页内部规则。未使用报告者账户重新测试 Gemini Apps。
+
+
+提出第一个研究问题之前，核实当前是已安装的 AI 桌面应用，且文件读取、创建和执行工具确实可用。不清楚环境时先询问应用与模式。AI 网页应用必须停止制作并引导至支持的桌面应用。无法读取完整指南或缺少工具时说明问题并停止，不得建议“直接继续”、推测未读规则，或把附件视为允许网页应用的例外。保留研究目标供桌面交接。具体检查遵循支持政策。

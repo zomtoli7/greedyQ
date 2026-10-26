@@ -38,8 +38,8 @@
   const equal=(a,b)=>canonical(a)===canonical(b);
   const exactKeys=(v,keys)=>object(v)&&equal(Object.keys(v).sort(),[...keys].sort());
   async function normalize(at,dt,config){
-    const allowed=['schema_version','status','object','study_id','research_question','attributes_source','design_source','alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none','design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'];
-    if(!object(config)||Object.keys(config).some(k=>!allowed.includes(k))||allowed.filter(k=>!['language','prohibitions'].includes(k)).some(k=>!Object.hasOwn(config,k)))fail('CBC005','The CBC settings contain unsupported fields.');
+    const allowed=['schema_version','status','object','study_id','research_question','attributes_source','design_source','alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none','design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language','presentation'];
+    if(!object(config)||Object.keys(config).some(k=>!allowed.includes(k))||allowed.filter(k=>!['language','prohibitions','presentation'].includes(k)).some(k=>!Object.hasOwn(config,k)))fail('CBC005','The CBC settings contain unsupported fields.');
     if(config.schema_version!=='0.3-draft.1'||config.object!=='greedyQCBC'||config.status!=='design_only'||config.fielding_approval!==false)fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.');
     const studyId=identifier(config.study_id),language=config.language??'en';
     if(!['en','ko','zh-CN','zh-TW'].includes(language))fail('CBC005','Choose en, ko, zh-CN or zh-TW for preview messages.');
@@ -86,6 +86,7 @@
     if(!exactKeys(assignment,['method','unit','weights'])||assignment.method!=='simple'||assignment.unit!=='respondent'||!object(assignment.weights)||!equal(Object.keys(assignment.weights).sort(),[...byBlock.keys()].sort())||Object.values(assignment.weights).some(w=>!positive(w,1000000))||Object.values(assignment.weights).reduce((a,b)=>a+b,0)>1000000)fail('CBC005','Confirm one positive integer weight for each block and simple respondent allocation.');
     for(const b of blocks){b.weight=assignment.weights[b.id];if(b.tasks.length!==size||b.tasks.some(t=>t.alternatives.length!==count))fail('CBC006','Every block/task must match the declared task/alternative counts.');}
     const model={schema_version:'0.3-preview.1',kind:'cbc_preview',study_id:studyId,language,research_question:config.research_question??'',attributes,blocks,alternatives_per_task:count,tasks_per_block:size,task_order:config.task_order,alternative_order:config.alternative_order,none,prohibitions};
+    if(Object.hasOwn(config,'presentation')){const p=config.presentation;if(!exactKeys(p,['type','orientation'])||!['buttons','table'].includes(p.type)||!['horizontal','vertical','responsive'].includes(p.orientation))fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.');model.presentation=p;}
     model.design_sha256=await digest(canonical(model));model.warnings=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.'];return model;
   }
 
@@ -197,6 +198,17 @@
   }
   function csv(rows){if(!rows.length)return'';const fields=Object.keys(rows[0]);const q=v=>{let s=String(v??'');if(typeof v==='string'&&/^[\t\r\n]|^\s*[=+\-@]/.test(s))s="'"+s;return'"'+s.replaceAll('"','""')+'"';};return'\ufeff'+[fields,...rows.map(r=>fields.map(k=>r[k]))].map(row=>row.map(q).join(',')).join('\r\n');}
 
+  function presentation(model,mode){
+    const p=model.presentation;
+    if(!p)return{type:'table',rule:'legacy',orientation:mode==='mobile'&&model.alternatives_per_task>2?'vertical':'horizontal'};
+    return{type:p.type,rule:p.orientation,orientation:p.orientation==='responsive'?(mode==='mobile'?'vertical':'horizontal'):p.orientation};
+  }
+  async function withPresentation(model,value){
+    if(value!==null&&(!exactKeys(value,['type','orientation'])||!['table','buttons'].includes(value.type)||!['horizontal','vertical','responsive'].includes(value.orientation)))fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.');
+    const next=structuredClone(model);delete next.design_sha256;delete next.warnings;
+    if(value===null)delete next.presentation;else next.presentation=value;
+    next.design_sha256=await digest(canonical(next));next.warnings=structuredClone(model.warnings);return next;
+  }
   function taskHTML(model,s,mode,t=x=>x,error=false){
     const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);
@@ -205,7 +217,25 @@
  if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
  const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
  html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
- if(mode==='mobile'&&alts.length>2){
+ const display=presentation(model,mode);
+ if(model.presentation){
+  html+=`<div class="cbc-comparison-scroll" data-cbc-type="${display.type}" data-cbc-orientation="${display.orientation}">`;
+  const selected=a=>s.answers[task.id]===a.id?'checked':'';
+  if(display.type==='buttons'){
+   html+=`<div class="cbc-profile-options cbc-${display.orientation}" style="--alternatives:${alts.length}">`;
+   for(const[aIndex,a]of alts.entries())html+=`<label class="cbc-profile-button"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${selected(a)} aria-label="${esc(t('Choose'))} ${aIndex+1}"><span class="cbc-profile-face"><span class="cbc-option-title">${esc(t('Option'))} ${aIndex+1}</span>${model.attributes.map(attribute=>`<span class="cbc-feature"><span class="cbc-feature-label">${esc(attribute.label)}</span><span>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</span></span>`).join('')}<span class="cbc-choice-caption">${esc(t('Choose'))} ${aIndex+1}</span></span></label>`;
+   html+='</div>';
+  }else if(display.orientation==='horizontal'){
+   html+=`<table class="cbc-comparison-table" style="--alternatives:${alts.length}"><thead><tr><th scope="col">${esc(t('Attribute'))}</th>${alts.map((a,i)=>`<th scope="col">${esc(t('Option'))} ${i+1}</th>`).join('')}</tr></thead><tbody>`;
+   for(const attribute of model.attributes)html+=`<tr><th scope="row">${esc(attribute.label)}</th>${alts.map(a=>`<td>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</td>`).join('')}</tr>`;
+   html+=`<tr><td></td>${alts.map((a,i)=>`<td>${pick(a,i)}</td>`).join('')}</tr></tbody></table>`;
+  }else{
+   html+='<div class="cbc-profile-tables cbc-vertical">';
+   for(const[aIndex,a]of alts.entries())html+=`<section class="cbc-table-profile"><h3>${esc(t('Option'))} ${aIndex+1}</h3><table><tbody>${model.attributes.map(attribute=>`<tr><th scope="row">${esc(attribute.label)}</th><td>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</td></tr>`).join('')}</tbody></table>${pick(a,aIndex)}</section>`;
+   html+='</div>';
+  }
+  html+='</div>';
+ }else if(mode==='mobile'&&alts.length>2){
    for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
  }else{
    html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
@@ -252,6 +282,6 @@
     const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
     return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
   }
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel};
+  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

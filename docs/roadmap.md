@@ -1,5 +1,9 @@
 # greedyQ Roadmap
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./roadmap(kor).md)
 
 **Current line:** v0.2 supported-scope maintenance; v0.3 CBC import, server collection, protected results and local verification
@@ -57,6 +61,6 @@ See [v0.2 closeout](./v0.2-closeout-2026-10-26.md), [paid completion](./prolific
 
 - English Markdown is authoritative and every file has a synchronized `(kor).md` copy.
 - Never execute arbitrary survey-authored R or JavaScript in the primary runtime.
-- Keep the primary workflow usable with a capable AI and a modern browser, without Python, R, Quarto, or Node on the researcher's device.
+- Keep the primary workflow usable with an installed capable desktop AI agent and a modern browser, without Python, R, Quarto, or Node on the researcher's device.
 - Preserve researcher ownership, consent-first storage, reproducible assignment, and truthful verification of external operations.
 - Use independently authored code based on public Surveydown documentation; attribute Surveydown and recommend citing both Surveydown and greedyQ.

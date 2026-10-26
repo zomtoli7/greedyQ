@@ -1,5 +1,11 @@
 # When your AI cannot open the guide
 
+Gemini, including desktop, is officially unsupported. Use ChatGPT desktop Work/Codex or Claude Desktop with verified agent tools.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./GUIDE-ACCESS(kor).md) · [简体中文](./GUIDE-ACCESS(zh-CN).md)
 
 ## Confirmed copy/paste failure
@@ -15,16 +21,16 @@ A link in a message does not prove the AI has read it. If it says “I cannot ac
 Ask it to read:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
 ```
 
 This avoids the surrounding GitHub interface. It does not overcome a host that cannot fetch links. The entry guide alone is not enough: the AI must load the same release's registry, resolved guides and fixed source files, or a complete full bundle. It must not infer the missing rules from the project name, search snippets or the first interview question.
 
-## In the Gemini web app
+## If this is the Gemini web app
 
-Google documents a separate repository import route: Add files → More Uploads → Import Code → enter `https://github.com/zomtoli7/greedyQ`. If that route is shown for your account, use it and then ask the AI to read `START-HERE.md` and its required files. Availability and menu wording can differ. Attaching a repository is different from pasting a URL into the conversation. [Google's file/import instructions](https://support.google.com/gemini/answer/14903178?hl=en)
-
-For custom Gemini API applications, URL Context is an explicitly supplied tool; a link alone is not an assertion that the client enabled it. This does not diagnose a particular Gemini Apps conversation. [Google's URL Context documentation](https://ai.google.dev/gemini-api/docs/url-context)
+Stop this authoring attempt. Open the official desktop app and complete the support-policy readiness checks. Repository import or an attachment in an AI website does not waive this boundary. A browser shortcut is not the provider desktop app.
 
 ## If import or browsing is unavailable
 
@@ -35,6 +41,8 @@ After the complete guide is available, the AI should confirm briefly that it loa
 ## Prompt that handles this safely
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 Read the current greedyQ guide and all required files from the same release:
 https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
 If you cannot read them, do not start the study interview, draft questions or claim to follow greedyQ. First try the raw text URL, repository import, or ask me to attach the complete guide. Continue only after the complete required guide is available; explain your actual file, preview and deployment capabilities briefly.
@@ -43,3 +51,6 @@ If you cannot read them, do not start the study interview, draft questions or cl
 ## What the reported screenshot establishes
 
 On 26 October 2026 the public GitHub page and raw text link both returned HTTP 200 without login from our check. The screenshot shows the AI reported access failure and continued. It does not establish the original failure's cause, the app's enabled tools or a platform-wide Gemini limitation. We changed the copied starter prompt because a guard contained only inside an unread page cannot help. Gemini Apps itself was not retested under the reporter's account.
+
+
+Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.

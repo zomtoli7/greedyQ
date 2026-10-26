@@ -1,5 +1,9 @@
 # Collect CBC responses and review results
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./CBC-COLLECT(kor).md) · [简体中文](./CBC-COLLECT(zh-CN).md)
 
 The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. This does not mean a CBC study has been deployed to your accounts or approved for recruitment.
@@ -54,3 +58,17 @@ Agents with browser/JavaScript tools can call `greedyQCBC.importDesign` and `gre
 ## Current boundaries
 
 This is the dedicated CBC package workflow, not yet a registered v0.2 `sd_cbc` control or an arbitrary QMD mixed-question CBC authoring path. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
+
+## CBC presentation styles
+
+Ask the researcher to choose the appearance before fielding. The fixed greedyQ renderer supports **button profiles** (click the whole alternative) and **comparison tables**. Each supports horizontal, vertical, or computer-horizontal/mobile-vertical presentation. Request, for example, “Use button profiles side by side on computers and stacked vertically on phones.” This is an appearance decision; block assignment, task order, alternative codes, none handling and saved choices keep their existing meanings.
+
+The agent writes an optional field in `study.design.json`:
+
+```json
+"presentation": {"type": "buttons", "orientation": "responsive"}
+```
+
+`type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
+
+The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.

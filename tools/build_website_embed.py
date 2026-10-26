@@ -44,6 +44,18 @@ def build(root=ROOT,write=True):
             items.append(f'<li><a href="{escape(link,quote=True)}" target="_blank" rel="noopener"><code>{escape(note.stem)}</code></a><br>{escape(summary)}</li>')
         history='<ul class="history">'+''.join(items)+'</ul>'
         update['body']=add['version_intro'].replace('{release}',escape(release['release'])).replace('{date}',release['documentation_updated'])+history+add['history_footer']
+    # Researcher-authoring policy is applied after every content overlay.
+    policy_prompts = {
+        'en': 'Use ChatGPT desktop Work/Codex or Claude Desktop with working file and execution tools. greedyQ officially does not support Gemini or AI web apps. Stop authoring if these requirements fail. ',
+        'ko': '파일·실행 도구가 있는 ChatGPT 데스크톱 Work/Codex 또는 Claude Desktop을 사용해. greedyQ는 Gemini와 AI 웹 앱을 공식 지원하지 않아. 조건을 충족하지 못하면 설문 제작을 멈춰. ',
+        'zh': '请使用具有真实文件和执行工具的 ChatGPT 桌面 Work/Codex 或 Claude Desktop。greedyQ 官方不支持 Gemini 或 AI 网页应用；不满足条件时停止制作。 ',
+    }
+    for language in ('en', 'ko', 'zh'):
+        current=data[language]; guard=policy_prompts[language]
+        current['home']['note']=current['start']['lead']+' '+current['home']['note']
+        for page in current['guide']:
+            if page.get('prompt') and not page['prompt'].startswith(guard):
+                page['prompt']=guard+'\n\n'+page['prompt']
     template=(site/'google-sites-template.html').read_text()
     template=template.replace('</style>','.article p button[data-page]{border:0;background:none;padding:0;color:var(--accent);font:inherit;text-decoration:underline;text-underline-offset:3px}</style>',1)
     template=template.replace("readHash();render();});render();", "readHash();render();window.scrollTo(0,0);});render();")

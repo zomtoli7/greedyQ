@@ -1,5 +1,9 @@
 # Vercel connection and optional agent onboarding
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./vercel-agent-onboarding(kor).md) · [简体中文](./vercel-agent-onboarding(zh-CN).md)
 
 ## Main journey
@@ -18,7 +22,7 @@ Explain simply: “The account is connected. Please approve access to this resea
 
 The Vercel button copies `Set up Vercel for me. Fetch https://vercel.com/get-started.md and follow it.` The [official playbook](https://vercel.com/get-started.md) prepares a CLI, guidance/plugin and official MCP connection. It does not create a greedyQ study, provision Supabase, verify storage or deploy the survey by itself.
 
-Offer this optional preparation when the researcher requests it or wants a supported AI host ready for repeated use. Inspect and reuse existing tools; install the plugin or standalone guidance once, never both. Preserve unrelated configuration and do not add duplicate connections. Follow the current [official MCP host instructions](https://vercel.com/docs/agent-resources/vercel-mcp); CLI setup alone does not prove that a desktop/browser host has loaded the tools. Refresh first, and restart only when the new tools remain unavailable. Do not create/link projects, provision databases, deploy or recruit during global onboarding. Keep confirmation enabled for changes.
+Offer this optional preparation when the researcher requests it or wants a supported AI host ready for repeated use. Inspect and reuse existing tools; install the plugin or standalone guidance once, never both. Preserve unrelated configuration and do not add duplicate connections. Follow the current [official MCP host instructions](https://vercel.com/docs/agent-resources/vercel-mcp); CLI setup alone does not prove that a supported desktop host has loaded the tools. Refresh first, and restart only when the new tools remain unavailable. Do not create/link projects, provision databases, deploy or recruit during global onboarding. Keep confirmation enabled for changes.
 
 ## What was actually tested
 

@@ -1,5 +1,9 @@
 # 선택형 컨조인트 설계 미리보기
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./CBC.md) · [简体中文](./CBC(zh-CN).md)
 
 CBC는 가격·지원 방식 등이 다른 두 강의 구독 상품처럼 여러 특성의 조합을 비교해 하나를 선택하는 방식입니다. **v0.3 미리보기에서 설계표 읽기·검사와 컴퓨터·모바일 응답 화면을 사용할 수 있습니다. 이 단일 파일은 응답을 전송하지 않습니다. 서버 저장·결과는 별도의 [CBC 수집 흐름](./CBC-COLLECT(kor).md)으로 제공합니다.** 기존 v0.2 설문은 계속 지원합니다.
@@ -51,3 +55,17 @@ python3 -m greedyq cbc-build path/to/study --workbook path/to/design.xlsx
 `cbc-preview.html`이 생성됩니다. 이후 브라우저에서 다른 로컬 CSV/XLSX를 직접 검사할 수 있습니다. 정규화된 `0.3-preview.1` 결과는 Python·JavaScript가 같고 SHA-256은 ZIP 서식이 아닌 내용과 순서 규칙을 기록합니다. 입력 설정은 `0.3-draft.1`, `fielding_approval=false`를 유지합니다. 수집 허가가 아닙니다. [명세](./drafts/v0.3/cbc/spec(kor).md)와 [검증 기록](./docs/cbc-preview-verification-2026-10-26(kor).md)을 참고하세요.
 
 문의·오류 제보: [프로젝트 연락처](./CONTACT(kor).md). 연구 참여자 문의처는 연구팀이 제공해야 합니다.
+
+## CBC 화면 표시 방식
+
+실제 수집 전에 연구자와 화면 모양을 정합니다. 고정된 greedyQ 화면 코드는 **버튼형 대안**(대안 전체를 눌러 선택)과 **비교 표형**을 지원합니다. 둘 다 가로, 세로, 컴퓨터 가로·모바일 세로를 선택할 수 있습니다. 예를 들어 “컴퓨터에서는 버튼형 대안을 나란히, 휴대폰에서는 세로로 쌓아줘”라고 요청하세요. 화면 모양에 관한 선택이며 블록 배정, 과제 순서, 대안 코드, 해당 없음, 저장되는 선택의 의미는 그대로 유지됩니다.
+
+에이전트가 `study.design.json`에 선택 항목을 기록합니다:
+
+```json
+"presentation": {"type": "buttons", "orientation": "responsive"}
+```
+
+`type`은 `buttons` 또는 `table`, `orientation`은 `horizontal`, `vertical`, `responsive`입니다. 미리보기의 두 화면 위에서도 같은 선택을 시험할 수 있습니다. 바꾸면 검사된 설계의 식별 해시가 달라지고 가상 응답도 따로 시작하므로 참여자 경험을 다시 검토해야 합니다. 배포 전에 검토된 수집 계획을 다시 만들고 등록합니다. 이미 등록한 계획을 몰래 바꿀 수 없습니다. 이 항목을 생략하면 기존 화면과 해시를 유지합니다. 작은 화면에서 가로를 명시하면 비교 영역 안에서 좌우 스크롤이 생길 수 있습니다. 세로 및 모바일 반응형은 페이지 좌우 스크롤 없이 맞춰집니다. 미리보기 선택이 이미 배포된 설문을 바꾸지는 않습니다.
+
+공개된 [surveydown 버튼형](https://surveydown.org/templates/conjoint_buttons)과 [표형](https://surveydown.org/templates/conjoint_tables)을 표시 유형의 참고로 삼았으며 코드는 복사하지 않고 독립 구현했습니다. 이는 greedyQ CBC 설정이며 native surveydown 컨조인트 코드와 서로 바꿔 쓸 수 있다는 뜻은 아닙니다.

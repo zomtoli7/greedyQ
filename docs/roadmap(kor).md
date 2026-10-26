@@ -1,5 +1,9 @@
 # greedyQ 로드맵
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](../SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./roadmap.md)
 
 **현재 단계:** v0.2 지원 범위 유지·보수, v0.3 CBC 가져오기·서버 수집·보호된 결과와 로컬 검증
@@ -57,6 +61,6 @@
 
 - 영문 Markdown이 기준이며 모든 파일에는 동기화된 `(kor).md` 사본이 있습니다.
 - 주 runtime에서는 survey 작성자가 넣은 임의의 R 또는 JavaScript를 실행하지 않습니다.
-- 연구자 기기에는 Python, R, Quarto, Node 없이 capable AI와 modern browser만으로 핵심 workflow를 사용할 수 있어야 합니다.
+- 연구자 기기에는 Python, R, Quarto, Node 없이 필요한 도구가 있는 AI 데스크톱 앱과 웹브라우저로 핵심 workflow를 사용할 수 있어야 합니다.
 - 연구자 data ownership, consent-first storage, reproducible assignment, external operation의 정직한 검증을 보존합니다.
 - 공개 Surveydown 문서에 근거해 독립 작성한 코드를 사용하고, Surveydown을 명시하며 Surveydown과 greedyQ를 함께 인용하도록 권합니다.

@@ -1,0 +1,31 @@
+# 制作问卷所需的应用
+
+Gemini（包括桌面版）不受官方支持。在指南和文件检查前核实应用类别，转至 ChatGPT 桌面 Work/Codex 或 Claude Desktop。Gemini 导入与附件不构成例外。
+
+[English](./SUPPORTED-ENVIRONMENTS.md) · [한국어](./SUPPORTED-ENVIRONMENTS(kor).md) · [简体中文](./SUPPORTED-ENVIRONMENTS(zh-CN).md)
+
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，请并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。
+
+## 研究访谈前检查
+
+1. 确认使用提供方的已安装桌面应用。AI 网站、浏览器安装的快捷方式/PWA、移动 AI 应用不受支持。环境未知时先询问应用与模式，不凭截图或模型名称声称已识别环境。
+2. 读取同一固定版本的完整指南和所需文件，可访问仓库或完整下载副本。显示链接预览并不证明已读完文件。
+3. 在获准的研究目录创建并回读一个小临时文件，然后使用固定代码构建并打开本地预览。只报告实际完成的操作，不为检查要求过宽权限或访问私人文件。
+4. 任一步失败，通俗说明缺失功能并停止制作。完整指南附件只能在支持的桌面代理内解决指南访问，不能代替执行工具。浏览器原生问卷不要求研究者安装 Python 或 Node。
+5. 请求部署时另行检查外部账户工具及授权。桌面准备就绪不等于 Vercel 或 Supabase 已授权。
+
+ChatGPT 桌面版可在提供时选择 Work 或 Codex，并检查实际工具；普通 Chat 不能代替。Claude Desktop 需要能访问研究目录的 Cowork、Code 等适当文件任务模式。Gemini（包括桌面版）在全流程制作、预览与部署验证前不受官方支持。不得把 Gemini 仓库导入或附件推荐为受支持的替代路径。功能可能受套餐、系统和机构设置限制，不得声称所有产品验证程度相同。
+
+## 政策范围
+
+这是 greedyQ 的官方支持范围，不表示所有提供方的网页产品技术上都不能操作文件。同一确定性问卷运行代码仍为浏览器原生。参与者不需要 AI 应用。研究者可用浏览器查看网站、预览与结果，以及批准服务登录。
+
+## 2026 年 10 月 26 日指南访问报告
+
+粘贴使地址变成 `.md새` 与后来正确分隔 URL 但报告 `PERMISSION_DENIED` 是两个问题。直接匿名检查公开原文入口和文件清单均返回 HTTP 200；这不能说明 Gemini 内部工具错误的原因。后一次截图停止制作的行为正确。内部原因及桌面能力未独立观察。不得无证据声称 GitHub 权限缺失、Gemini 平台整体受限，或改用桌面应用一定解决。
+
+## Official desktop downloads / 공식 다운로드 / 官方下载
+
+- [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
+- [Claude Desktop](https://claude.com/download)
+

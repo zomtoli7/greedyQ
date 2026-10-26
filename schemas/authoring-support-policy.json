@@ -1,0 +1,36 @@
+{
+  "schema_version": "1",
+  "effective_date": "2026-10-26",
+  "researcher_authoring": {
+    "desktop_app_required": true,
+    "ai_web_app_supported": false,
+    "pwa_supported": false,
+    "ordinary_chat_without_tools_supported": false,
+    "unknown_environment": "ask_before_interview",
+    "required_checks": [
+      "installed_desktop_host",
+      "complete_pinned_guide_read",
+      "workspace_file_write_read",
+      "canonical_preview_execution"
+    ],
+    "on_failure": "stop_authoring_and_offer_desktop_handoff",
+    "attachment_waives_host_requirement": false,
+    "official_host_families": [
+      "chatgpt_desktop",
+      "claude_desktop"
+    ],
+    "unsupported_host_families": [
+      "gemini"
+    ],
+    "gemini_status": "not_supported_pending_end_to_end_validation"
+  },
+  "browser_supported_for": [
+    "participant_survey",
+    "desktop_mobile_preview",
+    "researcher_results",
+    "website",
+    "service_login_approval"
+  ],
+  "deployment_authorization_checked_separately": true,
+  "documentation": "SUPPORTED-ENVIRONMENTS.md"
+}

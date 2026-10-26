@@ -2,6 +2,8 @@
 
 [한국어](./AGENTS(kor).md)
 
+- Require an installed desktop AI agent before study authoring; apply SUPPORTED-ENVIRONMENTS.md. AI web apps and tool-less chat are officially unsupported. Participant browsers remain supported.
+
 ## Communication
 
 - Use Korean as the default language when communicating with the project owner.

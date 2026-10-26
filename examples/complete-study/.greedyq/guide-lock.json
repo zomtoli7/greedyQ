@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_ac2c85a",
-  "registry_sha256": "293d0cf62e96991b9c1ae294aa9c7a8e5e3eb5bc8429ad4912ba6b3385e84b92",
+  "registry_sha256": "9aebfc56c53710f74d1a2edd918928500d39b3a2776c2769c5f0965433b8c02b",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -18,7 +18,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "842c46a803b3147b339875416874272e3ee0eae480581fe6ca6b5db376660cd9"
+      "manifest_sha256": "11b0119fe29d1b3a219e6f3ac79f096bdb430a428f89c068217b4711976b8796"
     },
     {
       "id": "experiment",
@@ -94,7 +94,7 @@
     {
       "component": "core",
       "path": "EXTERNAL-RETURNS.md",
-      "sha256": "a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e"
+      "sha256": "c46b6654801b261b9d081d174a4e99e0cef4e81f2e0ce24c6652346e6ce476af"
     },
     {
       "component": "core",
@@ -104,12 +104,12 @@
     {
       "component": "core",
       "path": "PREREGISTRATION.md",
-      "sha256": "5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948"
+      "sha256": "bf040d7210316d0d4efc69e722c2e220334a998ce0ae3ae0a13cff589bae5e97"
     },
     {
       "component": "core",
       "path": "UPGRADING.md",
-      "sha256": "11f423a8eff5445a9dd4028f03cc248dba6e5ef06430b5a711dc1e16b150713d"
+      "sha256": "ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e"
     },
     {
       "component": "core",
@@ -134,7 +134,7 @@
     {
       "component": "core",
       "path": "RANDOMIZATION.md",
-      "sha256": "70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15"
+      "sha256": "a11d7fc19b07cbf1d06206a2a0bb36b4d46f3007ccd2d73eebe71fa906cbe117"
     },
     {
       "component": "core",
@@ -144,12 +144,12 @@
     {
       "component": "core",
       "path": "ARCHIVING.md",
-      "sha256": "2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7"
+      "sha256": "03dd772785d2ee7a5196445f37f33f3a6eba70a398f866ea2062d4cf71b33951"
     },
     {
       "component": "core",
       "path": "docs/cloud-lifecycle.md",
-      "sha256": "ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81"
+      "sha256": "503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0"
     },
     {
       "component": "core",
@@ -169,12 +169,12 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "04421abba045a1751147a376522e264b37f0140579a796c3b7b0a1aaed911d61"
+      "sha256": "60fe8a15ccf0d5dd550059179634ae245eaa97b2470c4f165d719706a00eb8a1"
     },
     {
       "component": "core",
       "path": "guides/core/communication.md",
-      "sha256": "707ad574d9bf20e3a0d34c6d351332a74a0dd85b734a04b8629ef2939bf44cf9"
+      "sha256": "0d59931b6f877566915ea1fdcbc8ba110f740c9ffee9ef00ff57db1d7c5bca77"
     },
     {
       "component": "core",
@@ -184,7 +184,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "84b67f2bcecf2999e2c287e3805f3863ccff6c25f139af4f3e0f07f5a5b75faa"
+      "sha256": "2d6188f640052bbb1e49a8c176d6a51b43ea639fb8cd808ec203b951633ea8be"
     },
     {
       "component": "core",
@@ -379,27 +379,27 @@
     {
       "component": "core",
       "path": "CBC.md",
-      "sha256": "23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f"
+      "sha256": "54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2"
     },
     {
       "component": "core",
       "path": "greedyq/cbc.py",
-      "sha256": "06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a"
+      "sha256": "4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031"
     },
     {
       "component": "core",
       "path": "web/greedyq-cbc.js",
-      "sha256": "5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f"
+      "sha256": "f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db"
     },
     {
       "component": "core",
       "path": "templates/browser/cbc-preview.html",
-      "sha256": "27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6"
+      "sha256": "8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7"
     },
     {
       "component": "core",
       "path": "GUIDE-ACCESS.md",
-      "sha256": "4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b"
+      "sha256": "0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf"
     },
     {
       "component": "core",
@@ -409,7 +409,7 @@
     {
       "component": "core",
       "path": "web/greedyq-cbc.css",
-      "sha256": "d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b"
+      "sha256": "6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b"
     },
     {
       "component": "core",
@@ -424,12 +424,12 @@
     {
       "component": "core",
       "path": "tools/cbc_cloud.cjs",
-      "sha256": "c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8"
+      "sha256": "384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9"
     },
     {
       "component": "core",
       "path": "CBC-COLLECT.md",
-      "sha256": "c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d"
+      "sha256": "129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57"
     },
     {
       "component": "core",
@@ -437,9 +437,19 @@
       "sha256": "b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709"
     },
     {
+      "component": "core",
+      "path": "SUPPORTED-ENVIRONMENTS.md",
+      "sha256": "2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36"
+    },
+    {
+      "component": "core",
+      "path": "schemas/authoring-support-policy.json",
+      "sha256": "328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e"
+    },
+    {
       "component": "experiment",
       "path": "guides/profiles/experiment/guide.md",
-      "sha256": "186e8e15f9506729ced26ac038f27bca73aa91869cc6ba6cc7bdcbcceaa89c81"
+      "sha256": "e7244719536196d6b52ff6545e234b0caec0e6ad536b9b5558b098b7f570cabc"
     },
     {
       "component": "experiment",
@@ -449,7 +459,7 @@
     {
       "component": "governance-irb",
       "path": "guides/modules/governance-irb/guide.md",
-      "sha256": "4a369eee8185760158ad1400e022300e1353c63fe9bbbd59878a575f5da704ac"
+      "sha256": "955abc89471c1462e43681cd0f5d51e7daa9f60c93a532b10e72c511f46ef4bc"
     },
     {
       "component": "governance-irb",
@@ -459,7 +469,7 @@
     {
       "component": "consent",
       "path": "guides/modules/consent/guide.md",
-      "sha256": "1043f37dff062c9d515d8dbed6ae7bc93806f9877ba79bcef7294787b34c79d3"
+      "sha256": "fce80cd0a3dbd317f63eeb52f3a74e7463ee9476644163d3d739c90a1ad04fcd"
     },
     {
       "component": "consent",
@@ -469,7 +479,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "guides/modules/deployment-vercel-supabase/guide.md",
-      "sha256": "ddbf40316bf1addb754ebb1c11bd0d27296416e396b4142df44d538bef39c0b6"
+      "sha256": "08d6206be62c239ed3a28b479b01e0c9be8bcacee201fab58412d90e0f44cd11"
     },
     {
       "component": "deployment-vercel-supabase",
@@ -509,12 +519,12 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "docs/vercel-agent-onboarding.md",
-      "sha256": "e6c0db54955cc322d3c79431b1262db7a9acbe486ac0ce3c8bb45d6310b513b0"
+      "sha256": "afbdd9998cf531e212bda4255a78fbdf2e55b2a24181e2b4ba79fed67f5ce773"
     },
     {
       "component": "export-surveydown",
       "path": "guides/modules/export-surveydown/guide.md",
-      "sha256": "ddca8cafca4a937c810914cf1813f282bd03dd9f5c625959fd7cf19511a8dbd5"
+      "sha256": "7c44f5135e344c54b3cc82c4587a8096921508129c5fa0fcf9615b5d2f658326"
     },
     {
       "component": "export-surveydown",
@@ -529,7 +539,7 @@
     {
       "component": "preregistration",
       "path": "guides/modules/preregistration/guide.md",
-      "sha256": "947960bb5309070dbe218f0b1129628383fe1696b0c073d229440455f85e4c05"
+      "sha256": "2d7eecbd23901034884b2ef015f3dc1d763ed154fb25018a0354ef961a0292bb"
     },
     {
       "component": "preregistration",
@@ -539,7 +549,7 @@
     {
       "component": "prolific",
       "path": "guides/modules/prolific/guide.md",
-      "sha256": "0eea148063d82d026a51c40bd7eee793cfa8a19d079440bd51f6ecee33a5113a"
+      "sha256": "b3a3eadcc53813abf40a8ba0446c742f136994926e97dbae11d37f122e363846"
     },
     {
       "component": "prolific",
@@ -549,7 +559,7 @@
     {
       "component": "prolific",
       "path": "PROLIFIC-SETUP.md",
-      "sha256": "38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4"
+      "sha256": "e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4"
     },
     {
       "component": "prolific",

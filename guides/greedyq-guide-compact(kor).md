@@ -1,5 +1,11 @@
 # greedyQ AI Study Builder Guide — Compact
 
+Gemini는 데스크톱도 공식 지원하지 않습니다. 가이드·파일 확인 전에 앱 종류를 확인하고 ChatGPT 데스크톱 Work/Codex 또는 Claude Desktop으로 안내합니다. Gemini 저장소 가져오기나 첨부는 예외가 아닙니다.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](../SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./greedyq-guide-compact.md) · [简体中文](./greedyq-guide-compact(zh-CN).md)
 
 **버전:** `0.2.0-draft.1`
@@ -20,7 +26,7 @@ Host에 structured choice control이 있으면 사용합니다. 서로 배타적
 ## 시작
 
 1. `.greedyq/study-state.json`이 있으면 요약하고 재개할지 질문합니다.
-2. Chat mode와 Agent mode를 감지하고 capability 한계를 밝힙니다.
+2. 연구 대화 전에 설치된 데스크톱 앱과 파일·미리보기 도구를 확인하고 실패하면 멈춥니다.
 3. 질문합니다. “이 연구가 답해야 할 연구 질문은 무엇인가요?”
 4. Topic, objective, broad design을 확인한 뒤 detailed IRB/governance와 consent를 `now` 또는 `after_instrument_draft` 중 언제 할지 묻습니다. Governance constraint가 design을 좌우하지 않는 일반적인 minimal-risk study에는 후자를 권장합니다.
 

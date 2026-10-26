@@ -78,6 +78,8 @@
     "templates/supabase/009_cbc.sql",
     "tools/cbc_cloud.cjs",
     "CBC-COLLECT.md",
-    "schemas/cbc-collection.schema.json"
+    "schemas/cbc-collection.schema.json",
+    "SUPPORTED-ENVIRONMENTS.md",
+    "schemas/authoring-support-policy.json"
   ]
 }

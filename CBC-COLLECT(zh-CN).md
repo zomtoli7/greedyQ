@@ -1,5 +1,9 @@
 # 收集 CBC 回答并查看结果
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./CBC-COLLECT.md) · [한국어](./CBC-COLLECT(kor).md)
 
 独立 CBC 流程已实现服务器存储、同意、退出、受保护结果页与 CSV，复用现有 greedyQ 数据表及部署流程。已用虚构参与者在真实本地 PostgreSQL 与电脑/手机浏览器测试；不代表已部署至您的账户或获得招募批准。
@@ -54,3 +58,17 @@ RPC 合同 `cbc-1` 包含开始/恢复、同意、服务器分配/展示、revis
 ## 当前边界
 
 这是独立 CBC 包流程，尚非 v0.2 `sd_cbc` 控件或任意 QMD 混合普通问题的流程。原生 surveydown CBC 导出、自动设计优化/推断、新账户 CBC 云验收、付费 CBC 招募仍按[验证记录](./docs/cbc-collection-verification-2026-10-26.md)区分未实现/未验证。不得退化为选择题后声称等价导出；旧 v0.2/Prolific 验证不能代替 CBC 招募验证。
+
+## CBC 显示方式
+
+正式收集前与研究者确认外观。固定 greedyQ 运行代码支持**按钮式方案**（点击整个方案选择）和**比较表格**。两者均可横向、纵向或电脑横向／手机纵向。例如：“电脑上按钮方案并排，手机上纵向排列。”这只是显示决定，不改变区组分配、题序、方案代码、均不选择及保存选择的含义。
+
+代理在 `study.design.json` 中记录可选设置：
+
+```json
+"presentation": {"type": "buttons", "orientation": "responsive"}
+```
+
+`type` 为 `buttons` 或 `table`；`orientation` 为 `horizontal`、`vertical` 或 `responsive`。预览双屏上方也提供相同选择。更改会生成不同的设计哈希及独立虚拟会话，须重新审阅参与体验，部署前重建并注册已审阅收集计划。已注册计划不能静默修改。省略设置则保留原布局与哈希。小屏幕明确选择横向时比较区域可内部横向滚动；纵向及手机响应式无需页面横向滚动。预览选择不会修改已部署问卷。
+
+显示类别参考公开的 [surveydown 按钮式](https://surveydown.org/templates/conjoint_buttons)与[表格式](https://surveydown.org/templates/conjoint_tables)，代码独立实现，没有复制其源码。这是 greedyQ CBC 设置，并不表示可与原生 surveydown 联合分析代码互换。

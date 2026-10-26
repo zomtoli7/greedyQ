@@ -161,6 +161,29 @@
           "minLength": 1
         }
       }
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "orientation"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "buttons",
+            "table"
+          ]
+        },
+        "orientation": {
+          "enum": [
+            "horizontal",
+            "vertical",
+            "responsive"
+          ]
+        }
+      }
     }
   }
 }

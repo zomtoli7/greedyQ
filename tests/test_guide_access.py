@@ -6,17 +6,37 @@ from jsonschema import Draft202012Validator
 ROOT=Path(__file__).resolve().parents[1]
 
 class GuideAccessTests(unittest.TestCase):
+    def test_desktop_support_is_required_even_when_a_web_host_can_read_the_guide(self):
+        policy=json.loads((ROOT/'schemas/authoring-support-policy.json').read_text())
+        authoring=policy['researcher_authoring']
+        self.assertTrue(authoring['desktop_app_required'])
+        self.assertEqual(authoring['official_host_families'], ['chatgpt_desktop','claude_desktop'])
+        self.assertIn('gemini',authoring['unsupported_host_families'])
+        self.assertFalse(authoring['ai_web_app_supported'])
+        self.assertFalse(authoring['attachment_waives_host_requirement'])
+        self.assertEqual(authoring['on_failure'],'stop_authoring_and_offer_desktop_handoff')
+        self.assertIn('participant_survey',policy['browser_supported_for'])
+        for suffix in ['', '(kor)', '(zh-CN)']:
+            for stem in ['README','START-HERE','USER-GUIDE','GUIDE-ACCESS']:
+                self.assertIn('GREEDYQ_DESKTOP_POLICY',(ROOT/f'{stem}{suffix}.md').read_text())
+            policy_doc=(ROOT/f'SUPPORTED-ENVIRONMENTS{suffix}.md').read_text()
+            for official in ['https://learn.chatgpt.com/docs/app','https://claude.com/download']:
+                self.assertIn(official,policy_doc)
+            self.assertNotIn('[Gemini for desktop]',policy_doc)
+        # The unread-guide guard alone cannot authorize a web app via attachments.
+        self.assertNotIn('Conduct the full interview',(ROOT/'guides/greedyq-guide.md').read_text().split('<!-- GREEDYQ_BUNDLE_START -->')[0])
+
     def test_copyable_website_prompts_contain_the_stop_condition_before_the_url(self):
         data=json.loads((ROOT/'website/content.json').read_text())
         for lang,stop in [('en','do not start'),('ko','문항을 만들지 마'),('zh','不要开始')]:
             prompt=data[lang]['start']['prompt'];self.assertIn(stop,prompt);self.assertLess(prompt.index(stop),prompt.index('https://github.com/'))
-        self.assertIn('Import Code',data['en']['start']['after'])
+        self.assertIn('installed desktop',data['en']['start']['after'])
 
     def test_all_entry_languages_offer_raw_import_and_full_attachment_without_fake_success(self):
         for suffix in ['','(kor)','(zh-CN)']:
             access=(ROOT/f'GUIDE-ACCESS{suffix}.md').read_text()
             self.assertIn('https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md',access)
-            self.assertIn('Import Code',access);self.assertIn('.txt',access)
+            self.assertIn('SUPPORTED-ENVIRONMENTS',access);self.assertIn('.txt',access)
             self.assertIn('GUIDE-ACCESS',(ROOT/f'START-HERE{suffix}.md').read_text())
         self.assertIn('was not retested',(ROOT/'GUIDE-ACCESS.md').read_text())
 

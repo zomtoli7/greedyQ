@@ -71,3 +71,19 @@ test('browser CBC collection settings produce the exact Python plan without requ
  const result=await p.evaluate(async({f,e})=>{const C=greedyQCBC,cbc=await C.importDesign({config:f.config,attributesText:f.a,designText:f.d}),plan=await C.collectionModel(cbc,e.settings,e.plan.greedyq_version),errors=[];for(const s of [{...e.settings,mode:'production'},{...e.settings,consent:{...e.settings.consent,document_sha256:'0'.repeat(64)}}]){try{await C.collectionModel(cbc,s,e.plan.greedyq_version);errors.push('accepted');}catch(error){errors.push(error.code);}}return{plan,errors};},{f:fixture,e:expected});assert.deepEqual(result.plan,expected.plan);assert.deepEqual(result.errors,['CBC020','CBC020']);
  }finally{await browser.close();}
 });
+
+test('six CBC layouts match the Python reference, preserve default hash and allow phone-safe vertical/responsive choices',async()=>{
+ const expected=JSON.parse(execFileSync('python3',['-c',`import json,itertools\nfrom pathlib import Path\nfrom greedyq.cbc import import_design,CBCError\np=Path('drafts/v0.3/cbc/golden-reference');c=json.loads((p/'study.design.json').read_text());a=(p/'design/attributes.csv').read_text();d=(p/'design/design.csv').read_text();out={}\nfor t,o in itertools.product(['buttons','table'],['horizontal','vertical','responsive']):\n q=dict(c,presentation=dict(type=t,orientation=o));out[t+':'+o]=import_design(q,a,d)\nprint(json.dumps(out))`],{cwd:root,encoding:'utf8'}));
+ const browser=await launch();try{const p=await browser.newPage();await p.goto('file://'+path.join(gold,'cbc-preview.html'));
+ const actual=await p.evaluate(async f=>{const C=greedyQCBC,out={},m=await C.importDesign({config:f.config,attributesText:f.a,designText:f.d});for(const type of ['buttons','table'])for(const orientation of ['horizontal','vertical','responsive']){const v={type,orientation},i=await C.importDesign({config:{...f.config,presentation:v},attributesText:f.a,designText:f.d});out[type+':'+orientation]=i;if(JSON.stringify(i)!==JSON.stringify(await C.withPresentation(m,v)))throw Error('Presentation helper differs from importer');}return{out,defaultHash:(await C.withPresentation(m,null)).design_sha256};},fixture);
+ assert.deepEqual(actual.out,expected);assert.equal(actual.defaultHash,fixture.expected.design_sha256);
+ for(const width of [320,390,1280]){await p.setViewportSize({width,height:850});for(const type of ['buttons','table'])for(const orientation of ['horizontal','vertical','responsive']){
+  await p.locator('#presentation').selectOption(type);await p.locator('#orientation').selectOption(orientation);
+  const mobile=p.locator('#mobile');await mobile.locator('[data-cbc-type="'+type+'"][data-cbc-orientation="'+(orientation==='responsive'?'vertical':orientation)+'"]').waitFor();
+  assert.equal(await p.locator('#desktop [data-cbc-orientation="'+(orientation==='responsive'?'horizontal':orientation)+'"]').count(),1);
+  const selected=mobile.locator('input[type=radio]').first();await selected.focus();await p.keyboard.press('Space');assert.equal(await mobile.locator('input:checked').count(),1);await mobile.locator('input[value="none"]').check();assert.equal(await selected.isChecked(),false);
+  const dimensions=await mobile.evaluate(e=>({outer:document.documentElement.scrollWidth,viewport:innerWidth,phone:e.clientWidth,scroll:e.scrollWidth}));assert(dimensions.outer<=dimensions.viewport+1);assert(dimensions.scroll<=dimensions.phone+1);
+  if(orientation!=='horizontal')assert(await mobile.locator('.cbc-comparison-scroll').evaluate(e=>e.scrollWidth<=e.clientWidth+1));
+ }}
+ }finally{await browser.close();}
+});

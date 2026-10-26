@@ -1,5 +1,11 @@
 # Start greedyQ
 
+Gemini is officially unsupported, including desktop. Check the host family before the guide/file checks; offer a ChatGPT desktop Work/Codex or Claude Desktop handoff. Do not offer Gemini import or attachments as an exception.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./START-HERE(kor).md) · [简体中文](./START-HERE(zh-CN).md)
 
 greedyQ is an agent-executable application specification for online academic research. greedyQ itself is not an agent. By loading this specification, a capable general-purpose GenAI instantiates the greedyQ research agent.
@@ -57,3 +63,8 @@ For choice-based conjoint tables, see [CBC import and computer/mobile preview](C
 If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
 See [guide access and Gemini repository import](GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`. Do not treat tool absence as guide access success.
+
+
+## Supported authoring environment — required gate
+
+Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.

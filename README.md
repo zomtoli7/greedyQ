@@ -1,5 +1,9 @@
 # greedyQ
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 - **Current specification:** `0.2`
 - **Current release:** `0.2_2026-10-26_ac2c85a`
 - **Release source commit:** [`ac2c85a`](https://github.com/zomtoli7/greedyQ/commit/ac2c85ada5762a02bc626b0cb1d16c02e050d7f9) · [Update history](./updates/README.md)

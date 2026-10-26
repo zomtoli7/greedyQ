@@ -1,5 +1,9 @@
 # Connect a Supabase Project
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 > **Recovery guide:** The normal greedyQ flow provisions Supabase through Vercel and does not ask the researcher to use this page. Follow these manual steps only when automatic provisioning is unavailable or being diagnosed. See the [Results Dashboard guide](./RESULTS-DASHBOARD.md).
 
 [한국어](./SUPABASE-SETUP(kor).md)

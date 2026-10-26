@@ -21,7 +21,7 @@ NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
 ATTRIBUTE_HEADERS = ['attribute_id', 'attribute_label', 'level_id', 'level_label']
 CONFIG_KEYS = {'schema_version','status','object','study_id','research_question','attributes_source','design_source',
                'alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none',
-               'design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'}
+               'design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language','presentation'}
 
 
 class CBCError(ValueError):
@@ -170,7 +170,7 @@ def positive(value,maximum):
 
 
 def normalize(attributes_table,design_table,config):
-    if not isinstance(config,dict) or set(config)-CONFIG_KEYS or CONFIG_KEYS-{'language','prohibitions'}-set(config):fail('CBC005','The CBC settings contain unsupported fields.')
+    if not isinstance(config,dict) or set(config)-CONFIG_KEYS or CONFIG_KEYS-{'language','prohibitions','presentation'}-set(config):fail('CBC005','The CBC settings contain unsupported fields.')
     if config.get('schema_version')!='0.3-draft.1' or config.get('object')!='greedyQCBC' or config.get('status')!='design_only' or config.get('fielding_approval') is not False:
         fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.')
     study_id=identifier(config.get('study_id'))
@@ -232,6 +232,11 @@ def normalize(attributes_table,design_table,config):
            'research_question':config.get('research_question',''),'attributes':attributes,'blocks':blocks,
            'alternatives_per_task':count,'tasks_per_block':size,'task_order':config['task_order'],
            'alternative_order':config['alternative_order'],'none':none,'prohibitions':prohibitions}
+    if 'presentation' in config:
+        presentation=config['presentation']
+        if not isinstance(presentation,dict) or set(presentation)!={'type','orientation'} or presentation['type'] not in ('buttons','table') or presentation['orientation'] not in ('horizontal','vertical','responsive'):
+            fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.')
+        model['presentation']=presentation
     model['design_sha256']=digest(canonical(model))
     model['warnings']=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.']
     return model

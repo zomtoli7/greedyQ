@@ -1,5 +1,9 @@
 # greedyQ 使用指南
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./USER-GUIDE.md) · [한국어](./USER-GUIDE(kor).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
@@ -19,6 +23,8 @@
 打开[开始指南](./START-HERE(zh-CN).md)，或向 AI 提供：
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
@@ -33,6 +39,8 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 复制并修改以下请求：
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 请读取并遵循当前 greedyQ 指南：
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -50,6 +58,8 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 提供原研究文件夹，再说：
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 请遵循 START-HERE.md。这是已有的 greedyQ 研究。先用简单语言概述，再协助修改。保留历史和当前 greedyQ 版本，除非我明确批准升级。一次只问一个核心问题。
 
 我想修改：[具体内容]。
@@ -62,6 +72,8 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 提供文件夹，再说：
 
 ```text
+先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
+
 请遵循 START-HERE.md。把这个 greedyQ 研究复制成独立研究。保留原文件夹，给副本新的研究身份，只修改副本。一次只问一个核心问题。
 
 副本应与原研究有以下区别：[变化]。

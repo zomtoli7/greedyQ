@@ -1,5 +1,9 @@
 # greedyQ User Guide
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./USER-GUIDE(kor).md) · [简体中文](./USER-GUIDE(zh-CN).md)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
@@ -10,7 +14,7 @@ This guide takes a nontechnical researcher from an idea to a survey that can be 
 
 Returning users: see [pause, resume, and start another survey](./docs/repeat-user-acceptance.md). Resume the existing project for an interruption; use a new study ID for another survey. Archived ZIP files are for analysis, not rebuilding the online service.
 
-- GPT, Claude, or another capable AI that can read a public GitHub repository
+- An installed ChatGPT or Claude desktop app with working file and agent tools; AI web apps are officially unsupported
 - A short description of what you want to learn and whose opinions you want
 - Time to answer questions and personally test the result
 
@@ -21,6 +25,8 @@ You do not need to know programming, Markdown, databases, or deployment tools.
 Open the [greedyQ start page](./START-HERE.md), or give your AI this URL:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
 If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
@@ -35,6 +41,8 @@ The AI should read that file and the linked files in the same repository. You do
 Copy this message:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 Read and follow the current greedyQ instructions at:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -51,6 +59,8 @@ I want to hear from: [your intended participants].
 Give the AI access to your existing greedyQ study folder, then copy:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 Read and follow the current greedyQ instructions at:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -68,6 +78,8 @@ This changes the original study. Ask for a plain-language change summary before 
 Give the AI access to the existing study folder, then copy:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 Read and follow the current greedyQ instructions at:
 <https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
 
@@ -186,7 +198,7 @@ Use [Connect a Supabase Project](./SUPABASE-SETUP.md) only for recovery when aut
 
 ## 7. Connect once and receive two links
 
-A connected AI agent needs file and account-operation tools to complete this stage. A chat-only AI can help design the questionnaire and prepare a handoff, but must say when it cannot deploy or verify the links. Preview needs no service account.
+A connected AI agent needs file and account-operation tools to complete this stage. An AI without the required file/preview tools must stop authoring and offer a desktop agent handoff; missing deployment authorization is checked separately. Preview needs no service account.
 
 The normal deployment flow does not ask you to operate Supabase. Sign in to Vercel, approve the Supabase resource presented inside Vercel, and allow the connected AI agent to finish setup. It must install the database migrations, connect environment variables, deploy the public survey, deploy a Vercel-authenticated results application, and verify both links.
 

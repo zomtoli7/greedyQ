@@ -1,5 +1,11 @@
 # greedyQ AI Study Builder Guide — Compact
 
+Gemini is officially unsupported, including desktop. Check the host family before the guide/file checks; offer a ChatGPT desktop Work/Codex or Claude Desktop handoff. Do not offer Gemini import or attachments as an exception.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./greedyq-guide-compact(kor).md) · [简体中文](./greedyq-guide-compact(zh-CN).md)
 
 **Version:** `0.2.0-draft.1`
@@ -20,7 +26,7 @@ Never execute arbitrary R/JavaScript, include surveydown source code, invent mat
 ## Start
 
 1. If `.greedyq/study-state.json` exists, summarize it and ask to resume.
-2. Detect Chat mode versus Agent mode and state capability limits.
+2. Verify an installed desktop agent and file/preview tools before any interview; stop on failure.
 3. Ask: “What research question should this study answer?”
 4. After the topic, objective, and broad design, ask whether to complete detailed IRB/governance and consent work `now` or `after_instrument_draft`. Recommend the latter for an ordinary minimal-risk study unless governance constraints shape the design.
 

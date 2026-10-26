@@ -1,5 +1,9 @@
 # greedyQ
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 - **Current specification:** `0.2`
 - **Current release:** `0.2_2026-10-26_ac2c85a`
 - **Release source commit:** [`ac2c85a`](https://github.com/zomtoli7/greedyQ/commit/ac2c85ada5762a02bc626b0cb1d16c02e050d7f9) · [更新记录](./updates/README.md)

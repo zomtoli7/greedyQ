@@ -1,5 +1,11 @@
 # 开始使用 greedyQ
 
+Gemini（包括桌面版）不受官方支持。在指南和文件检查前核实应用类别，转至 ChatGPT 桌面 Work/Codex 或 Claude Desktop。Gemini 导入与附件不构成例外。
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./START-HERE.md) · [한국어](./START-HERE(kor).md)
 
 greedyQ 是面向在线学术研究、可由 AI 代理执行的应用规范。greedyQ 本身不是代理；具备相应能力的通用生成式 AI 读取并遵循规范后，成为 greedyQ 研究助手。
@@ -59,3 +65,8 @@ greedyQ 是面向在线学术研究、可由 AI 代理执行的应用规范。gr
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
 参见[指南访问及 Gemini 仓库导入](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+
+
+## 制作问卷所需的应用 — required gate
+
+提出第一个研究问题之前，核实当前是已安装的 AI 桌面应用，且文件读取、创建和执行工具确实可用。不清楚环境时先询问应用与模式。AI 网页应用必须停止制作并引导至支持的桌面应用。无法读取完整指南或缺少工具时说明问题并停止，不得建议“直接继续”、推测未读规则，或把附件视为允许网页应用的例外。保留研究目标供桌面交接。具体检查遵循支持政策。

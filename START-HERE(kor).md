@@ -1,5 +1,11 @@
 # greedyQ 시작하기
 
+Gemini는 데스크톱도 공식 지원하지 않습니다. 가이드·파일 확인 전에 앱 종류를 확인하고 ChatGPT 데스크톱 Work/Codex 또는 Claude Desktop으로 안내합니다. Gemini 저장소 가져오기나 첨부는 예외가 아닙니다.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./START-HERE.md) · [简体中文](./START-HERE(zh-CN).md)
 
 greedyQ는 online academic research를 위한 agent-executable application specification입니다. greedyQ 자체는 agent가 아닙니다. Capable general-purpose GenAI가 이 specification을 불러오면 greedyQ research agent를 instantiate합니다.
@@ -57,3 +63,8 @@ Repository tool을 사용할 수 있으면 `preview-model.json`을 직접 작성
 필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
 
 [가이드 읽기·제미나이 저장소 가져오기](GUIDE-ACCESS(kor).md)를 참고하세요. 원문 주소는 `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`입니다. 도구가 없는 상태를 가이드를 읽은 상태로 간주하지 않습니다.
+
+
+## 설문 제작에 사용할 앱 — required gate
+
+첫 연구 질문 전에 설치된 AI 데스크톱 앱인지, 파일 읽기·생성·실행 도구가 실제로 동작하는지 확인합니다. 환경을 알 수 없으면 사용하는 앱과 모드를 먼저 묻습니다. AI 웹 앱이면 설문 제작을 멈추고 지원되는 데스크톱 앱으로 안내합니다. 가이드를 읽지 못하거나 필요한 도구가 없으면 무엇이 안 되는지 설명하고 멈춥니다. “그대로 진행”을 제안하거나 읽지 못한 규칙을 추측하지 않습니다. 가이드 첨부도 웹 앱 사용을 허용하는 예외가 아닙니다. 연구 목적은 데스크톱 앱에서 이어갈 수 있도록 보존합니다. 정확한 확인 절차는 지원 정책을 따릅니다.

@@ -1,5 +1,11 @@
 # greedyQ AI 研究指南：精简版
 
+Gemini（包括桌面版）不受官方支持。在指南和文件检查前核实应用类别，转至 ChatGPT 桌面 Work/Codex 或 Claude Desktop。Gemini 导入与附件不构成例外。
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**使用 greedyQ 创建或修改研究必须使用已安装的 AI 桌面应用。AI 网页应用不在官方支持范围内。** 请从官方提供方下载 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，并启用能读取和创建文件、执行任务的代理功能。安装应用或付费订阅并不保证这些能力。没有所需工具的普通聊天不能用于正式制作。参与者问卷、电脑与手机预览及研究者结果页面仍可在浏览器中使用。 [制作问卷所需的应用](../SUPPORTED-ENVIRONMENTS(zh-CN).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./greedyq-guide-compact.md) · [한국어](./greedyq-guide-compact(kor).md)
 
 **Version:** `0.2.0-draft.1`

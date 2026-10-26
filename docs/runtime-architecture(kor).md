@@ -1,12 +1,16 @@
 # greedyQ 런타임 아키텍처
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](../SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./runtime-architecture.md)
 
 ## 결정
 
 greedyQ는 **Python 우선 reference implementation과 browser-native JavaScript 최종 사용자 구현**을 함께 사용합니다.
 
-초기 개발에서는 Python으로 문법, 검증, 경로, 상태 의미론을 명확히 고정합니다. Python은 reference 및 conformance 기준이지 최종 사용자의 필수 환경이 아닙니다. 최종적으로 연구자는 capable general-purpose AI와 modern web browser만으로 greedyQ를 사용할 수 있어야 합니다.
+초기 개발에서는 Python으로 문법, 검증, 경로, 상태 의미론을 명확히 고정합니다. Python은 reference 및 conformance 기준이지 최종 사용자의 필수 환경이 아닙니다. 최종적으로 연구자는 필요한 도구가 있는 AI 데스크톱 앱과 웹브라우저로 greedyQ를 사용할 수 있어야 합니다.
 
 ## 런타임 계층
 

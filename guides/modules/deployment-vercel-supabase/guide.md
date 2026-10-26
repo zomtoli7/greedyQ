@@ -1,5 +1,9 @@
 # Vercel and Supabase Deployment Module
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../../../SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [한국어](./guide(kor).md) · [简体中文](./guide(zh-CN).md)
 
 Use the registered canonical templates for application configuration and database policy. Keep secrets in provider environment settings, use least-privilege browser access, keep privileged operations server-side, and never expose a service-role credential.

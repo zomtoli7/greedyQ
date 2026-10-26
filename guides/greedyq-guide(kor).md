@@ -1,5 +1,9 @@
 # greedyQ AI Study Builder Guide
 
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ로 설문을 만들거나 수정할 때는 컴퓨터에 설치한 AI 데스크톱 앱이 반드시 필요합니다. AI 웹 앱은 공식 지원하지 않습니다.** ChatGPT 데스크톱 또는 Claude Desktop을 공식 제공처에서 다운로드하세요. Gemini는 데스크톱 앱을 포함해 공식 지원하지 않습니다. 앱에서 파일을 읽고 만들고 작업을 실행하는 에이전트 기능을 사용해야 합니다. 앱 설치나 유료 구독만으로 이 기능이 보장되지는 않습니다. 필요한 도구가 없는 일반 채팅으로는 설문 제작을 진행하지 않습니다. 참여자가 설문에 응답하거나 연구자가 컴퓨터·모바일 미리보기와 결과 화면을 보는 데에는 계속 웹브라우저를 사용합니다. [설문 제작에 사용할 앱](../SUPPORTED-ENVIRONMENTS(kor).md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
+
 [English](./greedyq-guide.md) · [简体中文](./greedyq-guide(zh-CN).md)
 
 **Guide 버전:** `0.2.0-draft.1`
@@ -24,7 +28,7 @@ Platform safety 및 tool rule, 연구자의 명시적 요청, 이 guide, 고정�
 
 1. 기존 `.greedyq/study-state.json`이 있는지 확인합니다.
 2. 있으면 study ID, phase, confirmed decision, unresolved decision, artifact status를 요약하고 재개할지 질문합니다.
-3. 없으면 사용 가능한 capability를 감지하고 Chat mode 또는 Agent mode를 선택합니다.
+3. 연구 대화 전에 SUPPORTED-ENVIRONMENTS.md에 따라 설치된 데스크톱 앱과 파일·실행 도구를 확인합니다. 실패하면 멈춥니다.
 4. Mode와 한계를 간단히 밝힙니다.
 5. 첫 질문 하나를 합니다. “이 연구가 답해야 할 연구 질문은 무엇인가요?”
 6. 초기 topic, objective, broad design을 이해한 뒤 detailed IRB/governance와 consent 작업 시점을 묻습니다.
@@ -39,7 +43,7 @@ Governance constraint가 design을 바꾼다고 이미 알려진 경우가 아�
 
 ### Chat mode
 
-File, shell command, GitHub, Vercel, Supabase, OSF, panel service를 직접 다룰 수 없으면 Chat mode를 사용합니다. 전체 interview를 수행하고 완전한 file content 또는 다운로드 가능한 artifact를 제공하며 guide 기반 self-check와 정확한 handoff instruction을 제공합니다. 모든 external operation을 수행하지 않았다고 명확히 표시합니다.
+일반 채팅만으로 greedyQ 설문을 제작하는 방식은 지원하지 않습니다. 파일·미리보기 실행 도구가 없으면 연구 인터뷰나 대체 결과물 생성을 진행하지 않습니다. 연구 목적을 보존하고 필요한 도구가 있는 데스크톱 앱으로 이어가도록 안내합니다. 외부 계정 도구는 배포 때 따로 확인하며 로컬 미리보기를 위해 Vercel·Supabase 로그인을 요구하지 않습니다.
 
 ### Agent mode
 
@@ -246,42 +250,44 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
+| `SUPPORTED-ENVIRONMENTS.md` | `2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36` | `no` |
+| `schemas/authoring-support-policy.json` | `328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d` | `no` |
-| `GUIDE-ACCESS.md` | `4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b` | `no` |
+| `CBC-COLLECT.md` | `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57` | `no` |
+| `GUIDE-ACCESS.md` | `0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf` | `no` |
 | `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
-| `web/greedyq-cbc.css` | `d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b` | `no` |
+| `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
 | `templates/browser/cbc-respondent.html` | `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde` | `no` |
 | `templates/supabase/009_cbc.sql` | `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2` | `no` |
-| `tools/cbc_cloud.cjs` | `c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8` | `no` |
+| `tools/cbc_cloud.cjs` | `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9` | `no` |
 | `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
-| `CBC.md` | `23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f` | `no` |
-| `greedyq/cbc.py` | `06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a` | `no` |
-| `web/greedyq-cbc.js` | `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f` | `no` |
-| `templates/browser/cbc-preview.html` | `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6` | `no` |
+| `CBC.md` | `54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2` | `no` |
+| `greedyq/cbc.py` | `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031` | `no` |
+| `web/greedyq-cbc.js` | `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db` | `no` |
+| `templates/browser/cbc-preview.html` | `8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7` | `no` |
 | `greedyq/scaffold.py` | `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec` | `no` |
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
 | `release.json` | `3f9c734b0937ad53846b800537c983c4921f0a4608ab2abc7cbf500dac41f264` | `no` |
-| `PROLIFIC-SETUP.md` | `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4` | `no` |
+| `PROLIFIC-SETUP.md` | `e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
 | `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
 | `docs/surveydown-compatibility-audit.md` | `f197e83c19999a61d870d0a21d3e9cc3cb3d33b99ed5b85500b4b5d48118abe8` | `no` |
-| `EXTERNAL-RETURNS.md` | `a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e` | `no` |
+| `EXTERNAL-RETURNS.md` | `c46b6654801b261b9d081d174a4e99e0cef4e81f2e0ce24c6652346e6ce476af` | `no` |
 | `greedyq/formatting.py` | `8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d` | `no` |
-| `PREREGISTRATION.md` | `5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948` | `no` |
-| `UPGRADING.md` | `11f423a8eff5445a9dd4028f03cc248dba6e5ef06430b5a711dc1e16b150713d` | `no` |
+| `PREREGISTRATION.md` | `bf040d7210316d0d4efc69e722c2e220334a998ce0ae3ae0a13cff589bae5e97` | `no` |
+| `UPGRADING.md` | `ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e` | `no` |
 | `greedyq/osf_fields.py` | `06a6b117da1bcd2787262638271636bd8b03e720764d6462c7884b22c8a33313` | `no` |
 | `greedyq/redirects.py` | `7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce` | `no` |
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
 | `tools/resolve_guide.py` | `43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043` | `no` |
-| `RANDOMIZATION.md` | `70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15` | `no` |
+| `RANDOMIZATION.md` | `a11d7fc19b07cbf1d06206a2a0bb36b4d46f3007ccd2d73eebe71fa906cbe117` | `no` |
 | `docs/repeat-user-acceptance.md` | `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6` | `no` |
-| `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
-| `docs/cloud-lifecycle.md` | `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81` | `no` |
+| `ARCHIVING.md` | `03dd772785d2ee7a5196445f37f33f3a6eba70a398f866ea2062d4cf71b33951` | `no` |
+| `docs/cloud-lifecycle.md` | `503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0` | `no` |
 | `tools/cloud_lifecycle.cjs` | `93b26eed47d67c134d87ba12355bb7fcc9ead036a40fa7be4304e94c1c35c7f7` | `no` |
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a` | `no` |
@@ -322,6 +328,86 @@ Study가 준비되면 두 runtime path를 모두 제공합니다. Vercel/Supabas
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
 | `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
 | `greedyq/deployment.py` | `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524` | `no` |
+
+### FILE: `SUPPORTED-ENVIRONMENTS.md`
+
+SHA-256: `2d74df7d9f2b080ee214f4a6e76d34e56c1a0fcb8847f888c7cbbba7ac299f36`
+
+```markdown
+# Supported authoring environment
+
+Gemini is officially unsupported, including desktop. Check the host family before the guide/file checks; offer a ChatGPT desktop Work/Codex or Claude Desktop handoff. Do not offer Gemini import or attachments as an exception.
+
+[English](./SUPPORTED-ENVIRONMENTS.md) · [한국어](./SUPPORTED-ENVIRONMENTS(kor).md) · [简体中文](./SUPPORTED-ENVIRONMENTS(zh-CN).md)
+
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser.
+
+## Check readiness before the study interview
+
+1. Establish that this is an installed provider desktop app, not a website, browser-installed shortcut/PWA, or mobile AI app. Ask which app/mode is open when unknown; do not pretend to detect the host from a screenshot or model name.
+2. Read the complete pinned greedyQ guide and its required files through repository access or a complete downloaded snapshot. A successful link preview is not proof that all files were read.
+3. In the approved study workspace, create and read back a small temporary file, then build and open a canonical local preview. Report only operations actually performed. Do not request broad permissions or expose private files just for this check.
+4. If a check fails, explain the missing capability in ordinary language and stop authoring. Guide attachments can fix missing guide access only inside a supported desktop agent; they do not fix missing execution tools. Do not ask the researcher to install Python or Node for the browser-native survey runtime.
+5. Check external account tools separately when deployment is requested. Desktop readiness does not establish Vercel or Supabase authorization.
+
+ChatGPT desktop users may select Work or Codex when available; ordinary Chat is not a substitute for the required tools. Claude Desktop users need an appropriate file/task mode such as Cowork or Code with study-folder access. Gemini, including desktop, is outside official support until an end-to-end authoring/preview/deployment journey is validated. Do not offer Gemini repository import or attachments as a supported workaround. Provider plan, OS and organization restrictions can differ. Do not claim equal verification across products.
+
+## Scope of the policy
+
+This is greedyQ's official support boundary, not a claim that every provider's web product is technically incapable of file operations. The same deterministic survey runtime remains browser-native. Participants need no AI app. Researchers can view the website, preview and results, and approve service sign-ins in a browser.
+
+## Reported guide access failure, 26 October 2026
+
+The malformed `.md새` clipboard address and a later correctly separated URL with reported `PERMISSION_DENIED` are different failures. A direct check of the public raw entry and registry returned HTTP 200 without login. That does not reveal Gemini's internal tool error. The later screenshot correctly stops authoring; its exact internal cause and desktop capabilities were not independently observed. Do not claim a missing GitHub permission, a platform-wide restriction or a successful desktop workaround without evidence.
+
+## Official desktop downloads / 공식 다운로드 / 官方下载
+
+- [ChatGPT desktop app: installation and modes](https://learn.chatgpt.com/docs/app) · [Quickstart](https://learn.chatgpt.com/docs/quickstart)
+- [Claude Desktop](https://claude.com/download)
+```
+
+### FILE: `schemas/authoring-support-policy.json`
+
+SHA-256: `328eada42c605dcceb19f81b13f12833f39cd5f4a975f7f91538614649875f4e`
+
+```json
+{
+  "schema_version": "1",
+  "effective_date": "2026-10-26",
+  "researcher_authoring": {
+    "desktop_app_required": true,
+    "ai_web_app_supported": false,
+    "pwa_supported": false,
+    "ordinary_chat_without_tools_supported": false,
+    "unknown_environment": "ask_before_interview",
+    "required_checks": [
+      "installed_desktop_host",
+      "complete_pinned_guide_read",
+      "workspace_file_write_read",
+      "canonical_preview_execution"
+    ],
+    "on_failure": "stop_authoring_and_offer_desktop_handoff",
+    "attachment_waives_host_requirement": false,
+    "official_host_families": [
+      "chatgpt_desktop",
+      "claude_desktop"
+    ],
+    "unsupported_host_families": [
+      "gemini"
+    ],
+    "gemini_status": "not_supported_pending_end_to_end_validation"
+  },
+  "browser_supported_for": [
+    "participant_survey",
+    "desktop_mobile_preview",
+    "researcher_results",
+    "website",
+    "service_login_approval"
+  ],
+  "deployment_authorization_checked_separately": true,
+  "documentation": "SUPPORTED-ENVIRONMENTS.md"
+}
+```
 
 ### FILE: `schemas/cbc-collection.schema.json`
 
@@ -563,10 +649,14 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `c76381dcf6db5e0623a2b6e405d1648c0b3ffc49fa0d0e4769491caaf764d65d`
+SHA-256: `129953420bfb676ec71a5ba3ec420528879784ab6b5d0747fae3f7b37a32aa57`
 
 ```markdown
 # Collect CBC responses and review results
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./CBC-COLLECT(kor).md) · [简体中文](./CBC-COLLECT(zh-CN).md)
 
@@ -622,14 +712,34 @@ Agents with browser/JavaScript tools can call `greedyQCBC.importDesign` and `gre
 ## Current boundaries
 
 This is the dedicated CBC package workflow, not yet a registered v0.2 `sd_cbc` control or an arbitrary QMD mixed-question CBC authoring path. Native surveydown CBC export, automatic design optimization/inference, fresh-account CBC cloud acceptance and paid CBC recruitment remain unverified or unimplemented as recorded in the [collection verification record](./docs/cbc-collection-verification-2026-10-26.md). Do not silently substitute multiple-choice questions and claim equivalent export. Existing v0.2 survey/Prolific verification does not automatically validate CBC fielding.
+
+## CBC presentation styles
+
+Ask the researcher to choose the appearance before fielding. The fixed greedyQ renderer supports **button profiles** (click the whole alternative) and **comparison tables**. Each supports horizontal, vertical, or computer-horizontal/mobile-vertical presentation. Request, for example, “Use button profiles side by side on computers and stacked vertically on phones.” This is an appearance decision; block assignment, task order, alternative codes, none handling and saved choices keep their existing meanings.
+
+The agent writes an optional field in `study.design.json`:
+
+```json
+"presentation": {"type": "buttons", "orientation": "responsive"}
+```
+
+`type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
+
+The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 ```
 
 ### FILE: `GUIDE-ACCESS.md`
 
-SHA-256: `4e98c10ea28cb63c7dde4322f93af475e3aaf332c3026385b93bcbde8659f67b`
+SHA-256: `0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf`
 
 ```markdown
 # When your AI cannot open the guide
+
+Gemini, including desktop, is officially unsupported. Use ChatGPT desktop Work/Codex or Claude Desktop with verified agent tools.
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./GUIDE-ACCESS(kor).md) · [简体中文](./GUIDE-ACCESS(zh-CN).md)
 
@@ -646,16 +756,16 @@ A link in a message does not prove the AI has read it. If it says “I cannot ac
 Ask it to read:
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
 ```
 
 This avoids the surrounding GitHub interface. It does not overcome a host that cannot fetch links. The entry guide alone is not enough: the AI must load the same release's registry, resolved guides and fixed source files, or a complete full bundle. It must not infer the missing rules from the project name, search snippets or the first interview question.
 
-## In the Gemini web app
+## If this is the Gemini web app
 
-Google documents a separate repository import route: Add files → More Uploads → Import Code → enter `https://github.com/zomtoli7/greedyQ`. If that route is shown for your account, use it and then ask the AI to read `START-HERE.md` and its required files. Availability and menu wording can differ. Attaching a repository is different from pasting a URL into the conversation. [Google's file/import instructions](https://support.google.com/gemini/answer/14903178?hl=en)
-
-For custom Gemini API applications, URL Context is an explicitly supplied tool; a link alone is not an assertion that the client enabled it. This does not diagnose a particular Gemini Apps conversation. [Google's URL Context documentation](https://ai.google.dev/gemini-api/docs/url-context)
+Stop this authoring attempt. Open the official desktop app and complete the support-policy readiness checks. Repository import or an attachment in an AI website does not waive this boundary. A browser shortcut is not the provider desktop app.
 
 ## If import or browsing is unavailable
 
@@ -666,6 +776,8 @@ After the complete guide is available, the AI should confirm briefly that it loa
 ## Prompt that handles this safely
 
 ```text
+First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
+
 Read the current greedyQ guide and all required files from the same release:
 https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
 If you cannot read them, do not start the study interview, draft questions or claim to follow greedyQ. First try the raw text URL, repository import, or ask me to attach the complete guide. Continue only after the complete required guide is available; explain your actual file, preview and deployment capabilities briefly.
@@ -674,6 +786,9 @@ If you cannot read them, do not start the study interview, draft questions or cl
 ## What the reported screenshot establishes
 
 On 26 October 2026 the public GitHub page and raw text link both returned HTTP 200 without login from our check. The screenshot shows the AI reported access failure and continued. It does not establish the original failure's cause, the app's enabled tools or a platform-wide Gemini limitation. We changed the copied starter prompt because a guard contained only inside an unread page cannot help. Gemini Apps itself was not retested under the reporter's account.
+
+
+Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.
 ```
 
 ### FILE: `web/greedyq-cbc-collection.js`
@@ -729,13 +844,46 @@ SHA-256: `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986`
 
 ### FILE: `web/greedyq-cbc.css`
 
-SHA-256: `d2f6f103f101501ca3357fd42f16762ab7f9024d4eb6296220fb3944eba1247b`
+SHA-256: `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b`
 
 ```css
 
 *{box-sizing:border-box}body{margin:0;background:#f3f6f9;color:#172033;font:16px/1.5 system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#235c76;color:white;border:1px solid #235c76;border-radius:8px;padding:10px 16px;min-height:44px}button.secondary{background:white;color:#21465c;border-color:#b4c5cf}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #dd9800;outline-offset:3px}header,.importer{background:white;border-bottom:1px solid #d6e0e7;padding:16px 24px}header h1{font-size:25px;margin:0 0 6px}header p{margin:0}.note{color:#526578}.importer{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.importer label{display:grid;gap:4px;max-width:250px;min-width:0}.importer label>*{min-width:0;width:100%}.importer input{max-width:100%}.wide{flex-basis:100%}#status{margin:12px 24px}#error{margin:12px 24px;border-left:4px solid #ba3327;padding:12px;background:#fff0ed}#error[hidden],#preview[hidden]{display:none}.preview-grid{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;padding:18px 24px;align-items:start}.viewport{min-width:0;border:1px solid #cbd8e2;border-radius:14px;background:white;overflow:hidden}.viewport-title{padding:10px 14px;background:#e6eef3;font-weight:650}.screen{height:680px;overflow:auto}.participant{padding:22px}.desktop .participant{min-width:900px}.mobile{width:390px;max-width:100%;justify-self:center}.participant h2{font-size:23px;line-height:1.3;margin:8px 0 16px}.participant .progress{color:#526578;font-size:14px}.choice-grid{display:grid;grid-template-columns:minmax(130px,.9fr) repeat(var(--alternatives),minmax(130px,1fr));width:100%;border-top:1px solid #becdd7;border-left:1px solid #e0e7eb}.cell{padding:12px;border-bottom:1px solid #e0e7eb;border-right:1px solid #e0e7eb;overflow-wrap:anywhere;min-width:0}.cell.heading{font-weight:650;background:#eff4f7}.choice-pick{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:44px}.choice-pick input{width:20px;height:20px;flex-shrink:0;accent-color:#235c76}.cell:has(input:checked){background:#e0f0f8;box-shadow:inset 0 0 0 2px #235c76}.none-pick{display:flex;align-items:center;gap:8px;border:1px solid #cbd8e2;padding:12px;margin-top:16px;border-radius:8px;min-height:48px;cursor:pointer}.none-pick:has(input:checked){background:#e0f0f8;border-color:#235c76}.none-pick input{width:20px;height:20px}.actions{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #d6e0e7;margin-top:22px;padding-top:16px}.participant fieldset{border:0;margin:0;padding:0;min-width:0}.participant legend{font-size:18px;font-weight:650;margin-bottom:16px}.question-error{color:#9c281f;background:#fff0ed;padding:12px;border-radius:6px}.mobile .participant{padding:16px}.mobile .choice-grid{grid-template-columns:minmax(88px,.8fr) repeat(var(--alternatives),minmax(0,1fr))}.mobile .cell{padding:9px 6px;font-size:14px}.pane-tools{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid #d6e0e7}.pane-tools select{max-width:130px}.pane-tools button{font-size:14px;padding:7px 10px}.structure{display:flex;gap:12px;margin:0 24px 16px;flex-wrap:wrap}dialog{max-width:min(800px,92vw);max-height:85vh;overflow:auto;border:1px solid #bccbd6;border-radius:12px;padding:24px}dialog::backdrop{background:#10202d88}dialog table{border-collapse:collapse;width:100%;margin:12px 0}dialog th,dialog td{border:1px solid #cbd8e2;padding:8px;text-align:left}details{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}.receipt{padding:24px 0}a{color:#235c76}@media(max-width:1050px){.preview-grid{grid-template-columns:minmax(0,1fr)}.mobile{width:390px;max-width:100%}}@media(max-width:430px){header,.importer{padding:14px}.preview-grid{padding:12px;gap:18px}.structure{margin:0 12px 12px}#status,#error{margin:12px}.mobile{width:100%;max-width:390px}}
 
 .respondent{margin:24px auto;max-width:1100px;background:white;border:1px solid #cbd8e2;border-radius:12px;overflow:auto}.respondent.desktop .participant{min-width:0}.respondent.mobile{width:100%;max-width:700px}.consent-copy{white-space:pre-wrap;overflow-wrap:anywhere}.connection-note{padding:12px 24px;color:#526578}#collection-error{background:#fff0ed;color:#9c281f;padding:16px}#collection-error[hidden]{display:none}.participant:focus{outline:0}
+
+/* Fixed CBC presentation variants: cards, comparison table and stacked profiles. */
+.cbc-comparison-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding:3px}
+.cbc-profile-options{display:grid;gap:14px;align-items:stretch}
+.cbc-profile-options.cbc-horizontal{grid-template-columns:repeat(var(--alternatives),minmax(190px,1fr))}
+.cbc-profile-options.cbc-vertical{grid-template-columns:minmax(0,1fr)}
+.cbc-profile-button{position:relative;display:flex;min-width:0;cursor:pointer;border:2px solid #bccbd6;border-radius:10px;background:#fff;color:#172033;overflow-wrap:anywhere}
+.cbc-profile-button>input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:1}
+.cbc-profile-face{display:flex;flex:1;min-width:0;flex-direction:column;padding:16px;gap:12px}
+.cbc-option-title{display:block;font-size:19px;font-weight:700}
+.cbc-feature{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;min-width:0}
+.cbc-feature-label{font-weight:650;color:#415266}
+.cbc-choice-caption{display:block;margin-top:auto;padding:10px;background:#e9f0f5;color:#21465c;border-radius:6px;text-align:center;font-weight:650;min-height:44px}
+.cbc-profile-button:has(input:checked){border-color:#235c76;background:#edf7fc;box-shadow:0 0 0 1px #235c76}
+.cbc-profile-button:has(input:checked) .cbc-choice-caption{background:#235c76;color:#fff}
+.cbc-profile-button:has(input:focus-visible){outline:3px solid #dd9800;outline-offset:0}
+.cbc-comparison-table,.cbc-table-profile table{border-collapse:collapse;width:100%;table-layout:fixed;color:#172033}
+.cbc-comparison-table{min-width:calc((var(--alternatives) + 1)*140px)}
+.cbc-comparison-table th,.cbc-comparison-table td,.cbc-table-profile th,.cbc-table-profile td{border:1px solid #cbd8e2;padding:12px;overflow-wrap:anywhere;vertical-align:top;text-align:left}
+.cbc-comparison-table th,.cbc-table-profile th{background:#eff4f7;font-weight:650}
+.cbc-comparison-table .choice-pick{border:0;padding:4px;min-height:44px}
+.cbc-profile-tables{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.cbc-table-profile{border:1px solid #bccbd6;border-radius:8px;overflow:hidden;min-width:0}
+.cbc-table-profile h3{margin:0;padding:12px 14px;background:#e9f0f5}
+.cbc-table-profile .choice-pick{padding:12px 14px;border:0;background:#fff}
+.cbc-table-profile:has(input:checked){border-color:#235c76;box-shadow:0 0 0 1px #235c76}
+.cbc-table-profile:has(input:checked) .choice-pick{background:#e0f0f8}
+.cbc-comparison-scroll[data-cbc-orientation=vertical]{overflow-x:visible}
+.presentation-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.presentation-tools label{display:flex;gap:8px;align-items:center;max-width:100%}
+.presentation-tools select{max-width:100%;min-width:0}
+
+.presentation-tools{min-width:0;max-width:100%;flex-basis:100%}.presentation-tools label{min-width:0;flex-wrap:wrap}.presentation-tools select{width:min(100%,340px)}
 ```
 
 ### FILE: `templates/browser/cbc-respondent.html`
@@ -992,7 +1140,7 @@ grant execute on function public.greedyq_resume_session(uuid,text) to anon,authe
 
 ### FILE: `tools/cbc_cloud.cjs`
 
-SHA-256: `c9813bed4ca4e704a5506aee45850afe3bb03969c02ab4f7ce072f4924c49cc8`
+SHA-256: `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9`
 
 ```javascript
 /* Agent-only CBC provisioning. No account sign-in or upload is performed here. */
@@ -1011,6 +1159,7 @@ async function registerCBCStudy(client,model){
  const aids=c.attributes.map(a=>a.id),attrs=[['attribute_id','attribute_label','level_id','level_label'],...c.attributes.flatMap(a=>a.levels.map(l=>[a.id,a.label,l.id,l.label]))];
  const rows=[['block_id','task_id','alternative_id',...aids],...c.blocks.flatMap(b=>b.tasks.flatMap(t=>t.alternatives.map(a=>[b.id,t.id,a.id,...aids.map(k=>a.levels[k])]))) ];
  const config={schema_version:'0.3-draft.1',status:'design_only',object:'greedyQCBC',study_id:c.study_id,research_question:c.research_question,attributes_source:'design/attributes.csv',design_source:'design/design.csv',alternatives_per_task:c.alternatives_per_task,tasks_per_block:c.tasks_per_block,block_assignment:{method:'simple',unit:'respondent',weights:Object.fromEntries(c.blocks.map(b=>[b.id,b.weight]))},task_order:c.task_order,alternative_order:c.alternative_order,none:c.none,design_origin:'reviewed_import',statistical_efficiency:'not_established',fielding_approval:false,proposed_estimator:'not_committed',attribute_ids:aids,prohibitions:c.prohibitions,language:c.language};
+ if(c.presentation)config.presentation=c.presentation;
  const checked=await C.importDesign({config,attributesText:csv(attrs),designText:csv(rows)});if(checked.design_sha256!==c.design_sha256||model.study_id!==c.study_id)throw Error('CBC design contract mismatch');
  const settings={schema_version:'0.3-collection.1',study_version:model.study_version,title:model.title,organization:model.organization,mode:model.runtime_policy.mode,source:model.runtime_policy.respondent_source,consent:model.consent,approvals:model.approvals};
  if(settings.source==='prolific')settings.prolific=model.runtime_policy.prolific;
@@ -1056,10 +1205,14 @@ When reporting a problem, include your greedyQ version, what you tried, what you
 
 ### FILE: `CBC.md`
 
-SHA-256: `23af1144d0678099ea0f181ed1e299982f9e94a4f8bdf476cf905709935a4e4f`
+SHA-256: `54acb15cd89bd17cae034e2feb1368fbac7936297cf1b3ba7185e6b70127bda2`
 
 ```markdown
 # Preview a choice-based conjoint design
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./CBC(kor).md) · [简体中文](./CBC(zh-CN).md)
 
@@ -1112,11 +1265,25 @@ python3 -m greedyq cbc-build path/to/study --workbook path/to/design.xlsx
 The build emits `cbc-preview.html`. The browser can then check other local CSV/XLSX files directly. The normalized `0.3-preview.1` model is deterministic across Python and JavaScript; SHA-256 covers content and ordering rules, not raw ZIP formatting. Input settings remain `0.3-draft.1` with `fielding_approval=false`; do not mistake this for permission to collect responses. See the [specification](./drafts/v0.3/cbc/spec.md) and [verification record](./docs/cbc-preview-verification-2026-10-26.md).
 
 Questions or bug reports: [greedyQ project contact](./CONTACT.md). Study participant contacts remain the research team's responsibility.
+
+## CBC presentation styles
+
+Ask the researcher to choose the appearance before fielding. The fixed greedyQ renderer supports **button profiles** (click the whole alternative) and **comparison tables**. Each supports horizontal, vertical, or computer-horizontal/mobile-vertical presentation. Request, for example, “Use button profiles side by side on computers and stacked vertically on phones.” This is an appearance decision; block assignment, task order, alternative codes, none handling and saved choices keep their existing meanings.
+
+The agent writes an optional field in `study.design.json`:
+
+```json
+"presentation": {"type": "buttons", "orientation": "responsive"}
+```
+
+`type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
+
+The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
 ```
 
 ### FILE: `greedyq/cbc.py`
 
-SHA-256: `06a6c5590c95f0b5ce34204fa712f8593f5343dae141f38b73617107e2a6151a`
+SHA-256: `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031`
 
 ```python
 """Deterministic CBC CSV/XLSX import and account-free preview reference.
@@ -1142,7 +1309,7 @@ NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
 ATTRIBUTE_HEADERS = ['attribute_id', 'attribute_label', 'level_id', 'level_label']
 CONFIG_KEYS = {'schema_version','status','object','study_id','research_question','attributes_source','design_source',
                'alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none',
-               'design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'}
+               'design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language','presentation'}
 
 
 class CBCError(ValueError):
@@ -1291,7 +1458,7 @@ def positive(value,maximum):
 
 
 def normalize(attributes_table,design_table,config):
-    if not isinstance(config,dict) or set(config)-CONFIG_KEYS or CONFIG_KEYS-{'language','prohibitions'}-set(config):fail('CBC005','The CBC settings contain unsupported fields.')
+    if not isinstance(config,dict) or set(config)-CONFIG_KEYS or CONFIG_KEYS-{'language','prohibitions','presentation'}-set(config):fail('CBC005','The CBC settings contain unsupported fields.')
     if config.get('schema_version')!='0.3-draft.1' or config.get('object')!='greedyQCBC' or config.get('status')!='design_only' or config.get('fielding_approval') is not False:
         fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.')
     study_id=identifier(config.get('study_id'))
@@ -1353,6 +1520,11 @@ def normalize(attributes_table,design_table,config):
            'research_question':config.get('research_question',''),'attributes':attributes,'blocks':blocks,
            'alternatives_per_task':count,'tasks_per_block':size,'task_order':config['task_order'],
            'alternative_order':config['alternative_order'],'none':none,'prohibitions':prohibitions}
+    if 'presentation' in config:
+        presentation=config['presentation']
+        if not isinstance(presentation,dict) or set(presentation)!={'type','orientation'} or presentation['type'] not in ('buttons','table') or presentation['orientation'] not in ('horizontal','vertical','responsive'):
+            fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.')
+        model['presentation']=presentation
     model['design_sha256']=digest(canonical(model))
     model['warnings']=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.']
     return model
@@ -1496,7 +1668,7 @@ def stored_rows(snapshot):
 
 ### FILE: `web/greedyq-cbc.js`
 
-SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
+SHA-256: `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db`
 
 ```javascript
 /* Fixed browser-native CBC import/validation and local preview helpers. */
@@ -1539,8 +1711,8 @@ SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
   const equal=(a,b)=>canonical(a)===canonical(b);
   const exactKeys=(v,keys)=>object(v)&&equal(Object.keys(v).sort(),[...keys].sort());
   async function normalize(at,dt,config){
-    const allowed=['schema_version','status','object','study_id','research_question','attributes_source','design_source','alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none','design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'];
-    if(!object(config)||Object.keys(config).some(k=>!allowed.includes(k))||allowed.filter(k=>!['language','prohibitions'].includes(k)).some(k=>!Object.hasOwn(config,k)))fail('CBC005','The CBC settings contain unsupported fields.');
+    const allowed=['schema_version','status','object','study_id','research_question','attributes_source','design_source','alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none','design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language','presentation'];
+    if(!object(config)||Object.keys(config).some(k=>!allowed.includes(k))||allowed.filter(k=>!['language','prohibitions','presentation'].includes(k)).some(k=>!Object.hasOwn(config,k)))fail('CBC005','The CBC settings contain unsupported fields.');
     if(config.schema_version!=='0.3-draft.1'||config.object!=='greedyQCBC'||config.status!=='design_only'||config.fielding_approval!==false)fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.');
     const studyId=identifier(config.study_id),language=config.language??'en';
     if(!['en','ko','zh-CN','zh-TW'].includes(language))fail('CBC005','Choose en, ko, zh-CN or zh-TW for preview messages.');
@@ -1587,6 +1759,7 @@ SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
     if(!exactKeys(assignment,['method','unit','weights'])||assignment.method!=='simple'||assignment.unit!=='respondent'||!object(assignment.weights)||!equal(Object.keys(assignment.weights).sort(),[...byBlock.keys()].sort())||Object.values(assignment.weights).some(w=>!positive(w,1000000))||Object.values(assignment.weights).reduce((a,b)=>a+b,0)>1000000)fail('CBC005','Confirm one positive integer weight for each block and simple respondent allocation.');
     for(const b of blocks){b.weight=assignment.weights[b.id];if(b.tasks.length!==size||b.tasks.some(t=>t.alternatives.length!==count))fail('CBC006','Every block/task must match the declared task/alternative counts.');}
     const model={schema_version:'0.3-preview.1',kind:'cbc_preview',study_id:studyId,language,research_question:config.research_question??'',attributes,blocks,alternatives_per_task:count,tasks_per_block:size,task_order:config.task_order,alternative_order:config.alternative_order,none,prohibitions};
+    if(Object.hasOwn(config,'presentation')){const p=config.presentation;if(!exactKeys(p,['type','orientation'])||!['buttons','table'].includes(p.type)||!['horizontal','vertical','responsive'].includes(p.orientation))fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.');model.presentation=p;}
     model.design_sha256=await digest(canonical(model));model.warnings=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.'];return model;
   }
 
@@ -1698,6 +1871,17 @@ SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
   }
   function csv(rows){if(!rows.length)return'';const fields=Object.keys(rows[0]);const q=v=>{let s=String(v??'');if(typeof v==='string'&&/^[\t\r\n]|^\s*[=+\-@]/.test(s))s="'"+s;return'"'+s.replaceAll('"','""')+'"';};return'\ufeff'+[fields,...rows.map(r=>fields.map(k=>r[k]))].map(row=>row.map(q).join(',')).join('\r\n');}
 
+  function presentation(model,mode){
+    const p=model.presentation;
+    if(!p)return{type:'table',rule:'legacy',orientation:mode==='mobile'&&model.alternatives_per_task>2?'vertical':'horizontal'};
+    return{type:p.type,rule:p.orientation,orientation:p.orientation==='responsive'?(mode==='mobile'?'vertical':'horizontal'):p.orientation};
+  }
+  async function withPresentation(model,value){
+    if(value!==null&&(!exactKeys(value,['type','orientation'])||!['table','buttons'].includes(value.type)||!['horizontal','vertical','responsive'].includes(value.orientation)))fail('CBC005','Choose buttons or table and horizontal, vertical or responsive presentation.');
+    const next=structuredClone(model);delete next.design_sha256;delete next.warnings;
+    if(value===null)delete next.presentation;else next.presentation=value;
+    next.design_sha256=await digest(canonical(next));next.warnings=structuredClone(model.warnings);return next;
+  }
   function taskHTML(model,s,mode,t=x=>x,error=false){
     const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);
@@ -1706,7 +1890,25 @@ SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
  if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
  const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
  html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
- if(mode==='mobile'&&alts.length>2){
+ const display=presentation(model,mode);
+ if(model.presentation){
+  html+=`<div class="cbc-comparison-scroll" data-cbc-type="${display.type}" data-cbc-orientation="${display.orientation}">`;
+  const selected=a=>s.answers[task.id]===a.id?'checked':'';
+  if(display.type==='buttons'){
+   html+=`<div class="cbc-profile-options cbc-${display.orientation}" style="--alternatives:${alts.length}">`;
+   for(const[aIndex,a]of alts.entries())html+=`<label class="cbc-profile-button"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${selected(a)} aria-label="${esc(t('Choose'))} ${aIndex+1}"><span class="cbc-profile-face"><span class="cbc-option-title">${esc(t('Option'))} ${aIndex+1}</span>${model.attributes.map(attribute=>`<span class="cbc-feature"><span class="cbc-feature-label">${esc(attribute.label)}</span><span>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</span></span>`).join('')}<span class="cbc-choice-caption">${esc(t('Choose'))} ${aIndex+1}</span></span></label>`;
+   html+='</div>';
+  }else if(display.orientation==='horizontal'){
+   html+=`<table class="cbc-comparison-table" style="--alternatives:${alts.length}"><thead><tr><th scope="col">${esc(t('Attribute'))}</th>${alts.map((a,i)=>`<th scope="col">${esc(t('Option'))} ${i+1}</th>`).join('')}</tr></thead><tbody>`;
+   for(const attribute of model.attributes)html+=`<tr><th scope="row">${esc(attribute.label)}</th>${alts.map(a=>`<td>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</td>`).join('')}</tr>`;
+   html+=`<tr><td></td>${alts.map((a,i)=>`<td>${pick(a,i)}</td>`).join('')}</tr></tbody></table>`;
+  }else{
+   html+='<div class="cbc-profile-tables cbc-vertical">';
+   for(const[aIndex,a]of alts.entries())html+=`<section class="cbc-table-profile"><h3>${esc(t('Option'))} ${aIndex+1}</h3><table><tbody>${model.attributes.map(attribute=>`<tr><th scope="row">${esc(attribute.label)}</th><td>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</td></tr>`).join('')}</tbody></table>${pick(a,aIndex)}</section>`;
+   html+='</div>';
+  }
+  html+='</div>';
+ }else if(mode==='mobile'&&alts.length>2){
    for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
  }else{
    html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
@@ -1753,14 +1955,14 @@ SHA-256: `5b9dd083b5e0cc39c07156b948d268f19d0a1f8de7d280d594d5a1418567859f`
     const ids=[...new Set(cbc.blocks.flatMap(b=>b.tasks.map(t=>t.id)))],pages=[{id:'consent',title:'Participant information and consent',questions:[]},...ids.map(tid=>({id:'cbc:'+tid,title:'Choice task '+tid,questions:[{id:'cbc:'+tid,type:'cbc',label:'Choice task '+tid}]})),...['completed','consent_refused','withdrawn'].map(id=>({id,title:id,questions:[],terminal:id}))];
     return{kind:'cbc_study',schema_version:'0.3-collection.1',study_id:cbc.study_id,study_version:settings.study_version,greedyq_version:release,title:settings.title,organization:settings.organization,language:cbc.language,runtime_policy:policy,consent,approvals,fielding_approved:settings.mode==='production'&&Object.values(approvals).every(x=>x),cbc,pages};
   }
-  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel};
+  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv,taskHTML,storedRows,storedCSV,collectionModel,presentation,withPresentation};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 ```
 
 ### FILE: `templates/browser/cbc-preview.html`
 
-SHA-256: `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6`
+SHA-256: `8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7`
 
 ```html
 <!doctype html>
@@ -1769,6 +1971,39 @@ SHA-256: `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6`
 <title>greedyQ CBC preview</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f3f6f9;color:#172033;font:16px/1.5 system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#235c76;color:white;border:1px solid #235c76;border-radius:8px;padding:10px 16px;min-height:44px}button.secondary{background:white;color:#21465c;border-color:#b4c5cf}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #dd9800;outline-offset:3px}header,.importer{background:white;border-bottom:1px solid #d6e0e7;padding:16px 24px}header h1{font-size:25px;margin:0 0 6px}header p{margin:0}.note{color:#526578}.importer{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.importer label{display:grid;gap:4px;max-width:250px;min-width:0}.importer label>*{min-width:0;width:100%}.importer input{max-width:100%}.wide{flex-basis:100%}#status{margin:12px 24px}#error{margin:12px 24px;border-left:4px solid #ba3327;padding:12px;background:#fff0ed}#error[hidden],#preview[hidden]{display:none}.preview-grid{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;padding:18px 24px;align-items:start}.viewport{min-width:0;border:1px solid #cbd8e2;border-radius:14px;background:white;overflow:hidden}.viewport-title{padding:10px 14px;background:#e6eef3;font-weight:650}.screen{height:680px;overflow:auto}.participant{padding:22px}.desktop .participant{min-width:900px}.mobile{width:390px;max-width:100%;justify-self:center}.participant h2{font-size:23px;line-height:1.3;margin:8px 0 16px}.participant .progress{color:#526578;font-size:14px}.choice-grid{display:grid;grid-template-columns:minmax(130px,.9fr) repeat(var(--alternatives),minmax(130px,1fr));width:100%;border-top:1px solid #becdd7;border-left:1px solid #e0e7eb}.cell{padding:12px;border-bottom:1px solid #e0e7eb;border-right:1px solid #e0e7eb;overflow-wrap:anywhere;min-width:0}.cell.heading{font-weight:650;background:#eff4f7}.choice-pick{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:44px}.choice-pick input{width:20px;height:20px;flex-shrink:0;accent-color:#235c76}.cell:has(input:checked){background:#e0f0f8;box-shadow:inset 0 0 0 2px #235c76}.none-pick{display:flex;align-items:center;gap:8px;border:1px solid #cbd8e2;padding:12px;margin-top:16px;border-radius:8px;min-height:48px;cursor:pointer}.none-pick:has(input:checked){background:#e0f0f8;border-color:#235c76}.none-pick input{width:20px;height:20px}.actions{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #d6e0e7;margin-top:22px;padding-top:16px}.participant fieldset{border:0;margin:0;padding:0;min-width:0}.participant legend{font-size:18px;font-weight:650;margin-bottom:16px}.question-error{color:#9c281f;background:#fff0ed;padding:12px;border-radius:6px}.mobile .participant{padding:16px}.mobile .choice-grid{grid-template-columns:minmax(88px,.8fr) repeat(var(--alternatives),minmax(0,1fr))}.mobile .cell{padding:9px 6px;font-size:14px}.pane-tools{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid #d6e0e7}.pane-tools select{max-width:130px}.pane-tools button{font-size:14px;padding:7px 10px}.structure{display:flex;gap:12px;margin:0 24px 16px;flex-wrap:wrap}dialog{max-width:min(800px,92vw);max-height:85vh;overflow:auto;border:1px solid #bccbd6;border-radius:12px;padding:24px}dialog::backdrop{background:#10202d88}dialog table{border-collapse:collapse;width:100%;margin:12px 0}dialog th,dialog td{border:1px solid #cbd8e2;padding:8px;text-align:left}details{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}.receipt{padding:24px 0}a{color:#235c76}@media(max-width:1050px){.preview-grid{grid-template-columns:minmax(0,1fr)}.mobile{width:390px;max-width:100%}}@media(max-width:430px){header,.importer{padding:14px}.preview-grid{padding:12px;gap:18px}.structure{margin:0 12px 12px}#status,#error{margin:12px}.mobile{width:100%;max-width:390px}}
+
+/* Fixed CBC presentation variants: cards, comparison table and stacked profiles. */
+.cbc-comparison-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding:3px}
+.cbc-profile-options{display:grid;gap:14px;align-items:stretch}
+.cbc-profile-options.cbc-horizontal{grid-template-columns:repeat(var(--alternatives),minmax(190px,1fr))}
+.cbc-profile-options.cbc-vertical{grid-template-columns:minmax(0,1fr)}
+.cbc-profile-button{position:relative;display:flex;min-width:0;cursor:pointer;border:2px solid #bccbd6;border-radius:10px;background:#fff;color:#172033;overflow-wrap:anywhere}
+.cbc-profile-button>input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:1}
+.cbc-profile-face{display:flex;flex:1;min-width:0;flex-direction:column;padding:16px;gap:12px}
+.cbc-option-title{display:block;font-size:19px;font-weight:700}
+.cbc-feature{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;min-width:0}
+.cbc-feature-label{font-weight:650;color:#415266}
+.cbc-choice-caption{display:block;margin-top:auto;padding:10px;background:#e9f0f5;color:#21465c;border-radius:6px;text-align:center;font-weight:650;min-height:44px}
+.cbc-profile-button:has(input:checked){border-color:#235c76;background:#edf7fc;box-shadow:0 0 0 1px #235c76}
+.cbc-profile-button:has(input:checked) .cbc-choice-caption{background:#235c76;color:#fff}
+.cbc-profile-button:has(input:focus-visible){outline:3px solid #dd9800;outline-offset:0}
+.cbc-comparison-table,.cbc-table-profile table{border-collapse:collapse;width:100%;table-layout:fixed;color:#172033}
+.cbc-comparison-table{min-width:calc((var(--alternatives) + 1)*140px)}
+.cbc-comparison-table th,.cbc-comparison-table td,.cbc-table-profile th,.cbc-table-profile td{border:1px solid #cbd8e2;padding:12px;overflow-wrap:anywhere;vertical-align:top;text-align:left}
+.cbc-comparison-table th,.cbc-table-profile th{background:#eff4f7;font-weight:650}
+.cbc-comparison-table .choice-pick{border:0;padding:4px;min-height:44px}
+.cbc-profile-tables{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.cbc-table-profile{border:1px solid #bccbd6;border-radius:8px;overflow:hidden;min-width:0}
+.cbc-table-profile h3{margin:0;padding:12px 14px;background:#e9f0f5}
+.cbc-table-profile .choice-pick{padding:12px 14px;border:0;background:#fff}
+.cbc-table-profile:has(input:checked){border-color:#235c76;box-shadow:0 0 0 1px #235c76}
+.cbc-table-profile:has(input:checked) .choice-pick{background:#e0f0f8}
+.cbc-comparison-scroll[data-cbc-orientation=vertical]{overflow-x:visible}
+.presentation-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.presentation-tools label{display:flex;gap:8px;align-items:center;max-width:100%}
+.presentation-tools select{max-width:100%;min-width:0}
+
+.presentation-tools{min-width:0;max-width:100%;flex-basis:100%}.presentation-tools label{min-width:0;flex-wrap:wrap}.presentation-tools select{width:min(100%,340px)}
 </style></head><body>
 <header><h1 id="page-title">greedyQ CBC preview</h1><p id="preview-note" class="note"></p></header>
 <section class="importer" aria-label="Design files">
@@ -1780,7 +2015,7 @@ SHA-256: `27148b1a8d3b06dcc04c98a9f02512b404abd9879fcbf926bc409b9f8455c4e6`
 <button id="import">Check and preview</button><p id="import-hint" class="wide note"></p>
 </section>
 <p id="status" role="status" aria-live="polite"></p><section id="error" role="alert" hidden><p id="error-summary"></p><details><summary id="diagnostic-label">Details for the AI</summary><pre id="error-detail"></pre></details></section>
-<section id="preview" hidden><div class="structure"><button id="structure" class="secondary">View structure</button><button id="download-model" class="secondary">Download checked design</button><button id="reset" class="secondary">Start both again</button></div><main class="preview-grid">
+<section id="preview" hidden><div class="structure"><div class="presentation-tools"><label><span id="presentation-label">Presentation</span><select id="presentation"><option value="legacy">Existing layout</option><option value="buttons">Buttons</option><option value="table">Table</option></select></label><label><span id="orientation-label">Orientation</span><select id="orientation"><option value="responsive">Computer horizontal / mobile vertical</option><option value="horizontal">Horizontal</option><option value="vertical">Vertical</option></select></label></div><button id="structure" class="secondary">View structure</button><button id="download-model" class="secondary">Download checked design</button><button id="reset" class="secondary">Start both again</button></div><main class="preview-grid">
 <section class="viewport desktop"><div class="viewport-title" id="desktop-title">Computer preview</div><div class="screen"><div id="desktop" class="participant"></div></div><div class="pane-tools" data-mode="desktop"></div></section>
 <section class="viewport mobile"><div class="viewport-title" id="mobile-title">Mobile preview</div><div class="screen"><div id="mobile" class="participant"></div></div><div class="pane-tools" data-mode="mobile"></div></section>
 </main></section>
@@ -1799,9 +2034,16 @@ const dictionary={
  'Details for the AI':['AI에게 보여줄 자세한 내용','供 AI 查看详情','供 AI 查看詳情'], 'View structure':['구조 보기','查看结构','查看結構'],'Download checked design':['확인한 설계 내려받기','下载已检查设计','下載已檢查設計'],'Start both again':['두 화면 새로 시작','重新开始两个窗口','重新開始兩個視窗'],'Computer preview':['컴퓨터 미리보기','电脑预览','電腦預覽'],'Mobile preview':['모바일 미리보기','手机预览','手機預覽'],'Design structure':['설계 구조','设计结构','設計結構'],'Close':['닫기','关闭','關閉'],
  'Next':['다음','下一题','下一題'],'Previous':['이전','上一题','上一題'],'Submit preview':['미리보기 완료','完成预览','完成預覽'],'Which option would you choose?':['어느 대안을 선택하시겠습니까?','您会选择哪一个？','您會選擇哪一個？'],'Choose one option before continuing.':['대안 하나를 선택한 뒤 다음으로 이동해 주세요.','请选择一个选项后继续。','請選擇一個選項後繼續。'],'Option':['대안','选项','選項'],'Choose':['선택','选择','選擇'],'Attribute':['속성','属性','屬性'],'Task':['과제','题目','題目'],'Block':['블록','区组','區組'],'New virtual respondent':['새 가상 응답자','新建虚拟参与者','新增虛擬參與者'],'Download preview CSV':['미리보기 CSV 받기','下载预览 CSV','下載預覽 CSV'],'Withdraw preview':['가상 참여 철회','退出预览','退出預覽'],'Preview complete':['미리보기를 마쳤습니다','预览已完成','預覽已完成'],'Preview withdrawn':['가상 참여를 철회했습니다','预览已退出','預覽已退出'],'The local answers and presentation orders were removed.':['이 가상 응답자의 답변과 표시 순서를 지웠습니다.','已清除此虚拟参与者的回答和显示顺序。','已清除此虛擬參與者的回答與顯示順序。'],'No response was sent outside this browser.':['외부로 전송된 답변은 없습니다.','没有回答发送到浏览器以外。','沒有回答傳送到瀏覽器以外。'],'Checking files…':['파일을 확인하고 있습니다…','正在检查文件…','正在檢查檔案…'],'Your computer and mobile previews are ready.':['컴퓨터·모바일 미리보기가 준비됐습니다.','电脑和手机预览已准备好。','電腦和手機預覽已準備好。'],'Choose design files to start.':['시작할 설계 파일을 선택해 주세요.','请选择设计文件开始。','請選擇設計檔案開始。'],'The file could not be read. Choose valid JSON settings and either XLSX or both CSV files.':['파일을 읽지 못했습니다. 올바른 JSON 설정과 XLSX 하나 또는 CSV 두 개를 선택해 주세요.','无法读取文件，请选择有效 JSON 设置以及一个 XLSX 或两个 CSV。','無法讀取檔案，請選擇有效 JSON 設定及一個 XLSX 或兩個 CSV。'],'Check the table headings and fill the empty template before trying again.':['열 이름을 확인하고 빈 표를 채운 뒤 다시 시도해 주세요.','请检查表头并填写空白模板后重试。','請檢查表頭並填寫空白範本後重試。'],'Some rows are incomplete. Fill every required cell and remove extra cells.':['일부 행이 덜 작성됐습니다. 필요한 칸을 모두 채우고 여분의 칸을 확인해 주세요.','部分行不完整，请填写必填单元格并移除多余内容。','部分列不完整，請填寫必填儲存格並移除多餘內容。'],'Check attribute names and level codes for duplicates or unknown values.':['속성 이름·수준 코드를 확인해 중복이나 알 수 없는 값을 바로잡아 주세요.','请检查属性名称和水平代码是否重复或未知。','請檢查屬性名稱和水準代碼是否重複或未知。'],'The study settings do not match the reviewed table. Ask the AI to explain the difference.':['연구 설정과 표가 맞지 않습니다. AI에게 차이를 설명해 달라고 해 주세요.','研究设置与设计表不符，请让 AI 解释差异。','研究設定與設計表不符，請讓 AI 解釋差異。'],'Check the design combinations, task sizes and duplicate rows.':['설계 조합, 과제별 대안 수와 중복 행을 확인해 주세요.','请检查设计组合、题目大小与重复行。','請檢查設計組合、題目大小與重複列。'],'Use a values-only workbook without formulas, macros or outside links.':['수식·매크로·외부 링크가 없는 값만 저장한 Excel 파일을 사용해 주세요.','请使用只有值且没有公式、宏或外部链接的工作簿。','請使用只有值且沒有公式、巨集或外部連結的活頁簿。'],'Use the Attributes and Design sheets without merged cells.':['Attributes와 Design 시트 이름을 유지하고 병합 칸을 없애 주세요.','请使用 Attributes 和 Design 工作表，不合并单元格。','請使用 Attributes 與 Design 工作表，不合併儲存格。'],'The workbook is unreadable or too large. Try the two CSV files instead.':['Excel 파일을 읽지 못했거나 크기가 너무 큽니다. CSV 두 개로 다시 시도해 주세요.','工作簿无法读取或过大，请改用两个 CSV 文件。','活頁簿無法讀取或過大，請改用兩個 CSV 檔案。']
 };
+Object.assign(dictionary,{
+ 'Presentation':['표시 방식','显示方式','顯示方式'],'Orientation':['배치','方向','方向'],
+ 'Existing layout':['기존 배치','原有布局','原有配置'],'Buttons':['버튼형','按钮式','按鈕式'],'Table':['표형','表格式','表格式'],
+ 'Computer horizontal / mobile vertical':['컴퓨터 가로 / 모바일 세로','电脑横向／手机纵向','電腦橫向／手機縱向'],
+ 'Horizontal':['가로','横向','橫向'],'Vertical':['세로','纵向','縱向']
+});
 let language='en',model=null,config=JSON.parse($('cbc-config').textContent),states={},generation=0;
 const langIndex=()=>({'ko':0,'zh-CN':1,'zh-TW':2})[language],t=s=>dictionary[s]?.[langIndex()]??s;
 function labels(){document.documentElement.lang=language;for(const[id,key]of Object.entries({'page-title':'greedyQ CBC preview','preview-note':'Preview only. Responses stay in this browser; no live collection or statistical-efficiency approval.','language-label':'Interface language','config-label':'Study settings (JSON)','xlsx-label':'Design workbook (XLSX)','attributes-label':'Attributes (CSV)','design-label':'Design (CSV)','import':'Check and preview','import-hint':'Choose settings plus either one workbook or both CSV files. The filled table is reviewed before use.','diagnostic-label':'Details for the AI','structure':'View structure','download-model':'Download checked design','reset':'Start both again','desktop-title':'Computer preview','mobile-title':'Mobile preview','structure-title':'Design structure','close-dialog':'Close'}))$(id).textContent=t(key);}
+function presentationLabels(){for(const[id,word]of [['presentation-label','Presentation'],['orientation-label','Orientation']])$(id).textContent=t(word);for(const option of $('presentation').options)option.textContent=t(({legacy:'Existing layout',buttons:'Buttons',table:'Table'})[option.value]);for(const option of $('orientation').options)option.textContent=t(({responsive:'Computer horizontal / mobile vertical',horizontal:'Horizontal',vertical:'Vertical'})[option.value]);$('presentation').value=model?.presentation?.type??'legacy';$('orientation').value=model?.presentation?.orientation??'responsive';$('orientation').disabled=!model?.presentation;}
 function key(mode){return'greedyq-cbc-preview:'+model.design_sha256+':'+mode;}
 function persist(mode){try{localStorage.setItem(key(mode),JSON.stringify(states[mode]));}catch{}}
 function download(name,text,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
@@ -1817,10 +2059,12 @@ function render(mode,error=false){
 }
 function tools(mode){const toolbar=document.querySelector(`.pane-tools[data-mode=${mode}]`),s=states[mode];toolbar.innerHTML=`<label>${esc(t('Block'))} <select data-block aria-label="${esc(t('Block'))}">${model.blocks.map(b=>`<option value="${esc(b.id)}" ${b.id===s.block_id?'selected':''}>${esc(b.id)}</option>`).join('')}</select></label><button class="secondary" data-new>${esc(t('New virtual respondent'))}</button><button class="secondary" data-csv ${s.withdrawn?'disabled':''}>${esc(t('Download preview CSV'))}</button><button class="secondary" data-withdraw ${s.withdrawn?'disabled':''}>${esc(t('Withdraw preview'))}</button>`;toolbar.querySelector('[data-block]').onchange=e=>start(mode,e.target.value);toolbar.querySelector('[data-new]').onclick=()=>start(mode,toolbar.querySelector('[data-block]').value);toolbar.querySelector('[data-csv]').onclick=()=>download(`cbc-${mode}-test.csv`,C.csv(C.longRows(model,s,`virtual-${mode}`)),'text/csv;charset=utf-8');toolbar.querySelector('[data-withdraw]').onclick=()=>{states[mode]={design_sha256:model.design_sha256,withdrawn:true};persist(mode);render(mode);};}
 function start(mode,block){states[mode]=C.freshSession(model,block);persist(mode);render(mode);$(mode).closest('.screen').scrollTop=0;}
-function show(value){model=value;states={};$('preview').hidden=false;$('error').hidden=true;for(const mode of ['desktop','mobile']){let s;try{s=JSON.parse(localStorage.getItem(key(mode)));}catch{}states[mode]=C.validateSession(model,s)?s:C.freshSession(model);render(mode);}labels();$('status').textContent=t('Your computer and mobile previews are ready.');}
+function show(value){model=value;states={};$('preview').hidden=false;$('error').hidden=true;for(const mode of ['desktop','mobile']){let s;try{s=JSON.parse(localStorage.getItem(key(mode)));}catch{}states[mode]=C.validateSession(model,s)?s:C.freshSession(model);render(mode);}labels();presentationLabels();$('status').textContent=t('Your computer and mobile previews are ready.');}
 function report(error){model=null;states={};$('preview').hidden=true;$('error').hidden=false;$('status').textContent='';const summaries={'CBC001':'The file could not be read. Choose valid JSON settings and either XLSX or both CSV files.','CBC002':'Check the table headings and fill the empty template before trying again.','CBC003':'Some rows are incomplete. Fill every required cell and remove extra cells.','CBC004':'Check attribute names and level codes for duplicates or unknown values.','CBC005':'The study settings do not match the reviewed table. Ask the AI to explain the difference.','CBC006':'Check the design combinations, task sizes and duplicate rows.','CBC010':'The workbook is unreadable or too large. Try the two CSV files instead.','CBC011':'Use a values-only workbook without formulas, macros or outside links.','CBC012':'Use the Attributes and Design sheets without merged cells.'};$('error-summary').textContent=t(summaries[error.code]??summaries.CBC001);$('error-detail').textContent=String(error.code??'CBC001')+': '+error.message;}
 $('import').onclick=async()=>{const attempt=++generation;$('preview').hidden=true;$('error').hidden=true;$('status').textContent=t('Checking files…');try{const cf=$('config-file').files[0],wf=$('workbook-file').files[0],af=$('attributes-file').files[0],df=$('design-file').files[0];if([cf,wf,af,df].some(f=>f&&f.size>16*1024*1024))throw new C.CBCError('CBC001','A selected file is too large.');if(!cf||(!wf&&(!af||!df))||(wf&&(af||df)))throw new C.CBCError('CBC001','Choose settings plus one workbook or two CSV files.');const nextConfig=JSON.parse(await cf.text()),next=await C.importDesign(wf?{config:nextConfig,workbook:await wf.arrayBuffer()}:{config:nextConfig,attributesText:await af.text(),designText:await df.text()});if(attempt!==generation)return;config=nextConfig;show(next);}catch(error){if(attempt===generation)report(error);}};
-$('language').onchange=e=>{language=e.target.value;labels();if(model){for(const mode of ['desktop','mobile'])render(mode);$('status').textContent=t('Your computer and mobile previews are ready.');}};
+$('language').onchange=e=>{language=e.target.value;labels();presentationLabels();if(model){for(const mode of ['desktop','mobile'])render(mode);$('status').textContent=t('Your computer and mobile previews are ready.');}};
+async function changePresentation(){if(!model)return;const type=$('presentation').value,value=type==='legacy'?null:{type,orientation:$('orientation').value};const next=await C.withPresentation(model,value);if(value)config.presentation=value;else delete config.presentation;show(next);}
+$('presentation').onchange=changePresentation;$('orientation').onchange=changePresentation;
 $('reset').onclick=()=>{for(const mode of ['desktop','mobile'])start(mode);};
 $('download-model').onclick=()=>download('cbc-checked-design.json',JSON.stringify(model,null,2),'application/json');
 $('structure').onclick=()=>{const content=$('structure-body');content.replaceChildren();const summary=document.createElement('p');summary.textContent=`${model.attributes.length} ${t('Attribute')} · ${model.blocks.length} ${t('Block')} · ${model.tasks_per_block} ${t('Task')} / ${t('Block')}`;content.append(summary);for(const b of model.blocks){const h=document.createElement('h3');h.textContent=t('Block')+' '+b.id;const ul=document.createElement('ul');for(const task of b.tasks){const li=document.createElement('li');li.textContent=task.id+': '+task.alternatives.map(a=>a.id).join(', ')+(model.none.enabled?', none':'');ul.append(li);}content.append(h,ul);}const diagnostic=document.createElement('details'),heading=document.createElement('summary'),pre=document.createElement('pre');heading.textContent=t('Details for the AI');pre.textContent=JSON.stringify(C.inspectDesign(model),null,2);diagnostic.append(heading,pre);content.append(diagnostic);$('structure-dialog').showModal();};
@@ -2195,10 +2439,14 @@ SHA-256: `3f9c734b0937ad53846b800537c983c4921f0a4608ab2abc7cbf500dac41f264`
 
 ### FILE: `PROLIFIC-SETUP.md`
 
-SHA-256: `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4`
+SHA-256: `e67287d47f28adb0137b6a22d763ebe6adc3a25c5724b2fdf5bd1442faa732e4`
 
 ```markdown
 # Connect a study to Prolific
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./PROLIFIC-SETUP(kor).md)
 
@@ -2740,10 +2988,14 @@ The primary browser-native Prolific route has completed a one-person paid trial 
 
 ### FILE: `EXTERNAL-RETURNS.md`
 
-SHA-256: `a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e`
+SHA-256: `c46b6654801b261b9d081d174a4e99e0cef4e81f2e0ce24c6652346e6ce476af`
 
 ```markdown
 # External return links
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./EXTERNAL-RETURNS(kor).md)
 
@@ -2797,10 +3049,14 @@ def inline(text):
 
 ### FILE: `PREREGISTRATION.md`
 
-SHA-256: `5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948`
+SHA-256: `bf040d7210316d0d4efc69e722c2e220334a998ce0ae3ae0a13cff589bae5e97`
 
 ```markdown
 # Preregistration draft files
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./PREREGISTRATION(kor).md)
 
@@ -2826,10 +3082,14 @@ The MIT license of greedyQ does not determine the license of the researcher's re
 
 ### FILE: `UPGRADING.md`
 
-SHA-256: `11f423a8eff5445a9dd4028f03cc248dba6e5ef06430b5a711dc1e16b150713d`
+SHA-256: `ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e`
 
 ```markdown
 # Resume and upgrade a draft
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./UPGRADING(kor).md)
 
@@ -3125,10 +3385,14 @@ if __name__ == "__main__":
 
 ### FILE: `RANDOMIZATION.md`
 
-SHA-256: `70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15`
+SHA-256: `a11d7fc19b07cbf1d06206a2a0bb36b4d46f3007ccd2d73eebe71fa906cbe117`
 
 ```markdown
 # Random assignment and question order
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./RANDOMIZATION(kor).md)
 
@@ -3274,10 +3538,14 @@ Supabase Marketplace provisioning did not grant management pause/resume permissi
 
 ### FILE: `ARCHIVING.md`
 
-SHA-256: `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7`
+SHA-256: `03dd772785d2ee7a5196445f37f33f3a6eba70a398f866ea2062d4cf71b33951`
 
 ```markdown
 # Finish a survey and archive it
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./ARCHIVING(kor).md)
 
@@ -3321,10 +3589,14 @@ ZIP-to-database restoration is explicitly outside the required product scope. Th
 
 ### FILE: `docs/cloud-lifecycle.md`
 
-SHA-256: `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81`
+SHA-256: `503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0`
 
 ```markdown
 # Cloud setup and archive operator contract
+
+<!-- GREEDYQ_DESKTOP_POLICY -->
+**greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser. [Supported authoring environment](../SUPPORTED-ENVIRONMENTS.md).
+<!-- /GREEDYQ_DESKTOP_POLICY -->
 
 [한국어](./cloud-lifecycle(kor).md)
 
