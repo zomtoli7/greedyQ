@@ -176,4 +176,8 @@ greedyQ는 [MIT License](./LICENSE)로 배포합니다.
 
 간체 중국어 시작 안내·사용자 설명서·AI 가이드를 `(zh-CN).md`로 제공합니다. 모든 개발 문서가 중국어로 번역된 것은 아닙니다.
 
-다음 단계: [v0.3 CBC 명세와 빈 설계표](./drafts/v0.3/cbc/README(kor).md). 현재는 설계 단계이며 실행 환경은 v0.2입니다.
+다음 단계: [v0.3 CBC 명세와 빈 설계표](./drafts/v0.3/cbc/README(kor).md). CSV/XLSX 가져오기·로컬 브라우저 미리보기를 제공합니다. 실제 수집 환경은 v0.2입니다.
+
+## CBC 미리보기와 프로젝트 문의
+
+선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. v0.3 미리보기는 실제 CBC 수집을 지원하지 않습니다. 수집에는 지원 중인 v0.2 Simple/Experiment 흐름을 사용합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.

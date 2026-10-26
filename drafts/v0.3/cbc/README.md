@@ -2,7 +2,7 @@
 
 [한국어](./README(kor).md)
 
-**Status: design only.** v0.2 remains the supported runtime and release line. CBC is the proposed core feature of v0.3; this directory does not enable a new control, live collection, XLSX browser import or a statistical design generator.
+**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. CBC server storage, live fielding and native export remain pending. See [the working instructions](../../../CBC.md).
 
 Start with the [draft specification](./spec.md), [golden research design](./golden-reference/README.md), and [blank table instructions](./templates/README.md).
 
@@ -19,6 +19,8 @@ Never assume AI generation merely because the researcher requested conjoint. If 
 The generic [blank workbook](./templates/cbc-design-template.xlsx) has `Attributes` and `Design` sheets. CSV users receive [attributes-blank.csv](./templates/attributes-blank.csv) and [design-blank.csv](./templates/design-blank.csv). After the attribute inventory is confirmed, the future agent should provide a study-specific Design sheet whose attribute headers match that inventory. Generic `attribute_1` headings are placeholders, not approved study attributes.
 
 ## Delivery sequence
+
+Steps 1–4 are complete for the local preview. Steps 5–6 remain release gates for live CBC.
 
 1. Confirm v0.3 contracts and the golden fixture; review unresolved study choices.
 2. Implement an independently tested Python reference importer and validator.

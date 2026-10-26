@@ -46,3 +46,7 @@ Prepare the preview before asking for an account. Explain early that live deploy
 Use one repository commit or complete downloaded snapshot for a new study, and pin its files and hashes together. Do not mix files fetched from main at different times. For bootstrap-only core verification, use `python3 tools/resolve_guide.py --core-only`; resolve a final profile lock after choosing the study type. Create a new folder with `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language en`. This generates opening and ending pages only, without replacing the researcher’s choice of questionnaire drafting mode.
 
 Preserve the established deployment journey. Prefer an already authorized official Vercel connection after verifying account and target team; use the established supported route if the connection or operation is unavailable. Never require Onboard your agent as an installation gate. If only a team grant is missing, request access to that team and recheck instead of reconnecting the whole account.
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.

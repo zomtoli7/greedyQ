@@ -2,19 +2,25 @@
   "release": "0.2_2026-10-26_b3edd07",
   "source_commit": "b3edd074e7d05c3b462a768c059e6a040cea22dd",
   "prepared_on": "2026-10-26",
-  "status": "published_and_verified",
+  "status": "prepared_pending_homepage_work",
   "html_path": "website/google-sites-embed.html",
   "html_url": "https://raw.githubusercontent.com/zomtoli7/greedyQ/main/website/google-sites-embed.html",
-  "bytes": 712843,
-  "sha256": "e9d0288e62bea2e5fb40f80e02afa2ce6a805a7c2feb37eb044e8e472751cea4",
+  "bytes": 712904,
+  "sha256": "b7c92a0164082484515d4595493d618dcb2d81a201925947c33595f7761b79e6",
   "editor_url": "https://sites.google.com/d/1TWcKQwyFBV90GZbkVsVBUvFlfuOTLvKn/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/edit",
   "public_url": "https://sites.google.com/view/greedyq",
-  "google_sites_publication_verified_by_this_work": true,
+  "google_sites_publication_verified_by_this_work": false,
   "approval_and_payment_evidence": "researcher_confirmation_2026-10-26",
   "independent_payment_receipt_checked": false,
-  "website_revision": "contact-information",
+  "website_revision": "cbc-preview-and-project-contact",
   "verified_on": "2026-10-26",
   "verification_method": "in_app_browser_complete_decoded_data_code_exact_match",
   "published_bytes": 711794,
-  "published_sha256": "c0295255f6a03c8ed417da926011da7d6c0ce918b583df492c5382f5022b7700"
+  "published_sha256": "c0295255f6a03c8ed417da926011da7d6c0ce918b583df492c5382f5022b7700",
+  "previous_publication_record": {
+    "verified_on": "2026-10-26",
+    "verification_method": "in_app_browser_complete_decoded_data_code_exact_match",
+    "published_bytes": 711794,
+    "published_sha256": "c0295255f6a03c8ed417da926011da7d6c0ce918b583df492c5382f5022b7700"
+  }
 }

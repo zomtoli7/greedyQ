@@ -33,6 +33,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
+    for name in ('cbc-validate','cbc-build'):
+        item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
+        item.add_argument('study_dir');item.add_argument('--workbook')
+        if name=='cbc-build':item.add_argument('--output')
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
         if name=="preflight":
@@ -41,6 +45,19 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command in ('cbc-validate','cbc-build'):
+            from .cbc import load_design,import_design,build_preview,inspect_design,MAX_FILE
+            if args.command=='cbc-build':
+                target,model=build_preview(args.study_dir,args.output,args.workbook)
+                print('CBC design checked. Open %s in a browser. Preview only; live CBC collection is not enabled.' % target)
+            else:
+                if args.workbook:
+                    source=Path(args.workbook)
+                    if source.stat().st_size>MAX_FILE:raise ValueError('The workbook is too large.')
+                    config=json.loads((Path(args.study_dir)/'study.design.json').read_text());model=import_design(config,workbook=source.read_bytes())
+                else:model=load_design(args.study_dir)
+                print(json.dumps({'status':'passed','design_sha256':model['design_sha256'],'blocks':len(model['blocks']),'tasks':sum(len(b['tasks']) for b in model['blocks']),'live_collection':False,'inspection':inspect_design(model)}))
+            return 0
         if args.command == "init":
             from .scaffold import initialize
             root=initialize(args.study_dir,args.id,args.profile,args.module,args.title,args.organization,args.language)

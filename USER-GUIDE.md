@@ -435,3 +435,7 @@ A local-only banner means answers stay in the browser. Verify actual storage sep
 ## Ask for an assignment procedure that fits your research
 
 Describe the procedure you want to your AI. For example: “Randomly assign participants to four groups, then show my prepared text list in participation order within each group.” Group assignment is random; the within-group list is sequential. First ask what the existing tools can do and what needs additional implementation. Agree what happens when a list ends or someone stops. A study-specific extension can take extra implementation and testing. Review refresh and simultaneous-participation tests before approving it. See [assignment guidance and prompt examples](./RANDOMIZATION.md).
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.

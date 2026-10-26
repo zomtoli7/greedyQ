@@ -94,3 +94,7 @@ Named QMD vectors always use `"Displayed label" = "stored_value"`. Cross-check s
 Report the current phase, confirmed decisions, unresolved blockers, changed files, validation result, external actions actually verified, approvals still needed, and one recommended next action. Never merge “drafted,” “approved,” “submitted,” “registered,” “embargoed,” “deployed,” or “fielding started.”
 
 Additional binding checkpoints: confirm researcher-written versus AI-assisted questions before drafting, organization and participant language. Deliver preregistration draft files only. Keep the existing Vercel login/Supabase approval journey and prefer an already authorized official connection. Onboard your agent is optional. Resolve a missing team grant through that team’s consent and recheck the same connection.
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](../CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](../CONTACT.md). Individual studies must provide their own research-team contact.

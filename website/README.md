@@ -38,3 +38,8 @@ English, Korean and Chinese Prolific guidance distinguishes the completed one-pe
 The contact-information revision adds About → Project → Contact in all three website languages, with `mailto:greedyq.contact@gmail.com` for bug reports, questions and suggestions. It retains the same release identifier; its distinct website revision and file hash identify this content-only change.
 
 The contact-information revision was also saved and published through the in-app Browser on 2026-10-26. The complete decoded public HTML matched the generated source exactly, with the byte length and SHA-256 recorded above. The public Contact page displayed the invitation and email link. `publication-manifest.json` records `published_and_verified` for this contact revision. Any later file change requires a fresh build, publication and verification.
+
+
+## CBC preview and contact handoff — 26 October 2026
+
+The current source includes a separate local CBC importer/preview; follow `CBC.md`. Do not describe CBC as ready for live collection. The public Contact email `greedyq.contact@gmail.com` was confirmed and kept in all three website language sources. Any newly generated HTML is prepared for the homepage Work; this task does not publish it or replace the historical public-verification hashes.

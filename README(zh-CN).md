@@ -124,4 +124,8 @@ greedyQ 使用 [MIT License](./LICENSE)。
 
 默认保留审阅 → Vercel 登录与所需 Supabase 授权 → 已验证问卷/结果链接。已有官方连接时确认账户与团队后优先复用，没有或操作不可用时采用既有受支持流程。**Onboard your agent 是可选准备，不是必需步骤。** 见[使用指南](./USER-GUIDE(zh-CN).md)和[连接准备说明](./docs/vercel-agent-onboarding(zh-CN).md)。
 
-下一阶段：[v0.3 CBC 规范与空白设计表](./drafts/v0.3/cbc/README.md)，目前仅为规划，正式运行环境仍为 v0.2。
+下一阶段：[v0.3 CBC 规范与空白设计表](./drafts/v0.3/cbc/README.md)，现已提供 CSV/XLSX 导入和本地浏览器预览，正式收集仍使用 v0.2。
+
+## CBC 预览与项目联系
+
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。

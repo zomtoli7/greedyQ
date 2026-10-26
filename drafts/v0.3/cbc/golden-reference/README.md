@@ -2,7 +2,7 @@
 
 [한국어](./README(kor).md)
 
-**Design fixture only; no live study, approved sample or implemented CBC runtime.** This independently authored fictional example tests the future `greedyQCBC` contract. It is not a D-efficient design or a validated instrument.
+**Runnable local preview fixture; no live study or approved sample.** [Download the self-contained preview](./cbc-preview.html) and open it in a modern browser. The independently authored fictional example exercises import and rendering, not statistical efficiency or a validated instrument. See [current instructions](../../../../CBC.md).
 
 ## Scenario
 
@@ -48,4 +48,7 @@ No automatic sample-size or model choice is frozen. A future preregistration dra
 
 ## Next implementation checkpoint
 
-Implement the Python reference import/normalized design schema against this fixture and invalid examples. Then implement the same fixed browser contract and renderer; do not declare this planning package a functioning conjoint survey.
+Python reference import and the matching fixed browser importer/renderer are implemented and tested. The next checkpoint is live storage and results; do not present the local preview as a fieldable conjoint study.
+
+
+The import/rendering checkpoint is now covered by automated Python/browser tests. Next: server persistence, real/test isolation, consent-aware live collection and protected results/export; this preview does not implement those.

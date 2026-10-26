@@ -83,6 +83,7 @@ def stamp(source_commit,date,notes=None):
             file=directory/entry['path']
             if file.is_file():entry['sha256']=hashlib.sha256(file.read_bytes()).hexdigest()
         manifest.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    command('-m','greedyq','cbc-build','drafts/v0.3/cbc/golden-reference')
     command('tools/sync_guide_bundle.py');command('tools/build_website_embed.py')
     print('Stamped '+release+' from '+commit)
 

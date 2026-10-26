@@ -46,3 +46,7 @@
 ## 连接选择
 
 默认仍是 Vercel 登录与必要 Supabase 授权后取得两个已验证链接。现有官方连接优先，缺少时使用既有受支持路径。Onboard your agent 可选，不作普通研究者必经步骤。见[中文连接说明](../docs/vercel-agent-onboarding(zh-CN).md)。
+
+## CBC 预览与项目联系
+
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](../CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](../CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。

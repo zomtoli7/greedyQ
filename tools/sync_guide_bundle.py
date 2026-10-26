@@ -9,6 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
+    ("CONTACT.md", "markdown", False),
+    ("CBC.md", "markdown", False),
+    ("greedyq/cbc.py", "python", False),
+    ("web/greedyq-cbc.js", "javascript", False),
+    ("templates/browser/cbc-preview.html", "html", False),
     ("greedyq/scaffold.py", "python", False),
     ("templates/supabase/001_initial.sql", "sql", False),
     ("templates/vercel/vercel.json", "json", False),

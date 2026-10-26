@@ -18,7 +18,9 @@
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "specification_and_golden_design_only"
+    "status": "import_validation_and_local_browser_preview",
+    "preview_schema": "0.3-preview.1",
+    "live_collection": false
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
@@ -28,5 +30,11 @@
     "collection_closed": true,
     "provider_payment_records_modified": false,
     "provider_backups_or_researcher_owned_copies_verified_erased": false
+  },
+  "project_contact": {
+    "email": "greedyq.contact@gmail.com",
+    "verified_on": "2026-10-26",
+    "source": "https://sites.google.com/view/greedyq",
+    "individual_study_contact": false
   }
 }

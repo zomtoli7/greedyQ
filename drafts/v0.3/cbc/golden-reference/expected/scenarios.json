@@ -1,5 +1,5 @@
 {
-  "status": "acceptance_plan_not_runtime_test",
+  "status": "local_import_and_preview_tested_live_acceptance_pending",
   "scenarios": [
     "both_blocks",
     "task_and_alternative_order_persist_after_refresh",
@@ -13,10 +13,12 @@
     "native_export_reports_unimplemented_cbc"
   ],
   "unimplemented": [
-    "browser_cbc_renderer",
     "live_cbc_storage",
-    "xlsx_browser_import",
     "cbc_design_generator",
     "inference"
+  ],
+  "implemented_test_files": [
+    "tests/test_cbc_import.py",
+    "tests/cbc_browser.cjs"
   ]
 }

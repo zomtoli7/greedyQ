@@ -46,3 +46,7 @@ Repository tool을 사용할 수 있으면 `preview-model.json`을 직접 작성
 새 연구를 시작할 때 저장소의 한 커밋 또는 전체 다운로드를 사용하고 그 안의 파일과 해시를 함께 고정하세요. 서로 다른 시점의 main 파일들을 섞지 마세요. 초기 core 검사만 필요하면 `python3 tools/resolve_guide.py --core-only`를 사용합니다. 연구 유형을 정한 뒤 실제 연구용 lock을 생성하세요. 새 폴더는 `python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language ko`로 만들 수 있습니다. 이 명령은 시작·종료 페이지만 만들며, 문항 작성 방식에 대한 연구자의 선택을 대신하지 않습니다.
 
 기본 배포 여정은 기존 방식으로 유지합니다. 이미 승인된 공식 Vercel 연결은 계정·대상 팀 확인 후 우선 활용하고, 사용할 수 없거나 기능이 부족하면 지원되는 기존 경로로 진행합니다. Onboard your agent를 필수 설치 단계로 요구하지 마세요. 팀 승인만 빠졌다면 계정 전체를 재연결하지 말고 해당 팀 접근 승인 후 재확인하세요.
+
+## CBC 미리보기와 프로젝트 문의
+
+선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](CBC(kor).md)를 참고하세요. v0.3 미리보기는 실제 CBC 수집을 지원하지 않습니다. 수집에는 지원 중인 v0.2 Simple/Experiment 흐름을 사용합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.

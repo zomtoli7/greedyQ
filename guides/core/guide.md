@@ -79,4 +79,8 @@ Keep survey review, Vercel sign-in, required Supabase connection approval, and d
 
 Migration 008 records `terminal_at` when a session first enters completed, screened-out, consent-refused, withdrawn or technical-error state. It preserves an existing end time across retries and never backfills historical ended sessions. CSV `completed_at` comes from this value; keep a legacy blank rather than substituting `updated_at` or the upgrade time. Applying 008 requires no participant-page redeployment. Preserve applied migration hashes and verify existing response rows before and after an upgrade.
 
-CBC is planned for v0.3 in drafts/v0.3/cbc. It is not a supported v0.2 control/profile. The blank CSV/XLSX and golden tables are planning inputs; do not field them, claim a browser importer exists, or bypass the registry with custom runtime code.
+CBC is planned for v0.3 in drafts/v0.3/cbc. It is not a supported v0.2 control/profile. The fixed CBC importer and local preview are available through CBC.md; they do not authorize live fielding or enable CBC in the public profile registry. Do not bypass the registry with custom runtime code.
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](../../CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](../../CONTACT.md). Individual studies must provide their own research-team contact.

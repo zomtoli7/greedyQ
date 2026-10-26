@@ -41,4 +41,4 @@ Send the completed files to the AI and say:
 
 You can also ask the AI to propose a table first. It must still explain its choices and obtain your confirmation. A table that passes file checks is not automatically an efficient or statistically adequate design. Review the design method, sample and analysis separately before collecting data.
 
-The provided files and the [filled reference tables](../golden-reference/design/design.csv) are prepared now. Browser import, CBC display and real collection remain future v0.3 work.
+The provided files and the [filled reference tables](../golden-reference/design/design.csv) are prepared now. CSV/XLSX browser import and local CBC computer/mobile previews now work; follow [CBC preview instructions](../../../../CBC.md). Real collection remains future work.

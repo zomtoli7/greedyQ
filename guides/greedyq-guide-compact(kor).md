@@ -94,3 +94,7 @@ Named QMD vector는 항상 `"Displayed label" = "stored_value"`를 사용합니�
 Current phase, confirmed decision, unresolved blocker, changed file, validation result, 실제 검증된 external action, 남은 approval, 권장 next action 하나를 보고합니다. “drafted”, “approved”, “submitted”, “registered”, “embargoed”, “deployed”, “fielding started”를 하나로 합치지 않습니다.
 
 추가 필수 확인: 문항 작성 전 직접 작성/AI 초안 중 연구자가 선택하며 기관명과 참여자 언어도 확인합니다. 사전등록은 초안 파일만 제공합니다. 기존 Vercel 로그인·Supabase 승인 여정을 유지하고 이미 승인된 공식 연결을 우선 활용합니다. Onboard your agent는 선택 사항입니다. 빠진 팀 승인은 해당 팀 승인 후 같은 연결에서 재확인합니다.
+
+## CBC 미리보기와 프로젝트 문의
+
+선택형 컨조인트 표는 [CBC 가져오기·컴퓨터/모바일 미리보기](../CBC(kor).md)를 참고하세요. v0.3 미리보기는 실제 CBC 수집을 지원하지 않습니다. 수집에는 지원 중인 v0.2 Simple/Experiment 흐름을 사용합니다. 프로젝트 문의·오류 제보: [greedyq.contact@gmail.com](../CONTACT(kor).md). 개별 연구의 문의처는 연구팀이 별도로 제공해야 합니다.

@@ -185,11 +185,16 @@ preview.html
 
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
+| `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
+| `CBC.md` | `fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db` | `no` |
+| `greedyq/cbc.py` | `f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b` | `no` |
+| `web/greedyq-cbc.js` | `befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf` | `no` |
+| `templates/browser/cbc-preview.html` | `13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68` | `no` |
 | `greedyq/scaffold.py` | `f972e099637f358c90edee4870defa03fc1b77dae0d61c35e046997ef2a439ec` | `no` |
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `b2f4f90a55ba47a544c4ef262d6ae93ddde7535258edc2858650c34043c4d21b` | `no` |
+| `release.json` | `9eafdf8b46243f403458c7b8b1406eaa8b0c8672fff23d6ce996cfbba9712cfb` | `no` |
 | `PROLIFIC-SETUP.md` | `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -234,7 +239,7 @@ preview.html
 | `schemas/ai/generation-manifest.schema.json` | `ecd00180d3ed0caf61ce2fa201ef21cdff8a7404efae025d140b2c69252eb51e` | `no` |
 | `schemas/preview-model.schema.json` | `578ae49e321c6524eae6afb3fc4a562c922b2b0ec1493ed54962d56ae8ef0aa3` | `no` |
 | `greedyq/__init__.py` | `7f64ab6785db658e4df984c9239da285e509f4477ae95386507e96cf13cec203` | `no` |
-| `greedyq/__main__.py` | `dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f` | `no` |
+| `greedyq/__main__.py` | `3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6` | `no` |
 | `greedyq/yaml_min.py` | `87f26691adc3c02864bc9ed92b7908977f7257210935b309b6cdf2851ab66b9e` | `no` |
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
 | `greedyq/validator.py` | `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3` | `no` |
@@ -247,6 +252,667 @@ preview.html
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
 | `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
 | `greedyq/deployment.py` | `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524` | `no` |
+
+### FILE: `CONTACT.md`
+
+SHA-256: `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5`
+
+```markdown
+# Contact greedyQ
+
+[한국어](./CONTACT(kor).md) · [简体中文](./CONTACT(zh-CN).md)
+
+For questions, bug reports or suggestions about greedyQ, email **[greedyq.contact@gmail.com](mailto:greedyq.contact@gmail.com)**.
+
+This is the project contact shown on [greedyq.org](https://greedyq.org), under About → Project → Contact, checked on 26 October 2026. It is not automatically the contact for an individual research study. The researcher must supply the research team's own contact and any ethics/withdrawal contact required for that study.
+
+When reporting a problem, include your greedyQ version, what you tried, what you expected and a small fictional example if possible. Remove respondent records, Prolific IDs, passwords and service keys. Sending email is your choice; the AI must not send a message on your behalf without your explicit instruction.
+```
+
+### FILE: `CBC.md`
+
+SHA-256: `fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db`
+
+```markdown
+# Preview a choice-based conjoint design
+
+[한국어](./CBC(kor).md) · [简体中文](./CBC(zh-CN).md)
+
+CBC lets people choose between combinations of features, such as two course subscriptions with different prices and support. **The v0.3 preview can now read a design table, check it, and show working computer and mobile screens. Actual CBC response collection is not enabled yet.** Existing v0.2 surveys remain supported.
+
+## Start with your AI
+
+Say: “I want a choice-based conjoint study. Help me choose attributes and levels, or give me a blank table to fill. Then check the returned table and show both previews.” The AI must first offer AI-assisted design, a blank CSV/Excel table, or an existing design. It must not silently choose the design, fill missing cells or change your methodological decisions.
+
+Use the [blank Excel workbook](./drafts/v0.3/cbc/templates/cbc-design-template.xlsx), or the [two CSV templates](./drafts/v0.3/cbc/templates/README.md). Excel has two sheets named `Attributes` and `Design`; keep the headings on the first row. Replace placeholder attribute headings with your confirmed attribute IDs. Keep codes such as `001` as text. Use only values: formulas, macros, outside links and merged cells are rejected. An empty template needs to be filled before previewing.
+
+## Try the complete example without installing anything
+
+Download [cbc-preview.html](./drafts/v0.3/cbc/golden-reference/cbc-preview.html) using GitHub's download button, then open the saved file in a modern browser. GitHub's source-code view does not run HTML. Everything needed for this example is inside the file; no Python, Node, Vercel or Supabase account is required. A modern Chrome, Edge, Firefox or Safari with Web Crypto and DecompressionStream support is needed for Excel import. If a browser cannot read Excel, use the two CSV files.
+
+The fictional example compares online-course plans: four attributes, two blocks, four tasks per block, two ordinary alternatives plus “neither”. It demonstrates software behavior, not a statistically efficient or approved research design.
+
+For your own table, choose `study.design.json` plus either one XLSX or both CSV files, then press “Check and preview”. Ask the AI to prepare the JSON from your confirmed decisions; you do not need to write it yourself. CSV headings and codes must match the settings exactly. The AI should explain errors before proposing corrections and obtain approval for design changes.
+
+## What you can review
+
+- Computer and mobile panes are independent virtual respondents. The computer layout stays wide even when the preview is opened on a phone; the mobile pane stays at most 390 pixels wide.
+- One block is selected per virtual respondent, using the confirmed positive integer weights. Task and alternative orders are randomized once when enabled and retained through answers, Previous and reload. A new virtual respondent starts again. “Neither” stays last.
+- Mobile compares two alternatives in a compact grid. More than two alternatives use stacked profile cards to avoid sideways scrolling. The layout may affect comparison and must be reviewed by the researcher.
+- Next without a choice shows a message above the task and focuses that task. “Neither” is an explicit choice; an unanswered task is never treated as “neither”.
+- “View structure” shows every block for researcher inspection. Block selectors are preview tools, not participant features.
+- Download each virtual respondent's preview CSV. It includes presented alternatives, displayed positions, selected values, design version/hash and presentation state. Unanswered choices stay blank. None rows have blank feature codes. Only visited tasks appear; this is synthetic browser data, not live research data or a full population dataset.
+- Reload restores this browser's local session when storage is available. Different design hashes use separate sessions. Private browsing, clearing storage or changing files may prevent restoration; this is not a cloud backup.
+- “Withdraw preview” removes that pane's local answers and orders, leaves only a withdrawn marker and disables its CSV. It does not delete an already downloaded file. Start a new virtual respondent to try again.
+
+Structure details include level frequencies, unused levels and within-task overlaps. These are descriptive counts, not statistical approval. Attribute IDs must not reuse export metadata names such as `chosen`, `block_id` or `design_sha256`.
+
+## What still comes later
+
+Consent-aware live CBC persistence, server-side block/presentation allocation, results dashboard integration, protected real/test exports, Prolific fielding and native surveydown CBC export need separate implementation and acceptance testing. `sd_cbc` in the draft QMD is a proposal, not accepted v0.2 syntax. No arbitrary agent-generated scripts should replace these missing functions. No utility estimation, WTP, automatic sample-size advice, adaptive conjoint or D-efficient design generation is claimed.
+
+## Fixed implementation for agents
+
+Use `greedyq/cbc.py` as the Python reference, `web/greedyq-cbc.js` as the platform-neutral browser implementation, and `templates/browser/cbc-preview.html` as the fixed preview template without rewriting them per study. Only confirmed settings and input tables vary. Browser users do not run the Python reference. The browser core has no Node dependency or external library/network download.
+
+For developers/agents with Python:
+
+```sh
+python3 -m greedyq cbc-validate drafts/v0.3/cbc/golden-reference
+python3 -m greedyq cbc-build drafts/v0.3/cbc/golden-reference
+# Optional: read a values-only workbook instead of the two CSV sources.
+python3 -m greedyq cbc-build path/to/study --workbook path/to/design.xlsx
+```
+
+The build emits `cbc-preview.html`. The browser can then check other local CSV/XLSX files directly. The normalized `0.3-preview.1` model is deterministic across Python and JavaScript; SHA-256 covers content and ordering rules, not raw ZIP formatting. Input settings remain `0.3-draft.1` with `fielding_approval=false`; do not mistake this for permission to collect responses. See the [specification](./drafts/v0.3/cbc/spec.md) and [verification record](./docs/cbc-preview-verification-2026-10-26.md).
+
+Questions or bug reports: [greedyQ project contact](./CONTACT.md). Study participant contacts remain the research team's responsibility.
+```
+
+### FILE: `greedyq/cbc.py`
+
+SHA-256: `f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b`
+
+```python
+"""Deterministic CBC CSV/XLSX import and account-free preview reference.
+
+No survey-authored code, workbook formulas, macros or external links are run.
+This module does not register live CBC storage or estimate a choice model.
+"""
+import hashlib
+import io
+import json
+import math
+from pathlib import Path, PurePosixPath
+import re
+import xml.etree.ElementTree as ET
+import zipfile
+import zlib
+
+MAX_FILE = 16 * 1024 * 1024
+MAX_XML = 8 * 1024 * 1024
+MAX_ROWS = 50000
+NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
+      'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
+ATTRIBUTE_HEADERS = ['attribute_id', 'attribute_label', 'level_id', 'level_label']
+CONFIG_KEYS = {'schema_version','status','object','study_id','research_question','attributes_source','design_source',
+               'alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none',
+               'design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'}
+
+
+class CBCError(ValueError):
+    def __init__(self, code, message):
+        self.code = code
+        super().__init__(message)
+
+
+def fail(code, message):
+    raise CBCError(code, message)
+
+
+def canonical(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def digest(value):
+    return hashlib.sha256(value.encode('utf-8')).hexdigest()
+
+
+def parse_csv(text):
+    if not isinstance(text,str) or len(text.encode('utf-8')) > MAX_FILE or '\x00' in text:
+        fail('CBC001','The CSV is too large or contains invalid text.')
+    text=text.removeprefix('\ufeff').replace('\r\n','\n').replace('\r','\n')
+    rows=[]; row=[]; field=''; quoted=False; closed=False; i=0
+    while i<len(text):
+        char=text[i]
+        if quoted:
+            if char=='"':
+                if i+1<len(text) and text[i+1]=='"':field+='"';i+=1
+                else:quoted=False;closed=True
+            else:field+=char
+        elif char in ',\n':
+            row.append(field);field='';closed=False
+            if char=='\n':rows.append(row);row=[]
+        elif char=='"':
+            if field or closed:fail('CBC001','The CSV has an invalid quoted field.')
+            quoted=True
+        else:
+            if closed:fail('CBC001','The CSV has text after a closing quote.')
+            field+=char
+        i+=1
+    if quoted:fail('CBC001','The CSV has an unclosed quoted field.')
+    if field or row or closed:rows.append([*row,field])
+    return clean_table(rows)
+
+
+def clean_table(rows):
+    rows=[row for row in rows if any(cell!='' for cell in row)]
+    if not rows:fail('CBC002','The table is empty. Fill the blank template first.')
+    header=rows[0]
+    if len(header)>64 or any(not x for x in header) or len(set(header))!=len(header):
+        fail('CBC002','Table headings must be nonempty and unique.')
+    if len(rows)>MAX_ROWS+1:fail('CBC002','The table has too many rows.')
+    data=[]
+    for index,row in enumerate(rows[1:],2):
+        if len(row)!=len(header) or any(cell=='' for cell in row):
+            fail('CBC003',f'Row {index} is incomplete or has extra cells.')
+        data.append(dict(zip(header,row)))
+    if not data:fail('CBC002','The table is empty. Fill the blank template first.')
+    return header,data
+
+
+def xml_document(data):
+    try:text=data.decode('utf-8')
+    except UnicodeError:fail('CBC010','The workbook contains invalid XML.')
+    if len(data)>MAX_XML or '<!DOCTYPE' in text.upper() or '<!ENTITY' in text.upper():
+        fail('CBC010','The workbook contains oversized or unsafe XML.')
+    try:return ET.fromstring(text)
+    except ET.ParseError:fail('CBC010','The workbook contains invalid XML.')
+
+
+def read_xlsx(data):
+    if len(data)>MAX_FILE:fail('CBC010','The workbook is too large.')
+    try:
+        with zipfile.ZipFile(io.BytesIO(data)) as archive:
+            infos=archive.infolist();names=[x.filename for x in infos]
+            if len(names)>256 or len(set(names))!=len(names) or sum(x.file_size for x in infos)>32*1024*1024:
+                fail('CBC010','The workbook archive exceeds its safety limits.')
+            for info in infos:
+                parts=PurePosixPath(info.filename).parts
+                if info.flag_bits&1 or info.compress_type not in (0,8) or info.file_size>MAX_XML or '..' in parts or info.filename.startswith('/'):
+                    fail('CBC010','The workbook archive contains an unsafe entry.')
+                if 'vbaproject' in info.filename.lower() or 'externallinks/' in info.filename.lower():
+                    fail('CBC011','Use a values-only workbook without macros or external links.')
+            documents={}
+            for name in names:
+                if name.endswith(('.xml','.rels')):
+                    document=xml_document(archive.read(name));documents[name]=document
+                    if any(node.tag.rsplit('}',1)[-1]=='f' for node in document.iter()) or any(node.attrib.get('TargetMode')=='External' for node in document.iter()):
+                        fail('CBC011','Use a values-only workbook without formulas or external links.')
+                    if name=='[Content_Types].xml' and any('macroenabled' in str(node.attrib).lower() for node in document.iter()):
+                        fail('CBC011','Use a values-only workbook without macros or external links.')
+            book=documents.get('xl/workbook.xml');rels=documents.get('xl/_rels/workbook.xml.rels')
+            if book is None or rels is None:fail('CBC010','The workbook is missing its sheet directory.')
+            sheets=book.findall('s:sheets/s:sheet',NS)
+            if [s.attrib.get('name') for s in sheets]!=['Attributes','Design']:
+                fail('CBC012','The workbook must contain Attributes and Design sheets in that order.')
+            targets={r.attrib.get('Id'):r.attrib.get('Target','') for r in rels}
+            shared=[''.join(node.itertext()) for node in documents.get('xl/sharedStrings.xml',ET.Element('empty')).findall('s:si',NS)]
+            result={}
+            for sheet in sheets:
+                target=targets.get(sheet.attrib.get('{'+NS['r']+'}id'),'')
+                target=target.lstrip('/') if target.startswith('/xl/') else 'xl/'+target
+                if '..' in PurePosixPath(target).parts or not target.startswith('xl/worksheets/') or target not in documents:
+                    fail('CBC010','The workbook has an invalid worksheet path.')
+                document=documents[target]
+                if document.find('s:mergeCells',NS) is not None:fail('CBC012','Do not merge cells in the input sheets.')
+                rows=[]
+                for row in document.findall('s:sheetData/s:row',NS):
+                    cells={}
+                    for cell in row.findall('s:c',NS):
+                        match=re.fullmatch(r'([A-Z]+)[1-9][0-9]*',cell.attrib.get('r',''))
+                        if not match:fail('CBC010','The workbook has an invalid cell address.')
+                        col=0
+                        for char in match[1]:col=col*26+ord(char)-64
+                        if col>64 or col in cells:fail('CBC010','The workbook has duplicate or too many columns.')
+                        value=cell.find('s:v',NS);raw=value.text or '' if value is not None else ''
+                        kind=cell.attrib.get('t','n')
+                        if kind=='s':
+                            if not raw.isdigit() or int(raw)>=len(shared):fail('CBC010','The workbook has an invalid text reference.')
+                            raw=shared[int(raw)]
+                        elif kind=='inlineStr':raw=''.join(cell.find('s:is',NS).itertext()) if cell.find('s:is',NS) is not None else ''
+                        elif kind=='b':raw='TRUE' if raw=='1' else 'FALSE'
+                        elif kind=='e':fail('CBC011','The workbook contains a spreadsheet error.')
+                        elif kind not in ('n','str','d'):fail('CBC010','The workbook has an unsupported cell type.')
+                        cells[col]=raw.replace('\r\n','\n').replace('\r','\n')
+                    nonempty=[col for col,value in cells.items() if value!='']
+                    if nonempty:rows.append([cells.get(col,'') for col in range(1,max(nonempty)+1)])
+                    if len(rows)>MAX_ROWS+1:fail('CBC002','The table has too many rows.')
+                result[sheet.attrib['name']]=clean_table(rows)
+            return result['Attributes'],result['Design']
+    except CBCError:raise
+    except (zipfile.BadZipFile,KeyError,UnicodeError,RuntimeError,EOFError,ValueError,zlib.error):
+        fail('CBC010','The workbook is not a readable XLSX file.')
+
+
+def identifier(value):
+    if not isinstance(value,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,119}',value) or value in ('constructor','prototype','__proto__'):
+        fail('CBC004','Use stable text IDs with letters, digits, dots, hyphens or underscores.')
+    return value
+
+
+def positive(value,maximum):
+    return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value) and value==int(value) and 1<=value<=maximum
+
+
+def normalize(attributes_table,design_table,config):
+    if not isinstance(config,dict) or set(config)-CONFIG_KEYS or CONFIG_KEYS-{'language','prohibitions'}-set(config):fail('CBC005','The CBC settings contain unsupported fields.')
+    if config.get('schema_version')!='0.3-draft.1' or config.get('object')!='greedyQCBC' or config.get('status')!='design_only' or config.get('fielding_approval') is not False:
+        fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.')
+    study_id=identifier(config.get('study_id'))
+    language=config.get('language','en')
+    if language not in ('en','ko','zh-CN','zh-TW'):fail('CBC005','Choose en, ko, zh-CN or zh-TW for preview messages.')
+    if not isinstance(config.get('research_question'),str) or not 1<=len(config['research_question'])<=2000:
+        fail('CBC005','The research question must be a short text label.')
+    count=config.get('alternatives_per_task');size=config.get('tasks_per_block')
+    if not positive(count,10) or count<2 or not positive(size,100):fail('CBC005','Set 2–10 alternatives and 1–100 tasks per block.')
+    count=int(count);size=int(size)
+    ah,ar=attributes_table;dh,dr=design_table
+    if ah!=ATTRIBUTE_HEADERS:fail('CBC002','Attribute headings must be attribute_id, attribute_label, level_id, level_label.')
+    attributes=[];by_attribute={}
+    for row in ar:
+        aid=identifier(row['attribute_id']);lid=identifier(row['level_id'])
+        if aid in ['respondent_id', 'block_id', 'task_id', 'task_position', 'alternative_id', 'display_position', 'is_none', 'chosen', 'design_version', 'design_sha256', 'presentation_state']:fail('CBC004','An attribute ID is reserved for exported response metadata.')
+        if len(row['attribute_label'])>500 or len(row['level_label'])>2000:fail('CBC004','An attribute or level label is too long.')
+        if aid not in by_attribute:
+            attribute={'id':aid,'label':row['attribute_label'],'levels':[]};by_attribute[aid]=attribute;attributes.append(attribute)
+        attribute=by_attribute[aid]
+        if attribute['label']!=row['attribute_label']:fail('CBC004','One attribute has conflicting labels.')
+        if any(level['id']==lid for level in attribute['levels']):fail('CBC004','One attribute has a duplicate level ID.')
+        attribute['levels'].append({'id':lid,'label':row['level_label']})
+    aids=[a['id'] for a in attributes]
+    if not 2<=len(aids)<=50 or any(len(a['levels'])<2 for a in attributes):fail('CBC004','Use 2–50 attributes, each with at least two levels.')
+    if config.get('attribute_ids')!=aids or dh!=['block_id','task_id','alternative_id',*aids]:
+        fail('CBC002','Confirm the attribute IDs and matching Design columns; do not keep placeholder headings.')
+    none=config.get('none')
+    if not isinstance(none,dict) or set(none)!={'enabled','id','label','position'} or not isinstance(none['enabled'],bool) or none['id']!='none' or none['position']!='last' or not isinstance(none['label'],str) or not 1<=len(none['label'])<=500:
+        fail('CBC005','Configure none separately with an enabled flag, label, reserved ID and last position.')
+    if config.get('task_order') not in ('source_order','randomized_once_per_respondent') or config.get('alternative_order') not in ('source_order','randomized_once_per_task'):
+        fail('CBC005','Choose the supported task and alternative order rules.')
+    prohibitions=config.get('prohibitions',[])
+    if not isinstance(prohibitions,list):fail('CBC005','Prohibitions must be a list of attribute-level combinations.')
+    level_sets={a['id']:{x['id'] for x in a['levels']} for a in attributes}
+    for rule in prohibitions:
+        if not isinstance(rule,dict) or not rule or any(k not in level_sets or not isinstance(v,str) or v not in level_sets[k] for k,v in rule.items()):fail('CBC005','A prohibited combination uses an unknown attribute or level.')
+    blocks=[];by_block={};keys=set()
+    for row in dr:
+        bid=identifier(row['block_id']);tid=identifier(row['task_id']);aid=identifier(row['alternative_id']);key=(bid,tid,aid)
+        if key in keys:fail('CBC006','A block/task/alternative key is duplicated.')
+        keys.add(key)
+        if aid=='none':fail('CBC006','Do not add none as an ordinary design row.')
+        levels={key:row[key] for key in aids}
+        if any(value not in level_sets[key] for key,value in levels.items()):fail('CBC006','A design cell contains an unknown level code.')
+        if any(all(levels[k]==v for k,v in rule.items()) for rule in prohibitions):fail('CBC006','A design row contains a prohibited combination.')
+        if bid not in by_block:by_block[bid]={'id':bid,'tasks':[]};blocks.append(by_block[bid])
+        block=by_block[bid];task=next((t for t in block['tasks'] if t['id']==tid),None)
+        if task is None:task={'id':tid,'alternatives':[]};block['tasks'].append(task)
+        if any(a['levels']==levels for a in task['alternatives']):fail('CBC006','A task contains identical ordinary profiles.')
+        task['alternatives'].append({'id':aid,'levels':levels})
+    assignment=config.get('block_assignment')
+    if not isinstance(assignment,dict) or set(assignment)!={'method','unit','weights'} or assignment['method']!='simple' or assignment['unit']!='respondent' or not isinstance(assignment['weights'],dict) or set(assignment['weights'])!=set(by_block) or any(not positive(w,1000000) for w in assignment['weights'].values()) or sum(assignment['weights'].values())>1000000:
+        fail('CBC005','Confirm one positive integer weight for each block and simple respondent allocation.')
+    for block in blocks:
+        block['weight']=int(assignment['weights'][block['id']])
+        if len(block['tasks'])!=size or any(len(t['alternatives'])!=count for t in block['tasks']):fail('CBC006','Every block/task must match the declared task/alternative counts.')
+    model={'schema_version':'0.3-preview.1','kind':'cbc_preview','study_id':study_id,'language':language,
+           'research_question':config.get('research_question',''),'attributes':attributes,'blocks':blocks,
+           'alternatives_per_task':count,'tasks_per_block':size,'task_order':config['task_order'],
+           'alternative_order':config['alternative_order'],'none':none,'prohibitions':prohibitions}
+    model['design_sha256']=digest(canonical(model))
+    model['warnings']=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.']
+    return model
+
+
+def import_design(config,attributes_text=None,design_text=None,workbook=None):
+    if workbook is not None:
+        if attributes_text is not None or design_text is not None:fail('CBC001','Choose either a workbook or the two CSV files.')
+        at,dt=read_xlsx(workbook)
+    else:at,dt=parse_csv(attributes_text),parse_csv(design_text)
+    return normalize(at,dt,config)
+
+
+def inspect_design(model):
+    """Descriptive counts only; never an efficiency or identifiability test."""
+    tasks=[t for b in model['blocks'] for t in b['tasks']]
+    profiles=[a for t in tasks for a in t['alternatives']]
+    return {'blocks':len(model['blocks']),'tasks':len(tasks),'profiles':len(profiles),
+            'level_frequencies':{a['id']:{l['id']:sum(p['levels'][a['id']]==l['id'] for p in profiles) for l in a['levels']} for a in model['attributes']},
+            'within_task_overlap':{a['id']:sum(len({p['levels'][a['id']] for p in t['alternatives']})<len(t['alternatives']) for t in tasks) for a in model['attributes']},
+            'unused_levels':[{ 'attribute_id':a['id'],'level_id':l['id']} for a in model['attributes'] for l in a['levels'] if not any(p['levels'][a['id']]==l['id'] for p in profiles)],
+            'statistical_efficiency_established':False}
+
+
+def load_design(directory):
+    root=Path(directory).resolve()
+    config=json.loads((root/'study.design.json').read_text())
+    def source(name):
+        value=config.get(name,'');p=(root/value).resolve()
+        if not p.is_relative_to(root) or not p.is_file():fail('CBC001','A design source must be a file within the study folder.')
+        if p.stat().st_size>MAX_FILE:fail('CBC001','A design source is too large.')
+        return p.read_bytes().decode('utf-8-sig')
+    return import_design(config,source('attributes_source'),source('design_source'))
+
+
+def build_preview(directory,output=None,workbook=None):
+    root=Path(directory).resolve()
+    config=json.loads((root/'study.design.json').read_text())
+    if workbook is not None:
+        source=Path(workbook)
+        if source.stat().st_size>MAX_FILE:fail('CBC010','The workbook is too large.')
+        model=import_design(config,workbook=source.read_bytes())
+    else:model=load_design(root)
+    repo=Path(__file__).resolve().parents[1]
+    template=(repo/'templates/browser/cbc-preview.html').read_text()
+    def payload(value):return json.dumps(value,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
+    for key,value in [('__CBC_LIBRARY__',(repo/'web/greedyq-cbc.js').read_text()),('__CBC_MODEL__',payload(model)),('__CBC_CONFIG__',payload(config))]:
+        if template.count(key)!=1:raise ValueError('The fixed CBC preview template has an invalid marker.')
+        template=template.replace(key,value)
+    target=Path(output).resolve() if output else root/'cbc-preview.html'
+    target.parent.mkdir(parents=True,exist_ok=True)
+    target.write_text(template)
+    return target,model
+```
+
+### FILE: `web/greedyq-cbc.js`
+
+SHA-256: `befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf`
+
+```javascript
+/* Fixed browser-native CBC import/validation and local preview helpers. */
+(function(scope){
+  'use strict';
+  const MAX_FILE=16*1024*1024,MAX_XML=8*1024*1024,MAX_ROWS=50000;
+  class CBCError extends Error{constructor(code,message){super(message);this.name='CBCError';this.code=code;}}
+  const fail=(code,message)=>{throw new CBCError(code,message);};
+  const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+  const canonical=v=>JSON.stringify(sort(v));
+  function sort(v){return Array.isArray(v)?v.map(sort):object(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,sort(v[k])])):v;}
+  const digest=async text=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(x=>x.toString(16).padStart(2,'0')).join('');
+  function cleanTable(rows){
+    rows=rows.filter(row=>row.some(v=>v!==''));
+    if(!rows.length)fail('CBC002','The table is empty. Fill the blank template first.');
+    const header=rows[0];
+    if(header.length>64||header.some(x=>!x)||new Set(header).size!==header.length)fail('CBC002','Table headings must be nonempty and unique.');
+    if(rows.length>MAX_ROWS+1)fail('CBC002','The table has too many rows.');
+    const data=rows.slice(1).map((row,index)=>{if(row.length!==header.length||row.some(x=>x===''))fail('CBC003',`Row ${index+2} is incomplete or has extra cells.`);return Object.fromEntries(header.map((key,i)=>[key,row[i]]));});
+    if(!data.length)fail('CBC002','The table is empty. Fill the blank template first.');
+    return[header,data];
+  }
+  function parseCSV(text){
+    if(typeof text!=='string'||new TextEncoder().encode(text).length>MAX_FILE||text.includes('\0'))fail('CBC001','The CSV is too large or contains invalid text.');
+    text=text.replace(/^\uFEFF/,'').replaceAll('\r\n','\n').replaceAll('\r','\n');
+    const rows=[];let row=[],field='',quoted=false,closed=false;
+    for(let i=0;i<text.length;i++){
+      const char=text[i];
+      if(quoted){if(char==='"'){if(text[i+1]==='"'){field+='"';i++;}else{quoted=false;closed=true;}}else field+=char;}
+      else if(char===','||char==='\n'){row.push(field);field='';closed=false;if(char==='\n'){rows.push(row);row=[];}}
+      else if(char==='"'){if(field||closed)fail('CBC001','The CSV has an invalid quoted field.');quoted=true;}
+      else{if(closed)fail('CBC001','The CSV has text after a closing quote.');field+=char;}
+    }
+    if(quoted)fail('CBC001','The CSV has an unclosed quoted field.');
+    if(field||row.length||closed)rows.push([...row,field]);
+    return cleanTable(rows);
+  }
+  const identifier=value=>{if(typeof value!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$/.test(value)||['constructor','prototype','__proto__'].includes(value))fail('CBC004','Use stable text IDs with letters, digits, dots, hyphens or underscores.');return value;};
+  const positive=(value,max)=>Number.isInteger(value)&&value>=1&&value<=max;
+  const equal=(a,b)=>canonical(a)===canonical(b);
+  const exactKeys=(v,keys)=>object(v)&&equal(Object.keys(v).sort(),[...keys].sort());
+  async function normalize(at,dt,config){
+    const allowed=['schema_version','status','object','study_id','research_question','attributes_source','design_source','alternatives_per_task','tasks_per_block','block_assignment','task_order','alternative_order','none','design_origin','statistical_efficiency','fielding_approval','proposed_estimator','attribute_ids','prohibitions','language'];
+    if(!object(config)||Object.keys(config).some(k=>!allowed.includes(k))||allowed.filter(k=>!['language','prohibitions'].includes(k)).some(k=>!Object.hasOwn(config,k)))fail('CBC005','The CBC settings contain unsupported fields.');
+    if(config.schema_version!=='0.3-draft.1'||config.object!=='greedyQCBC'||config.status!=='design_only'||config.fielding_approval!==false)fail('CBC005','Use the CBC preview settings; this importer does not authorize fielding.');
+    const studyId=identifier(config.study_id),language=config.language??'en';
+    if(!['en','ko','zh-CN','zh-TW'].includes(language))fail('CBC005','Choose en, ko, zh-CN or zh-TW for preview messages.');
+    if(typeof config.research_question!=='string'||[...config.research_question].length<1||[...config.research_question].length>2000)fail('CBC005','The research question must be a short text label.');
+    const count=config.alternatives_per_task,size=config.tasks_per_block;
+    if(!positive(count,10)||count<2||!positive(size,100))fail('CBC005','Set 2–10 alternatives and 1–100 tasks per block.');
+    const[ah,ar]=at,[dh,dr]=dt;
+    if(!equal(ah,['attribute_id','attribute_label','level_id','level_label']))fail('CBC002','Attribute headings must be attribute_id, attribute_label, level_id, level_label.');
+    const attributes=[],byAttribute=new Map();
+    for(const row of ar){
+      const aid=identifier(row.attribute_id),lid=identifier(row.level_id);
+      if(["respondent_id", "block_id", "task_id", "task_position", "alternative_id", "display_position", "is_none", "chosen", "design_version", "design_sha256", "presentation_state"].includes(aid))fail('CBC004','An attribute ID is reserved for exported response metadata.');
+      if([...row.attribute_label].length>500||[...row.level_label].length>2000)fail('CBC004','An attribute or level label is too long.');
+      if(!byAttribute.has(aid)){const a={id:aid,label:row.attribute_label,levels:[]};byAttribute.set(aid,a);attributes.push(a);}
+      const a=byAttribute.get(aid);
+      if(a.label!==row.attribute_label)fail('CBC004','One attribute has conflicting labels.');
+      if(a.levels.some(x=>x.id===lid))fail('CBC004','One attribute has a duplicate level ID.');
+      a.levels.push({id:lid,label:row.level_label});
+    }
+    const aids=attributes.map(a=>a.id);
+    if(aids.length<2||aids.length>50||attributes.some(a=>a.levels.length<2))fail('CBC004','Use 2–50 attributes, each with at least two levels.');
+    if(!equal(config.attribute_ids,aids)||!equal(dh,['block_id','task_id','alternative_id',...aids]))fail('CBC002','Confirm the attribute IDs and matching Design columns; do not keep placeholder headings.');
+    const none=config.none;
+    if(!exactKeys(none,['enabled','id','label','position'])||typeof none.enabled!=='boolean'||none.id!=='none'||none.position!=='last'||typeof none.label!=='string'||[...none.label].length<1||[...none.label].length>500)fail('CBC005','Configure none separately with an enabled flag, label, reserved ID and last position.');
+    if(!['source_order','randomized_once_per_respondent'].includes(config.task_order)||!['source_order','randomized_once_per_task'].includes(config.alternative_order))fail('CBC005','Choose the supported task and alternative order rules.');
+    const prohibitions=config.prohibitions??[],levelSets=new Map(attributes.map(a=>[a.id,new Set(a.levels.map(x=>x.id))]));
+    if(!Array.isArray(prohibitions))fail('CBC005','Prohibitions must be a list of attribute-level combinations.');
+    for(const rule of prohibitions)if(!object(rule)||!Object.keys(rule).length||Object.entries(rule).some(([k,v])=>!levelSets.has(k)||!levelSets.get(k).has(v)))fail('CBC005','A prohibited combination uses an unknown attribute or level.');
+    const blocks=[],byBlock=new Map(),keys=new Set();
+    for(const row of dr){
+      const bid=identifier(row.block_id),tid=identifier(row.task_id),aid=identifier(row.alternative_id),key=JSON.stringify([bid,tid,aid]);
+      if(keys.has(key))fail('CBC006','A block/task/alternative key is duplicated.');keys.add(key);
+      if(aid==='none')fail('CBC006','Do not add none as an ordinary design row.');
+      const levels=Object.fromEntries(aids.map(k=>[k,row[k]]));
+      if(Object.entries(levels).some(([k,v])=>!levelSets.get(k).has(v)))fail('CBC006','A design cell contains an unknown level code.');
+      if(prohibitions.some(rule=>Object.entries(rule).every(([k,v])=>levels[k]===v)))fail('CBC006','A design row contains a prohibited combination.');
+      if(!byBlock.has(bid)){const b={id:bid,tasks:[]};byBlock.set(bid,b);blocks.push(b);}
+      const block=byBlock.get(bid);let task=block.tasks.find(t=>t.id===tid);
+      if(!task){task={id:tid,alternatives:[]};block.tasks.push(task);}
+      if(task.alternatives.some(a=>equal(a.levels,levels)))fail('CBC006','A task contains identical ordinary profiles.');
+      task.alternatives.push({id:aid,levels});
+    }
+    const assignment=config.block_assignment;
+    if(!exactKeys(assignment,['method','unit','weights'])||assignment.method!=='simple'||assignment.unit!=='respondent'||!object(assignment.weights)||!equal(Object.keys(assignment.weights).sort(),[...byBlock.keys()].sort())||Object.values(assignment.weights).some(w=>!positive(w,1000000))||Object.values(assignment.weights).reduce((a,b)=>a+b,0)>1000000)fail('CBC005','Confirm one positive integer weight for each block and simple respondent allocation.');
+    for(const b of blocks){b.weight=assignment.weights[b.id];if(b.tasks.length!==size||b.tasks.some(t=>t.alternatives.length!==count))fail('CBC006','Every block/task must match the declared task/alternative counts.');}
+    const model={schema_version:'0.3-preview.1',kind:'cbc_preview',study_id:studyId,language,research_question:config.research_question??'',attributes,blocks,alternatives_per_task:count,tasks_per_block:size,task_order:config.task_order,alternative_order:config.alternative_order,none,prohibitions};
+    model.design_sha256=await digest(canonical(model));model.warnings=['Preview only: no live response storage or fielding approval.','File validation does not establish statistical design efficiency.'];return model;
+  }
+
+  const decoder=new TextDecoder('utf-8',{fatal:true});
+  const crcTable=Uint32Array.from({length:256},(_,n)=>{for(let k=0;k<8;k++)n=n&1?0xedb88320^(n>>>1):n>>>1;return n>>>0;});
+  function crc32(bytes){let n=0xffffffff;for(const b of bytes)n=crcTable[(n^b)&255]^(n>>>8);return(n^0xffffffff)>>>0;}
+  async function zipEntries(input){
+    const bytes=input instanceof Uint8Array?input:new Uint8Array(input);
+    if(bytes.length>MAX_FILE||bytes.length<22)fail('CBC010','The workbook is too large or not a readable XLSX file.');
+    const d=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength),u16=i=>d.getUint16(i,true),u32=i=>d.getUint32(i,true);let end=-1;
+    for(let i=bytes.length-22;i>=Math.max(0,bytes.length-65557);i--)if(u32(i)===0x06054b50&&i+22+u16(i+20)===bytes.length){end=i;break;}
+    if(end<0||u16(end+4)||u16(end+6)||u16(end+8)!==u16(end+10)||u16(end+10)>256)fail('CBC010','The workbook archive exceeds its safety limits.');
+    let pos=u32(end+16),total=0;const entries=new Map();
+    for(let index=0;index<u16(end+10);index++){
+      if(pos+46>end||u32(pos)!==0x02014b50)fail('CBC010','The workbook archive directory is invalid.');
+      const flags=u16(pos+8),method=u16(pos+10),crc=u32(pos+16),compressed=u32(pos+20),size=u32(pos+24),len=u16(pos+28),extra=u16(pos+30),comment=u16(pos+32),offset=u32(pos+42);
+      if(pos+46+len+extra+comment>end)fail('CBC010','The workbook archive directory is invalid.');
+      let name;try{name=decoder.decode(bytes.slice(pos+46,pos+46+len));}catch{fail('CBC010','The workbook archive contains an unsafe entry.');}
+      total+=size;
+      if(entries.has(name)||flags&1||![0,8].includes(method)||size>MAX_XML||total>32*1024*1024||name.startsWith('/')||name.split('/').includes('..'))fail('CBC010','The workbook archive contains an unsafe entry.');
+      if(/vbaproject|externallinks\//i.test(name))fail('CBC011','Use a values-only workbook without macros or external links.');
+      if(offset+30>bytes.length||u32(offset)!==0x04034b50)fail('CBC010','The workbook archive data is invalid.');
+      const start=offset+30+u16(offset+26)+u16(offset+28);if(start+compressed>pos)fail('CBC010','The workbook archive data is invalid.');
+      let content=bytes.slice(start,start+compressed);
+      if(method===8){
+        try{
+          const stream=new Blob([content]).stream().pipeThrough(new DecompressionStream('deflate-raw')).getReader(),chunks=[];let count=0;
+          while(true){const item=await stream.read();if(item.done)break;count+=item.value.length;if(count>size||count>MAX_XML){await stream.cancel();fail('CBC010','The workbook archive exceeds its safety limits.');}chunks.push(item.value);}
+          content=new Uint8Array(count);let at=0;for(const c of chunks){content.set(c,at);at+=c.length;}
+        }catch(error){if(error instanceof CBCError)throw error;fail('CBC010','This browser could not decompress the workbook. Use the CSV files instead.');}
+      }
+      if(content.length!==size||crc32(content)!==crc)fail('CBC010','The workbook archive checksum is invalid.');
+      entries.set(name,content);pos+=46+len+extra+comment;
+    }
+    return entries;
+  }
+  const children=(node,name)=>Array.from(node?.children??[]).filter(x=>x.localName===name);
+  const descendants=(node,name)=>Array.from(node?.getElementsByTagName('*')??[]).filter(x=>x.localName===name);
+  async function readXLSX(input){
+    const entries=await zipEntries(input),docs=new Map();
+    for(const[name,bytes]of entries)if(/\.(xml|rels)$/.test(name)){
+      let text;try{text=decoder.decode(bytes);}catch{fail('CBC010','The workbook contains invalid XML.');}
+      if(/<!DOCTYPE|<!ENTITY/i.test(text))fail('CBC010','The workbook contains oversized or unsafe XML.');
+      const doc=new DOMParser().parseFromString(text,'application/xml');if(doc.querySelector('parsererror'))fail('CBC010','The workbook contains invalid XML.');
+      if(descendants(doc,'f').length||descendants(doc,'Relationship').some(x=>x.getAttribute('TargetMode')==='External'))fail('CBC011','Use a values-only workbook without formulas or external links.');
+      if(name==='[Content_Types].xml'&&descendants(doc,'Override').some(x=>/macroenabled/i.test(x.getAttribute('ContentType')??'')))fail('CBC011','Use a values-only workbook without macros or external links.');
+      docs.set(name,doc);
+    }
+    const book=docs.get('xl/workbook.xml'),rels=docs.get('xl/_rels/workbook.xml.rels');
+    if(!book||!rels)fail('CBC010','The workbook is missing its sheet directory.');
+    const sheets=descendants(book,'sheet');if(!equal(sheets.map(x=>x.getAttribute('name')),['Attributes','Design']))fail('CBC012','The workbook must contain Attributes and Design sheets in that order.');
+    const targets=new Map(descendants(rels,'Relationship').map(x=>[x.getAttribute('Id'),x.getAttribute('Target')])),shared=descendants(docs.get('xl/sharedStrings.xml'),'si').map(x=>x.textContent),result=[];
+    for(const sheet of sheets){
+      let target=targets.get(sheet.getAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships','id'))??'';
+      target=target.startsWith('/xl/')?target.slice(1):'xl/'+target;
+      if(target.split('/').includes('..')||!target.startsWith('xl/worksheets/')||!docs.has(target))fail('CBC010','The workbook has an invalid worksheet path.');
+      const doc=docs.get(target);if(descendants(doc,'mergeCells').length)fail('CBC012','Do not merge cells in the input sheets.');
+      const rows=[];
+      for(const row of descendants(doc,'row')){
+        const cells=new Map();for(const cell of children(row,'c')){
+          const match=/^([A-Z]+)[1-9][0-9]*$/.exec(cell.getAttribute('r')??'');if(!match)fail('CBC010','The workbook has an invalid cell address.');
+          let col=0;for(const char of match[1])col=col*26+char.charCodeAt(0)-64;
+          if(col>64||cells.has(col))fail('CBC010','The workbook has duplicate or too many columns.');
+          let raw=children(cell,'v')[0]?.textContent??'';const kind=cell.getAttribute('t')??'n';
+          if(kind==='s'){if(!/^\d+$/.test(raw)||Number(raw)>=shared.length)fail('CBC010','The workbook has an invalid text reference.');raw=shared[Number(raw)];}
+          else if(kind==='inlineStr')raw=children(cell,'is')[0]?.textContent??'';
+          else if(kind==='b')raw=raw==='1'?'TRUE':'FALSE';
+          else if(kind==='e')fail('CBC011','The workbook contains a spreadsheet error.');
+          else if(!['n','str','d'].includes(kind))fail('CBC010','The workbook has an unsupported cell type.');
+          cells.set(col,raw.replaceAll('\r\n','\n').replaceAll('\r','\n'));
+        }
+        const nonempty=[...cells].filter(([,v])=>v!=='').map(([k])=>k);if(nonempty.length)rows.push(Array.from({length:Math.max(...nonempty)},(_,i)=>cells.get(i+1)??''));
+        if(rows.length>MAX_ROWS+1)fail('CBC002','The table has too many rows.');
+      }result.push(cleanTable(rows));
+    }return result;
+  }
+  async function importDesign({config,attributesText,designText,workbook}){
+    if(workbook!==undefined&&workbook!==null){if(attributesText!==undefined||designText!==undefined)fail('CBC001','Choose either a workbook or the two CSV files.');const[a,d]=await readXLSX(workbook);return normalize(a,d,config);}
+    return normalize(parseCSV(attributesText),parseCSV(designText),config);
+  }
+  function randomInt(n){if(!Number.isInteger(n)||n<1||n>0x100000000)throw Error('Invalid random bound');const cap=Math.floor(0x100000000/n)*n;let x;do{x=crypto.getRandomValues(new Uint32Array(1))[0];}while(x>=cap);return x%n;}
+  function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=randomInt(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+  function freshSession(model,forcedBlock){
+    let block=model.blocks.find(b=>b.id===forcedBlock);
+    if(forcedBlock&&!block)throw Error('Unknown preview block');
+    if(!block){let draw=randomInt(model.blocks.reduce((n,b)=>n+b.weight,0));block=model.blocks.find(b=>(draw-=b.weight)<0);}
+    return{design_sha256:model.design_sha256,block_id:block.id,task_order:(model.task_order==='source_order'?block.tasks:shuffle(block.tasks)).map(t=>t.id),alternative_orders:Object.fromEntries(block.tasks.map(t=>[t.id,(model.alternative_order==='source_order'?t.alternatives:shuffle(t.alternatives)).map(a=>a.id)])),answers:{},visited:[],index:0,completed:false,withdrawn:false};
+  }
+  function validateSession(model,state){
+    if(!object(state)||state.design_sha256!==model.design_sha256)return false;
+    if(state.withdrawn===true)return exactKeys(state,['design_sha256','withdrawn']);
+    const block=model.blocks.find(b=>b.id===state.block_id);if(!block||!Array.isArray(state.task_order)||!equal([...state.task_order].sort(),block.tasks.map(t=>t.id).sort())||!Number.isInteger(state.index)||state.index<0||state.index>=block.tasks.length||!object(state.answers)||!object(state.alternative_orders)||!Array.isArray(state.visited)||state.visited.some(id=>!state.task_order.includes(id))||new Set(state.visited).size!==state.visited.length||!equal(Object.keys(state.alternative_orders).sort(),block.tasks.map(t=>t.id).sort()))return false;
+    for(const t of block.tasks){if(!Array.isArray(state.alternative_orders[t.id])||!equal([...state.alternative_orders[t.id]].sort(),t.alternatives.map(a=>a.id).sort()))return false;if(Object.hasOwn(state.answers,t.id)&&!t.alternatives.some(a=>a.id===state.answers[t.id])&&!(model.none.enabled&&state.answers[t.id]==='none'))return false;}
+    return Object.keys(state.answers).every(k=>state.task_order.includes(k))&&typeof state.completed==='boolean'&&typeof state.withdrawn==='boolean'&&(!state.completed||state.task_order.every(k=>Object.hasOwn(state.answers,k)));
+  }
+  function longRows(model,state,respondent='virtual'){
+    if(!validateSession(model,state))throw Error('Invalid preview session');if(state.withdrawn)return[];
+    const block=model.blocks.find(b=>b.id===state.block_id),rows=[];
+    for(const tid of state.task_order){if(!state.visited.includes(tid))continue;const task=block.tasks.find(t=>t.id===tid),order=[...state.alternative_orders[tid],...(model.none.enabled?['none']:[])];
+      order.forEach((aid,i)=>{const a=task.alternatives.find(a=>a.id===aid);rows.push({respondent_id:respondent,block_id:block.id,task_id:tid,task_position:state.task_order.indexOf(tid)+1,alternative_id:aid,display_position:i+1,is_none:aid==='none',chosen:Object.hasOwn(state.answers,tid)?Number(state.answers[tid]===aid):null,...Object.fromEntries(model.attributes.map(x=>[x.id,a?.levels[x.id]??''])),design_version:model.schema_version,design_sha256:model.design_sha256,presentation_state:Object.hasOwn(state.answers,tid)?'answered':'presented'});});
+    }return rows;
+  }
+  function inspectDesign(model){
+    const tasks=model.blocks.flatMap(b=>b.tasks),profiles=tasks.flatMap(t=>t.alternatives);
+    return{blocks:model.blocks.length,tasks:tasks.length,profiles:profiles.length,
+      level_frequencies:Object.fromEntries(model.attributes.map(a=>[a.id,Object.fromEntries(a.levels.map(l=>[l.id,profiles.filter(p=>p.levels[a.id]===l.id).length]))])),
+      within_task_overlap:Object.fromEntries(model.attributes.map(a=>[a.id,tasks.filter(t=>new Set(t.alternatives.map(p=>p.levels[a.id])).size<t.alternatives.length).length])),
+      unused_levels:model.attributes.flatMap(a=>a.levels.filter(l=>!profiles.some(p=>p.levels[a.id]===l.id)).map(l=>({attribute_id:a.id,level_id:l.id}))),statistical_efficiency_established:false};
+  }
+  function csv(rows){if(!rows.length)return'';const fields=Object.keys(rows[0]);const q=v=>{let s=String(v??'');if(typeof v==='string'&&/^[\t\r\n]|^\s*[=+\-@]/.test(s))s="'"+s;return'"'+s.replaceAll('"','""')+'"';};return'\ufeff'+[fields,...rows.map(r=>fields.map(k=>r[k]))].map(row=>row.map(q).join(',')).join('\r\n');}
+  const api={CBCError,canonical,digest,parseCSV,readXLSX,normalize,importDesign,freshSession,validateSession,longRows,inspectDesign,csv};
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;scope.greedyQCBC=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+```
+
+### FILE: `templates/browser/cbc-preview.html`
+
+SHA-256: `13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68`
+
+```html
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>greedyQ CBC preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6f9;color:#172033;font:16px/1.5 system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#235c76;color:white;border:1px solid #235c76;border-radius:8px;padding:10px 16px;min-height:44px}button.secondary{background:white;color:#21465c;border-color:#b4c5cf}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #dd9800;outline-offset:3px}header,.importer{background:white;border-bottom:1px solid #d6e0e7;padding:16px 24px}header h1{font-size:25px;margin:0 0 6px}header p{margin:0}.note{color:#526578}.importer{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.importer label{display:grid;gap:4px;max-width:250px;min-width:0}.importer label>*{min-width:0;width:100%}.importer input{max-width:100%}.wide{flex-basis:100%}#status{margin:12px 24px}#error{margin:12px 24px;border-left:4px solid #ba3327;padding:12px;background:#fff0ed}#error[hidden],#preview[hidden]{display:none}.preview-grid{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;padding:18px 24px;align-items:start}.viewport{min-width:0;border:1px solid #cbd8e2;border-radius:14px;background:white;overflow:hidden}.viewport-title{padding:10px 14px;background:#e6eef3;font-weight:650}.screen{height:680px;overflow:auto}.participant{padding:22px}.desktop .participant{min-width:900px}.mobile{width:390px;max-width:100%;justify-self:center}.participant h2{font-size:23px;line-height:1.3;margin:8px 0 16px}.participant .progress{color:#526578;font-size:14px}.choice-grid{display:grid;grid-template-columns:minmax(130px,.9fr) repeat(var(--alternatives),minmax(130px,1fr));width:100%;border-top:1px solid #becdd7;border-left:1px solid #e0e7eb}.cell{padding:12px;border-bottom:1px solid #e0e7eb;border-right:1px solid #e0e7eb;overflow-wrap:anywhere;min-width:0}.cell.heading{font-weight:650;background:#eff4f7}.choice-pick{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:44px}.choice-pick input{width:20px;height:20px;flex-shrink:0;accent-color:#235c76}.cell:has(input:checked){background:#e0f0f8;box-shadow:inset 0 0 0 2px #235c76}.none-pick{display:flex;align-items:center;gap:8px;border:1px solid #cbd8e2;padding:12px;margin-top:16px;border-radius:8px;min-height:48px;cursor:pointer}.none-pick:has(input:checked){background:#e0f0f8;border-color:#235c76}.none-pick input{width:20px;height:20px}.actions{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #d6e0e7;margin-top:22px;padding-top:16px}.participant fieldset{border:0;margin:0;padding:0;min-width:0}.participant legend{font-size:18px;font-weight:650;margin-bottom:16px}.question-error{color:#9c281f;background:#fff0ed;padding:12px;border-radius:6px}.mobile .participant{padding:16px}.mobile .choice-grid{grid-template-columns:minmax(88px,.8fr) repeat(var(--alternatives),minmax(0,1fr))}.mobile .cell{padding:9px 6px;font-size:14px}.pane-tools{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid #d6e0e7}.pane-tools select{max-width:130px}.pane-tools button{font-size:14px;padding:7px 10px}.structure{display:flex;gap:12px;margin:0 24px 16px;flex-wrap:wrap}dialog{max-width:min(800px,92vw);max-height:85vh;overflow:auto;border:1px solid #bccbd6;border-radius:12px;padding:24px}dialog::backdrop{background:#10202d88}dialog table{border-collapse:collapse;width:100%;margin:12px 0}dialog th,dialog td{border:1px solid #cbd8e2;padding:8px;text-align:left}details{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}.receipt{padding:24px 0}a{color:#235c76}@media(max-width:1050px){.preview-grid{grid-template-columns:minmax(0,1fr)}.mobile{width:390px;max-width:100%}}@media(max-width:430px){header,.importer{padding:14px}.preview-grid{padding:12px;gap:18px}.structure{margin:0 12px 12px}#status,#error{margin:12px}.mobile{width:100%;max-width:390px}}
+</style></head><body>
+<header><h1 id="page-title">greedyQ CBC preview</h1><p id="preview-note" class="note"></p></header>
+<section class="importer" aria-label="Design files">
+<label><span id="language-label">Interface language</span><select id="language"><option value="en">English</option><option value="ko">한국어</option><option value="zh-CN">简体中文</option><option value="zh-TW">繁體中文</option></select></label>
+<label><span id="config-label">Study settings (JSON)</span><input id="config-file" type="file" accept=".json"></label>
+<label><span id="xlsx-label">Design workbook (XLSX)</span><input id="workbook-file" type="file" accept=".xlsx"></label>
+<label><span id="attributes-label">Attributes (CSV)</span><input id="attributes-file" type="file" accept=".csv"></label>
+<label><span id="design-label">Design (CSV)</span><input id="design-file" type="file" accept=".csv"></label>
+<button id="import">Check and preview</button><p id="import-hint" class="wide note"></p>
+</section>
+<p id="status" role="status" aria-live="polite"></p><section id="error" role="alert" hidden><p id="error-summary"></p><details><summary id="diagnostic-label">Details for the AI</summary><pre id="error-detail"></pre></details></section>
+<section id="preview" hidden><div class="structure"><button id="structure" class="secondary">View structure</button><button id="download-model" class="secondary">Download checked design</button><button id="reset" class="secondary">Start both again</button></div><main class="preview-grid">
+<section class="viewport desktop"><div class="viewport-title" id="desktop-title">Computer preview</div><div class="screen"><div id="desktop" class="participant"></div></div><div class="pane-tools" data-mode="desktop"></div></section>
+<section class="viewport mobile"><div class="viewport-title" id="mobile-title">Mobile preview</div><div class="screen"><div id="mobile" class="participant"></div></div><div class="pane-tools" data-mode="mobile"></div></section>
+</main></section>
+<dialog id="structure-dialog"><h2 id="structure-title">Design structure</h2><div id="structure-body"></div><form method="dialog"><button id="close-dialog">Close</button></form></dialog>
+<script id="cbc-library">__CBC_LIBRARY__</script>
+<script id="cbc-model" type="application/json">__CBC_MODEL__</script>
+<script id="cbc-config" type="application/json">__CBC_CONFIG__</script>
+<script>
+'use strict';
+const C=greedyQCBC,$=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dictionary={
+ 'greedyQ CBC preview':['greedyQ CBC 미리보기','greedyQ CBC 预览','greedyQ CBC 預覽'],
+ 'Preview only. Responses stay in this browser; no live collection or statistical-efficiency approval.':['검토용입니다. 답변은 이 브라우저에만 저장되며 실제 수집이나 통계 설계 승인을 뜻하지 않습니다.','仅供预览，回答只保存在此浏览器，不代表正式收集或统计设计获批。','僅供預覽，回答只儲存在此瀏覽器，不代表正式收集或統計設計獲批。'],
+ 'Interface language':['화면 언어','界面语言','介面語言'], 'Study settings (JSON)':['연구 설정 (JSON)','研究设置 (JSON)','研究設定 (JSON)'], 'Design workbook (XLSX)':['설계표 (XLSX)','设计工作簿 (XLSX)','設計活頁簿 (XLSX)'], 'Attributes (CSV)':['속성·수준 (CSV)','属性与水平 (CSV)','屬性與水準 (CSV)'],'Design (CSV)':['설계 조합 (CSV)','设计组合 (CSV)','設計組合 (CSV)'], 'Check and preview':['표 확인하고 미리보기','检查并预览','檢查並預覽'],
+ 'Choose settings plus either one workbook or both CSV files. The filled table is reviewed before use.':['설정 파일과 함께 Excel 하나 또는 CSV 두 개를 선택하세요. 채운 표를 검사한 뒤 보여드립니다.','选择设置文件，再选择一个工作簿或两个 CSV 文件，先检查再显示。','選擇設定檔，再選擇一個活頁簿或兩個 CSV 檔案，先檢查再顯示。'],
+ 'Details for the AI':['AI에게 보여줄 자세한 내용','供 AI 查看详情','供 AI 查看詳情'], 'View structure':['구조 보기','查看结构','查看結構'],'Download checked design':['확인한 설계 내려받기','下载已检查设计','下載已檢查設計'],'Start both again':['두 화면 새로 시작','重新开始两个窗口','重新開始兩個視窗'],'Computer preview':['컴퓨터 미리보기','电脑预览','電腦預覽'],'Mobile preview':['모바일 미리보기','手机预览','手機預覽'],'Design structure':['설계 구조','设计结构','設計結構'],'Close':['닫기','关闭','關閉'],
+ 'Next':['다음','下一题','下一題'],'Previous':['이전','上一题','上一題'],'Submit preview':['미리보기 완료','完成预览','完成預覽'],'Which option would you choose?':['어느 대안을 선택하시겠습니까?','您会选择哪一个？','您會選擇哪一個？'],'Choose one option before continuing.':['대안 하나를 선택한 뒤 다음으로 이동해 주세요.','请选择一个选项后继续。','請選擇一個選項後繼續。'],'Option':['대안','选项','選項'],'Choose':['선택','选择','選擇'],'Attribute':['속성','属性','屬性'],'Task':['과제','题目','題目'],'Block':['블록','区组','區組'],'New virtual respondent':['새 가상 응답자','新建虚拟参与者','新增虛擬參與者'],'Download preview CSV':['미리보기 CSV 받기','下载预览 CSV','下載預覽 CSV'],'Withdraw preview':['가상 참여 철회','退出预览','退出預覽'],'Preview complete':['미리보기를 마쳤습니다','预览已完成','預覽已完成'],'Preview withdrawn':['가상 참여를 철회했습니다','预览已退出','預覽已退出'],'The local answers and presentation orders were removed.':['이 가상 응답자의 답변과 표시 순서를 지웠습니다.','已清除此虚拟参与者的回答和显示顺序。','已清除此虛擬參與者的回答與顯示順序。'],'No response was sent outside this browser.':['외부로 전송된 답변은 없습니다.','没有回答发送到浏览器以外。','沒有回答傳送到瀏覽器以外。'],'Checking files…':['파일을 확인하고 있습니다…','正在检查文件…','正在檢查檔案…'],'Your computer and mobile previews are ready.':['컴퓨터·모바일 미리보기가 준비됐습니다.','电脑和手机预览已准备好。','電腦和手機預覽已準備好。'],'Choose design files to start.':['시작할 설계 파일을 선택해 주세요.','请选择设计文件开始。','請選擇設計檔案開始。'],'The file could not be read. Choose valid JSON settings and either XLSX or both CSV files.':['파일을 읽지 못했습니다. 올바른 JSON 설정과 XLSX 하나 또는 CSV 두 개를 선택해 주세요.','无法读取文件，请选择有效 JSON 设置以及一个 XLSX 或两个 CSV。','無法讀取檔案，請選擇有效 JSON 設定及一個 XLSX 或兩個 CSV。'],'Check the table headings and fill the empty template before trying again.':['열 이름을 확인하고 빈 표를 채운 뒤 다시 시도해 주세요.','请检查表头并填写空白模板后重试。','請檢查表頭並填寫空白範本後重試。'],'Some rows are incomplete. Fill every required cell and remove extra cells.':['일부 행이 덜 작성됐습니다. 필요한 칸을 모두 채우고 여분의 칸을 확인해 주세요.','部分行不完整，请填写必填单元格并移除多余内容。','部分列不完整，請填寫必填儲存格並移除多餘內容。'],'Check attribute names and level codes for duplicates or unknown values.':['속성 이름·수준 코드를 확인해 중복이나 알 수 없는 값을 바로잡아 주세요.','请检查属性名称和水平代码是否重复或未知。','請檢查屬性名稱和水準代碼是否重複或未知。'],'The study settings do not match the reviewed table. Ask the AI to explain the difference.':['연구 설정과 표가 맞지 않습니다. AI에게 차이를 설명해 달라고 해 주세요.','研究设置与设计表不符，请让 AI 解释差异。','研究設定與設計表不符，請讓 AI 解釋差異。'],'Check the design combinations, task sizes and duplicate rows.':['설계 조합, 과제별 대안 수와 중복 행을 확인해 주세요.','请检查设计组合、题目大小与重复行。','請檢查設計組合、題目大小與重複列。'],'Use a values-only workbook without formulas, macros or outside links.':['수식·매크로·외부 링크가 없는 값만 저장한 Excel 파일을 사용해 주세요.','请使用只有值且没有公式、宏或外部链接的工作簿。','請使用只有值且沒有公式、巨集或外部連結的活頁簿。'],'Use the Attributes and Design sheets without merged cells.':['Attributes와 Design 시트 이름을 유지하고 병합 칸을 없애 주세요.','请使用 Attributes 和 Design 工作表，不合并单元格。','請使用 Attributes 與 Design 工作表，不合併儲存格。'],'The workbook is unreadable or too large. Try the two CSV files instead.':['Excel 파일을 읽지 못했거나 크기가 너무 큽니다. CSV 두 개로 다시 시도해 주세요.','工作簿无法读取或过大，请改用两个 CSV 文件。','活頁簿無法讀取或過大，請改用兩個 CSV 檔案。']
+};
+let language='en',model=null,config=JSON.parse($('cbc-config').textContent),states={},generation=0;
+const langIndex=()=>({'ko':0,'zh-CN':1,'zh-TW':2})[language],t=s=>dictionary[s]?.[langIndex()]??s;
+function labels(){document.documentElement.lang=language;for(const[id,key]of Object.entries({'page-title':'greedyQ CBC preview','preview-note':'Preview only. Responses stay in this browser; no live collection or statistical-efficiency approval.','language-label':'Interface language','config-label':'Study settings (JSON)','xlsx-label':'Design workbook (XLSX)','attributes-label':'Attributes (CSV)','design-label':'Design (CSV)','import':'Check and preview','import-hint':'Choose settings plus either one workbook or both CSV files. The filled table is reviewed before use.','diagnostic-label':'Details for the AI','structure':'View structure','download-model':'Download checked design','reset':'Start both again','desktop-title':'Computer preview','mobile-title':'Mobile preview','structure-title':'Design structure','close-dialog':'Close'}))$(id).textContent=t(key);}
+function key(mode){return'greedyq-cbc-preview:'+model.design_sha256+':'+mode;}
+function persist(mode){try{localStorage.setItem(key(mode),JSON.stringify(states[mode]));}catch{}}
+function download(name,text,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
+function render(mode,error=false){
+ const root=$(mode),s=states[mode];
+ if(s.withdrawn){root.innerHTML=`<h2>${esc(t('Preview withdrawn'))}</h2><p>${esc(t('The local answers and presentation orders were removed.'))}</p>`;tools(mode);return;}
+ if(s.completed){root.innerHTML=`<div class="receipt"><h2>${esc(t('Preview complete'))}</h2><p>${esc(t('No response was sent outside this browser.'))}</p></div>`;tools(mode);return;}
+ const b=model.blocks.find(b=>b.id===s.block_id),task=b.tasks.find(x=>x.id===s.task_order[s.index]);if(!s.visited.includes(task.id))s.visited.push(task.id);persist(mode);
+ const order=s.alternative_orders[task.id],alts=order.map(id=>task.alternatives.find(x=>x.id===id));
+ let html=`<div class="progress">${esc(t('Task'))} ${s.index+1} / ${s.task_order.length}</div><h2>${esc(model.research_question)}</h2>`;
+ if(error)html+=`<p class="question-error" role="alert">${esc(t('Choose one option before continuing.'))}</p>`;
+ const pick=(a,i)=>`<label class="cell choice-pick"><input type="radio" name="${mode}-choice" value="${esc(a.id)}" ${s.answers[task.id]===a.id?'checked':''}><span>${esc(t('Choose'))} ${i+1}</span></label>`;
+ html+=`<fieldset tabindex="-1"><legend>${esc(t('Which option would you choose?'))}</legend>`;
+ if(mode==='mobile'&&alts.length>2){
+   for(const[aIndex,a]of alts.entries())html+=`<section class="profile-card" style="border:1px solid #cbd8e2;border-radius:8px;margin:12px 0;padding:10px;overflow-wrap:anywhere"><h3>${esc(t('Option'))} ${aIndex+1}</h3>${model.attributes.map(attribute=>`<p><strong>${esc(attribute.label)}</strong><br>${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</p>`).join('')}${pick(a,aIndex)}</section>`;
+ }else{
+   html+=`<div class="choice-grid" style="--alternatives:${alts.length}"><div class="cell heading">${esc(t('Attribute'))}</div>${alts.map((a,i)=>`<div class="cell heading">${esc(t('Option'))} ${i+1}</div>`).join('')}`;
+   for(const attribute of model.attributes)html+=`<div class="cell heading">${esc(attribute.label)}</div>${alts.map(a=>`<div class="cell">${esc(attribute.levels.find(l=>l.id===a.levels[attribute.id]).label)}</div>`).join('')}`;
+   html+=`<div class="cell"></div>${alts.map(pick).join('')}</div>`;
+ }
+ if(model.none.enabled)html+=`<label class="none-pick"><input type="radio" name="${mode}-choice" value="none" ${s.answers[task.id]==='none'?'checked':''}><span>${esc(model.none.label)}</span></label>`;
+ html+=`</fieldset><div class="actions">${s.index?`<button class="secondary" data-back>${esc(t('Previous'))}</button>`:'<span></span>'}<button data-next>${esc(t(s.index===s.task_order.length-1?'Submit preview':'Next'))}</button></div>`;root.innerHTML=html;
+ root.onchange=event=>{if(event.target.type==='radio'){s.answers[task.id]=event.target.value;persist(mode);root.querySelector('.question-error')?.remove();}};
+ root.querySelector('[data-back]')?.addEventListener('click',()=>{s.index--;persist(mode);render(mode);root.closest('.screen').scrollTop=0;});
+ root.querySelector('[data-next]').onclick=()=>{if(!Object.hasOwn(s.answers,task.id)){render(mode,true);root.querySelector('fieldset').focus({preventScroll:true});root.querySelector('.question-error').scrollIntoView({block:'nearest'});return;}if(s.index===s.task_order.length-1)s.completed=true;else s.index++;persist(mode);render(mode);root.closest('.screen').scrollTop=0;};tools(mode);
+}
+function tools(mode){const toolbar=document.querySelector(`.pane-tools[data-mode=${mode}]`),s=states[mode];toolbar.innerHTML=`<label>${esc(t('Block'))} <select data-block aria-label="${esc(t('Block'))}">${model.blocks.map(b=>`<option value="${esc(b.id)}" ${b.id===s.block_id?'selected':''}>${esc(b.id)}</option>`).join('')}</select></label><button class="secondary" data-new>${esc(t('New virtual respondent'))}</button><button class="secondary" data-csv ${s.withdrawn?'disabled':''}>${esc(t('Download preview CSV'))}</button><button class="secondary" data-withdraw ${s.withdrawn?'disabled':''}>${esc(t('Withdraw preview'))}</button>`;toolbar.querySelector('[data-block]').onchange=e=>start(mode,e.target.value);toolbar.querySelector('[data-new]').onclick=()=>start(mode,toolbar.querySelector('[data-block]').value);toolbar.querySelector('[data-csv]').onclick=()=>download(`cbc-${mode}-test.csv`,C.csv(C.longRows(model,s,`virtual-${mode}`)),'text/csv;charset=utf-8');toolbar.querySelector('[data-withdraw]').onclick=()=>{states[mode]={design_sha256:model.design_sha256,withdrawn:true};persist(mode);render(mode);};}
+function start(mode,block){states[mode]=C.freshSession(model,block);persist(mode);render(mode);$(mode).closest('.screen').scrollTop=0;}
+function show(value){model=value;states={};$('preview').hidden=false;$('error').hidden=true;for(const mode of ['desktop','mobile']){let s;try{s=JSON.parse(localStorage.getItem(key(mode)));}catch{}states[mode]=C.validateSession(model,s)?s:C.freshSession(model);render(mode);}labels();$('status').textContent=t('Your computer and mobile previews are ready.');}
+function report(error){model=null;states={};$('preview').hidden=true;$('error').hidden=false;$('status').textContent='';const summaries={'CBC001':'The file could not be read. Choose valid JSON settings and either XLSX or both CSV files.','CBC002':'Check the table headings and fill the empty template before trying again.','CBC003':'Some rows are incomplete. Fill every required cell and remove extra cells.','CBC004':'Check attribute names and level codes for duplicates or unknown values.','CBC005':'The study settings do not match the reviewed table. Ask the AI to explain the difference.','CBC006':'Check the design combinations, task sizes and duplicate rows.','CBC010':'The workbook is unreadable or too large. Try the two CSV files instead.','CBC011':'Use a values-only workbook without formulas, macros or outside links.','CBC012':'Use the Attributes and Design sheets without merged cells.'};$('error-summary').textContent=t(summaries[error.code]??summaries.CBC001);$('error-detail').textContent=String(error.code??'CBC001')+': '+error.message;}
+$('import').onclick=async()=>{const attempt=++generation;$('preview').hidden=true;$('error').hidden=true;$('status').textContent=t('Checking files…');try{const cf=$('config-file').files[0],wf=$('workbook-file').files[0],af=$('attributes-file').files[0],df=$('design-file').files[0];if([cf,wf,af,df].some(f=>f&&f.size>16*1024*1024))throw new C.CBCError('CBC001','A selected file is too large.');if(!cf||(!wf&&(!af||!df))||(wf&&(af||df)))throw new C.CBCError('CBC001','Choose settings plus one workbook or two CSV files.');const nextConfig=JSON.parse(await cf.text()),next=await C.importDesign(wf?{config:nextConfig,workbook:await wf.arrayBuffer()}:{config:nextConfig,attributesText:await af.text(),designText:await df.text()});if(attempt!==generation)return;config=nextConfig;show(next);}catch(error){if(attempt===generation)report(error);}};
+$('language').onchange=e=>{language=e.target.value;labels();if(model){for(const mode of ['desktop','mobile'])render(mode);$('status').textContent=t('Your computer and mobile previews are ready.');}};
+$('reset').onclick=()=>{for(const mode of ['desktop','mobile'])start(mode);};
+$('download-model').onclick=()=>download('cbc-checked-design.json',JSON.stringify(model,null,2),'application/json');
+$('structure').onclick=()=>{const content=$('structure-body');content.replaceChildren();const summary=document.createElement('p');summary.textContent=`${model.attributes.length} ${t('Attribute')} · ${model.blocks.length} ${t('Block')} · ${model.tasks_per_block} ${t('Task')} / ${t('Block')}`;content.append(summary);for(const b of model.blocks){const h=document.createElement('h3');h.textContent=t('Block')+' '+b.id;const ul=document.createElement('ul');for(const task of b.tasks){const li=document.createElement('li');li.textContent=task.id+': '+task.alternatives.map(a=>a.id).join(', ')+(model.none.enabled?', none':'');ul.append(li);}content.append(h,ul);}const diagnostic=document.createElement('details'),heading=document.createElement('summary'),pre=document.createElement('pre');heading.textContent=t('Details for the AI');pre.textContent=JSON.stringify(C.inspectDesign(model),null,2);diagnostic.append(heading,pre);content.append(diagnostic);$('structure-dialog').showModal();};
+language=config?.language??'en';$('language').value=language;labels();const initial=JSON.parse($('cbc-model').textContent);if(initial)show(initial);else $('status').textContent=t('Choose design files to start.');
+</script></body></html>
+```
 
 ### FILE: `greedyq/scaffold.py`
 
@@ -564,7 +1230,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `b2f4f90a55ba47a544c4ef262d6ae93ddde7535258edc2858650c34043c4d21b`
+SHA-256: `9eafdf8b46243f403458c7b8b1406eaa8b0c8672fff23d6ce996cfbba9712cfb`
 
 ```json
 {
@@ -587,7 +1253,9 @@ SHA-256: `b2f4f90a55ba47a544c4ef262d6ae93ddde7535258edc2858650c34043c4d21b`
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "specification_and_golden_design_only"
+    "status": "import_validation_and_local_browser_preview",
+    "preview_schema": "0.3-preview.1",
+    "live_collection": false
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",
@@ -597,6 +1265,12 @@ SHA-256: `b2f4f90a55ba47a544c4ef262d6ae93ddde7535258edc2858650c34043c4d21b`
     "collection_closed": true,
     "provider_payment_records_modified": false,
     "provider_backups_or_researcher_owned_copies_verified_erased": false
+  },
+  "project_contact": {
+    "email": "greedyq.contact@gmail.com",
+    "verified_on": "2026-10-26",
+    "source": "https://sites.google.com/view/greedyq",
+    "individual_study_contact": false
   }
 }
 ```
@@ -8167,7 +8841,7 @@ __release__ = "0.2_2026-10-26_b3edd07"
 
 ### FILE: `greedyq/__main__.py`
 
-SHA-256: `dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f`
+SHA-256: `3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6`
 
 ```python
 """CLI for greedyQ's dependency-light Python reference implementation."""
@@ -8205,6 +8879,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog="python3 -m greedyq", description="Validate and preview a greedyQ study without installing dependencies.")
     sub = parser.add_subparsers(dest="command", required=True)
     init=sub.add_parser("init");init.add_argument("study_dir");init.add_argument("--id",required=True);init.add_argument("--profile",required=True);init.add_argument("--module",action="append",default=[]);init.add_argument("--title",default="Untitled research draft");init.add_argument("--organization",default="Research team");init.add_argument("--language",default="en")
+    for name in ('cbc-validate','cbc-build'):
+        item=sub.add_parser(name,help='Check a CBC design or create an account-free browser preview')
+        item.add_argument('study_dir');item.add_argument('--workbook')
+        if name=='cbc-build':item.add_argument('--output')
     for name in ("validate", "build", "preregister", "export-surveydown", "preflight"):
         item = sub.add_parser(name); item.add_argument("study_dir", nargs="?", default=".")
         if name=="preflight":
@@ -8213,6 +8891,19 @@ def main(argv=None):
     run = sub.add_parser("run",help="Serve the canonical JavaScript respondent runtime locally"); run.add_argument("study_dir", nargs="?", default="."); run.add_argument("--port", type=int, default=4180); run.add_argument("--database"); run.add_argument("--no-open", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command in ('cbc-validate','cbc-build'):
+            from .cbc import load_design,import_design,build_preview,inspect_design,MAX_FILE
+            if args.command=='cbc-build':
+                target,model=build_preview(args.study_dir,args.output,args.workbook)
+                print('CBC design checked. Open %s in a browser. Preview only; live CBC collection is not enabled.' % target)
+            else:
+                if args.workbook:
+                    source=Path(args.workbook)
+                    if source.stat().st_size>MAX_FILE:raise ValueError('The workbook is too large.')
+                    config=json.loads((Path(args.study_dir)/'study.design.json').read_text());model=import_design(config,workbook=source.read_bytes())
+                else:model=load_design(args.study_dir)
+                print(json.dumps({'status':'passed','design_sha256':model['design_sha256'],'blocks':len(model['blocks']),'tasks':sum(len(b['tasks']) for b in model['blocks']),'live_collection':False,'inspection':inspect_design(model)}))
+            return 0
         if args.command == "init":
             from .scaffold import initialize
             root=initialize(args.study_dir,args.id,args.profile,args.module,args.title,args.organization,args.language)

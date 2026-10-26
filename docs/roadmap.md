@@ -2,7 +2,7 @@
 
 [한국어](./roadmap(kor).md)
 
-**Current line:** v0.2 supported-scope maintenance; v0.3 CBC specification and golden-reference design
+**Current line:** v0.2 supported-scope maintenance; v0.3 CBC import, validation and local desktop/mobile preview
 **Planning principle:** Specification before implementation
 
 ## Delivered in v0.2
@@ -42,7 +42,7 @@
 
 ## Next product work
 
-1. Make CBC the core v0.3 feature. Start with the [draft contract and golden fixture](../drafts/v0.3/cbc/README.md): offer AI collaboration, blank CSV/XLSX to fill independently, or existing design import. This is design-only, not an activated v0.2 capability.
+1. Make CBC the core v0.3 feature. Start with the [draft contract and golden fixture](../drafts/v0.3/cbc/README.md): offer AI collaboration, blank CSV/XLSX to fill independently, or existing design import. CSV/XLSX import and local preview are implemented; live CBC storage, results and fielding remain next. This is not an activated v0.2 capability.
 2. Implement reference import/validation, then the same browser-native contract, CBC presentation, durable assignments/orders, withdrawal-safe storage and long-format export. Register CBC only after conformance passes.
 3. Keep v0.2's approved Vercel/Supabase/direct/Prolific journey stable. A first new real post-008 timestamp and actual paid custom-screening policy remain target-specific checks, not reasons to repeat the completed paid pilot.
 4. Later: monitoring, configurable retention, live disaster recovery, stratified/adaptive allocation, factorial designs and reproducible design generators. Simple weighted ratios and supported question/option/page shuffling already exist; do not list them as unimplemented.

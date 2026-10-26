@@ -48,3 +48,7 @@ greedyQ 是面向在线学术研究、可由 AI 代理执行的应用规范。gr
 新研究使用一个完整仓库提交或下载快照，固定其中的文件与哈希；不要混用不同时间从 main 获取的文件。`python3 -m greedyq init NEW_FOLDER --id study_id --profile simple --language zh-CN` 可创建包含起止页面的草稿，不会替代研究者对编题方式的选择。
 
 中文指南的语言不等于问卷参与者的语言。参与者使用简体还是繁体中文，仍须单独确认并记录。
+
+## CBC 预览与项目联系
+
+选择型联合分析请参见 [CBC 导入及电脑/手机预览](CBC(zh-CN).md)。v0.3 预览不开放正式 CBC 收集；正式收集仍使用受支持的 v0.2 Simple/Experiment 流程。项目问题或错误报告：[greedyq.contact@gmail.com](CONTACT(zh-CN).md)。各研究须提供自己的研究团队联系人。

@@ -2,7 +2,7 @@
 
 [English](./README.md)
 
-**현재는 설계 단계입니다.** 지원되는 실행 환경과 릴리스는 계속 v0.2입니다. CBC를 v0.3의 핵심 기능으로 계획하지만, 이 폴더가 새 문항·실제 수집·브라우저 XLSX 읽기·통계 설계 생성기를 활성화하지는 않습니다.
+**상태: 가져오기·로컬 브라우저 미리보기 구현 (`0.3-preview.1`).** 실제 수집은 v0.2를 계속 지원합니다. 고정 Python·브라우저 구현으로 CSV/XLSX 검사와 독립적인 컴퓨터·모바일 미리보기를 제공합니다. CBC 서버 저장·실제 수집·네이티브 내보내기는 아직 남아 있습니다. [사용 안내](../../../CBC(kor).md)를 참고하세요.
 
 [명세 초안](./spec(kor).md), [골든 레퍼런스 연구 설계](./golden-reference/README(kor).md), [빈 표 작성 안내](./templates/README(kor).md)부터 확인합니다.
 
@@ -19,6 +19,8 @@
 [빈 Excel 파일](./templates/cbc-design-template.xlsx)은 `Attributes`와 `Design` 시트로 구성됩니다. CSV는 [attributes-blank.csv](./templates/attributes-blank.csv)와 [design-blank.csv](./templates/design-blank.csv)를 함께 사용합니다. 속성 목록을 확정한 뒤에는 실제 속성 이름이 열 제목에 들어간 연구별 표를 제공하는 것이 다음 구현의 기본입니다. 범용 파일의 `attribute_1` 등은 빈 틀을 위한 자리이며 확정된 연구 속성이 아닙니다.
 
 ## 구현 순서
+
+1–4 단계는 로컬 미리보기 범위에서 완료했습니다. 5–6 단계는 실제 CBC 수집 출시 전에 남은 관문입니다.
 
 1. v0.3 계약과 골든 예제를 정리하고 미결정 연구 사항을 검토합니다.
 2. Python 기준 가져오기·검사 코드를 구현해 독립적으로 시험합니다.

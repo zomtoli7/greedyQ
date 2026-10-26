@@ -102,7 +102,7 @@ def check_reference(directory=REFERENCE):
         assert sum(int(row['chosen']) for row in rows) == 1
         assert sorted(int(row['display_position']) for row in rows) == [1, 2, 3]
     return {**result, 'synthetic_export_rows': len(exported), 'status': 'draft_fixture_passed',
-            'cbc_runtime_implemented': False, 'statistical_efficiency_established': False}
+            'cbc_live_runtime_implemented': False, 'local_preview_available': True, 'statistical_efficiency_established': False}
 
 
 if __name__ == '__main__':

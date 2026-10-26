@@ -2,7 +2,7 @@
 
 [한국어](./spec(kor).md)
 
-**Draft contract `0.3-draft.1`; not implemented in the v0.2 runtime.** MUST/SHOULD below describe proposed v0.3 behavior. They do not assert current browser, database or native-export support.
+**Draft contract `0.3-draft.1`; import and local preview model `0.3-preview.1` are implemented separately from the v0.2 survey runtime.** MUST/SHOULD below still include future server, fielding and export requirements. Current scope and commands: [CBC preview](../../../CBC.md).
 
 ## Object and scope
 
@@ -31,7 +31,7 @@ CSV is UTF-8, optionally with BOM, using a header row. IDs are strings; never co
 
 The generic blank Design sheet has four placeholder attribute columns. The future agent replaces their headings with confirmed attribute IDs before interpreting it as a study design; fewer/more attributes require a matching table, not hidden unused columns. An empty template is `awaiting_input`, never a valid runnable design.
 
-XLSX uses exact sheets `Attributes` and `Design`, with the same headers in row 1. Ignore formatting-only empty cells. Do not evaluate formulas, cached formula results, macros or external links; reject them for import and ask for a values-only file. No secrets or participant records belong in these files. Browser-native XLSX reading is a required future implementation, not provided by this planning package. The prepared XLSX is a blank input artifact only.
+XLSX uses exact sheets `Attributes` and `Design`, with the same headers in row 1. Ignore formatting-only empty cells. Do not evaluate formulas, cached formula results, macros or external links; reject them for import and ask for a values-only file. No secrets or participant records belong in these files. Browser-native XLSX reading is implemented by the fixed preview importer. The supplied template remains a blank input artifact; it is not an approved design.
 
 ## Design inspection and provenance
 

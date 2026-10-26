@@ -65,6 +65,11 @@
     "greedyq/scaffold.py",
     "templates/supabase/001_initial.sql",
     "templates/vercel/vercel.json",
-    "templates/vercel/.env.example"
+    "templates/vercel/.env.example",
+    "CONTACT.md",
+    "CBC.md",
+    "greedyq/cbc.py",
+    "web/greedyq-cbc.js",
+    "templates/browser/cbc-preview.html"
   ]
 }

@@ -43,3 +43,7 @@ Run the full and compact guides independently with at least GPT and Claude on:
 Score question pacing, decision fidelity, methodological escalation, syntax validity, state resumability, correction success, and external-action truthfulness.
 
 Simplified Chinese entry, user and AI guides use `(zh-CN).md`. English normative files, code and hashes remain canonical; participant language is confirmed separately. Prefer an existing official Vercel connection while keeping Onboard your agent optional.
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](../CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](../CONTACT.md). Individual studies must provide their own research-team contact.

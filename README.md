@@ -176,4 +176,8 @@ The main journey is survey review → Vercel sign-in and required Supabase conne
 
 Entry, user and AI guides also have Simplified Chinese `(zh-CN).md` copies. This does not imply that every developer document is translated.
 
-Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.md) — planning only; current runtime remains v0.2.
+Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.md) — CSV/XLSX import and local browser preview now work; live collection remains on v0.2.
+
+## CBC preview and project contact
+
+For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). This v0.3 preview does not enable live CBC collection; keep using the supported v0.2 Simple/Experiment paths for collection. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.

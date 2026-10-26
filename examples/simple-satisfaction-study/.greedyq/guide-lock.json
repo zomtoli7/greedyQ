@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_b3edd07",
-  "registry_sha256": "fd03625b1cbd386dc8bb6c77b5d18ddfe8eb0c75222a9db0e8dff4907137d5b7",
+  "registry_sha256": "5fbe3f47df3d18e3a1f397ba35bca70e998864dd3fe175022644416ecaf9050c",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -15,7 +15,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "f9e347b3d1cba8ab62ca4cdb2ec7c6363d636a973cae0a5bbd3f4772fd3893a1"
+      "manifest_sha256": "2ccf979fcc6eb52d93f8db16878bca0664d0cb93ad96e09642189f21be48d58a"
     },
     {
       "id": "simple",
@@ -50,7 +50,7 @@
     {
       "component": "core",
       "path": "release.json",
-      "sha256": "b2f4f90a55ba47a544c4ef262d6ae93ddde7535258edc2858650c34043c4d21b"
+      "sha256": "9eafdf8b46243f403458c7b8b1406eaa8b0c8672fff23d6ce996cfbba9712cfb"
     },
     {
       "component": "core",
@@ -145,7 +145,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "10e83ae8071e69b03452c9cda427aa5703568fc6af93eeb5a7b28e1580ddda19"
+      "sha256": "4aa4389b71916a285fe8f512abc722927f024a8a67bf3a92e062fd330cc9edb9"
     },
     {
       "component": "core",
@@ -265,7 +265,7 @@
     {
       "component": "core",
       "path": "greedyq/__main__.py",
-      "sha256": "dfeb1549b777813641a2cb6f76119716781e343f5e1e8cfe2ed01376f624f46f"
+      "sha256": "3d9b823a77b56ff8a4e53ae9efeba15113e2da427965566279d61c1f66340cb6"
     },
     {
       "component": "core",
@@ -346,6 +346,31 @@
       "component": "core",
       "path": "templates/vercel/.env.example",
       "sha256": "2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d"
+    },
+    {
+      "component": "core",
+      "path": "CONTACT.md",
+      "sha256": "0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5"
+    },
+    {
+      "component": "core",
+      "path": "CBC.md",
+      "sha256": "fdef5c8807026f41db416ce2e6071589cda97ac86444ac3d2f355246613859db"
+    },
+    {
+      "component": "core",
+      "path": "greedyq/cbc.py",
+      "sha256": "f41cfbce5ff6f37b33997b22f0fb6ed173cc1bd9622343477ae705b1b731da2b"
+    },
+    {
+      "component": "core",
+      "path": "web/greedyq-cbc.js",
+      "sha256": "befce06a28d81d327be3bd430ccf990ad8a4c581a5b573e1b3d17dba378f6ecf"
+    },
+    {
+      "component": "core",
+      "path": "templates/browser/cbc-preview.html",
+      "sha256": "13fc1d060cff2c42abd418d9cda675efcf14f5986a0ed0b7f456f88184c75a68"
     },
     {
       "component": "simple",
