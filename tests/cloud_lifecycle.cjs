@@ -55,7 +55,7 @@ test('migrations check before writes and retry via ledger',async()=>{
  const dir=path.join(root,'examples/complete-study/supabase/migrations');
  const ledger=new Map(),calls=[];
  const client={query:async(sql,args)=>{calls.push(sql);if(sql.startsWith('SELECT sha256'))return {rows:ledger.has(args[0])?[{sha256:ledger.get(args[0])}]:[]};if(sql.startsWith('INSERT INTO public.gq_migration_history'))ledger.set(args[0],args[1]);return {rows:[]}}};
- await ops.migrate(client,dir);assert.equal(ledger.size,7);
+ await ops.migrate(client,dir);assert.equal(ledger.size,8);
  const firstCount=calls.filter(q=>q.startsWith('create extension')).length;
  await ops.migrate(client,dir);assert.equal(calls.filter(q=>q.startsWith('create extension')).length,firstCount);
  ledger.set('001_initial.sql','bad');await assert.rejects(ops.migrate(client,dir));assert.equal(calls.at(-1),'ROLLBACK');

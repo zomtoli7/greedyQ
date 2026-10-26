@@ -91,6 +91,7 @@ def build(study_dir, write=True):
         (migrations / "005_prolific.sql").write_bytes((ROOT / "templates/supabase/005_prolific.sql").read_bytes())
         (migrations / "006_withdrawal_preview.sql").write_bytes((ROOT / "templates/supabase/006_withdrawal_preview.sql").read_bytes())
         (migrations / "007_answer_snapshot.sql").write_bytes((ROOT / "templates/supabase/007_answer_snapshot.sql").read_bytes())
+        (migrations / "008_terminal_timestamp.sql").write_bytes((ROOT / "templates/supabase/008_terminal_timestamp.sql").read_bytes())
         migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
         migration_manifest = {
             "schema_version": "0.2",

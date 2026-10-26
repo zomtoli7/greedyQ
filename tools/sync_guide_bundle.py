@@ -47,6 +47,7 @@ FILES = (
     ("templates/supabase/005_prolific.sql", "sql", False),
     ("templates/supabase/006_withdrawal_preview.sql", "sql", False),
     ("templates/supabase/007_answer_snapshot.sql", "sql", False),
+    ("templates/supabase/008_terminal_timestamp.sql", "sql", False),
     ("tools/prolific_status.cjs", "javascript", False),
     ("templates/vercel/api/results.js", "javascript", False),
     ("examples/complete-study/supabase/migrations/001_initial.sql", "sql", False),

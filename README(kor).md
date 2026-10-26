@@ -134,7 +134,7 @@ greedyQ 논문이 나오기 전까지 greedyQ를 사용한 학술 연구는 `sur
 
 ## 프로젝트 상태
 
-greedyQ는 계정 없이 로컬 미리보기를 할 수 있는 브라우저 기반 v0.2 실행 후보를 제공합니다. 고정 JavaScript core가 지원 QMD/YAML을 파싱·검증·컴파일하고 컴퓨터·모바일 설문과 동시 미리보기를 표시합니다. 골든 예제·컨트롤 갤러리·잘못된 입력에서 Python reference와 일치합니다. Vercel/Supabase 배포·보호된 결과·기본 001–007·Prolific ID 기록·사전등록 초안·native surveydown export·배포 전 점검을 구현했습니다.
+greedyQ는 계정 없이 로컬 미리보기를 할 수 있는 브라우저 기반 v0.2 실행 후보를 제공합니다. 고정 JavaScript core가 지원 QMD/YAML을 파싱·검증·컴파일하고 컴퓨터·모바일 설문과 동시 미리보기를 표시합니다. 골든 예제·컨트롤 갤러리·잘못된 입력에서 Python reference와 일치합니다. Vercel/Supabase 배포·보호된 결과·기본 001–008·Prolific ID 기록·사전등록 초안·native surveydown export·배포 전 점검을 구현했습니다.
 
 2026-10-25에 연결된 시험 환경에서 정상 완료·동의 거부·철회·반복 시작을 실제 Prolific 초안 Preview로 확인했습니다. 새 철회는 반환 전에 답변을 삭제하고 사전에 설명한 관리용 식별자만 중복 방지를 위해 남깁니다. 보호된 결과·CSV와 서버의 시험/실제 수집 분리도 검사했습니다. 연구자가 게시한 1명 유료 시험은 Prolific의 일반 내부 검토로 일시 중지됐으며 유료 제출·승인·지급은 미검증입니다. 서명 Prolific URL과 실제 반복 제출 연구는 미지원입니다. [Prolific 연결](./PROLIFIC-SETUP(kor).md), [검증 근거](./docs/prolific-cloud-test-2026-10-25(kor).md), [유료 시험 상태](./docs/prolific-paid-pilot-2026-10-25(kor).md), [외부 연결 준비](./docs/external-connection-readiness(kor).md)를 참고하세요. 릴리스는 이 검증 범위를 기록하며 기존 배포 연구는 검토한 업그레이드 전까지 기존 버전을 유지합니다.
 

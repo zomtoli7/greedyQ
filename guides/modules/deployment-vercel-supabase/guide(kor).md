@@ -2,7 +2,7 @@
 
 [English](./guide.md) · [简体中文](./guide(zh-CN).md)
 
-001–007 migration 전체를 적용한 후 `tools/cloud_lifecycle.cjs`의 `registerStudy(client, model)`로 검토한 모델을 각각 등록합니다. [RANDOMIZATION(kor).md](../../../RANDOMIZATION(kor).md)의 기존 데이터베이스 제한을 따릅니다. 계속 사용할 모든 연구의 등록을 계획하지 않은 채 운영 중인 공유 데이터베이스를 변경하면 안 됩니다. 과거 연결 검증은 새 실행 코드나 migration을 검증하지 않습니다.
+001–008 migration 전체를 적용한 후 `tools/cloud_lifecycle.cjs`의 `registerStudy(client, model)`로 검토한 모델을 각각 등록합니다. [RANDOMIZATION(kor).md](../../../RANDOMIZATION(kor).md)의 기존 데이터베이스 제한을 따릅니다. 계속 사용할 모든 연구의 등록을 계획하지 않은 채 운영 중인 공유 데이터베이스를 변경하면 안 됩니다. 과거 연결 검증은 새 실행 코드나 migration을 검증하지 않습니다.
 
 Application configuration과 database policy에는 registry에 등록된 canonical template을 사용합니다. Secret은 provider environment setting에 두고, browser access에는 최소 권한을 사용하며, privileged operation은 server-side에 유지하고 service-role credential을 노출하지 않습니다.
 

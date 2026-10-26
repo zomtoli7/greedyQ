@@ -34,13 +34,13 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "9960f277c68bac7643744b9ff20f62f98f575660793d40001332c099cb74551d",
+      "manifest_sha256": "f9e347b3d1cba8ab62ca4cdb2ec7c6363d636a973cae0a5bbd3f4772fd3893a1",
       "dependencies": [],
       "conflicts": [],
       "files": [
         {
           "path": "release.json",
-          "sha256": "c2e3851b0aa36a1fa3efa0305f44ae0dcc1e6dba341348c48fb0db5afb6d29f7"
+          "sha256": "b7b1f0a7c61629c9b2ae8179c5431350ecbc57beabdd13855f8003b355d5a958"
         },
         {
           "path": "greedyq/localization.py",
@@ -88,7 +88,7 @@
         },
         {
           "path": "RANDOMIZATION.md",
-          "sha256": "b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb"
+          "sha256": "70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15"
         },
         {
           "path": "docs/repeat-user-acceptance.md",
@@ -100,11 +100,11 @@
         },
         {
           "path": "docs/cloud-lifecycle.md",
-          "sha256": "816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110"
+          "sha256": "ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81"
         },
         {
           "path": "tools/cloud_lifecycle.cjs",
-          "sha256": "2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06"
+          "sha256": "58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30"
         },
         {
           "path": "tools/archive_study.cjs",
@@ -116,7 +116,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "ad964360382ffdc91f06691e4530d7cc9e3e8749af953bb8a4776180705e3f73"
+          "sha256": "e8029c64ad5eb4c68d754dffe41912d92a89cc68b58e261ec99460eb5001843f"
         },
         {
           "path": "guides/core/communication.md",
@@ -128,7 +128,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "76abc9a1dff3792ecf310d69b4274d28fe157bc60d4bf7fce237917895d3ae35"
+          "sha256": "d354b82a879654bbd985f049a7b1287f96500066b34ddc5f85e1f03e01e27227"
         },
         {
           "path": "docs/preview-ui-spec.md",
@@ -199,6 +199,10 @@
           "sha256": "6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2"
         },
         {
+          "path": "templates/supabase/008_terminal_timestamp.sql",
+          "sha256": "329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b"
+        },
+        {
           "path": "templates/supabase/connection-test.html",
           "sha256": "9458342fcae1dac19c68fb86e2420aea72855c7af748d8302ce4dc162a7e4c9d"
         },
@@ -228,7 +232,7 @@
         },
         {
           "path": "greedyq/build.py",
-          "sha256": "6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f"
+          "sha256": "a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4"
         },
         {
           "path": "greedyq/runtime.py",
@@ -256,7 +260,7 @@
         },
         {
           "path": "greedyq/deployment.py",
-          "sha256": "9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb"
+          "sha256": "1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524"
         },
         {
           "path": "greedyq/scaffold.py",
@@ -289,7 +293,7 @@
       "files": [
         {
           "path": "guides/modules/deployment-vercel-supabase/guide.md",
-          "sha256": "cdc8d01fd1ca7b8af09c4b3523931dbf1610d99f3bce76a4214055cfd829bf04"
+          "sha256": "ddbf40316bf1addb754ebb1c11bd0d27296416e396b4142df44d538bef39c0b6"
         },
         {
           "path": "guides/modules/deployment-vercel-supabase/checkpoints.json",
@@ -439,7 +443,7 @@
         },
         {
           "path": "PROLIFIC-SETUP.md",
-          "sha256": "cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f"
+          "sha256": "f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be"
         },
         {
           "path": "greedyq/prolific.py",

@@ -28,6 +28,10 @@
     {
       "name": "007_answer_snapshot.sql",
       "sha256": "6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2"
+    },
+    {
+      "name": "008_terminal_timestamp.sql",
+      "sha256": "329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b"
     }
   ]
 }

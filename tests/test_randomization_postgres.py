@@ -44,7 +44,7 @@ class PostgresRandomizationTests(unittest.TestCase):
         subprocess.run([str(BIN/"pg_ctl"),"-D",str(cls.data),"-l",str(cls.root/"server.log"),"-o",f"-h '' -k {cls.root} -p 55439","-w","start"],check=True,capture_output=True)
         cls.addClassCleanup(cls.cleanup_server)
         cls.sql("create role anon; create role authenticated; create role service_role; create schema extensions; create extension pgcrypto with schema extensions;")
-        for source in [ROOT/"examples/complete-study/supabase/migrations/001_initial.sql",*[ROOT/"templates/supabase"/name for name in ("002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql")]]:
+        for source in [ROOT/"examples/complete-study/supabase/migrations/001_initial.sql",*[ROOT/"templates/supabase"/name for name in ("002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql","008_terminal_timestamp.sql")]]:
             cls.sql(source.read_text())
 
     def test_accepted_answer_snapshot_prunes_only_removed_session_answers(self):
@@ -60,6 +60,98 @@ class PostgresRandomizationTests(unittest.TestCase):
         self.assertEqual('2',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
         self.assertEqual('0',self.sql(f"select count(*) from gq_answers where session_id='{sid}' and question_id='q2'"))
         self.assertEqual('1',self.sql(f"select count(*) from gq_answers where session_id='{other}'"))
+
+    def save_terminal_state(self, sid, lifecycle='completed', token='abcdefghijklmnopqrstuvwx'):
+        state=json.dumps({'page':'baseline','lifecycle':lifecycle,'answers':{'consent':'yes','q1':'saved'}})
+        self.sql(f"set role anon; select greedyq_save_session('{sid}','{token}','{state}','consent');")
+
+    def terminal_time(self, sid):
+        return self.sql(f"select coalesce(terminal_at::text,'') from gq_sessions where id='{sid}'")
+
+    def test_terminal_timestamp_records_server_time_for_each_end_state(self):
+        for lifecycle in ('completed','screened_out','consent_refused','technical_error','withdrawn'):
+            with self.subTest(lifecycle=lifecycle):
+                sid=self.participant()
+                self.assertEqual('',self.terminal_time(sid))
+                before=self.sql('select clock_timestamp()')
+                self.save_terminal_state(sid,lifecycle)
+                stamp=self.terminal_time(sid)
+                self.assertTrue(stamp)
+                self.assertEqual('t',self.sql(f"select terminal_at >= '{before}'::timestamptz and terminal_at <= clock_timestamp() from gq_sessions where id='{sid}'"))
+                self.assertEqual(lifecycle,self.sql(f"select lifecycle_state from gq_sessions where id='{sid}'"))
+                if lifecycle=='withdrawn':
+                    self.assertEqual('0',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
+
+    def test_terminal_timestamp_preserves_first_completion_across_retries_and_reopening(self):
+        sid=self.participant(test=False);self.save_terminal_state(sid)
+        first=self.terminal_time(sid)
+        self.sql('select pg_sleep(0.01)')
+        self.save_terminal_state(sid)
+        self.save_terminal_state(sid,'in_progress')
+        self.save_terminal_state(sid)
+        self.assertEqual(first,self.terminal_time(sid))
+        self.assertEqual('2',self.sql(f"select count(*) from gq_answers where session_id='{sid}'"))
+        self.assertEqual('t',self.sql(f"select completed_at=terminal_at from gq_analysis_export e join gq_sessions s on e.session_id=s.id where s.id='{sid}' limit 1"))
+
+    def test_terminal_timestamp_not_recorded_by_nonterminal_or_rejected_save(self):
+        sid=self.participant()
+        self.save_terminal_state(sid,'in_progress')
+        self.assertEqual('',self.terminal_time(sid))
+        with self.assertRaisesRegex(RuntimeError,'invalid session capability'):
+            self.save_terminal_state(sid,token='wrong')
+        self.assertEqual('',self.terminal_time(sid))
+        self.assertEqual('in_progress',self.sql(f"select lifecycle_state from gq_sessions where id='{sid}'"))
+
+    def test_terminal_timestamp_rolls_back_with_failed_answer_write(self):
+        sid=self.participant()
+        self.sql("create function public.gq_test_fail_answer() returns trigger language plpgsql as $$ begin raise exception 'synthetic answer failure'; end $$; create trigger gq_test_fail_answer before insert or update on gq_answers for each row execute function gq_test_fail_answer();")
+        try:
+            with self.assertRaisesRegex(RuntimeError,'synthetic answer failure'):
+                self.save_terminal_state(sid)
+            self.assertEqual('',self.terminal_time(sid))
+            self.assertNotEqual('completed',self.sql(f"select lifecycle_state from gq_sessions where id='{sid}'"))
+        finally:
+            self.sql('drop trigger gq_test_fail_answer on gq_answers; drop function gq_test_fail_answer();')
+
+    def test_terminal_timestamp_prolific_completion_and_concurrent_retries(self):
+        self.prolific_plan(test=False);sid=str(uuid.uuid4())
+        self.prolific_start(sid,test=False)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+            list(pool.map(lambda _:self.save_terminal_state(sid),range(4)))
+        first=self.terminal_time(sid);self.assertTrue(first)
+        self.save_terminal_state(sid)
+        self.assertEqual(first,self.terminal_time(sid))
+        self.assertEqual('1',self.sql(f"select count(*) from gq_external_identifiers where session_id='{sid}'"))
+        self.assertEqual('prolific|f|completed',self.sql(f"select respondent_source,is_test,lifecycle_state from gq_sessions where id='{sid}'"))
+
+    def test_terminal_timestamp_migration_preserves_all_historical_records(self):
+        # Reproduce an existing deployment with migration 007, then upgrade it.
+        self.sql('drop trigger gq_terminal_timestamp on gq_sessions; drop function gq_record_terminal_timestamp();')
+        try:
+            legacy=self.participant();known=self.participant();active=self.participant()
+            self.save_terminal_state(legacy);self.save_terminal_state(known)
+            self.sql(f"update gq_sessions set terminal_at='2026-01-02T03:04:05Z' where id='{known}'")
+            snapshot=lambda:self.sql("select jsonb_build_object('sessions',(select jsonb_agg(to_jsonb(s) order by id) from gq_sessions s),'answers',(select jsonb_agg(to_jsonb(a) order by session_id,question_id) from gq_answers a),'identifiers',(select jsonb_agg(to_jsonb(e) order by session_id) from gq_external_identifiers e))")
+            before=snapshot()
+        finally:
+            self.sql((ROOT/'templates/supabase/008_terminal_timestamp.sql').read_text())
+        self.assertEqual(before,snapshot())
+        self.assertEqual('',self.terminal_time(legacy))
+        self.save_terminal_state(legacy)
+        self.assertEqual('',self.terminal_time(legacy))
+        first=self.terminal_time(known);self.save_terminal_state(known)
+        self.assertEqual(first,self.terminal_time(known))
+        self.save_terminal_state(active)
+        self.assertTrue(self.terminal_time(active))
+
+    def test_terminal_timestamp_cannot_be_reset_or_forged_by_client(self):
+        sid=self.participant()
+        state=json.dumps({'page':'baseline','lifecycle':'completed','terminal_at':'2000-01-01T00:00:00Z','answers':{'consent':'yes'}})
+        self.sql(f"set role anon; select greedyq_save_session('{sid}','abcdefghijklmnopqrstuvwx','{state}','consent');")
+        first=self.terminal_time(sid);self.assertTrue(first)
+        self.assertNotIn('2000-01-01',first)
+        self.sql(f"update gq_sessions set terminal_at=null where id='{sid}'")
+        self.assertEqual(first,self.terminal_time(sid))
 
     @classmethod
     def cleanup_server(cls):

@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-25_f2afa11",
-  "registry_sha256": "9095c1fe6b12129957b4c220032df1da6c90faa9c537b945806dfea7f8b74cd5",
+  "registry_sha256": "424f24234bc46585717bbe1c3a5665bc209b827df8cae6d6f33a942a4f503e8c",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [],
@@ -11,7 +11,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "9960f277c68bac7643744b9ff20f62f98f575660793d40001332c099cb74551d"
+      "manifest_sha256": "f9e347b3d1cba8ab62ca4cdb2ec7c6363d636a973cae0a5bbd3f4772fd3893a1"
     },
     {
       "id": "simple",
@@ -105,7 +105,7 @@
     {
       "component": "core",
       "path": "tools/cloud_lifecycle.cjs",
-      "sha256": "2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06"
+      "sha256": "58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30"
     },
     {
       "component": "core",
@@ -120,7 +120,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "ad964360382ffdc91f06691e4530d7cc9e3e8749af953bb8a4776180705e3f73"
+      "sha256": "e8029c64ad5eb4c68d754dffe41912d92a89cc68b58e261ec99460eb5001843f"
     },
     {
       "component": "core",
@@ -224,6 +224,11 @@
     },
     {
       "component": "core",
+      "path": "templates/supabase/008_terminal_timestamp.sql",
+      "sha256": "329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b"
+    },
+    {
+      "component": "core",
       "path": "templates/supabase/connection-test.html",
       "sha256": "9458342fcae1dac19c68fb86e2420aea72855c7af748d8302ce4dc162a7e4c9d"
     },
@@ -260,7 +265,7 @@
     {
       "component": "core",
       "path": "greedyq/build.py",
-      "sha256": "6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f"
+      "sha256": "a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4"
     },
     {
       "component": "core",
@@ -295,7 +300,7 @@
     {
       "component": "core",
       "path": "greedyq/deployment.py",
-      "sha256": "9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb"
+      "sha256": "055d451cd9caf5366dd01f143ca09080c8f092395b553ef929bf97a8f9776d97"
     },
     {
       "component": "core",

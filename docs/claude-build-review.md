@@ -6,7 +6,7 @@ Reviewed 2026-10-25 against the supplied `greedyQ-build-deploy-test.md`. The pas
 
 | Report | Response and verification boundary |
 | --- | --- |
-| P0-A, P1-D: missing files and records | `init` creates a complete draft folder and pending decisions, without questions or approvals. Build supplies canonical migrations 001–007, Vercel configuration and an environment example. Package preflight checks study records, declared documents, contained paths, identities and hashes. |
+| P0-A, P1-D: missing files and records | `init` creates a complete draft folder and pending decisions, without questions or approvals. Build supplies canonical migrations 001–008, Vercel configuration and an environment example. Package preflight checks study records, declared documents, contained paths, identities and hashes. |
 | P0-B: untouched slider accepted | Numeric and labeled sliders remain unanswered until interaction or an explicit configured default. Optional untouched sliders remain blank. Desktop/mobile browser tests cover required validation, keyboard interaction and preserved explicit defaults. Dates no longer silently use today. |
 | P0-C, P2-B: differing Python screen and lost form values | `run` now serves the same JavaScript screen as preview/deployment. Python remains a backend/parser reference; the legacy Python form is no longer a participant UI review path. Canonical JavaScript validation retains input. |
 | P1-A: conditional syntax | Whitelisted `contains`, `in`, `length`, `not` and grouped expressions compile and evaluate in Python/JavaScript. Native export renders the same parsed conditions with generated R collection handling. Invalid rules name the rule and give supported examples. Arbitrary code remains unsupported. |

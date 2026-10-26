@@ -11,7 +11,7 @@ This page begins where local questionnaire testing ends. You do not need databas
 
 ## Already prepared
 
-- Ordered setup files: `001_initial.sql` through `007_answer_snapshot.sql`; apply all seven without rewriting previously applied files.
+- Ordered setup files: `001_initial.sql` through `008_terminal_timestamp.sql`; apply all eight without rewriting previously applied files.
 - Browser code for secure session creation, saving, resume, stable assignment, Prolific duplicate detection, and withdrawal deletion
 - A browser-native connection tester that uses synthetic data only
 - A static deployment bundle requiring only the project URL and publishable/anon key
@@ -23,7 +23,7 @@ This page begins where local questionnaire testing ends. You do not need databas
 2. Choose its region according to the approved data-location policy. Do not guess if IRB or institutional policy has not resolved this.
 3. In the SQL editor, run [`001_initial.sql`](./examples/complete-study/supabase/migrations/001_initial.sql) once.
 4. Run [`002_browser_rpc.sql`](./examples/complete-study/supabase/migrations/002_browser_rpc.sql) second.
-   Then run [`003_results_dashboard.sql`](./templates/supabase/003_results_dashboard.sql), [`004_randomization.sql`](./templates/supabase/004_randomization.sql), [`005_prolific.sql`](./templates/supabase/005_prolific.sql) [`006_withdrawal_preview.sql`](./templates/supabase/006_withdrawal_preview.sql) and [`007_answer_snapshot.sql`](./templates/supabase/007_answer_snapshot.sql) in order. Have the connected agent register your reviewed study model with `registerStudy(client, model)`; the public browser key cannot perform this privileged step. See [upgrade restrictions](./RANDOMIZATION.md). The separate synthetic connection-test model is provisioned by 004 automatically. Migration 006 handles new withdrawal erasure and private repeat-test grants; it does not delete historical responses.
+   Then run [`003_results_dashboard.sql`](./templates/supabase/003_results_dashboard.sql), [`004_randomization.sql`](./templates/supabase/004_randomization.sql), [`005_prolific.sql`](./templates/supabase/005_prolific.sql) [`006_withdrawal_preview.sql`](./templates/supabase/006_withdrawal_preview.sql) [`007_answer_snapshot.sql`](./templates/supabase/007_answer_snapshot.sql) and [`008_terminal_timestamp.sql`](./templates/supabase/008_terminal_timestamp.sql) in order. Have the connected agent register your reviewed study model with `registerStudy(client, model)`; the public browser key cannot perform this privileged step. See [upgrade restrictions](./RANDOMIZATION.md). The separate synthetic connection-test model is provisioned by 004 automatically. Migration 006 handles new withdrawal erasure and private repeat-test grants; it does not delete historical responses.
 5. Copy the project URL and **publishable key** or legacy `anon` key. Never copy a service-role key or database password.
 6. Give those two public browser values to the AI and approve inserting them into the test survey's `greedyq-deployment` block in `index.html`.
 7. Open `supabase-connection-test.html`, enter the same two values, and select **Run all connection tests**.
@@ -48,3 +48,5 @@ I created the Supabase test project. Help me connect it using SUPABASE-SETUP.md.
 ```
 
 Migration 007 prunes answers omitted from a newly accepted complete browser snapshot in the same session. When a conditional answer is cleared on hide, it must also disappear from results and CSV. Other sessions and historical records are not bulk rewritten. Existing installations require the missing 007 migration through the reviewed upgrade process; this local audit does not change the paid pilot under review.
+
+Migration 008 records `terminal_at` when a session first enters completed, screened-out, consent-refused, withdrawn or technical-error state. It preserves an existing end time across retries and never backfills historical ended sessions. CSV `completed_at` comes from this value; keep a legacy blank rather than substituting `updated_at` or the upgrade time. Applying 008 requires no participant-page redeployment. Preserve applied migration hashes and verify existing response rows before and after an upgrade.

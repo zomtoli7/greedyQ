@@ -4,7 +4,7 @@
   "source_commit": "f2afa113f55ff6502d433d899665d40e62a6b06f",
   "release_date": "2026-10-25",
   "documentation_updated": "2026-10-25",
-  "prolific_paid_pilot": "paused_for_review",
-  "paid_submission_verified": false,
+  "prolific_paid_pilot": "awaiting_manual_review",
+  "paid_submission_verified": true,
   "payment_verified": false
 }

@@ -26,7 +26,7 @@ class ClaudeReviewTests(unittest.TestCase):
             _,parsed,_=load_study(root)
             self.assertEqual(['welcome','complete'],[p['id'] for p in parsed['pages']])
             self.assertFalse(any(p['questions'] for p in parsed['pages']))
-            self.assertEqual(7,len(list((root/'supabase/migrations').glob('*.sql'))))
+            self.assertEqual(8,len(list((root/'supabase/migrations').glob('*.sql'))))
             self.assertIn('local-preview-banner',(root/'index.html').read_text())
             self.assertEqual('in_progress',json.loads((root/'.greedyq/study-state.json').read_text())['status'])
             with self.assertRaises(FileExistsError):initialize(root,'review_study','simple')

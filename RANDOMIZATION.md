@@ -79,7 +79,7 @@ Question orders are stored as ordered question IDs in `question_orders`, retaine
 
 ## Deployment and upgrade
 
-The agent applies migrations **001–007** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
+The agent applies migrations **001–008** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
 
 Do not modify already-applied 001–003. Existing databases without an applied-migration ledger need explicit reconciliation. Existing experimental studies with legacy assignments require a **new study ID**; never relabel old least-count assignments as random. Applying 004 changes the save boundary for the database: register all studies that must remain usable in that database and deploy the matching runtime during an approved maintenance window. Otherwise saves fail closed. Test the migration on a separate test database first.
 

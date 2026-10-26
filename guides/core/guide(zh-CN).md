@@ -56,7 +56,7 @@
 
 固定浏览器文件包括 `greedyq-core.js`、`greedyq-runtime.css`、`index.html`、双窗口 `preview.html`。`studio.html` 可本地选择 QMD/YAML 并预览，不需要 Python/Node.js。Vercel 只托管已检验静态文件；Supabase 在本地批准后替换模拟数据适配，不改变解析、验证、显示、跳题或研究含义。
 
-连接前执行相当于 `preregister`、`export-surveydown` 和 `preflight` 的步骤。预注册仍是未批准的本地草稿。原生导出须报告重要差异，不声称未验证的行为相同。按 001–007 顺序应用固定迁移：基础表/RLS/退出/分析边界、浏览器会话、结果页、服务器分配和顺序保存、Prolific ID、退出删除与重复预览、完整回答快照。然后用 `registerStudy(client, model)` 注册每个审阅模型，遵循 [RANDOMIZATION.md](../../RANDOMIZATION.md) 的已有数据库限制。记录 `supabase/migrations/manifest.json` 哈希，缺失、重复编号或不符时停止。不要改已应用文件，也不要编造安全 RPC；需要变更时新增下一编号迁移。
+连接前执行相当于 `preregister`、`export-surveydown` 和 `preflight` 的步骤。预注册仍是未批准的本地草稿。原生导出须报告重要差异，不声称未验证的行为相同。按 001–008 顺序应用固定迁移：基础表/RLS/退出/分析边界、浏览器会话、结果页、服务器分配和顺序保存、Prolific ID、退出删除与重复预览、完整回答快照、服务器首次结束时间。然后用 `registerStudy(client, model)` 注册每个审阅模型，遵循 [RANDOMIZATION.md](../../RANDOMIZATION.md) 的已有数据库限制。记录 `supabase/migrations/manifest.json` 哈希，缺失、重复编号或不符时停止。不要改已应用文件，也不要编造安全 RPC；需要变更时新增下一编号迁移。
 
 随机分配或题序随机化前，先用日常语言解释并确认。固定实现支持一次参与者层面简单/固定区组分配和指定同页题序随机化。不得暗加随机化、用最少人数法代替随机抽取或承诺尚未实现的程序。选项与页面顺序有各自限制；其他设计可按明确研究扩展另行设计验证。恢复时保留已记录分配和顺序。
 
@@ -69,3 +69,5 @@
 ## 默认连接流程
 
 沿用审阅问卷 → Vercel 登录 → 必要 Supabase 授权 → 问卷/结果链接。已有批准的官方 Vercel 连接时先核对账户与目标团队再优先使用；没有连接或操作不可用时，采用既有受支持方式。**Onboard your agent 是可选项，不是必需步骤。** 不把安装或重启加入普通用户清单。缺团队授权时只请求该团队批准，区分连接准备与部署、保存验证。遵循[部署模块的连接选择规范](../modules/deployment-vercel-supabase/guide(zh-CN).md)。
+
+迁移 008 在会话首次完成、筛出、拒绝同意、退出或发生技术错误时记录服务器时间 `terminal_at`。重试保留已有结束时间，不回填历史已结束记录。CSV 的 `completed_at` 使用此值；历史空值不能用 `updated_at` 或升级时间代替。应用 008 无需重新部署参与者页面。保留已应用迁移的哈希，并核对升级前后原始回答未改变。

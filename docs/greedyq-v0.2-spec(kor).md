@@ -145,7 +145,7 @@ Consent amendment는 재확인을 요구해야 합니다. Withdrawal policy는 �
 
 Detailed work를 연기하면 draft preview에 눈에 띄는 placeholder governance 및 consent content를 사용할 수 있습니다. 이를 reviewed 또는 approved로 표현하면 안 됩니다. Detailed governance, privacy, withdrawal, retention, participant-facing consent는 coherent instrument draft 후 interactive preview approval 전에 확인해야 합니다. 이 confirmation이 기록되기 전에는 production deployment를 차단해야 합니다.
 
-기본 runtime은 철회 시 연구 답변을 원자적·멱등적으로 삭제합니다. 세션을 잠그고 답변·배정·동의 이벤트·브라우저 저장 답변 및 순서를 삭제하며, 사전에 설명한 최소 운영 기록과 반환·중복 방지용 관리 식별자만 유지하고 최소 종료 이벤트를 기록합니다. 실패하면 전체를 되돌립니다. 사용한 배정 자리는 재사용하면 안 됩니다. 서버의 정리된 상태를 확인한 뒤 반환을 열고 이후 답변 저장을 거부해야 합니다. 기존 다운로드·제공업체 백업·외부 플랫폼 기록을 지우는 기능은 아닙니다. 생성 Supabase 프로젝트는 기본 001–007을 적용해야 하며 미검토 대체 코드를 만들면 안 됩니다. 다른 보관 정책은 연구자의 명시적 검토와 별도 구현·검증이 필요하며 메타데이터만으로 기본 runtime이 철회 답변을 보관한다고 주장하면 안 됩니다.
+기본 runtime은 철회 시 연구 답변을 원자적·멱등적으로 삭제합니다. 세션을 잠그고 답변·배정·동의 이벤트·브라우저 저장 답변 및 순서를 삭제하며, 사전에 설명한 최소 운영 기록과 반환·중복 방지용 관리 식별자만 유지하고 최소 종료 이벤트를 기록합니다. 실패하면 전체를 되돌립니다. 사용한 배정 자리는 재사용하면 안 됩니다. 서버의 정리된 상태를 확인한 뒤 반환을 열고 이후 답변 저장을 거부해야 합니다. 기존 다운로드·제공업체 백업·외부 플랫폼 기록을 지우는 기능은 아닙니다. 생성 Supabase 프로젝트는 기본 001–008을 적용해야 하며 미검토 대체 코드를 만들면 안 됩니다. 다른 보관 정책은 연구자의 명시적 검토와 별도 구현·검증이 필요하며 메타데이터만으로 기본 runtime이 철회 답변을 보관한다고 주장하면 안 됩니다.
 
 ## 9. Respondent source 및 Prolific
 

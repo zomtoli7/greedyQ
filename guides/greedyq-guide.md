@@ -246,8 +246,8 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `c2e3851b0aa36a1fa3efa0305f44ae0dcc1e6dba341348c48fb0db5afb6d29f7` | `no` |
-| `PROLIFIC-SETUP.md` | `cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f` | `no` |
+| `release.json` | `b7b1f0a7c61629c9b2ae8179c5431350ecbc57beabdd13855f8003b355d5a958` | `no` |
+| `PROLIFIC-SETUP.md` | `f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
 | `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
@@ -260,11 +260,11 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/redirects.py` | `7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce` | `no` |
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
 | `tools/resolve_guide.py` | `43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043` | `no` |
-| `RANDOMIZATION.md` | `b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb` | `no` |
+| `RANDOMIZATION.md` | `70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15` | `no` |
 | `docs/repeat-user-acceptance.md` | `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1` | `no` |
 | `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
-| `docs/cloud-lifecycle.md` | `816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110` | `no` |
-| `tools/cloud_lifecycle.cjs` | `2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06` | `no` |
+| `docs/cloud-lifecycle.md` | `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81` | `no` |
+| `tools/cloud_lifecycle.cjs` | `58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30` | `no` |
 | `tools/archive_study.cjs` | `420a2a17128d4d4e5b3b822c58d1418de225583c9a71908d44bf67bb444fe117` | `no` |
 | `greedyq/archive.py` | `eb576fee68764960ea2a734c5e44b258e00ca2992606a50cc37291cd2f2b633e` | `no` |
 | `docs/preview-ui-spec.md` | `1f299ece6e45ea77fdd3397e1ec29ee326e0af6bba33a0a9774e24edbfdbe2d7` | `no` |
@@ -280,6 +280,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/supabase/005_prolific.sql` | `cf67178ae3a6503b208e471686f043227a1c20d62e3d81060d76af71863bb52e` | `no` |
 | `templates/supabase/006_withdrawal_preview.sql` | `b60808de5814f0a852db44a444d6d1b1e042ef6635860de2aaebdf642b9fc4b1` | `no` |
 | `templates/supabase/007_answer_snapshot.sql` | `6d30ebdf1403c26864dc6d333e801cbcfe34eae3222883b07f6bfff970fc80f2` | `no` |
+| `templates/supabase/008_terminal_timestamp.sql` | `329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b` | `no` |
 | `tools/prolific_status.cjs` | `6f0dcbd48f76f477a6ac8d85cfaf35e3ca2b4de7eea5e37c68d9d14e0d684866` | `no` |
 | `templates/vercel/api/results.js` | `474e84b4fa415a0712112d2126b6ed37bda7ac7502a4e763569e71c4e390e1c8` | `no` |
 | `examples/complete-study/supabase/migrations/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
@@ -295,14 +296,14 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `greedyq/parser.py` | `aa0cb4273b9812292308647eda61e30e591f07dd7e147c94f04ff2c292f64803` | `no` |
 | `greedyq/validator.py` | `d6170a2163b212056db7a0348ef966dd24cffa0317894150ecc95a37a4a10df3` | `no` |
 | `greedyq/compiler.py` | `5cae694ad468ca05913835896bbafb2c2621eefbd5d83174cd4185f9663f98eb` | `no` |
-| `greedyq/build.py` | `6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f` | `no` |
+| `greedyq/build.py` | `a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4` | `no` |
 | `greedyq/runtime.py` | `0d53de1caa9b408c8f01f1763585a3ac89034d50a5b238fdc73d388119657ec9` | `no` |
 | `greedyq/randomization.py` | `fa9ef565053e9fbdb0321b77b263674045108c55910633ac2b9a7405c3d907ee` | `no` |
 | `greedyq/server.py` | `73448bfdb61f7f1d586549bf696bc369e42f992a6cbea3d621a6eae9d1421c65` | `no` |
 | `greedyq/prolific.py` | `ba134506dfcce5c3bd126d3cba10bd29df449e260ea8ecf37f40abfc369747b7` | `no` |
 | `greedyq/preregistration.py` | `2846fe9f7175b6f740c0b228efb4adb5bf05d11d311cc2ca4e5ccbb7af09b99c` | `no` |
 | `greedyq/exporter.py` | `acb2a62977f5d693db33ba1351c04e85d9a74a324e05e3afc69774df7eeb0da0` | `no` |
-| `greedyq/deployment.py` | `9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb` | `no` |
+| `greedyq/deployment.py` | `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524` | `no` |
 
 ### FILE: `greedyq/scaffold.py`
 
@@ -620,7 +621,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `c2e3851b0aa36a1fa3efa0305f44ae0dcc1e6dba341348c48fb0db5afb6d29f7`
+SHA-256: `b7b1f0a7c61629c9b2ae8179c5431350ecbc57beabdd13855f8003b355d5a958`
 
 ```json
 {
@@ -629,15 +630,15 @@ SHA-256: `c2e3851b0aa36a1fa3efa0305f44ae0dcc1e6dba341348c48fb0db5afb6d29f7`
   "source_commit": "f2afa113f55ff6502d433d899665d40e62a6b06f",
   "release_date": "2026-10-25",
   "documentation_updated": "2026-10-25",
-  "prolific_paid_pilot": "paused_for_review",
-  "paid_submission_verified": false,
+  "prolific_paid_pilot": "awaiting_manual_review",
+  "paid_submission_verified": true,
   "payment_verified": false
 }
 ```
 
 ### FILE: `PROLIFIC-SETUP.md`
 
-SHA-256: `cd9ec0c1fdc9f2c02938c08a3386a9d63b57b26643745080243530add5c64f0f`
+SHA-256: `f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be`
 
 ```markdown
 # Connect a study to Prolific
@@ -659,7 +660,7 @@ greedyQ collects the survey responses; Prolific recruits participants and handle
 5. If screening is needed, distinguish validating Prolific's existing prescreeners from custom screening. Custom screening can require a separate screen-out reward. Do not treat refusal of consent as a rejection or invent a screening/payment policy.
 6. Give the AI the Prolific study ID and confirm the path mapping. IDs and completion codes are configuration; passwords, login codes and API tokens must not be pasted into chat.
 
-The agent records the expected study ID, builds the survey, applies migrations **001–007** in order and registers the exact reviewed model. Existing installations add missing **006/007** files without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; the current paid pilot is not upgraded by this local audit. Do not apply migrations to an active shared database without the existing maintenance/review process.
+The agent records the expected study ID, builds the survey, applies migrations **001–008** in order and registers the exact reviewed model. Existing installations add missing **006/007** files without rewriting earlier migrations or bulk deleting historical responses. Migration 007 prunes answers removed from future accepted snapshots; the current paid pilot is not upgraded by this local audit. Do not apply migrations to an active shared database without the existing maintenance/review process.
 
 ## Test before recruiting
 
@@ -1563,7 +1564,7 @@ if __name__ == "__main__":
 
 ### FILE: `RANDOMIZATION.md`
 
-SHA-256: `b2d7969c0e45a13b9ddd6133a62eae2888095399a98a9d917fe180ec4a62e2fb`
+SHA-256: `70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15`
 
 ```markdown
 # Random assignment and question order
@@ -1647,7 +1648,7 @@ Question orders are stored as ordered question IDs in `question_orders`, retaine
 
 ## Deployment and upgrade
 
-The agent applies migrations **001–007** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
+The agent applies migrations **001–008** in order, then calls `registerStudy(client, model)` from `tools/cloud_lifecycle.cjs` with the reviewed compiled model. This is a privileged setup step; no server credential belongs in the survey. Run the existing checksum/ledger checks. Registering exactly the same model is safe to retry; a different registered model requires a new study ID. Register studies without random assignment too: the save boundary uses their consent and question definitions.
 
 Do not modify already-applied 001–003. Existing databases without an applied-migration ledger need explicit reconciliation. Existing experimental studies with legacy assignments require a **new study ID**; never relabel old least-count assignments as random. Applying 004 changes the save boundary for the database: register all studies that must remain usable in that database and deploy the matching runtime during an approved maintenance window. Otherwise saves fail closed. Test the migration on a separate test database first.
 
@@ -1759,7 +1760,7 @@ ZIP-to-database restoration is explicitly outside the required product scope. Th
 
 ### FILE: `docs/cloud-lifecycle.md`
 
-SHA-256: `816aac8a94445c775f02bc9a99e430d8af5ab137370dacf45eadc9d300ec6110`
+SHA-256: `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81`
 
 ```markdown
 # Cloud setup and archive operator contract
@@ -1778,7 +1779,7 @@ Connect the Supabase resource only to the results project, which receives server
 
 ## Archive execution
 
-Before using a new runtime, apply 001–007 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
+Before using a new runtime, apply 001–008 and call `registerStudy(client, model)` for every reviewed study. This registration is mandatory even for a nonexperimental survey. See [randomization and upgrade requirements](../RANDOMIZATION.md). Do not apply 004 to an active shared database without registering its other studies and coordinating a maintenance window; the new save boundary fails closed for unregistered studies. Older acceptance records describe the version tested at that time, not automatic validation of this upgrade.
 
 The agent needs Node, the `pg` package, and Python for the archive writer in its own environment. No extra software is required on the researcher's machine. Tests can use injected provider/database adapters without external accounts.
 
@@ -1839,7 +1840,7 @@ The established CLI operations route remains supported. Prefer an authorized off
 
 ### FILE: `tools/cloud_lifecycle.cjs`
 
-SHA-256: `2c3a74eab9ce8ba8b3c9b3e57b303a56692a127cc1eb4f7c9bcadd7f1c620e06`
+SHA-256: `58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30`
 
 ```javascript
 /* Agent-side operations. Never ship this module or its environment to respondents. */
@@ -1865,7 +1866,7 @@ async function databaseClient(Client, connectionString, fetcher = fetch) {
 
 async function migrate(client, directory) {
   const manifest = JSON.parse(fs.readFileSync(path.join(directory,'manifest.json')));
-  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql'])) throw new Error('Complete ordered migration set required');
+  if (JSON.stringify(manifest.migrations.map(e=>e.name))!==JSON.stringify(['001_initial.sql','002_browser_rpc.sql','003_results_dashboard.sql','004_randomization.sql','005_prolific.sql','006_withdrawal_preview.sql','007_answer_snapshot.sql','008_terminal_timestamp.sql'])) throw new Error('Complete ordered migration set required');
   for (const entry of manifest.migrations) {
     if (!/^\d{3}_[a-z_]+\.sql$/.test(entry.name)) throw new Error('Invalid migration name');
     if (hash(fs.readFileSync(path.join(directory,entry.name))) !== entry.sha256) throw new Error('Migration checksum mismatch');
@@ -6718,6 +6719,33 @@ revoke all on function public.greedyq_save_session(uuid,text,jsonb,text) from pu
 grant execute on function public.greedyq_save_session(uuid,text,jsonb,text) to anon,authenticated;
 ```
 
+### FILE: `templates/supabase/008_terminal_timestamp.sql`
+
+SHA-256: `329195070e1693b68a9b37cee9d902c8f3aae03c42d31a1a6353f445292f2d7b`
+
+```sql
+-- Record the server time of the first new terminal transition.
+-- This additive migration does not backfill or rewrite historical responses.
+create function public.gq_record_terminal_timestamp() returns trigger
+language plpgsql set search_path=public,pg_temp as $$
+begin
+  if old.terminal_at is not null then
+    -- Retries, subsequent saves and attempted reopening cannot change it.
+    new.terminal_at := old.terminal_at;
+  elsif old.lifecycle_state not in ('completed','screened_out','consent_refused','withdrawn','technical_error')
+    and new.lifecycle_state in ('completed','screened_out','consent_refused','withdrawn','technical_error') then
+    new.terminal_at := statement_timestamp();
+  else
+    -- In particular, do not invent a completion time for legacy ended sessions.
+    new.terminal_at := old.terminal_at;
+  end if;
+  return new;
+end;$$;
+revoke all on function public.gq_record_terminal_timestamp() from public,anon,authenticated;
+create trigger gq_terminal_timestamp before update on public.gq_sessions
+for each row execute function public.gq_record_terminal_timestamp();
+```
+
 ### FILE: `tools/prolific_status.cjs`
 
 SHA-256: `6f0dcbd48f76f477a6ac8d85cfaf35e3ca2b4de7eea5e37c68d9d14e0d684866`
@@ -9112,7 +9140,7 @@ def compile_preview(parsed, config):
 
 ### FILE: `greedyq/build.py`
 
-SHA-256: `6b5c18d1d57ce6b9dabc6da5e02734f482689c0ea229adb57a95b78a21371b4f`
+SHA-256: `a9e2b23f14cd9192fad2aa774beb9aa809375f16db1c590dfee7a4da95d403e4`
 
 ```python
 """Build normalized artifacts and the fixed browser-native runtime bundle."""
@@ -9208,6 +9236,7 @@ def build(study_dir, write=True):
         (migrations / "005_prolific.sql").write_bytes((ROOT / "templates/supabase/005_prolific.sql").read_bytes())
         (migrations / "006_withdrawal_preview.sql").write_bytes((ROOT / "templates/supabase/006_withdrawal_preview.sql").read_bytes())
         (migrations / "007_answer_snapshot.sql").write_bytes((ROOT / "templates/supabase/007_answer_snapshot.sql").read_bytes())
+        (migrations / "008_terminal_timestamp.sql").write_bytes((ROOT / "templates/supabase/008_terminal_timestamp.sql").read_bytes())
         migration_files = sorted(migrations.glob("[0-9][0-9][0-9]_*.sql"))
         migration_manifest = {
             "schema_version": "0.2",
@@ -10316,7 +10345,7 @@ def generate(study_dir, parsed, config):
 
 ### FILE: `greedyq/deployment.py`
 
-SHA-256: `9661653007cbf8318d9b4b4362bd06a36bd07f14c5407481393964d09221d3eb`
+SHA-256: `1ea7f06450f9bb277c5374859acecb4e86479dca331d47838060006abed89524`
 
 ```python
 """Offline preflight for the static Vercel and Supabase handoff bundle."""
@@ -10398,8 +10427,8 @@ def preflight(study_dir, stage="package", deployment_index=None):
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
     migration_paths = sorted((root / "supabase/migrations").glob("[0-9][0-9][0-9]_*.sql"))
     numbers = [int(re.match(r"(\d{3})_", path.name).group(1)) for path in migration_paths]
-    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql"]:
-        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–007 is required."})
+    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql","008_terminal_timestamp.sql"]:
+        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–008 is required."})
     if numbers != sorted(set(numbers)):
         issues.append({"code": "GQ013", "message": "Supabase migration numbers must be unique and ordered."})
     manifest_path = root / "supabase/migrations/manifest.json"

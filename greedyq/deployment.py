@@ -77,8 +77,8 @@ def preflight(study_dir, stage="package", deployment_index=None):
     migrations = "\n".join(path.read_text() for path in sorted((root / "supabase/migrations").glob("*.sql"))) if (root / "supabase/migrations").is_dir() else ""
     migration_paths = sorted((root / "supabase/migrations").glob("[0-9][0-9][0-9]_*.sql"))
     numbers = [int(re.match(r"(\d{3})_", path.name).group(1)) for path in migration_paths]
-    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql"]:
-        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–007 is required."})
+    if [p.name for p in migration_paths] != ["001_initial.sql","002_browser_rpc.sql","003_results_dashboard.sql","004_randomization.sql","005_prolific.sql","006_withdrawal_preview.sql","007_answer_snapshot.sql","008_terminal_timestamp.sql"]:
+        issues.append({"code":"GQ013","message":"The complete canonical migration set 001–008 is required."})
     if numbers != sorted(set(numbers)):
         issues.append({"code": "GQ013", "message": "Supabase migration numbers must be unique and ordered."})
     manifest_path = root / "supabase/migrations/manifest.json"

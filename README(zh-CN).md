@@ -93,7 +93,7 @@ greedyQ 论文发表前，学术使用应同时引用 [greedyQ GitHub 仓库](ht
 
 ## 当前状态
 
-v0.2 提供无需账户的浏览器预览。固定 JavaScript 核心解析 QMD/YAML、检查和编译支持语法、显示电脑/手机与双预览，并通过标准研究、题型示例和错误样例与 Python 核对。Vercel/Supabase 部署、受保护结果、001–007 迁移、Prolific ID、预注册草稿、原生导出和离线准备检查均已实现。
+v0.2 提供无需账户的浏览器预览。固定 JavaScript 核心解析 QMD/YAML、检查和编译支持语法、显示电脑/手机与双预览，并通过标准研究、题型示例和错误样例与 Python 核对。Vercel/Supabase 部署、受保护结果、001–008 迁移、Prolific ID、预注册草稿、原生导出和离线准备检查均已实现。
 
 2026-10-25 已验证 Prolific 草稿 Preview 的完成、拒绝、退出与重复尝试；新退出先删除回答，保留已告知的最少管理标识；也核对结果/CSV 与测试/正式分离。首次付费试验由研究者发布后，等待 Prolific 常规审查，真实付费提交、批准及付款仍未验证。签名 URL 与正式重复提交尚不支持。见[连接状态](./docs/prolific-integration-status.md)、[云端证据](./docs/prolific-cloud-test-2026-10-25.md)、[付费状态](./docs/prolific-paid-pilot-2026-10-25.md)。仓库更新不会自动修改已上线研究。
 

@@ -4,7 +4,7 @@
 
 Use the registered canonical templates for application configuration and database policy. Keep secrets in provider environment settings, use least-privilege browser access, keep privileged operations server-side, and never expose a service-role credential.
 
-Apply the complete 001–007 migration set, then register each reviewed model with `registerStudy(client, model)` in `tools/cloud_lifecycle.cjs`. Follow the existing-database restrictions in [RANDOMIZATION.md](../../../RANDOMIZATION.md); do not update an active shared database without planning registration for all studies that must remain usable. Old connection acceptance does not verify a new runtime or migration.
+Apply the complete 001–008 migration set, then register each reviewed model with `registerStudy(client, model)` in `tools/cloud_lifecycle.cjs`. Follow the existing-database restrictions in [RANDOMIZATION.md](../../../RANDOMIZATION.md); do not update an active shared database without planning registration for all studies that must remain usable. Old connection acceptance does not verify a new runtime or migration.
 
 Preparing files, configuring services, deploying, verifying a live URL, and beginning recruitment are distinct states. Perform external changes only with authorization and available connected tools. Report only results actually observed. Before fielding, test consent, resume, assignment persistence, every terminal outcome, duplicate handling, withdrawal, data deletion requests, and analysis export against the deployed version.
 
