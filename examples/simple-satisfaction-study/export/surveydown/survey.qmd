@@ -3,7 +3,7 @@ format: html
 title: "greedyQ User Experience Survey"
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-10-26_ac2c85a"
+  version: "0.2_2026-10-26_2b581a3"
   organization: "greedyQ Research Team"
 theme-settings:
   theme: default

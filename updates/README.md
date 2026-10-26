@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_2b581a3`](./0.2/0.2_2026-10-26_2b581a3.md) — Require ChatGPT desktop Work/Codex or Claude Desktop with working file and preview tools; Gemini (including desktop) and AI web apps are officially unsupported. Synchronize English, Korean and Chinese guides, website prompts, and the required host-readiness gate.
+
 - [`0.2_2026-10-26_ac2c85a`](./0.2/0.2_2026-10-26_ac2c85a.md) — Implemented dedicated CBC server consent, block/order persistence, exposure/choice storage, withdrawal, protected results, real/test CSV and archives through additive migration 009; verified with synthetic participants in real local PostgreSQL and desktop/mobile browsers.
 
 - [`0.2_2026-10-26_a4ad99e`](./0.2/0.2_2026-10-26_a4ad99e.md) — Implemented CBC CSV/Excel import, Python/browser parity, descriptive design checks and a standalone computer/mobile preview for the v0.3 preview line; live CBC collection remains disabled.
