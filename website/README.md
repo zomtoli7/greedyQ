@@ -52,3 +52,7 @@ The current source includes a separate local CBC importer/preview; follow `CBC.m
 ## Current copy/collection handoff
 
 The current template fixes every prose prompt’s URL/line boundary and all copy paths; BibTeX is unchanged code. See `docs/website-prompt-copy-audit-2026-10-26.md`. CBC collection code is locally verified, but a website publication does not deploy the CBC backend. The prepared HTML must be applied and independently verified by the homepage Work; this task does not claim a new public Google Sites version.
+
+## Final v0.2 publication — 2026-10-26
+
+The final homepage was saved and published through the in-app Browser on 2026-10-26. The complete decoded public `data-code` embed at https://sites.google.com/view/greedyq exactly matched the prepared HTML: release `0.2_2026-10-26_fa94594`, **802788 UTF-8 bytes**, SHA-256 `adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc`. The new agents page, Start support-note placement, all three languages at desktop and 390px mobile widths, version/history, contact, displayed URL boundaries and BibTeX syntax were checked. The copy button showed success; clipboard readback and forced-denial manual copying were not verified in this session. No external AI account was retested. Safari, the desktop mouse, survey/results deployments, databases, Prolific, recruitment and payments were not used or changed.

@@ -2,21 +2,21 @@
   "release": "0.2_2026-10-26_fa94594",
   "source_commit": "fa945942d69bf5bbf0c9cf425d3e352171b32968",
   "prepared_on": "2026-10-26",
-  "status": "prepared_pending_browser_enabled_work",
+  "status": "published_and_verified",
   "html_path": "website/google-sites-embed.html",
   "html_url": "https://raw.githubusercontent.com/zomtoli7/greedyQ/main/website/google-sites-embed.html",
   "bytes": 802788,
   "sha256": "adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc",
   "editor_url": "https://sites.google.com/d/1TWcKQwyFBV90GZbkVsVBUvFlfuOTLvKn/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/edit",
   "public_url": "https://sites.google.com/view/greedyq",
-  "google_sites_publication_verified_by_this_work": false,
+  "google_sites_publication_verified_by_this_work": true,
   "approval_and_payment_evidence": "researcher_confirmation_2026-10-26",
   "independent_payment_receipt_checked": false,
   "website_revision": "v02-final-documentation-reconciliation-cbc-v03-boundary",
-  "verified_on": null,
-  "verification_method": null,
-  "published_bytes": 711794,
-  "published_sha256": "c0295255f6a03c8ed417da926011da7d6c0ce918b583df492c5382f5022b7700",
+  "verified_on": "2026-10-26",
+  "verification_method": "in_app_browser_complete_decoded_data_code_exact_match",
+  "published_bytes": 802788,
+  "published_sha256": "adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc",
   "previous_publication_record": {
     "verified_on": "2026-10-26",
     "verification_method": "in_app_browser_complete_decoded_data_code_exact_match",
@@ -25,16 +25,34 @@
   },
   "last_observed_public_embed": {
     "checked_on": "2026-10-26",
-    "method": "anonymous_public_html_data_code_read",
-    "http_status": 200,
+    "method": "in_app_browser_complete_decoded_data_code_read",
     "embeds": [
       {
-        "bytes": 720084,
-        "sha256": "f795b27bcc5eb65ba08605f671b54aeb2733dfa7bd0533a1bd7faa6d9c438aed",
-        "contains_new_agents_page": false,
-        "contains_current_release": false
+        "bytes": 802788,
+        "sha256": "adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc",
+        "contains_new_agents_page": true,
+        "contains_current_release": true
       }
     ],
-    "matches_prepared_html": false
+    "matches_prepared_html": true
+  },
+  "published_release": "0.2_2026-10-26_fa94594",
+  "public_ui_verification": {
+    "languages": [
+      "en",
+      "ko",
+      "zh"
+    ],
+    "desktop_and_390px_mobile_checked": true,
+    "start_support_note_before_prompt": true,
+    "agents_page_checked": true,
+    "contact_preserved": true,
+    "version_history_checked": true,
+    "displayed_url_boundaries_checked": true,
+    "bibtex_syntax_preserved": true,
+    "copy_button_success_indicator": true,
+    "clipboard_readback_verified": false,
+    "forced_denial_manual_copy_verified": false,
+    "external_ai_account_retested": false
   }
 }
