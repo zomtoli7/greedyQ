@@ -1,8 +1,8 @@
 # greedyQ
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-25_f2afa11`
-- **Release source commit:** [`f2afa11`](https://github.com/zomtoli7/greedyQ/commit/f2afa113f55ff6502d433d899665d40e62a6b06f) · [更新记录](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_4e977e4`
+- **Release source commit:** [`4e977e4`](https://github.com/zomtoli7/greedyQ/commit/4e977e4e0e4244674b4425933e3e5ff60758680d) · [更新记录](./updates/README.md)
 
 [English](./README.md) · [한국어](./README(kor).md)
 

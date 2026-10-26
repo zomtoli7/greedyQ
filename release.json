@@ -1,9 +1,9 @@
 {
   "spec_version": "0.2",
-  "release": "0.2_2026-10-25_f2afa11",
-  "source_commit": "f2afa113f55ff6502d433d899665d40e62a6b06f",
-  "release_date": "2026-10-25",
-  "documentation_updated": "2026-10-25",
+  "release": "0.2_2026-10-26_4e977e4",
+  "source_commit": "4e977e4e0e4244674b4425933e3e5ff60758680d",
+  "release_date": "2026-10-26",
+  "documentation_updated": "2026-10-26",
   "prolific_paid_pilot": "awaiting_manual_review",
   "paid_submission_verified": true,
   "payment_verified": false

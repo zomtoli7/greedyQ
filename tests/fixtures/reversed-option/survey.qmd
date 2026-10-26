@@ -1,7 +1,7 @@
 ---
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-10-25_f2afa11"
+  version: "0.2_2026-10-26_4e977e4"
 ---
 
 --- consent
