@@ -40,7 +40,7 @@
       "files": [
         {
           "path": "release.json",
-          "sha256": "a1617d856ced4e4623780a48eb9feda19558c6f9e8d8eb7c69a00ee351cd690b"
+          "sha256": "24cc922ccf1ebe9c9df2507582e09844e14ab35e99d9d69b943c798785d08ec4"
         },
         {
           "path": "greedyq/localization.py",
@@ -435,7 +435,7 @@
       "files": [
         {
           "path": "guides/modules/prolific/guide.md",
-          "sha256": "7acff8d01328db597dc9c22f401ddcf124ff52fcfcb9dddd3c16ef8ec3111942"
+          "sha256": "0eea148063d82d026a51c40bd7eee793cfa8a19d079440bd51f6ecee33a5113a"
         },
         {
           "path": "guides/modules/prolific/checkpoints.json",
@@ -443,7 +443,7 @@
         },
         {
           "path": "PROLIFIC-SETUP.md",
-          "sha256": "f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be"
+          "sha256": "38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4"
         },
         {
           "path": "greedyq/prolific.py",

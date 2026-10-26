@@ -19,3 +19,7 @@ The owner supplied the editor page ending `/p/1f5xyMm0_Og8HeJkxgVDcRC8tJC2GTsQO/
 The subsequent first-researcher audit release `0.2_2026-10-25_7beafe4` was also saved and published through Safari on 2026-10-25. An independent public fetch again matched the complete generated embed exactly (SHA-256 `37c382b094e3ec977600a3b7f09c7fdbed64b8eb51dd85b8bffdbed989e51614`). The paid survey/results deployments were not changed.
 
 The Claude review and AI-assisted allocation guidance release `0.2_2026-10-25_15d4d3e` was saved and published through Safari on 2026-10-25. The complete public embed matched all 687739 generated source bytes exactly (SHA-256 `a774a5a2c8544d4b56d04a2b879f9d822b4ad4a8c0bb6d1e2faea3754d1bef44`). Guides include optional Vercel agent onboarding and the four-group/group-specific text-sequence example. After release stamping, all 187 Python and 41 Node/browser tests passed without skips. Vercel/Supabase deployments and the paid Prolific pilot were not changed.
+
+## Current publication handoff
+
+Use [the publication request](./publication-request.md) and the generated `publication-manifest.json` for the latest prepared embed. The manifest identifies the release, byte length and SHA-256. The homepage-update Work must separately save, publish and verify the public site; this source update does not claim publication. The current Prolific page distinguishes the completed basic paid pilot, researcher-confirmed approval/payment and remaining checks.

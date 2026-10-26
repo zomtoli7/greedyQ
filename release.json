@@ -4,7 +4,14 @@
   "source_commit": "4e977e4e0e4244674b4425933e3e5ff60758680d",
   "release_date": "2026-10-26",
   "documentation_updated": "2026-10-26",
-  "prolific_paid_pilot": "awaiting_manual_review",
+  "prolific_paid_pilot": "completed",
   "paid_submission_verified": true,
-  "payment_verified": false
+  "payment_verified": true,
+  "paid_pilot_evidence": {
+    "response": "agent_checked_database_and_published_csv",
+    "submission": "researcher_screenshot_matched_to_saved_record",
+    "approval": "researcher_confirmation_2026-10-26",
+    "payment": "researcher_confirmation_2026-10-26",
+    "independent_payment_receipt_checked": false
+  }
 }

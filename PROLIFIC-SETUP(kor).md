@@ -101,6 +101,6 @@ AI는 `python3 tools/prepare_prolific.py STUDY --url https://your-survey.example
 
 ## 검증 근거와 출처
 
-로컬 파싱·컴파일 일치, 실제 임시 PostgreSQL의 중복·동시 요청, 브라우저 저장·반환, CSV 검사는 자동화했습니다. 2026-10-25에 소유자가 실제 Prolific 초안 Preview의 정상 완료·동의 거부·철회를 확인했고 데이터베이스 상태도 별도로 확인했습니다. 앞선 철회 근거는 006 적용 전의 상태·반환 검증이며 삭제 검증은 아닙니다. [클라우드 검증 기록](./docs/prolific-cloud-test-2026-10-25(kor).md)을 참고하세요. 실제 유료 제출·지급·설정된 선별 탈락 반환은 미검증입니다.
+로컬 파싱·컴파일 일치, 실제 임시 PostgreSQL의 중복·동시 요청, 브라우저 저장·반환, CSV 검사는 자동화했습니다. 2026-10-25에 소유자가 실제 Prolific 초안 Preview의 정상 완료·동의 거부·철회를 확인했고 데이터베이스 상태도 별도로 확인했습니다. 앞선 철회 근거는 006 적용 전의 상태·반환 검증이며 삭제 검증은 아닙니다. [클라우드 검증 기록](./docs/prolific-cloud-test-2026-10-25(kor).md)을 참고하세요. 2026-10-26 실제 유료 제출 1건을 저장 응답·CSV에 대조했고 연구자가 승인과 보상 지급을 명시적으로 확인했습니다. 기본 유료 연결 경로는 시험을 마쳤습니다. 지급은 연구자의 확인이며 별도 영수증이나 지급 API를 직접 조회한 것은 아닙니다. 완료 시각 수정 008 적용 후의 새 실제 응답과 유료 설문 내부 선별·보상은 아직 미검증입니다. 확인 근거와 남은 범위는 [유료 시험 완료 기록](./docs/prolific-paid-test-completion-2026-10-26(kor).md)을 참고하세요.
 
 2026-10-25 확인한 공식 자료: [ID와 선택적 서명 URL](https://researcher-help.prolific.com/en/articles/445133-what-are-prolific-ids-and-how-do-i-use-them), [데이터 수집·완료 경로](https://researcher-help.prolific.com/en/articles/445127-data-collection), [선별·동의 거부](https://researcher-help.prolific.com/en/articles/445165-can-i-screen-participants-within-my-study), [초안 Preview](https://researcher-help.prolific.com/en/articles/445131-previewing-your-study), [참여자 시험 베타](https://researcher-help.prolific.com/en/articles/445134-test-study-as-a-participant), [API URL 자리표시자](https://docs.prolific.com/api-reference/studies/the-study-object).

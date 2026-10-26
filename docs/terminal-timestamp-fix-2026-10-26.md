@@ -2,6 +2,8 @@
 
 [한국어](./terminal-timestamp-fix-2026-10-26(kor).md)
 
+> Later update on 2026-10-26: the researcher confirmed approval and reward payment. The statements below describe the earlier timestamp/response inspection; see the [paid-test completion record](./prolific-paid-test-completion-2026-10-26.md) for current status and evidence sources.
+
 ## Cause and correction
 
 The browser save path updated session status and `updated_at` but did not set `terminal_at` on completion. CSV exported that null as an empty `completed_at`. This was a server persistence omission, not a missing answer or a Prolific redirect failure.

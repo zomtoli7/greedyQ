@@ -2,6 +2,8 @@
 
 [English](./terminal-timestamp-fix-2026-10-26.md)
 
+> 같은 날의 후속 확인: 연구자가 승인과 보상 지급을 확인했습니다. 아래는 그보다 앞선 시각 수정·응답 검사 기록입니다. 현재 상태와 확인 근거는 [유료 시험 완료 기록](./prolific-paid-test-completion-2026-10-26(kor).md)을 참고하세요.
+
 ## 원인과 수정
 
 브라우저 저장 경로가 상태와 `updated_at`을 갱신하면서 완료 시 `terminal_at`을 기록하지 않았습니다. CSV는 이 빈 값을 `completed_at`의 빈칸으로 내보냈습니다. 서버 저장 처리의 누락이며, 답변 누락이나 Prolific 반환 오류는 아닙니다.

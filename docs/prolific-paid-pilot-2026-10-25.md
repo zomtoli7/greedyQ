@@ -27,3 +27,7 @@ The researcher then supplied Prolific's notice that the study was temporarily pa
 ## Follow-up on 2026-10-26
 
 Matched one Awaiting review submission to the stored production response and published CSV output. Participant ID and required answers agree. Submission approval and payment were not performed or verified. The researcher-authorized database upgrade 007–008 preserved all existing responses. See [terminal timestamp fix and paid response check](./terminal-timestamp-fix-2026-10-26.md). This follow-up updates the historical waiting state above.
+
+## Closure confirmed on 2026-10-26
+
+The researcher subsequently confirmed approval and reward payment for the matched participant. The basic paid connection test is complete. This confirmation updates the historical waiting statements above; no independent transaction receipt was inspected. See the [completed pilot record and remaining boundaries](./prolific-paid-test-completion-2026-10-26.md).

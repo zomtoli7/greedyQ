@@ -189,8 +189,8 @@ preview.html
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `a1617d856ced4e4623780a48eb9feda19558c6f9e8d8eb7c69a00ee351cd690b` | `no` |
-| `PROLIFIC-SETUP.md` | `f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be` | `no` |
+| `release.json` | `24cc922ccf1ebe9c9df2507582e09844e14ab35e99d9d69b943c798785d08ec4` | `no` |
+| `PROLIFIC-SETUP.md` | `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
 | `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
@@ -564,7 +564,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `a1617d856ced4e4623780a48eb9feda19558c6f9e8d8eb7c69a00ee351cd690b`
+SHA-256: `24cc922ccf1ebe9c9df2507582e09844e14ab35e99d9d69b943c798785d08ec4`
 
 ```json
 {
@@ -573,15 +573,22 @@ SHA-256: `a1617d856ced4e4623780a48eb9feda19558c6f9e8d8eb7c69a00ee351cd690b`
   "source_commit": "4e977e4e0e4244674b4425933e3e5ff60758680d",
   "release_date": "2026-10-26",
   "documentation_updated": "2026-10-26",
-  "prolific_paid_pilot": "awaiting_manual_review",
+  "prolific_paid_pilot": "completed",
   "paid_submission_verified": true,
-  "payment_verified": false
+  "payment_verified": true,
+  "paid_pilot_evidence": {
+    "response": "agent_checked_database_and_published_csv",
+    "submission": "researcher_screenshot_matched_to_saved_record",
+    "approval": "researcher_confirmation_2026-10-26",
+    "payment": "researcher_confirmation_2026-10-26",
+    "independent_payment_receipt_checked": false
+  }
 }
 ```
 
 ### FILE: `PROLIFIC-SETUP.md`
 
-SHA-256: `f1ba5ea9f7c1f2e2daf7a41c8ed1eb871e23e6e31f1fb5ac327b621137c196be`
+SHA-256: `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4`
 
 ```markdown
 # Connect a study to Prolific
@@ -687,7 +694,7 @@ Signed `prolific_token` launch links require server verification and are explici
 
 ## Evidence and sources
 
-Local parsing/compiler parity, real temporary PostgreSQL duplicate/concurrency checks, browser save/return and CSV tests are automated. On 2026-10-25, the owner verified normal completion, no consent and withdrawal through actual Prolific draft Preview; their database states were independently confirmed. Earlier withdrawal evidence predates migration 006 and demonstrated status/return only, not deletion. See the [cloud verification record](./docs/prolific-cloud-test-2026-10-25.md). Actual paid submissions, payment and configured screen-out returns remain unverified.
+Local parsing/compiler parity, real temporary PostgreSQL duplicate/concurrency checks, browser save/return and CSV tests are automated. On 2026-10-25, the owner verified normal completion, no consent and withdrawal through actual Prolific draft Preview; their database states were independently confirmed. Earlier withdrawal evidence predates migration 006 and demonstrated status/return only, not deletion. See the [cloud verification record](./docs/prolific-cloud-test-2026-10-25.md). On 2026-10-26, one real paid submission was matched to its stored response and CSV, and the researcher explicitly confirmed approval and reward payment. The basic paid route is complete. Payment confirmation comes from the researcher, not an independently fetched receipt or payment API. A new real response after timestamp migration 008 and paid in-study screen-out/reward behavior remain unverified. See the [paid-test completion record](./docs/prolific-paid-test-completion-2026-10-26.md) for evidence sources and remaining limits.
 
 Official sources checked 2026-10-25: [IDs and optional secured URLs](https://researcher-help.prolific.com/en/articles/445133-what-are-prolific-ids-and-how-do-i-use-them), [data collection and completion paths](https://researcher-help.prolific.com/en/articles/445127-data-collection), [screening/no consent](https://researcher-help.prolific.com/en/articles/445165-can-i-screen-participants-within-my-study), [draft Preview](https://researcher-help.prolific.com/en/articles/445131-previewing-your-study), [participant test beta](https://researcher-help.prolific.com/en/articles/445134-test-study-as-a-participant), [API URL placeholders](https://docs.prolific.com/api-reference/studies/the-study-object).
 ```
