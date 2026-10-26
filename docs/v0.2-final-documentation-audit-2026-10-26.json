@@ -1,5 +1,5 @@
 {
-  "tracked_markdown_inventory": 246,
+  "tracked_markdown_inventory": 252,
   "active_markdown_link_and_language_check": 172,
   "active_local_link_failures": [],
   "missing_english_korean_pairs": [],
@@ -184,5 +184,35 @@
     "simple"
   ],
   "website_published_by_this_work": false,
-  "post_stamp_tests": "pending"
+  "post_stamp_tests": {
+    "python": {
+      "passed": 238,
+      "failed": 0,
+      "skipped": 0
+    },
+    "node_browser": {
+      "passed": 57,
+      "failed": 0,
+      "skipped": 0
+    },
+    "total_passed": 295
+  },
+  "release": "0.2_2026-10-26_fa94594",
+  "source_commit": "fa945942d69bf5bbf0c9cf425d3e352171b32968",
+  "website_copy_checks": 270,
+  "website_public_state": {
+    "url": "https://sites.google.com/view/greedyq",
+    "http_status": 200,
+    "method": "anonymous_public_html_data_code_read",
+    "embed_candidates": [
+      {
+        "bytes": 720084,
+        "sha256": "f795b27bcc5eb65ba08605f671b54aeb2733dfa7bd0533a1bd7faa6d9c438aed",
+        "contains_new_agents_page": false,
+        "contains_current_release": false
+      }
+    ],
+    "publication_verified": false,
+    "reason": "Public read only; no editor write or publish operation was performed."
+  }
 }

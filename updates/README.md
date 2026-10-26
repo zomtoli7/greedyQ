@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_fa94594`](./0.2/0.2_2026-10-26_fa94594.md) — Finalize v0.2 documentation with the desktop-host first-action gate and the available AI agents compatibility page. Current support is capable ChatGPT/Claude desktop apps; Gemini is for future review and Meta AI, Grok, DeepSeek are evaluation candidates only. Reconcile obsolete Chat-mode, paid-pilot, product-stage and migration descriptions across languages.
+
 - [`0.2_2026-10-26_beac897`](./0.2/0.2_2026-10-26_beac897.md) — Add About > Compatibility > Available AI agents in English, Korean and Chinese. Support capable ChatGPT/Claude desktop apps; list Gemini for future support review and Meta AI, Grok and DeepSeek as evaluation candidates only.
 
 - [`0.2_2026-10-26_ecadf63`](./0.2/0.2_2026-10-26_ecadf63.md) — Add a clearly visible support note immediately below the Start introduction in English, Korean and Chinese: use capable ChatGPT or Claude desktop apps; Gemini is currently unsupported. Describe unverified guide/execution support without inventing a Google GitHub-blocking policy. Website navigation and copy checks passed (4 tests).

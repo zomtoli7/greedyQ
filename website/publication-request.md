@@ -1,20 +1,19 @@
-# Homepage Work: publish the current verified source
+# Publish the final v0.2 homepage package
 
 [한국어](./publication-request(kor).md)
 
-Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/website-prompt-copy-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_beac897`. Expected HTML SHA-256: `78ae3e7f7662c659076c1636f5d80aee3d46f378811a1795abe1f37eac627605` (801385 bytes). `source_commit` identifies the substantive code commit; the stamped HTML is in the subsequent metadata commit. Do not fetch an older HTML solely from `source_commit`.
+Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/v0.2-final-documentation-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_fa94594`. Exact HTML: **802788 bytes**, SHA-256 **`adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc`**. The source commit identifies substantive source; fetch the current metadata commit too, rather than older HTML at that source commit.
 
-Open the existing Google Sites editor, compare the current public/editor content for unrelated changes, preserve the site/page/domain/navigation/gallery/images/contact and replace only the existing full-page custom embed with the complete prepared HTML. Save and publish under the owner's existing authorization and the active browser tool's policy. This is a homepage update, not permission to deploy CBC, change survey/results accounts, edit responses, recruit or pay participants.
+## Request for the browser-enabled homepage work
 
-Verify the current release and update history in English/Korean/Chinese; About → Project → Contact must remain `greedyq.contact@gmail.com`. Check copied Korean and Chinese start prompts: the URL must be enclosed in `<...>` and remain a separate URL when all line breaks are removed. Exercise copy button and denied-clipboard manual selection; preserve BibTeX syntax. The local audit checked 135 blocks at two widths, 270 exact-copy cases. Do not infer live Gemini/Claude acceptance from this automated audit alone.
+Open the existing greedyQ Google Sites editor under the owner's authorization. Preserve site/domain/pages/navigation/gallery/images/contact and unrelated edits. Replace only the existing full-page custom embed with the complete prepared HTML. Save and publish. This authorization is for homepage content only; do not change survey/results deployments, databases, response records, Prolific, payments or recruitment.
 
-Fetch the public site's complete decoded `data-code` embed and match its SHA-256/bytes exactly to this manifest before claiming publication. Record any provider normalization/differences explicitly; an editor save is not publication proof. CBC collection has local PostgreSQL/browser evidence, not a new cloud or paid CBC acceptance test. If access is unavailable, leave status pending and report it accurately.
+Check English/Korean/Chinese at phone and computer widths. Start must show its support note after the introductory paragraph and before the copyable request. About > Compatibility must contain **Available AI agents** (`about/agents`): capable installed ChatGPT/Claude desktop apps are current support; Gemini is for future review; Meta AI, Grok and DeepSeek are evaluation candidates only. AI web apps and unsupported hosts must stop authoring; unknown app context is clarified first. Do not claim a verified Google policy blocks GitHub. Participants still use browsers.
 
+The footer/version history must show `0.2_2026-10-26_fa94594`. CBC is **v0.3 development**, not a completed v0.2 feature. Contact remains `greedyq.contact@gmail.com`. Preserve protected results guidance, paid-pilot evidence limits and the draft-only OSF workflow. Copy prompts through the button and manual fallback; URLs must remain bounded when line breaks disappear and BibTeX must remain exact code.
 
-Apply the new official support policy in all three languages: researcher authoring requires ChatGPT desktop Work/Codex or Claude Desktop with verified file/task tools. Gemini, including desktop, and AI web apps are officially unsupported. Preserve browser-based participant surveys, previews, results and service login approvals. Read SUPPORTED-ENVIRONMENTS.md and the dated verification record before publishing. Do not describe the policy as proof that every provider web app is technically incapable.
+Fetch the public complete decoded `data-code` embed and compare its bytes and SHA-256 exactly with the manifest. A saved editor or an existing public page is not proof that this revision was published. Record actual publication status, method, release and matched hash only after verification. If permission/tool access is unavailable, report pending publication without changing the claim to success.
 
+## Current observed state
 
-Confirm the Start page shows the support note immediately below its introduction and above the copyable prompt. Gemini is unsupported; do not replace this with an unverified claim about Google blocking GitHub.
-
-
-Verify About > Compatibility > Available AI agents (`about/agents`) in all three languages. Current support: capable ChatGPT/Claude desktop apps. Future support review: Gemini. Additional evaluation candidates only: Meta AI, Grok, DeepSeek. START-HERE now gates the app before any study interview and stops unsupported hosts; do not offer attachments as an exception.
+This work has no browser-control tool. An anonymous public read returned HTTP 200 and the earlier **720084-byte** embed with SHA-256 `f795b27bcc5eb65ba08605f671b54aeb2733dfa7bd0533a1bd7faa6d9c438aed`; it did not contain the new agents page or current final release. Local verification and source commits do not publish Google Sites. See the manifest for the last observed public state and the final audit for regression evidence.
