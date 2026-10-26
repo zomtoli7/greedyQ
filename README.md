@@ -139,7 +139,7 @@ greedyQ provides a browser-native v0.2 runtime with account-free local preview. 
 
 On 2026-10-26, the one-person Prolific paid pilot was matched to saved responses and exported CSV. The researcher confirmed participant approval and payment; a separate provider payment receipt was not independently inspected. The previously paused review is historical, not the current pilot status. The test data were deleted at the researcher's request during closeout; provider payment records were preserved. Normal completion, refusal, withdrawal, repeat draft previews, protected results and real/test separation have recorded evidence. Signed links, repeated production submissions and a paid screened-out path remain outside verified scope. See [paid completion](./docs/prolific-paid-test-completion-2026-10-26.md), [closeout](./docs/v0.2-closeout-2026-10-26.md), and [current Prolific status](./docs/prolific-integration-status.md).
 
-CBC is the **v0.3 development line**, not a supported v0.2 profile or control. Its opt-in draft code and local fixtures may exist in this repository; that does not make CBC a completed v0.2 feature. Cloud and paid CBC acceptance remain pending.
+CBC is the **v0.3 development line**, not a supported v0.2 profile or control. Its opt-in draft code and local fixtures may exist in this repository; that does not make CBC a completed v0.2 feature. Existing-account synthetic cloud acceptance passed; fresh-account and paid CBC acceptance remain pending.
 
 ## Try the responsive preview
 
@@ -184,3 +184,8 @@ Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.
 ## CBC preview and project contact
 
 For choice-based conjoint tables, see [CBC import and computer/mobile preview](CBC.md). The preview itself does not collect responses; use the separate [CBC collection package](CBC-COLLECT.md) for the server-backed CBC workflow. Its local verification is distinct from cloud fielding approval. For project questions or bug reports: [greedyq.contact@gmail.com](CONTACT.md). Individual studies must provide their own research-team contact.
+
+
+### Existing-account cloud test — 26 October 2026
+
+The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](./docs/cbc-cloud-verification-2026-10-26.md).

@@ -8,7 +8,15 @@
 
 [한국어](./CBC-COLLECT(kor).md) · [简体中文](./CBC-COLLECT(zh-CN).md)
 
-The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. This does not mean a CBC study has been deployed to your accounts or approved for recruitment.
+The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. The existing-account cloud test below is a separate, narrowly scoped acceptance run; it does not approve recruitment.
+
+## Existing-account cloud test — 26 October 2026
+
+The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](./docs/cbc-cloud-verification-2026-10-26.md).
+
+Survey: <https://greedyq-cbc-test-survey.vercel.app/>
+
+Results: <https://greedyq-cbc-test-results.vercel.app/>
 
 ## What the researcher does
 

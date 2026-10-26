@@ -39,7 +39,7 @@ Structure details include level frequencies, unused levels and within-task overl
 
 ## Collecting responses
 
-The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification; fresh cloud deployment and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
 
 ## Fixed implementation for agents
 

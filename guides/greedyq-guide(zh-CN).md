@@ -216,7 +216,7 @@ preview.html
 | `schemas/authoring-support-policy.json` | `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121` | `no` |
+| `CBC-COLLECT.md` | `2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a` | `no` |
 | `GUIDE-ACCESS.md` | `25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9` | `no` |
 | `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
 | `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
@@ -224,7 +224,7 @@ preview.html
 | `templates/supabase/009_cbc.sql` | `327d8364a26d1ae222a3ba71f9c2040cb00e18e36d3b7d90cabffd918f1849d2` | `no` |
 | `tools/cbc_cloud.cjs` | `384113d9432295cd89815fe605aaaedd54a8c9d61e45f131278923c947dde5f9` | `no` |
 | `CONTACT.md` | `0996bdcb93d014930e15818052b99b4e112bc4025ba75d05fbcca04d429e88b5` | `no` |
-| `CBC.md` | `34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf` | `no` |
+| `CBC.md` | `950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485` | `no` |
 | `greedyq/cbc.py` | `4a79cb389a410899f629b8efaddea596b790b7d26f25068a339b67da4372f031` | `no` |
 | `web/greedyq-cbc.js` | `f469d44a9f3cbda908b65da99a322273ddbc05c8c9408d20e7a4c605199420db` | `no` |
 | `templates/browser/cbc-preview.html` | `8ec9f82a2b899877afc52f1a1539af3a5f529c242664aa3eead8d8ca78f6e2d7` | `no` |
@@ -232,7 +232,7 @@ preview.html
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `bd95f571714f127867d9db35d80093b6b64e80d432e7ad45bbcb2e3984005e0a` | `no` |
+| `release.json` | `d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95` | `no` |
 | `PROLIFIC-SETUP.md` | `0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -740,7 +740,7 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121`
+SHA-256: `2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a`
 
 ```markdown
 # Collect CBC responses and review results
@@ -753,7 +753,15 @@ SHA-256: `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121`
 
 [한국어](./CBC-COLLECT(kor).md) · [简体中文](./CBC-COLLECT(zh-CN).md)
 
-The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. This does not mean a CBC study has been deployed to your accounts or approved for recruitment.
+The dedicated CBC collection path now has server storage, consent, withdrawal, protected results and CSV export. It reuses the existing greedyQ response tables and deployment journey. It has been tested with synthetic respondents in real local PostgreSQL and desktop/mobile browsers. The existing-account cloud test below is a separate, narrowly scoped acceptance run; it does not approve recruitment.
+
+## Existing-account cloud test — 26 October 2026
+
+The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](./docs/cbc-cloud-verification-2026-10-26.md).
+
+Survey: <https://greedyq-cbc-test-survey.vercel.app/>
+
+Results: <https://greedyq-cbc-test-results.vercel.app/>
 
 ## What the researcher does
 
@@ -1303,7 +1311,7 @@ When reporting a problem, include your greedyQ version, what you tried, what you
 
 ### FILE: `CBC.md`
 
-SHA-256: `34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf`
+SHA-256: `950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485`
 
 ```markdown
 # Preview a choice-based conjoint design
@@ -1347,7 +1355,7 @@ Structure details include level frequencies, unused levels and within-task overl
 
 ## Collecting responses
 
-The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification; fresh cloud deployment and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
+The self-contained preview still sends no responses. The separate [CBC collection path](./CBC-COLLECT.md) now implements server storage, consent, withdrawal, protected results and real/test long CSV. It has local PostgreSQL/browser verification and existing-account synthetic cloud acceptance; fresh-account onboarding and paid CBC acceptance remain pending. Mixed QMD authoring, native CBC export and statistical inference are not enabled.
 
 ## Fixed implementation for agents
 
@@ -2488,7 +2496,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `bd95f571714f127867d9db35d80093b6b64e80d432e7ad45bbcb2e3984005e0a`
+SHA-256: `d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95`
 
 ```json
 {
@@ -2511,14 +2519,19 @@ SHA-256: `bd95f571714f127867d9db35d80093b6b64e80d432e7ad45bbcb2e3984005e0a`
   "next_line": {
     "version": "0.3",
     "core_feature": "CBC",
-    "status": "collection_storage_results_implemented_local_verification",
+    "status": "collection_storage_results_existing_account_cloud_test_verified",
     "preview_schema": "0.3-preview.1",
     "live_collection": false,
     "collection_implemented": true,
-    "cloud_cbc_verified": false,
+    "cloud_cbc_verified": true,
     "paid_cbc_verified": false,
     "rpc_contract": "cbc-1",
-    "release_status": "development_not_v02_supported_scope"
+    "release_status": "development_not_v02_supported_scope",
+    "cloud_cbc_verification_scope": "existing_account_synthetic_test_direct_only",
+    "cloud_cbc_test_deployed": true,
+    "fresh_account_cbc_verified": false,
+    "production_fielding_approved": false,
+    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",

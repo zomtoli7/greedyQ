@@ -85,7 +85,7 @@ Keep survey review, Vercel sign-in, required Supabase connection approval, and d
 
 Migration 008 records `terminal_at` when a session first enters completed, screened-out, consent-refused, withdrawn or technical-error state. It preserves an existing end time across retries and never backfills historical ended sessions. CSV `completed_at` comes from this value; keep a legacy blank rather than substituting `updated_at` or the upgrade time. Applying 008 requires no participant-page redeployment. Preserve applied migration hashes and verify existing response rows before and after an upgrade.
 
-CBC is planned for v0.3 in drafts/v0.3/cbc. It is not a supported v0.2 control/profile. The fixed importer/local preview and dedicated collection package are documented in CBC.md and CBC-COLLECT.md. Collection has local server/browser verification, not fresh cloud acceptance or automatic fielding approval; CBC is not enabled as a general v0.2 QMD profile. Do not bypass the registry with custom runtime code.
+CBC is planned for v0.3 in drafts/v0.3/cbc. It is not a supported v0.2 control/profile. The fixed importer/local preview and dedicated collection package are documented in CBC.md and CBC-COLLECT.md. Collection has local server/browser verification, existing-account synthetic cloud acceptance, but not fresh-account acceptance or automatic fielding approval; CBC is not enabled as a general v0.2 QMD profile. Do not bypass the registry with custom runtime code.
 
 ## CBC preview and project contact
 
@@ -102,3 +102,8 @@ See [guide access in supported desktop agents](../../GUIDE-ACCESS.md). The plain
 ## Supported authoring environment — required gate
 
 Before the first study question, verify that this is an installed desktop AI app and that the required file and execution tools actually work. If the host is unknown, ask which app and mode is in use. If it is an AI web app, stop authoring and direct the researcher to a supported desktop app. If guide access or local tools fail, stop and explain the missing capability; do not offer to continue anyway, infer unread rules, or treat an attachment as permission to use an unsupported web app. Keep the research goal for a desktop handoff. See the support policy for the exact readiness checks.
+
+
+### Existing-account cloud test — 26 October 2026
+
+The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](../../docs/cbc-cloud-verification-2026-10-26.md).

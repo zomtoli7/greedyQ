@@ -2,9 +2,11 @@
 
 [한국어](./README(kor).md)
 
-**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. Server-backed consent, allocation, choice/exposure storage, protected results and archive CSV now exist in the dedicated [CBC collection package](../../../CBC-COLLECT.md), verified locally. Cloud CBC acceptance, paid CBC fielding, mixed QMD authoring and native export remain separate gates. See [the working instructions](../../../CBC.md).
+**Status: import and local browser preview implemented (`0.3-preview.1`).** v0.2 remains the supported live runtime. The fixed Python and browser implementations now validate CSV/XLSX and provide independent computer/mobile previews. Server-backed consent, allocation, choice/exposure storage, protected results and archive CSV now exist in the dedicated [CBC collection package](../../../CBC-COLLECT.md), verified locally. Fresh-account CBC acceptance, paid CBC fielding, mixed QMD authoring and native export remain separate gates. See [the working instructions](../../../CBC.md).
 
 Start with the [draft specification](./spec.md), [golden research design](./golden-reference/README.md), and [blank table instructions](./templates/README.md).
+
+Existing-account synthetic cloud acceptance now passes for Test/Direct storage, consent/withdrawal, protected results and CSV. [Evidence](../../../docs/cbc-cloud-verification-2026-10-26.md). Fresh-account onboarding, paid CBC and production fielding remain unverified.
 
 ## Researcher entry choices
 

@@ -8,7 +8,15 @@
 
 [English](./CBC-COLLECT.md) · [简体中文](./CBC-COLLECT(zh-CN).md)
 
-CBC 전용 흐름에 서버 저장·참여 동의·철회·보호된 결과 화면·CSV 내보내기를 구현했습니다. 기존 greedyQ 응답 표와 배포 과정을 재사용하며 실제 로컬 PostgreSQL과 컴퓨터·모바일 브라우저에서 가상 응답자로 시험했습니다. 연구자의 계정에 CBC 설문이 배포됐거나 모집 승인을 받았다는 뜻은 아닙니다.
+CBC 전용 흐름에 서버 저장·참여 동의·철회·보호된 결과 화면·CSV 내보내기를 구현했습니다. 기존 greedyQ 응답 표와 배포 과정을 재사용하며 실제 로컬 PostgreSQL과 컴퓨터·모바일 브라우저에서 가상 응답자로 시험했습니다. 아래의 기존 계정 클라우드 시험은 별도로 확인한 범위이며 모집 승인과는 다릅니다.
+
+## 기존 계정 클라우드 시험 — 2026년 10월 26일
+
+기존 Vercel/Supabase 연결에 CBC Test/Direct 설문과 보호된 결과 사이트를 배포하고 컴퓨터·모바일 브라우저에서 시험했습니다. 완료·동의 거부·철회·반복 시험·필터·CSV 다운로드가 통과했습니다. 생성한 응답은 모두 가상의 Test 자료이며 실제 모집·유료 CBC·새 계정 연결·운영 수집 승인은 이번 시험으로 검증하지 않았습니다. [클라우드 검증 기록](./docs/cbc-cloud-verification-2026-10-26(kor).md)을 참고하세요.
+
+설문: <https://greedyq-cbc-test-survey.vercel.app/>
+
+결과: <https://greedyq-cbc-test-results.vercel.app/>
 
 ## 연구자가 할 일
 

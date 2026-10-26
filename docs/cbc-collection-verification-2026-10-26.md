@@ -2,6 +2,8 @@
 
 [한국어](./cbc-collection-verification-2026-10-26(kor).md)
 
+This record describes the earlier local-only run. Subsequent [existing-account cloud verification](./cbc-cloud-verification-2026-10-26.md) supersedes only its pending cloud-deployment item; paid/fresh-account/production boundaries remain.
+
 ## Delivered boundary
 
 The dedicated `0.3-collection.1` package and `cbc-1` RPCs connect the independently tested Python/browser importer and shared task renderer to the existing seven response tables, protected results and archive. No registered v0.2 CBC control, mixed QMD authoring, native CBC export or statistical estimator is claimed. No existing cloud survey was redeployed, no real respondent records were read/changed and no recruitment/payment was performed.

@@ -8,7 +8,15 @@
 
 [English](./CBC-COLLECT.md) · [한국어](./CBC-COLLECT(kor).md)
 
-独立 CBC 流程已实现服务器存储、同意、退出、受保护结果页与 CSV，复用现有 greedyQ 数据表及部署流程。已用虚构参与者在真实本地 PostgreSQL 与电脑/手机浏览器测试；不代表已部署至您的账户或获得招募批准。
+独立 CBC 流程已实现服务器存储、同意、退出、受保护结果页与 CSV，复用现有 greedyQ 数据表及部署流程。已用虚构参与者在真实本地 PostgreSQL 与电脑/手机浏览器测试；下方已有账户的云端测试是独立验证范围，不代表获准招募。
+
+## 已有账户云端测试 — 2026年10月26日
+
+已通过现有 Vercel/Supabase 连接部署独立 CBC Test/Direct 问卷及受保护结果页面，并在电脑／手机浏览器中测试完成、拒绝同意、退出、重复测试、筛选及 CSV 下载。所有生成回答均为虚拟 Test 数据；本次不验证真实招募、付费 CBC、新账户连接或正式收集批准。参见[云端验证记录](./docs/cbc-cloud-verification-2026-10-26.md)。
+
+问卷: <https://greedyq-cbc-test-survey.vercel.app/>
+
+结果: <https://greedyq-cbc-test-results.vercel.app/>
 
 ## 研究者的步骤
 

@@ -44,7 +44,7 @@
         },
         {
           "path": "release.json",
-          "sha256": "bd95f571714f127867d9db35d80093b6b64e80d432e7ad45bbcb2e3984005e0a"
+          "sha256": "d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95"
         },
         {
           "path": "greedyq/localization.py",
@@ -120,7 +120,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "dc8f2143215f08eada31da1daec666f84eda92af1d88649b2e8e3e7d4d5c894b"
+          "sha256": "4ad006e5715264a8d94d227810663d5cc5525e270255b705b56aa67fcc3d50f8"
         },
         {
           "path": "guides/core/communication.md",
@@ -288,7 +288,7 @@
         },
         {
           "path": "CBC.md",
-          "sha256": "34941caf3e3bb7c4974930893536900154d40072ec4a51af5b3c56a934c96cdf"
+          "sha256": "950960d2da2f177ce67ae8bbcf5a6f85e196473cb9c7458b3ba02f8a05283485"
         },
         {
           "path": "greedyq/cbc.py",
@@ -328,7 +328,7 @@
         },
         {
           "path": "CBC-COLLECT.md",
-          "sha256": "667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121"
+          "sha256": "2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a"
         },
         {
           "path": "schemas/cbc-collection.schema.json",
