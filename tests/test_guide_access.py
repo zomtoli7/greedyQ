@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class GuideAccessTests(unittest.TestCase):
     def test_entry_host_filter_is_first_and_does_not_offer_attachments_to_unsupported_hosts(self):
         for suffix in ['', '(kor)', '(zh-CN)']:
-            entry=(ROOT/f'START-HERE{suffix}.md').read_text()
+            entry=(ROOT/f'INITIALIZE{suffix}.md').read_text()
             self.assertTrue(entry.splitlines()[2].startswith('<!-- GREEDYQ_HOST_FILTER_START -->'))
             self.assertLess(entry.index('GREEDYQ_HOST_FILTER_START'),entry.index('GREEDYQ_DESKTOP_POLICY'))
             self.assertIn('GREEDYQ_HOST_FILTER_END',entry)

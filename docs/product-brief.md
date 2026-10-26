@@ -305,7 +305,7 @@ The interview asks one focused question at a time, keeps a structured record of 
 
 ### 11.2 Supported desktop agents and verified capabilities
 
-Apply the first-action host filter in START-HERE.md. Only capable installed ChatGPT/Claude desktop agents may author studies. Gemini and AI web apps are unsupported. Unknown app context must be clarified before the interview; unsupported hosts stop without attachment workarounds. Verify file generation and canonical preview tools before authoring, then check account tools and researcher authorization separately at deployment. Never describe unperformed external operations as completed.
+Apply the first-action host filter in INITIALIZE.md. Only capable installed ChatGPT/Claude desktop agents may author studies. Gemini and AI web apps are unsupported. Unknown app context must be clarified before the interview; unsupported hosts stop without attachment workarounds. Verify file generation and canonical preview tools before authoring, then check account tools and researcher authorization separately at deployment. Never describe unperformed external operations as completed.
 
 ### 11.3 Division of responsibility
 

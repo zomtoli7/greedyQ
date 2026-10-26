@@ -25,7 +25,7 @@ class VersionContractTests(unittest.TestCase):
         self.assertIn(f"**Current release identifier:** `{current_release}`", (ROOT / "guides/core/guide.md").read_text())
 
     def test_new_study_requires_question_authoring_mode(self):
-        start = (ROOT / "START-HERE.md").read_text()
+        start = (ROOT / "INITIALIZE.md").read_text()
         core = (ROOT / "guides/core/guide.md").read_text()
         for text in (start, core):
             self.assertIn("from scratch", text)

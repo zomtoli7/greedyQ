@@ -3,7 +3,7 @@
   "release": "0.2_2026-10-26_fa94594",
   "status": "compatibility",
   "default_language": "en",
-  "bootstrap": "START-HERE.md",
+  "bootstrap": "INITIALIZE.md",
   "fallback_bundle": "guides/greedyq-guide.md",
   "components": {
     "consent": {
@@ -34,10 +34,14 @@
       "version": "0.2.0-draft.1",
       "object_name": "greedyQObject",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "11b0119fe29d1b3a219e6f3ac79f096bdb430a428f89c068217b4711976b8796",
+      "manifest_sha256": "774da19c98367daa63e923da7c5e27ee8061f9f5bb0b91c6d6188e1c86e008fe",
       "dependencies": [],
       "conflicts": [],
       "files": [
+        {
+          "path": "INITIALIZE.md",
+          "sha256": "d1b7c850551183148b3b405546bc3221f7c801a010ca7e03a42b6c20cd02d876"
+        },
         {
           "path": "release.json",
           "sha256": "b7af95b9d427f2b4fd76a2870e69281319fd77ecda4c6ab9217e4906c15a2aaa"

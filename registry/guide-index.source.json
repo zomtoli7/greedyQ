@@ -3,7 +3,7 @@
   "release": "0.2_2026-10-26_fa94594",
   "status": "compatibility",
   "default_language": "en",
-  "bootstrap": "START-HERE.md",
+  "bootstrap": "INITIALIZE.md",
   "fallback_bundle": "guides/greedyq-guide.md",
   "component_manifests": [
     "guides/core/component.json",

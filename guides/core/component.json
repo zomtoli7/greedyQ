@@ -6,6 +6,7 @@
   "dependencies": [],
   "conflicts": [],
   "normative_files": [
+    "INITIALIZE.md",
     "release.json",
     "greedyq/localization.py",
     "greedyq/locale-messages.json",

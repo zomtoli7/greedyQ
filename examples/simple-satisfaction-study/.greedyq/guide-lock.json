@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_fa94594",
-  "registry_sha256": "b62974a4b4b6cbbd99cfacc6c3eff6125bbcf0bca4ac8a63b84d7e42e3a96e4f",
+  "registry_sha256": "bd0beeb1ff3e8a3d5ce22dd52dfba3937726661fa8e1e06611a007e97686176c",
   "object": "greedyQSimple",
   "profile": "simple",
   "modules": [
@@ -15,7 +15,7 @@
       "kind": "core",
       "version": "0.2.0-draft.1",
       "manifest": "guides/core/component.json",
-      "manifest_sha256": "11b0119fe29d1b3a219e6f3ac79f096bdb430a428f89c068217b4711976b8796"
+      "manifest_sha256": "774da19c98367daa63e923da7c5e27ee8061f9f5bb0b91c6d6188e1c86e008fe"
     },
     {
       "id": "simple",
@@ -47,6 +47,11 @@
     }
   ],
   "resolved_files": [
+    {
+      "component": "core",
+      "path": "INITIALIZE.md",
+      "sha256": "d1b7c850551183148b3b405546bc3221f7c801a010ca7e03a42b6c20cd02d876"
+    },
     {
       "component": "core",
       "path": "release.json",

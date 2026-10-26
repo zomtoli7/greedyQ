@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- GREEDYQ_BUNDLE_START -->"
 END = "<!-- GREEDYQ_BUNDLE_END -->"
 FILES = (
+    ("INITIALIZE.md", "markdown", False),
     ("SUPPORTED-ENVIRONMENTS.md", "markdown", False),
     ("schemas/authoring-support-policy.json", "json", False),
     ("schemas/cbc-collection.schema.json", "json", False),

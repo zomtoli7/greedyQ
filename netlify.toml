@@ -1,0 +1,18 @@
+[build]
+  command = "python3 tools/build_bootstrap.py --output dist/bootstrap"
+  publish = "dist/bootstrap"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/START-HERE.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

@@ -28,7 +28,7 @@
 - Treat `docs/greedyq-v0.2-spec.md` as the current normative-format draft and `examples/complete-study/` as its implemented golden conformance reference.
 - Treat `docs/roadmap.md` as the current implementation-order reference.
 - Treat AI-guided study creation and deployment as the primary user experience.
-- Treat `START-HERE.md` plus the generated guide registry as the default distribution path; keep the self-contained full guide as an attachment-only fallback.
+- Treat `START-HERE.md` as the public front door and `INITIALIZE.md` plus the generated guide registry as the operational entry as the default distribution path; keep the self-contained full guide as an attachment-only fallback.
 - Treat researchers as nontechnical end users. Keep ordinary conversation and `study-plan.md` free of implementation diagnostics; store detailed validation evidence under `.greedyq/`.
 - Model studies as a core `greedyQObject`, one public study profile, and composable capability modules pinned by `.greedyq/guide-lock.json`.
 - Treat direct QMD authoring as an expert path and PPTX conversion as an import path.
