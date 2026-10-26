@@ -8,6 +8,8 @@ Source commit은 실제 code, specification 또는 documentation 변경을 가�
 
 ## 0.2
 
+- [`0.2_2026-10-26_4373f4f`](./0.2/0.2_2026-10-26_4373f4f(kor).md) — 공개 시작 안내를 명확한 0~3번 절차로 만들었습니다. 사용자 언어로 대화하고, 미지원이면 안내 후 중단하며, 지원이면 GitHub INITIALIZE.md를 읽고 그대로 수행합니다. 접근 실패는 GUIDE-ACCESS.md를 따르고 저장한 연구는 전달받은 작성용 폴더·ZIP과 초기화 규약의 재개 절차를 사용합니다.
+
 - [`0.2_2026-10-26_ed1dc2b`](./0.2/0.2_2026-10-26_ed1dc2b(kor).md) — 영어 시작 페이지를 영어로 맞추고 3개 언어에서 고정된 GitHub INITIALIZE 주소 전체를 보이게 했습니다. 전체 초기화 규약은 GitHub에 있으며 START-HERE Markdown과 HTML은 같은 원문을 사용합니다.
 
 - [`0.2_2026-10-26_df6d737`](./0.2/0.2_2026-10-26_df6d737(kor).md) — 전체 초기화 절차를 INITIALIZE.md로 옮겼습니다. START-HERE.md는 짧은 공개 입구이며 같은 영어·한국어·중국어 Markdown에서 HTML을 생성합니다. 기존 링크와 저장된 연구의 잠금 버전 재개를 유지합니다.

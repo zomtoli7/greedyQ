@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_4373f4f`](./0.2/0.2_2026-10-26_4373f4f.md) — Make the public start entry an explicit four-step protocol: communicate in the user's language; unsupported hosts inform and stop; supported hosts must read and obey GitHub INITIALIZE.md and use GUIDE-ACCESS.md for access failures; saved studies use the supplied authoring folder/ZIP and the initialization resume procedure.
+
 - [`0.2_2026-10-26_ed1dc2b`](./0.2/0.2_2026-10-26_ed1dc2b.md) — Keep the English public start page in English and show the complete pinned GitHub INITIALIZE address visibly in all three languages. The full initialization remains on GitHub; START-HERE Markdown and HTML share one source.
 
 - [`0.2_2026-10-26_df6d737`](./0.2/0.2_2026-10-26_df6d737.md) — Move the complete initialization workflow to INITIALIZE.md. Keep START-HERE.md as the short public front door and render its English/Korean/Chinese HTML directly from the same Markdown source; preserve existing links and pinned-study resume behavior.

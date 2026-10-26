@@ -10,7 +10,7 @@ Gemini is officially unsupported, including desktop. Check the host family befor
 
 **Component:** `core`
 **Specification version:** `0.2`
-**Current release identifier:** `0.2_2026-10-26_ed1dc2b`
+**Current release identifier:** `0.2_2026-10-26_4373f4f`
 
 This guide is part of the greedyQ agent-executable application specification and applies to every `greedyQObject`. greedyQ itself is not an agent. A capable host GenAI that resolves and follows the specification instantiates the greedyQ research agent.
 

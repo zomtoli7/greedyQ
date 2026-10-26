@@ -5,8 +5,8 @@
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **Current specification:** `0.2`
-- **Current release:** `0.2_2026-10-26_ed1dc2b`
-- **Release source commit:** [`ed1dc2b`](https://github.com/zomtoli7/greedyQ/commit/ed1dc2b7ada36ac8e69fa37bd3ea8560e55400de) · [Update history](./updates/README.md)
+- **Current release:** `0.2_2026-10-26_4373f4f`
+- **Release source commit:** [`4373f4f`](https://github.com/zomtoli7/greedyQ/commit/4373f4ff7aa6ff167011291f2888672788a5f37d) · [Update history](./updates/README.md)
 
 [Compatibility audit](./docs/surveydown-compatibility-audit.md) · [Preregistration drafts](./PREREGISTRATION.md) · [Resume and upgrade](./UPGRADING.md) · [External returns](./EXTERNAL-RETURNS.md) · [Google Sites plan](./docs/google-sites-plan.md)
 
