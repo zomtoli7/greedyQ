@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_e3958de",
-  "registry_sha256": "27b15ed1b56c4e7717f1953b377445822c252ce2cabe34bb2ccbece39dc56e4a",
+  "registry_sha256": "6781cff0405f334247b7e751082bf6fab7ff3bc322cd6eede052ad4ef6b739c8",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -154,7 +154,7 @@
     {
       "component": "core",
       "path": "docs/cloud-lifecycle.md",
-      "sha256": "503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0"
+      "sha256": "ef6c73494892c72b50cb9a1f21b9fffa1e3ca3478011599bd9b8cb0fd25fc755"
     },
     {
       "component": "core",
@@ -484,7 +484,7 @@
     {
       "component": "deployment-vercel-supabase",
       "path": "guides/modules/deployment-vercel-supabase/guide.md",
-      "sha256": "08d6206be62c239ed3a28b479b01e0c9be8bcacee201fab58412d90e0f44cd11"
+      "sha256": "99c82c916b66bcc263fe8cdf12d01cf53b55cb760948391d6010ae52e897b1c2"
     },
     {
       "component": "deployment-vercel-supabase",

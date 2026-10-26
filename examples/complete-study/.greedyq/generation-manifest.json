@@ -116,7 +116,7 @@
     {
       "path": ".greedyq/guide-lock.json",
       "kind": "source",
-      "sha256": "36cb6096f3c1ab581c785f7f3b47f3697b122d690d230ff149ef88cdea9cbfe4",
+      "sha256": "502912f83178cd3cf948b51c6b71696a5684527043e9d35dfaecaa1c9660f130",
       "status": "validated",
       "based_on_decision_ids": []
     },

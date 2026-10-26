@@ -10,9 +10,9 @@
   "source_zip_resume_fork_verified": true,
   "archive_exact_seven_table_fidelity_verified": true,
   "vercel_pause_and_resume_verified": true,
-  "supabase_physical_pause_and_resume_verified": false,
+  "supabase_physical_pause_and_resume_verified": true,
   "supabase_pause_scope_approved_by_owner": true,
-  "supabase_management_connection_available": false,
+  "supabase_management_connection_available": true,
   "existing_records_preserved": true,
   "first_run": {
     "sessions": 7,
@@ -37,7 +37,6 @@
   "researcher_archive_download_confirmed": false,
   "physical_mobile_tested": false,
   "remaining": [
-    "Supabase management-authorized physical pause/resume",
     "review actual human instrument, consent, contact, retention, recruitment and compensation",
     "paid CBC acceptance",
     "fresh-account CBC acceptance",
@@ -53,5 +52,31 @@
     "python_passed": 257,
     "additional_node_browser_passed": 37,
     "failed": 0
+  },
+  "database_maintenance": {
+    "authorization": "owner_approved_shared_test_link_interruption",
+    "management_route": "authorized_official_Supabase_connection",
+    "observed_states": [
+      "ACTIVE_HEALTHY",
+      "PAUSING",
+      "INACTIVE",
+      "COMING_UP",
+      "ACTIVE_HEALTHY"
+    ],
+    "checked_tables": 10,
+    "sessions_before": 35,
+    "sessions_immediately_after_resume": 35,
+    "all_ten_table_counts_and_sha256_equal": true,
+    "registered_models_and_closure_gates_preserved": true,
+    "new_post_resume_synthetic_sessions": 5,
+    "sessions_after_post_resume_test": 40,
+    "preexisting_records_unchanged_after_post_resume_test": true,
+    "post_resume_active_study_sessions": 12,
+    "post_resume_active_study_completed": 4,
+    "post_resume_active_study_cbc_rows": 48,
+    "post_resume_desktop_mobile_storage_withdrawal_results_csv_verified": true,
+    "collection_automatically_reopened": false,
+    "billing_plan_changed": false,
+    "paid_or_real_cbc_verified": false
   }
 }

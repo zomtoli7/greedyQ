@@ -65,3 +65,5 @@ AI 先询问设计方式：
 - `tools/archive_study.cjs snapshot|pause|resume|reopen`：区分收集关闭、服务状态与重开。管理权限不同于数据库／服务密钥，部分账户仍需所有者操作。
 
 请查看模块流程的[已验证与待验证事项](./docs/cbc-module-verification-2026-10-26.md)。
+
+已在授权的现有账户中验证 Supabase 的实际暂停/恢复，十张表的校验和保持一致，恢复后完整的混合问卷、结果、退出和 CSV 测试通过。请参阅模块验收记录；这不代表已批准真人招募。

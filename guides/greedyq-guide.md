@@ -274,7 +274,7 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | `schemas/cbc-collection.schema.json` | `df032add7ebf7fb96da337a769de65cfa7de2a3218019cb9a197b204213f4321` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
 | `CBC-COLLECT.md` | `919084824c6d7b6a70a6bf77dd439069dd3273c4fb5d7372dd1125d9c918eb64` | `no` |
-| `CBC-MODULE.md` | `78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446` | `no` |
+| `CBC-MODULE.md` | `d27f7c5feec63fce6094b4bb65d1173ae618e4c600563c3a4adf38f60777bc6c` | `no` |
 | `guides/modules/cbc/guide.md` | `42bfd4e6940ed8c997766cb581eaa8726730a19b0d310bbde96a3a45aa8f981a` | `no` |
 | `greedyq/cbc_flow.py` | `e80e5aeae410b3c4d060ee3fb9a52c2f0d3717192f2db2c9dbbb097bf64a05aa` | `no` |
 | `greedyq/cbc_authoring.py` | `fabc768cb131c6f934bf7601ee0ca1b74adc6568851fb2b9a2f790257733f519` | `no` |
@@ -313,7 +313,7 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | `RANDOMIZATION.md` | `a11d7fc19b07cbf1d06206a2a0bb36b4d46f3007ccd2d73eebe71fa906cbe117` | `no` |
 | `docs/repeat-user-acceptance.md` | `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6` | `no` |
 | `ARCHIVING.md` | `03dd772785d2ee7a5196445f37f33f3a6eba70a398f866ea2062d4cf71b33951` | `no` |
-| `docs/cloud-lifecycle.md` | `503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0` | `no` |
+| `docs/cloud-lifecycle.md` | `ef6c73494892c72b50cb9a1f21b9fffa1e3ca3478011599bd9b8cb0fd25fc755` | `no` |
 | `tools/cloud_lifecycle.cjs` | `367564acc6fcb00642e355639521cc50ca7b8d0d62d1bfd0a31e2afbb774b91c` | `no` |
 | `tools/archive_study.cjs` | `b666fcfe6ba89598f105afde4a4b8d38b0c569aa6be8c24ea33f88ac800c2ba0` | `no` |
 | `greedyq/archive.py` | `dedd66379e6d12b686f9ce8c8e016377fe1ddfc108df509cea421a943fa8ff8a` | `no` |
@@ -931,7 +931,7 @@ Use the [CBC module guide](./CBC-MODULE.md). Keep ordinary questions in survey.q
 
 ### FILE: `CBC-MODULE.md`
 
-SHA-256: `78e266a60b1ec68da3a5fa58e01d736dbf61f347c512448718e9db66a0d64446`
+SHA-256: `d27f7c5feec63fce6094b4bb65d1173ae618e4c600563c3a4adf38f60777bc6c`
 
 ```markdown
 # Add CBC tasks to your survey
@@ -1001,6 +1001,8 @@ The researcher does not need these commands. Use the ordinary study profile plus
 - `tools/archive_study.cjs snapshot|pause|resume|reopen`: keep collection closure, service state and reopening separate. Management authorization is different from a database/service key; account-specific permissions may still require owner action.
 
 Current module journey evidence: [verified and pending checks](./docs/cbc-module-verification-2026-10-26.md).
+
+The authorized existing-account Supabase pause/resume acceptance now passed, including preservation of ten table fingerprints and a full post-resume mixed-survey/Results/withdrawal/CSV run. See the module verification record; this does not approve human fielding.
 ```
 
 ### FILE: `guides/modules/cbc/guide.md`
@@ -4583,7 +4585,7 @@ ZIP-to-database restoration is explicitly outside the required product scope. Th
 
 ### FILE: `docs/cloud-lifecycle.md`
 
-SHA-256: `503fe913ca43c1c19c725921d142f69a45697f496de49b19a38c4baf5b1865c0`
+SHA-256: `ef6c73494892c72b50cb9a1f21b9fffa1e3ca3478011599bd9b8cb0fd25fc755`
 
 ```markdown
 # Cloud setup and archive operator contract
@@ -4658,7 +4660,7 @@ The finalizer rechecks ZIP contents, SHA-256, study/resource binding, sharing ev
 
 ## Verification scope
 
-Run `python3 -m unittest tests.test_archive` and `node --test tests/cloud_lifecycle.cjs`, followed by the full Python suite. Live closure/reopening and researcher-assisted Supabase pause/resume are now verified; see [repeat-user acceptance](./repeat-user-acceptance.md) for exact coverage and current resource state. Paid-plan behavior, load/concurrency stress and unattended Supabase management authorization are not verified. ZIP restoration is outside required scope. Use **Resume project** for provider resumption, and the separately approved `reopen` CLI operation for collection.
+Run `python3 -m unittest tests.test_archive` and `node --test tests/cloud_lifecycle.cjs`, followed by the full Python suite. Live closure/reopening and researcher-assisted Supabase pause/resume are now verified; see [repeat-user acceptance](./repeat-user-acceptance.md) for exact coverage and current resource state. An authorized official Supabase connection has also completed an agent-operated CBC pause/resume cycle, preserving all ten checked table counts/checksums and passing post-resume saves/results/CSV; see [CBC module acceptance](./cbc-module-verification-2026-10-26.md). This was approved temporary shared-resource maintenance, not relaxation of the single-study archive guard. Paid-plan behavior, load/concurrency stress and expired/revoked management-authorization recovery remain unverified. ZIP restoration is outside required scope. Use **Resume project** for provider resumption, and the separately approved `reopen` CLI operation for collection.
 
 Sources: [Vercel pause](https://vercel.com/docs/projects/managing-projects), [Supabase pause API and permission](https://supabase.com/docs/reference/api/v1-pause-a-project), [Supabase TLS](https://supabase.com/docs/guides/platform/ssl-enforcement).
 

@@ -70,7 +70,7 @@ Supabase 리소스는 서버 비밀키를 받는 결과 프로젝트에만 연�
 
 ## 검증 범위
 
-`python3 -m unittest tests.test_archive`, `node --test tests/cloud_lifecycle.cjs`와 전체 Python 테스트를 실행합니다. 실제 수집 종료·재개와 연구자가 참여한 Supabase 중지·재개를 검증했습니다. 정확한 범위와 현재 리소스 상태는 [반복 사용자 인수 검사](./repeat-user-acceptance(kor).md)를 참고하세요. 유료 계정 동작, 대규모 동시 접근 부하, 무인 Supabase 관리 권한은 검증하지 않았습니다. ZIP 복원은 필수 범위가 아닙니다. 서비스 재개는 **Resume project**, 수집 재개는 별도 승인한 `reopen` CLI 작업을 사용합니다.
+`python3 -m unittest tests.test_archive`, `node --test tests/cloud_lifecycle.cjs`와 전체 Python 테스트를 실행합니다. 실제 수집 종료·재개와 연구자가 참여한 Supabase 중지·재개를 검증했습니다. 정확한 범위와 현재 리소스 상태는 [반복 사용자 인수 검사](./repeat-user-acceptance(kor).md)를 참고하세요. 공식 Supabase 연결을 승인한 뒤 에이전트가 CBC DB를 중지·재개하는 시험도 완료했습니다. 열 개 표의 행 수·체크섬을 보존하고 재개 후 저장·결과·CSV가 통과했습니다. [CBC 모듈 검증](./cbc-module-verification-2026-10-26(kor).md)을 참고하세요. 공유 자원의 일시 유지보수를 승인받은 시험이며 개별 연구 아카이빙의 공유 자원 보호 규칙을 완화한 것이 아닙니다. 유료 계정 동작, 대규모 동시 접근 부하, 만료·철회된 관리 권한 복구는 검증하지 않았습니다. ZIP 복원은 필수 범위가 아닙니다. 서비스 재개는 **Resume project**, 수집 재개는 별도 승인한 `reopen` CLI 작업을 사용합니다.
 
 출처: [Vercel 중지](https://vercel.com/docs/projects/managing-projects), [Supabase 중지 API와 권한](https://supabase.com/docs/reference/api/v1-pause-a-project), [Supabase TLS](https://supabase.com/docs/guides/platform/ssl-enforcement).
 

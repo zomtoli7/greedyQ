@@ -65,3 +65,5 @@ The researcher does not need these commands. Use the ordinary study profile plus
 - `tools/archive_study.cjs snapshot|pause|resume|reopen`: keep collection closure, service state and reopening separate. Management authorization is different from a database/service key; account-specific permissions may still require owner action.
 
 Current module journey evidence: [verified and pending checks](./docs/cbc-module-verification-2026-10-26.md).
+
+The authorized existing-account Supabase pause/resume acceptance now passed, including preservation of ten table fingerprints and a full post-resume mixed-survey/Results/withdrawal/CSV run. See the module verification record; this does not approve human fielding.
