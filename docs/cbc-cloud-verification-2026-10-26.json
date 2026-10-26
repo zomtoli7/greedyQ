@@ -71,5 +71,7 @@
     "python_passed": 244,
     "node_browser_passed": 13,
     "failed": 0
-  }
+  },
+  "release": "0.3_2026-10-26_e0167e7",
+  "verification_source_commit": "e0167e7e0f5e7fc0a77c23c971217842efe10ab1"
 }

@@ -44,7 +44,7 @@
         },
         {
           "path": "release.json",
-          "sha256": "d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95"
+          "sha256": "27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9"
         },
         {
           "path": "greedyq/localization.py",
@@ -120,7 +120,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "4ad006e5715264a8d94d227810663d5cc5525e270255b705b56aa67fcc3d50f8"
+          "sha256": "8bd4cf40c9a9af688e3f2ea067675a2d6a898f54bc92b56df0fb89b4ade90f3e"
         },
         {
           "path": "guides/core/communication.md",
@@ -328,7 +328,7 @@
         },
         {
           "path": "CBC-COLLECT.md",
-          "sha256": "2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a"
+          "sha256": "d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa"
         },
         {
           "path": "schemas/cbc-collection.schema.json",

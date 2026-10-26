@@ -6,6 +6,10 @@ Each substantive greedyQ update has one short English note and a matching `(kor)
 
 The source commit identifies the substantive code, specification, or documentation change. A following metadata-only commit may stamp that source commit into README, core guide, surveys, and this history. Metadata-only stamping commits do not receive separate entries because doing so would create an endless self-referential version update.
 
+## 0.3 development
+
+- [`0.3_2026-10-26_e0167e7`](./0.3/0.3_2026-10-26_e0167e7.md) — Verified the dedicated v0.3 CBC Test/Direct journey on existing Vercel/Supabase accounts: consent, assignment, persistent choices, completion timestamp, protected results, withdrawal and CSV. Three repeated journeys passed; all 21 retained sessions are synthetic Test records, with six completions and 81 long CSV rows.
+
 ## 0.2
 
 - [`0.2_2026-10-26_e3958de`](./0.2/0.2_2026-10-26_e3958de.md) — Use https://greedyq.netlify.app/ as the canonical start URL throughout English, Korean and Chinese entry pages, guides and homepage prompts for both new and saved studies. Keep full initialization and access recovery on GitHub; retain source files and immutable study locks rather than silently upgrading studies.

@@ -6,6 +6,10 @@ greedyQ의 실질적인 업데이트마다 짧은 영문 기록과 `(kor).md` �
 
 Source commit은 실제 code, specification 또는 documentation 변경을 가리킵니다. 뒤따르는 metadata-only commit은 이 source commit을 README, core guide, survey 및 history에 기록할 수 있습니다. Metadata-only stamping commit까지 다시 기록하면 자기 참조형 버전 변경이 무한히 이어지므로 별도 항목을 만들지 않습니다.
 
+## 0.3 개발
+
+- [`0.3_2026-10-26_e0167e7`](./0.3/0.3_2026-10-26_e0167e7(kor).md) — 기존 Vercel/Supabase 계정에서 v0.3 CBC Test/Direct의 동의·배정·선택 유지·완료 시각·보호된 결과·철회·CSV를 검증했습니다. 세 차례 반복 시험이 통과했고 남겨둔 21개 세션은 모두 가상 Test 자료이며 완료 6건과 긴 CSV 81행이 있습니다.
+
 ## 0.2
 
 - [`0.2_2026-10-26_e3958de`](./0.2/0.2_2026-10-26_e3958de(kor).md) — 새 연구와 저장 연구 재개 모두 https://greedyq.netlify.app/에서 시작하도록 영어·한국어·중국어 시작 페이지, 가이드, 홈페이지 프롬프트를 통일했습니다. 전체 초기화 규약과 접근 복구는 GitHub에 유지하며 기존 연구의 원본과 잠긴 버전을 자동 변경하지 않습니다.

@@ -82,3 +82,5 @@ RPC 合同 `cbc-1` 包含开始/恢复、同意、服务器分配/展示、revis
 `type` 为 `buttons` 或 `table`；`orientation` 为 `horizontal`、`vertical` 或 `responsive`。预览双屏上方也提供相同选择。更改会生成不同的设计哈希及独立虚拟会话，须重新审阅参与体验，部署前重建并注册已审阅收集计划。已注册计划不能静默修改。省略设置则保留原布局与哈希。小屏幕明确选择横向时比较区域可内部横向滚动；纵向及手机响应式无需页面横向滚动。预览选择不会修改已部署问卷。
 
 显示类别参考公开的 [surveydown 按钮式](https://surveydown.org/templates/conjoint_buttons)与[表格式](https://surveydown.org/templates/conjoint_tables)，代码独立实现，没有复制其源码。这是 greedyQ CBC 设置，并不表示可与原生 surveydown 联合分析代码互换。
+
+CBC 开发验证版本: `0.3_2026-10-26_e0167e7`.

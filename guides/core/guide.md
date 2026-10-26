@@ -107,3 +107,5 @@ Before the first study question, verify that this is an installed desktop AI app
 ### Existing-account cloud test — 26 October 2026
 
 The dedicated CBC Test/Direct survey and protected Results site have now been deployed to the existing Vercel/Supabase connection and tested in desktop/mobile browsers. Completion, refusal, withdrawal, repeated tests, filters and downloaded CSV passed. All generated responses are synthetic Test data; real recruitment, paid CBC, fresh-account onboarding and production fielding are not verified by this run. See the [cloud verification record](../../docs/cbc-cloud-verification-2026-10-26.md).
+
+CBC development verification: `0.3_2026-10-26_e0167e7`.

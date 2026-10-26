@@ -273,7 +273,7 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | `schemas/authoring-support-policy.json` | `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
-| `CBC-COLLECT.md` | `2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a` | `no` |
+| `CBC-COLLECT.md` | `d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa` | `no` |
 | `GUIDE-ACCESS.md` | `25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9` | `no` |
 | `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
 | `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
@@ -289,7 +289,7 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95` | `no` |
+| `release.json` | `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9` | `no` |
 | `PROLIFIC-SETUP.md` | `0c9f879a6a82796b14f2826cd8a1dee2016faba995970aa5de04f607458d6940` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
@@ -797,7 +797,7 @@ SHA-256: `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7`
 
 ### FILE: `CBC-COLLECT.md`
 
-SHA-256: `2f627f5a89d6a3882b2dc30b754c930daead88f0ea6a3f015bdb52181e402b8a`
+SHA-256: `d2629cf54e188536f8f98be21f43aba4f5d99a1a7a8ea67e40bd83b6ffc42daa`
 
 ```markdown
 # Collect CBC responses and review results
@@ -884,6 +884,8 @@ The agent writes an optional field in `study.design.json`:
 `type` accepts `buttons` or `table`; `orientation` accepts `horizontal`, `vertical`, or `responsive`. The preview offers the same choices above its two panes. Changing presentation produces a different checked-design hash and separate virtual sessions, so review the resulting participant experience again and rebuild/register the reviewed collection plan before deploying it. Previously registered plans cannot be silently changed. Absent this field, the existing layout and hash are preserved. Explicit horizontal presentation on a small screen can scroll within the comparison area; vertical and responsive mobile layouts fit without sideways page scrolling. Preview choices do not update an already deployed survey.
 
 The public [surveydown buttons](https://surveydown.org/templates/conjoint_buttons) and [tables](https://surveydown.org/templates/conjoint_tables) examples inform the two presentation categories; implementation is independently authored, without copying surveydown source. These are greedyQ CBC presentation settings, not a claim of interchangeable native surveydown conjoint code.
+
+CBC development verification: `0.3_2026-10-26_e0167e7`.
 ```
 
 ### FILE: `GUIDE-ACCESS.md`
@@ -2553,7 +2555,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95`
+SHA-256: `27f6c249a358416d90c410f08ae69b1c5457cee7abaee81112ae46c5700749e9`
 
 ```json
 {
@@ -2588,7 +2590,10 @@ SHA-256: `d8ada43ce440630e67e434c2f30ee7d23f7058fd0ab1d3f44becbe8ead46ee95`
     "cloud_cbc_test_deployed": true,
     "fresh_account_cbc_verified": false,
     "production_fielding_approved": false,
-    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json"
+    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json",
+    "release": "0.3_2026-10-26_e0167e7",
+    "source_commit": "e0167e7e0f5e7fc0a77c23c971217842efe10ab1",
+    "verification_date": "2026-10-26"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",

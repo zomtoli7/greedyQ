@@ -30,7 +30,10 @@
     "cloud_cbc_test_deployed": true,
     "fresh_account_cbc_verified": false,
     "production_fielding_approved": false,
-    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json"
+    "cloud_verification_record": "docs/cbc-cloud-verification-2026-10-26.json",
+    "release": "0.3_2026-10-26_e0167e7",
+    "source_commit": "e0167e7e0f5e7fc0a77c23c971217842efe10ab1",
+    "verification_date": "2026-10-26"
   },
   "paid_pilot_cleanup": {
     "date": "2026-10-26",

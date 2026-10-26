@@ -82,3 +82,5 @@ CBC RPC 계약은 `cbc-1`이며 시작·재개, 동의, 서버 배정·노출, r
 `type`은 `buttons` 또는 `table`, `orientation`은 `horizontal`, `vertical`, `responsive`입니다. 미리보기의 두 화면 위에서도 같은 선택을 시험할 수 있습니다. 바꾸면 검사된 설계의 식별 해시가 달라지고 가상 응답도 따로 시작하므로 참여자 경험을 다시 검토해야 합니다. 배포 전에 검토된 수집 계획을 다시 만들고 등록합니다. 이미 등록한 계획을 몰래 바꿀 수 없습니다. 이 항목을 생략하면 기존 화면과 해시를 유지합니다. 작은 화면에서 가로를 명시하면 비교 영역 안에서 좌우 스크롤이 생길 수 있습니다. 세로 및 모바일 반응형은 페이지 좌우 스크롤 없이 맞춰집니다. 미리보기 선택이 이미 배포된 설문을 바꾸지는 않습니다.
 
 공개된 [surveydown 버튼형](https://surveydown.org/templates/conjoint_buttons)과 [표형](https://surveydown.org/templates/conjoint_tables)을 표시 유형의 참고로 삼았으며 코드는 복사하지 않고 독립 구현했습니다. 이는 greedyQ CBC 설정이며 native surveydown 컨조인트 코드와 서로 바꿔 쓸 수 있다는 뜻은 아닙니다.
+
+CBC 개발 검증 버전: `0.3_2026-10-26_e0167e7`.

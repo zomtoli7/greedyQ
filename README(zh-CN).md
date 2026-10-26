@@ -145,3 +145,5 @@ greedyQ 使用 [MIT License](./LICENSE)。
 ### 已有账户云端测试 — 2026年10月26日
 
 已通过现有 Vercel/Supabase 连接部署独立 CBC Test/Direct 问卷及受保护结果页面，并在电脑／手机浏览器中测试完成、拒绝同意、退出、重复测试、筛选及 CSV 下载。所有生成回答均为虚拟 Test 数据；本次不验证真实招募、付费 CBC、新账户连接或正式收集批准。参见[云端验证记录](./docs/cbc-cloud-verification-2026-10-26.md)。
+
+CBC 开发验证版本: `0.3_2026-10-26_e0167e7`.
