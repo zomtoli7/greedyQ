@@ -4,11 +4,11 @@
   "files": [
     {
       "path": "design/attributes.csv",
-      "sha256": "83fe3adbf8370a8b966f7912e44be9f730a94f45ac1ba9f485e0ae3774f0c959"
+      "sha256": "1096dabd9372207262e0bf167d49a664e0b064dc466e2dae2606c9057f0695f0"
     },
     {
       "path": "design/design.csv",
-      "sha256": "a73f8438fa4af78777cc6113cb1dbfc1aa354bf58f110194c88127fa9f58ef0f"
+      "sha256": "58fe69a84f7f03c4948befa1d4cb7c176fb6695c9b79f3351165ede4b1d4630e"
     }
   ],
   "block_count": 2,
