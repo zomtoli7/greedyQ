@@ -2,7 +2,7 @@
 
 [한국어](./publication-request(kor).md)
 
-Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/v0.2-final-documentation-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_fa94594`. Exact HTML: **802788 bytes**, SHA-256 **`adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc`**. The source commit identifies substantive source; fetch the current metadata commit too, rather than older HTML at that source commit.
+Use the current main checkout together: `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html` and `docs/v0.2-final-documentation-audit-2026-10-26.md`. Prepared release: `0.2_2026-10-26_fa94594`. Exact HTML: **802483 bytes**, SHA-256 **`0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`**. The source commit identifies substantive source; fetch the current metadata commit too, rather than older HTML at that source commit.
 
 ## Request for the browser-enabled homepage work
 
@@ -16,4 +16,4 @@ Fetch the public complete decoded `data-code` embed and compare its bytes and SH
 
 ## Current observed state
 
-The final homepage was saved and published through the in-app Browser on 2026-10-26. The complete decoded public `data-code` embed at https://sites.google.com/view/greedyq exactly matched the prepared HTML: release `0.2_2026-10-26_fa94594`, **802788 UTF-8 bytes**, SHA-256 `adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc`. The new agents page, Start support-note placement, all three languages at desktop and 390px mobile widths, version/history, contact, displayed URL boundaries and BibTeX syntax were checked. The copy button showed success; clipboard readback and forced-denial manual copying were not verified in this session. No external AI account was retested. Safari, the desktop mouse, survey/results deployments, databases, Prolific, recruitment and payments were not used or changed.
+The final homepage was saved and published through the in-app Browser on 2026-10-26. The complete decoded public `data-code` embed at https://sites.google.com/view/greedyq exactly matched the prepared HTML: release `0.2_2026-10-26_fa94594`, **802483 UTF-8 bytes**, SHA-256 `0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`. The new agents page, Start support-note placement, all three languages at desktop and 390px mobile widths, version/history, contact, displayed URL boundaries and BibTeX syntax were checked. The copy button showed success; clipboard readback and forced-denial manual copying were not verified in this session. No external AI account was retested. Safari, the desktop mouse, survey/results deployments, databases, Prolific, recruitment and payments were not used or changed.

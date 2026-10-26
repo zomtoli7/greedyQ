@@ -56,3 +56,7 @@ The current template fixes every prose prompt’s URL/line boundary and all copy
 ## Final v0.2 publication — 2026-10-26
 
 The final homepage was saved and published through the in-app Browser on 2026-10-26. The complete decoded public `data-code` embed at https://sites.google.com/view/greedyq exactly matched the prepared HTML: release `0.2_2026-10-26_fa94594`, **802788 UTF-8 bytes**, SHA-256 `adbf3afdc4bde137ebb6d20cd1bb1edc91b81f75a6247822077f274bcd5e71dc`. The new agents page, Start support-note placement, all three languages at desktop and 390px mobile widths, version/history, contact, displayed URL boundaries and BibTeX syntax were checked. The copy button showed success; clipboard readback and forced-denial manual copying were not verified in this session. No external AI account was retested. Safari, the desktop mouse, survey/results deployments, databases, Prolific, recruitment and payments were not used or changed.
+
+## Korean home and Start copy revision — 2026-10-26
+
+Replaced the Korean home notice and Start introduction with the owner's requested wording. The home notice is independent of the Start introduction so generation preserves both exact texts. English and Chinese wording is unchanged. Published through the in-app Browser and verified both Korean texts on the public site. The complete decoded public embed exactly matched the generated source: release `0.2_2026-10-26_fa94594`, 802483 UTF-8 bytes, SHA-256 `0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`. The three website unit tests passed.

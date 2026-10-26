@@ -52,7 +52,8 @@ def build(root=ROOT,write=True):
     }
     for language in ('en', 'ko', 'zh'):
         current=data[language]; guard=policy_prompts[language]
-        current['home']['note']=current['start']['lead']+' '+current['home']['note']
+        if not overlay[language].get('home_note_includes_policy', False):
+            current['home']['note']=current['start']['lead']+' '+current['home']['note']
         for page in current['guide']:
             if page.get('prompt') and not page['prompt'].startswith(guard):
                 page['prompt']=guard+'\n\n'+page['prompt']
