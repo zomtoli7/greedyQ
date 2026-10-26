@@ -41,8 +41,12 @@ These differences mean “all Surveydown settings supported” is not an accurat
 
 ## External returns
 
-[Official redirects](https://surveydown.org/docs/external-redirect) distinguish fixed and URL-parameter-based destinations. greedyQ now compiles terminal outcome redirects with fixed HTTPS hosts, approved query-name mappings, explicit buttons and optional same-tab delay. Missing/repeated parameters fail closed. Credentials are not forwarded. Preview navigation is disabled; connected respondents can leave only after a successful save. New tabs require a click because automatic pop-ups are unreliable. Native return buttons are generated, but timers are omitted in native preview and save-before-return needs R verification. Prolific account integration remains untested.
+[Official redirects](https://surveydown.org/docs/external-redirect) distinguish fixed and URL-parameter-based destinations. greedyQ now compiles terminal outcome redirects with fixed HTTPS hosts, approved query-name mappings, explicit buttons and optional same-tab delay. Missing/repeated parameters fail closed. Credentials are not forwarded. Preview navigation is disabled; connected respondents can leave only after a successful save. New tabs require a click because automatic pop-ups are unreliable. Native return buttons are generated, but timers are omitted in native preview and save-before-return needs R verification. The primary browser-native Prolific paid route is verified with researcher-confirmed approval/payment; equivalent native Surveydown identity and erasure behavior remains unverified.
 
 ## Release gate
 
 Do not describe all non-Prolific compatibility work as complete while the gaps above remain. Keep existing cloud projects untouched until a reviewed migration and redeployment is approved. The local un-applied migration 004 now covers saved presentation order; installations that already applied a different 004 need a new additive migration, never checksum rewriting.
+
+## 2026-10-26 scope correction
+
+The primary browser-native Prolific route has completed a one-person paid trial with researcher-confirmed approval/payment; its earlier untested label is historical. Native Surveydown identity/save-before-return/withdrawal parity and every generated custom control remain separately unverified. See the current integration and closeout records.

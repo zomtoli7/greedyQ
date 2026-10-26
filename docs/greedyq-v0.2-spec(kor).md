@@ -159,7 +159,7 @@ v0.2은 simple 및 fixed-block between-subject assignment를 지원합니다. Ra
 
 현재 구현은 연구당 참가자 단위 배정 하나와 `session_id` 기반 유지를 지원합니다. 조건별 양의 정수 가중치로 비율을 지정합니다. 단순 배정은 독립적으로 추첨하고 고정 블록은 정해진 비율의 전체 블록을 섞으며, 인원이 적은 조건부터 채우지 않습니다. 테스트와 실제 참여의 배정 순서는 분리합니다. 제한 사항, 추가 004 migration, 관리자 권한의 검토 모델 등록은 [RANDOMIZATION(kor).md](../RANDOMIZATION(kor).md)를 따릅니다. 이전 최소 인원 우선 배정을 새 무작위 연구로 재분류하거나 혼합하면 안 됩니다.
 
-선택적인 `question_order`는 페이지와 그 안에서 섞을 문항 ID 두 개 이상을 지정합니다. 다른 위치는 고정합니다. 참가자·페이지별 순서를 유지하고 `question_orders`로 내보냅니다. 동의 페이지와 같은 페이지의 조건부 문항·선행 문항 조합은 섞을 수 없습니다. 선택지 순서와 페이지 전체 순서 섞기는 구현하지 않았습니다. 내보내기는 미지원 순서 기능을 보고해야 하며 동등성을 주장하면 안 됩니다.
+선택적인 `question_order`는 페이지와 그 안에서 섞을 문항 ID 두 개 이상을 지정합니다. 다른 위치는 고정합니다. 참가자·페이지별 순서를 유지하고 `question_orders`로 내보냅니다. 동의 페이지와 같은 페이지의 조건부 문항·선행 문항 조합은 섞을 수 없습니다. 지원되는 선택지와 지정 페이지 섞기는 `shuffle_items`·`shuffle_pages`로 정규화하고 `option_orders`·`page_order`를 유지·내보냅니다. 고정 위치·동의·의존 제한을 따릅니다. Native export는 문항·페이지 섞기의 동등성을 주장하지 않습니다.
 
 Assignment는 consent 이후이면서 첫 condition-dependent page 직전에만 이루어져야 합니다. Stimulus 표시 전에 atomic하게 저장하고 refresh/resume 동안 불변이어야 하며 동일한 persistence key에 대해 다시 계산해서는 안 됩니다. Stored metadata에는 condition, method, seed 또는 draw identifier, 해당되는 경우 block identifier, assignment timestamp, specification version을 포함해야 합니다.
 
@@ -268,7 +268,7 @@ Browser implementation은 Python reference와 동일하게 독립 작성된 conf
 
 ## 17. v0.2에서 deferred된 기능
 
-임의의 R/Shiny 또는 JavaScript, raw HTML, custom Quarto extension, 고정된 안전한 media extension 이외의 arbitrary widget, weighted/stratified allocation, factorial/conjoint 실행, electronic signature, 관할별 compliance automation은 deferred입니다.
+임의의 R/Shiny 또는 JavaScript, raw HTML, custom Quarto extension, 고정된 안전한 media extension 이외의 arbitrary widget, stratified/adaptive allocation, factorial/conjoint 실행, electronic signature, 관할별 compliance automation은 deferred입니다.
 
 ## 18. Versioning
 
@@ -277,3 +277,5 @@ Breaking grammar 또는 semantic change에는 새 specification version이 필�
 Peer-reviewed greedyQ 논문이 나오기 전까지 publication-facing artifact는 연구자에게 (1) `greedyq.version`에 기록된 정확한 release identifier와 함께 greedyQ GitHub 저장소를 인용하고 (2) surveydown PLOS ONE 논문도 함께 인용하도록 안내해야 합니다. 이 공동 인용 정책은 독립적인 greedyQ runtime만 사용한 연구에도 적용됩니다. Methods 문구는 surveydown의 선행 survey-as-code 관례를 계승한 것과 surveydown package 자체를 실제 실행한 것을 구분해야 합니다.
 
 조건식 예: `contains(tools, "other")`, `group in ["a", "b"]`, `length(tools) >= 2`, `not (age < 18 or not answered(name))`. `contains`는 복수 선택의 저장 값을 검사하고 `in`은 단일 값을 목록과 비교합니다. `length`는 텍스트의 유니코드 문자 수 또는 복수 선택 개수를 셉니다. 임의 함수·인덱싱·실행 코드는 허용되지 않습니다.
+
+현재 순서 섞기 계약: 지원되는 선택지는 `shuffle_items`, 지정한 페이지는 `shuffle_pages`를 사용하며 `option_orders`·`page_order`를 유지하고 내보냅니다. 문항 섞기와 별개로 RANDOMIZATION.md의 고정 위치·동의·의존 제한을 적용합니다. Native export의 문항·페이지 섞기는 미지원입니다.

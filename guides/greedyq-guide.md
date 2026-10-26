@@ -246,12 +246,12 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `templates/supabase/001_initial.sql` | `e3d7cd20fe38181e2b11292b2927b5b481fc05a8d718cd657870eb25ba161635` | `no` |
 | `templates/vercel/vercel.json` | `78aa0768c072f051f4d07d9e9be5c39c83ea7bf4ed561a85a532373496c0ab6f` | `no` |
 | `templates/vercel/.env.example` | `2e928f6e424d7695c0143fca3bd2e4d19c723523065ebeb12cd0c2dd590da85d` | `no` |
-| `release.json` | `ad9ea15f92ed073107f3e026fe6c63436e090f8128079af6766a97a437abf2b3` | `no` |
+| `release.json` | `f9a70d4ec1c0e153ae034c121c4bb99fe96ee91cbedc0b435f1a6a9d6d06f751` | `no` |
 | `PROLIFIC-SETUP.md` | `38378099e0dc767b3d0dddab948440cd82d5a3b482627f17761f30bf5b30f6f4` | `no` |
 | `tools/prepare_prolific.py` | `31c753aa8fbc7178f6632b36421508e6a59793a4335358ea5be1b6241889a643` | `no` |
 | `greedyq/localization.py` | `16c2b87d6217f3b7a26292f52270f1fefdd6c03b39a573ba2201bfa46a39449d` | `no` |
 | `greedyq/locale-messages.json` | `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad` | `no` |
-| `docs/surveydown-compatibility-audit.md` | `8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47` | `no` |
+| `docs/surveydown-compatibility-audit.md` | `f197e83c19999a61d870d0a21d3e9cc3cb3d33b99ed5b85500b4b5d48118abe8` | `no` |
 | `EXTERNAL-RETURNS.md` | `a8b0eab478851709e3800244e422ce583679c78688e2dfe5bf4e3bb9a023457e` | `no` |
 | `greedyq/formatting.py` | `8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d` | `no` |
 | `PREREGISTRATION.md` | `5e591d4c3a82367cc03ae8ffc0ae450095595e0249ad6b5cb799d61f38bcf948` | `no` |
@@ -261,7 +261,7 @@ This full guide is the default single-file attachment for GPT, Claude, and other
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
 | `tools/resolve_guide.py` | `43bd76be9ca6fc61ba70f11a508ab00a88f1897bff13619b80af7df0e320d043` | `no` |
 | `RANDOMIZATION.md` | `70fd5b84beec551f10fe2009df6ef2ed4c29125661dfb5fa9ac6dbf7afcf1c15` | `no` |
-| `docs/repeat-user-acceptance.md` | `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1` | `no` |
+| `docs/repeat-user-acceptance.md` | `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6` | `no` |
 | `ARCHIVING.md` | `2cd3f93025283bffa3efd204a3b9fa48b2baa9aa11cb19a61c63ea5d262d23d7` | `no` |
 | `docs/cloud-lifecycle.md` | `ced288ab2dd3cafdc53aa8aa0631f616c4cc4f56b6a534cd131b996a400bcd81` | `no` |
 | `tools/cloud_lifecycle.cjs` | `58aeb8bb6619a07ecae0994a06dea65bbcf4653de0492b0aa5b9611203a61f30` | `no` |
@@ -621,7 +621,7 @@ GREEDYQ_SUPABASE_PUBLISHABLE_KEY=replace_me
 
 ### FILE: `release.json`
 
-SHA-256: `ad9ea15f92ed073107f3e026fe6c63436e090f8128079af6766a97a437abf2b3`
+SHA-256: `f9a70d4ec1c0e153ae034c121c4bb99fe96ee91cbedc0b435f1a6a9d6d06f751`
 
 ```json
 {
@@ -639,6 +639,21 @@ SHA-256: `ad9ea15f92ed073107f3e026fe6c63436e090f8128079af6766a97a437abf2b3`
     "approval": "researcher_confirmation_2026-10-26",
     "payment": "researcher_confirmation_2026-10-26",
     "independent_payment_receipt_checked": false
+  },
+  "v02_supported_scope": "stabilized",
+  "next_line": {
+    "version": "0.3",
+    "core_feature": "CBC",
+    "status": "specification_and_golden_design_only"
+  },
+  "paid_pilot_cleanup": {
+    "date": "2026-10-26",
+    "researcher_requested_immediate_deletion": true,
+    "active_trial_records_remaining": 0,
+    "known_private_files_removed": 13,
+    "collection_closed": true,
+    "provider_payment_records_modified": false,
+    "provider_backups_or_researcher_owned_copies_verified_erased": false
   }
 }
 ```
@@ -1131,7 +1146,7 @@ SHA-256: `828a40c39808aed1945a60f56636b8baaaf970f17585fdbce8a1e02955be57ad`
 
 ### FILE: `docs/surveydown-compatibility-audit.md`
 
-SHA-256: `8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47`
+SHA-256: `f197e83c19999a61d870d0a21d3e9cc3cb3d33b99ed5b85500b4b5d48118abe8`
 
 ```markdown
 # Surveydown compatibility audit
@@ -1177,11 +1192,15 @@ These differences mean “all Surveydown settings supported” is not an accurat
 
 ## External returns
 
-[Official redirects](https://surveydown.org/docs/external-redirect) distinguish fixed and URL-parameter-based destinations. greedyQ now compiles terminal outcome redirects with fixed HTTPS hosts, approved query-name mappings, explicit buttons and optional same-tab delay. Missing/repeated parameters fail closed. Credentials are not forwarded. Preview navigation is disabled; connected respondents can leave only after a successful save. New tabs require a click because automatic pop-ups are unreliable. Native return buttons are generated, but timers are omitted in native preview and save-before-return needs R verification. Prolific account integration remains untested.
+[Official redirects](https://surveydown.org/docs/external-redirect) distinguish fixed and URL-parameter-based destinations. greedyQ now compiles terminal outcome redirects with fixed HTTPS hosts, approved query-name mappings, explicit buttons and optional same-tab delay. Missing/repeated parameters fail closed. Credentials are not forwarded. Preview navigation is disabled; connected respondents can leave only after a successful save. New tabs require a click because automatic pop-ups are unreliable. Native return buttons are generated, but timers are omitted in native preview and save-before-return needs R verification. The primary browser-native Prolific paid route is verified with researcher-confirmed approval/payment; equivalent native Surveydown identity and erasure behavior remains unverified.
 
 ## Release gate
 
 Do not describe all non-Prolific compatibility work as complete while the gaps above remain. Keep existing cloud projects untouched until a reviewed migration and redeployment is approved. The local un-applied migration 004 now covers saved presentation order; installations that already applied a different 004 need a new additive migration, never checksum rewriting.
+
+## 2026-10-26 scope correction
+
+The primary browser-native Prolific route has completed a one-person paid trial with researcher-confirmed approval/payment; its earlier untested label is historical. Native Surveydown identity/save-before-return/withdrawal parity and every generated custom control remain separately unverified. See the current integration and closeout records.
 ```
 
 ### FILE: `EXTERNAL-RETURNS.md`
@@ -1680,7 +1699,7 @@ Migration 007 prunes answers omitted from a newly accepted complete browser snap
 
 ### FILE: `docs/repeat-user-acceptance.md`
 
-SHA-256: `1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1`
+SHA-256: `e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6`
 
 ```markdown
 # Repeat-user cloud journey: verified behavior
@@ -1707,7 +1726,7 @@ The new study passed real backend checks for create, pre-consent write rejection
 - New protected results: https://greedyq-next-results.vercel.app
 - Original protected results: https://greedyq-fresh-results.vercel.app
 
-Both databases remain active after acceptance, and both studies' collection is closed. Do not advertise another free slot without checking current account limits. No resource was deleted. The public survey can load but a closed study may display the generic unavailable/save-error message; a dedicated end-of-study screen is not yet implemented.
+Both databases remain active after acceptance, and both studies' collection is closed. Do not advertise another free slot without checking current account limits. No resource was deleted. The canonical participant page now handles explicit `study_closed` as a dedicated end-of-study screen, both at startup and on an in-flight save. A network failure remains a different error. Closure was already implemented; the earlier unimplemented-screen statement was stale. The four-language desktop/mobile regression covers these paths.
 
 ## Canonical operator actions
 

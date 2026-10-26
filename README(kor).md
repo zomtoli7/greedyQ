@@ -175,3 +175,5 @@ greedyQ는 [MIT License](./LICENSE)로 배포합니다.
 기본 여정은 설문 검토 → Vercel 로그인과 필요한 Supabase 연결 승인 → 검증한 설문·결과 링크 전달입니다. AI는 계정·대상 팀을 확인한 기존 공식 Vercel 연결을 우선 사용하고, 사용할 수 없거나 필요한 기능이 없으면 지원되는 기존 경로로 진행합니다. **Onboard your agent는 선택 사항이며 필수 준비 단계가 아닙니다.** [사용자 안내](./USER-GUIDE(kor).md)와 [선택적 연결 준비](./docs/vercel-agent-onboarding(kor).md)를 참고하세요.
 
 간체 중국어 시작 안내·사용자 설명서·AI 가이드를 `(zh-CN).md`로 제공합니다. 모든 개발 문서가 중국어로 번역된 것은 아닙니다.
+
+다음 단계: [v0.3 CBC 명세와 빈 설계표](./drafts/v0.3/cbc/README(kor).md). 현재는 설계 단계이며 실행 환경은 v0.2입니다.

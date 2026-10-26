@@ -168,7 +168,7 @@ v0.2 supports simple and fixed-block between-subject assignment. A randomization
 
 The implemented contract is one respondent-level assignment per study with `session_id` persistence. Positive integer condition weights specify the ratio. Simple assignment draws independently; fixed blocks shuffle a complete weighted block, never merely select the least-populated arm. Test and production schedules are separate. See [RANDOMIZATION.md](../RANDOMIZATION.md) for constraints, the additive 004 migration, and privileged registration of the reviewed model. Prior least-count records must not be relabeled or mixed into a new randomized study.
 
-Opt-in `question_order` entries name a page and at least two question IDs to shuffle in place. Other positions remain fixed. Persist the resulting order per session/page and export it as `question_orders`. Consent pages and same-page dependent question/trigger combinations cannot be shuffled. Answer-option and whole-page ordering are not implemented. Export must report unsupported ordering rather than claim equivalence.
+Opt-in `question_order` entries name a page and at least two question IDs to shuffle in place. Other positions remain fixed. Persist the resulting order per session/page and export it as `question_orders`. Consent pages and same-page dependent question/trigger combinations cannot be shuffled. Supported option shuffling compiles to `shuffle_items` and whole-page shuffling to `shuffle_pages`; preserve `option_orders` and `page_order` across resume and export. Keep fixed choices/pages and consent/dependency restrictions from RANDOMIZATION.md. Native export preserves supported option-shuffle syntax but reports question/page shuffling as unsupported rather than claiming equivalent persistence.
 
 Assignment MUST occur only after consent and immediately before the first condition-dependent page. It MUST be atomic, persisted before stimulus display, invariant across refresh/resume, and never recomputed for the same persistence key. Stored metadata MUST include condition, method, seed or draw identifier, block identifier when applicable, assignment timestamp, and specification version.
 
@@ -277,7 +277,7 @@ The browser implementation MUST be tested against the same independently authore
 
 ## 17. Deferred from v0.2
 
-Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, arbitrary widgets beyond the fixed safe media extensions, weighted or stratified allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
+Deferred capabilities include arbitrary R/Shiny or JavaScript, raw HTML, custom Quarto extensions, arbitrary widgets beyond the fixed safe media extensions, stratified/adaptive allocation, factorial and conjoint execution, electronic signatures, and jurisdiction-specific compliance automation.
 
 ## 18. Versioning
 

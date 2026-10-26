@@ -175,3 +175,5 @@ greedyQ is distributed under the [MIT License](./LICENSE).
 The main journey is survey review → Vercel sign-in and required Supabase connection approval → verified Survey and Results links. The AI prefers an existing official Vercel connection after checking account and target team, and uses the established supported route when the connection or operation is unavailable. **Onboard your agent is optional, not a required setup step.** See the [user guide](./USER-GUIDE.md) and [optional preparation guide](./docs/vercel-agent-onboarding.md).
 
 Entry, user and AI guides also have Simplified Chinese `(zh-CN).md` copies. This does not imply that every developer document is translated.
+
+Next: [v0.3 CBC specification and blank design tables](./drafts/v0.3/cbc/README.md) — planning only; current runtime remains v0.2.

@@ -2,6 +2,8 @@
 
 [한국어](./prolific-paid-test-completion-2026-10-26(kor).md)
 
+> Subsequent authorized cleanup: on 2026-10-26 the researcher chose immediate deletion. Active trial records and known private operator copies were removed and collection closed. The earlier November 25 pending-cleanup statement below records the original plan; see the [closeout record](./v0.2-closeout-2026-10-26.md).
+
 ## Result and evidence sources
 
 On 2026-10-26, the researcher confirmed that the participant submission was approved and the reward paid. The basic one-person paid connection test is complete: Prolific launch, saved answers, completed response, results/CSV matching, and researcher-confirmed approval and payment. This is a connection/workflow check, not validation of research design or every Prolific feature.

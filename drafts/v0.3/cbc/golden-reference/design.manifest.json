@@ -1,0 +1,20 @@
+{
+  "status": "design_only",
+  "schema_version": "0.3-draft.1",
+  "files": [
+    {
+      "path": "design/attributes.csv",
+      "sha256": "83fe3adbf8370a8b966f7912e44be9f730a94f45ac1ba9f485e0ae3774f0c959"
+    },
+    {
+      "path": "design/design.csv",
+      "sha256": "a73f8438fa4af78777cc6113cb1dbfc1aa354bf58f110194c88127fa9f58ef0f"
+    }
+  ],
+  "block_count": 2,
+  "task_count": 8,
+  "ordinary_profile_rows": 16,
+  "per_respondent_tasks": 4,
+  "provenance": "Independently hand-authored software fixture; no statistical-efficiency claim.",
+  "normalized_design_sha256": "a79a270f716530e711c21e7f00659a87f4eee3b01a3d4bfc273aea04cffac736"
+}

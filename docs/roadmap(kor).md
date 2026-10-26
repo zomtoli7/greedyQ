@@ -2,7 +2,7 @@
 
 [English](./roadmap.md)
 
-**현재 단계:** v0.2 안정화
+**현재 단계:** v0.2 지원 범위 유지·보수, v0.3 CBC 명세와 골든 레퍼런스 설계
 **계획 원칙:** 구현 전에 규약을 확정한다
 
 ## v0.2에서 완성된 범위
@@ -31,22 +31,27 @@
 - [x] 연구자 직접 작성·AI-assisted 신규 연구, 수정, fork, custom control, preview 승인, 외부 작업의 정직한 보고를 다루는 AI workflow conformance scenario.
 - [x] 공개 Surveydown 1.3.0 API에 대한 생성 project 대조 및 생성된 app·QMD R block의 R 문법 검사.
 - [x] 전체 native Surveydown control gallery가 database 계정 없이 Surveydown 1.3.0, R, Quarto, Shiny의 안전한 preview mode에서 rendering 및 기동됩니다.
-- [ ] 실행 중인 Shiny app에서 생성된 모든 custom control의 native Surveydown 동작 검토.
-- [x] 2026-09-10 연구자와 함께한 새 계정 Vercel/Supabase 연결 시험. 최신 006은 별도 연결 시험 리소스에서도 검증했습니다. 모든 이후 계정·버전을 자동 검증한 것으로 보지 말고 날짜별 근거를 확인합니다.
+- [ ] 후속 범위: 실행 중인 Shiny에서 모든 생성 custom control의 동작 대조. 완전한 동등성을 주장하지 않습니다.
+- [x] 2026-09-10 연구자와 함께한 새 계정 Vercel/Supabase 연결 시험. 008까지의 migration은 별도 연결 시험 리소스에서도 검증했습니다. 모든 이후 계정·버전을 자동 검증한 것으로 보지 말고 날짜별 근거를 확인합니다.
 - [x] 완료·거부·철회·반복 시작의 실제 Prolific 초안 Preview 및 보호된 결과·삭제 확인.
-- [ ] 진짜 유료 Prolific 제출 대조·승인·지급: 최초 1명 시험은 일반 내부 검토로 중지됐습니다.
-- [ ] GPT, Claude, Gemini 및 다른 capable host에서 생성·수정·fork 평가.
-- [ ] assistive technology 접근성 audit와 비기술 연구자 대상 usability study.
+- [x] 실제 유료 제출 1건을 답변·CSV와 대조하고 연구자가 2026-10-26 승인·지급을 확인했습니다. 지급 API를 독립 조회한 것은 아닙니다.
+- [x] 전용 종료 안내는 이미 구현되어 있으며 네 참여자 언어·컴퓨터/모바일에서 시작·응답 도중 종료와 일반 통신 오류 구분을 재시험했습니다.
+- [x] 연구자가 요청한 즉시 정리를 2026-10-26 완료했습니다. 운영 시험 응답·ID 테이블과 확인한 비공개 사본을 정리하고 수집을 닫았으며 Prolific 지급 내역은 보존했습니다.
+- [ ] 후속 연구: 여러 capable host에서 생성·수정·fork 평가.
+- [ ] 후속 연구: 보조기술 접근성 점검과 실제 연구자 사용성 연구. 기존 키보드·반응형 회귀는 계속 필요합니다.
 
 ## 다음 제품 작업
 
-1. 승인된 Vercel/Supabase 설문·결과 여정을 유지하고 서비스 검토 후 유료 Prolific 시험을 마칩니다. 검토 대기 중에는 설정을 보존합니다.
-2. production observability, 연구자가 설정하는 retention control, live disaster-recovery exercise를 추가합니다. offline migration versioning, 무결성 검사, 복구 안내는 완료되었습니다.
-3. weighted/stratified assignment, factorial study, reproducible seed, CBC/conjoint, external design table을 추가합니다.
-4. 구현된 영어·한국어·중국어 간체/번체 외의 참여자 언어 팩을 확장하고 연구자가 작성 문구의 번역을 검토하도록 유지합니다.
-5. 공식 OSF 항목 목록과 다운로드할 사전등록 초안을 유지합니다. OSF 로그인·제출·등록 관리는 범위 밖이며 연구자가 별도로 등록합니다.
-6. confidence와 conversion report를 포함한 PPTX import path를 만듭니다.
-7. greedyQ white paper를 뒷받침할 portability/conformance 연구를 수행합니다.
+1. CBC를 v0.3 핵심 기능으로 만듭니다. [명세 초안·골든 예제](../drafts/v0.3/cbc/README(kor).md)부터 시작하고 AI 협업, 빈 CSV·XLSX 직접 작성, 기존 설계표 가져오기를 선택지로 제공합니다. 현재는 설계 단계이며 v0.2 기능으로 활성화하지 않습니다.
+2. 기준 가져오기·검사, 동일한 브라우저 계약, CBC 표시, 지속 배정·순서, 철회에 안전한 저장과 긴 형태 내보내기를 차례로 구현합니다. 적합성 검증 후에만 CBC를 등록합니다.
+3. v0.2의 Vercel/Supabase/direct/Prolific 여정을 안정적으로 유지합니다. 008 이후 첫 새 실제 종료 시각과 실제 유료 내부 선별은 해당 환경의 확인 사항이며 완료한 유료 시험을 반복할 이유가 아닙니다.
+4. 후속: 운영 관찰, 보관기간 설정, 실제 장애 복구, 층화·적응 배정, 요인 설계와 재현 가능한 설계 생성기. 단순 가중 비율과 지원 문항·선택지·페이지 섞기는 이미 있으므로 미구현으로 나열하지 않습니다.
+5. 후속: 추가 참여자 언어, PPTX 가져오기, white paper용 호스트 간 적합성 연구. OSF 초안은 유지하며 registry 로그인·제출은 범위 밖입니다.
+6. 홈페이지 게시는 별도 Work가 담당합니다. 소스 생성만으로 게시를 주장하지 않습니다. 유료 시험 운영 자료 정리는 완료했지만 서비스 백업과 연구자 개인 사본은 검사하지 않았습니다.
+
+## 마감 근거와 한계
+
+[v0.2 마감](./v0.2-closeout-2026-10-26(kor).md), [유료 시험 완료](./prolific-paid-test-completion-2026-10-26(kor).md), [CBC 기획](../drafts/v0.3/cbc/README(kor).md)을 참고합니다. 지원 범위 마감이 모든 Surveydown 설정·native custom control 동등성, 서명 Prolific 링크·지급 자동화, 모든 환경, 통계 설계 효율을 보장하지는 않습니다.
 
 ## 변하지 않는 요구사항
 

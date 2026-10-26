@@ -22,7 +22,7 @@ The new study passed real backend checks for create, pre-consent write rejection
 - New protected results: https://greedyq-next-results.vercel.app
 - Original protected results: https://greedyq-fresh-results.vercel.app
 
-Both databases remain active after acceptance, and both studies' collection is closed. Do not advertise another free slot without checking current account limits. No resource was deleted. The public survey can load but a closed study may display the generic unavailable/save-error message; a dedicated end-of-study screen is not yet implemented.
+Both databases remain active after acceptance, and both studies' collection is closed. Do not advertise another free slot without checking current account limits. No resource was deleted. The canonical participant page now handles explicit `study_closed` as a dedicated end-of-study screen, both at startup and on an in-flight save. A network failure remains a different error. Closure was already implemented; the earlier unimplemented-screen statement was stale. The four-language desktop/mobile regression covers these paths.
 
 ## Canonical operator actions
 

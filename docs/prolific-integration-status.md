@@ -47,3 +47,7 @@ The participant ID in the researcher-supplied Prolific Awaiting review screensho
 ## Completed basic route; remaining checks
 
 See the [2026-10-26 completion record](./prolific-paid-test-completion-2026-10-26.md) for the distinction between direct inspection and researcher confirmation. The first post-008 real timestamp, paid custom-screening reward, new environments/scale and independent receipt inspection are not verified by this pilot. Signed links and recruitment/payment API automation remain unsupported. The 2026-11-25 retention cleanup is pending, not scheduled automatically. Do not rerun or repay the completed pilot.
+
+## Authorized cleanup completed
+
+On 2026-10-26 the researcher chose immediate deletion instead of waiting until November 25. Active trial data and known private copies were removed; collection is closed. Historical evidence above describes pre-cleanup inspections. See [closeout](./v0.2-closeout-2026-10-26.md) for scope and remaining-copy limitations.

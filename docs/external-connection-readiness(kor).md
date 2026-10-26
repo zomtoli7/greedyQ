@@ -5,7 +5,7 @@
 **무작위 배정 업그레이드:** 새 실행 코드는 001–008 migration과 검토한 모든 모델의 등록이 필요합니다. 서버 규약을 확인하여 이전 버전이나 일치하지 않는 설정은 차단합니다. [RANDOMIZATION(kor).md](../RANDOMIZATION(kor).md)를 따릅니다. 과거 계정 연결 시험이 이번 업그레이드의 승인 근거가 되지는 않습니다.
 
 **Release:** `0.2_2026-10-26_e10197b`
-**상태:** 로컬·연결 시험 검증 완료. 유료 Prolific 시험은 서비스 내부 검토로 중지됐으며 지급은 미검증입니다.
+**상태:** v0.2 지원 범위 검증 완료. 기본 유료 Prolific 경로는 연구자의 승인·지급 확인까지 마쳤고, 명시적으로 요청한 시험 자료 삭제도 2026-10-26 수행했습니다. 새 계정과 미시험 기능은 별도로 확인해야 합니다.
 
 greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애플리케이션을 준비하고 테스트합니다. 이 경계 덕분에 일반적인 설문 검토는 로컬에서 이루어지고, 마지막 외부 단계는 새로운 구현이 아니라 설정 및 검증 작업이 됩니다.
 
@@ -17,7 +17,7 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 - 새로고침 재개, 안정적인 mock 배정, 철회/reset, 필수 및 구조화 응답, 숫자 범위, routing, terminal outcome을 자동 테스트합니다. 실제 Chrome E2E suite가 320px, 390px, 768px, 1280px layout, dashboard filter, 다운로드 CSV 구조도 검사합니다.
 - JavaScript validator/compiler를 두 golden study와 의도적으로 잘못 만든 입력에서 Python reference implementation과 비교합니다.
 - Static Vercel bundle과 offline deployment preflight를 생성합니다.
-- 여섯 canonical Supabase migration은 테이블, RLS, 접근 토큰 RPC, 배정, 동의 후 응답 저장, 테스트·실제가 분리된 원자적 Prolific 등록, 철회 답변 삭제, 반복 시험 권한과 연구자 결과 경계를 정의합니다. 순서와 해시가 기록된 manifest가 연결 전에 누락·변경된 파일을 탐지합니다.
+- 여덟 canonical Supabase migration은 테이블, RLS, 접근 토큰 RPC, 배정, 동의 후 응답 저장, 테스트·실제가 분리된 원자적 Prolific 등록, 철회 답변 삭제, 반복 시험 권한과 연구자 결과 경계를 정의합니다. 순서와 해시가 기록된 manifest가 연결 전에 누락·변경된 파일을 탐지합니다.
 - Browser-native `supabase-connection-test.html`은 synthetic `is_test` session으로 연결된 project를 검증하고 끝난 뒤 철회합니다.
 - Test code에서 Prolific launch parameter와 HTTPS completion URL을 검증합니다.
 - 명시적으로 승인되지 않은 local draft 상태의 preregistration Markdown, JSON, SHA-256 manifest를 생성할 수 있습니다.
@@ -45,3 +45,5 @@ greedyQ는 Vercel, Supabase, Prolific 계정을 연결하기 전에 설문 애�
 ## 증거와 한계
 
 Repository unit/contract test는 deterministic behavior와 생성된 연결 artifact에 대한 로컬 증거를 제공합니다. 2026-10-25에 전용 Supabase 시험 데이터베이스와 배포된 Vercel 설문·결과 앱에서 001–006 및 철회·반복 Preview를 실행했습니다. 정확한 근거와 한계는 [클라우드 검증 기록](./prolific-cloud-test-2026-10-25(kor).md)을 참고하세요. 다른 계정·유료 Prolific 제출·모든 브라우저·보조 기술까지 검증한 것은 아니며 해당 환경별 확인이 남습니다.
+
+최신 근거는 [유료 시험 완료](./prolific-paid-test-completion-2026-10-26(kor).md)와 [v0.2 마감](./v0.2-closeout-2026-10-26(kor).md)에 기록합니다. 과거 계정·버전 확인은 날짜별 근거이며 모든 환경을 보증하지 않습니다.

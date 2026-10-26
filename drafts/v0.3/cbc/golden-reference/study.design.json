@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.3-draft.1",
+  "status": "design_only",
+  "object": "greedyQCBC",
+  "study_id": "cbc_course_plan_reference",
+  "research_question": "Which features of hypothetical online course subscriptions influence choices?",
+  "attributes_source": "design/attributes.csv",
+  "design_source": "design/design.csv",
+  "alternatives_per_task": 2,
+  "tasks_per_block": 4,
+  "block_assignment": {
+    "method": "simple",
+    "unit": "respondent",
+    "weights": {
+      "block_a": 1,
+      "block_b": 1
+    }
+  },
+  "task_order": "randomized_once_per_respondent",
+  "alternative_order": "randomized_once_per_task",
+  "none": {
+    "enabled": true,
+    "id": "none",
+    "label": "I would choose neither plan",
+    "position": "last"
+  },
+  "design_origin": "hand_authored_software_fixture",
+  "statistical_efficiency": "not_established",
+  "fielding_approval": false,
+  "proposed_estimator": "not_committed",
+  "attribute_ids": [
+    "monthly_price",
+    "content_format",
+    "tutor_support",
+    "access_period"
+  ]
+}

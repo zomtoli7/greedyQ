@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greedyq.org/drafts/v0.3/cbc/design.schema.json",
+  "title": "CBC planning fixture only; not production import schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "object",
+    "study_id",
+    "research_question",
+    "attributes_source",
+    "design_source",
+    "alternatives_per_task",
+    "tasks_per_block",
+    "block_assignment",
+    "task_order",
+    "alternative_order",
+    "none",
+    "design_origin",
+    "statistical_efficiency",
+    "fielding_approval",
+    "proposed_estimator",
+    "attribute_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.3-draft.1"
+    },
+    "status": {
+      "const": "design_only"
+    },
+    "object": {
+      "const": "greedyQCBC"
+    },
+    "study_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "research_question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attributes_source": {
+      "const": "design/attributes.csv"
+    },
+    "design_source": {
+      "const": "design/design.csv"
+    },
+    "alternatives_per_task": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "tasks_per_block": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "block_assignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "unit",
+        "weights"
+      ],
+      "properties": {
+        "method": {
+          "const": "simple"
+        },
+        "unit": {
+          "const": "respondent"
+        },
+        "weights": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "task_order": {
+      "enum": [
+        "source_order",
+        "randomized_once_per_respondent"
+      ]
+    },
+    "alternative_order": {
+      "enum": [
+        "source_order",
+        "randomized_once_per_task"
+      ]
+    },
+    "none": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "id",
+        "label",
+        "position"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "const": "none"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "position": {
+          "const": "last"
+        }
+      }
+    },
+    "design_origin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "statistical_efficiency": {
+      "const": "not_established"
+    },
+    "fielding_approval": {
+      "const": false
+    },
+    "proposed_estimator": {
+      "type": "string"
+    },
+    "attribute_ids": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

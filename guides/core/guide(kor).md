@@ -67,7 +67,7 @@ Generated browser bundle은 고정된 `greedyq-core.js`, 고정된 `greedyq-runt
 
 External connection 전에 `preregister`, `export-surveydown`, `preflight`와 동등한 작업을 실행합니다. Preregistration output은 승인되지 않은 local draft로 유지합니다. Native export는 모든 material mismatch를 보고하고 greedyQ-only behavior가 남으면 equivalence를 주장하면 안 됩니다. Supabase setup은 canonical migration 001–008를 숫자 순서대로 적용합니다. `001_initial.sql`은 table, RLS, withdrawal, analysis boundary를, `002_browser_rpc.sql`은 browser session을, `003_results_dashboard.sql`은 결과 metadata를, `004_randomization.sql`은 서버 기준 배정과 문항 순서 저장 boundary를, `005_prolific.sql`은 패널 ID 연결을, `006_withdrawal_preview.sql`은 철회 답변 삭제와 비공개 반복 시험 권한을, `007_answer_snapshot.sql`은 승인된 응답 스냅샷 동기화를, `008_terminal_timestamp.sql`은 서버 기준 최초 종료 시각 기록을 담당합니다. 이후 에이전트는 검토한 모든 모델을 `registerStudy(client, model)`로 등록합니다. 기존 데이터베이스 업그레이드 제한을 포함하여 [RANDOMIZATION(kor).md](../../RANDOMIZATION(kor).md)를 따릅니다. Build는 모든 migration hash를 `supabase/migrations/manifest.json`에 기록해야 하며 preflight는 누락된 파일, 중복 번호, checksum 불일치가 있으면 중단해야 합니다. 적용한 migration을 수정하거나 대체 security RPC를 임의로 만들지 말고 다음 번호 migration을 추가합니다.
 
-무작위 배정이나 문항 순서 섞기를 추가하기 전에 쉬운 말로 선택지를 설명하고 연구자의 결정을 확인합니다. 참가자 단위의 단순 또는 고정 블록 배정 하나와, 같은 페이지 내 지정한 문항의 순서 섞기를 지원합니다. 기존 연구에 임의로 섞기를 추가하거나, 최소 인원 우선 배정을 무작위 배정으로 대체하거나, 미지원인 여러 단계·층화·선택지 순서·페이지 순서 무작위화를 약속하지 않습니다. 재접속 때 배정과 문항 순서를 유지합니다.
+무작위 배정이나 문항 순서 섞기를 추가하기 전에 쉬운 말로 선택지를 설명하고 연구자의 결정을 확인합니다. 확인한 정수 가중치를 사용하는 참가자 단위 단순·고정 블록 배정 하나, 지정 문항 섞기, 지원 문항의 선택지 섞기, 지정 페이지 섞기를 구현했습니다. RANDOMIZATION.md의 고정 위치·의존 문항 제한을 따릅니다. 임의로 섞기를 추가하거나 최소 인원 배정으로 대체하지 않으며 미구현인 여러 단계·층화 배정을 약속하지 않습니다. 재접속 시 배정과 문항·선택지·페이지 순서를 유지합니다. Native export의 한계는 별도로 보고합니다.
 
 007 migration은 앞으로 저장되는 전체 답변 상태에서 빠진 답변을 같은 세션의 데이터베이스에서도 제거합니다. 조건부 문항이 숨겨져 답을 지운 경우 결과·CSV에도 남지 않아야 합니다. 다른 세션이나 과거 응답을 일괄 변경하지 않습니다. 기존 설치에는 누락된 007을 검토 후 적용하며, 검토 중인 유료 시험은 이번 로컬 점검으로 변경하지 않습니다.
 
@@ -80,3 +80,5 @@ External connection 전에 `preregister`, `export-surveydown`, `preflight`와 �
 설문 검토·Vercel 로그인·필요한 Supabase 연결 승인·설문/결과 링크 전달을 기본 여정으로 유지합니다. 이미 승인된 공식 Vercel 연결은 계정·대상 팀을 검증한 뒤 우선 활용하고, 없거나 필요한 기능이 없으면 기존의 지원되는 연결 경로를 사용합니다. **Onboard your agent는 선택 사항이며 필수가 아닙니다.** 설치·재시작을 일반 연구자에게 기본 단계로 요구하지 않습니다. 팀 권한이 부족하면 해당 팀 승인만 요청하고, 준비 성공과 배포·응답 저장 검증을 구분합니다. [배포 모듈의 연결 선택 규약](../modules/deployment-vercel-supabase/guide(kor).md)을 따르세요.
 
 008은 세션이 완료·선별 탈락·동의 거부·철회·오류로 처음 종료될 때 서버 시각을 `terminal_at`에 기록합니다. 재저장해도 기존 종료 시각을 유지하며 과거 종료 기록의 빈 시각을 일괄 채우지 않습니다. CSV의 `completed_at`은 이 값을 사용합니다. 과거 빈칸을 마지막 저장 시각이나 업그레이드 시각으로 대신 채우지 마세요. 008 적용에는 참가자 페이지 재배포가 필요하지 않습니다. 적용된 migration hash를 보존하고 기존 응답이 적용 전후 그대로인지 검증합니다.
+
+CBC는 drafts/v0.3/cbc에서 v0.3으로 기획하며 v0.2의 지원 문항·프로파일이 아닙니다. 빈 CSV·XLSX와 골든 표는 설계 입력 자료입니다. 실제로 배포하거나 브라우저 가져오기가 이미 있다고 주장하거나 임의 실행 코드로 registry를 우회하지 않습니다.

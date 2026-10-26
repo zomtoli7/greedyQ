@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "greedyq_release": "0.2_2026-10-26_e10197b",
-  "registry_sha256": "a972b72f7d6dc60553df89c73294067f04426d3c81c643d934ff763164092ceb",
+  "registry_sha256": "1b1b74f00109bbe19dadb86d563297cc45e427abf0d1bffe2071dfc259018e84",
   "object": "greedyQExperiment",
   "profile": "experiment",
   "modules": [
@@ -74,7 +74,7 @@
     {
       "component": "core",
       "path": "release.json",
-      "sha256": "ad9ea15f92ed073107f3e026fe6c63436e090f8128079af6766a97a437abf2b3"
+      "sha256": "f9a70d4ec1c0e153ae034c121c4bb99fe96ee91cbedc0b435f1a6a9d6d06f751"
     },
     {
       "component": "core",
@@ -89,7 +89,7 @@
     {
       "component": "core",
       "path": "docs/surveydown-compatibility-audit.md",
-      "sha256": "8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47"
+      "sha256": "457ff43ca5e3155fc875c8d306d1a9a020b2dcc69aa0405d17c380b02a8edc68"
     },
     {
       "component": "core",
@@ -139,7 +139,7 @@
     {
       "component": "core",
       "path": "docs/repeat-user-acceptance.md",
-      "sha256": "1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1"
+      "sha256": "e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6"
     },
     {
       "component": "core",
@@ -169,7 +169,7 @@
     {
       "component": "core",
       "path": "guides/core/guide.md",
-      "sha256": "8cfc4c82450d3d106ee3b2d5b367321d2aa793be494f9f05ccba66289befb894"
+      "sha256": "a4d95d9c84dac5554f4a78b07c05cd992026b7d74cacbd60ee2095222031c719"
     },
     {
       "component": "core",
@@ -184,7 +184,7 @@
     {
       "component": "core",
       "path": "docs/greedyq-v0.2-spec.md",
-      "sha256": "ee6297df26d58a25de899fc763f34ad84d2311e70e75e01d284410e126d812fd"
+      "sha256": "0c5668430b9c5ae087842118c42f0571cf6c59de7cf89125802791b9e4b28d31"
     },
     {
       "component": "core",

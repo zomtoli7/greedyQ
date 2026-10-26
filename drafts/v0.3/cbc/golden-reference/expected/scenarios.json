@@ -1,0 +1,22 @@
+{
+  "status": "acceptance_plan_not_runtime_test",
+  "scenarios": [
+    "both_blocks",
+    "task_and_alternative_order_persist_after_refresh",
+    "none_keeps_attribute_cells_empty",
+    "one_choice_per_shown_task",
+    "back_navigation_preserves_choice",
+    "unanswered_is_not_a_none_choice",
+    "withdrawal_erases_choices_and_presentation_records",
+    "invalid_or_incomplete_import_blocked",
+    "design_changes_require_new_version_and_reapproval",
+    "native_export_reports_unimplemented_cbc"
+  ],
+  "unimplemented": [
+    "browser_cbc_renderer",
+    "live_cbc_storage",
+    "xlsx_browser_import",
+    "cbc_design_generator",
+    "inference"
+  ]
+}

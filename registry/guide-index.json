@@ -40,7 +40,7 @@
       "files": [
         {
           "path": "release.json",
-          "sha256": "ad9ea15f92ed073107f3e026fe6c63436e090f8128079af6766a97a437abf2b3"
+          "sha256": "f9a70d4ec1c0e153ae034c121c4bb99fe96ee91cbedc0b435f1a6a9d6d06f751"
         },
         {
           "path": "greedyq/localization.py",
@@ -52,7 +52,7 @@
         },
         {
           "path": "docs/surveydown-compatibility-audit.md",
-          "sha256": "8022181df50d3dd963297f97b24f3726581fc8adae25924df6c1c68f73e1be47"
+          "sha256": "f197e83c19999a61d870d0a21d3e9cc3cb3d33b99ed5b85500b4b5d48118abe8"
         },
         {
           "path": "EXTERNAL-RETURNS.md",
@@ -92,7 +92,7 @@
         },
         {
           "path": "docs/repeat-user-acceptance.md",
-          "sha256": "1d6131dda5033f14c35cef0a1ac0f0ce45c14e8d59d6023235d2c0202e6a0fe1"
+          "sha256": "e4ac09088948632e1af72013a322066340363e28143cd9dba86394d4159e54d6"
         },
         {
           "path": "ARCHIVING.md",
@@ -116,7 +116,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "8cfc4c82450d3d106ee3b2d5b367321d2aa793be494f9f05ccba66289befb894"
+          "sha256": "de0c74828c31639b384510500db1dd86442872442189934f3af5ace5383719c5"
         },
         {
           "path": "guides/core/communication.md",
@@ -128,7 +128,7 @@
         },
         {
           "path": "docs/greedyq-v0.2-spec.md",
-          "sha256": "ee6297df26d58a25de899fc763f34ad84d2311e70e75e01d284410e126d812fd"
+          "sha256": "0c5668430b9c5ae087842118c42f0571cf6c59de7cf89125802791b9e4b28d31"
         },
         {
           "path": "docs/preview-ui-spec.md",

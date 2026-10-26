@@ -1,0 +1,30 @@
+---
+title: "Hypothetical online course subscriptions"
+greedyq:
+  spec_version: "0.3-draft.1"
+  version: "not-released"
+  organization: "Fictional Research Team"
+---
+
+<!-- PROPOSAL ONLY: v0.2 must not build or field this file. -->
+
+--- welcome
+
+# Compare hypothetical course plans
+
+This software reference is not an approved participant survey.
+
+--- choices
+
+# Which plan would you choose?
+
+```{r}
+sd_cbc(id = "course_choice", attributes = "design/attributes.csv", design = "design/design.csv", settings = "study.design.json")
+```
+
+--- complete
+
+# Thank you
+
+Participant consent, eligibility, privacy, withdrawal and live endings remain
+required implementation and researcher-review work, not implied by this sketch.

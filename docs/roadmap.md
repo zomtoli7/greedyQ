@@ -2,7 +2,7 @@
 
 [한국어](./roadmap(kor).md)
 
-**Current line:** v0.2 stabilization
+**Current line:** v0.2 supported-scope maintenance; v0.3 CBC specification and golden-reference design
 **Planning principle:** Specification before implementation
 
 ## Delivered in v0.2
@@ -31,22 +31,27 @@
 - [x] Scripted AI-workflow conformance scenarios for new researcher-written and AI-assisted studies, modification, fork, custom controls, preview approval, and external-action truthfulness.
 - [x] Generated Surveydown projects checked against the public Surveydown 1.3.0 API; generated app and QMD R blocks pass R syntax validation.
 - [x] The complete native Surveydown control gallery renders and starts in safe preview mode with Surveydown 1.3.0, R, Quarto, and Shiny without a database account.
-- [ ] Native Surveydown behavioral review of every generated custom control in a running Shiny application.
-- [x] Researcher-assisted fresh-account Vercel/Supabase connection test on 2026-09-10; latest migration 006 additionally verified on the dedicated connected test resource. See the dated evidence rather than assuming acceptance for every future account/version.
+- [ ] Deferred scope: native Surveydown behavioral review of every generated custom control in a running Shiny application; no full-equivalence claim.
+- [x] Researcher-assisted fresh-account Vercel/Supabase connection test on 2026-09-10; migrations through 008 additionally verified on the dedicated connected test resource. See the dated evidence rather than assuming acceptance for every future account/version.
 - [x] Actual Prolific draft Preview for completion, refusal, withdrawal and repeat starts; protected results and erasure checked.
-- [ ] Genuine paid Prolific submission matching, approval and payment: first one-person pilot is paused for routine provider review.
-- [ ] Cross-model creation/modification/fork evaluations with GPT, Claude, Gemini, and other capable hosts.
-- [ ] Accessibility audit with assistive technology and a recruited non-technical researcher usability study.
+- [x] One genuine paid Prolific submission matched to stored answers and CSV; approval/payment explicitly confirmed by the researcher on 2026-10-26, not independently fetched from a payment API.
+- [x] Dedicated closed-study screen already implemented; startup/in-flight closure and distinct network failures rechecked at desktop/mobile widths in four participant languages.
+- [x] Researcher-authorized immediate cleanup on 2026-10-26: active trial response/ID tables empty, known private copies removed, collection closed; Prolific payment records preserved.
+- [ ] Deferred research: cross-model creation/modification/fork evaluations with capable hosts.
+- [ ] Deferred research: assistive-technology audit and recruited researcher usability study; existing keyboard/responsive regression remains required.
 
 ## Next product work
 
-1. Maintain the approved Vercel/Supabase survey-and-results journey and finish the paid Prolific pilot after provider review; preserve settings while review is pending.
-2. Add production observability, researcher-configurable retention controls, and live disaster-recovery exercises. Offline migration versioning, integrity checks, and recovery guidance are complete.
-3. Expand experimental designs: weighted/stratified assignment, factorial studies, reproducible seeds, CBC/conjoint, and external design tables.
-4. Extend supported participant-language packs beyond the implemented English, Korean and Simplified/Traditional Chinese; keep authored translations under researcher review.
-5. Maintain the official OSF field inventory and downloadable preregistration drafts. OSF login, submission and registry management are out of scope; researchers register independently.
-6. Build the PPTX import path with confidence and conversion reports.
-7. Conduct the portability/conformance study that will support the greedyQ white paper.
+1. Make CBC the core v0.3 feature. Start with the [draft contract and golden fixture](../drafts/v0.3/cbc/README.md): offer AI collaboration, blank CSV/XLSX to fill independently, or existing design import. This is design-only, not an activated v0.2 capability.
+2. Implement reference import/validation, then the same browser-native contract, CBC presentation, durable assignments/orders, withdrawal-safe storage and long-format export. Register CBC only after conformance passes.
+3. Keep v0.2's approved Vercel/Supabase/direct/Prolific journey stable. A first new real post-008 timestamp and actual paid custom-screening policy remain target-specific checks, not reasons to repeat the completed paid pilot.
+4. Later: monitoring, configurable retention, live disaster recovery, stratified/adaptive allocation, factorial designs and reproducible design generators. Simple weighted ratios and supported question/option/page shuffling already exist; do not list them as unimplemented.
+5. Later: additional participant-language packs, PPTX import and the portability/conformance study for the white paper. Maintain downloadable OSF drafts; registry login/submission remains out of scope.
+6. Website publication belongs to the separate homepage Work. Do not claim publication from source generation. The paid trial's active-data cleanup is complete, while provider backups and researcher-controlled copies were not inspected.
+
+## Closure evidence and limits
+
+See [v0.2 closeout](./v0.2-closeout-2026-10-26.md), [paid completion](./prolific-paid-test-completion-2026-10-26.md), and [CBC planning](../drafts/v0.3/cbc/README.md). Supported-scope closure does not promise full Surveydown settings equivalence, every native custom-control behavior, signed Prolific links, payment automation, all environments or statistical design efficiency.
 
 ## Permanent requirements
 

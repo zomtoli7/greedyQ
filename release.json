@@ -13,5 +13,20 @@
     "approval": "researcher_confirmation_2026-10-26",
     "payment": "researcher_confirmation_2026-10-26",
     "independent_payment_receipt_checked": false
+  },
+  "v02_supported_scope": "stabilized",
+  "next_line": {
+    "version": "0.3",
+    "core_feature": "CBC",
+    "status": "specification_and_golden_design_only"
+  },
+  "paid_pilot_cleanup": {
+    "date": "2026-10-26",
+    "researcher_requested_immediate_deletion": true,
+    "active_trial_records_remaining": 0,
+    "known_private_files_removed": 13,
+    "collection_closed": true,
+    "provider_payment_records_modified": false,
+    "provider_backups_or_researcher_owned_copies_verified_erased": false
   }
 }

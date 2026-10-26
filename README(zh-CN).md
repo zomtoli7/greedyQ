@@ -123,3 +123,5 @@ greedyQ 使用 [MIT License](./LICENSE)。
 ## Vercel 连接方式
 
 默认保留审阅 → Vercel 登录与所需 Supabase 授权 → 已验证问卷/结果链接。已有官方连接时确认账户与团队后优先复用，没有或操作不可用时采用既有受支持流程。**Onboard your agent 是可选准备，不是必需步骤。** 见[使用指南](./USER-GUIDE(zh-CN).md)和[连接准备说明](./docs/vercel-agent-onboarding(zh-CN).md)。
+
+下一阶段：[v0.3 CBC 规范与空白设计表](./drafts/v0.3/cbc/README.md)，目前仅为规划，正式运行环境仍为 v0.2。
