@@ -47,7 +47,8 @@
       "after": "Use this prompt in the installed desktop app, not an AI website or a website shortcut. The AI must first check its actual tools. If it cannot read the guide, it should try the plain-text source or read a complete downloaded repository/guide inside the desktop app. It must not invent missing instructions or proceed after a reported permission failure. A downloaded guide does not add missing tools. Once the desktop app and guide are ready, discuss your research one question at a time. Browser previews need no service account. Approve Vercel sign-in and required connections only when you choose deployment; existing authorized official connections are reused first and Onboard your agent remains optional.",
       "returnTitle": "Returning to a study?",
       "returnText": "Provide your study folder. Resume the existing version, request a specific change, or fork an independent copy. Upgrade only after reviewing the differences.",
-      "action": "Build your first questionnaire"
+      "action": "Build your first questionnaire",
+      "supportNote": "Note: greedyQ currently supports authoring only in ChatGPT and Claude desktop apps with the required agent tools. Gemini is not supported because guide access and the complete execution workflow have not been verified."
     },
     "guideGroups": [
       [
@@ -336,7 +337,8 @@
       "after": "위 요청은 AI 웹사이트나 웹사이트 바로가기가 아니라 설치한 데스크톱 앱에 붙여 넣으세요. AI는 먼저 실제 작업 도구를 확인해야 합니다. 안내서를 읽지 못하면 같은 데스크톱 앱 안에서 원문 주소나 다운로드한 전체 저장소·가이드로 다시 읽습니다. 권한 오류가 났는데도 빠진 내용을 추측해 진행하면 안 됩니다. 가이드 파일을 첨부해도 없던 실행 기능이 생기지는 않습니다. 앱과 가이드가 준비되면 연구 내용을 한 가지씩 이야기하세요. “미리보기”까지는 외부 서비스 계정이 필요 없습니다. 실제 공개를 선택한 때 Vercel 로그인과 필요한 연결을 승인합니다. 이미 승인된 공식 연결은 우선 활용하며 Onboard your agent는 선택 사항입니다.",
       "returnTitle": "진행 중인 연구가 있나요?",
       "returnText": "연구 폴더를 제공하고 재개, 특정 부분 수정, 독립된 사본 만들기 중 하나를 요청하세요. 업그레이드는 차이를 검토한 뒤 승인합니다.",
-      "action": "설문 만들기 안내 보기"
+      "action": "설문 만들기 안내 보기",
+      "supportNote": "참고: 현재 greedyQ는 필요한 에이전트 기능이 있는 ChatGPT·Claude 데스크톱 앱에서만 설문 제작을 지원합니다. Gemini는 가이드 접근과 전체 실행 과정이 검증되지 않아 현재 지원하지 않습니다."
     },
     "guideGroups": [
       [
@@ -625,7 +627,8 @@
       "after": "请在已安装的桌面应用中粘贴请求，不要使用 AI 网站或网站快捷方式。AI 必须先检查真实工具。无法读取指南时，应在桌面应用内尝试纯文本来源或完整下载的仓库／指南。不得在权限错误后猜测规则继续。添加指南附件不会赋予缺失的执行能力。应用和指南准备好后逐个讨论研究问题。“预览”不需要外部账户。选择正式部署时才批准 Vercel 登录及必要连接；优先复用已有官方授权，Onboard your agent 仍为可选。",
       "returnTitle": "已有研究？",
       "returnText": "提供研究文件夹。选择继续原版本、修改指定部分，或建立独立副本。先审阅差异，再批准升级。",
-      "action": "制作第一份问卷"
+      "action": "制作第一份问卷",
+      "supportNote": "提示：greedyQ 目前仅支持在具备所需代理工具的 ChatGPT 与 Claude 桌面应用中制作问卷。Gemini 的指南访问与完整执行流程尚未得到验证，因此目前不受支持。"
     },
     "guideGroups": [
       [
