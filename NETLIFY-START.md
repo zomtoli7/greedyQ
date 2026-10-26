@@ -48,3 +48,6 @@ The first public HTTP check at `https://greedyq.netlify.app/` returned 200 witho
 ## Cached-output build failure and recovery
 
 The provider log showed the old output-folder equality check raised `Refuse an output folder containing unrelated files.` Exact cached contents were not inspected; either extra files or a partial cache can violate that equality. The Netlify build now uses `--netlify`: generate and checksum a fresh stage, preserve the old output outside the publish directory, then replace only the ignored `dist/bootstrap` directory. Build failure leaves the old output untouched; replacement failure restores it. Tracked source paths and symbolic-link destinations are refused. The generic `--output` command remains conservative for arbitrary local folders. No site visibility or account setting needs to change for this fix.
+
+
+The canonical researcher start URL is **https://greedyq.netlify.app/**. Production deployment `f1d3312` was verified ready on 26 October 2026: all ten public-file hashes matched the manifest, with three languages readable without JavaScript at 320px and 1280px. The researcher subsequently confirmed Gemini could read this page; this user-reported access check does not change official authoring support.

@@ -91,7 +91,7 @@ CBC 在 drafts/v0.3/cbc 中规划为 v0.3，尚非 v0.2 支持的控件/配置�
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
-参见[支持的桌面代理指南访问](../../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+参见[支持的桌面代理指南访问](../../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`。工具缺失不能视为指南已加载。
 
 
 ## 制作问卷所需的应用 — required gate

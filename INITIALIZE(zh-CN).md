@@ -80,7 +80,7 @@ greedyQ 是面向在线学术研究、可由 AI 代理执行的应用规范。gr
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
-参见[支持的桌面代理指南访问](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+参见[支持的桌面代理指南访问](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`。工具缺失不能视为指南已加载。
 
 
 ## 制作问卷所需的应用 — required gate

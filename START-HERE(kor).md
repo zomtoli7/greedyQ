@@ -2,6 +2,8 @@
 
 [English](./START-HERE.md) · [한국어](./START-HERE(kor).md) · [简体中文](./START-HERE(zh-CN).md)
 
+공개 시작 페이지: [https://greedyq.netlify.app/](https://greedyq.netlify.app/)
+
 ## 0. 사용자 언어로 대화하기
 
 아래 규약을 반드시 따르되, 사용자와의 모든 커뮤니케이션은 사용자의 언어로 합니다. 규약 문서의 언어를 사용자 언어보다 우선하지 않습니다. 실제 참여자에게 보여줄 설문 언어는 INITIALIZE.md에 따라 별도로 확인합니다.

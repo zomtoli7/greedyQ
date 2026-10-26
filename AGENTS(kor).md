@@ -28,7 +28,7 @@
 - `docs/greedyq-v0.2-spec.md`를 현재 normative-format draft로, `examples/complete-study/`를 구현된 적합성 기준 예제로 사용합니다.
 - `docs/roadmap.md`를 현재 구현 순서의 기준으로 사용합니다.
 - AI-guided study creation 및 deployment를 주요 사용자 경험으로 취급합니다.
-- 공개 `START-HERE.md`와 운영 진입점인 `INITIALIZE.md` 및 생성된 guide registry를 기본 배포 경로로 사용하며 자체 포함 full guide는 attachment-only fallback으로 유지합니다.
+- `START-HERE.md`에서 생성하는 공개 시작 주소 `https://greedyq.netlify.app/`와 운영 진입점인 `INITIALIZE.md` 및 생성된 guide registry를 기본 배포 경로로 사용하며 자체 포함 full guide는 attachment-only fallback으로 유지합니다.
 - 연구자를 비기술 최종 사용자로 대합니다. 일상적인 대화와 `study-plan.md`에서 구현 진단을 제외하고 상세 validation evidence는 `.greedyq/` 아래에 저장합니다.
 - 연구를 core `greedyQObject`, 하나의 공개 study profile, `.greedyq/guide-lock.json`으로 고정된 조합 가능한 capability module로 모델링합니다.
 - QMD 직접 작성을 expert path로, PPTX conversion을 import path로 취급합니다.

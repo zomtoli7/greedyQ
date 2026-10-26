@@ -200,7 +200,7 @@ Files should be referenced rather than duplicated. A generated release bundle ma
 
 ## 5. Registry and deterministic guide loading
 
-`START-HERE.md` is a short bootstrap document, not the full specification. It tells an AI how to:
+`https://greedyq.netlify.app/` is the public entry rendered from `START-HERE.md`. It checks the supported host and directs it to GitHub `INITIALIZE.md`; initialization then tells the agent how to:
 
 1. determine whether the user is creating, modifying, or forking a study;
 2. read `registry/guide-index.json` from the same tagged release;
@@ -227,15 +227,9 @@ Loading must remain pinned to one release. The AI must not mix `main`, an old te
 
 ## 6. Host capability levels
 
-A shared repository link is the preferred start, but not every GPT/Claude surface can recursively read a repository. The bootstrap therefore supports three levels:
+The public start URL is <https://greedyq.netlify.app/> for every supported authoring workflow. Installed ChatGPT desktop Work/Codex or Claude Desktop must have real file, execution and preview tools. AI web apps and Gemini remain officially unsupported even when they can read the public page.
 
-1. **Repository agent:** clone or read the repository, create files, run tests, and open the preview.
-2. **Browsing chat:** open `START-HERE.md` and its explicit raw-file links, but return generated files for the user to download.
-3. **Attachment-only chat:** use a generated, self-contained release bundle as fallback.
-
-The AI identifies its actual level without asking the researcher technical questions. If it cannot read a required linked file, it explains simply: “I cannot open the survey guide from this chat. Please download and attach this one fallback file.” It must not silently improvise missing rules or templates.
-
-For durability, user prompts should point to a tagged release URL, while `main` may advertise the latest stable release. Private-repository access requires an authenticated connector or a local repository agent.
+A supported repository agent reads the complete GitHub `INITIALIZE.md`, resolves the registry and pins one snapshot before authoring. If repository reading fails, follow `GUIDE-ACCESS.md` and use the full attachment bundle only in a supported agent environment. The public HTML is a bootstrap, not a replacement for the full specification. Never infer missing guides or silently upgrade a supplied study. The entry address stays stable while each study records its exact resolved release and hashes.
 
 ## 7. Starting workflows
 
@@ -244,7 +238,7 @@ For durability, user prompts should point to a tagged release URL, while `main` 
 The user supplies the greedyQ start URL and says what they want to study.
 
 ```text
-Open <tagged START-HERE URL> and help me create a new survey from scratch.
+Open <https://greedyq.netlify.app/> and help me create a new survey from scratch.
 I want to study ...
 ```
 

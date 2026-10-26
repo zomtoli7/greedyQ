@@ -47,7 +47,8 @@ class GuideAccessTests(unittest.TestCase):
     def test_all_entry_languages_offer_raw_import_and_full_attachment_without_fake_success(self):
         for suffix in ['','(kor)','(zh-CN)']:
             access=(ROOT/f'GUIDE-ACCESS{suffix}.md').read_text()
-            self.assertIn('https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md',access)
+            self.assertIn('https://greedyq.netlify.app/',access)
+            self.assertIn('https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md',access)
             self.assertIn('SUPPORTED-ENVIRONMENTS',access);self.assertIn('.txt',access)
             self.assertIn('GUIDE-ACCESS',(ROOT/f'START-HERE{suffix}.md').read_text())
         self.assertIn('was not retested',(ROOT/'GUIDE-ACCESS.md').read_text())

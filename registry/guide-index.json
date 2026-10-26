@@ -72,7 +72,7 @@
         },
         {
           "path": "UPGRADING.md",
-          "sha256": "ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e"
+          "sha256": "d2542dad808353945cfa3b51fecfad61aa7897661ea55a357b4be841513eefd6"
         },
         {
           "path": "tools/upgrade_study.py",
@@ -120,7 +120,7 @@
         },
         {
           "path": "guides/core/guide.md",
-          "sha256": "93bcc4fa7e036f2e83f90dc72e6c8f35d4c0bc7df0047b1c8687e77ac36850ab"
+          "sha256": "051f3a0e98189701adf28de973a1cd74cc32a6e98c97dcf316b5246048602137"
         },
         {
           "path": "guides/core/communication.md",
@@ -304,7 +304,7 @@
         },
         {
           "path": "GUIDE-ACCESS.md",
-          "sha256": "0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf"
+          "sha256": "25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9"
         },
         {
           "path": "web/greedyq-cbc-collection.js",
@@ -336,7 +336,7 @@
         },
         {
           "path": "SUPPORTED-ENVIRONMENTS.md",
-          "sha256": "f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c"
+          "sha256": "3cc6b7c1cabf115914d57b83c7cf521d3e9902fd53a6958f62ff839ee73bd6b4"
         },
         {
           "path": "schemas/authoring-support-policy.json",

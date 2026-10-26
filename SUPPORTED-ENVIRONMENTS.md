@@ -6,6 +6,9 @@ Gemini is officially unsupported, including desktop. Check the host family befor
 
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser.
 
+
+The public start address is **https://greedyq.netlify.app/** for both new and saved studies. The page checks the supported authoring environment, then directs the agent to the GitHub `INITIALIZE.md` workflow. Keep saved authoring files and their locked version; this public address does not authorize an upgrade. On 26 October 2026, the researcher confirmed that Gemini could read this start page. This is user-reported page-access verification only, not official Gemini authoring support.
+
 ## Check readiness before the study interview
 
 1. Establish that this is an installed provider desktop app, not a website, browser-installed shortcut/PWA, or mobile AI app. Ask which app/mode is open when unknown; do not pretend to detect the host from a screenshot or model name.

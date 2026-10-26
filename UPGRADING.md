@@ -8,7 +8,7 @@
 
 Ask: “Resume this downloaded study. Compare its greedyQ version with the current repository. Explain the changes, then upgrade a separate copy and show me both previews.”
 
-The agent must read the current START-HERE and selected guides, inspect the prior guide lock and source version, and ask before upgrading. Continuing the pinned version remains an option. A new version is not permission to change hypotheses, questions, consent, sampling or analysis.
+The agent must open <https://greedyq.netlify.app/>, follow GitHub INITIALIZE and read the selected guides, inspect the prior guide lock and source version, and ask before upgrading. Continuing the pinned version remains an option. A new version is not permission to change hypotheses, questions, consent, sampling or analysis.
 
 ## Agent operation
 

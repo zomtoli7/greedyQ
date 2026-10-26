@@ -10,7 +10,7 @@
 
 ## 默认：从仓库开始
 
-- 普通使用从 [`START-HERE(zh-CN).md`](../START-HERE(zh-CN).md)开始。AI 按 `registry/guide-index.json` 读取固定版本的核心、一个研究类型及需要的模块。英文规范为权威来源，中文帮助理解，不替换 registry 中的代码或哈希。
+- 普通使用从 [公开开始页面](https://greedyq.netlify.app/)开始。AI 按 `registry/guide-index.json` 读取固定版本的核心、一个研究类型及需要的模块。英文规范为权威来源，中文帮助理解，不替换 registry 中的代码或哈希。
 - 不能读取仓库时才附上 [`greedyq-guide(zh-CN).md`](./greedyq-guide(zh-CN).md)。它包含原样固定代码、预览规范及数据库/部署/记录结构。
 - [`greedyq-guide-compact(zh-CN).md`](./greedyq-guide-compact(zh-CN).md)是精简对话辅助，单独使用不能可靠生成研究文件。
 - `examples/complete-study/` 是参考，不把其中虚构内容直接放进无关真实研究。

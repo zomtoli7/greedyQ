@@ -200,7 +200,7 @@ examples/                대체 규칙이 아닌 작은 유효 예제
 
 ## 5. Registry와 결정적 가이드 로딩
 
-`START-HERE.md`는 전체 규약이 아닌 짧은 bootstrap 문서입니다. AI에게 다음 절차를 알려줍니다.
+`https://greedyq.netlify.app/`는 `START-HERE.md`에서 생성한 공개 시작 페이지입니다. 지원 환경을 확인하고 GitHub `INITIALIZE.md`로 안내하며, 초기화 문서에서 다음 절차를 수행합니다.
 
 1. 사용자가 새 연구를 만드는지, 기존 연구를 수정하는지, 포킹하는지 확인합니다.
 2. 같은 tag release의 `registry/guide-index.json`을 읽습니다.
@@ -227,15 +227,9 @@ Registry에는 모든 기준 파일의 불변 경로와 SHA-256 hash를 둡니�
 
 ## 6. 호스트 기능 수준
 
-공유 저장소 링크가 기본 시작 방식이지만, 모든 GPT/Claude 화면이 저장소를 재귀적으로 읽을 수 있는 것은 아닙니다. Bootstrap은 세 수준을 지원합니다.
+지원되는 모든 제작 과정은 <https://greedyq.netlify.app/>에서 시작합니다. 설치된 ChatGPT 데스크톱 Work/Codex 또는 Claude Desktop에서 실제 파일·실행·미리보기 도구를 사용할 수 있어야 합니다. 공개 페이지를 읽을 수 있더라도 AI 웹 앱과 Gemini는 공식 미지원입니다.
 
-1. **Repository agent:** 저장소를 clone하거나 읽고, 파일을 만들고, 테스트하고, preview를 엽니다.
-2. **Browsing chat:** `START-HERE.md`와 명시된 raw file link를 열 수 있지만 생성 파일은 다운로드 형태로 제공합니다.
-3. **Attachment-only chat:** 생성된 자체 포함 release bundle을 보조 수단으로 사용합니다.
-
-AI는 연구자에게 기술 질문을 하지 않고 실제 기능 수준을 스스로 확인합니다. 필요한 링크 파일을 읽을 수 없다면 “이 채팅에서는 설문 가이드를 열 수 없습니다. 이 보조 파일 하나를 내려받아 첨부해 주세요.”라고 쉽게 설명합니다. 빠진 규칙이나 template을 임의로 만들어서는 안 됩니다.
-
-지속성을 위해 사용자 prompt는 tag가 지정된 release URL을 가리켜야 하며, `main`은 최신 안정 release를 안내할 수 있습니다. 비공개 저장소는 인증된 connector 또는 로컬 repository agent가 필요합니다.
+지원되는 에이전트는 GitHub의 `INITIALIZE.md` 전체를 읽고 registry와 하나의 고정된 버전을 불러온 뒤 제작합니다. 저장소 읽기에 실패하면 `GUIDE-ACCESS.md`를 따르며 전체 첨부 가이드는 지원 환경에서만 사용합니다. 공개 HTML은 전체 규약을 대체하지 않습니다. 읽지 못한 규약을 추측하거나 전달받은 연구를 자동 업그레이드하지 않습니다. 시작 주소는 일정하게 유지하되 연구마다 실제 사용한 버전·해시를 기록합니다.
 
 ## 7. 시작 흐름
 
@@ -244,7 +238,7 @@ AI는 연구자에게 기술 질문을 하지 않고 실제 기능 수준을 스
 사용자는 greedyQ 시작 URL과 연구하고 싶은 내용을 제공합니다.
 
 ```text
-<tagged START-HERE URL>을 열고 새 설문을 처음부터 만들도록 도와줘.
+<https://greedyq.netlify.app/>을 열고 새 설문을 처음부터 만들도록 도와줘.
 내가 연구하고 싶은 것은 ...
 ```
 

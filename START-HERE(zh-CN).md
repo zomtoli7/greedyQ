@@ -2,6 +2,8 @@
 
 [English](./START-HERE.md) · [한국어](./START-HERE(kor).md) · [简体中文](./START-HERE(zh-CN).md)
 
+公开开始页面: [https://greedyq.netlify.app/](https://greedyq.netlify.app/)
+
 ## 0. 使用用户的语言沟通
 
 必须遵循以下规范，但与用户的所有沟通必须使用用户的语言。规范的编写语言不得覆盖用户语言。按 INITIALIZE.md 单独确认参与者看到的问卷语言。

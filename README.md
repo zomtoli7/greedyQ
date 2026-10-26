@@ -16,7 +16,7 @@
 
 [한국어](./README(kor).md) · [简体中文](./README(zh-CN).md)
 
-[Start a survey](./START-HERE.md) · [User guide](./USER-GUIDE.md) · [Connect to Prolific](./PROLIFIC-SETUP.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[Start a survey](https://greedyq.netlify.app/) · [User guide](./USER-GUIDE.md) · [Connect to Prolific](./PROLIFIC-SETUP.md) · [Results dashboard](./RESULTS-DASHBOARD.md) · [Control gallery](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -110,7 +110,7 @@ Versioned greedyQ repository + researcher's study idea
 
 The target onboarding experience is:
 
-1. Share the tagged greedyQ `START-HERE.md` URL with a capable LLM or repository agent. Use the self-contained bundle only when repository links cannot be read.
+1. Share the public greedyQ start URL <https://greedyq.netlify.app/> with a capable LLM or repository agent. Use the self-contained bundle only when repository links cannot be read.
 2. Say what study you want to build.
 3. Answer one focused question at a time and confirm material decisions.
 4. Review the generated study, consent, logic, randomization, data plan, and preregistration draft.
@@ -163,7 +163,7 @@ Use `python3 -m greedyq validate PATH_TO_STUDY` to check a study without generat
 
 Developer commands require Python 3; participant screen checks always use the same JavaScript renderer. Run `python3 -m greedyq run examples/complete-study` and open `http://localhost:4180/index.html`. Mock responses stay in the browser. See the [local respondent runtime guide](./docs/local-respondent-runtime.md).
 
-See [START-HERE.md](./START-HERE.md), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.2 specification](./docs/greedyq-v0.2-spec.md), [browser preview guide](./docs/browser-preview.md), [local respondent runtime](./docs/local-respondent-runtime.md), [local operations and recovery runbook](./docs/operations-runbook.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
+See [public start page](https://greedyq.netlify.app/), the [research framing](./docs/research-framing.md), [AI guides](./guides/README.md), [modular guide architecture](./docs/modular-guide-architecture.md), [product brief](./docs/product-brief.md), [greedyQ v0.2 specification](./docs/greedyq-v0.2-spec.md), [browser preview guide](./docs/browser-preview.md), [local respondent runtime](./docs/local-respondent-runtime.md), [local operations and recovery runbook](./docs/operations-runbook.md), [golden reference studies](./examples/README.md), [surveydown compatibility research](./docs/surveydown-compatibility.md), and [roadmap](./docs/roadmap.md) for the current direction.
 
 ## Documentation policy
 

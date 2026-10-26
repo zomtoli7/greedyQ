@@ -2,6 +2,8 @@
 
 [English](./START-HERE.md) · [Korean](./START-HERE(kor).md) · [Simplified Chinese](./START-HERE(zh-CN).md)
 
+Public start page: [https://greedyq.netlify.app/](https://greedyq.netlify.app/)
+
 ## 0. Communication language
 
 You MUST follow the rules below and communicate with the user in the user's language. The language of this specification MUST NOT override the user's language. Confirm the participant-facing survey language separately under INITIALIZE.md.

@@ -10,7 +10,7 @@ These guides are modules of the greedyQ **agent-executable application specifica
 
 ## Default: start from the repository
 
-- Share the tagged `START-HERE.md` URL for normal use. The AI loads the core, one study profile, and only the capability modules required by the study through `registry/guide-index.json`.
+- Share <https://greedyq.netlify.app/> for normal use. The AI loads the core, one study profile, and only the capability modules required by the study through `registry/guide-index.json`.
 - Use `greedyq-guide.md` only as the self-contained fallback when the chat cannot read repository links. It embeds the Preview UI specification plus the canonical preview, database, deployment, and state-schema bundle.
 - `greedyq-guide-compact.md` is a legacy conversation aid and is not sufficient by itself for deterministic artifact generation.
 - Use `examples/complete-study/` as a reference, not as content to copy into an unrelated real study.

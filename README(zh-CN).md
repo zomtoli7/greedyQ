@@ -10,7 +10,7 @@
 
 [English](./README.md) · [한국어](./README(kor).md)
 
-[开始问卷](./START-HERE(zh-CN).md) · [使用指南](./USER-GUIDE(zh-CN).md) · [AI 指南](./guides/README(zh-CN).md) · [Prolific 连接说明（英文）](./PROLIFIC-SETUP.md) · [结果页（英文）](./RESULTS-DASHBOARD.md) · [互动题型示例](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[开始问卷](https://greedyq.netlify.app/) · [使用指南](./USER-GUIDE(zh-CN).md) · [AI 指南](./guides/README(zh-CN).md) · [Prolific 连接说明（英文）](./PROLIFIC-SETUP.md) · [结果页（英文）](./RESULTS-DASHBOARD.md) · [互动题型示例](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -81,7 +81,7 @@ greedyQ 可由代理执行的应用规范
       收集、查看、下载与归档
 ```
 
-一般步骤：提供 `START-HERE.md`，说明研究，逐项回答并批准重要决定，审阅同意、题目、路径、分配、分析和预注册草稿，亲自试填，再单独批准账户连接、上线及招募。预注册只交付文件，实际登记由研究者自行完成。
+一般步骤：提供 <https://greedyq.netlify.app/>，说明研究，逐项回答并批准重要决定，审阅同意、题目、路径、分配、分析和预注册草稿，亲自试填，再单独批准账户连接、上线及招募。预注册只交付文件，实际登记由研究者自行完成。
 
 ## 对话方式与其他路径
 

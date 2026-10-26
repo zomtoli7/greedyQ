@@ -8,6 +8,9 @@ Gemini（包括桌面版）不受官方支持。请使用已确认具备所需�
 
 [English](./GUIDE-ACCESS.md) · [한국어](./GUIDE-ACCESS(kor).md)
 
+
+新研究和已保存研究均使用公开开始地址 **https://greedyq.netlify.app/**。开始页面先检查制作环境，再引导代理执行 GitHub 的 `INITIALIZE.md`。保留已有研究的原文件与锁定版本，开始地址改变不代表允许升级。2026年10月26日，研究者确认 Gemini 可以读取此页面；这仅是用户报告的页面访问验证，不代表正式支持 Gemini 制作研究。
+
 ## 已确认的复制粘贴问题
 
 研究者随后复现了失败粘贴：换行丢失，韩文接在地址后成为 `START-HERE.md새`。这次观察到的失败可以由被改变的地址解释，而非标准仓库地址不可用。未对目标应用的剪贴板/富文本内部作探测，不能推论为 Gemini 整个平台不支持网页读取。
@@ -16,15 +19,17 @@ Gemini（包括桌面版）不受官方支持。请使用已确认具备所需�
 
 发送链接不等于 AI 已读取内容。如果它说“无法访问网站”却继续生成问卷，请先停止；这并不证明结果遵循了 greedyQ。模型名称或付费订阅不能单独证明网页读取、文件生成、浏览器测试或部署能力。
 
-## 先试纯文本链接
+## 先用公开入口；必要时恢复初始化文档访问
 
 ```text
 先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
 
-https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
+<https://greedyq.netlify.app/>
+
+<https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md>
 ```
 
-它去掉 GitHub 界面的外围内容，但不能突破客户端本身无法读取链接的限制。仅阅读入口文件不够：还须读取同一版本的 registry、所需指南及固定源码，或完整指南包。不得根据项目名、搜索摘要或第一个访谈问题猜测其余规范。
+先读取公开开始页面。GitHub 初始化文档访问失败时，INITIALIZE 纯文本地址可去掉 GitHub 界面的外围内容，但不能突破客户端本身无法读取链接的限制。仅阅读入口文件不够：还须读取同一版本的 registry、所需指南及固定源码，或完整指南包。不得根据项目名、搜索摘要或第一个访谈问题猜测其余规范。
 
 ## 如果使用 Gemini 网页应用
 
@@ -42,7 +47,7 @@ https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
 先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
 
 请阅读同一版本的 greedyQ 指南和所有必需文件：
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+https://greedyq.netlify.app/
 如果无法读取，不要开始研究访谈、起草问卷或声称遵循 greedyQ。先尝试纯文本链接、仓库导入或让我附上完整指南。完整加载后才开始，并简要说明实际文件、预览与部署能力。
 ```
 

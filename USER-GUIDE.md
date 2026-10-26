@@ -10,6 +10,9 @@
 
 This guide takes a nontechnical researcher from an idea to a survey that can be tested on desktop and mobile. Connected deployment requires approval. After collection, use [Finish and archive a survey](./ARCHIVING.md) to download responses and pause dedicated services for your next study.
 
+
+The public start address is **https://greedyq.netlify.app/** for both new and saved studies. The page checks the supported authoring environment, then directs the agent to the GitHub `INITIALIZE.md` workflow. Keep saved authoring files and their locked version; this public address does not authorize an upgrade. On 26 October 2026, the researcher confirmed that Gemini could read this start page. This is user-reported page-access verification only, not official Gemini authoring support.
+
 ## What you need
 
 Returning users: see [pause, resume, and start another survey](./docs/repeat-user-acceptance.md). Resume the existing project for an interruption; use a new study ID for another survey. Archived ZIP files are for analysis, not rebuilding the online service.
@@ -22,7 +25,7 @@ You do not need to know programming, Markdown, databases, or deployment tools.
 
 ## 1. Give greedyQ to your AI
 
-Open the [greedyQ start page](./START-HERE.md), or give your AI this URL:
+Open the [greedyQ start page](https://greedyq.netlify.app/), or give your AI this URL:
 
 ```text
 Read and follow the greedyQ start page. If you cannot read it, stop and tell me:
@@ -311,7 +314,7 @@ Always prefer a supported control. If none fits, the AI must warn that a custom 
 
 ## Prompt library
 
-These examples are intended to be copied and edited. In every case, begin by asking the AI to follow `START-HERE.md`.
+These examples are intended to be copied and edited. In every case, begin by asking the AI to follow the public start page <https://greedyq.netlify.app/>.
 
 ### Draft a plain-language satisfaction survey
 
@@ -450,4 +453,4 @@ For choice-based conjoint tables, see [CBC import and computer/mobile preview](C
 
 If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
 
-See [guide access in supported desktop agents](GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`. Do not treat tool absence as guide access success.
+See [guide access in supported desktop agents](GUIDE-ACCESS.md). The plain text entry is `https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`. Do not treat tool absence as guide access success.

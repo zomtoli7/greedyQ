@@ -10,6 +10,9 @@
 
 本指南帮助没有编程经验的研究者，从研究想法开始，做出能在电脑和手机上实际试填的问卷。正式公开前需要您批准。收集结束后，按照[结束与归档](./ARCHIVING.md)下载资料并暂停专用服务，为下一项研究做准备。
 
+
+新研究和已保存研究均使用公开开始地址 **https://greedyq.netlify.app/**。开始页面先检查制作环境，再引导代理执行 GitHub 的 `INITIALIZE.md`。保留已有研究的原文件与锁定版本，开始地址改变不代表允许升级。2026年10月26日，研究者确认 Gemini 可以读取此页面；这仅是用户报告的页面访问验证，不代表正式支持 Gemini 制作研究。
+
 ## 需要准备什么
 
 - 能读取公开 GitHub 仓库的 GPT、Claude 或其他具备相应能力的 AI。
@@ -20,7 +23,7 @@
 
 ## 1. 把 greedyQ 交给 AI
 
-打开[开始指南](./START-HERE(zh-CN).md)，或向 AI 提供：
+打开[开始指南](https://greedyq.netlify.app/)，或向 AI 提供：
 
 ```text
 请读取并遵循 greedyQ 开始说明。无法读取就停止并告诉我：
@@ -53,7 +56,7 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 ```text
 先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
 
-请遵循 START-HERE.md。这是已有的 greedyQ 研究。先用简单语言概述，再协助修改。保留历史和当前 greedyQ 版本，除非我明确批准升级。一次只问一个核心问题。
+请遵循 <https://greedyq.netlify.app/> 的开始说明。这是已有的 greedyQ 研究。先用简单语言概述，再协助修改。保留历史和当前 greedyQ 版本，除非我明确批准升级。一次只问一个核心问题。
 
 我想修改：[具体内容]。
 ```
@@ -67,7 +70,7 @@ AI 应读取该文件及同一版本的关联文件，不需要您逐一上传�
 ```text
 先核实已安装的 AI 桌面应用及真实文件与执行工具。AI 网页应用不受官方支持；环境或工具不符时停止制作。
 
-请遵循 START-HERE.md。把这个 greedyQ 研究复制成独立研究。保留原文件夹，给副本新的研究身份，只修改副本。一次只问一个核心问题。
+请遵循 <https://greedyq.netlify.app/> 的开始说明。把这个 greedyQ 研究复制成独立研究。保留原文件夹，给副本新的研究身份，只修改副本。一次只问一个核心问题。
 
 副本应与原研究有以下区别：[变化]。
 ```
@@ -287,7 +290,7 @@ Prolific 试验保留 Test，仅把来源改为 Prolific。有平台 ID 不会�
 
 ## 可复制的请求示例
 
-每个例子都先要求 AI 遵循 `START-HERE.md`。
+每个例子都先要求 AI 遵循公开开始页面 <https://greedyq.netlify.app/>。
 
 ### 简短满意度调查
 
@@ -426,4 +429,4 @@ Prolific 试验保留 Test，仅把来源改为 Prolific。有平台 ID 不会�
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
-参见[支持的桌面代理指南访问](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+参见[支持的桌面代理指南访问](GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md`。工具缺失不能视为指南已加载。

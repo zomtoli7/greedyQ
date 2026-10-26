@@ -269,12 +269,12 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | FILE | SHA-256 | Study data may be replaced |
 | --- | --- | --- |
 | `INITIALIZE.md` | `67501acb6e750cbc50bffc021e1abccf1acba617953ff315c53aa375845c3d27` | `no` |
-| `SUPPORTED-ENVIRONMENTS.md` | `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c` | `no` |
+| `SUPPORTED-ENVIRONMENTS.md` | `3cc6b7c1cabf115914d57b83c7cf521d3e9902fd53a6958f62ff839ee73bd6b4` | `no` |
 | `schemas/authoring-support-policy.json` | `abb4e79490d8f8894d6c43ae1b5966a172157781be7fd2f9eca628f441967bff` | `no` |
 | `schemas/cbc-collection.schema.json` | `b23cfca5dab5bb0882269a3f78b1e8cd123a1e380da3e4c2b08ef0495eb20709` | `no` |
 | `drafts/v0.3/cbc/golden-reference/collection.test.example.json` | `7fbcce8c6281b4f4030961404db28459daa8d6274788b60fd3cda79d705b98c7` | `no` |
 | `CBC-COLLECT.md` | `667b615e234e44c2d141af435b3a43e21b4a665e79ad4e585054156484d35121` | `no` |
-| `GUIDE-ACCESS.md` | `0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf` | `no` |
+| `GUIDE-ACCESS.md` | `25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9` | `no` |
 | `web/greedyq-cbc-collection.js` | `c9e9bfb33084f997dd7b3d521f63689624b88d3e314db99e8c7996fa848d6986` | `no` |
 | `web/greedyq-cbc.css` | `6410108010050b1208de985956e17a584c72d1713307689de9c684d98a102d7b` | `no` |
 | `templates/browser/cbc-respondent.html` | `1b315013b507b41c492acf98a49375d0cdfdc09d28e5e13e112e62a36f8adfde` | `no` |
@@ -298,7 +298,7 @@ See [guide access in supported desktop agents](../GUIDE-ACCESS.md). The plain te
 | `EXTERNAL-RETURNS.md` | `c46b6654801b261b9d081d174a4e99e0cef4e81f2e0ce24c6652346e6ce476af` | `no` |
 | `greedyq/formatting.py` | `8fd9f5c651047689c796408445b3fe941c59d785b906df53eff67ba35541357d` | `no` |
 | `PREREGISTRATION.md` | `bf040d7210316d0d4efc69e722c2e220334a998ce0ae3ae0a13cff589bae5e97` | `no` |
-| `UPGRADING.md` | `ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e` | `no` |
+| `UPGRADING.md` | `d2542dad808353945cfa3b51fecfad61aa7897661ea55a357b4be841513eefd6` | `no` |
 | `greedyq/osf_fields.py` | `06a6b117da1bcd2787262638271636bd8b03e720764d6462c7884b22c8a33313` | `no` |
 | `greedyq/redirects.py` | `7f49acd235e1917d8b6f8de640f9968bfb007a783f761478ddf8be47cdb206ce` | `no` |
 | `tools/upgrade_study.py` | `4c119a08d2b8c7b33197519c8a3deb284592bef7871d5f75f829f591887ae8ba` | `no` |
@@ -443,7 +443,7 @@ Before the first study question, verify that this is an installed desktop AI app
 
 ### FILE: `SUPPORTED-ENVIRONMENTS.md`
 
-SHA-256: `f6b5facefb39184b5165e8e768c8c88f448594c1ad8ef16087978da6bffe2b2c`
+SHA-256: `3cc6b7c1cabf115914d57b83c7cf521d3e9902fd53a6958f62ff839ee73bd6b4`
 
 ```markdown
 # Supported authoring environment
@@ -453,6 +453,9 @@ Gemini is officially unsupported, including desktop. Check the host family befor
 [English](./SUPPORTED-ENVIRONMENTS.md) · [한국어](./SUPPORTED-ENVIRONMENTS(kor).md) · [简体中文](./SUPPORTED-ENVIRONMENTS(zh-CN).md)
 
 **greedyQ requires an installed desktop AI app for creating or modifying studies. AI web apps are officially unsupported.** Download ChatGPT desktop or Claude Desktop from the official provider. Gemini is not officially supported, including its desktop app. Use an agent-enabled mode that can read the complete guide, create real files and run the canonical preview; installing an app or paying for a model alone does not establish these capabilities. Ordinary desktop chat without these tools is not a supported authoring route. Participant surveys, computer/mobile previews and the researcher results page still run in a web browser.
+
+
+The public start address is **https://greedyq.netlify.app/** for both new and saved studies. The page checks the supported authoring environment, then directs the agent to the GitHub `INITIALIZE.md` workflow. Keep saved authoring files and their locked version; this public address does not authorize an upgrade. On 26 October 2026, the researcher confirmed that Gemini could read this start page. This is user-reported page-access verification only, not official Gemini authoring support.
 
 ## Check readiness before the study interview
 
@@ -877,7 +880,7 @@ The public [surveydown buttons](https://surveydown.org/templates/conjoint_button
 
 ### FILE: `GUIDE-ACCESS.md`
 
-SHA-256: `0efc1fc7805c240d72b96de43cf120ada03c7dc69795cd4b4c547872318a85bf`
+SHA-256: `25ad799b6427511dfeaac557250a01673a38aab8679e1be2cf03652361875ad9`
 
 ```markdown
 # When your AI cannot open the guide
@@ -890,6 +893,9 @@ Gemini, including desktop, is officially unsupported. Use ChatGPT desktop Work/C
 
 [한국어](./GUIDE-ACCESS(kor).md) · [简体中文](./GUIDE-ACCESS(zh-CN).md)
 
+
+The public start address is **https://greedyq.netlify.app/** for both new and saved studies. The page checks the supported authoring environment, then directs the agent to the GitHub `INITIALIZE.md` workflow. Keep saved authoring files and their locked version; this public address does not authorize an upgrade. On 26 October 2026, the researcher confirmed that Gemini could read this start page. This is user-reported page-access verification only, not official Gemini authoring support.
+
 ## Confirmed copy/paste failure
 
 The researcher subsequently reproduced the failed paste: line breaks disappeared and the Korean sentence attached to the address as `START-HERE.md새`. This malformed address, rather than the canonical repository URL, explains that observed failed attempt. The exact clipboard/rich-text behavior in the destination app was not instrumented; do not generalize it to a Gemini-wide browsing limitation.
@@ -898,17 +904,19 @@ The website copy blocks now use text/plain first, an explicit plain-text legacy 
 
 A link in a message does not prove the AI has read it. If it says “I cannot access the website” and then starts drafting a survey, stop that attempt: the result has not followed verified greedyQ instructions. Model names or a paid subscription alone do not establish browsing, file creation, browser preview or deployment capabilities.
 
-## First try the plain text link
+## Start at the public page; recover initialization access if needed
 
 Ask it to read:
 
 ```text
 First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
 
-https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md
+<https://greedyq.netlify.app/>
+
+<https://raw.githubusercontent.com/zomtoli7/greedyQ/main/INITIALIZE.md>
 ```
 
-This avoids the surrounding GitHub interface. It does not overcome a host that cannot fetch links. The entry guide alone is not enough: the AI must load the same release's registry, resolved guides and fixed source files, or a complete full bundle. It must not infer the missing rules from the project name, search snippets or the first interview question.
+Begin with the public start page above. If GitHub initialization access fails, its plain-text INITIALIZE fallback avoids the surrounding GitHub interface. It does not overcome a host that cannot fetch links. The entry guide alone is not enough: the AI must load the same release's registry, resolved guides and fixed source files, or a complete full bundle. It must not infer the missing rules from the project name, search snippets or the first interview question.
 
 ## If this is the Gemini web app
 
@@ -926,7 +934,7 @@ After the complete guide is available, the AI should confirm briefly that it loa
 First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
 
 Read the current greedyQ guide and all required files from the same release:
-https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md
+https://greedyq.netlify.app/
 If you cannot read them, do not start the study interview, draft questions or claim to follow greedyQ. First try the raw text URL, repository import, or ask me to attach the complete guide. Continue only after the complete required guide is available; explain your actual file, preview and deployment capabilities briefly.
 ```
 
@@ -3235,7 +3243,7 @@ The MIT license of greedyQ does not determine the license of the researcher's re
 
 ### FILE: `UPGRADING.md`
 
-SHA-256: `ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e`
+SHA-256: `d2542dad808353945cfa3b51fecfad61aa7897661ea55a357b4be841513eefd6`
 
 ```markdown
 # Resume and upgrade a draft
@@ -3248,7 +3256,7 @@ SHA-256: `ada26fd6b355550ab888772b1376d06bc7233c8e2ad5eab0bbd5c89f1d78c95e`
 
 Ask: “Resume this downloaded study. Compare its greedyQ version with the current repository. Explain the changes, then upgrade a separate copy and show me both previews.”
 
-The agent must read the current START-HERE and selected guides, inspect the prior guide lock and source version, and ask before upgrading. Continuing the pinned version remains an option. A new version is not permission to change hypotheses, questions, consent, sampling or analysis.
+The agent must open <https://greedyq.netlify.app/>, follow GitHub INITIALIZE and read the selected guides, inspect the prior guide lock and source version, and ask before upgrading. Continuing the pinned version remains an option. A new version is not permission to change hypotheses, questions, consent, sampling or analysis.
 
 ## Agent operation
 

@@ -16,7 +16,7 @@
 
 [무작위 배정과 문항 순서 섞기](./RANDOMIZATION(kor).md) · [로컬 검증 및 업그레이드 상태](./docs/randomization-verification(kor).md)
 
-[설문 시작](./START-HERE(kor).md) · [사용자 가이드](./USER-GUIDE(kor).md) · [Prolific 연결](./PROLIFIC-SETUP(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
+[설문 시작](https://greedyq.netlify.app/) · [사용자 가이드](./USER-GUIDE(kor).md) · [Prolific 연결](./PROLIFIC-SETUP(kor).md) · [결과 대시보드](./RESULTS-DASHBOARD(kor).md) · [컨트롤 갤러리](https://zomtoli7.github.io/greedyQ/examples/control-gallery/preview.html)
 
 > **Be greedy with your time. Just ask your AI to make your questionnaire.**
 
@@ -110,7 +110,7 @@ Versioned greedyQ repository + 연구자의 연구 아이디어
 
 목표로 하는 온보딩 경험은 다음과 같습니다.
 
-1. Tag가 지정된 greedyQ `START-HERE.md` URL을 유능한 LLM 또는 repository agent에게 공유합니다. Repository link를 읽을 수 없을 때만 자체 포함 bundle을 사용합니다.
+1. 공개 greedyQ 시작 주소 <https://greedyq.netlify.app/>를 유능한 LLM 또는 repository agent에게 공유합니다. Repository link를 읽을 수 없을 때만 자체 포함 bundle을 사용합니다.
 2. 만들고 싶은 연구를 말합니다.
 3. 한 번에 하나씩 제시되는 질문에 답하고 중요한 결정을 확인합니다.
 4. 생성된 연구, consent, logic, randomization, data plan, preregistration draft를 검토합니다.
@@ -163,7 +163,7 @@ Preview를 생성하지 않고 검사하려면 `python3 -m greedyq validate PATH
 
 개발 명령에는 Python 3가 필요하지만 참가자 화면은 항상 동일한 JavaScript 렌더러를 사용합니다. `python3 -m greedyq run examples/complete-study`로 실행한 뒤 `http://localhost:4180/index.html`에서 확인합니다. mock 응답은 브라우저에만 저장됩니다. [로컬 참가자 화면 안내](./docs/local-respondent-runtime(kor).md)를 참고하세요.
 
-현재 방향은 [START-HERE(kor).md](./START-HERE(kor).md), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [로컬 respondent runtime](./docs/local-respondent-runtime(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
+현재 방향은 [공개 시작 페이지](https://greedyq.netlify.app/), [연구 framing](./docs/research-framing(kor).md), [AI guide](./guides/README(kor).md), [모듈형 guide architecture](./docs/modular-guide-architecture(kor).md), [제품 개요](./docs/product-brief(kor).md), [greedyQ v0.2 스펙](./docs/greedyq-v0.2-spec(kor).md), [브라우저 프리뷰 안내](./docs/browser-preview(kor).md), [로컬 respondent runtime](./docs/local-respondent-runtime(kor).md), [골든 레퍼런스 연구](./examples/README(kor).md), [surveydown 호환성 조사](./docs/surveydown-compatibility(kor).md), [로드맵](./docs/roadmap(kor).md)을 참고하십시오.
 
 ## 문서 정책
 

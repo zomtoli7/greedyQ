@@ -10,7 +10,7 @@
 
 ## 기본 방식: 저장소에서 시작하기
 
-- 일반적인 사용에는 tag가 지정된 `START-HERE.md` URL을 공유합니다. AI는 `registry/guide-index.json`을 통해 core, 하나의 study profile, 연구에 필요한 capability module만 불러옵니다.
+- 일반적인 사용에는 <https://greedyq.netlify.app/>를 공유합니다. AI는 `registry/guide-index.json`을 통해 core, 하나의 study profile, 연구에 필요한 capability module만 불러옵니다.
 - Chat이 repository link를 읽을 수 없을 때만 `greedyq-guide.md`를 자체 포함 fallback으로 사용합니다. Preview UI specification과 canonical preview, database, deployment, state-schema bundle이 내장되어 있습니다.
 - `greedyq-guide-compact.md`는 기존 conversation aid이며 deterministic artifact generation에는 단독으로 충분하지 않습니다.
 - `examples/complete-study/`는 reference로 사용하며 관련 없는 실제 연구에 content를 복사하지 않습니다.
