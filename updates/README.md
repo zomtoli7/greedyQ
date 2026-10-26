@@ -8,6 +8,8 @@ The source commit identifies the substantive code, specification, or documentati
 
 ## 0.2
 
+- [`0.2_2026-10-26_e3958de`](./0.2/0.2_2026-10-26_e3958de.md) — Use https://greedyq.netlify.app/ as the canonical start URL throughout English, Korean and Chinese entry pages, guides and homepage prompts for both new and saved studies. Keep full initialization and access recovery on GitHub; retain source files and immutable study locks rather than silently upgrading studies.
+
 - [`0.2_2026-10-26_1fbfcfd`](./0.2/0.2_2026-10-26_1fbfcfd.md) — Fix repeat Netlify builds that failed when cached output did not exactly match its old manifest. Generate and verify a fresh staging folder, preserve previous output outside the public directory and replace only the dedicated ignored publish path; restore it if replacement fails. Keep generic local output checks strict and reject tracked/symlink destinations.
 
 - [`0.2_2026-10-26_4373f4f`](./0.2/0.2_2026-10-26_4373f4f.md) — Make the public start entry an explicit four-step protocol: communicate in the user's language; unsupported hosts inform and stop; supported hosts must read and obey GitHub INITIALIZE.md and use GUIDE-ACCESS.md for access failures; saved studies use the supplied authoring folder/ZIP and the initialization resume procedure.

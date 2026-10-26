@@ -66,7 +66,7 @@ The file MUST begin with YAML front matter containing `greedyq.spec_version` and
 ---
 greedyq:
   spec_version: "0.2"
-  version: "0.2_2026-10-26_1fbfcfd"
+  version: "0.2_2026-10-26_e3958de"
   organization: "Example University Research Team"
 survey-settings:
   show-previous: true

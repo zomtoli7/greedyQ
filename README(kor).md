@@ -5,8 +5,8 @@
 <!-- /GREEDYQ_DESKTOP_POLICY -->
 
 - **현재 specification:** `0.2`
-- **현재 release:** `0.2_2026-10-26_1fbfcfd`
-- **Release source commit:** [`1fbfcfd`](https://github.com/zomtoli7/greedyQ/commit/1fbfcfd988aa75481b6ea4595afc368986f13b26) · [업데이트 히스토리](./updates/README(kor).md)
+- **현재 release:** `0.2_2026-10-26_e3958de`
+- **Release source commit:** [`e3958de`](https://github.com/zomtoli7/greedyQ/commit/e3958de21c69e658316c06e5ad1baf902e7d6ace) · [업데이트 히스토리](./updates/README(kor).md)
 
 [호환성 점검](./docs/surveydown-compatibility-audit(kor).md) · [사전등록 초안](./PREREGISTRATION(kor).md) · [재개·업그레이드](./UPGRADING(kor).md) · [외부 반환](./EXTERNAL-RETURNS(kor).md) · [Google Sites 구성안](./docs/google-sites-plan(kor).md)
 

@@ -24,7 +24,7 @@ Gemini（包括桌面版）不受官方支持。在指南和文件检查前核�
 
 **Version:** `0.2.0-draft.1`
 
-仅用于上下文有限时的对话辅助，不包含固定代码，不能单独作为生成文件的附件。正常从 [`START-HERE(zh-CN).md`](../START-HERE(zh-CN).md)开始；不能读仓库时用[完整备用指南](./greedyq-guide(zh-CN).md)。固定英文规范与完整指南优先。
+仅用于上下文有限时的对话辅助，不包含固定代码，不能单独作为生成文件的附件。正常从 [公开开始页面](https://greedyq.netlify.app/)开始；不能读仓库时用[完整备用指南](./greedyq-guide(zh-CN).md)。固定英文规范与完整指南优先。
 
 ## 角色
 
@@ -82,4 +82,4 @@ greedyQ 是规范驱动的 AI 原生研究应用，不是独立代理。通用 A
 
 如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。
 
-参见[支持的桌面代理指南访问](../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md`。工具缺失不能视为指南已加载。
+参见[支持的桌面代理指南访问](../GUIDE-ACCESS(zh-CN).md)。纯文本入口：`https://greedyq.netlify.app/`。工具缺失不能视为指南已加载。

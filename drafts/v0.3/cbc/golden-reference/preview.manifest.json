@@ -1,7 +1,7 @@
 {
   "status": "local_preview_only",
-  "release": "0.2_2026-10-26_1fbfcfd",
-  "source_commit": "1fbfcfd988aa75481b6ea4595afc368986f13b26",
+  "release": "0.2_2026-10-26_e3958de",
+  "source_commit": "e3958de21c69e658316c06e5ad1baf902e7d6ace",
   "model_schema": "0.3-preview.1",
   "design_sha256": "1ebf1ff0ac5890af59a46987099f7b8e58934e9ae868b1dee21ac2d4ae3990bc",
   "source_files": {

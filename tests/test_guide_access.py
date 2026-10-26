@@ -6,6 +6,20 @@ from jsonschema import Draft202012Validator
 ROOT=Path(__file__).resolve().parents[1]
 
 class GuideAccessTests(unittest.TestCase):
+    def test_current_researcher_entry_documents_use_public_url_in_all_languages(self):
+        for suffix in ['', '(kor)', '(zh-CN)']:
+            for stem in ['README', 'START-HERE', 'USER-GUIDE', 'GUIDE-ACCESS',
+                         'SUPPORTED-ENVIRONMENTS', 'guides/README',
+                         'guides/greedyq-guide', 'guides/greedyq-guide-compact']:
+                with self.subTest(document=stem + suffix):
+                    text = (ROOT / (stem + suffix + '.md')).read_text()
+                    self.assertIn('https://greedyq.netlify.app/', text)
+                    self.assertNotIn('https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md', text)
+                    self.assertNotIn('https://raw.githubusercontent.com/zomtoli7/greedyQ/main/START-HERE.md', text)
+        front = (ROOT / 'START-HERE.md').read_text()
+        self.assertIn('https://github.com/zomtoli7/greedyQ/blob/main/INITIALIZE.md', front)
+        self.assertIn('https://github.com/zomtoli7/greedyQ/blob/main/GUIDE-ACCESS.md', front)
+
     def test_entry_host_filter_is_first_and_does_not_offer_attachments_to_unsupported_hosts(self):
         for suffix in ['', '(kor)', '(zh-CN)']:
             entry=(ROOT/f'INITIALIZE{suffix}.md').read_text()
