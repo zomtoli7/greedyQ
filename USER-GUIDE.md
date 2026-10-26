@@ -25,11 +25,8 @@ You do not need to know programming, Markdown, databases, or deployment tools.
 Open the [greedyQ start page](./START-HERE.md), or give your AI this URL:
 
 ```text
-First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
-
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+Read and follow the greedyQ start page. If you cannot read it, stop and tell me:
+<https://greedyq.netlify.app/>
 ```
 
 The AI should read that file and the linked files in the same repository. You do not need to attach every guide and template separately.
@@ -41,12 +38,8 @@ The AI should read that file and the linked files in the same repository. You do
 Copy this message:
 
 ```text
-First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
-
-Read and follow the current greedyQ instructions at:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+Read and follow the greedyQ start page. If you cannot read it, stop and tell me:
+<https://greedyq.netlify.app/>
 
 Create a new greedyQ study. Treat me as a nontechnical researcher, ask one focused question at a time, and take me through a working desktop-and-mobile preview.
 
@@ -59,12 +52,8 @@ I want to hear from: [your intended participants].
 Give the AI access to your existing greedyQ study folder, then copy:
 
 ```text
-First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
-
-Read and follow the current greedyQ instructions at:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+Read and follow the greedyQ start page. If you cannot read it, stop and tell me:
+<https://greedyq.netlify.app/>
 
 This is an existing greedyQ study. Summarize it in plain language and help me modify it. Preserve its history and current greedyQ version unless I approve an upgrade. Ask one focused question at a time.
 
@@ -78,12 +67,8 @@ This changes the original study. Ask for a plain-language change summary before 
 Give the AI access to the existing study folder, then copy:
 
 ```text
-First verify an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported; stop authoring if the host or tools fail these checks.
-
-Read and follow the current greedyQ instructions at:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-If you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.
+Read and follow the greedyQ start page. If you cannot read it, stop and tell me:
+<https://greedyq.netlify.app/>
 
 Fork this greedyQ study. Preserve the original, create an independent copy with a new study identity, and help me change only the copy. Ask one focused question at a time.
 

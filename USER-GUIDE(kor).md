@@ -25,11 +25,8 @@
 [greedyQ 시작 페이지](./START-HERE(kor).md)를 열거나 AI에게 다음 URL을 줍니다.
 
 ```text
-먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
-
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
+아래 greedyQ 시작 안내를 읽고 따라줘. 읽을 수 없으면 멈추고 알려줘:
+<https://greedyq.netlify.app/>
 ```
 
 AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니다. Guide와 template을 하나씩 모두 첨부할 필요는 없습니다.
@@ -41,12 +38,8 @@ AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니
 다음 메시지를 복사합니다.
 
 ```text
-먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
-
-다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
+아래 greedyQ 시작 안내를 읽고 따라줘. 읽을 수 없으면 멈추고 알려줘:
+<https://greedyq.netlify.app/>
 
 새로운 greedyQ 연구를 만들어줘. 나를 비기술 연구자로 대하고 한 번에 하나의 핵심 질문만 하면서 실제로 작동하는 컴퓨터·모바일 preview까지 안내해줘.
 
@@ -59,12 +52,8 @@ AI는 이 파일과 같은 repository에 연결된 파일들을 읽어야 합니
 AI가 기존 greedyQ study folder에 접근할 수 있게 한 다음 복사합니다.
 
 ```text
-먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
-
-다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
+아래 greedyQ 시작 안내를 읽고 따라줘. 읽을 수 없으면 멈추고 알려줘:
+<https://greedyq.netlify.app/>
 
 이것은 기존 greedyQ 연구야. 쉬운 말로 요약하고 수정을 도와줘. 내가 upgrade를 승인하지 않으면 기존 기록과 현재 greedyQ version을 유지해줘. 한 번에 하나의 핵심 질문만 해줘.
 
@@ -78,12 +67,8 @@ AI가 기존 greedyQ study folder에 접근할 수 있게 한 다음 복사합�
 AI가 기존 study folder에 접근할 수 있게 한 다음 복사합니다.
 
 ```text
-먼저 설치된 AI 데스크톱 앱과 파일·실행 도구를 확인해. AI 웹 앱은 공식 지원하지 않으니 웹 앱이거나 필요한 도구가 없으면 설문 제작을 멈춰.
-
-다음 주소의 현재 greedyQ 지침을 읽고 따라줘:
-<https://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md>
-
-필요한 greedyQ 가이드를 모두 읽을 수 없으면 연구 질문을 시작하거나 문항을 만들지 마. 원문 주소 또는 저장소 가져오기를 시도하고, 안 되면 전체 가이드 파일을 첨부해 달라고 해줘. 필요한 가이드를 모두 읽은 뒤에만 시작해.
+아래 greedyQ 시작 안내를 읽고 따라줘. 읽을 수 없으면 멈추고 알려줘:
+<https://greedyq.netlify.app/>
 
 이 greedyQ 연구를 포크해줘. 원본은 보존하고 새로운 study identity를 가진 독립적인 사본을 만든 다음 사본만 수정하도록 도와줘. 한 번에 하나의 핵심 질문만 해줘.
 

@@ -31,7 +31,7 @@ test('first-use prompts and manual copy fallback work inside a restricted embed 
   for(const language of ['en','ko','zh']){
    await frame.locator('#language').selectOption(language);
    await frame.locator('.brand').click();await frame.locator('main .primary[data-page=start]').click();
-   const prompt=await frame.locator('.prompt pre').first().textContent();assert(prompt.includes('START-HERE.md'));
+   const prompt=await frame.locator('.prompt pre').first().textContent();assert(prompt.includes('https://greedyq.netlify.app/'));
    await frame.locator('.prompt .copy').first().click();assert((await frame.locator('.prompt-status').first().textContent()).length>0);
    assert.equal(await frame.locator('.prompt pre').first().evaluate(()=>getSelection().toString()),prompt);
    await frame.locator('main .primary[data-page=guide]').click();await frame.locator('.side-link.active[data-topic=first]').waitFor({state:'attached'});

@@ -40,8 +40,8 @@ class GuideAccessTests(unittest.TestCase):
 
     def test_copyable_website_prompts_contain_the_stop_condition_before_the_url(self):
         data=json.loads((ROOT/'website/content.json').read_text())
-        for lang,stop in [('en','do not start'),('ko','문항을 만들지 마'),('zh','不要开始')]:
-            prompt=data[lang]['start']['prompt'];self.assertIn(stop,prompt);self.assertLess(prompt.index(stop),prompt.index('https://github.com/'))
+        for lang,stop in [('en','stop and tell me'),('ko','멈추고 알려줘'),('zh','停止并告诉我')]:
+            prompt=data[lang]['start']['prompt'];self.assertIn(stop,prompt);self.assertLess(prompt.index(stop),prompt.index('https://greedyq.netlify.app/'))
         self.assertIn('installed desktop',data['en']['start']['after'])
 
     def test_all_entry_languages_offer_raw_import_and_full_attachment_without_fake_success(self):
