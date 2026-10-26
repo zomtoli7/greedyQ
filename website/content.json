@@ -38,11 +38,11 @@
           "Approve the study and connections before collecting responses."
         ]
       ],
-      "note": "First install and open ChatGPT desktop or Claude Desktop. Gemini is not officially supported, including its desktop app. Enable its file-and-task/agent features. AI web apps are officially unsupported by greedyQ. No coding needed to begin. Preview uses imaginary responses; deployment needs separate account approvals."
+      "note": "First install and open ChatGPT desktop or Claude Desktop on your computer. greedyQ uses agent features that work directly with files and execute tasks. Therefore, greedyQ does not officially support AI web apps. Gemini is also currently unsupported, including its desktop app."
     },
     "start": {
       "title": "Start with your research question.",
-      "lead": "First install and open ChatGPT desktop or Claude Desktop. Gemini is not officially supported, including its desktop app. Enable its file-and-task/agent features. AI web apps are officially unsupported by greedyQ.",
+      "lead": "First install and open ChatGPT desktop or Claude Desktop on your computer, then ask your AI as follows.",
       "prompt": "Gemini, including desktop, is not officially supported. Use ChatGPT desktop Work/Codex or Claude Desktop with the required agent tools. \n\nFirst verify that I am using an installed desktop AI app with working file and execution tools. AI web apps are officially unsupported by greedyQ; if this is a web app or the tools are unavailable, stop and help me move to a capable desktop app. Do not start the study interview. \n\nIf you cannot read the complete required greedyQ guide, do not start the study interview or draft questions. Try the raw text link or repository import; otherwise ask me to attach the complete guide. Continue only after the complete guide is loaded.\n\nRead and follow greedyQ:\nhttps://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md\n\nCreate a new study. Ask one question at a time and guide me to an interactive desktop-and-mobile preview.\n\nI want to learn: [research question]\nParticipants: [who should take part]\n\nFirst ask whether I want to write the questions myself or review an AI draft. Do not connect accounts or deploy yet.",
       "after": "Use this prompt in the installed desktop app, not an AI website or a website shortcut. The AI must first check its actual tools. If it cannot read the guide, it should try the plain-text source or read a complete downloaded repository/guide inside the desktop app. It must not invent missing instructions or proceed after a reported permission failure. A downloaded guide does not add missing tools. Once the desktop app and guide are ready, discuss your research one question at a time. Browser previews need no service account. Approve Vercel sign-in and required connections only when you choose deployment; existing authorized official connections are reused first and Onboard your agent remains optional.",
       "returnTitle": "Returning to a study?",
@@ -634,11 +634,11 @@
           "批准研究和服务连接，再开始收集回答。"
         ]
       ],
-      "note": "先安装并打开 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，请启用文件与任务代理功能。greedyQ 官方不支持 AI 网页应用。 开始时无需编程。预览使用虚拟回答；部署需要单独批准账户连接。"
+      "note": "请先在电脑上安装并打开 ChatGPT 桌面应用或 Claude Desktop。greedyQ 使用可直接处理文件并执行任务的代理功能，因此官方不支持 AI 网页应用。此外，目前也不支持 Gemini，包括其桌面应用。"
     },
     "start": {
       "title": "从一个研究问题开始。",
-      "lead": "先安装并打开 ChatGPT 桌面应用或 Claude Desktop。Gemini（包括桌面版）不在官方支持范围内，请启用文件与任务代理功能。greedyQ 官方不支持 AI 网页应用。",
+      "lead": "请先在电脑上安装并打开 ChatGPT 桌面应用或 Claude Desktop，然后向 AI 提出以下请求。",
       "prompt": "Gemini（包括桌面版）不受官方支持。请引导我使用具备所需代理工具的 ChatGPT 桌面 Work/Codex 或 Claude Desktop。 \n\n先核实我正在使用已安装的 AI 桌面应用，且文件读取、创建和执行工具确实可用。greedyQ 官方不支持 AI 网页应用；若是网页应用或工具不可用，停止研究访谈并引导我转到具备功能的桌面应用。 \n\n如果无法完整读取所需 greedyQ 指南，不要开始研究访谈或起草问卷。先尝试纯文本链接或仓库导入，否则请我附上完整指南。完整加载后才能开始。\n\n请阅读并遵循 greedyQ 指南：\nhttps://github.com/zomtoli7/greedyQ/blob/main/START-HERE.md\n\n创建一项新研究。请用中文、每次只问一个问题，引导我完成可在电脑和手机上操作的预览。\n\n我想了解：[研究问题]\n参与对象：[向谁提问]\n\n先问我想自己编写问题，还是审阅 AI 起草的问卷。暂时不要连接账户或部署。",
       "after": "请在已安装的桌面应用中粘贴请求，不要使用 AI 网站或网站快捷方式。AI 必须先检查真实工具。无法读取指南时，应在桌面应用内尝试纯文本来源或完整下载的仓库／指南。不得在权限错误后猜测规则继续。添加指南附件不会赋予缺失的执行能力。应用和指南准备好后逐个讨论研究问题。“预览”不需要外部账户。选择正式部署时才批准 Vercel 登录及必要连接；优先复用已有官方授权，Onboard your agent 仍为可选。",
       "returnTitle": "已有研究？",

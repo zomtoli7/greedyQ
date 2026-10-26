@@ -2,7 +2,7 @@
 
 [English](./publication-request.md)
 
-현재 main의 `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html`, `docs/v0.2-final-documentation-audit-2026-10-26(kor).md`를 함께 사용하세요. 준비된 릴리스는 `0.2_2026-10-26_fa94594`입니다. HTML은 정확히 **802483바이트**, SHA-256 **`0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`**입니다. 소스 커밋은 주요 구현을 가리키므로 그 커밋의 옛 HTML만 가져오지 말고 현재 메타데이터 커밋까지 받으세요.
+현재 main의 `release.json`, `website/publication-manifest.json`, `website/google-sites-embed.html`, `docs/v0.2-final-documentation-audit-2026-10-26(kor).md`를 함께 사용하세요. 준비된 릴리스는 `0.2_2026-10-26_fa94594`입니다. HTML은 정확히 **802158바이트**, SHA-256 **`879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048`**입니다. 소스 커밋은 주요 구현을 가리키므로 그 커밋의 옛 HTML만 가져오지 말고 현재 메타데이터 커밋까지 받으세요.
 
 ## 브라우저 기능이 있는 홈페이지 워크에 전달할 요청
 
@@ -16,4 +16,4 @@
 
 ## 현재 확인한 상태
 
-2026-10-26 내장 Browser에서 최종 홈페이지를 저장·게시했습니다. https://sites.google.com/view/greedyq 의 공개 `data-code` 전체를 해석해 준비 HTML과 정확히 일치함을 확인했습니다. 릴리스 `0.2_2026-10-26_fa94594`, **UTF-8 802483바이트**, SHA-256 `0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`입니다. 새 AI 에이전트 페이지, 시작 지원 안내의 위치, 세 언어의 컴퓨터·390px 모바일 화면, 버전·이력, 연락처, 표시된 URL 경계와 BibTeX 문법을 확인했습니다. 복사 버튼은 성공 표시가 나왔으나 클립보드 내용 재읽기와 강제 거부 후 수동 복사는 이번 세션에서 검증하지 않았습니다. 외부 AI 계정을 재시험하지 않았습니다. Safari·데스크톱 마우스는 사용하지 않았으며 설문·결과 배포, 데이터베이스, Prolific, 모집·지급은 변경하지 않았습니다.
+2026-10-26 내장 Browser에서 최종 홈페이지를 저장·게시했습니다. https://sites.google.com/view/greedyq 의 공개 `data-code` 전체를 해석해 준비 HTML과 정확히 일치함을 확인했습니다. 릴리스 `0.2_2026-10-26_fa94594`, **UTF-8 802158바이트**, SHA-256 `879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048`입니다. 새 AI 에이전트 페이지, 시작 지원 안내의 위치, 세 언어의 컴퓨터·390px 모바일 화면, 버전·이력, 연락처, 표시된 URL 경계와 BibTeX 문법을 확인했습니다. 복사 버튼은 성공 표시가 나왔으나 클립보드 내용 재읽기와 강제 거부 후 수동 복사는 이번 세션에서 검증하지 않았습니다. 외부 AI 계정을 재시험하지 않았습니다. Safari·데스크톱 마우스는 사용하지 않았으며 설문·결과 배포, 데이터베이스, Prolific, 모집·지급은 변경하지 않았습니다.

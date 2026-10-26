@@ -60,3 +60,7 @@ The final homepage was saved and published through the in-app Browser on 2026-10
 ## Korean home and Start copy revision — 2026-10-26
 
 Replaced the Korean home notice and Start introduction with the owner's requested wording. The home notice is independent of the Start introduction so generation preserves both exact texts. English and Chinese wording is unchanged. Published through the in-app Browser and verified both Korean texts on the public site. The complete decoded public embed exactly matched the generated source: release `0.2_2026-10-26_fa94594`, 802483 UTF-8 bytes, SHA-256 `0588ed6326f35398a401976cc4eed380a3093291eec5d1692b1c8e203532998d`. The three website unit tests passed.
+
+## Aligned home and Start translations — 2026-10-26
+
+Aligned the English and Chinese home notices and Start introductions with the owner-approved Korean revision. The public site was checked for exact home and Start wording in all three languages (six checks). The complete decoded public embed matched the source exactly: 802158 UTF-8 bytes, SHA-256 `879e25061129fbe0b0aad1c5a63453740cb1186e24015067489a8848e2ecb048`. The release identifier remains `0.2_2026-10-26_fa94594`. The three website unit tests passed.
